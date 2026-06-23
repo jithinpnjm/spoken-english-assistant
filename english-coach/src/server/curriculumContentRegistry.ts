@@ -5,6 +5,7 @@ import { getFoundationEnglishContent } from "./foundationEnglishContent";
 import { getProfessionalEnglishContent } from "./professionalEnglishContent";
 import { getGrammarForSpeakingContent } from "./grammarForSpeakingContent";
 import { getDailyLifeEnglishContent } from "./dailyLifeEnglishContent";
+import { getAdvancedWorkplaceContent } from "./advancedWorkplaceContent";
 import { buildDetailedScaffoldContent } from "./detailedScaffoldContent";
 
 function friendlyTitle(subsection: CurriculumSubsection) {
@@ -86,11 +87,11 @@ export function buildGeneratedSubsectionContent(subsectionId: string): Curriculu
 }
 
 export function getTeachingContent(subsectionId: string): CurriculumSubsectionContent {
-  return getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || getGrammarForSpeakingContent(subsectionId) || getDailyLifeEnglishContent(subsectionId) || buildDetailedScaffoldContent(subsectionId) || buildGeneratedSubsectionContent(subsectionId);
+  return getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || getGrammarForSpeakingContent(subsectionId) || getDailyLifeEnglishContent(subsectionId) || getAdvancedWorkplaceContent(subsectionId) || buildDetailedScaffoldContent(subsectionId) || buildGeneratedSubsectionContent(subsectionId);
 }
 
 export function isHandAuthoredContent(subsectionId: string) {
-  return Boolean(getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || getGrammarForSpeakingContent(subsectionId) || getDailyLifeEnglishContent(subsectionId));
+  return Boolean(getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || getGrammarForSpeakingContent(subsectionId) || getDailyLifeEnglishContent(subsectionId) || getAdvancedWorkplaceContent(subsectionId));
 }
 
 export function contentLevel(level: string): ContentLevel {
