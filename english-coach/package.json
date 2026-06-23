@@ -19,7 +19,8 @@
     "check:teach-first": "tsx scripts/check-teach-first.ts",
     "check:production-taxonomy": "tsx scripts/check-production-taxonomy.ts",
     "check:lesson-progression": "tsx scripts/check-lesson-progression.ts",
-    "check:design-completion": "tsx scripts/check-design-completion.ts"
+    "check:design-completion": "tsx scripts/check-design-completion.ts",
+    "check:foundation-content": "tsx scripts/check-foundation-content.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
