@@ -12,6 +12,7 @@ import LessonPhaseTimeline from "./LessonPhaseTimeline";
 import LessonEmptyState from "./LessonEmptyState";
 import ReviewModePanel from "./ReviewModePanel";
 import { buildReviewPrompt, type ReviewItem } from "../lib/reviewEngine";
+import { buildLiveLessonContext } from "../lib/liveLessonContext";
 import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductModeView, type ProductTrackView } from "../lib/curriculumClient";
 
 interface InteractiveCoachProps {
@@ -273,7 +274,8 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     setSelectedProductMode("live");
     setListening(true);
     setError(null);
-    await geminiLive.connect(profileDisplayName, level, cursor ? `Current lesson: ${cursor.subsectionId}` : todayActivity.title, mode);
+    const liveContext = buildLiveLessonContext({ courses, cursor, selectedTrack, fallbackTopic: todayActivity.title });
+    await geminiLive.connect(profileDisplayName, level, liveContext, mode);
   }
 
   function startActivity(activity: typeof generalPracticeActivities[number]) {
