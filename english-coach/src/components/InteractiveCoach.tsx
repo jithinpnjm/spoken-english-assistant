@@ -52,6 +52,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   const activeSessionRef = useRef<CoachSession | null>(null);
 
   useEffect(() => { activeSessionRef.current = activeSession; }, [activeSession]);
+  useEffect(() => { setSelectedModuleId(""); }, [level]);
 
   const handleLiveMessage = useCallback((msg: { text?: string; interrupted?: boolean }) => {
     if (!msg.text) return;
@@ -271,6 +272,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
         <CurriculumProgressPanel
           courses={courses}
           cursor={cursor}
+          selectedLevel={levelToBand(level)}
           selectedModuleId={selectedModuleId}
           onSelectedModuleChange={setSelectedModuleId}
           onStartLevel={startCurrentLevel}
