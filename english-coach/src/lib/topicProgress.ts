@@ -4,7 +4,12 @@ import type { CurriculumCourseView, LessonCursorView } from "./curriculumClient"
 export interface TopicProgressItem {
   id: string;
   title: string;
+  moduleId: string;
   moduleTitle: string;
+  courseId: string;
+  courseTitle: string;
+  levelBand: "Beginner" | "Intermediate" | "Advanced";
+  order: number;
   minutesSpent: number;
   targetMinutes: number;
   percent: number;
@@ -45,7 +50,12 @@ export function buildTopicProgress(args: {
       return {
         id: subsection.id,
         title: subsection.title,
+        moduleId: module.id,
         moduleTitle: module.title,
+        courseId: course.id,
+        courseTitle: course.title,
+        levelBand: module.levelBand,
+        order: subsection.order,
         minutesSpent,
         targetMinutes: target,
         percent,
