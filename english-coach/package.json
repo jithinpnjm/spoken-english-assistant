@@ -28,7 +28,8 @@
     "check:grammar-content": "tsx scripts/check-grammar-content.ts",
     "check:daily-life-content": "tsx scripts/check-daily-life-content.ts",
     "check:advanced-workplace-content": "tsx scripts/check-advanced-workplace-content.ts",
-    "check:pronunciation-fluency": "tsx scripts/check-pronunciation-fluency.ts"
+    "check:pronunciation-fluency": "tsx scripts/check-pronunciation-fluency.ts",
+    "check:server-auth": "tsx scripts/check-server-auth.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
