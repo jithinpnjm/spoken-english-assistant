@@ -36,7 +36,7 @@ function generatedMistakes(title: string) {
     },
     {
       wrong: `Please correct my sentence and I repeat again.`,
-      right: `Please correct my sentence, and I will rewrite the improved version.",
+      right: `Please correct my sentence, and I will rewrite the improved version.`,
       why: "Use will for the next action and include the object it.",
     },
   ];
