@@ -21,7 +21,17 @@ const required = [
   "Do not test before teaching",
   "INTRO PHASE",
   "Teach the concept first",
-  "Do not ask the learner to produce a sentence before explanation and examples",
+  "TEACHER QUALITY CONTRACT",
+  "Every reply must feel like a small class",
+  "Lesson title",
+  "Goal",
+  "Meaning",
+  "When to use it",
+  "Structure or pattern",
+  "Teacher examples",
+  "Common mistake preview",
+  "Mini check",
+  "Do not ask the learner to produce a sentence before explanation, examples, and a recognition check",
   "Chat mode means type/rewrite/correct in text",
 ];
 
@@ -29,4 +39,4 @@ for (const phrase of required) {
   if (!prompt.includes(phrase)) fail(`Prompt missing phrase: ${phrase}`);
 }
 
-console.log("[teach-first] OK: intro prompt enforces class-first teaching flow.");
+console.log("[teach-first] OK: intro prompt enforces detailed class-first teaching flow.");
