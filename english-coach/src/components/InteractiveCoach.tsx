@@ -10,6 +10,8 @@ import ProductModePanel from "./ProductModePanel";
 import ContinueLessonCard from "./ContinueLessonCard";
 import LessonPhaseTimeline from "./LessonPhaseTimeline";
 import LessonEmptyState from "./LessonEmptyState";
+import ReviewModePanel from "./ReviewModePanel";
+import { buildReviewPrompt, type ReviewItem } from "../lib/reviewEngine";
 import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductModeView, type ProductTrackView } from "../lib/curriculumClient";
 
 interface InteractiveCoachProps {
@@ -192,6 +194,12 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     await sendToCoach("continue", "chat", { type: "study", title: "Continue lesson", prompt: "continue" });
   }
 
+  async function startReviewDrill(item: ReviewItem) {
+    setSelectedProductMode("review");
+    await createNewSession(`Review: ${item.mistakeType.replace(/_/g, " ")}`, "review");
+    await sendToCoach(buildReviewPrompt(item), "chat", { type: "review", title: "Review drill", prompt: buildReviewPrompt(item) });
+  }
+
   async function sendToCoach(text: string, source: "chat" | "live" = "chat", activity = todayActivity) {
     const clean = text.trim();
     if (!clean) return;
@@ -327,8 +335,8 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
         <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">General Practice</h2>
         <p className="text-[11px] text-slate-500 mb-2">Use this after study sessions for free talk, roleplay, warm-up, or review.</p>
         <div className="space-y-2">{generalPracticeActivities.map((a, i) => <button key={a.type} onClick={() => startActivity(a)} className={`w-full text-left p-3 rounded-xl border text-sm ${i === dayIndex ? "border-emerald-400/50 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10"}`}><span className="font-semibold">{a.title}</span><span className="block text-xs text-slate-400">{a.type}</span></button>)}</div>
-        <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">Review Mode</h2>
-        <div className="space-y-2">{mistakeMemory.slice(0, 6).map((m) => <div key={m.mistakeId} className="p-2 rounded-xl bg-white/5 border border-white/10 text-xs"><span className="font-semibold">{m.mistakeType}</span><span className="float-right text-slate-400">{m.count}</span></div>)}{mistakeMemory.length === 0 && <p className="text-xs text-slate-500">No recurring mistakes yet.</p>}</div>
+
+        <ReviewModePanel mistakes={mistakeMemory} onStartReview={startReviewDrill} />
       </aside>
       <main className={`flex-1 flex flex-col overflow-hidden ${ui.card}`}>
         <header className="p-4 border-b border-white/10 flex items-center justify-between"><div><h2 className="font-bold">{selectedMode?.title || (cursor ? "Study Mode" : todayActivity.title)}</h2><p className="text-xs text-slate-400">Track: {selectedTrack?.title || "Not selected"} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "Choose a track or start general practice"}</p></div><Sparkles className="h-5 w-5 text-indigo-300" /></header>
