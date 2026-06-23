@@ -3,6 +3,7 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
 import dotenv from "dotenv";
+import { ActivityType, buildLessonStatePrompt, getActivityDefinition } from "./src/lib/curriculum";
 
 dotenv.config();
 
@@ -11,29 +12,49 @@ const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.json({ limit: "10mb" }));
 
-// Request logger — logs every API call with timing
 app.use((req, _res, next) => {
-  if (req.path.startsWith("/api/")) {
-    console.log(`[Server] ${req.method} ${req.path} — ${new Date().toISOString()}`);
-  }
+  if (req.path.startsWith("/api/")) console.log(`[Server] ${req.method} ${req.path} — ${new Date().toISOString()}`);
   next();
 });
 
 const apiKey = process.env.GEMINI_API_KEY;
-if (!apiKey) {
-  console.warn("WARNING: GEMINI_API_KEY is not defined. Gemini features will fail.");
-}
+if (!apiKey) console.warn("WARNING: GEMINI_API_KEY is not defined. Gemini features will fail.");
 
 const ai = new GoogleGenAI({
   apiKey: apiKey || "",
-  httpOptions: {
-    headers: {
-      "User-Agent": "english-coach-secure",
-    },
-  },
+  httpOptions: { headers: { "User-Agent": "english-coach-teaching-engine" } },
 });
 
-// Transcribe audio blob (base64 webm) using Gemini
+function safeLevel(value: string): "Beginner" | "Intermediate" | "Advanced" {
+  if (value === "Beginner" || value === "Advanced") return value;
+  return "Intermediate";
+}
+
+function safeActivity(value: string): ActivityType {
+  if (["warmup", "grammar", "scenario", "workplace", "fluency", "review"].includes(value)) return value as ActivityType;
+  return "warmup";
+}
+
+function buildModeInstruction(mode: string) {
+  const modes: Record<string, string> = {
+    gentle_conversation: "Gentle mode: keep confidence high. Correct only the highest-value mistake first, but still follow the lesson step. Do not drift into free chat.",
+    balanced: "Balanced mode: correct all clear grammar, vocabulary, tense, article, and preposition mistakes. Keep the lesson moving.",
+    strict_correction: "Strict mode: correct every meaningful error and require the learner to repeat or rewrite the corrected sentence before moving to a new subtopic.",
+    roleplay: "Roleplay mode: stay in scene, but still follow the activity step and briefly correct mistakes between turns.",
+    workplace: "Workplace mode: optimize for concise, professional phrasing, register, and clarity. Upgrade informal wording immediately."
+  };
+  return modes[mode] || modes.balanced;
+}
+
+function buildLevelInstruction(level: string) {
+  const levels: Record<string, string> = {
+    Beginner: "Beginner path: use short sentences, simple words, one rule at a time, and repetition. Never explain more than one grammar idea in one turn.",
+    Intermediate: "Intermediate path: focus on tense consistency, articles, prepositions, word order, and natural spoken phrasing. Give concise rule explanations.",
+    Advanced: "Advanced path: focus on precision, register, nuance, idioms, sentence rhythm, concision, and native-like phrasing. Push for more sophisticated answers."
+  };
+  return levels[level] || levels.Intermediate;
+}
+
 app.post("/api/transcribe", async (req: express.Request, res: express.Response) => {
   try {
     const { audioBase64, mimeType = "audio/webm" } = req.body;
@@ -41,12 +62,10 @@ app.post("/api/transcribe", async (req: express.Request, res: express.Response) 
 
     const response = await ai.models.generateContent({
       model: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
-      contents: [{
-        parts: [
-          { text: "Transcribe this audio exactly as spoken. Return only the spoken words, nothing else. No punctuation corrections, no summaries." },
-          { inlineData: { mimeType, data: audioBase64 } }
-        ]
-      }]
+      contents: [{ parts: [
+        { text: "Transcribe this audio exactly as spoken. Return only the spoken words, nothing else. No punctuation corrections, no summaries." },
+        { inlineData: { mimeType, data: audioBase64 } }
+      ] }]
     });
     const transcript = response.text?.trim() || "";
     console.log(`[Server] /api/transcribe OK — transcript: "${transcript.slice(0, 80)}"`);
@@ -62,97 +81,39 @@ app.post("/api/coach-interaction", async (req: express.Request, res: express.Res
     const { messageText, userLevel, userName, history, mode, dailyActivity, mistakeMemory, challengeDay } = req.body;
     if (!messageText) return res.status(400).json({ error: "messageText is required in body." });
 
-    const level = userLevel || "Intermediate";
+    const level = safeLevel(userLevel || "Intermediate");
     const name = userName || "Student";
-    const activityType: string = dailyActivity?.type || "warmup";
-    const memoryText = Array.isArray(mistakeMemory)
-      ? mistakeMemory.slice(0, 8).map((m: any) => `${m.mistakeType || m.type}: ${m.count || 0}`).join("\n")
-      : "No stored recurring mistakes yet.";
+    const activityType = safeActivity(dailyActivity?.type || "warmup");
+    const learnerTurnsBeforeCurrent = Array.isArray(history) ? history.filter((h: any) => h.role === "user").length : 0;
+    const learnerTurnsIncludingCurrent = learnerTurnsBeforeCurrent + 1;
+    const definition = getActivityDefinition(activityType, level);
+    const stepIndex = Math.min(Math.max(0, learnerTurnsBeforeCurrent), definition.steps.length - 1);
+    const currentStep = definition.steps[stepIndex];
+    const canComplete = learnerTurnsIncludingCurrent >= definition.minLearnerTurns && currentStep.phase === "summary";
 
-    // Count how many user turns have happened so far (excluding the current one)
-    const userTurnCount = Array.isArray(history) ? history.filter((h: any) => h.role === "user").length : 0;
-    // Activity is only completable after meaningful practice (at least 5 student responses)
-    const canComplete = userTurnCount >= 5;
+    const memoryText = Array.isArray(mistakeMemory) && mistakeMemory.length
+      ? mistakeMemory.slice(0, 8).map((m: any) => `${m.mistakeType || m.type}: ${m.count || 0} occurrence(s), status=${m.status || "active"}`).join("\n")
+      : "No stored recurring mistakes yet. Start building memory from this session.";
 
-    const activityInstructions: Record<string, string> = {
-      warmup: `ACTIVITY: Daily warm-up.
-LESSON PLAN:
-1. Ask the student: "Tell me three things you did today."
-2. After each thing they say, respond naturally, then correct ONE grammar/vocabulary mistake clearly.
-3. After all three things, summarize the top 2 mistakes and give a short drill sentence to repeat correctly.
-4. Score fluency, grammar, vocabulary.
-You are building speaking confidence here. Be warm. Correct gently but do not skip mistakes.`,
+    const lessonState = buildLessonStatePrompt({ definition, stepIndex, learnerTurns: learnerTurnsIncludingCurrent, mistakeMemoryText: memoryText, mode: mode || "balanced" });
 
-      grammar: `ACTIVITY: Grammar lesson.
-LESSON PLAN — follow this sequence strictly:
-1. INTRODUCE: Start by naming today's grammar target based on the student's level. For Beginner: past simple tense ("I went", "She said"). For Intermediate: present perfect vs past simple. For Advanced: conditionals or reported speech.
-2. EXPLAIN: Give 2 clear example sentences showing right vs wrong. Example: Wrong: "Yesterday I go to market." Right: "Yesterday I went to the market."
-3. DRILL: Ask the student to make one sentence using the target grammar about their day.
-4. CORRECT: Correct any grammar error in their sentence with the rule reason. Example: "You said 'I go' — use past tense 'went' because the action is finished."
-5. PRACTICE more: Ask 2–3 more practice questions targeting the same grammar rule.
-6. SUMMARIZE: After enough practice, give a homework sentence for them to practice later.
-DO NOT just chat. DO NOT move to a new topic. Stay on the grammar lesson until the student has practiced at least 5 times.
-${canComplete ? "The student has now practiced enough — you may set completedActivity to true if they showed good understanding." : "The student has NOT practiced enough yet — set completedActivity to false. Keep drilling."}`,
+    const systemInstruction = `You are Sky, a professional spoken-English teacher for ${name}. You are not a chit-chat bot.
 
-      scenario: `ACTIVITY: Real-life scenario roleplay.
-SCENARIO: You are a waiter at a restaurant. The student is the customer.
-1. Open the scene naturally: "Welcome to Sky Bistro! Here is your menu. What would you like to order?"
-2. Respond in character to whatever they order.
-3. After each exchange, BREAK CHARACTER briefly: point out one language mistake, give the correct version, then return to the scene.
-4. After 4–5 exchanges, end the scene and give a full correction summary.
-Stay in character between corrections. Make it feel real.`,
+${buildLevelInstruction(level)}
+${buildModeInstruction(mode || "balanced")}
 
-      workplace: `ACTIVITY: Workplace English — Daily Standup.
-LESSON PLAN:
-1. Explain the format: "In a standup, you say: what you did yesterday, what you're doing today, and any blockers."
-2. Ask: "Tell me your standup update. Speak like you are in a real team meeting."
-3. After they speak, correct: grammar mistakes, informal language, unclear phrasing.
-4. Show a professional version of what they said.
-5. Ask a follow-up: "How would you say this more formally: [give an informal sentence]?"
-6. Give 2–3 business English phrases they should remember.`,
+${lessonState}
 
-      fluency: `ACTIVITY: 60-second fluency challenge.
-1. Pick a topic: "Tell me about your family" or "Describe your daily routine" or "Talk about your job or studies."
-2. Give the student 60 seconds to speak without stopping. Tell them: "Don't worry about mistakes yet — just keep talking!"
-3. After they finish, score fluency (did they pause a lot? repeat words? lose their train of thought?).
-4. Then go back and correct the 3 most important grammar or vocabulary mistakes.
-5. Ask them to repeat one corrected sentence back to you naturally.`,
-
-      review: `ACTIVITY: Mistake review and targeted drill.
-RECURRING MISTAKES THIS STUDENT MAKES:\n${memoryText}
-1. Pick the top 2 recurring mistakes from the list above.
-2. Explain each mistake: what they do wrong, why it's wrong, and the correct rule.
-3. Give a drill: ask them to say 3 sentences that use the correct form.
-4. Correct each attempt immediately with the rule.
-5. End with a "never forget" tip for each mistake.
-If no recurring mistakes are recorded, do a general grammar review for their level (${level}).`,
-    };
-
-    const modeContext: Record<string, string> = {
-      gentle_conversation: "Be warm, encouraging, and patient. Point out only one mistake at a time. Prioritize keeping the student speaking over perfect correction.",
-      balanced: "Correct all clear grammar, tense, and vocabulary mistakes. Be warm but thorough. Don't skip mistakes to be polite.",
-      strict_correction: "Correct EVERY mistake rigorously. State what was wrong, the correct form, and the grammar rule every time. Do not move on until the student corrects themselves.",
-      roleplay: "Stay immersed in the roleplay scenario. Correct mistakes as part of the scene where possible.",
-      workplace: "Focus on professional register, business vocabulary, and formal grammar. Flag informal language immediately.",
-    };
-
-    const levelContext: Record<string, string> = {
-      Beginner: "The student is a beginner. Use very simple vocabulary. Explain grammar in the simplest terms possible. Be very patient.",
-      Intermediate: "The student is intermediate. Focus on tense consistency, articles, prepositions, and natural phrasing.",
-      Advanced: "The student is advanced. Focus on subtle errors — word choice, idioms, register, sentence rhythm.",
-    };
-
-    const systemInstruction = `You are Sky, a structured English language coach for ${name}.
-${levelContext[level] || levelContext["Intermediate"]}
-CORRECTION MODE: ${modeContext[mode || "balanced"]}
-
-${activityInstructions[activityType] || activityInstructions["warmup"]}
-
-RULES:
-- Keep coachReply short, spoken-friendly, and natural. No markdown or bullet symbols in your spoken reply.
-- ALWAYS correct mistakes — never ignore them to be polite.
-- Always end with exactly one question or instruction to keep the student practicing.
-- Return valid JSON only.`;
+STRICT TEACHING RULES:
+1. Follow the current lesson step exactly. Do not jump to random topics.
+2. If the learner answers off-topic, briefly acknowledge and route them back to the current learner task.
+3. Every turn must contain a teaching action: model, correction, drill, repetition, roleplay line, fluency feedback, or summary.
+4. coachReply is the spoken answer. It must be short enough to say aloud, but it must still teach.
+5. correctedSentence must be empty only when the learner's sentence is already natural and correct.
+6. naturalVersion must upgrade the learner's sentence into natural spoken English.
+7. Ask exactly one next question or instruction, and it must match the current lesson step.
+8. Do not set completedActivity true unless the activity completion rubric is satisfied.
+9. Return JSON only.`;
 
     const contents: any[] = [];
     if (history && Array.isArray(history)) {
@@ -180,18 +141,24 @@ RULES:
             microDrill: { type: Type.OBJECT, properties: { instruction: { type: Type.STRING }, examples: { type: Type.ARRAY, items: { type: Type.STRING } } }, required: ["instruction", "examples"] },
             repeatPractice: { type: Type.STRING },
             nextQuestion: { type: Type.STRING },
+            lessonStep: { type: Type.STRING },
+            teachingPhase: { type: Type.STRING },
+            teacherAction: { type: Type.STRING },
             challengeUpdate: { type: Type.OBJECT, properties: { day: { type: Type.NUMBER }, completedActivity: { type: Type.BOOLEAN }, homework: { type: Type.STRING } }, required: ["day", "completedActivity", "homework"] }
           },
-          required: ["coachReply", "correctedSentence", "naturalVersion", "mistakes", "fluencyScore", "grammarScore", "vocabularyScore", "pronunciationFocus", "microDrill", "repeatPractice", "nextQuestion", "challengeUpdate"]
+          required: ["coachReply", "correctedSentence", "naturalVersion", "mistakes", "fluencyScore", "grammarScore", "vocabularyScore", "pronunciationFocus", "microDrill", "repeatPractice", "nextQuestion", "lessonStep", "teachingPhase", "teacherAction", "challengeUpdate"]
         }
       }
     });
 
     const payload = JSON.parse((response.text || "{}").trim());
-    payload.challengeUpdate ||= { day: challengeDay || 1, completedActivity: false, homework: "Practice for five more minutes." };
-    // Never mark complete if the student hasn't had enough practice turns
+    payload.lessonStep = currentStep.id;
+    payload.teachingPhase = currentStep.phase;
+    payload.teacherAction = currentStep.teacherGoal;
+    payload.challengeUpdate ||= { day: challengeDay || 1, completedActivity: false, homework: "Practice the corrected sentence three times." };
     if (!canComplete) payload.challengeUpdate.completedActivity = false;
-    console.log(`[Server] /api/coach-interaction OK — fluency:${payload.fluencyScore} grammar:${payload.grammarScore} mistakes:${payload.mistakes?.length ?? 0} userTurns:${userTurnCount} canComplete:${canComplete}`);
+
+    console.log(`[Server] coach OK activity:${activityType} level:${level} step:${currentStep.id} phase:${currentStep.phase} turns:${learnerTurnsIncludingCurrent}/${definition.minLearnerTurns} complete:${payload.challengeUpdate.completedActivity}`);
     return res.json(payload);
   } catch (err: any) {
     console.error("[Server] Coach API Error:", err?.message || err);

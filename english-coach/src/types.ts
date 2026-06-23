@@ -3,6 +3,7 @@ export type InteractionMode = "writing" | "live_voice";
 export type CoachMode = "gentle_conversation" | "balanced" | "strict_correction" | "roleplay" | "workplace";
 export type MessageSource = "chat" | "live" | "system";
 export type MessageKind = "user_transcript" | "coach_reply" | "correction" | "suggestion" | "lesson_instruction" | "evaluation_summary";
+export type TeachingPhase = "intro" | "model" | "controlled_practice" | "correction" | "repeat" | "free_practice" | "summary" | string;
 
 export interface UserProfile {
   uid: string;
@@ -82,5 +83,8 @@ export interface CoachMessage {
   pronunciationFocus?: string;
   repeatPractice?: string;
   microDrill?: { instruction: string; examples: string[] };
+  lessonStep?: string;
+  teachingPhase?: TeachingPhase;
+  teacherAction?: string;
   createdAt: string;
 }
