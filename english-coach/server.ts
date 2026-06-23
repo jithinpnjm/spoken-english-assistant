@@ -187,7 +187,7 @@ async function bootstrap() {
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
-    app.get("*", (req, res) => res.sendFile(path.join(distPath, "index.html"));
+    app.get("*", (req, res) => res.sendFile(path.join(distPath, "index.html")));
   }
 
   server.listen(PORT, "0.0.0.0", () => console.log(`Server successfully started. Running on http://localhost:${PORT}`));
