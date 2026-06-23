@@ -4,6 +4,8 @@ import http from "http";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
+import { curriculumCourses, curriculumStats } from "./src/server/curriculumRegistry";
+import { startLevelTrack, startModule, startSubsection } from "./src/server/curriculumActions";
 import { installRealtimeBridge } from "./src/server/installRealtimeBridge";
 import { createCursorCoachHandler } from "./src/server/cursorCoachHandler";
 
@@ -51,6 +53,26 @@ app.post("/api/transcribe", async (req: express.Request, res: express.Response) 
 });
 
 app.post("/api/coach-interaction", createCursorCoachHandler(ai));
+
+app.get("/api/curriculum", (_req: express.Request, res: express.Response) => {
+  return res.json({ stats: curriculumStats, courses: curriculumCourses });
+});
+
+app.post("/api/curriculum/start", async (req: express.Request, res: express.Response) => {
+  try {
+    const { learnerId, levelBand, moduleId, subsectionId, sessionDay } = req.body;
+    if (!learnerId) return res.status(400).json({ error: "learnerId is required" });
+    const cursor = subsectionId
+      ? await startSubsection({ learnerId, subsectionId, sessionDay })
+      : moduleId
+        ? await startModule({ learnerId, moduleId, sessionDay })
+        : await startLevelTrack({ learnerId, levelBand: levelBand || "Intermediate", sessionDay });
+    return res.json({ cursor });
+  } catch (err: any) {
+    console.error("[Server] curriculum start error:", err?.message || err);
+    return res.status(500).json({ error: err.message || "Unable to start curriculum item" });
+  }
+});
 
 app.get("/api/config", (_req: express.Request, res: express.Response) => {
   return res.json({
