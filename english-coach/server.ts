@@ -168,9 +168,10 @@ STRICT TEACHING RULES:
 
 app.get("/api/config", (_req: express.Request, res: express.Response) => {
   return res.json({
-    apiKey: process.env.GEMINI_API_KEY || "",
     model: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
     liveModel: process.env.GEMINI_LIVE_MODEL || "models/gemini-3.1-flash-live-preview",
+    browserCredentialExposed: false,
+    directBrowserLiveDeprecated: true,
   });
 });
 
