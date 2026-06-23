@@ -5,11 +5,13 @@ import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
 import dotenv from "dotenv";
 import { ActivityType, buildLessonStatePrompt, getActivityDefinition } from "./src/lib/curriculum";
+import { installRealtimeBridge } from "./src/server/installRealtimeBridge";
 
 dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
+installRealtimeBridge(server);
 const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.json({ limit: "10mb" }));
@@ -174,6 +176,7 @@ app.get("/api/config", (_req: express.Request, res: express.Response) => {
     liveModel: process.env.GEMINI_LIVE_MODEL || "models/gemini-3.1-flash-live-preview",
     browserCredentialExposed: false,
     directBrowserLiveDeprecated: true,
+    audioBridgePath: "/api/audio-bridge",
   });
 });
 
@@ -184,7 +187,7 @@ async function bootstrap() {
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
-    app.get("*", (req, res) => res.sendFile(path.join(distPath, "index.html")));
+    app.get("*", (req, res) => res.sendFile(path.join(distPath, "index.html"));
   }
 
   server.listen(PORT, "0.0.0.0", () => console.log(`Server successfully started. Running on http://localhost:${PORT}`));
