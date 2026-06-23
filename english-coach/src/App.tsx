@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { auth, fetchUserProfile, updateUserProfile, profileNameForEmail, profileIdForEmail, ensureLearnerProfile, doSignOut } from "./lib/firebase";
+import { dbg } from "./lib/debug";
 import { onAuthStateChanged, User as FirebaseUser } from "firebase/auth";
 import AuthScreen from "./components/AuthScreen";
 import ProfileSelector from "./components/ProfileSelector";
@@ -17,28 +18,38 @@ export default function App() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      dbg.auth.log("onAuthStateChanged fired —", user ? `uid=${user.uid} email=${user.email}` : "no user");
       setLoading(true);
       try {
         if (user) {
           const displayName = profileNameForEmail(user.email);
           const profileId = profileIdForEmail(user.email);
-          if (!displayName || !profileId) throw new Error("Unauthorized learner email.");
+          dbg.auth.log("profileNameForEmail →", displayName, "| profileIdForEmail →", profileId);
+          if (!displayName || !profileId) throw new Error(`Unauthorized learner email: ${user.email}`);
+
+          dbg.auth.log("Calling ensureLearnerProfile...");
           await ensureLearnerProfile(user.uid, user.email || "");
+          dbg.auth.log("ensureLearnerProfile done — setting state");
+
           setCurrentUser(user);
           setProfileDisplayName(displayName);
           setActiveProfile(profileId);
+
           const profile = await fetchUserProfile(user.uid);
+          dbg.auth.log("fetchUserProfile →", profile ? "found" : "null", profile);
           setUserProfile(profile);
           setHighContrast(!!(profile as any)?.highContrast);
+          dbg.auth.log("Auth flow complete ✓ activeProfile =", profileId);
         } else {
+          dbg.auth.log("No user — rendering login screen");
           setCurrentUser(null);
           setUserProfile(null);
           setActiveProfile(null);
           setProfileDisplayName(null);
         }
-      } catch (err) {
-        console.error(err);
-        await doSignOut().catch(() => {});
+      } catch (err: any) {
+        dbg.auth.error("ERROR in onAuthStateChanged handler:", err?.message || err, err);
+        await doSignOut().catch((e) => dbg.auth.error("doSignOut also failed:", e));
         setCurrentUser(null);
         setUserProfile(null);
         setActiveProfile(null);
