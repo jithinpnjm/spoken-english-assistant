@@ -12,7 +12,8 @@
     "lint": "tsc --noEmit",
     "eval:teacher": "tsx scripts/evaluate-teacher.ts",
     "check:curriculum": "tsx scripts/check-curriculum.ts",
-    "check:pilot-content": "tsx scripts/check-pilot-content.ts"
+    "check:pilot-content": "tsx scripts/check-pilot-content.ts",
+    "check:cursor": "tsx scripts/check-cursor-logic.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
