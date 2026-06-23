@@ -9,7 +9,8 @@ import { startLevelTrack, startModule, startSubsection } from "./src/server/curr
 import { productModes, productTracks, productionCurriculumSummary } from "./src/server/productionTaxonomy";
 import { installRealtimeBridge } from "./src/server/installRealtimeBridge";
 import { createCursorCoachHandler } from "./src/server/cursorCoachHandler";
-import { apiRequestLogger, asyncHandler, errorHandler, getRuntimeConfig, logRuntimeValidation, requireApiAuth, validateAudioPayload } from "./src/server/serverHardening";
+import { apiRequestLogger, asyncHandler, errorHandler, getRuntimeConfig, logRuntimeValidation, validateAudioPayload } from "./src/server/serverHardening";
+import { firebaseAuthMiddleware } from "./src/server/serverAuth";
 
 dotenv.config();
 
@@ -30,7 +31,7 @@ const ai = new GoogleGenAI({
   httpOptions: { headers: { "User-Agent": "english-coach-cursor-engine" } },
 });
 
-const apiAuth = requireApiAuth(runtimeConfig);
+const apiAuth = firebaseAuthMiddleware(runtimeConfig);
 
 app.post("/api/transcribe", apiAuth, validateAudioPayload(runtimeConfig.maxAudioBase64Bytes), asyncHandler(async (req: express.Request, res: express.Response) => {
   const { audioBase64, mimeType = "audio/webm" } = req.body;
@@ -79,6 +80,7 @@ app.get("/api/config", (_req: express.Request, res: express.Response) => {
     directBrowserLiveDeprecated: true,
     audioBridgePath: "/api/audio-bridge",
     requireApiAuth: runtimeConfig.requireApiAuth,
+    allowedUsersConfigured: true,
   });
 });
 
