@@ -7,11 +7,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.json());
 
-// Initialize Gemini SDK with telemetry header per guidelines
 const apiKey = process.env.GEMINI_API_KEY;
 if (!apiKey) {
   console.warn("WARNING: GEMINI_API_KEY is not defined. Gemini features will fail.");
@@ -21,52 +20,34 @@ const ai = new GoogleGenAI({
   apiKey: apiKey || "",
   httpOptions: {
     headers: {
-      "User-Agent": "aistudio-build",
+      "User-Agent": "english-coach-secure",
     },
   },
 });
 
-// AI Coach Interaction endpoint - full-stack server proxy for API Key protection
 app.post("/api/coach-interaction", async (req: express.Request, res: express.Response) => {
   try {
-    const { messageText, userLevel, userName, history } = req.body;
-    if (!messageText) {
-      return res.status(400).json({ error: "messageText is required in body." });
-    }
+    const { messageText, userLevel, userName, history, mode, dailyActivity, mistakeMemory, challengeDay } = req.body;
+    if (!messageText) return res.status(400).json({ error: "messageText is required in body." });
 
     const level = userLevel || "Intermediate";
     const name = userName || "Student";
+    const memoryText = Array.isArray(mistakeMemory)
+      ? mistakeMemory.slice(0, 8).map((m: any) => `${m.mistakeType || m.type}: ${m.count || 0}`).join("\n")
+      : "No stored recurring mistakes yet.";
 
-    const systemInstruction = `You are a helpful, encouraging, and supportive English conversation coach named Sky.
-Your student is ${name}, practicing at the '${level}' proficiency level.
+    const systemInstruction = `You are Sky, a premium spoken-English coach for ${name}.
+Level: ${level}. Coaching mode: ${mode || "balanced"}.
+Daily activity: ${dailyActivity ? JSON.stringify(dailyActivity) : "general practice"}.
+Learner memory:\n${memoryText}
 
-Instructions:
-1. Evaluate ${name}'s message carefully for spelling, formatting, and grammar mistakes.
-2. Formulate your response in JSON matching the response schema.
-3. The "coachReply" should be a warm conversational response (2 to 3 sentences long), ending with an interactive wait/question to guide them in continuous talking. Keep the language level-appropriate for ${level}. Do not include markdown signs or bolding inside coachReply because it is spoken out loud.
-4. If they made mistakes, provide the corrected spelling or grammar in "inputCorrection". If their phrasing was perfectly correct and natural, return null.
-5. In "identifiedMistakes", list each specific issue clearly with why it is incorrect. If none, return an empty array [].
-6. In "coachingTip", provide one tiny coaching gold standard tip for their level, or empty string.`;
+Act like a structured language-learning app, not a generic chatbot. Keep coachReply short, natural, and spoken-friendly. Correct useful mistakes, give a natural spoken version, give one micro drill, score fluency/grammar/vocabulary from 1 to 100, and ask exactly one next question. Return JSON only.`;
 
     const contents: any[] = [];
-
-    // Add conversation history
     if (history && Array.isArray(history)) {
-      // Limit history to last 10 messages to save context space
-      const recentHistory = history.slice(-10);
-      recentHistory.forEach((item: any) => {
-        contents.push({
-          role: item.role === "user" ? "user" : "model",
-          parts: [{ text: item.text }],
-        });
-      });
+      history.slice(-12).forEach((item: any) => contents.push({ role: item.role === "user" ? "user" : "model", parts: [{ text: item.text }] }));
     }
-
-    // Append actual user message
-    contents.push({
-      role: "user",
-      parts: [{ text: messageText }],
-    });
+    contents.push({ role: "user", parts: [{ text: messageText }] });
 
     const response = await ai.models.generateContent({
       model: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
@@ -77,35 +58,26 @@ Instructions:
         responseSchema: {
           type: Type.OBJECT,
           properties: {
-            coachReply: {
-              type: Type.STRING,
-              description: "A friendly verbal response keeping the conversation flow going, followed by an engaging question. Avoid markdown elements.",
-            },
-            inputCorrection: {
-              type: Type.STRING,
-              description: "The full corrected text of what the user wrote, keeping their original style but with perfect spelling & grammar. Set to null if user wrote perfectly.",
-            },
-            identifiedMistakes: {
-              type: Type.ARRAY,
-              items: { type: Type.STRING },
-              description: "List of spelling or grammar mistakes. Return empty array if zero mistakes.",
-            },
-            coachingTip: {
-              type: Type.STRING,
-              description: "A short, actionable advice note to help them sound more fluent, or empty string.",
-            },
+            coachReply: { type: Type.STRING },
+            correctedSentence: { type: Type.STRING },
+            naturalVersion: { type: Type.STRING },
+            mistakes: { type: Type.ARRAY, items: { type: Type.OBJECT, properties: { type: { type: Type.STRING }, original: { type: Type.STRING }, corrected: { type: Type.STRING }, explanation: { type: Type.STRING }, severity: { type: Type.STRING } }, required: ["type", "original", "corrected", "explanation", "severity"] } },
+            fluencyScore: { type: Type.NUMBER },
+            grammarScore: { type: Type.NUMBER },
+            vocabularyScore: { type: Type.NUMBER },
+            pronunciationFocus: { type: Type.STRING },
+            microDrill: { type: Type.OBJECT, properties: { instruction: { type: Type.STRING }, examples: { type: Type.ARRAY, items: { type: Type.STRING } } }, required: ["instruction", "examples"] },
+            repeatPractice: { type: Type.STRING },
+            nextQuestion: { type: Type.STRING },
+            challengeUpdate: { type: Type.OBJECT, properties: { day: { type: Type.NUMBER }, completedActivity: { type: Type.BOOLEAN }, homework: { type: Type.STRING } }, required: ["day", "completedActivity", "homework"] }
           },
-          required: ["coachReply", "inputCorrection", "identifiedMistakes", "coachingTip"],
-        },
-      },
+          required: ["coachReply", "correctedSentence", "naturalVersion", "mistakes", "fluencyScore", "grammarScore", "vocabularyScore", "pronunciationFocus", "microDrill", "repeatPractice", "nextQuestion", "challengeUpdate"]
+        }
+      }
     });
 
-    const responseText = response.text;
-    if (!responseText) {
-      throw new Error("No response string returned from Gemini.");
-    }
-
-    const payload = JSON.parse(responseText.trim());
+    const payload = JSON.parse((response.text || "{}").trim());
+    payload.challengeUpdate ||= { day: challengeDay || 1, completedActivity: false, homework: "Practice for five more minutes." };
     return res.json(payload);
   } catch (err: any) {
     console.error("Coach API Error:", err?.message || err);
@@ -113,36 +85,25 @@ Instructions:
   }
 });
 
-// Expose config for direct browser WebSocket connections (local development only)
-app.get("/api/config", (req: express.Request, res: express.Response) => {
+app.get("/api/config", (_req: express.Request, res: express.Response) => {
   return res.json({
-    apiKey: process.env.GEMINI_API_KEY || "",
     model: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
     liveModel: process.env.GEMINI_LIVE_MODEL || "models/gemini-3.1-flash-live-preview",
+    apiKeyExposed: false,
   });
 });
 
-// Start server containing frontend dev or build serving
 async function bootstrap() {
   if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
+    const vite = await createViteServer({ server: { middlewareMode: true }, appType: "spa" });
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
-    // Serve index.html as fallback for the SPA
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
-    });
+    app.get("*", (req, res) => res.sendFile(path.join(distPath, "index.html")));
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server successfully started. Running on http://localhost:${PORT}`);
-  });
+  app.listen(PORT, "0.0.0.0", () => console.log(`Server successfully started. Running on http://localhost:${PORT}`));
 }
 
 bootstrap();
-
