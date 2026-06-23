@@ -1,0 +1,10 @@
+{
+  "name": "Remix: English Coach",
+  "description": "Interactive personal English coach utilizing advanced grammar evaluation, speech recognition, and simulated practice sessions for accelerated vocabulary learning.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

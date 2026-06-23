@@ -1,0 +1,7 @@
+project_id   = "my-personal-data-430607"
+region       = "asia-south1"
+service_name = "english-coach"
+repo_name    = "english-coach"
+gemini_model      = "gemini-3.1-flash-lite"
+gemini_live_model = "gemini-3.1-flash-live-preview"
+image        = "asia-south1-docker.pkg.dev/my-personal-data-430607/english-coach/english-coach:latest"
