@@ -1,6 +1,7 @@
 import type express from "express";
 import { Type } from "@google/genai";
 import { buildCursorTeachingPrompt } from "./cursorPromptBuilder";
+import { interactionModeRule } from "./interactionModeRules";
 import { moveCursorAfterTurn, pushDigression, popDigression, isPreviousCalendarDay } from "./lessonCursorLogic";
 import { getOrCreateLessonCursor, saveLessonCursor } from "./lessonCursorStore";
 import type { LessonMessageType } from "./lessonCursorTypes";
@@ -24,19 +25,20 @@ function memoryToText(mistakeMemory: any) {
 export function createCursorCoachHandler(ai: any) {
   return async function cursorCoachHandler(req: express.Request, res: express.Response) {
     try {
-      const { messageText, userLevel, userName, mode, mistakeMemory, challengeDay, profileId } = req.body;
+      const { messageText, userLevel, userName, mode, mistakeMemory, challengeDay, profileId, interactionMode } = req.body;
       if (!messageText) return res.status(400).json({ error: "messageText is required in body." });
 
       const level = safeLevel(userLevel || "Intermediate");
       const name = userName || "Student";
       const learnerId = profileId || name.toLowerCase().replace(/[^a-z0-9_-]/g, "_") || "student";
       const now = new Date().toISOString();
+      const modeRule = interactionModeRule(interactionMode === "live" ? "live" : "chat");
 
       let cursor = await getOrCreateLessonCursor({ learnerId, level, sessionDay: challengeDay || 1 });
       const resumeAfterBreak = isPreviousCalendarDay(cursor.lastActiveAt, now);
       const mistakeMemoryText = memoryToText(mistakeMemory);
 
-      const systemInstruction = buildCursorTeachingPrompt({
+      const baseInstruction = buildCursorTeachingPrompt({
         cursor,
         learnerName: name,
         level,
@@ -46,6 +48,7 @@ export function createCursorCoachHandler(ai: any) {
         resumeAfterBreak,
         resumeAfterDigression: cursor.digressionStack.length > 0,
       });
+      const systemInstruction = `${baseInstruction}\n\n${modeRule}`;
 
       const response = await ai.models.generateContent({
         model: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
@@ -91,17 +94,18 @@ export function createCursorCoachHandler(ai: any) {
       }
       await saveLessonCursor(cursor);
 
+      const isChat = interactionMode !== "live";
       const payload = {
-        coachReply: parsed.teacherMessage || "Good. Continue speaking.",
+        coachReply: parsed.teacherMessage || "Good. Continue with one complete sentence.",
         correctedSentence: parsed.correctedSentence || "",
         naturalVersion: parsed.naturalVersion || "",
         mistakes: parsed.correctedSentence ? [{ type: "cursor_rule", original: messageText, corrected: parsed.correctedSentence, explanation: parsed.ruleApplied || cursor.subsectionId, severity: "medium" }] : [],
         fluencyScore: parsed.score?.fluency ?? 7,
         grammarScore: parsed.score?.grammar ?? 7,
         vocabularyScore: parsed.score?.vocabulary ?? 7,
-        pronunciationFocus: "Speak slowly and clearly; repeat the corrected sentence once.",
-        microDrill: { instruction: parsed.microDrill || "Repeat the improved sentence once.", examples: parsed.exampleUsed ? [parsed.exampleUsed] : [] },
-        repeatPractice: parsed.naturalVersion || parsed.correctedSentence || parsed.teacherMessage || "Repeat the sentence naturally.",
+        pronunciationFocus: isChat ? "Chat mode: focus on sentence clarity and natural wording." : "Live mode: focus on clear voice and short repetition.",
+        microDrill: { instruction: parsed.microDrill || (isChat ? "Rewrite the improved sentence once." : "Repeat the improved sentence once."), examples: parsed.exampleUsed ? [parsed.exampleUsed] : [] },
+        repeatPractice: parsed.naturalVersion || parsed.correctedSentence || parsed.teacherMessage || (isChat ? "Rewrite the sentence naturally." : "Repeat the sentence naturally."),
         nextQuestion: parsed.microDrill || "Please answer with one complete sentence.",
         lessonStep: cursor.subsectionId,
         teachingPhase: cursor.phase,
