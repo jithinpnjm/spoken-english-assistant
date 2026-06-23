@@ -4,6 +4,8 @@
 
 Build slowly and source-first. Do not code the learning engine until the source bank, curriculum map, and teaching prompt contracts are documented.
 
+A1 is the first active exam goal, but A2 and B1 must not be shallow placeholders. They need the same level of section, skill, grammar, vocabulary, task, and mock-exam planning as A1.
+
 ## PR 1: Source bank and product architecture
 
 Branch:
@@ -19,6 +21,7 @@ Scope:
 - add Goethe source bank
 - add source policy
 - add A0-A1-A2-B1 level map
+- add detailed A2/B1 exam map
 - add portal and learning flow
 - add implementation roadmap
 
@@ -49,6 +52,8 @@ Exit criteria:
 - every level has sections
 - every section has topic groups
 - grammar and vocabulary are mapped to exam and survival use cases
+- A2 includes Hören, Lesen, Schreiben, Sprechen, Wortschatz, Grammatik, Mini Mock Exam, and Mistake Repair
+- B1 includes Lesen, Hören, Schreiben, Sprechen, Wortschatz, Grammatik, Full Mock Exam, and Weakness Repair
 
 ## PR 3: Study guide and prompt contracts
 
@@ -75,6 +80,7 @@ Exit criteria:
 - detailed English-speaking German teacher behavior is defined
 - strict correction/rewrite/repeat loop is defined
 - no generic chat behavior is allowed
+- prompts cover A1, A2, and B1 separately, not only A1
 
 ## PR 4: Portal selector
 
@@ -134,13 +140,14 @@ Expected model:
 
 ```ts
 GermanLevel = "A0" | "A1" | "A2" | "B1";
-GermanSkill = "hoeren" | "lesen" | "schreiben" | "sprechen" | "wortschatz" | "grammatik" | "mock_exam";
+GermanSkill = "hoeren" | "lesen" | "schreiben" | "sprechen" | "wortschatz" | "grammatik" | "mock_exam" | "mistake_repair";
 ```
 
 Exit criteria:
 
 - all planned sections and subtopics exist as typed data
 - validation script passes
+- A2 and B1 have comparable registry depth to A1
 
 ## PR 7: A0/A1 authored content
 
@@ -276,6 +283,7 @@ Scope:
 Exit criteria:
 
 - A1 listening can be practiced properly
+- architecture supports A2/B1 listening expansion
 
 ## PR 13: Goethe A1 mini mock exam
 
@@ -310,9 +318,15 @@ german-a2-content
 Scope:
 
 - A2 curriculum content
-- A2 grammar
+- A2 Hören, Lesen, Schreiben, Sprechen, Wortschatz, Grammatik, Mini Mock Exam, Mistake Repair
+- A2 grammar: Perfekt, dative, two-way prepositions, weil/dass/wenn, comparatives, reflexive verbs, adjective endings introduction
 - A2 listening/reading/writing/speaking drills
 - A2 mini mock exam
+
+Exit criteria:
+
+- A2 has production-ready depth comparable to A1
+- A2 prepares the learner for independent daily German and B1 entry
 
 ## PR 15: B1 Goethe content and exam engine
 
@@ -324,12 +338,16 @@ german-b1-goethe-content
 
 Scope:
 
-- B1 Lesen
-- B1 Hören
-- B1 Schreiben
-- B1 Sprechen
+- B1 Lesen, Hören, Schreiben, Sprechen, Wortschatz, Grammatik, Full Mock Exam, Weakness Repair
+- B1 writing: informal/semi-formal email, request, complaint, opinion, argument structure
+- B1 speaking: gemeinsam etwas planen, presentation/short talk, questions and discussion
+- B1 grammar: subordinate clauses, connectors, Konjunktiv II, relative clauses, passive basics, adjective endings, prepositional verbs
 - B1 full mock exam
-- weakness repair
+- B1 weakness repair engine
+
+Exit criteria:
+
+- B1 is not forgotten and is implemented as a full long-term Goethe preparation path
 
 ## PR 16: Progress analytics and study planner
 
@@ -377,6 +395,7 @@ Recommended sequence:
 - Goethe source alignment first.
 - A1 is first active exam target.
 - B1 remains in the long-term path.
+- A2 and B1 need the same or greater detail as A1 before implementation.
 - Do not copy official or textbook exercises.
 - Teach in English; train in German.
 - Every answer gets reviewed.
