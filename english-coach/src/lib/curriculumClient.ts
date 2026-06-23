@@ -36,9 +36,39 @@ export interface LessonCursorView {
   phaseSummary: string;
 }
 
+export type ProductModeId = "study" | "practice" | "review" | "live";
+export type ProductTrackId =
+  | "foundation-english"
+  | "daily-life-english"
+  | "grammar-for-speaking"
+  | "workplace-english"
+  | "interview-english"
+  | "professional-communication"
+  | "fluency-pronunciation"
+  | "review-mistake-repair";
+
+export interface ProductModeView {
+  id: ProductModeId;
+  title: string;
+  description: string;
+}
+
+export interface ProductTrackView {
+  id: ProductTrackId;
+  title: string;
+  description: string;
+  primaryLevel: "Beginner" | "Intermediate" | "Advanced" | "Mixed";
+  moduleIds: string[];
+}
+
 export interface CurriculumResponse {
   stats: { courses: number; modules: number; subsections: number; pilotModuleId: string };
   courses: CurriculumCourseView[];
+  production?: {
+    summary: { modes: number; tracks: number; legacyCourses: number; legacyModules: number };
+    modes: ProductModeView[];
+    tracks: ProductTrackView[];
+  };
 }
 
 export async function fetchCurriculum(): Promise<CurriculumResponse> {
@@ -84,4 +114,9 @@ export function findSubsection(courses: CurriculumCourseView[], subsectionId?: s
     }
   }
   return null;
+}
+
+export function modulesForTrack(courses: CurriculumCourseView[], track?: ProductTrackView | null) {
+  if (!track) return [];
+  return track.moduleIds.map((moduleId) => findModule(courses, moduleId)).filter(Boolean) as CurriculumModuleView[];
 }
