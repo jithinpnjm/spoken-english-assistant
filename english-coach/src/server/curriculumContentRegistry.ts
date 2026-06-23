@@ -4,6 +4,7 @@ import { getWorkplaceEnglishContent } from "./workplaceEnglishContent";
 import { getFoundationEnglishContent } from "./foundationEnglishContent";
 import { getProfessionalEnglishContent } from "./professionalEnglishContent";
 import { getGrammarForSpeakingContent } from "./grammarForSpeakingContent";
+import { getDailyLifeEnglishContent } from "./dailyLifeEnglishContent";
 import { buildDetailedScaffoldContent } from "./detailedScaffoldContent";
 
 function friendlyTitle(subsection: CurriculumSubsection) {
@@ -18,9 +19,9 @@ function moduleContext(subsectionId: string) {
 function generatedExamples(title: string, moduleTitle: string): string[] {
   return [
     `I can practise ${title.toLowerCase()} in a short spoken sentence.`,
-    `Let me say that more naturally using ${moduleTitle.toLowerCase()} language.`,
-    `A better version is clear, complete, and easy to say aloud.`,
-    `I will answer in one full sentence and then rewrite the corrected version.`,
+    `I can make this clearer using ${moduleTitle.toLowerCase()} language.`,
+    `A strong version is clear, complete, and easy to say aloud.`,
+    `I will answer in one full sentence and improve the corrected version.`,
   ];
 }
 
@@ -29,17 +30,17 @@ function generatedMistakes(title: string) {
     {
       wrong: `I speaking about ${title.toLowerCase()}.`,
       right: `I am speaking about ${title.toLowerCase()}.`,
-      why: "The sentence needs a correct verb structure so it sounds complete.",
+      why: "The sentence needs a complete verb structure.",
     },
     {
-      wrong: `I don't know explain this clearly.`,
-      right: `I don't know how to explain this clearly.`,
-      why: "Use how to after don't know when talking about ability to explain something.",
+      wrong: "I don't know explain this clearly.",
+      right: "I don't know how to explain this clearly.",
+      why: "Use how to after don't know when talking about ability.",
     },
     {
-      wrong: `Please correct my sentence and I repeat again.`,
-      right: `Please correct my sentence, and I will rewrite the improved version.`,
-      why: "Use will for the next action and include the object it.",
+      wrong: "I will correct sentence.",
+      right: "I will correct the sentence.",
+      why: "Use the before a specific known noun.",
     },
   ];
 }
@@ -55,9 +56,9 @@ export function buildGeneratedSubsectionContent(subsectionId: string): Curriculu
     subsectionId,
     ruleSummary: `Practise ${title.toLowerCase()} for clear spoken English in the ${moduleTitle} module.`,
     explanation: {
-      Beginner: `In this lesson, you will practise ${title.toLowerCase()} using short, complete sentences. Sky should correct one important mistake at a time and ask you to rewrite the better version in chat mode or repeat it in live mode.`,
-      Intermediate: `In this lesson, you will practise ${title.toLowerCase()} with more natural sentence structure, clearer vocabulary, and better spoken flow. Sky should correct mistakes and keep the lesson on this exact skill.`,
-      Advanced: `In this lesson, you will practise ${title.toLowerCase()} with precision, professional tone, concise phrasing, and natural spoken rhythm. Sky should push for stronger wording and clearer structure.`,
+      Beginner: `Practise ${title.toLowerCase()} using short, complete sentences. Sky should correct one important mistake at a time.`,
+      Intermediate: `Practise ${title.toLowerCase()} with natural sentence structure, clearer vocabulary, and better spoken flow.`,
+      Advanced: `Practise ${title.toLowerCase()} with precision, professional tone, concise phrasing, and natural rhythm.`,
     },
     examples: generatedExamples(title, moduleTitle),
     commonMistakes: generatedMistakes(title),
@@ -65,19 +66,19 @@ export function buildGeneratedSubsectionContent(subsectionId: string): Curriculu
     activityTemplates: {
       drill: [
         `Make one sentence using ${title.toLowerCase()}.`,
-        `Rewrite the corrected version naturally.`,
-        `Make your sentence clearer and more complete.`,
+        "Rewrite the corrected version naturally.",
+        "Make the sentence clearer and more complete.",
         `Answer one follow-up question about ${title.toLowerCase()}.`,
       ],
       roleplay: {
         scenario: `A focused practice for ${title}.`,
         learnerRole: `Answer in complete sentences using ${title.toLowerCase()}.`,
-        agentRole: "Stay inside the lesson, correct mistakes, ask for correction practice, and advance only when the learner is ready.",
+        agentRole: "Stay inside the lesson, correct mistakes, and guide one small practice step at a time.",
       },
     },
     successCriteria: [
       `Learner produces at least two complete sentences related to ${title.toLowerCase()}.`,
-      "Learner rewrites one corrected sentence naturally.",
+      "Learner improves one corrected sentence naturally.",
       "Learner shows improvement after correction.",
     ],
     homework: `Practise three sentences using ${title.toLowerCase()} and save the best corrected version.`,
@@ -85,11 +86,11 @@ export function buildGeneratedSubsectionContent(subsectionId: string): Curriculu
 }
 
 export function getTeachingContent(subsectionId: string): CurriculumSubsectionContent {
-  return getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || getGrammarForSpeakingContent(subsectionId) || buildDetailedScaffoldContent(subsectionId) || buildGeneratedSubsectionContent(subsectionId);
+  return getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || getGrammarForSpeakingContent(subsectionId) || getDailyLifeEnglishContent(subsectionId) || buildDetailedScaffoldContent(subsectionId) || buildGeneratedSubsectionContent(subsectionId);
 }
 
 export function isHandAuthoredContent(subsectionId: string) {
-  return Boolean(getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || getGrammarForSpeakingContent(subsectionId));
+  return Boolean(getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || getGrammarForSpeakingContent(subsectionId) || getDailyLifeEnglishContent(subsectionId));
 }
 
 export function contentLevel(level: string): ContentLevel {
