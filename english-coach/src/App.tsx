@@ -4,7 +4,7 @@ import { dbg } from "./lib/debug";
 import { onAuthStateChanged, User as FirebaseUser } from "firebase/auth";
 import AuthScreen from "./components/AuthScreen";
 import ProfileSelector from "./components/ProfileSelector";
-import InteractiveCoach from "./components/InteractiveCoach";
+import LiveFirstCoach from "./components/LiveFirstCoach";
 import { Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -103,8 +103,8 @@ export default function App() {
             <ProfileSelector activeProfile={profileDisplayName || "Student"} email={currentUser.email} onSelect={setActiveProfile} highContrast={highContrast} onSignOut={handleSignOut} />
           </motion.div>
         ) : (
-          <motion.div key="coach" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <InteractiveCoach user={currentUser} userProfile={userProfile} onSignOut={handleSignOut} highContrast={highContrast} onToggleHighContrast={handleToggleHighContrast} activeProfile={activeProfile} profileDisplayName={profileDisplayName} />
+          <motion.div key="live-first-coach" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <LiveFirstCoach user={currentUser} userProfile={userProfile} onSignOut={handleSignOut} activeProfile={activeProfile} profileDisplayName={profileDisplayName} />
           </motion.div>
         )}
       </AnimatePresence>
