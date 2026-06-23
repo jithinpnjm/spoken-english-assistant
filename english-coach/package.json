@@ -24,7 +24,8 @@
     "check:professional-content": "tsx scripts/check-professional-content.ts",
     "check:review-engine": "tsx scripts/check-review-engine.ts",
     "check:review-mastery": "tsx scripts/check-review-mastery.ts",
-    "check:server-hardening": "tsx scripts/check-server-hardening.ts"
+    "check:server-hardening": "tsx scripts/check-server-hardening.ts",
+    "check:grammar-content": "tsx scripts/check-grammar-content.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
