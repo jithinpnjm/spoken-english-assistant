@@ -2,6 +2,7 @@ import { getCurriculumSubsection, findModuleForSubsection, type CurriculumSubsec
 import { getPilotPastTenseContent, type CurriculumSubsectionContent, type ContentLevel } from "./pilotPastTenseContent";
 import { getWorkplaceEnglishContent } from "./workplaceEnglishContent";
 import { getFoundationEnglishContent } from "./foundationEnglishContent";
+import { getProfessionalEnglishContent } from "./professionalEnglishContent";
 import { buildDetailedScaffoldContent } from "./detailedScaffoldContent";
 
 function friendlyTitle(subsection: CurriculumSubsection) {
@@ -83,11 +84,11 @@ export function buildGeneratedSubsectionContent(subsectionId: string): Curriculu
 }
 
 export function getTeachingContent(subsectionId: string): CurriculumSubsectionContent {
-  return getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || buildDetailedScaffoldContent(subsectionId) || buildGeneratedSubsectionContent(subsectionId);
+  return getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId) || buildDetailedScaffoldContent(subsectionId) || buildGeneratedSubsectionContent(subsectionId);
 }
 
 export function isHandAuthoredContent(subsectionId: string) {
-  return Boolean(getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId));
+  return Boolean(getPilotPastTenseContent(subsectionId) || getFoundationEnglishContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || getProfessionalEnglishContent(subsectionId));
 }
 
 export function contentLevel(level: string): ContentLevel {
