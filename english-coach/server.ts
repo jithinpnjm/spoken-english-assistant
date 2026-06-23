@@ -9,53 +9,46 @@ import { startLevelTrack, startModule, startSubsection } from "./src/server/curr
 import { productModes, productTracks, productionCurriculumSummary } from "./src/server/productionTaxonomy";
 import { installRealtimeBridge } from "./src/server/installRealtimeBridge";
 import { createCursorCoachHandler } from "./src/server/cursorCoachHandler";
+import { apiRequestLogger, asyncHandler, errorHandler, getRuntimeConfig, logRuntimeValidation, requireApiAuth, validateAudioPayload } from "./src/server/serverHardening";
 
 dotenv.config();
+
+const runtimeConfig = getRuntimeConfig();
+logRuntimeValidation(runtimeConfig);
 
 const app = express();
 const server = http.createServer(app);
 installRealtimeBridge(server);
-const PORT = Number(process.env.PORT || 3000);
+const PORT = runtimeConfig.port;
 
 app.use(express.json({ limit: "10mb" }));
-
-app.use((req, _res, next) => {
-  if (req.path.startsWith("/api/")) console.log(`[Server] ${req.method} ${req.path} — ${new Date().toISOString()}`);
-  next();
-});
+app.use(apiRequestLogger);
 
 const apiKey = process.env.GEMINI_API_KEY;
-if (!apiKey) console.warn("WARNING: GEMINI_API_KEY is not defined. Gemini features will fail.");
-
 const ai = new GoogleGenAI({
   apiKey: apiKey || "",
   httpOptions: { headers: { "User-Agent": "english-coach-cursor-engine" } },
 });
 
-app.post("/api/transcribe", async (req: express.Request, res: express.Response) => {
-  try {
-    const { audioBase64, mimeType = "audio/webm" } = req.body;
-    if (!audioBase64) return res.status(400).json({ error: "audioBase64 is required" });
+const apiAuth = requireApiAuth(runtimeConfig);
 
-    const response = await ai.models.generateContent({
-      model: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
-      contents: [{ parts: [
-        { text: "Transcribe this audio exactly as spoken. Return only the spoken words, nothing else. No punctuation corrections, no summaries." },
-        { inlineData: { mimeType, data: audioBase64 } }
-      ] }]
-    });
-    const transcript = response.text?.trim() || "";
-    console.log(`[Server] /api/transcribe OK — transcript: "${transcript.slice(0, 80)}"`);
-    return res.json({ transcript });
-  } catch (err: any) {
-    console.error("[Server] Transcribe error:", err?.message || err);
-    return res.status(500).json({ error: err.message || "Transcription failed" });
-  }
-});
+app.post("/api/transcribe", apiAuth, validateAudioPayload(runtimeConfig.maxAudioBase64Bytes), asyncHandler(async (req: express.Request, res: express.Response) => {
+  const { audioBase64, mimeType = "audio/webm" } = req.body;
+  const response = await ai.models.generateContent({
+    model: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
+    contents: [{ parts: [
+      { text: "Transcribe this audio exactly as spoken. Return only the spoken words, nothing else. No punctuation corrections, no summaries." },
+      { inlineData: { mimeType, data: audioBase64 } }
+    ] }]
+  });
+  const transcript = response.text?.trim() || "";
+  console.log(`[Server] /api/transcribe OK — transcript length: ${transcript.length}`);
+  return res.json({ transcript });
+}));
 
-app.post("/api/coach-interaction", createCursorCoachHandler(ai));
+app.post("/api/coach-interaction", apiAuth, createCursorCoachHandler(ai));
 
-app.get("/api/curriculum", (_req: express.Request, res: express.Response) => {
+app.get("/api/curriculum", apiAuth, (_req: express.Request, res: express.Response) => {
   return res.json({
     stats: curriculumStats,
     courses: curriculumCourses,
@@ -67,21 +60,16 @@ app.get("/api/curriculum", (_req: express.Request, res: express.Response) => {
   });
 });
 
-app.post("/api/curriculum/start", async (req: express.Request, res: express.Response) => {
-  try {
-    const { learnerId, levelBand, moduleId, subsectionId, sessionDay } = req.body;
-    if (!learnerId) return res.status(400).json({ error: "learnerId is required" });
-    const cursor = subsectionId
-      ? await startSubsection({ learnerId, subsectionId, sessionDay })
-      : moduleId
-        ? await startModule({ learnerId, moduleId, sessionDay })
-        : await startLevelTrack({ learnerId, levelBand: levelBand || "Intermediate", sessionDay });
-    return res.json({ cursor });
-  } catch (err: any) {
-    console.error("[Server] curriculum start error:", err?.message || err);
-    return res.status(500).json({ error: err.message || "Unable to start curriculum item" });
-  }
-});
+app.post("/api/curriculum/start", apiAuth, asyncHandler(async (req: express.Request, res: express.Response) => {
+  const { learnerId, levelBand, moduleId, subsectionId, sessionDay } = req.body;
+  if (!learnerId) return res.status(400).json({ error: "learnerId is required" });
+  const cursor = subsectionId
+    ? await startSubsection({ learnerId, subsectionId, sessionDay })
+    : moduleId
+      ? await startModule({ learnerId, moduleId, sessionDay })
+      : await startLevelTrack({ learnerId, levelBand: levelBand || "Intermediate", sessionDay });
+  return res.json({ cursor });
+}));
 
 app.get("/api/config", (_req: express.Request, res: express.Response) => {
   return res.json({
@@ -90,8 +78,11 @@ app.get("/api/config", (_req: express.Request, res: express.Response) => {
     browserCredentialExposed: false,
     directBrowserLiveDeprecated: true,
     audioBridgePath: "/api/audio-bridge",
+    requireApiAuth: runtimeConfig.requireApiAuth,
   });
 });
+
+app.use(errorHandler);
 
 async function bootstrap() {
   if (process.env.NODE_ENV !== "production") {
