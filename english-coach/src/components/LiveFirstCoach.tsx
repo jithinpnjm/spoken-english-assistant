@@ -21,12 +21,13 @@ function levelToBand(level: ProficiencyLevel): "Beginner" | "Intermediate" | "Ad
 }
 
 export default function LiveFirstCoach({ user, userProfile, onSignOut, activeProfile, profileDisplayName }: LiveFirstCoachProps) {
-  const [level] = useState<ProficiencyLevel>((userProfile?.level as ProficiencyLevel) || "Intermediate");
+  const [level, setLevel] = useState<ProficiencyLevel>((userProfile?.level as ProficiencyLevel) || "Intermediate");
   const [mode] = useState<CoachMode>("balanced");
   const [learnerProfile, setLearnerProfile] = useState<LearnerProfile | null>(null);
   const [courses, setCourses] = useState<CurriculumCourseView[]>([]);
   const [tracks, setTracks] = useState<ProductTrackView[]>([]);
   const [selectedTrackId, setSelectedTrackId] = useState("");
+  const [selectedModuleId, setSelectedModuleId] = useState("");
   const [cursor, setCursor] = useState<LessonCursorView | null>(null);
   const [sessions, setSessions] = useState<CoachSession[]>([]);
   const [activeSession, setActiveSession] = useState<CoachSession | null>(null);
@@ -82,7 +83,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
       const started = await startCurriculum({ learnerId: activeProfile, levelBand: levelToBand(level), sessionDay: profile?.challengeDay || 1 });
       setCursor(started.cursor);
     } catch (err: any) {
-      setError(err.message || "Failed to load Live-first learning view.");
+      setError(err.message || "Failed to load. Please refresh.");
     }
   }
 
@@ -96,7 +97,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
       title,
       createdAt: now,
       updatedAt: now,
-      mode: "speaking",
+      mode: "live_voice",
       profileId: activeProfile,
       activityType: "live_lesson",
       challengeDay: learnerProfile?.challengeDay || 1,
@@ -115,43 +116,49 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
     await live.connect(profileDisplayName, level, context, mode);
   }
 
-  function stopLive() {
-    live.stopClient();
-  }
+  function stopLive() { live.stopClient(); }
 
-  async function changeTopic() {
+  async function selectTopic(subsectionId: string) {
     setError(null);
-    const trackModuleId = selectedTrack?.moduleIds?.[0];
     try {
-      const next = trackModuleId
-        ? await startCurriculum({ learnerId: activeProfile, moduleId: trackModuleId, sessionDay: learnerProfile?.challengeDay || 1 })
-        : await startCurriculum({ learnerId: activeProfile, levelBand: levelToBand(level), sessionDay: learnerProfile?.challengeDay || 1 });
+      const next = await startCurriculum({
+        learnerId: activeProfile,
+        subsectionId,
+        sessionDay: learnerProfile?.challengeDay || 1,
+      });
       setCursor(next.cursor);
       await createLiveSession();
     } catch (err: any) {
-      setError(err.message || "Failed to change topic.");
+      setError(err.message || "Failed to open topic.");
     }
   }
 
   return (
     <div className="relative">
       <div className="absolute right-4 top-4 z-10 flex items-center gap-3">
-        {error && <span className="max-w-md rounded-xl border border-red-500/30 bg-red-950/80 px-3 py-2 text-xs text-red-100">{error}</span>}
-        {live.error && <span className="max-w-md rounded-xl border border-red-500/30 bg-red-950/80 px-3 py-2 text-xs text-red-100">{live.error}</span>}
-        <button onClick={onSignOut} className="rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-xs font-semibold text-slate-100 hover:bg-white/15 flex items-center gap-2"><LogOut className="h-4 w-4" /> Sign out</button>
+        {error && <span className="max-w-xs rounded-xl border border-red-500/30 bg-red-950/90 px-3 py-2 text-xs text-red-100">{error}</span>}
+        {live.error && <span className="max-w-xs rounded-xl border border-red-500/30 bg-red-950/90 px-3 py-2 text-xs text-red-100">{live.error}</span>}
+        <button onClick={onSignOut} className="rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-xs font-semibold text-slate-100 hover:bg-white/15 flex items-center gap-2">
+          <LogOut className="h-4 w-4" /> Sign out
+        </button>
       </div>
       <LiveFirstLearningShell
         learnerName={profileDisplayName}
         courses={courses}
+        tracks={tracks}
         cursor={cursor}
-        selectedTrack={selectedTrack}
         sessions={sessions}
         messages={messages}
         isLiveActive={live.isConnected}
-        isBusy={false}
+        selectedLevel={levelToBand(level)}
+        selectedTrackId={selectedTrackId}
+        selectedModuleId={selectedModuleId}
+        onSelectLevel={(l) => setLevel(l)}
+        onSelectTrack={setSelectedTrackId}
+        onSelectModule={setSelectedModuleId}
+        onSelectTopic={selectTopic}
         onStartLive={startLive}
         onStopLive={stopLive}
-        onChangeTopic={changeTopic}
       />
     </div>
   );

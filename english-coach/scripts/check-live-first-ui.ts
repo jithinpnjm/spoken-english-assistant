@@ -48,6 +48,7 @@ const cursor: LessonCursorView = {
   status: "in_progress",
   lastActiveAt: "2026-01-01T10:00:00.000Z",
   sessionDay: 1,
+  phaseSummary: "",
 };
 
 const sessions: CoachSession[] = [
