@@ -1,8 +1,13 @@
 import { useMemo, useState } from "react";
-import { Mic, Radio, StopCircle, Volume2 } from "lucide-react";
+import { Mic, Radio, StopCircle, Volume2, BookOpen, GraduationCap } from "lucide-react";
 import type { CoachMessage, CoachSession } from "../types";
 import type { CurriculumCourseView, LessonCursorView, ProductTrackView } from "../lib/curriculumClient";
 import { buildTopicProgress, topicProgressSummary } from "../lib/topicProgress";
+import type { VocabWord } from "../lib/vocabularyBank";
+import type { VocabPracticeMode } from "../lib/dailyVocabulary";
+import VocabularyPanel from "./VocabularyPanel";
+
+type ShellTab = "lesson" | "vocabulary";
 
 interface LiveFirstLearningShellProps {
   learnerName: string;
@@ -21,6 +26,10 @@ interface LiveFirstLearningShellProps {
   onSelectTopic: (subsectionId: string) => void;
   onStartLive: () => void;
   onStopLive: () => void;
+  dailyVocabWords: VocabWord[];
+  vocabSetIndex: number;
+  onStartVocabPractice: (words: VocabWord[], mode: VocabPracticeMode) => void;
+  onMarkVocabComplete: () => void;
 }
 
 const LEVELS: Array<"Beginner" | "Intermediate" | "Advanced"> = ["Beginner", "Intermediate", "Advanced"];
@@ -37,6 +46,7 @@ const phaseLabels: Record<string, string> = {
 
 export default function LiveFirstLearningShell(props: LiveFirstLearningShellProps) {
   const [search, setSearch] = useState("");
+  const [activeTab, setActiveTab] = useState<ShellTab>("lesson");
 
   const selectedTrack = props.tracks.find((t) => t.id === props.selectedTrackId) || props.tracks[0] || null;
 
@@ -90,8 +100,33 @@ export default function LiveFirstLearningShell(props: LiveFirstLearningShellProp
           </button>
         </header>
 
+        {/* Tab bar */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => setActiveTab("lesson")}
+            className={`flex items-center gap-2 rounded-2xl border px-5 py-2.5 text-sm font-semibold transition-colors ${
+              activeTab === "lesson"
+                ? "border-cyan-400/60 bg-cyan-600/20 text-cyan-200"
+                : "border-white/10 bg-white/5 text-slate-400 hover:bg-white/10"
+            }`}
+          >
+            <GraduationCap className="h-4 w-4" /> Lesson
+          </button>
+          <button
+            onClick={() => setActiveTab("vocabulary")}
+            className={`flex items-center gap-2 rounded-2xl border px-5 py-2.5 text-sm font-semibold transition-colors ${
+              activeTab === "vocabulary"
+                ? "border-indigo-400/60 bg-indigo-600/20 text-indigo-200"
+                : "border-white/10 bg-white/5 text-slate-400 hover:bg-white/10"
+            }`}
+          >
+            <BookOpen className="h-4 w-4" /> Vocabulary
+            <span className="ml-1 rounded-full bg-indigo-500/30 px-2 py-0.5 text-[10px] text-indigo-300">{props.dailyVocabWords.length} words</span>
+          </button>
+        </div>
+
         {/* Current lesson status */}
-        {props.cursor && (
+        {activeTab === "lesson" && props.cursor && (
           <div className="rounded-3xl border border-cyan-400/20 bg-cyan-500/10 p-4 flex flex-col md:flex-row md:items-center gap-4">
             <div className="flex-1">
               <p className="text-xs uppercase tracking-widest text-cyan-300">Now teaching</p>
@@ -113,7 +148,49 @@ export default function LiveFirstLearningShell(props: LiveFirstLearningShellProp
           </div>
         )}
 
-        <div className="grid md:grid-cols-2 gap-5">
+        {/* Vocabulary tab */}
+        {activeTab === "vocabulary" && (
+          <div className="grid md:grid-cols-2 gap-5">
+            <VocabularyPanel
+              words={props.dailyVocabWords}
+              level={props.selectedLevel}
+              isLiveActive={props.isLiveActive}
+              setIndex={props.vocabSetIndex}
+              onStartPractice={props.onStartVocabPractice}
+              onMarkComplete={props.onMarkVocabComplete}
+            />
+            {/* Right: live transcript during vocab practice */}
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-emerald-200 font-bold">Live transcript</p>
+                    <p className="text-[11px] text-slate-400">What Sky says during vocabulary practice.</p>
+                  </div>
+                  <Radio className={`h-5 w-5 ${props.isLiveActive ? "text-emerald-300 animate-pulse" : "text-slate-500"}`} />
+                </div>
+                <div className="max-h-96 overflow-y-auto rounded-xl border border-white/10 bg-black/20 p-3 space-y-2">
+                  {liveMessages.length === 0 ? (
+                    <p className="text-xs text-slate-400 text-center py-4">
+                      {props.isLiveActive ? "Listening — Sky's replies will appear here." : "Choose a practice mode and start. Sky's spoken replies will appear here."}
+                    </p>
+                  ) : (
+                    liveMessages.slice(-15).map((m) => (
+                      <div key={m.messageId} className="rounded-xl border border-white/10 bg-white/5 p-3">
+                        <p className="flex items-center gap-1 text-[10px] uppercase tracking-wider text-emerald-200 mb-1">
+                          <Volume2 className="h-3 w-3" /> Sky said
+                        </p>
+                        <p className="text-xs leading-relaxed text-slate-100">{m.text}</p>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "lesson" && <div className="grid md:grid-cols-2 gap-5">
 
           {/* Left: pickers */}
           <div className="space-y-4">
@@ -271,7 +348,7 @@ export default function LiveFirstLearningShell(props: LiveFirstLearningShellProp
             </div>
 
           </div>
-        </div>
+        </div>}
 
       </div>
     </div>

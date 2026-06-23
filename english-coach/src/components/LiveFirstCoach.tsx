@@ -4,6 +4,8 @@ import { fetchLearnerProfile, fetchSessionMessages, fetchUserSessions, saveSessi
 import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
 import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductTrackView } from "../lib/curriculumClient";
 import { buildLiveLessonContext } from "../lib/liveLessonContext";
+import { getDailyWords, buildVocabLiveContext, totalVocabSets, type VocabPracticeMode } from "../lib/dailyVocabulary";
+import type { VocabWord } from "../lib/vocabularyBank";
 import type { CoachMessage, CoachMode, CoachSession, LearnerProfile, ProficiencyLevel } from "../types";
 import LiveFirstLearningShell from "./LiveFirstLearningShell";
 
@@ -33,6 +35,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
   const [activeSession, setActiveSession] = useState<CoachSession | null>(null);
   const [messages, setMessages] = useState<CoachMessage[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [vocabSetIndex, setVocabSetIndex] = useState(0);
   const activeSessionRef = useRef<CoachSession | null>(null);
 
   useEffect(() => { activeSessionRef.current = activeSession; }, [activeSession]);
@@ -118,6 +121,34 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
 
   function stopLive() { live.stopClient(); }
 
+  async function startVocabPractice(words: VocabWord[], practiceMode: VocabPracticeMode) {
+    setError(null);
+    const band = levelToBand(level);
+    const sess: CoachSession = {
+      sessionId: `sess_vocab_${Date.now()}`,
+      userId: user.uid,
+      userName: profileDisplayName,
+      title: `Vocabulary: ${practiceMode.replace(/_/g, " ")} · ${band}`,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      mode: "live_voice",
+      profileId: activeProfile,
+      activityType: "live_lesson",
+      challengeDay: learnerProfile?.challengeDay || 1,
+    };
+    await saveSession(sess);
+    setSessions((prev) => [sess, ...prev]);
+    setActiveSession(sess);
+    setMessages([]);
+    const context = buildVocabLiveContext(words, practiceMode, band);
+    await live.connect(profileDisplayName, level, context, mode);
+  }
+
+  function markVocabComplete() {
+    const maxSets = totalVocabSets();
+    setVocabSetIndex((prev) => (prev + 1) % maxSets);
+  }
+
   async function selectTopic(subsectionId: string) {
     setError(null);
     try {
@@ -159,6 +190,10 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
         onSelectTopic={selectTopic}
         onStartLive={startLive}
         onStopLive={stopLive}
+        dailyVocabWords={getDailyWords(levelToBand(level), learnerProfile?.challengeDay || 1, vocabSetIndex)}
+        vocabSetIndex={vocabSetIndex}
+        onStartVocabPractice={startVocabPractice}
+        onMarkVocabComplete={markVocabComplete}
       />
     </div>
   );
