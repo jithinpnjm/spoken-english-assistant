@@ -1,10 +1,29 @@
 import type { CurriculumPhase } from "./curriculumRegistry";
+import type { LessonCursor } from "./lessonCursorTypes";
 
-export function phaseTeachingPolicy(phase: CurriculumPhase, interactionMode: "chat" | "live" = "chat") {
+export function phaseTeachingPolicy(phase: CurriculumPhase, interactionMode: "chat" | "live" = "chat", cursor?: LessonCursor) {
   const learnerAction = interactionMode === "live" ? "say" : "type";
   const repeatAction = interactionMode === "live" ? "repeat aloud" : "rewrite in chat";
 
+  const alreadyTaught = cursor?.status === "awaiting_learner_attempt" || Boolean(cursor?.lastTeacherAction);
   const common = `Do not test before teaching. Do not ask the learner to produce the target structure until you have explained and modeled it.`;
+
+  if (alreadyTaught) {
+    switch (phase) {
+      case "intro":
+        return `INTRO FOLLOW-UP: The intro mini class has already been delivered. Do not repeat the whole lesson opening. Evaluate the learner's recognition/check answer briefly, give the correct answer if needed, and set advancePhase true so the backend moves to model phase.`;
+      case "model":
+        return `MODEL FOLLOW-UP: The model examples have already been delivered. Do not repeat all examples. Briefly confirm the learner noticed the pattern, then set advancePhase true so the backend moves to controlled practice.`;
+      case "controlled_practice":
+        return `CONTROLLED PRACTICE FOLLOW-UP: Evaluate the learner's guided answer. If there is an error, correct it and set advancePhase true so the backend moves to correction phase.`;
+      case "correction":
+        return `CORRECTION FOLLOW-UP: The correction has been given. Ask the learner to ${repeatAction} the corrected sentence and set advancePhase true when ready.`;
+      case "repeat":
+        return `REPEAT FOLLOW-UP: Check the rewritten/repeated sentence briefly. If it matches the correction well enough, set advancePhase true so the backend moves to free practice.`;
+      default:
+        return common;
+    }
+  }
 
   switch (phase) {
     case "intro":

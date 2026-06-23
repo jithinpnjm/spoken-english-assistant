@@ -21,6 +21,7 @@ export interface LessonCursor {
   lastActiveAt: string;
   sessionDay: number;
   phaseSummary: string;
+  lastTeacherAction?: "taught_intro" | "taught_model" | "asked_guided_practice" | "corrected_attempt" | "asked_rewrite" | "started_free_practice" | "summarized";
 }
 
 export const LESSON_PHASE_ORDER: CurriculumPhase[] = [

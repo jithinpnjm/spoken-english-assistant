@@ -79,6 +79,39 @@ export function popDigression(cursor: LessonCursor, now = new Date().toISOString
   };
 }
 
+function teacherActionForPhase(phase: CurriculumPhase): LessonCursor["lastTeacherAction"] {
+  switch (phase) {
+    case "intro": return "taught_intro";
+    case "model": return "taught_model";
+    case "controlled_practice": return "asked_guided_practice";
+    case "correction": return "corrected_attempt";
+    case "repeat": return "asked_rewrite";
+    case "free_practice": return "started_free_practice";
+    case "summary": return "summarized";
+    default: return undefined;
+  }
+}
+
+export function markTeacherDeliveredPhase(cursor: LessonCursor, now = new Date().toISOString()): LessonCursor {
+  return {
+    ...cursor,
+    turnsAtPhase: Math.max(cursor.turnsAtPhase, 1),
+    status: "awaiting_learner_attempt",
+    lastTeacherAction: teacherActionForPhase(cursor.phase),
+    lastActiveAt: now,
+  };
+}
+
+export function shouldAdvanceAfterLearnerReply(cursor: LessonCursor, messageType: LessonMessageType, requestedAdvance: boolean) {
+  if (messageType === "learner_question") return false;
+  if (requestedAdvance) return true;
+  if (cursor.phase === "intro" && cursor.lastTeacherAction === "taught_intro") return true;
+  if (cursor.phase === "model" && cursor.lastTeacherAction === "taught_model") return true;
+  if (cursor.phase === "controlled_practice" && messageType === "learner_attempt") return true;
+  if (cursor.phase === "repeat" && messageType === "learner_attempt") return true;
+  return false;
+}
+
 export function moveCursorAfterTurn(args: {
   cursor: LessonCursor;
   messageType: LessonMessageType;
@@ -87,10 +120,11 @@ export function moveCursorAfterTurn(args: {
 }): LessonCursor {
   const now = args.now || new Date().toISOString();
   const cursor = args.cursor;
-  if (args.messageType === "learner_question") return cursor;
+  if (args.messageType === "learner_question") return { ...cursor, lastActiveAt: now };
 
-  const turnsAtPhase = args.messageType === "learner_attempt" ? cursor.turnsAtPhase + 1 : cursor.turnsAtPhase;
-  if (!args.advancePhase) return { ...cursor, turnsAtPhase, status: "awaiting_learner_attempt", lastActiveAt: now };
+  const turnsAtPhase = args.messageType === "learner_attempt" ? cursor.turnsAtPhase + 1 : Math.max(cursor.turnsAtPhase, 1);
+  const shouldAdvance = shouldAdvanceAfterLearnerReply(cursor, args.messageType, args.advancePhase);
+  if (!shouldAdvance) return { ...cursor, turnsAtPhase, status: "awaiting_learner_attempt", lastActiveAt: now };
 
   const nextPhase = getNextPhase(cursor.phase);
   if (nextPhase) {
@@ -99,13 +133,14 @@ export function moveCursorAfterTurn(args: {
       phase: nextPhase,
       turnsAtPhase: 0,
       status: "in_progress",
+      lastTeacherAction: undefined,
       lastActiveAt: now,
       phaseSummary: `Completed ${cursor.phase}; moving to ${nextPhase}.`,
     };
   }
 
   const nextSubsection = getNextSubsection(cursor.subsectionId);
-  if (!nextSubsection) return { ...cursor, turnsAtPhase, status: "completed", lastActiveAt: now, phaseSummary: "Completed the final subsection." };
+  if (!nextSubsection) return { ...cursor, turnsAtPhase, status: "completed", lastActiveAt: now, phaseSummary: "Completed the final lesson." };
 
   const module = findModuleForSubsection(nextSubsection.id);
   const course = findCourseForSubsection(nextSubsection.id);
@@ -119,6 +154,7 @@ export function moveCursorAfterTurn(args: {
     phase: "intro",
     turnsAtPhase: 0,
     status: "in_progress",
+    lastTeacherAction: undefined,
     lastActiveAt: now,
     phaseSummary: `Starting ${nextSubsection.title}.`,
   };
