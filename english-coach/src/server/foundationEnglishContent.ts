@@ -24,7 +24,7 @@ const foundationSpecs: FoundationModuleSpec[] = [
     meaning: "Pronunciation is not about sounding native. It is about being understandable, using clear sounds, stress, pauses, and question melody.",
     pattern: "Listen -> notice one sound/stress point -> say a short chunk -> repeat the improved version.",
     situations: ["spelling your name", "asking questions", "repeating a sentence", "saying common daily words clearly"],
-    examples: ["My name is Sandra.", "Could you repeat that, please?", "I live in Berlin.", "Where is the station?", "I need a little time."],
+    examples: ["My name is Alex.", "Could you repeat that, please?", "I live in Berlin.", "Where is the station?", "I need a little time."],
     mistakes: [
       { wrong: "I speak fast for fluent.", right: "I speak clearly to sound fluent.", why: "Fluency is clarity plus rhythm, not speed." },
       { wrong: "I no pause.", right: "I need to pause between ideas.", why: "Use need to and practise natural pauses." },
@@ -56,14 +56,14 @@ const foundationSpecs: FoundationModuleSpec[] = [
     meaning: "The be verb connects a person or thing to identity, place, feeling, age, job, or description.",
     pattern: "I am / You are / He is / She is / It is / We are / They are + information.",
     situations: ["self-introduction", "family details", "jobs", "nationality", "where someone is"],
-    examples: ["I am Sandra.", "She is my daughter.", "We are from India.", "He is an engineer.", "They are at home."],
+    examples: ["I am a learner.", "She is my friend.", "We are from India.", "He is an engineer.", "They are at home."],
     mistakes: [
-      { wrong: "I Sandra.", right: "I am Sandra.", why: "English needs a verb. Use am after I." },
-      { wrong: "She are my wife.", right: "She is my wife.", why: "Use is with she." },
+      { wrong: "I Alex.", right: "I am Alex.", why: "English needs a verb. Use am after I." },
+      { wrong: "She are my friend.", right: "She is my friend.", why: "Use is with she." },
       { wrong: "They is at home.", right: "They are at home.", why: "Use are with they." },
     ],
     drillFrame: "Complete the sentence: I am ___ / She is ___ / They are ___.",
-    roleplayScenario: "Learner introduces herself and family using be verbs correctly.",
+    roleplayScenario: "Learner introduces themself and family using be verbs correctly.",
   },
   {
     moduleId: "b04-basic-sentence-order",
@@ -76,7 +76,7 @@ const foundationSpecs: FoundationModuleSpec[] = [
     mistakes: [
       { wrong: "I coffee drink.", right: "I drink coffee.", why: "English usually uses subject + verb + object." },
       { wrong: "Very good this food.", right: "This food is very good.", why: "Use subject + be verb + adjective." },
-      { wrong: "My husband working.", right: "My husband is working.", why: "Present continuous needs is/are/am + verb-ing." },
+      { wrong: "My friend working.", right: "My friend is working.", why: "Present continuous needs is/are/am + verb-ing." },
     ],
     drillFrame: "Make one sentence with: subject + verb + object/place/time.",
     roleplayScenario: "Teacher gives broken sentences and learner repairs them into natural English order.",
@@ -168,7 +168,7 @@ const foundationSpecs: FoundationModuleSpec[] = [
     meaning: "Everyday functions are sentence patterns we use to do something: greet, ask, order, book, explain, or respond.",
     pattern: "Polite starter + clear request/information. Example: Could I have...? / I would like... / Can you help me...?",
     situations: ["introductions", "asking for help", "directions", "ordering food", "shopping", "appointments", "doctor visit"],
-    examples: ["Could you help me, please?", "I would like a coffee.", "How much is this?", "I need an appointment.", "I have a stomach pain."],
+    examples: ["Could you help me, please?", "I would like a coffee.", "How much is this?", "I need an appointment.", "I have stomach pain."],
     mistakes: [
       { wrong: "Give me coffee.", right: "Could I have a coffee, please?", why: "Use polite request language in service situations." },
       { wrong: "Where station?", right: "Where is the station?", why: "Use a complete question with is." },
@@ -184,9 +184,9 @@ const foundationSpecs: FoundationModuleSpec[] = [
     meaning: "Beginner fluency means speaking in short, clear chunks without stopping after every word.",
     pattern: "Main idea -> one detail -> one example. Use simple connectors: and, but, because, then.",
     situations: ["self-introduction", "family", "home", "work", "food", "travel", "weather"],
-    examples: ["My name is Sandra, and I live in Berlin.", "I have one child, and she is small.", "I like Indian food because it is tasty.", "I work at home today.", "The weather is cold, but I like walking."],
+    examples: ["My name is Alex, and I live in Berlin.", "I have a small family.", "I like Indian food because it is tasty.", "I work at home today.", "The weather is cold, but I like walking."],
     mistakes: [
-      { wrong: "Myself Sandra.", right: "My name is Sandra.", why: "Use My name is for self-introduction." },
+      { wrong: "Myself Alex.", right: "My name is Alex.", why: "Use My name is for self-introduction." },
       { wrong: "I am having one child.", right: "I have one child.", why: "Use have for family relationships." },
       { wrong: "I no words.", right: "I cannot find the right words.", why: "Use a natural sentence for speaking difficulty." },
     ],
