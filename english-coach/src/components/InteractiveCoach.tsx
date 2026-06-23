@@ -7,6 +7,9 @@ import { dbg } from "../lib/debug";
 import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
 import CurriculumProgressPanel from "./CurriculumProgressPanel";
 import ProductModePanel from "./ProductModePanel";
+import ContinueLessonCard from "./ContinueLessonCard";
+import LessonPhaseTimeline from "./LessonPhaseTimeline";
+import LessonEmptyState from "./LessonEmptyState";
 import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductModeView, type ProductTrackView } from "../lib/curriculumClient";
 
 interface InteractiveCoachProps {
@@ -85,6 +88,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   const todayActivity = generalPracticeActivities[dayIndex];
   const selectedTrack = productTracks.find((track) => track.id === selectedTrackId) || null;
   const selectedMode = productModes.find((item) => item.id === selectedProductMode) || null;
+  const hasConversationMessages = messages.some((item) => item.sender === "user" || item.sender === "coach");
 
   const ui = {
     bg: highContrast ? "bg-black text-white" : "bg-transparent text-slate-100",
@@ -181,6 +185,11 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     } finally {
       setCurriculumBusy(false);
     }
+  }
+
+  async function continueCurrentLesson() {
+    setSelectedProductMode("study");
+    await sendToCoach("continue", "chat", { type: "study", title: "Continue lesson", prompt: "continue" });
   }
 
   async function sendToCoach(text: string, source: "chat" | "live" = "chat", activity = todayActivity) {
@@ -292,6 +301,14 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
           onTrackChange={setSelectedTrackId}
         />
 
+        <ContinueLessonCard
+          courses={courses}
+          cursor={cursor}
+          selectedTrack={selectedTrack}
+          onContinue={continueCurrentLesson}
+          isBusy={isLoading}
+        />
+
         <CurriculumProgressPanel
           courses={courses}
           cursor={cursor}
@@ -305,6 +322,8 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
           isBusy={curriculumBusy}
         />
 
+        {cursor && <div className="mt-5"><LessonPhaseTimeline currentPhase={cursor.phase} /></div>}
+
         <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">General Practice</h2>
         <p className="text-[11px] text-slate-500 mb-2">Use this after study sessions for free talk, roleplay, warm-up, or review.</p>
         <div className="space-y-2">{generalPracticeActivities.map((a, i) => <button key={a.type} onClick={() => startActivity(a)} className={`w-full text-left p-3 rounded-xl border text-sm ${i === dayIndex ? "border-emerald-400/50 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10"}`}><span className="font-semibold">{a.title}</span><span className="block text-xs text-slate-400">{a.type}</span></button>)}</div>
@@ -316,6 +335,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
         <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-5">
           {error && <div className="p-4 rounded-xl text-sm border border-red-500/20 bg-red-500/10 text-red-300 flex gap-2"><AlertTriangle className="h-5 w-5" />{error}</div>}
           <div className="space-y-5 max-w-4xl mx-auto">
+            {!hasConversationMessages && <LessonEmptyState courses={courses} cursor={cursor} selectedModeTitle={selectedMode?.title} selectedTrack={selectedTrack} onContinue={continueCurrentLesson} />}
             {messages.map((item) => {
               const isCoach = item.sender === "coach" || item.sender === "system";
               return <div key={item.messageId} className={`flex flex-col ${isCoach ? "items-start" : "items-end"}`}><div className={`p-4 max-w-[86%] text-sm leading-relaxed ${isCoach ? ui.coach : ui.user}`}><p>{item.text}</p>{item.lessonStep && <p className="mt-2 text-[10px] text-cyan-200 border-t border-white/10 pt-2">Lesson: {item.lessonStep} · Phase: {item.teachingPhase}</p>}{isCoach && item.sender === "coach" && <button onClick={() => speak(item.text)} className="mt-2 pt-2 border-t border-white/10 text-xs text-indigo-300 flex gap-1"><Volume2 className="h-3 w-3" /> Read aloud</button>}</div>{item.grammarCorrection && item.grammarCorrection.trim() && <div className="mt-2 max-w-[86%] p-4 rounded-2xl border border-emerald-500/30 bg-emerald-950/20 text-sm"><p className="font-bold text-emerald-300 mb-1">Better sentence</p><p>{item.grammarCorrection}</p>{item.naturalVersion && <p className="mt-2 text-slate-300"><b>Natural:</b> {item.naturalVersion}</p>}{item.mistakes?.length ? <ul className="list-disc pl-5 mt-2 text-xs text-slate-300">{item.mistakes.map((m, i) => <li key={i}>{m.type}: {m.explanation}</li>)}</ul> : null}{item.microDrill?.instruction && <p className="mt-2 text-xs text-indigo-200">Drill: {item.microDrill.instruction}</p>}{typeof item.fluencyScore === "number" && <p className="mt-2 text-xs text-slate-400">Scores: Fluency {item.fluencyScore} · Grammar {item.grammarScore} · Vocabulary {item.vocabularyScore}</p>}</div>}</div>;
