@@ -32,7 +32,8 @@ export function createCursorCoachHandler(ai: any) {
       const name = userName || "Student";
       const learnerId = profileId || name.toLowerCase().replace(/[^a-z0-9_-]/g, "_") || "student";
       const now = new Date().toISOString();
-      const modeRule = interactionModeRule(interactionMode === "live" ? "live" : "chat");
+      const isLive = interactionMode === "live";
+      const modeRule = interactionModeRule(isLive ? "live" : "chat");
 
       let cursor = await getOrCreateLessonCursor({ learnerId, level, sessionDay: challengeDay || 1 });
       const resumeAfterBreak = isPreviousCalendarDay(cursor.lastActiveAt, now);
@@ -45,6 +46,7 @@ export function createCursorCoachHandler(ai: any) {
         mode: mode || "balanced",
         learnerMessage: messageText,
         mistakeMemoryText,
+        interactionMode: isLive ? "live" : "chat",
         resumeAfterBreak,
         resumeAfterDigression: cursor.digressionStack.length > 0,
       });
@@ -94,7 +96,7 @@ export function createCursorCoachHandler(ai: any) {
       }
       await saveLessonCursor(cursor);
 
-      const isChat = interactionMode !== "live";
+      const isChat = !isLive;
       const payload = {
         coachReply: parsed.teacherMessage || "Good. Continue with one complete sentence.",
         correctedSentence: parsed.correctedSentence || "",
