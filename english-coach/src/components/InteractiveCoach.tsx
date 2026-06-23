@@ -11,6 +11,7 @@ import ContinueLessonCard from "./ContinueLessonCard";
 import LessonPhaseTimeline from "./LessonPhaseTimeline";
 import LessonEmptyState from "./LessonEmptyState";
 import ReviewModePanel from "./ReviewModePanel";
+import LiveTranscriptPanel from "./LiveTranscriptPanel";
 import { buildReviewPrompt, type ReviewItem } from "../lib/reviewEngine";
 import { buildLiveLessonContext } from "../lib/liveLessonContext";
 import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductModeView, type ProductTrackView } from "../lib/curriculumClient";
@@ -58,12 +59,13 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   const [selectedTrackId, setSelectedTrackId] = useState("");
   const [cursor, setCursor] = useState<LessonCursorView | null>(null);
   const [selectedModuleId, setSelectedModuleId] = useState("");
+  const [selectedSubsectionId, setSelectedSubsectionId] = useState("");
   const [curriculumBusy, setCurriculumBusy] = useState(false);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const activeSessionRef = useRef<CoachSession | null>(null);
 
   useEffect(() => { activeSessionRef.current = activeSession; }, [activeSession]);
-  useEffect(() => { setSelectedModuleId(""); }, [level, selectedTrackId]);
+  useEffect(() => { setSelectedModuleId(""); setSelectedSubsectionId(""); }, [level, selectedTrackId]);
 
   const handleLiveMessage = useCallback((msg: { text?: string; interrupted?: boolean }) => {
     if (!msg.text) return;
@@ -92,6 +94,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   const selectedTrack = productTracks.find((track) => track.id === selectedTrackId) || null;
   const selectedMode = productModes.find((item) => item.id === selectedProductMode) || null;
   const hasConversationMessages = messages.some((item) => item.sender === "user" || item.sender === "coach");
+  const hasLiveTranscript = messages.some((item) => item.source === "live" && item.sender === "coach");
 
   const ui = {
     bg: highContrast ? "bg-black text-white" : "bg-transparent text-slate-100",
@@ -185,6 +188,27 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
       await createNewSession(`Study: ${selected?.title || selectedModuleId}`, "study");
     } catch (err: any) {
       setError(err.message || "Failed to start study module.");
+    } finally {
+      setCurriculumBusy(false);
+    }
+  }
+
+  async function startSelectedSubsection(explicitSubsectionId?: string) {
+    const subsectionId = explicitSubsectionId || selectedSubsectionId;
+    if (!subsectionId) return;
+    setCurriculumBusy(true);
+    setError(null);
+    setSelectedProductMode("study");
+    setSelectedSubsectionId(subsectionId);
+    try {
+      const result = await startCurriculum({ learnerId: activeProfile, subsectionId, sessionDay: learnerProfile?.challengeDay || 1 });
+      setCursor(result.cursor);
+      const selectedModule = courses.flatMap((c) => c.modules).find((m) => m.subsections.some((s) => s.id === subsectionId));
+      if (selectedModule) setSelectedModuleId(selectedModule.id);
+      const selectedSubsection = selectedModule?.subsections.find((s) => s.id === subsectionId);
+      await createNewSession(`Study: ${selectedSubsection?.title || subsectionId}`, "study");
+    } catch (err: any) {
+      setError(err.message || "Failed to start study topic.");
     } finally {
       setCurriculumBusy(false);
     }
@@ -296,7 +320,6 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
           <div className="p-3 rounded-2xl bg-white/10 border border-white/10"><BookOpen className="h-4 w-4 text-indigo-300" /><p className="text-xs mt-1">Weak</p><p className="font-bold">{mistakeMemory.length}</p></div>
         </div>
         <div className="space-y-3 mb-5">
-          <select value={level} onChange={(e) => handleLevelChange(e.target.value as ProficiencyLevel)} className="w-full bg-slate-900 border border-white/10 rounded-xl p-3 text-sm"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
           <select value={mode} onChange={(e) => setMode(e.target.value as CoachMode)} className="w-full bg-slate-900 border border-white/10 rounded-xl p-3 text-sm"><option value="gentle_conversation">Gentle conversation</option><option value="balanced">Balanced coaching</option><option value="strict_correction">Strict correction</option><option value="roleplay">Roleplay</option><option value="workplace">Workplace</option></select>
           <button onClick={onToggleHighContrast} className="w-full text-left bg-white/5 border border-white/10 rounded-xl p-3 text-sm">High contrast: {highContrast ? "On" : "Off"}</button>
         </div>
@@ -323,10 +346,14 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
           courses={courses}
           cursor={cursor}
           selectedLevel={levelToBand(level)}
+          onSelectedLevelChange={(newLevel) => handleLevelChange(newLevel)}
           selectedModuleId={selectedModuleId}
+          selectedSubsectionId={selectedSubsectionId}
           onSelectedModuleChange={setSelectedModuleId}
+          onSelectedSubsectionChange={setSelectedSubsectionId}
           onStartLevel={startCurrentLevel}
           onStartModule={startSelectedModule}
+          onStartSubsection={startSelectedSubsection}
           selectedTrackTitle={selectedTrack?.title}
           allowedModuleIds={selectedTrack?.moduleIds}
           isBusy={curriculumBusy}
@@ -341,10 +368,11 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
         <ReviewModePanel mistakes={mistakeMemory} onStartReview={startReviewDrill} />
       </aside>
       <main className={`flex-1 flex flex-col overflow-hidden ${ui.card}`}>
-        <header className="p-4 border-b border-white/10 flex items-center justify-between"><div><h2 className="font-bold">{selectedMode?.title || (cursor ? "Study Mode" : todayActivity.title)}</h2><p className="text-xs text-slate-400">Track: {selectedTrack?.title || "Not selected"} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "Choose a track or start general practice"}</p></div><Sparkles className="h-5 w-5 text-indigo-300" /></header>
+        <header className="p-4 border-b border-white/10 flex items-center justify-between"><div><h2 className="font-bold">{selectedMode?.title || (cursor ? "Study Mode" : todayActivity.title)}</h2><p className="text-xs text-slate-400">Track: {selectedTrack?.title || "Not selected"} · Level: {levelToBand(level)} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "Choose a track or start general practice"}</p></div><Sparkles className="h-5 w-5 text-indigo-300" /></header>
         <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-5">
           {error && <div className="p-4 rounded-xl text-sm border border-red-500/20 bg-red-500/10 text-red-300 flex gap-2"><AlertTriangle className="h-5 w-5" />{error}</div>}
           <div className="space-y-5 max-w-4xl mx-auto">
+            {(listening || selectedProductMode === "live" || hasLiveTranscript) && <LiveTranscriptPanel messages={messages} isListening={listening} />}
             {!hasConversationMessages && <LessonEmptyState courses={courses} cursor={cursor} selectedModeTitle={selectedMode?.title} selectedTrack={selectedTrack} onContinue={continueCurrentLesson} />}
             {messages.map((item) => {
               const isCoach = item.sender === "coach" || item.sender === "system";
@@ -355,7 +383,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
           </div>
         </div>
         <div className="p-4 border-t border-white/10">
-          {listening && <div className="mb-2 text-xs text-emerald-300 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Listening now. Speak one sentence clearly.</div>}
+          {listening && <div className="mb-2 text-xs text-emerald-300 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Listening now. Speak one sentence clearly. Sky's transcript appears above.</div>}
           <form onSubmit={(e) => { e.preventDefault(); sendToCoach(inputText, "chat"); }} className="flex gap-2">
             <input value={inputText} onChange={(e) => setInputText(e.target.value)} disabled={isLoading} placeholder={cursor ? "Answer the current study lesson..." : "Type an English sentence or start general practice..."} className={`flex-1 px-4 py-3 rounded-xl text-sm outline-none ${ui.input}`} />
             <button type="submit" disabled={isLoading || !inputText.trim()} className={`px-4 py-3 rounded-xl ${ui.btn}`}><Send className="h-5 w-5" /></button>
