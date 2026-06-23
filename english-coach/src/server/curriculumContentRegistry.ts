@@ -1,6 +1,7 @@
 import { getCurriculumSubsection, findModuleForSubsection, type CurriculumSubsection } from "./curriculumRegistry";
 import { getPilotPastTenseContent, type CurriculumSubsectionContent, type ContentLevel } from "./pilotPastTenseContent";
 import { getWorkplaceEnglishContent } from "./workplaceEnglishContent";
+import { buildDetailedScaffoldContent } from "./detailedScaffoldContent";
 
 function friendlyTitle(subsection: CurriculumSubsection) {
   return subsection.title.trim();
@@ -16,7 +17,7 @@ function generatedExamples(title: string, moduleTitle: string): string[] {
     `I can practise ${title.toLowerCase()} in a short spoken sentence.`,
     `Let me say that more naturally using ${moduleTitle.toLowerCase()} language.`,
     `A better version is clear, complete, and easy to say aloud.`,
-    `I will answer in one full sentence and then repeat the corrected version.`,
+    `I will answer in one full sentence and then rewrite the corrected version.`,
   ];
 }
 
@@ -34,7 +35,7 @@ function generatedMistakes(title: string) {
     },
     {
       wrong: `Please correct my sentence and I repeat again.`,
-      right: `Please correct my sentence, and I will repeat it again.`,
+      right: `Please correct my sentence, and I will rewrite the improved version.",
       why: "Use will for the next action and include the object it.",
     },
   ];
@@ -51,7 +52,7 @@ export function buildGeneratedSubsectionContent(subsectionId: string): Curriculu
     subsectionId,
     ruleSummary: `Practise ${title.toLowerCase()} for clear spoken English in the ${moduleTitle} module.`,
     explanation: {
-      Beginner: `In this lesson, you will practise ${title.toLowerCase()} using short, complete sentences. Sky should correct one important mistake at a time and ask you to repeat the better version.`,
+      Beginner: `In this lesson, you will practise ${title.toLowerCase()} using short, complete sentences. Sky should correct one important mistake at a time and ask you to rewrite the better version in chat mode or repeat it in live mode.`,
       Intermediate: `In this lesson, you will practise ${title.toLowerCase()} with more natural sentence structure, clearer vocabulary, and better spoken flow. Sky should correct mistakes and keep the lesson on this exact skill.`,
       Advanced: `In this lesson, you will practise ${title.toLowerCase()} with precision, professional tone, concise phrasing, and natural spoken rhythm. Sky should push for stronger wording and clearer structure.`,
     },
@@ -60,28 +61,28 @@ export function buildGeneratedSubsectionContent(subsectionId: string): Curriculu
     phases: subsection.phases,
     activityTemplates: {
       drill: [
-        `Say one sentence using ${title.toLowerCase()}.`,
-        `Repeat the corrected version naturally.`,
+        `Make one sentence using ${title.toLowerCase()}.`,
+        `Rewrite the corrected version naturally.`,
         `Make your sentence clearer and more complete.`,
         `Answer one follow-up question about ${title.toLowerCase()}.`,
       ],
       roleplay: {
-        scenario: `A focused speaking practice for ${title}.`,
-        learnerRole: `Answer in complete spoken sentences using ${title.toLowerCase()}.`,
-        agentRole: "Stay inside the lesson, correct mistakes, ask for repetition, and advance only when the learner is ready.",
+        scenario: `A focused practice for ${title}.`,
+        learnerRole: `Answer in complete sentences using ${title.toLowerCase()}.`,
+        agentRole: "Stay inside the lesson, correct mistakes, ask for correction practice, and advance only when the learner is ready.",
       },
     },
     successCriteria: [
       `Learner produces at least two complete sentences related to ${title.toLowerCase()}.`,
-      "Learner repeats one corrected sentence naturally.",
+      "Learner rewrites one corrected sentence naturally.",
       "Learner shows improvement after correction.",
     ],
-    homework: `Practise three spoken sentences using ${title.toLowerCase()} and repeat the corrected version aloud.`,
+    homework: `Practise three sentences using ${title.toLowerCase()} and save the best corrected version.`,
   };
 }
 
 export function getTeachingContent(subsectionId: string): CurriculumSubsectionContent {
-  return getPilotPastTenseContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || buildGeneratedSubsectionContent(subsectionId);
+  return getPilotPastTenseContent(subsectionId) || getWorkplaceEnglishContent(subsectionId) || buildDetailedScaffoldContent(subsectionId) || buildGeneratedSubsectionContent(subsectionId);
 }
 
 export function isHandAuthoredContent(subsectionId: string) {
