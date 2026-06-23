@@ -2,7 +2,7 @@ import type express from "express";
 import { Type } from "@google/genai";
 import { buildCursorTeachingPrompt } from "./cursorPromptBuilder";
 import { interactionModeRule } from "./interactionModeRules";
-import { moveCursorAfterTurn, pushDigression, popDigression, isPreviousCalendarDay } from "./lessonCursorLogic";
+import { moveCursorAfterTurn, pushDigression, popDigression, isPreviousCalendarDay, markTeacherDeliveredPhase } from "./lessonCursorLogic";
 import { getOrCreateLessonCursor, saveLessonCursor } from "./lessonCursorStore";
 import type { LessonMessageType } from "./lessonCursorTypes";
 
@@ -36,6 +36,7 @@ export function createCursorCoachHandler(ai: any) {
       const modeRule = interactionModeRule(isLive ? "live" : "chat");
 
       let cursor = await getOrCreateLessonCursor({ learnerId, level, sessionDay: challengeDay || 1 });
+      const phaseBeforeResponse = cursor.phase;
       const resumeAfterBreak = isPreviousCalendarDay(cursor.lastActiveAt, now);
       const mistakeMemoryText = memoryToText(mistakeMemory);
 
@@ -91,6 +92,8 @@ export function createCursorCoachHandler(ai: any) {
       if (messageType === "learner_question") {
         cursor = pushDigression(cursor, messageText, now);
         cursor = popDigression(cursor, now);
+      } else if (messageType === "on_topic_response" && cursor.status === "in_progress") {
+        cursor = markTeacherDeliveredPhase(cursor, now);
       } else {
         cursor = moveCursorAfterTurn({ cursor, messageType, advancePhase: Boolean(parsed.advancePhase), now });
       }
@@ -111,7 +114,7 @@ export function createCursorCoachHandler(ai: any) {
         nextQuestion: parsed.microDrill || "Please answer with one complete sentence.",
         lessonStep: cursor.subsectionId,
         teachingPhase: cursor.phase,
-        teacherAction: `Teach ${cursor.subsectionId} at phase ${cursor.phase}`,
+        teacherAction: `Taught ${cursor.subsectionId} at phase ${phaseBeforeResponse}; next phase is ${cursor.phase}`,
         challengeUpdate: { day: challengeDay || 1, completedActivity: cursor.status === "completed", homework: parsed.homework || "Practise today's corrected sentence three times." },
         cursor,
       };
