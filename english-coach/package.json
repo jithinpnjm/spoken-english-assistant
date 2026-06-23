@@ -14,7 +14,8 @@
     "check:curriculum": "tsx scripts/check-curriculum.ts",
     "check:pilot-content": "tsx scripts/check-pilot-content.ts",
     "check:cursor": "tsx scripts/check-cursor-logic.ts",
-    "check:full-content": "tsx scripts/check-full-content.ts"
+    "check:full-content": "tsx scripts/check-full-content.ts",
+    "check:workplace-content": "tsx scripts/check-workplace-content.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
