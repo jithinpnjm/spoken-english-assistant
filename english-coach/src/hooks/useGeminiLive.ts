@@ -29,7 +29,6 @@ function arrayBufferToBase64(buffer: ArrayBuffer): string {
   return btoa(binary);
 }
 
-// Build a WAV file from raw 16-bit PCM samples at the given sample rate
 function pcmToWav(samples: Int16Array, sampleRate: number): ArrayBuffer {
   const dataLen = samples.byteLength;
   const buf = new ArrayBuffer(44 + dataLen);
@@ -39,17 +38,22 @@ function pcmToWav(samples: Int16Array, sampleRate: number): ArrayBuffer {
   view.setUint32(4, 36 + dataLen, true);
   write(8, "WAVE");
   write(12, "fmt ");
-  view.setUint32(16, 16, true);        // chunk size
-  view.setUint16(20, 1, true);         // PCM
-  view.setUint16(22, 1, true);         // mono
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
+  view.setUint16(22, 1, true);
   view.setUint32(24, sampleRate, true);
-  view.setUint32(28, sampleRate * 2, true); // byte rate
-  view.setUint16(32, 2, true);         // block align
-  view.setUint16(34, 16, true);        // bits per sample
+  view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true);
+  view.setUint16(34, 16, true);
   write(36, "data");
   view.setUint32(40, dataLen, true);
   new Int16Array(buf, 44).set(samples);
   return buf;
+}
+
+function bridgeWebSocketUrl(path: string) {
+  const scheme = window.location.protocol === "https:" ? "wss" : "ws";
+  return `${scheme}://${window.location.host}${path}`;
 }
 
 export interface LiveMessage {
@@ -69,7 +73,6 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
   const sourceRef = useRef<MediaStreamAudioSourceNode | null>(null);
   const nextStartTimeRef = useRef<number>(0);
   const audioQueueRef = useRef<AudioBufferSourceNode[]>([]);
-  // Accumulate agent PCM samples (Int16) to transcribe after turnComplete
   const agentPCMRef = useRef<Int16Array[]>([]);
 
   const onMessageRef = useRef(onMessage);
@@ -78,9 +81,7 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
   const stopAllPlayback = useCallback(() => {
     audioQueueRef.current.forEach((s) => { try { s.stop(); } catch {} });
     audioQueueRef.current = [];
-    if (playbackCtxRef.current) {
-      nextStartTimeRef.current = playbackCtxRef.current.currentTime;
-    }
+    if (playbackCtxRef.current) nextStartTimeRef.current = playbackCtxRef.current.currentTime;
   }, []);
 
   const stopClient = useCallback(() => {
@@ -115,11 +116,9 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
       const resConfig = await fetch("/api/config");
       if (!resConfig.ok) throw new Error(`Config fetch failed: ${resConfig.status}`);
       const config = await resConfig.json();
-      const apiKey = config.apiKey;
-      if (!apiKey) throw new Error("GEMINI_API_KEY not set on server");
-
       const liveModel: string = config.liveModel || "models/gemini-3.1-flash-live-preview";
-      dbg.live.log("connect: using model", liveModel);
+      const bridgePath: string = config.audioBridgePath || "/api/audio-bridge";
+      dbg.live.log("connect: using server audio bridge", bridgePath);
 
       const INPUT_RATE = 16000;
       const OUTPUT_RATE = 24000;
@@ -140,49 +139,40 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
       streamRef.current = stream;
       dbg.live.log("connect: mic stream acquired");
 
-      const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=${apiKey}`;
-      const ws = new WebSocket(wsUrl);
+      const ws = new WebSocket(bridgeWebSocketUrl(bridgePath));
       wsRef.current = ws;
 
       const topicLine = dailyTopic ? `Today's activity or topic: ${dailyTopic}.` : "";
-
       const modeInstructions: Record<string, string> = {
-        gentle_conversation: `Be warm and encouraging. Gently point out ONE key mistake after responding naturally to what the student said. Keep corrections brief and positive. Focus on keeping the conversation flowing.`,
-        balanced: `Correct ALL grammar, tense, and vocabulary mistakes clearly but warmly. After correcting, continue the conversation naturally. Balance correction with encouragement.`,
-        strict_correction: `Correct EVERY single mistake ruthlessly and thoroughly. For each mistake: state what was wrong, the correct form, and the grammar rule. Repeat the corrected sentence. Do not move on until every error is addressed.`,
-        roleplay: `Stay in character for the roleplay scenario. Correct mistakes naturally within the scene — for example, as a customer who politely repeats the correct phrase. Break character only for serious grammar issues.`,
-        workplace: `Focus on professional business English. Correct grammar, vocabulary, and tone for workplace communication. Flag informal language and suggest formal alternatives. Use realistic workplace scenarios.`,
+        gentle_conversation: "Be warm and encouraging. Correct one high-value mistake first and keep the learner speaking.",
+        balanced: "Correct clear grammar, tense, vocabulary, article, and preposition mistakes briefly. Keep the lesson moving.",
+        strict_correction: "Correct every meaningful mistake and ask the learner to repeat the corrected sentence before moving on.",
+        roleplay: "Stay in the roleplay scene while correcting mistakes naturally between turns.",
+        workplace: "Focus on concise, professional workplace English and upgrade informal wording immediately.",
       };
-
       const levelContext: Record<string, string> = {
-        Beginner: `The student is a beginner. Use very simple vocabulary. Explain mistakes in the simplest terms possible. Be very patient and encouraging.`,
-        Intermediate: `The student is at intermediate level. They understand basic grammar. Focus on tense consistency, prepositions, articles, and natural phrasing.`,
-        Advanced: `The student is advanced. Focus on subtle mistakes — word choice, idioms, sentence rhythm, register, and nuance. Push them to sound like a native speaker.`,
+        Beginner: "The student is a beginner. Use short sentences, simple words, and one correction at a time.",
+        Intermediate: "The student is intermediate. Focus on tense consistency, prepositions, articles, and natural phrasing.",
+        Advanced: "The student is advanced. Focus on precision, register, nuance, idioms, rhythm, and concise senior phrasing.",
       };
 
-      const systemInstructionText = `You are Sky, a private English speaking coach for ${userName}.
-${levelContext[userLevel] || levelContext["Intermediate"]}
+      const systemInstructionText = `You are Sky, a private spoken-English teacher for ${userName}.
+${levelContext[userLevel] || levelContext.Intermediate}
 ${topicLine}
 
-COACHING MODE: ${coachMode}
-${modeInstructions[coachMode] || modeInstructions["balanced"]}
+Coaching mode: ${coachMode}
+${modeInstructions[coachMode] || modeInstructions.balanced}
 
-ALWAYS:
-- Speak in plain English only. No markdown, no bullet symbols, no special characters.
-- Keep your response concise and spoken-friendly.
-- End every response with one short question to keep the student speaking.
-- Never skip a mistake to be polite.`;
+Always stay inside the English lesson. Do not become a generic chatbot. Keep replies under 25 seconds. Correct mistakes, give one natural version, and ask exactly one targeted speaking instruction.`;
 
       ws.onopen = () => {
-        dbg.live.log("ws.onopen: sending setup (AUDIO only)");
+        dbg.live.log("bridge ws.onopen: sending setup");
         ws.send(JSON.stringify({
-          setup: {
+          setupClient: {
             model: liveModel,
-            generationConfig: {
-              responseModalities: ["AUDIO"],
-              speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } } },
-            },
-            systemInstruction: { parts: [{ text: systemInstructionText }] },
+            responseModalities: ["AUDIO"],
+            voiceName: "Aoede",
+            systemInstructionText,
           },
         }));
       };
@@ -193,7 +183,7 @@ ALWAYS:
           const msg = JSON.parse(raw);
 
           if (msg.setupComplete) {
-            dbg.live.log("ws: setupComplete — starting audio capture");
+            dbg.live.log("bridge ws: setupComplete — starting audio capture");
             const source = captureCtx.createMediaStreamSource(stream);
             sourceRef.current = source;
             const processor = captureCtx.createScriptProcessor(4096, 1, 1);
@@ -218,7 +208,7 @@ ALWAYS:
           if (!sc) return;
 
           if (sc.interrupted) {
-            dbg.live.log("ws: interrupted");
+            dbg.live.log("bridge ws: interrupted");
             stopAllPlayback();
             agentPCMRef.current = [];
             onMessageRef.current?.({ interrupted: true });
@@ -227,14 +217,12 @@ ALWAYS:
           if (sc.modelTurn?.parts) {
             for (const part of sc.modelTurn.parts) {
               if (part.inlineData?.data) {
-                // Collect PCM for transcription after turn ends
                 const binary = atob(part.inlineData.data);
                 const bytes = new Uint8Array(binary.length);
                 for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
                 const int16chunk = new Int16Array(bytes.buffer);
                 agentPCMRef.current.push(int16chunk);
 
-                // Play audio
                 const pb = playbackCtxRef.current;
                 if (pb) {
                   const float32 = base64ToFloat32(part.inlineData.data);
@@ -254,10 +242,9 @@ ALWAYS:
           }
 
           if (sc.turnComplete) {
-            dbg.live.log("ws: turnComplete — transcribing agent audio");
+            dbg.live.log("bridge ws: turnComplete — transcribing agent audio");
             const chunks = agentPCMRef.current;
             agentPCMRef.current = [];
-
             if (chunks.length > 0) {
               const totalLen = chunks.reduce((n, c) => n + c.length, 0);
               const merged = new Int16Array(totalLen);
@@ -274,7 +261,6 @@ ALWAYS:
                 });
                 if (res.ok) {
                   const { transcript } = await res.json();
-                  dbg.live.log("transcribe result:", transcript?.slice(0, 80));
                   if (transcript) onMessageRef.current?.({ text: transcript });
                 } else {
                   dbg.live.warn("transcribe failed:", res.status);
@@ -285,18 +271,18 @@ ALWAYS:
             }
           }
         } catch (err) {
-          dbg.live.error("ws.onmessage error:", err);
+          dbg.live.error("bridge ws.onmessage error:", err);
         }
       };
 
       ws.onerror = (e) => {
-        dbg.live.error("ws.onerror:", e);
+        dbg.live.error("bridge ws.onerror:", e);
         setError("Live agent connection failed.");
         stopClient();
       };
 
       ws.onclose = (e) => {
-        dbg.live.log("ws.onclose code:", e.code, "reason:", e.reason);
+        dbg.live.log("bridge ws.onclose code:", e.code, "reason:", e.reason);
         if (e.code !== 1000) setError(`Disconnected (${e.code}): ${e.reason || "unknown"}`);
         stopClient();
       };
