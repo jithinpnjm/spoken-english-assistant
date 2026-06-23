@@ -26,7 +26,8 @@
     "check:review-mastery": "tsx scripts/check-review-mastery.ts",
     "check:server-hardening": "tsx scripts/check-server-hardening.ts",
     "check:grammar-content": "tsx scripts/check-grammar-content.ts",
-    "check:daily-life-content": "tsx scripts/check-daily-life-content.ts"
+    "check:daily-life-content": "tsx scripts/check-daily-life-content.ts",
+    "check:advanced-workplace-content": "tsx scripts/check-advanced-workplace-content.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
