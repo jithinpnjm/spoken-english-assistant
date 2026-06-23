@@ -1,8 +1,8 @@
 import type express from "express";
 import { Type } from "@google/genai";
-import { buildCursorTeachingPrompt, getSubsectionTeachingContent } from "./cursorPromptBuilder";
+import { buildCursorTeachingPrompt } from "./cursorPromptBuilder";
 import { moveCursorAfterTurn, pushDigression, popDigression, isPreviousCalendarDay } from "./lessonCursorLogic";
-import { getOrCreateLessonCursor, resetLessonCursor, saveLessonCursor } from "./lessonCursorStore";
+import { getOrCreateLessonCursor, saveLessonCursor } from "./lessonCursorStore";
 import type { LessonMessageType } from "./lessonCursorTypes";
 
 function safeLevel(value: string): "Beginner" | "Intermediate" | "Advanced" {
@@ -32,11 +32,7 @@ export function createCursorCoachHandler(ai: any) {
       const learnerId = profileId || name.toLowerCase().replace(/[^a-z0-9_-]/g, "_") || "student";
       const now = new Date().toISOString();
 
-      let cursor = await getOrCreateLessonCursor({ learnerId, level, sessionDay: challengeDay || 1, preferPastTensePilot: true });
-      if (!getSubsectionTeachingContent(cursor.subsectionId)) {
-        cursor = await resetLessonCursor({ learnerId, level, sessionDay: challengeDay || 1, preferPastTensePilot: true });
-      }
-
+      let cursor = await getOrCreateLessonCursor({ learnerId, level, sessionDay: challengeDay || 1 });
       const resumeAfterBreak = isPreviousCalendarDay(cursor.lastActiveAt, now);
       const mistakeMemoryText = memoryToText(mistakeMemory);
 
