@@ -1,22 +1,23 @@
-import { findCourseForSubsection, findModuleForSubsection, getInitialSubsectionForLevel, getNextSubsection, type CurriculumLevelBand, type CurriculumPhase } from "./curriculumRegistry";
+import { findCourseForSubsection, findModuleForSubsection, getCurriculumSubsection, getInitialSubsectionForLevel, getNextSubsection, type CurriculumLevelBand, type CurriculumPhase } from "./curriculumRegistry";
 import { LESSON_PHASE_ORDER, type LessonCursor, type LessonMessageType } from "./lessonCursorTypes";
+
+export const PAST_TENSE_PILOT_FIRST_SUBSECTION = "b09-past-tense-pilot-01";
 
 export function normalizeLevelBand(level: string | undefined): CurriculumLevelBand {
   if (level === "Beginner" || level === "Advanced") return level;
   return "Intermediate";
 }
 
-export function createInitialLessonCursor(args: {
+function createCursorAtSubsection(args: {
   learnerId: string;
-  level: string | undefined;
+  subsectionId: string;
   sessionDay?: number;
   now?: string;
 }): LessonCursor {
-  const levelBand = normalizeLevelBand(args.level);
-  const subsection = getInitialSubsectionForLevel(levelBand);
-  const module = findModuleForSubsection(subsection.id);
-  const course = findCourseForSubsection(subsection.id);
-  if (!module || !course) throw new Error(`Unable to resolve initial curriculum path for ${subsection.id}`);
+  const subsection = getCurriculumSubsection(args.subsectionId);
+  const module = findModuleForSubsection(args.subsectionId);
+  const course = findCourseForSubsection(args.subsectionId);
+  if (!subsection || !module || !course) throw new Error(`Unable to resolve curriculum path for ${args.subsectionId}`);
 
   return {
     learnerId: args.learnerId,
@@ -31,6 +32,25 @@ export function createInitialLessonCursor(args: {
     sessionDay: args.sessionDay || 1,
     phaseSummary: `Starting ${subsection.title}.`,
   };
+}
+
+export function createInitialLessonCursor(args: {
+  learnerId: string;
+  level: string | undefined;
+  sessionDay?: number;
+  now?: string;
+}): LessonCursor {
+  const levelBand = normalizeLevelBand(args.level);
+  const subsection = getInitialSubsectionForLevel(levelBand);
+  return createCursorAtSubsection({ ...args, subsectionId: subsection.id });
+}
+
+export function createPastTensePilotCursor(args: {
+  learnerId: string;
+  sessionDay?: number;
+  now?: string;
+}): LessonCursor {
+  return createCursorAtSubsection({ ...args, subsectionId: PAST_TENSE_PILOT_FIRST_SUBSECTION });
 }
 
 export function isPreviousCalendarDay(lastActiveAt: string, nowIso = new Date().toISOString()) {
