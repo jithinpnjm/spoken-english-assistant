@@ -40,6 +40,26 @@ export interface MistakeMemory {
   examples: string[];
   lastSeenAt: string;
   status: "new" | "recurring" | "improving" | "mastered";
+  reviewStats?: {
+    attempts: number;
+    successfulAttempts: number;
+    lastReviewedAt?: string;
+    nextReviewAt?: string;
+    masteryScore: number;
+  };
+}
+
+export interface ReviewAttempt {
+  attemptId: string;
+  profileId: string;
+  mistakeId: string;
+  mistakeType: string;
+  prompt: string;
+  learnerAnswer: string;
+  expectedPattern: string;
+  result: "success" | "partial" | "needs_work";
+  feedback: string;
+  createdAt: string;
 }
 
 export interface CoachSession {
