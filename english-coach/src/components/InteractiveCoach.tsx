@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { getAuth } from "firebase/auth";
 import { fetchLearnerProfile, fetchMistakeMemory, fetchSessionMessages, fetchUserSessions, markDailyPractice, saveSession, saveSessionMessage, updateLearnerProfile, updateUserProfile, upsertMistakeMemory } from "../lib/firebase";
 import { CoachMessage, CoachMode, CoachSession, LearnerProfile, MistakeMemory, ProficiencyLevel } from "../types";
-import { AlertTriangle, BookOpen, CheckCircle, Flame, LogOut, Mic, MicOff, Plus, Send, Sparkles, Target, Trash2, Volume2 } from "lucide-react";
+import { AlertTriangle, BookOpen, CheckCircle, Flame, LogOut, Mic, MicOff, Plus, Send, Sparkles, Target, Volume2 } from "lucide-react";
 import { dbg } from "../lib/debug";
 import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
 
@@ -39,16 +39,13 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   const [listening, setListening] = useState(false);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const activeSessionRef = useRef<CoachSession | null>(null);
-  const ttsCtxRef = useRef<AudioContext | null>(null);
-  const ttsWsRef = useRef<WebSocket | null>(null);
+
   useEffect(() => { activeSessionRef.current = activeSession; }, [activeSession]);
 
-  // ── Gemini Live agent — voice in, audio + text out ──────────────────────────
   const handleLiveMessage = useCallback((msg: { text?: string; interrupted?: boolean }) => {
     if (!msg.text) return;
     const session = activeSessionRef.current;
     if (!session) { dbg.live.warn("handleLiveMessage: no active session"); return; }
-    dbg.live.log("handleLiveMessage: adding coach message to chat");
     const coachMsg: CoachMessage = {
       messageId: `msg_live_${Date.now()}_${Math.random().toString(36).slice(2)}`,
       sessionId: session.sessionId,
@@ -67,7 +64,6 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   }, [user.uid]);
 
   const geminiLive = useGeminiLiveAPI(handleLiveMessage);
-
   const dayIndex = Math.floor(Date.now() / 86400000) % dailyActivities.length;
   const todayActivity = dailyActivities[dayIndex];
 
@@ -83,58 +79,36 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
 
   useEffect(() => { bootstrapProfile(); }, [user?.uid, activeProfile]);
   useEffect(() => { if (activeSession) loadMessages(activeSession.sessionId); }, [activeSession?.sessionId]);
-  useEffect(() => { scrollToBottom(); }, [messages.length]);
+  useEffect(() => { setTimeout(() => chatEndRef.current?.scrollIntoView({ behavior: "smooth" }), 80); }, [messages.length]);
   useEffect(() => { if (!geminiLive.isConnected) setListening(false); }, [geminiLive.isConnected]);
   useEffect(() => { if (geminiLive.error) setError(geminiLive.error); }, [geminiLive.error]);
+  useEffect(() => () => { window.speechSynthesis?.cancel(); }, []);
 
   async function bootstrapProfile() {
-    if (!user?.uid || !activeProfile) {
-      dbg.coach.warn("bootstrapProfile: skipped — uid or activeProfile missing", { uid: user?.uid, activeProfile });
-      return;
-    }
-    dbg.coach.log("bootstrapProfile: starting for", activeProfile);
+    if (!user?.uid || !activeProfile) return;
     const lp = await fetchLearnerProfile(activeProfile);
-    dbg.coach.log("bootstrapProfile: learnerProfile →", lp ? `day=${lp.challengeDay} level=${lp.level}` : "null");
     setLearnerProfile(lp);
     setLevel((lp?.level as ProficiencyLevel) || level);
-    const mem = await fetchMistakeMemory(activeProfile);
-    dbg.coach.log("bootstrapProfile: mistakeMemory →", mem.length, "entries");
-    setMistakeMemory(mem);
+    setMistakeMemory(await fetchMistakeMemory(activeProfile));
     const all = await fetchUserSessions(user.uid, activeProfile);
-    dbg.coach.log("bootstrapProfile: sessions →", all.length, "found");
     setSessions(all);
-    if (all.length > 0) {
-      dbg.coach.log("bootstrapProfile: loading most recent session", all[0].sessionId);
-      setActiveSession(all[0]);
-    } else {
-      dbg.coach.log("bootstrapProfile: no sessions — creating first one");
-      await createNewSession("Daily English Practice", todayActivity.type);
-    }
+    if (all.length > 0) setActiveSession(all[0]);
+    else await createNewSession("Daily English Practice", todayActivity.type);
   }
 
   async function loadMessages(sessionId: string) {
-    dbg.session.log("loadMessages:", sessionId);
-    const msgs = await fetchSessionMessages(sessionId);
-    dbg.session.log("loadMessages: loaded", msgs.length, "messages");
-    setMessages(msgs);
-  }
-
-  function scrollToBottom() {
-    setTimeout(() => chatEndRef.current?.scrollIntoView({ behavior: "smooth" }), 80);
+    setMessages(await fetchSessionMessages(sessionId));
   }
 
   async function createNewSession(title = `Session (${new Date().toLocaleDateString()})`, activityType = "free") {
-    dbg.session.log("createNewSession title:", title, "activityType:", activityType);
     const now = new Date().toISOString();
     const sess: CoachSession = { sessionId: `sess_${Date.now()}`, userId: user.uid, userName: profileDisplayName, title, createdAt: now, updatedAt: now, mode: "writing", profileId: activeProfile, activityType, challengeDay: learnerProfile?.challengeDay || 1 };
     await saveSession(sess);
-    dbg.session.log("createNewSession: saved", sess.sessionId);
-    const intro: CoachMessage = { messageId: `msg_intro_${Date.now()}`, sessionId: sess.sessionId, userId: user.uid, sender: "system", source: "system", kind: "lesson_instruction", text: `Welcome ${profileDisplayName}. Today is Day ${learnerProfile?.challengeDay || 1} of your 60-day English challenge. Today's activity: ${todayActivity.title}.`, shouldTriggerCoachResponse: false, grammarCorrection: null, createdAt: now };
+    const intro: CoachMessage = { messageId: `msg_intro_${Date.now()}`, sessionId: sess.sessionId, userId: user.uid, sender: "system", source: "system", kind: "lesson_instruction", text: `Welcome ${profileDisplayName}. Today is Day ${learnerProfile?.challengeDay || 1} of your 60-day English challenge. Today's activity: ${title}.`, shouldTriggerCoachResponse: false, grammarCorrection: null, createdAt: now };
     await saveSessionMessage(sess.sessionId, intro);
     setSessions((prev) => [sess, ...prev]);
     setActiveSession(sess);
     setMessages([intro]);
-    dbg.session.log("createNewSession: complete →", sess.sessionId);
     return sess;
   }
 
@@ -146,15 +120,9 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
 
   async function sendToCoach(text: string, source: "chat" | "live" = "chat", activity = todayActivity) {
     const clean = text.trim();
-    if (!clean) { dbg.coach.warn("sendToCoach: empty text, skipping"); return; }
-    dbg.coach.log(`sendToCoach [${source}]:`, JSON.stringify(clean.slice(0, 80)));
-
+    if (!clean) return;
     let session = activeSession;
-    if (!session) {
-      dbg.coach.log("sendToCoach: no active session — creating one");
-      session = await createNewSession();
-    }
-
+    if (!session) session = await createNewSession();
     setInputText("");
     setIsLoading(true);
     setError(null);
@@ -166,26 +134,20 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
 
     try {
       const token = await getAuth().currentUser?.getIdToken();
-      dbg.coach.log("sendToCoach: got ID token →", token ? "yes" : "no (guest?)");
       const history = messages.filter((m) => m.kind !== "suggestion" && m.kind !== "evaluation_summary").map((m) => ({ role: m.sender === "user" ? "user" : "model", text: m.text }));
-      dbg.coach.log("sendToCoach: sending to /api/coach-interaction, history length:", history.length, "mode:", mode, "level:", level);
-
       const res = await fetch("/api/coach-interaction", { method: "POST", headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) }, body: JSON.stringify({ messageText: clean, userLevel: level, userName: profileDisplayName, history, mode, dailyActivity: activity, mistakeMemory, challengeDay: learnerProfile?.challengeDay || 1 }) });
       const data = await res.json();
-      dbg.coach.log("sendToCoach: API response status:", res.status, "| fluency:", data.fluencyScore, "grammar:", data.grammarScore, "mistakes:", data.mistakes?.length ?? 0);
       if (!res.ok) throw new Error(data.error || `API error ${res.status}`);
 
-      const coachMsg: CoachMessage = { messageId: `msg_coach_${Date.now()}`, sessionId: session.sessionId, userId: user.uid, sender: "coach", source, kind: "coach_reply", text: data.coachReply || "Good. Continue speaking.", shouldTriggerCoachResponse: false, grammarCorrection: data.correctedSentence || null, naturalVersion: data.naturalVersion || null, mistakes: data.mistakes || [], identifiedMistakes: (data.mistakes || []).map((m: any) => `${m.type}: ${m.explanation}`), coachingTip: data.microDrill?.instruction || "", fluencyScore: data.fluencyScore, grammarScore: data.grammarScore, vocabularyScore: data.vocabularyScore, pronunciationFocus: data.pronunciationFocus, repeatPractice: data.repeatPractice, microDrill: data.microDrill, createdAt: new Date().toISOString() };
+      const coachMsg: CoachMessage = { messageId: `msg_coach_${Date.now()}`, sessionId: session.sessionId, userId: user.uid, sender: "coach", source, kind: "coach_reply", text: data.coachReply || "Good. Continue speaking.", shouldTriggerCoachResponse: false, grammarCorrection: data.correctedSentence || null, naturalVersion: data.naturalVersion || null, mistakes: data.mistakes || [], identifiedMistakes: (data.mistakes || []).map((m: any) => `${m.type}: ${m.explanation}`), coachingTip: data.microDrill?.instruction || "", fluencyScore: data.fluencyScore, grammarScore: data.grammarScore, vocabularyScore: data.vocabularyScore, pronunciationFocus: data.pronunciationFocus, repeatPractice: data.repeatPractice, microDrill: data.microDrill, lessonStep: data.lessonStep, teachingPhase: data.teachingPhase, teacherAction: data.teacherAction, createdAt: new Date().toISOString() };
       setMessages((prev) => [...prev, coachMsg]);
       await saveSessionMessage(session.sessionId, coachMsg);
 
       if (data.mistakes?.length) {
-        dbg.coach.log("sendToCoach: upserting", data.mistakes.length, "mistakes to memory");
         await upsertMistakeMemory(activeProfile, data.mistakes, clean);
         setMistakeMemory(await fetchMistakeMemory(activeProfile));
       }
       if (data.challengeUpdate?.completedActivity) {
-        dbg.coach.log("sendToCoach: activity completed — marking daily practice, day:", learnerProfile?.challengeDay);
         await markDailyPractice(activeProfile, learnerProfile?.challengeDay || 1, activity.type);
         setLearnerProfile(await fetchLearnerProfile(activeProfile));
       }
@@ -198,119 +160,31 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     }
   }
 
-  async function speak(text: string) {
-    if (!text) { dbg.tts.warn("speak: skipped \u2014 empty text"); return; }
-    dbg.tts.log("speak via Gemini Live TTS:", text.slice(0, 60) + (text.length > 60 ? "\u2026" : ""));
-
-    // Stop any in-progress TTS
-    if (ttsWsRef.current) {
-      try { ttsWsRef.current.close(); } catch {}
-      ttsWsRef.current = null;
+  function speak(text: string) {
+    if (!text) { dbg.tts.warn("speak skipped: empty text"); return; }
+    const speech = window.speechSynthesis;
+    if (!speech) {
+      dbg.tts.warn("Browser speech synthesis is not available.");
+      return;
     }
-    if (ttsCtxRef.current) {
-      ttsCtxRef.current.close().catch(() => {});
-      ttsCtxRef.current = null;
-    }
-
     try {
-      const resConfig = await fetch("/api/config");
-      if (!resConfig.ok) throw new Error(`Config fetch failed: ${resConfig.status}`);
-      const config = await resConfig.json();
-      const apiKey = config.apiKey;
-      if (!apiKey) throw new Error("No API key");
-      const liveModel: string = config.liveModel || "models/gemini-3.1-flash-live-preview";
-
-      const AudioCtxClass = (window as any).AudioContext || (window as any).webkitAudioContext;
-      const ctx = new AudioCtxClass({ sampleRate: 24000 });
-      await ctx.resume();
-      ttsCtxRef.current = ctx;
-      let nextStart = ctx.currentTime + 0.1;
-
-      const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=${apiKey}`;
-      const ws = new WebSocket(wsUrl);
-      ttsWsRef.current = ws;
-
-      ws.onopen = () => {
-        dbg.tts.log("TTS ws open, sending setup");
-        ws.send(JSON.stringify({
-          setup: {
-            model: liveModel,
-            generationConfig: {
-              responseModalities: ["AUDIO"],
-              speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } } },
-            },
-          },
-        }));
-      };
-
-      ws.onmessage = async (event) => {
-        try {
-          const raw = typeof event.data === "string" ? event.data : await (event.data as Blob).text();
-          const msg = JSON.parse(raw);
-
-          if (msg.setupComplete) {
-            dbg.tts.log("TTS ws setupComplete, sending text");
-            ws.send(JSON.stringify({
-              clientContent: {
-                turns: [{ role: "user", parts: [{ text }] }],
-                turnComplete: true,
-              },
-            }));
-            return;
-          }
-
-          const sc = msg.serverContent;
-          if (!sc) return;
-
-          if (sc.modelTurn?.parts) {
-            for (const part of sc.modelTurn.parts) {
-              if (part.inlineData?.data && ttsCtxRef.current) {
-                const binary = atob(part.inlineData.data);
-                const bytes = new Uint8Array(binary.length);
-                for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-                const int16 = new Int16Array(bytes.buffer);
-                const float32 = new Float32Array(int16.length);
-                for (let i = 0; i < int16.length; i++) float32[i] = int16[i] / 32768.0;
-                const buf = ttsCtxRef.current.createBuffer(1, float32.length, 24000);
-                buf.getChannelData(0).set(float32);
-                const src = ttsCtxRef.current.createBufferSource();
-                src.buffer = buf;
-                src.connect(ttsCtxRef.current.destination);
-                const startAt = Math.max(ttsCtxRef.current.currentTime + 0.01, nextStart);
-                src.start(startAt);
-                nextStart = startAt + buf.duration;
-              }
-            }
-          }
-
-          if (sc.turnComplete) {
-            dbg.tts.log("TTS ws turnComplete \u2014 closing");
-            ws.close(1000);
-            ttsWsRef.current = null;
-          }
-        } catch (err) {
-          dbg.tts.error("TTS ws.onmessage error:", err);
-        }
-      };
-
-      ws.onerror = (e) => { dbg.tts.error("TTS ws error:", e); };
-      ws.onclose = (e) => {
-        dbg.tts.log("TTS ws closed:", e.code);
-        ttsWsRef.current = null;
-      };
+      speech.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-US";
+      utterance.rate = 0.92;
+      utterance.pitch = 1;
+      speech.speak(utterance);
     } catch (err: any) {
-      dbg.tts.error("speak failed:", err.message);
+      dbg.tts.error("browser read-aloud failed:", err?.message || err);
     }
   }
 
   async function toggleMic() {
     if (geminiLive.isConnected) {
-      dbg.live.log("toggleMic: stopping live agent");
       geminiLive.stopClient();
       setListening(false);
       return;
     }
-    dbg.live.log("toggleMic: starting live agent, mode:", mode, "level:", level);
     let session = activeSession;
     if (!session) session = await createNewSession();
     setListening(true);
@@ -329,28 +203,22 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
           <div><h1 className="text-2xl font-bold">{profileDisplayName}</h1><p className="text-xs text-slate-400">Private English Coach</p></div>
           <button onClick={onSignOut} className="p-2 rounded-lg hover:bg-white/10"><LogOut className="h-5 w-5" /></button>
         </div>
-
         <div className="grid grid-cols-3 gap-2 mb-4">
           <div className="p-3 rounded-2xl bg-white/10 border border-white/10"><Flame className="h-4 w-4 text-orange-300" /><p className="text-xs mt-1">Day</p><p className="font-bold">{learnerProfile?.challengeDay || 1}/60</p></div>
           <div className="p-3 rounded-2xl bg-white/10 border border-white/10"><Target className="h-4 w-4 text-emerald-300" /><p className="text-xs mt-1">Minutes</p><p className="font-bold">{learnerProfile?.totalPracticeMinutes || 0}</p></div>
           <div className="p-3 rounded-2xl bg-white/10 border border-white/10"><BookOpen className="h-4 w-4 text-indigo-300" /><p className="text-xs mt-1">Weak</p><p className="font-bold">{mistakeMemory.length}</p></div>
         </div>
-
         <div className="space-y-3 mb-5">
           <select value={level} onChange={(e) => handleLevelChange(e.target.value as ProficiencyLevel)} className="w-full bg-slate-900 border border-white/10 rounded-xl p-3 text-sm"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
           <select value={mode} onChange={(e) => setMode(e.target.value as CoachMode)} className="w-full bg-slate-900 border border-white/10 rounded-xl p-3 text-sm"><option value="gentle_conversation">Gentle conversation</option><option value="balanced">Balanced coaching</option><option value="strict_correction">Strict correction</option><option value="roleplay">Roleplay</option><option value="workplace">Workplace</option></select>
           <button onClick={onToggleHighContrast} className="w-full text-left bg-white/5 border border-white/10 rounded-xl p-3 text-sm">High contrast: {highContrast ? "On" : "Off"}</button>
         </div>
-
         <button onClick={() => createNewSession()} className={`w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2 ${ui.btn}`}><Plus className="h-5 w-5" /> New Session</button>
-
         <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">Daily activities</h2>
         <div className="space-y-2">{dailyActivities.map((a, i) => <button key={a.type} onClick={() => startActivity(a)} className={`w-full text-left p-3 rounded-xl border text-sm ${i === dayIndex ? "border-emerald-400/50 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10"}`}><span className="font-semibold">{a.title}</span><span className="block text-xs text-slate-400">{a.type}</span></button>)}</div>
-
         <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">Mistake memory</h2>
         <div className="space-y-2">{mistakeMemory.slice(0, 6).map((m) => <div key={m.mistakeId} className="p-2 rounded-xl bg-white/5 border border-white/10 text-xs"><span className="font-semibold">{m.mistakeType}</span><span className="float-right text-slate-400">{m.count}</span></div>)}{mistakeMemory.length === 0 && <p className="text-xs text-slate-500">No recurring mistakes yet.</p>}</div>
       </aside>
-
       <main className={`flex-1 flex flex-col overflow-hidden ${ui.card}`}>
         <header className="p-4 border-b border-white/10 flex items-center justify-between"><div><h2 className="font-bold">{todayActivity.title}</h2><p className="text-xs text-slate-400">Mode: {mode.replace("_", " ")} · Messages are stored for progress tracking</p></div><Sparkles className="h-5 w-5 text-indigo-300" /></header>
         <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-5">
@@ -371,7 +239,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
             <button type="submit" disabled={isLoading || !inputText.trim()} className={`px-4 py-3 rounded-xl ${ui.btn}`}><Send className="h-5 w-5" /></button>
             <button type="button" onClick={toggleMic} disabled={isLoading} className={`px-4 py-3 rounded-xl ${listening ? "bg-red-600 text-white" : ui.btn}`}>{listening ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}</button>
           </form>
-          <p className="text-[10px] text-slate-500 text-center mt-2">Voice mode uses browser speech recognition and backend coaching, so your Gemini credential is never sent to the browser.</p>
+          <p className="text-[10px] text-slate-500 text-center mt-2">Voice mode uses backend bridge for live coaching, so your model credential is never sent to the browser.</p>
         </div>
       </main>
     </div>
