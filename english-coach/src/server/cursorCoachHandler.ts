@@ -5,6 +5,7 @@ import { interactionModeRule } from "./interactionModeRules";
 import { moveCursorAfterTurn, pushDigression, popDigression, isPreviousCalendarDay, markTeacherDeliveredPhase } from "./lessonCursorLogic";
 import { getOrCreateLessonCursor, saveLessonCursor } from "./lessonCursorStore";
 import type { LessonMessageType } from "./lessonCursorTypes";
+import { analysePronunciationAndFluency } from "./pronunciationFluencyEngine";
 
 function safeLevel(value: string): "Beginner" | "Intermediate" | "Advanced" {
   if (value === "Beginner" || value === "Advanced") return value;
@@ -34,6 +35,7 @@ export function createCursorCoachHandler(ai: any) {
       const now = new Date().toISOString();
       const isLive = interactionMode === "live";
       const modeRule = interactionModeRule(isLive ? "live" : "chat");
+      const fluencyAnalysis = analysePronunciationAndFluency(messageText, level);
 
       let cursor = await getOrCreateLessonCursor({ learnerId, level, sessionDay: challengeDay || 1 });
       const phaseBeforeResponse = cursor.phase;
@@ -51,7 +53,15 @@ export function createCursorCoachHandler(ai: any) {
         resumeAfterBreak,
         resumeAfterDigression: cursor.digressionStack.length > 0,
       });
-      const systemInstruction = `${baseInstruction}\n\n${modeRule}`;
+      const fluencyInstruction = `
+Pronunciation and fluency coaching signal:
+- Estimated fluency score: ${fluencyAnalysis.fluencyScore}/10.
+- Pacing: ${fluencyAnalysis.pacing}.
+- Filler count: ${fluencyAnalysis.fillerCount}.
+- Chunking advice: ${fluencyAnalysis.chunkingAdvice}
+- Pronunciation focus: ${fluencyAnalysis.pronunciationFocus}
+Use this signal lightly. Do not over-explain. Give one repeat or rewrite action only.`;
+      const systemInstruction = `${baseInstruction}\n\n${modeRule}\n\n${fluencyInstruction}`;
 
       const response = await ai.models.generateContent({
         model: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
@@ -105,13 +115,13 @@ export function createCursorCoachHandler(ai: any) {
         correctedSentence: parsed.correctedSentence || "",
         naturalVersion: parsed.naturalVersion || "",
         mistakes: parsed.correctedSentence ? [{ type: "cursor_rule", original: messageText, corrected: parsed.correctedSentence, explanation: parsed.ruleApplied || cursor.subsectionId, severity: "medium" }] : [],
-        fluencyScore: parsed.score?.fluency ?? 7,
+        fluencyScore: parsed.score?.fluency ?? fluencyAnalysis.fluencyScore,
         grammarScore: parsed.score?.grammar ?? 7,
         vocabularyScore: parsed.score?.vocabulary ?? 7,
-        pronunciationFocus: isChat ? "Chat mode: focus on sentence clarity and natural wording." : "Live mode: focus on clear voice and short repetition.",
-        microDrill: { instruction: parsed.microDrill || (isChat ? "Rewrite the improved sentence once." : "Repeat the improved sentence once."), examples: parsed.exampleUsed ? [parsed.exampleUsed] : [] },
-        repeatPractice: parsed.naturalVersion || parsed.correctedSentence || parsed.teacherMessage || (isChat ? "Rewrite the sentence naturally." : "Repeat the sentence naturally."),
-        nextQuestion: parsed.microDrill || "Please answer with one complete sentence.",
+        pronunciationFocus: fluencyAnalysis.pronunciationFocus,
+        microDrill: { instruction: parsed.microDrill || fluencyAnalysis.microDrill.instruction || (isChat ? "Rewrite the improved sentence once." : "Repeat the improved sentence once."), examples: parsed.exampleUsed ? [parsed.exampleUsed, ...fluencyAnalysis.microDrill.examples] : fluencyAnalysis.microDrill.examples },
+        repeatPractice: parsed.naturalVersion || parsed.correctedSentence || fluencyAnalysis.repeatPractice,
+        nextQuestion: parsed.microDrill || fluencyAnalysis.microDrill.instruction || "Please answer with one complete sentence.",
         lessonStep: cursor.subsectionId,
         teachingPhase: cursor.phase,
         teacherAction: `Taught ${cursor.subsectionId} at phase ${phaseBeforeResponse}; next phase is ${cursor.phase}`,
