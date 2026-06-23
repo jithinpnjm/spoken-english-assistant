@@ -1,6 +1,8 @@
-import { useMemo, useState } from "react";
-import { ArrowLeft, BookOpen, CheckCircle2, GraduationCap, Languages, Mic, PenLine, Radio, ShieldCheck } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
+import { ArrowLeft, BookOpen, CheckCircle2, GraduationCap, Languages, Mic, PenLine, Radio, ShieldCheck, StopCircle, Volume2 } from "lucide-react";
 import { germanCurriculum, getGermanLevel, getGermanSubtopicCount, type GermanLevel, type GermanSection, type GermanSubtopic } from "../lib/germanCurriculumRegistry";
+import { buildGermanLiveTeacherContext } from "../lib/germanLiveTeacherContext";
+import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
 import GermanPracticePanel from "./GermanPracticePanel";
 
 interface GermanCoachShellProps {
@@ -90,6 +92,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
   const plan = getGermanLevel(selectedLevel);
   const [selectedSectionId, setSelectedSectionId] = useState(plan.sections[0]?.id || "");
   const [selectedSubtopicId, setSelectedSubtopicId] = useState("");
+  const [liveTranscript, setLiveTranscript] = useState<string[]>([]);
 
   const selectedSection = useMemo(() => {
     return plan.sections.find((section) => section.id === selectedSectionId) || plan.sections[0];
@@ -99,16 +102,42 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
     return selectedSection?.subtopics.find((subtopic) => subtopic.id === selectedSubtopicId) || selectedSection?.subtopics[0] || null;
   }, [selectedSection, selectedSubtopicId]);
 
+  const handleLiveMessage = useCallback((msg: { text?: string }) => {
+    if (!msg.text?.trim()) return;
+    setLiveTranscript((prev) => [...prev.slice(-9), msg.text!.trim()]);
+  }, []);
+
+  const live = useGeminiLiveAPI(handleLiveMessage);
+
   function chooseLevel(level: GermanLevel) {
     const next = getGermanLevel(level);
     setSelectedLevel(level);
     setSelectedSectionId(next.sections[0]?.id || "");
     setSelectedSubtopicId(next.sections[0]?.subtopics[0]?.id || "");
+    setLiveTranscript([]);
+    if (live.isConnected) live.stopClient();
   }
 
   function chooseSection(section: GermanSection) {
     setSelectedSectionId(section.id);
     setSelectedSubtopicId(section.subtopics[0]?.id || "");
+    setLiveTranscript([]);
+    if (live.isConnected) live.stopClient();
+  }
+
+  async function startGermanLive() {
+    const context = buildGermanLiveTeacherContext({
+      learnerName,
+      level: selectedLevel,
+      section: selectedSection || null,
+      subtopic: selectedSubtopic || null,
+    });
+    setLiveTranscript([]);
+    await live.connect(learnerName, selectedLevel, selectedSubtopic?.title || selectedSection?.title, "german", context);
+  }
+
+  function stopGermanLive() {
+    live.stopClient();
   }
 
   return (
@@ -124,12 +153,35 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
               <h1 className="mt-2 text-2xl font-bold md:text-3xl">German for Goethe exams and life in Germany, {learnerName}</h1>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-400">A1 is your first active exam goal. A0 survival, A2 bridge, and B1 Goethe preparation are already mapped so the portal can grow step by step.</p>
             </div>
-            <div className="rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-4 text-sm text-emerald-100">
-              Current goal: <span className="font-bold">Goethe A1</span>
-              <p className="mt-1 text-xs text-emerald-200/80">Path: A0 → A1 → A2 → B1</p>
+            <div className="flex flex-col gap-2">
+              <div className="rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-4 text-sm text-emerald-100">
+                Current goal: <span className="font-bold">Goethe A1</span>
+                <p className="mt-1 text-xs text-emerald-200/80">Path: A0 → A1 → A2 → B1</p>
+              </div>
+              <button
+                onClick={live.isConnected ? stopGermanLive : startGermanLive}
+                className={`inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold ${live.isConnected ? "bg-red-600 hover:bg-red-500" : "bg-amber-500 text-slate-950 hover:bg-amber-400"}`}
+              >
+                {live.isConnected ? <><StopCircle className="h-4 w-4" /> Stop German Live</> : <><Mic className="h-4 w-4" /> Start German Live</>}
+              </button>
             </div>
           </div>
+          {live.error && <p className="mt-3 rounded-xl border border-red-500/30 bg-red-950/70 px-3 py-2 text-xs text-red-100">{live.error}</p>}
         </header>
+
+        {liveTranscript.length > 0 && (
+          <section className="rounded-3xl border border-amber-400/20 bg-amber-500/10 p-5">
+            <div className="mb-3 flex items-center gap-2 text-amber-100">
+              <Volume2 className="h-5 w-5" />
+              <h2 className="font-bold">German live transcript</h2>
+            </div>
+            <div className="space-y-2">
+              {liveTranscript.map((line, index) => (
+                <p key={`${line}-${index}`} className="rounded-xl border border-white/10 bg-black/20 p-3 text-sm leading-6 text-slate-100">{line}</p>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="grid gap-3 md:grid-cols-4">
           {germanCurriculum.map((level) => (
