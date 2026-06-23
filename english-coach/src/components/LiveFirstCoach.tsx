@@ -1,0 +1,158 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import { LogOut } from "lucide-react";
+import { fetchLearnerProfile, fetchSessionMessages, fetchUserSessions, saveSession, saveSessionMessage } from "../lib/firebase";
+import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
+import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductTrackView } from "../lib/curriculumClient";
+import { buildLiveLessonContext } from "../lib/liveLessonContext";
+import type { CoachMessage, CoachMode, CoachSession, LearnerProfile, ProficiencyLevel } from "../types";
+import LiveFirstLearningShell from "./LiveFirstLearningShell";
+
+interface LiveFirstCoachProps {
+  user: any;
+  userProfile: any;
+  onSignOut: () => void;
+  activeProfile: string;
+  profileDisplayName: string;
+}
+
+function levelToBand(level: ProficiencyLevel): "Beginner" | "Intermediate" | "Advanced" {
+  if (level === "Beginner" || level === "Advanced") return level;
+  return "Intermediate";
+}
+
+export default function LiveFirstCoach({ user, userProfile, onSignOut, activeProfile, profileDisplayName }: LiveFirstCoachProps) {
+  const [level] = useState<ProficiencyLevel>((userProfile?.level as ProficiencyLevel) || "Intermediate");
+  const [mode] = useState<CoachMode>("balanced");
+  const [learnerProfile, setLearnerProfile] = useState<LearnerProfile | null>(null);
+  const [courses, setCourses] = useState<CurriculumCourseView[]>([]);
+  const [tracks, setTracks] = useState<ProductTrackView[]>([]);
+  const [selectedTrackId, setSelectedTrackId] = useState("");
+  const [cursor, setCursor] = useState<LessonCursorView | null>(null);
+  const [sessions, setSessions] = useState<CoachSession[]>([]);
+  const [activeSession, setActiveSession] = useState<CoachSession | null>(null);
+  const [messages, setMessages] = useState<CoachMessage[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const activeSessionRef = useRef<CoachSession | null>(null);
+
+  useEffect(() => { activeSessionRef.current = activeSession; }, [activeSession]);
+
+  const handleLiveMessage = useCallback((msg: { text?: string; interrupted?: boolean }) => {
+    if (!msg.text) return;
+    const session = activeSessionRef.current;
+    if (!session) return;
+    const coachMsg: CoachMessage = {
+      messageId: `msg_live_${Date.now()}_${Math.random().toString(36).slice(2)}`,
+      sessionId: session.sessionId,
+      userId: user.uid,
+      sender: "coach",
+      source: "live",
+      kind: "coach_reply",
+      text: msg.text,
+      shouldTriggerCoachResponse: false,
+      grammarCorrection: null,
+      createdAt: new Date().toISOString(),
+    };
+    setMessages((prev) => [...prev, coachMsg]);
+    saveSessionMessage(session.sessionId, coachMsg).catch(() => {});
+  }, [user.uid]);
+
+  const live = useGeminiLiveAPI(handleLiveMessage);
+  const selectedTrack = tracks.find((item) => item.id === selectedTrackId) || tracks[0] || null;
+
+  useEffect(() => { bootstrap(); }, [user?.uid, activeProfile]);
+
+  async function bootstrap() {
+    if (!user?.uid || !activeProfile) return;
+    setError(null);
+    try {
+      const [profile, curriculum, existingSessions] = await Promise.all([
+        fetchLearnerProfile(activeProfile),
+        fetchCurriculum(),
+        fetchUserSessions(user.uid, activeProfile),
+      ]);
+      setLearnerProfile(profile);
+      setCourses(curriculum.courses);
+      setTracks(curriculum.production?.tracks || []);
+      setSelectedTrackId(curriculum.production?.tracks?.[0]?.id || "");
+      setSessions(existingSessions);
+      if (existingSessions[0]) {
+        setActiveSession(existingSessions[0]);
+        setMessages(await fetchSessionMessages(existingSessions[0].sessionId));
+      }
+      const started = await startCurriculum({ learnerId: activeProfile, levelBand: levelToBand(level), sessionDay: profile?.challengeDay || 1 });
+      setCursor(started.cursor);
+    } catch (err: any) {
+      setError(err.message || "Failed to load Live-first learning view.");
+    }
+  }
+
+  async function createLiveSession() {
+    const now = new Date().toISOString();
+    const title = cursor ? `Live: ${cursor.subsectionId}` : "Live English lesson";
+    const sess: CoachSession = {
+      sessionId: `sess_${Date.now()}`,
+      userId: user.uid,
+      userName: profileDisplayName,
+      title,
+      createdAt: now,
+      updatedAt: now,
+      mode: "speaking",
+      profileId: activeProfile,
+      activityType: "live_lesson",
+      challengeDay: learnerProfile?.challengeDay || 1,
+    };
+    await saveSession(sess);
+    setSessions((prev) => [sess, ...prev]);
+    setActiveSession(sess);
+    setMessages([]);
+    return sess;
+  }
+
+  async function startLive() {
+    setError(null);
+    if (!activeSessionRef.current) await createLiveSession();
+    const context = buildLiveLessonContext({ courses, cursor, selectedTrack, fallbackTopic: selectedTrack?.title || "English speaking practice" });
+    await live.connect(profileDisplayName, level, context, mode);
+  }
+
+  function stopLive() {
+    live.stopClient();
+  }
+
+  async function changeTopic() {
+    setError(null);
+    const trackModuleId = selectedTrack?.moduleIds?.[0];
+    try {
+      const next = trackModuleId
+        ? await startCurriculum({ learnerId: activeProfile, moduleId: trackModuleId, sessionDay: learnerProfile?.challengeDay || 1 })
+        : await startCurriculum({ learnerId: activeProfile, levelBand: levelToBand(level), sessionDay: learnerProfile?.challengeDay || 1 });
+      setCursor(next.cursor);
+      await createLiveSession();
+    } catch (err: any) {
+      setError(err.message || "Failed to change topic.");
+    }
+  }
+
+  return (
+    <div className="relative">
+      <div className="absolute right-4 top-4 z-10 flex items-center gap-3">
+        {error && <span className="max-w-md rounded-xl border border-red-500/30 bg-red-950/80 px-3 py-2 text-xs text-red-100">{error}</span>}
+        {live.error && <span className="max-w-md rounded-xl border border-red-500/30 bg-red-950/80 px-3 py-2 text-xs text-red-100">{live.error}</span>}
+        <button onClick={onSignOut} className="rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-xs font-semibold text-slate-100 hover:bg-white/15 flex items-center gap-2"><LogOut className="h-4 w-4" /> Sign out</button>
+      </div>
+      <LiveFirstLearningShell
+        learnerName={profileDisplayName}
+        courses={courses}
+        cursor={cursor}
+        selectedTrack={selectedTrack}
+        sessions={sessions}
+        messages={messages}
+        isLiveActive={live.isConnected}
+        isBusy={false}
+        onStartLive={startLive}
+        onStopLive={stopLive}
+        onChangeTopic={changeTopic}
+      />
+    </div>
+  );
+}
