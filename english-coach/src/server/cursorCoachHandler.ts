@@ -1,8 +1,8 @@
 import type express from "express";
 import { Type } from "@google/genai";
-import { buildCursorTeachingPrompt } from "./cursorPromptBuilder";
+import { buildCursorTeachingPrompt, getSubsectionTeachingContent } from "./cursorPromptBuilder";
 import { moveCursorAfterTurn, pushDigression, popDigression, isPreviousCalendarDay } from "./lessonCursorLogic";
-import { getOrCreateLessonCursor, saveLessonCursor } from "./lessonCursorStore";
+import { getOrCreateLessonCursor, resetLessonCursor, saveLessonCursor } from "./lessonCursorStore";
 import type { LessonMessageType } from "./lessonCursorTypes";
 
 function safeLevel(value: string): "Beginner" | "Intermediate" | "Advanced" {
@@ -24,16 +24,19 @@ function memoryToText(mistakeMemory: any) {
 export function createCursorCoachHandler(ai: any) {
   return async function cursorCoachHandler(req: express.Request, res: express.Response) {
     try {
-      const { messageText, userLevel, userName, mode, dailyActivity, mistakeMemory, challengeDay, profileId } = req.body;
+      const { messageText, userLevel, userName, mode, mistakeMemory, challengeDay, profileId } = req.body;
       if (!messageText) return res.status(400).json({ error: "messageText is required in body." });
 
       const level = safeLevel(userLevel || "Intermediate");
       const name = userName || "Student";
       const learnerId = profileId || name.toLowerCase().replace(/[^a-z0-9_-]/g, "_") || "student";
       const now = new Date().toISOString();
-      const preferPastTensePilot = dailyActivity?.type === "grammar" || dailyActivity?.title?.toLowerCase?.().includes("grammar");
 
-      let cursor = await getOrCreateLessonCursor({ learnerId, level, sessionDay: challengeDay || 1, preferPastTensePilot });
+      let cursor = await getOrCreateLessonCursor({ learnerId, level, sessionDay: challengeDay || 1, preferPastTensePilot: true });
+      if (!getSubsectionTeachingContent(cursor.subsectionId)) {
+        cursor = await resetLessonCursor({ learnerId, level, sessionDay: challengeDay || 1, preferPastTensePilot: true });
+      }
+
       const resumeAfterBreak = isPreviousCalendarDay(cursor.lastActiveAt, now);
       const mistakeMemoryText = memoryToText(mistakeMemory);
 
