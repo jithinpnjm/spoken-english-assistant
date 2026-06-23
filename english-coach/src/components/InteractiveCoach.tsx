@@ -6,7 +6,8 @@ import { AlertTriangle, BookOpen, CheckCircle, Flame, LogOut, Mic, MicOff, Plus,
 import { dbg } from "../lib/debug";
 import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
 import CurriculumProgressPanel from "./CurriculumProgressPanel";
-import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView } from "../lib/curriculumClient";
+import ProductModePanel from "./ProductModePanel";
+import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductModeView, type ProductTrackView } from "../lib/curriculumClient";
 
 interface InteractiveCoachProps {
   user: any;
@@ -18,13 +19,13 @@ interface InteractiveCoachProps {
   profileDisplayName: string;
 }
 
-const dailyActivities = [
+const generalPracticeActivities = [
   { type: "warmup", title: "Daily warm-up", prompt: "Tell me three things you did today. I will help you speak naturally." },
-  { type: "grammar", title: "Grammar focus", prompt: "Let's practice past tense in daily conversation. Ask me one simple question first." },
-  { type: "scenario", title: "Real-life scenario", prompt: "Roleplay ordering food at a restaurant. You are the waiter and I am the customer." },
-  { type: "workplace", title: "Workplace English", prompt: "Practice a daily standup update. Ask me what I worked on, blockers, and next steps." },
-  { type: "fluency", title: "60-second fluency", prompt: "Ask me to speak for 60 seconds about my family, work, or travel. Then evaluate my fluency." },
-  { type: "review", title: "Mistake review", prompt: "Review my recurring mistakes and give me a short speaking drill." },
+  { type: "grammar", title: "Quick grammar practice", prompt: "Let's practice one useful grammar point from your current level." },
+  { type: "scenario", title: "Real-life roleplay", prompt: "Start a simple real-life roleplay and correct my English naturally." },
+  { type: "workplace", title: "Workplace quick practice", prompt: "Practice a daily standup update. Ask me what I worked on, blockers, and next steps." },
+  { type: "fluency", title: "Fluency builder", prompt: "Give me a short fluency drill and help me improve one answer." },
+  { type: "review", title: "Mistake review", prompt: "Review my recurring mistakes and give me a short correction drill." },
 ];
 
 function levelToBand(level: ProficiencyLevel): "Beginner" | "Intermediate" | "Advanced" {
@@ -45,6 +46,10 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   const [error, setError] = useState<string | null>(null);
   const [listening, setListening] = useState(false);
   const [courses, setCourses] = useState<CurriculumCourseView[]>([]);
+  const [productModes, setProductModes] = useState<ProductModeView[]>([]);
+  const [productTracks, setProductTracks] = useState<ProductTrackView[]>([]);
+  const [selectedProductMode, setSelectedProductMode] = useState("study");
+  const [selectedTrackId, setSelectedTrackId] = useState("");
   const [cursor, setCursor] = useState<LessonCursorView | null>(null);
   const [selectedModuleId, setSelectedModuleId] = useState("");
   const [curriculumBusy, setCurriculumBusy] = useState(false);
@@ -52,7 +57,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   const activeSessionRef = useRef<CoachSession | null>(null);
 
   useEffect(() => { activeSessionRef.current = activeSession; }, [activeSession]);
-  useEffect(() => { setSelectedModuleId(""); }, [level]);
+  useEffect(() => { setSelectedModuleId(""); }, [level, selectedTrackId]);
 
   const handleLiveMessage = useCallback((msg: { text?: string; interrupted?: boolean }) => {
     if (!msg.text) return;
@@ -76,8 +81,10 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   }, [user.uid]);
 
   const geminiLive = useGeminiLiveAPI(handleLiveMessage);
-  const dayIndex = Math.floor(Date.now() / 86400000) % dailyActivities.length;
-  const todayActivity = dailyActivities[dayIndex];
+  const dayIndex = Math.floor(Date.now() / 86400000) % generalPracticeActivities.length;
+  const todayActivity = generalPracticeActivities[dayIndex];
+  const selectedTrack = productTracks.find((track) => track.id === selectedTrackId) || null;
+  const selectedMode = productModes.find((item) => item.id === selectedProductMode) || null;
 
   const ui = {
     bg: highContrast ? "bg-black text-white" : "bg-transparent text-slate-100",
@@ -101,6 +108,9 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     try {
       const data = await fetchCurriculum();
       setCourses(data.courses);
+      setProductModes(data.production?.modes || []);
+      setProductTracks(data.production?.tracks || []);
+      if (!selectedTrackId && data.production?.tracks?.length) setSelectedTrackId(data.production.tracks[0].id);
     } catch (err: any) {
       dbg.coach.error("loadCurriculum failed:", err?.message || err);
       setError(err.message || "Failed to load curriculum.");
@@ -116,7 +126,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     const all = await fetchUserSessions(user.uid, activeProfile);
     setSessions(all);
     if (all.length > 0) setActiveSession(all[0]);
-    else await createNewSession("Daily English Practice", todayActivity.type);
+    else await createNewSession("General English Practice", todayActivity.type);
   }
 
   async function loadMessages(sessionId: string) {
@@ -127,7 +137,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     const now = new Date().toISOString();
     const sess: CoachSession = { sessionId: `sess_${Date.now()}`, userId: user.uid, userName: profileDisplayName, title, createdAt: now, updatedAt: now, mode: "writing", profileId: activeProfile, activityType, challengeDay: learnerProfile?.challengeDay || 1 };
     await saveSession(sess);
-    const intro: CoachMessage = { messageId: `msg_intro_${Date.now()}`, sessionId: sess.sessionId, userId: user.uid, sender: "system", source: "system", kind: "lesson_instruction", text: `Welcome ${profileDisplayName}. Today is Day ${learnerProfile?.challengeDay || 1} of your 60-day English challenge. Today's activity: ${title}.`, shouldTriggerCoachResponse: false, grammarCorrection: null, createdAt: now };
+    const intro: CoachMessage = { messageId: `msg_intro_${Date.now()}`, sessionId: sess.sessionId, userId: user.uid, sender: "system", source: "system", kind: "lesson_instruction", text: `Welcome ${profileDisplayName}. Today is Day ${learnerProfile?.challengeDay || 1}. Mode: ${selectedMode?.title || "Practice"}. Session: ${title}.`, shouldTriggerCoachResponse: false, grammarCorrection: null, createdAt: now };
     await saveSessionMessage(sess.sessionId, intro);
     setSessions((prev) => [sess, ...prev]);
     setActiveSession(sess);
@@ -144,12 +154,13 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   async function startCurrentLevel() {
     setCurriculumBusy(true);
     setError(null);
+    setSelectedProductMode("study");
     try {
       const result = await startCurriculum({ learnerId: activeProfile, levelBand: levelToBand(level), sessionDay: learnerProfile?.challengeDay || 1 });
       setCursor(result.cursor);
-      await createNewSession(`Curriculum: ${levelToBand(level)} track`, "curriculum");
+      await createNewSession(`Study: ${levelToBand(level)} track`, "study");
     } catch (err: any) {
-      setError(err.message || "Failed to start curriculum level.");
+      setError(err.message || "Failed to start study level.");
     } finally {
       setCurriculumBusy(false);
     }
@@ -159,13 +170,14 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     if (!selectedModuleId) return;
     setCurriculumBusy(true);
     setError(null);
+    setSelectedProductMode("study");
     try {
       const result = await startCurriculum({ learnerId: activeProfile, moduleId: selectedModuleId, sessionDay: learnerProfile?.challengeDay || 1 });
       setCursor(result.cursor);
       const selected = courses.flatMap((c) => c.modules).find((m) => m.id === selectedModuleId);
-      await createNewSession(`Curriculum: ${selected?.title || selectedModuleId}`, "curriculum");
+      await createNewSession(`Study: ${selected?.title || selectedModuleId}`, "study");
     } catch (err: any) {
-      setError(err.message || "Failed to start curriculum module.");
+      setError(err.message || "Failed to start study module.");
     } finally {
       setCurriculumBusy(false);
     }
@@ -188,12 +200,12 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     try {
       const token = await getAuth().currentUser?.getIdToken();
       const history = messages.filter((m) => m.kind !== "suggestion" && m.kind !== "evaluation_summary").map((m) => ({ role: m.sender === "user" ? "user" : "model", text: m.text }));
-      const res = await fetch("/api/coach-interaction", { method: "POST", headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) }, body: JSON.stringify({ messageText: clean, userLevel: level, userName: profileDisplayName, history, mode, dailyActivity: activity, mistakeMemory, challengeDay: learnerProfile?.challengeDay || 1, profileId: activeProfile }) });
+      const res = await fetch("/api/coach-interaction", { method: "POST", headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) }, body: JSON.stringify({ messageText: clean, userLevel: level, userName: profileDisplayName, history, mode, dailyActivity: activity, mistakeMemory, challengeDay: learnerProfile?.challengeDay || 1, profileId: activeProfile, interactionMode: source, productMode: selectedProductMode, productTrackId: selectedTrackId }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `API error ${res.status}`);
       if (data.cursor) setCursor(data.cursor);
 
-      const coachMsg: CoachMessage = { messageId: `msg_coach_${Date.now()}`, sessionId: session.sessionId, userId: user.uid, sender: "coach", source, kind: "coach_reply", text: data.coachReply || "Good. Continue speaking.", shouldTriggerCoachResponse: false, grammarCorrection: data.correctedSentence || null, naturalVersion: data.naturalVersion || null, mistakes: data.mistakes || [], identifiedMistakes: (data.mistakes || []).map((m: any) => `${m.type}: ${m.explanation}`), coachingTip: data.microDrill?.instruction || "", fluencyScore: data.fluencyScore, grammarScore: data.grammarScore, vocabularyScore: data.vocabularyScore, pronunciationFocus: data.pronunciationFocus, repeatPractice: data.repeatPractice, microDrill: data.microDrill, lessonStep: data.lessonStep, teachingPhase: data.teachingPhase, teacherAction: data.teacherAction, createdAt: new Date().toISOString() };
+      const coachMsg: CoachMessage = { messageId: `msg_coach_${Date.now()}`, sessionId: session.sessionId, userId: user.uid, sender: "coach", source, kind: "coach_reply", text: data.coachReply || "Good. Continue with one complete sentence.", shouldTriggerCoachResponse: false, grammarCorrection: data.correctedSentence || null, naturalVersion: data.naturalVersion || null, mistakes: data.mistakes || [], identifiedMistakes: (data.mistakes || []).map((m: any) => `${m.type}: ${m.explanation}`), coachingTip: data.microDrill?.instruction || "", fluencyScore: data.fluencyScore, grammarScore: data.grammarScore, vocabularyScore: data.vocabularyScore, pronunciationFocus: data.pronunciationFocus, repeatPractice: data.repeatPractice, microDrill: data.microDrill, lessonStep: data.lessonStep, teachingPhase: data.teachingPhase, teacherAction: data.teacherAction, createdAt: new Date().toISOString() };
       setMessages((prev) => [...prev, coachMsg]);
       await saveSessionMessage(session.sessionId, coachMsg);
 
@@ -241,20 +253,22 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
     }
     let session = activeSession;
     if (!session) session = await createNewSession();
+    setSelectedProductMode("live");
     setListening(true);
     setError(null);
-    await geminiLive.connect(profileDisplayName, level, todayActivity.title, mode);
+    await geminiLive.connect(profileDisplayName, level, cursor ? `Current lesson: ${cursor.subsectionId}` : todayActivity.title, mode);
   }
 
-  function startActivity(activity: typeof dailyActivities[number]) {
-    createNewSession(activity.title, activity.type).then(() => sendToCoach(activity.prompt, "chat", activity));
+  function startActivity(activity: typeof generalPracticeActivities[number]) {
+    setSelectedProductMode(activity.type === "review" ? "review" : "practice");
+    createNewSession(`Practice: ${activity.title}`, activity.type).then(() => sendToCoach(activity.prompt, "chat", activity));
   }
 
   return (
     <div className={`h-screen flex flex-col lg:flex-row p-4 gap-4 ${ui.bg} overflow-hidden`}>
       <aside className={`w-full lg:w-96 flex-shrink-0 overflow-y-auto p-4 ${ui.panel}`}>
         <div className="flex items-center justify-between mb-5">
-          <div><h1 className="text-2xl font-bold">{profileDisplayName}</h1><p className="text-xs text-slate-400">Private English Coach</p></div>
+          <div><h1 className="text-2xl font-bold">{profileDisplayName}</h1><p className="text-xs text-slate-400">Sky English Coach</p></div>
           <button onClick={onSignOut} className="p-2 rounded-lg hover:bg-white/10"><LogOut className="h-5 w-5" /></button>
         </div>
         <div className="grid grid-cols-3 gap-2 mb-4">
@@ -269,6 +283,15 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
         </div>
         <button onClick={() => createNewSession()} className={`w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2 ${ui.btn}`}><Plus className="h-5 w-5" /> New Session</button>
 
+        <ProductModePanel
+          modes={productModes}
+          tracks={productTracks}
+          selectedMode={selectedProductMode}
+          selectedTrackId={selectedTrackId}
+          onModeChange={setSelectedProductMode}
+          onTrackChange={setSelectedTrackId}
+        />
+
         <CurriculumProgressPanel
           courses={courses}
           cursor={cursor}
@@ -277,16 +300,19 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
           onSelectedModuleChange={setSelectedModuleId}
           onStartLevel={startCurrentLevel}
           onStartModule={startSelectedModule}
+          selectedTrackTitle={selectedTrack?.title}
+          allowedModuleIds={selectedTrack?.moduleIds}
           isBusy={curriculumBusy}
         />
 
-        <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">Daily activities</h2>
-        <div className="space-y-2">{dailyActivities.map((a, i) => <button key={a.type} onClick={() => startActivity(a)} className={`w-full text-left p-3 rounded-xl border text-sm ${i === dayIndex ? "border-emerald-400/50 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10"}`}><span className="font-semibold">{a.title}</span><span className="block text-xs text-slate-400">{a.type}</span></button>)}</div>
-        <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">Mistake memory</h2>
+        <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">General Practice</h2>
+        <p className="text-[11px] text-slate-500 mb-2">Use this after study sessions for free talk, roleplay, warm-up, or review.</p>
+        <div className="space-y-2">{generalPracticeActivities.map((a, i) => <button key={a.type} onClick={() => startActivity(a)} className={`w-full text-left p-3 rounded-xl border text-sm ${i === dayIndex ? "border-emerald-400/50 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10"}`}><span className="font-semibold">{a.title}</span><span className="block text-xs text-slate-400">{a.type}</span></button>)}</div>
+        <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">Review Mode</h2>
         <div className="space-y-2">{mistakeMemory.slice(0, 6).map((m) => <div key={m.mistakeId} className="p-2 rounded-xl bg-white/5 border border-white/10 text-xs"><span className="font-semibold">{m.mistakeType}</span><span className="float-right text-slate-400">{m.count}</span></div>)}{mistakeMemory.length === 0 && <p className="text-xs text-slate-500">No recurring mistakes yet.</p>}</div>
       </aside>
       <main className={`flex-1 flex flex-col overflow-hidden ${ui.card}`}>
-        <header className="p-4 border-b border-white/10 flex items-center justify-between"><div><h2 className="font-bold">{cursor ? "Curriculum lesson" : todayActivity.title}</h2><p className="text-xs text-slate-400">Mode: {mode.replace("_", " ")} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "Messages are stored for progress tracking"}</p></div><Sparkles className="h-5 w-5 text-indigo-300" /></header>
+        <header className="p-4 border-b border-white/10 flex items-center justify-between"><div><h2 className="font-bold">{selectedMode?.title || (cursor ? "Study Mode" : todayActivity.title)}</h2><p className="text-xs text-slate-400">Track: {selectedTrack?.title || "Not selected"} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "Choose a track or start general practice"}</p></div><Sparkles className="h-5 w-5 text-indigo-300" /></header>
         <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-5">
           {error && <div className="p-4 rounded-xl text-sm border border-red-500/20 bg-red-500/10 text-red-300 flex gap-2"><AlertTriangle className="h-5 w-5" />{error}</div>}
           <div className="space-y-5 max-w-4xl mx-auto">
@@ -301,7 +327,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
         <div className="p-4 border-t border-white/10">
           {listening && <div className="mb-2 text-xs text-emerald-300 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Listening now. Speak one sentence clearly.</div>}
           <form onSubmit={(e) => { e.preventDefault(); sendToCoach(inputText, "chat"); }} className="flex gap-2">
-            <input value={inputText} onChange={(e) => setInputText(e.target.value)} disabled={isLoading} placeholder={cursor ? "Answer the current curriculum lesson..." : "Type an English sentence or answer today's activity..."} className={`flex-1 px-4 py-3 rounded-xl text-sm outline-none ${ui.input}`} />
+            <input value={inputText} onChange={(e) => setInputText(e.target.value)} disabled={isLoading} placeholder={cursor ? "Answer the current study lesson..." : "Type an English sentence or start general practice..."} className={`flex-1 px-4 py-3 rounded-xl text-sm outline-none ${ui.input}`} />
             <button type="submit" disabled={isLoading || !inputText.trim()} className={`px-4 py-3 rounded-xl ${ui.btn}`}><Send className="h-5 w-5" /></button>
             <button type="button" onClick={toggleMic} disabled={isLoading} className={`px-4 py-3 rounded-xl ${listening ? "bg-red-600 text-white" : ui.btn}`}>{listening ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}</button>
           </form>
