@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { ArrowLeft, BookOpen, CheckCircle2, GraduationCap, Languages, Mic, PenLine, Radio, ShieldCheck } from "lucide-react";
 import { germanCurriculum, getGermanLevel, getGermanSubtopicCount, type GermanLevel, type GermanSection, type GermanSubtopic } from "../lib/germanCurriculumRegistry";
+import GermanPracticePanel from "./GermanPracticePanel";
 
 interface GermanCoachShellProps {
   learnerName: string;
@@ -42,9 +43,9 @@ function SectionCard({ section, selected, onSelect }: { section: GermanSection; 
   );
 }
 
-function SubtopicCard({ subtopic }: { subtopic: GermanSubtopic }) {
+function SubtopicCard({ subtopic, selected, onSelect }: { subtopic: GermanSubtopic; selected: boolean; onSelect: () => void }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-slate-900/70 p-4">
+    <button onClick={onSelect} className={`w-full rounded-2xl border p-4 text-left transition ${selected ? "border-amber-300/70 bg-amber-500/10" : "border-white/10 bg-slate-900/70 hover:bg-slate-900"}`}>
       <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
         <div>
           <h4 className="font-bold text-slate-100">{subtopic.title}</h4>
@@ -80,7 +81,7 @@ function SubtopicCard({ subtopic }: { subtopic: GermanSubtopic }) {
           <span key={mode} className="rounded-full bg-white/10 px-3 py-1 text-[11px] text-slate-300">{mode}</span>
         ))}
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -88,15 +89,26 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
   const [selectedLevel, setSelectedLevel] = useState<GermanLevel>("A1");
   const plan = getGermanLevel(selectedLevel);
   const [selectedSectionId, setSelectedSectionId] = useState(plan.sections[0]?.id || "");
+  const [selectedSubtopicId, setSelectedSubtopicId] = useState("");
 
   const selectedSection = useMemo(() => {
     return plan.sections.find((section) => section.id === selectedSectionId) || plan.sections[0];
   }, [plan, selectedSectionId]);
 
+  const selectedSubtopic = useMemo(() => {
+    return selectedSection?.subtopics.find((subtopic) => subtopic.id === selectedSubtopicId) || selectedSection?.subtopics[0] || null;
+  }, [selectedSection, selectedSubtopicId]);
+
   function chooseLevel(level: GermanLevel) {
     const next = getGermanLevel(level);
     setSelectedLevel(level);
     setSelectedSectionId(next.sections[0]?.id || "");
+    setSelectedSubtopicId(next.sections[0]?.subtopics[0]?.id || "");
+  }
+
+  function chooseSection(section: GermanSection) {
+    setSelectedSectionId(section.id);
+    setSelectedSubtopicId(section.subtopics[0]?.id || "");
   }
 
   return (
@@ -149,7 +161,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
           <div className="grid gap-4 md:grid-cols-3">
             <div className="space-y-3">
               {plan.sections.map((section) => (
-                <SectionCard key={section.id} section={section} selected={section.id === selectedSection?.id} onSelect={() => setSelectedSectionId(section.id)} />
+                <SectionCard key={section.id} section={section} selected={section.id === selectedSection?.id} onSelect={() => chooseSection(section)} />
               ))}
             </div>
 
@@ -162,8 +174,9 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
                     <p className="mt-2 text-sm leading-6 text-slate-300">{selectedSection.description}</p>
                   </div>
                   {selectedSection.subtopics.map((subtopic) => (
-                    <SubtopicCard key={subtopic.id} subtopic={subtopic} />
+                    <SubtopicCard key={subtopic.id} subtopic={subtopic} selected={subtopic.id === selectedSubtopic?.id} onSelect={() => setSelectedSubtopicId(subtopic.id)} />
                   ))}
+                  {selectedSubtopic && <GermanPracticePanel level={selectedLevel} subtopic={selectedSubtopic} />}
                 </>
               ) : (
                 <p className="rounded-2xl border border-white/10 bg-slate-900 p-4 text-sm text-slate-400">Choose a section to view subtopics.</p>
