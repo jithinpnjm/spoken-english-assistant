@@ -4,7 +4,9 @@ import { dbg } from "./lib/debug";
 import { onAuthStateChanged, User as FirebaseUser } from "firebase/auth";
 import AuthScreen from "./components/AuthScreen";
 import ProfileSelector from "./components/ProfileSelector";
+import PortalSelector, { type LearningPortal } from "./components/PortalSelector";
 import LiveFirstCoach from "./components/LiveFirstCoach";
+import GermanCoachShell from "./components/GermanCoachShell";
 import { Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -13,6 +15,7 @@ export default function App() {
   const [userProfile, setUserProfile] = useState<any | null>(null);
   const [activeProfile, setActiveProfile] = useState<string | null>(null);
   const [profileDisplayName, setProfileDisplayName] = useState<string | null>(null);
+  const [selectedPortal, setSelectedPortal] = useState<LearningPortal | null>(null);
   const [loading, setLoading] = useState(true);
   const [highContrast, setHighContrast] = useState(false);
 
@@ -46,6 +49,7 @@ export default function App() {
           setUserProfile(null);
           setActiveProfile(null);
           setProfileDisplayName(null);
+          setSelectedPortal(null);
         }
       } catch (err: any) {
         dbg.auth.error("ERROR in onAuthStateChanged handler:", err?.message || err, err);
@@ -54,6 +58,7 @@ export default function App() {
         setUserProfile(null);
         setActiveProfile(null);
         setProfileDisplayName(null);
+        setSelectedPortal(null);
       } finally {
         setLoading(false);
       }
@@ -67,6 +72,7 @@ export default function App() {
     const profileId = profileIdForEmail(user.email);
     setProfileDisplayName(displayName);
     setActiveProfile(profileId);
+    setSelectedPortal(null);
     const profile = await fetchUserProfile(user.uid);
     setUserProfile(profile);
     setHighContrast(!!(profile as any)?.highContrast);
@@ -78,6 +84,7 @@ export default function App() {
     setUserProfile(null);
     setActiveProfile(null);
     setProfileDisplayName(null);
+    setSelectedPortal(null);
   };
 
   const handleToggleHighContrast = async () => {
@@ -101,6 +108,14 @@ export default function App() {
         ) : !activeProfile || !profileDisplayName ? (
           <motion.div key="profile-selector" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <ProfileSelector activeProfile={profileDisplayName || "Student"} email={currentUser.email} onSelect={setActiveProfile} highContrast={highContrast} onSignOut={handleSignOut} />
+          </motion.div>
+        ) : !selectedPortal ? (
+          <motion.div key="portal-selector" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <PortalSelector learnerName={profileDisplayName} onSelect={setSelectedPortal} onSignOut={handleSignOut} />
+          </motion.div>
+        ) : selectedPortal === "german" ? (
+          <motion.div key="german-coach" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <GermanCoachShell learnerName={profileDisplayName} onBackToPortals={() => setSelectedPortal(null)} />
           </motion.div>
         ) : (
           <motion.div key="live-first-coach" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
