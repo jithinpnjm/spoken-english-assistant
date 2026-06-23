@@ -17,7 +17,8 @@
     "check:full-content": "tsx scripts/check-full-content.ts",
     "check:workplace-content": "tsx scripts/check-workplace-content.ts",
     "check:teach-first": "tsx scripts/check-teach-first.ts",
-    "check:production-taxonomy": "tsx scripts/check-production-taxonomy.ts"
+    "check:production-taxonomy": "tsx scripts/check-production-taxonomy.ts",
+    "check:lesson-progression": "tsx scripts/check-lesson-progression.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
