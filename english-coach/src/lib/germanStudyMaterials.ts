@@ -143,115 +143,35 @@ const specificStudyMaterials: Record<string, GermanStudyMaterial> = {
       "Mein Nachname ist Joseph.",
       "Meine Nationalität ist indisch."
     ]
-  },
-  "a2-schreiben-problem-email": {
-    id: "study-a2-problem-email",
-    level: "A2",
-    subtopicId: "a2-schreiben-problem-email",
-    lessonGoal: "Write a short polite email about a problem, cancellation, or new appointment.",
-    simpleExplanation: [
-      "A2 writing often asks you to explain a small real-life problem in a polite way.",
-      "You need a greeting, the problem, the reason, a request, and a closing.",
-      "The safest structure is short and clear. Do not write long complicated sentences."
-    ],
-    germanPattern: [
-      "Sehr geehrte Damen und Herren,",
-      "leider kann ich nicht kommen, weil ...",
-      "Könnten Sie mir bitte einen neuen Termin geben?",
-      "Mit freundlichen Grüßen"
-    ],
-    wordByWord: [
-      { de: "leider", en: "unfortunately" },
-      { de: "weil ich krank bin", en: "because I am sick", note: "verb goes to the end after weil" },
-      { de: "Könnten Sie bitte ...?", en: "Could you please ...?", note: "polite request" }
-    ],
-    vocabulary: [
-      { de: "leider", en: "unfortunately" },
-      { de: "absagen", en: "to cancel" },
-      { de: "verschieben", en: "to postpone/reschedule" },
-      { de: "der neue Termin", en: "new appointment" },
-      { de: "Mit freundlichen Grüßen", en: "Kind regards" }
-    ],
-    modelExamples: [
-      { de: "Leider kann ich morgen nicht zum Termin kommen, weil ich krank bin.", en: "Unfortunately I cannot come to the appointment tomorrow because I am sick." },
-      { de: "Könnten Sie mir bitte einen neuen Termin geben?", en: "Could you please give me a new appointment?" }
-    ],
-    commonMistakes: [
-      "Putting the verb in the wrong place after weil.",
-      "Writing too informal for an office/doctor email.",
-      "Forgetting to ask clearly what you want."
-    ],
-    miniDrills: [
-      "Complete: Leider kann ich nicht kommen, weil ich krank ___.",
-      "Write one polite request with Könnten Sie bitte.",
-      "Rewrite: Ich bin krank. Ich kann nicht kommen. Use weil."
-    ],
-    speakingPrompts: [
-      "Say you cannot come because you are sick.",
-      "Ask politely for a new appointment.",
-      "Say you want to reschedule the appointment."
-    ],
-    writingOrListeningTask: "Write a 40-60 word email cancelling an appointment and asking for a new one.",
-    repeatWithLiveAgent: [
-      "Leider kann ich nicht kommen, weil ich krank bin.",
-      "Könnten Sie mir bitte einen neuen Termin geben?",
-      "Mit freundlichen Grüßen"
-    ]
-  },
-  "b1-schreiben-opinion-email": {
-    id: "study-b1-opinion-writing",
-    level: "B1",
-    subtopicId: "b1-schreiben-opinion-email",
-    lessonGoal: "Write a structured B1 opinion with a reason, example, and conclusion.",
-    simpleExplanation: [
-      "B1 writing expects you to express an opinion clearly, not just write isolated sentences.",
-      "Use fixed Redemittel to reduce grammar risk: Meiner Meinung nach, Ich finde, dass, Ein Vorteil ist, dass, Zum Schluss.",
-      "A safe B1 answer has: opinion, reason, example, maybe advantage/disadvantage, short conclusion."
-    ],
-    germanPattern: [
-      "Meiner Meinung nach + verb ...",
-      "Ich finde, dass + subject + ... + verb at the end.",
-      "Ein Vorteil ist, dass ...",
-      "Zum Schluss möchte ich sagen, dass ..."
-    ],
-    wordByWord: [
-      { de: "Meiner Meinung nach ist Deutsch wichtig.", en: "In my opinion, German is important.", note: "verb comes after the fronted phrase" },
-      { de: "Ich finde, dass Deutsch im Alltag hilft.", en: "I think that German helps in daily life.", note: "verb at the end after dass" }
-    ],
-    vocabulary: [
-      { de: "Meiner Meinung nach", en: "in my opinion" },
-      { de: "der Vorteil", en: "advantage" },
-      { de: "der Nachteil", en: "disadvantage" },
-      { de: "zum Beispiel", en: "for example" },
-      { de: "zum Schluss", en: "in conclusion" }
-    ],
-    modelExamples: [
-      { de: "Meiner Meinung nach ist Deutsch sehr wichtig für das Leben in Deutschland.", en: "In my opinion, German is very important for life in Germany." },
-      { de: "Ein Vorteil ist, dass man Briefe und Termine besser versteht.", en: "One advantage is that you understand letters and appointments better." }
-    ],
-    commonMistakes: [
-      "Forgetting verb position after Meiner Meinung nach.",
-      "Using dass but not sending the verb to the end.",
-      "Writing an opinion without a reason or example."
-    ],
-    miniDrills: [
-      "Write one sentence starting with Meiner Meinung nach.",
-      "Write one dass sentence about learning German.",
-      "Write one advantage of speaking German in Germany."
-    ],
-    speakingPrompts: [
-      "Give your opinion about learning German.",
-      "Say one advantage and one disadvantage of online learning.",
-      "End with a short conclusion."
-    ],
-    writingOrListeningTask: "Write an 80-word B1 opinion post about whether German is important for living in Germany.",
-    repeatWithLiveAgent: [
-      "Meiner Meinung nach ist Deutsch wichtig.",
-      "Ein Vorteil ist, dass man mehr versteht.",
-      "Zum Schluss möchte ich sagen, dass Deutsch im Alltag hilft."
-    ]
   }
 };
+
+function englishMeaningFor(term: string): string {
+  const lower = term.toLowerCase();
+  if (lower.includes("time") || lower.includes("uhr")) return "time / clock expression";
+  if (lower.includes("number")) return "number";
+  if (lower.includes("question")) return "question word or question pattern";
+  if (lower.includes("appointment") || lower.includes("termin")) return "appointment";
+  if (lower.includes("article")) return "article such as der, die, das, ein, eine";
+  if (lower.includes("accusative")) return "object case used after many verbs";
+  if (lower.includes("dative")) return "case often used after some prepositions and verbs";
+  if (lower.includes("word order")) return "German sentence order";
+  if (lower.includes("modal")) return "helping verb such as can, must, want";
+  if (lower.includes("email")) return "email phrase";
+  return "learn this word or phrase and use it in a short sentence";
+}
+
+function exampleFor(term: string): string {
+  const lower = term.toLowerCase();
+  if (lower.includes("time") || lower.includes("uhr")) return "Der Termin ist um 10 Uhr.";
+  if (lower.includes("appointment") || lower.includes("termin")) return "Ich habe einen Termin.";
+  if (lower.includes("question")) return "Wann ist der Termin?";
+  if (lower.includes("article")) return "Ich habe einen Termin.";
+  if (lower.includes("accusative")) return "Ich trinke einen Kaffee.";
+  if (lower.includes("modal")) return "Ich kann heute nicht kommen.";
+  if (lower.includes("email")) return "Mit freundlichen Grüßen";
+  return `Practise: ${term}.`;
+}
 
 export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSubtopic): GermanStudyMaterial {
   const specific = specificStudyMaterials[subtopic.id];
@@ -259,6 +179,7 @@ export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSub
 
   const grammar = subtopic.grammarFocus.length ? subtopic.grammarFocus : ["basic sentence structure"];
   const vocabulary = subtopic.vocabularyFocus.length ? subtopic.vocabularyFocus : [subtopic.title];
+  const firstVocab = vocabulary[0] || subtopic.title;
 
   return {
     id: `study-${subtopic.id}`,
@@ -272,11 +193,11 @@ export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSub
     ],
     germanPattern: grammar.map((item) => `${item}: learn the pattern, then make one short sentence.`),
     wordByWord: [
-      { de: subtopic.title, en: "topic phrase", note: "Use this as the anchor for the lesson." }
+      { de: exampleFor(firstVocab), en: "Use this as the first model sentence for the lesson.", note: "Repeat the German sentence aloud." }
     ],
-    vocabulary: vocabulary.map((item) => ({ de: item, en: "learn and translate this item", example: `Use ${item} in one short sentence.` })),
+    vocabulary: vocabulary.map((item) => ({ de: item, en: englishMeaningFor(item), example: exampleFor(item) })),
     modelExamples: [
-      { de: "Ich lerne Deutsch.", en: "I am learning German." },
+      { de: exampleFor(firstVocab), en: "Model sentence for this lesson." },
       { de: "Können Sie das bitte wiederholen?", en: "Can you please repeat that?" },
       { de: "Ich brauche Hilfe.", en: "I need help." }
     ],
@@ -286,7 +207,7 @@ export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSub
       "Skipping articles such as der, die, das, ein, eine."
     ],
     miniDrills: [
-      "Write one sentence with the first vocabulary item.",
+      `Write one sentence with: ${firstVocab}.`,
       "Say the model sentence aloud three times.",
       "Change one word in the model sentence and say it again."
     ],
@@ -297,7 +218,7 @@ export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSub
     ],
     writingOrListeningTask: subtopic.goetheUse,
     repeatWithLiveAgent: [
-      "Ich lerne Deutsch.",
+      exampleFor(firstVocab),
       "Bitte langsam.",
       "Können Sie das bitte wiederholen?"
     ]
