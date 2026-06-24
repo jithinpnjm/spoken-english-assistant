@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LogOut } from "lucide-react";
 import { fetchLearnerProfile, fetchSessionMessages, fetchUserSessions, saveSession, saveSessionMessage } from "../lib/firebase";
-import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
+import { useLiveCoachSession } from "../hooks/useLiveCoachSession";
 import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductTrackView } from "../lib/curriculumClient";
 import { buildLiveLessonContext } from "../lib/liveLessonContext";
 import { getDailyWords, buildVocabLiveContext, totalVocabSets, type VocabPracticeMode } from "../lib/dailyVocabulary";
@@ -60,7 +60,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
     saveSessionMessage(session.sessionId, coachMsg).catch(() => {});
   }, [user.uid]);
 
-  const live = useGeminiLiveAPI(handleLiveMessage);
+  const live = useLiveCoachSession(handleLiveMessage);
   const selectedTrack = tracks.find((item) => item.id === selectedTrackId) || tracks[0] || null;
 
   useEffect(() => { bootstrap(); }, [user?.uid, activeProfile]);
@@ -116,10 +116,10 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
     setError(null);
     if (!activeSessionRef.current) await createLiveSession();
     const context = buildLiveLessonContext({ courses, cursor, selectedTrack, fallbackTopic: selectedTrack?.title || "English speaking practice" });
-    await live.connect(profileDisplayName, level, context, mode);
+    await live.startEnglishSession({ learnerName: profileDisplayName, userLevel: level, dailyTopic: context, coachMode: mode });
   }
 
-  function stopLive() { live.stopClient(); }
+  function stopLive() { live.stop(); }
 
   async function startVocabPractice(words: VocabWord[], practiceMode: VocabPracticeMode) {
     setError(null);
@@ -141,7 +141,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
     setActiveSession(sess);
     setMessages([]);
     const context = buildVocabLiveContext(words, practiceMode, band);
-    await live.connect(profileDisplayName, level, context, mode);
+    await live.startEnglishSession({ learnerName: profileDisplayName, userLevel: level, dailyTopic: context, coachMode: mode });
   }
 
   function markVocabComplete() {
