@@ -107,7 +107,8 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
     userName = "Student",
     userLevel = "Intermediate",
     dailyTopic?: string,
-    coachMode = "balanced"
+    coachMode = "balanced",
+    customSystemInstructionText?: string
   ) => {
     try {
       setError(null);
@@ -162,7 +163,7 @@ Watch for:
 After each correction, ask the learner to say the corrected sentence once. Stay encouraging — the goal is confident, accurate speech, not intimidation.`,
       };
 
-      const systemInstructionText = `You are Sky, a spoken-English teacher for ${userName}.
+      const defaultSystemInstructionText = `You are Sky, a spoken-English teacher for ${userName}.
 ${levelProfile[userLevel] || levelProfile.Intermediate}
 ${topicLine}
 
@@ -175,6 +176,8 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
 6. After any correction, always ask the learner to say the corrected sentence once before moving on.
 7. Keep each turn focused: one correction, one upgraded sentence, one follow-up speaking task.
 8. Do not become a chatbot. Every reply must contain a teaching action.`;
+
+      const systemInstructionText = customSystemInstructionText || defaultSystemInstructionText;
 
       ws.onopen = () => {
         dbg.live.log("bridge ws.onopen: sending setup");
