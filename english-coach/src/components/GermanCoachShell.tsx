@@ -6,6 +6,7 @@ import GermanPracticePanel from "./GermanPracticePanel";
 import GermanWritingReviewPanel from "./GermanWritingReviewPanel";
 import GermanVocabularyBankPanel from "./GermanVocabularyBankPanel";
 import GermanProgressPanel from "./GermanProgressPanel";
+import GermanStudyDashboard from "./GermanStudyDashboard";
 import GermanA1MiniMockPanel from "./GermanA1MiniMockPanel";
 import GermanA2MiniMockPanel from "./GermanA2MiniMockPanel";
 import GermanB1MockPanel from "./GermanB1MockPanel";
@@ -200,6 +201,8 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
           <GermanProgressPanel />
           <GermanVocabularyBankPanel level={selectedLevel} />
         </section>
+
+        <GermanStudyDashboard level={selectedLevel} selectedSubtopicId={selectedSubtopic?.id} />
 
         <section className="rounded-3xl border border-white/10 bg-white/5 p-5">
           <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
