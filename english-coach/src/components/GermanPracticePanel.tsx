@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { CheckCircle2, RotateCcw, Send, Sparkles } from "lucide-react";
 import type { GermanLevel, GermanSubtopic } from "../lib/germanCurriculumRegistry";
 import { buildGermanPracticeTasks, reviewGermanAnswer, reviewLabel, type GermanPracticeReview } from "../lib/germanPracticeEngine";
+import { buildRepairPracticeTasks } from "../lib/germanRepairPracticeAdapter";
 
 interface GermanPracticePanelProps {
   level: GermanLevel;
@@ -9,7 +10,16 @@ interface GermanPracticePanelProps {
 }
 
 export default function GermanPracticePanel({ level, subtopic }: GermanPracticePanelProps) {
-  const tasks = useMemo(() => buildGermanPracticeTasks(level, subtopic), [level, subtopic]);
+  const tasks = useMemo(() => {
+    const baseTasks = buildGermanPracticeTasks(level, subtopic);
+    const repairTasks = buildRepairPracticeTasks(level, subtopic);
+    const seen = new Set<string>();
+    return [...baseTasks, ...repairTasks].filter((task) => {
+      if (seen.has(task.id)) return false;
+      seen.add(task.id);
+      return true;
+    });
+  }, [level, subtopic]);
   const [taskIndex, setTaskIndex] = useState(0);
   const [answer, setAnswer] = useState("");
   const [review, setReview] = useState<GermanPracticeReview | null>(null);
