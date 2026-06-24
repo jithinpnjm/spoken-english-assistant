@@ -1,5 +1,6 @@
 import type { GermanLevel, GermanSubtopic } from "./germanCurriculumRegistry";
-import { getA1SourceLessonsForSkill, germanA1SourceLessons } from "./germanA1SourceLessons";
+import { enrichA1StudyMaterialWithBook } from "./a1-book/germanA1StudyMaterialAdapter";
+import { germanA1BookLessons } from "./a1-book/germanA1BookLessons";
 
 export interface GermanStudyExample {
   de: string;
@@ -187,49 +188,6 @@ function exampleFor(term: string): string {
   return `Practise: ${term}.`;
 }
 
-function enrichWithA1SourceLessons(level: GermanLevel, subtopic: GermanSubtopic, material: GermanStudyMaterial): GermanStudyMaterial {
-  if (level !== "A1") return material;
-
-  const relatedLessons = getA1SourceLessonsForSkill([
-    subtopic.title,
-    subtopic.description,
-    subtopic.grammarFocus.join(" "),
-    subtopic.vocabularyFocus.join(" "),
-    subtopic.goetheUse,
-    subtopic.survivalUse
-  ].join(" "), 12);
-
-  const relatedLessonLines = relatedLessons.map((lesson) => `Lesson ${lesson.lessonNo}: ${lesson.titleEn} / ${lesson.titleDe}`);
-  const relatedVocabulary = Array.from(new Set(relatedLessons.flatMap((lesson) => lesson.goetheVocabulary))).slice(0, 12);
-  const relatedMistakes = Array.from(new Set(relatedLessons.flatMap((lesson) => lesson.commonMistakes))).slice(0, 6);
-  const sourceDrills = relatedLessons.slice(0, 5).map((lesson) => `Study Lesson ${lesson.lessonNo} (${lesson.titleEn}) and write one short German sentence from it.`);
-
-  return {
-    ...material,
-    simpleExplanation: [
-      `This A1 Study tab is connected to the full 65-topic A1 lesson bank. Showing ${relatedLessons.length} related source lessons for this subtopic.`,
-      ...material.simpleExplanation
-    ],
-    germanPattern: [
-      "Related A1 source lessons from the 65-topic curriculum:",
-      ...relatedLessonLines,
-      ...material.germanPattern
-    ],
-    vocabulary: [
-      ...material.vocabulary,
-      ...relatedVocabulary.map((item) => ({ de: item, en: englishMeaningFor(item), example: exampleFor(item) }))
-    ].slice(0, 18),
-    commonMistakes: Array.from(new Set([...material.commonMistakes, ...relatedMistakes])),
-    miniDrills: [...sourceDrills, ...material.miniDrills],
-    repeatWithLiveAgent: [
-      ...material.repeatWithLiveAgent,
-      "Bitte korrigieren Sie meinen Satz.",
-      "Ich möchte diese Lektion noch einmal üben."
-    ],
-    writingOrListeningTask: `${material.writingOrListeningTask} Also review the related A1 source lessons: ${relatedLessonLines.join("; ")}.`
-  };
-}
-
 export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSubtopic): GermanStudyMaterial {
   const specific = specificStudyMaterials[subtopic.id] || {};
   const grammar = subtopic.grammarFocus.length ? subtopic.grammarFocus : ["basic sentence structure"];
@@ -280,7 +238,7 @@ export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSub
     ...specific
   };
 
-  return enrichWithA1SourceLessons(level, subtopic, base);
+  return level === "A1" ? enrichA1StudyMaterialWithBook(subtopic, base) : base;
 }
 
-export const germanA1StudyLessonCount = germanA1SourceLessons.length;
+export const germanA1StudyLessonCount = germanA1BookLessons.length;

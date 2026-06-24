@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Mic, StopCircle } from "lucide-react";
-import { germanA1SourceLessons, type GermanA1SourceLesson } from "../lib/germanA1SourceLessons";
+import { germanA1BookLessons } from "../lib/a1-book/germanA1BookLessons";
+import type { GermanA1BookLesson } from "../lib/germanA1BookLessonTypes";
 import type { GermanLevel } from "../lib/germanCurriculumRegistry";
 
 interface GermanStudyGuidePanelProps {
@@ -13,19 +14,20 @@ interface GermanStudyGuidePanelProps {
   onLessonViewed?: () => void;
 }
 
-function buildLessonContext(lesson: GermanA1SourceLesson, learnerName: string): string {
+function buildLessonContext(lesson: GermanA1BookLesson, learnerName: string): string {
   return `You are teaching ${learnerName} Lesson ${lesson.lessonNo}: "${lesson.titleEn}" (${lesson.titleDe}).
 
 LESSON FOCUS:
-${lesson.coreContent.map((c) => `- ${c}`).join("\n")}
+${lesson.theRule.map((item) => `- ${item}`).join("\n")}
 
-KEY VOCABULARY: ${lesson.goetheVocabulary.slice(0, 10).join(", ")}
+KEY VOCABULARY: ${lesson.vocabulary.slice(0, 10).map((item) => `${item.de} = ${item.en}`).join(", ")}
 
 EXAM RELEVANCE: ${lesson.examRelevance}
 
-DAILY LIFE USE: ${lesson.dailyLifeExtension.join(" ")}
+MODEL SENTENCES:
+${lesson.modelSentences.slice(0, 4).map((item) => `- ${item.de} (${item.en})`).join("\n")}
 
-COMMON MISTAKES TO WATCH FOR: ${lesson.commonMistakes.join("; ")}
+COMMON MISTAKES TO WATCH FOR: ${lesson.commonMistakes.map((item) => `${item.wrong} -> ${item.right}`).join("; ")}
 
 Start by greeting the learner and giving a 1–2 sentence overview of this lesson. Then ask them to try using one of the key vocabulary words in a sentence. Correct all errors immediately and clearly.`;
 }
@@ -43,16 +45,17 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
 
   const filtered = useMemo(() => {
     const t = search.toLowerCase().trim();
-    if (!t) return germanA1SourceLessons;
-    return germanA1SourceLessons.filter(
+    if (!t) return germanA1BookLessons;
+    return germanA1BookLessons.filter(
       (l) =>
         l.titleEn.toLowerCase().includes(t) ||
         l.titleDe.toLowerCase().includes(t) ||
+        l.vocabulary.some((item) => item.de.toLowerCase().includes(t) || item.en.toLowerCase().includes(t)) ||
         String(l.lessonNo) === t
     );
   }, [search]);
 
-  const selected = germanA1SourceLessons.find((l) => l.lessonNo === selectedNo) ?? germanA1SourceLessons[0];
+  const selected = germanA1BookLessons.find((l) => l.lessonNo === selectedNo) ?? germanA1BookLessons[0];
 
   if (level !== "A1") {
     return (
@@ -126,7 +129,7 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
             <div className="rounded-2xl border border-cyan-400/20 bg-cyan-500/10 p-4">
               <p className="text-xs uppercase tracking-widest text-cyan-200 mb-3">Core content</p>
               <ul className="space-y-2">
-                {selected.coreContent.map((item, i) => (
+                {selected.theRule.map((item, i) => (
                   <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2">
                     <span className="shrink-0 text-cyan-400">•</span>{item}
                   </li>
@@ -136,13 +139,28 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
 
             <div className="rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-4">
               <p className="text-xs uppercase tracking-widest text-emerald-200 mb-3">Goethe vocabulary</p>
-              <div className="flex flex-wrap gap-2">
-                {selected.goetheVocabulary.map((word, i) => (
-                  <span key={i} className="rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1 text-xs text-emerald-100">
-                    {word}
-                  </span>
+              <div className="space-y-2">
+                {selected.vocabulary.slice(0, 10).map((word, i) => (
+                  <div key={`${word.de}-${i}`} className="rounded-xl border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100">
+                    <span className="font-semibold">{word.de}</span>
+                    <span className="text-emerald-200/70"> = {word.en}</span>
+                    <p className="mt-1 text-slate-300">{word.example}</p>
+                  </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-amber-400/20 bg-amber-500/10 p-4">
+            <p className="text-xs uppercase tracking-widest text-amber-200 mb-3">Model sentences</p>
+            <div className="grid gap-3 md:grid-cols-2">
+              {selected.modelSentences.slice(0, 6).map((item, i) => (
+                <div key={`${item.de}-${i}`} className="rounded-xl border border-white/10 bg-black/20 p-3">
+                  <p className="text-sm font-semibold text-slate-100">{item.de}</p>
+                  <p className="mt-1 text-xs text-slate-400">{item.en}</p>
+                  <p className="mt-2 text-xs leading-5 text-amber-100">{item.breakdown}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -153,9 +171,9 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
             </div>
 
             <div className="rounded-2xl border border-sky-400/20 bg-sky-500/10 p-4">
-              <p className="text-xs uppercase tracking-widest text-sky-200 mb-2">Daily life use</p>
+              <p className="text-xs uppercase tracking-widest text-sky-200 mb-2">Formula</p>
               <ul className="space-y-1.5">
-                {selected.dailyLifeExtension.map((item, i) => (
+                {selected.formula.map((item, i) => (
                   <li key={i} className="text-sm text-slate-300 leading-relaxed">• {item}</li>
                 ))}
               </ul>
@@ -165,7 +183,7 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
               <p className="text-xs uppercase tracking-widest text-red-200 mb-2">Common mistakes</p>
               <ul className="space-y-1.5">
                 {selected.commonMistakes.map((item, i) => (
-                  <li key={i} className="text-sm text-red-100 leading-relaxed">• {item}</li>
+                  <li key={i} className="text-sm text-red-100 leading-relaxed">• {item.wrong} → {item.right}</li>
                 ))}
               </ul>
             </div>
