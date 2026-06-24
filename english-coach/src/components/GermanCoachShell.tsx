@@ -1,8 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { ArrowLeft, BookOpen, CheckCircle2, GraduationCap, Languages, Mic, PenLine, Radio, ShieldCheck, StopCircle, Volume2 } from "lucide-react";
 import { germanCurriculum, getGermanLevel, getGermanSubtopicCount, type GermanLevel, type GermanSection, type GermanSubtopic } from "../lib/germanCurriculumRegistry";
-import { buildGermanLiveTeacherContext } from "../lib/germanLiveTeacherContext";
-import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
+import { useLiveCoachSession } from "../hooks/useLiveCoachSession";
 import GermanPracticePanel from "./GermanPracticePanel";
 import GermanWritingReviewPanel from "./GermanWritingReviewPanel";
 import GermanVocabularyBankPanel from "./GermanVocabularyBankPanel";
@@ -110,7 +109,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
     setLiveTranscript((prev) => [...prev.slice(-9), msg.text!.trim()]);
   }, []);
 
-  const live = useGeminiLiveAPI(handleLiveMessage);
+  const live = useLiveCoachSession(handleLiveMessage);
 
   function chooseLevel(level: GermanLevel) {
     const next = getGermanLevel(level);
@@ -118,24 +117,28 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
     setSelectedSectionId(next.sections[0]?.id || "");
     setSelectedSubtopicId(next.sections[0]?.subtopics[0]?.id || "");
     setLiveTranscript([]);
-    if (live.isConnected) live.stopClient();
+    if (live.isConnected) live.stop();
   }
 
   function chooseSection(section: GermanSection) {
     setSelectedSectionId(section.id);
     setSelectedSubtopicId(section.subtopics[0]?.id || "");
     setLiveTranscript([]);
-    if (live.isConnected) live.stopClient();
+    if (live.isConnected) live.stop();
   }
 
   async function startGermanLive() {
-    const context = buildGermanLiveTeacherContext({ learnerName, level: selectedLevel, section: selectedSection || null, subtopic: selectedSubtopic || null });
     setLiveTranscript([]);
-    await live.connect(learnerName, selectedLevel, selectedSubtopic?.title || selectedSection?.title, "german", context);
+    await live.startGermanSession({
+      learnerName,
+      level: selectedLevel,
+      section: selectedSection || null,
+      subtopic: selectedSubtopic || null,
+    });
   }
 
   function stopGermanLive() {
-    live.stopClient();
+    live.stop();
   }
 
   const showWritingReview = selectedSection?.skill === "schreiben" || selectedSection?.skill === "mock_exam";
