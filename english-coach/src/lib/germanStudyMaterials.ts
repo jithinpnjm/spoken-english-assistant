@@ -143,6 +143,113 @@ const specificStudyMaterials: Record<string, GermanStudyMaterial> = {
       "Mein Nachname ist Joseph.",
       "Meine Nationalität ist indisch."
     ]
+  },
+  "a2-schreiben-problem-email": {
+    id: "study-a2-problem-email",
+    level: "A2",
+    subtopicId: "a2-schreiben-problem-email",
+    lessonGoal: "Write a short polite email about a problem, cancellation, or new appointment.",
+    simpleExplanation: [
+      "A2 writing often asks you to explain a small real-life problem in a polite way.",
+      "You need a greeting, the problem, the reason, a request, and a closing.",
+      "The safest structure is short and clear. Do not write long complicated sentences."
+    ],
+    germanPattern: [
+      "Sehr geehrte Damen und Herren,",
+      "leider kann ich nicht kommen, weil ...",
+      "Könnten Sie mir bitte einen neuen Termin geben?",
+      "Mit freundlichen Grüßen"
+    ],
+    wordByWord: [
+      { de: "leider", en: "unfortunately" },
+      { de: "weil ich krank bin", en: "because I am sick", note: "verb goes to the end after weil" },
+      { de: "Könnten Sie bitte ...?", en: "Could you please ...?", note: "polite request" }
+    ],
+    vocabulary: [
+      { de: "leider", en: "unfortunately" },
+      { de: "absagen", en: "to cancel" },
+      { de: "verschieben", en: "to postpone/reschedule" },
+      { de: "der neue Termin", en: "new appointment" },
+      { de: "Mit freundlichen Grüßen", en: "Kind regards" }
+    ],
+    modelExamples: [
+      { de: "Leider kann ich morgen nicht zum Termin kommen, weil ich krank bin.", en: "Unfortunately I cannot come to the appointment tomorrow because I am sick." },
+      { de: "Könnten Sie mir bitte einen neuen Termin geben?", en: "Could you please give me a new appointment?" }
+    ],
+    commonMistakes: [
+      "Putting the verb in the wrong place after weil.",
+      "Writing too informal for an office/doctor email.",
+      "Forgetting to ask clearly what you want."
+    ],
+    miniDrills: [
+      "Complete: Leider kann ich nicht kommen, weil ich krank ___.",
+      "Write one polite request with Könnten Sie bitte.",
+      "Rewrite: Ich bin krank. Ich kann nicht kommen. Use weil."
+    ],
+    speakingPrompts: [
+      "Say you cannot come because you are sick.",
+      "Ask politely for a new appointment.",
+      "Say you want to reschedule the appointment."
+    ],
+    writingOrListeningTask: "Write a 40-60 word email cancelling an appointment and asking for a new one.",
+    repeatWithLiveAgent: [
+      "Leider kann ich nicht kommen, weil ich krank bin.",
+      "Könnten Sie mir bitte einen neuen Termin geben?",
+      "Mit freundlichen Grüßen"
+    ]
+  },
+  "b1-schreiben-opinion-email": {
+    id: "study-b1-opinion-writing",
+    level: "B1",
+    subtopicId: "b1-schreiben-opinion-email",
+    lessonGoal: "Write a structured B1 opinion with a reason, example, and conclusion.",
+    simpleExplanation: [
+      "B1 writing expects you to express an opinion clearly, not just write isolated sentences.",
+      "Use fixed Redemittel to reduce grammar risk: Meiner Meinung nach, Ich finde, dass, Ein Vorteil ist, dass, Zum Schluss.",
+      "A safe B1 answer has: opinion, reason, example, maybe advantage/disadvantage, short conclusion."
+    ],
+    germanPattern: [
+      "Meiner Meinung nach + verb ...",
+      "Ich finde, dass + subject + ... + verb at the end.",
+      "Ein Vorteil ist, dass ...",
+      "Zum Schluss möchte ich sagen, dass ..."
+    ],
+    wordByWord: [
+      { de: "Meiner Meinung nach ist Deutsch wichtig.", en: "In my opinion, German is important.", note: "verb comes after the fronted phrase" },
+      { de: "Ich finde, dass Deutsch im Alltag hilft.", en: "I think that German helps in daily life.", note: "verb at the end after dass" }
+    ],
+    vocabulary: [
+      { de: "Meiner Meinung nach", en: "in my opinion" },
+      { de: "der Vorteil", en: "advantage" },
+      { de: "der Nachteil", en: "disadvantage" },
+      { de: "zum Beispiel", en: "for example" },
+      { de: "zum Schluss", en: "in conclusion" }
+    ],
+    modelExamples: [
+      { de: "Meiner Meinung nach ist Deutsch sehr wichtig für das Leben in Deutschland.", en: "In my opinion, German is very important for life in Germany." },
+      { de: "Ein Vorteil ist, dass man Briefe und Termine besser versteht.", en: "One advantage is that you understand letters and appointments better." }
+    ],
+    commonMistakes: [
+      "Forgetting verb position after Meiner Meinung nach.",
+      "Using dass but not sending the verb to the end.",
+      "Writing an opinion without a reason or example."
+    ],
+    miniDrills: [
+      "Write one sentence starting with Meiner Meinung nach.",
+      "Write one dass sentence about learning German.",
+      "Write one advantage of speaking German in Germany."
+    ],
+    speakingPrompts: [
+      "Give your opinion about learning German.",
+      "Say one advantage and one disadvantage of online learning.",
+      "End with a short conclusion."
+    ],
+    writingOrListeningTask: "Write an 80-word B1 opinion post about whether German is important for living in Germany.",
+    repeatWithLiveAgent: [
+      "Meiner Meinung nach ist Deutsch wichtig.",
+      "Ein Vorteil ist, dass man mehr versteht.",
+      "Zum Schluss möchte ich sagen, dass Deutsch im Alltag hilft."
+    ]
   }
 };
 
