@@ -1,21 +1,22 @@
-import { Activity, CheckCircle2 } from "lucide-react";
-import type { GermanLevel } from "../lib/germanCurriculumRegistry";
-import { getCatalogOrderedPath } from "../lib/germanOrderedPath";
+import { Activity, CheckCircle2, RotateCcw } from "lucide-react";
+import { getGermanLevel, type GermanLevel } from "../lib/germanCurriculumRegistry";
 import { useGermanLearningState } from "../hooks/useGermanLearningState";
 
 interface GermanProgressPanelProps {
   level?: GermanLevel;
+  selectedSubtopicId?: string;
 }
 
-export default function GermanProgressPanel({ level = "A1" }: GermanProgressPanelProps) {
+export default function GermanProgressPanel({ level = "A1", selectedSubtopicId }: GermanProgressPanelProps) {
   const learning = useGermanLearningState();
-  const pathItems = getCatalogOrderedPath(level);
+  const pathItems = getGermanLevel(level).sections.flatMap((section) => section.subtopics);
   const completedIds = new Set(learning.state.completedSubtopicIds);
-  const completedCount = pathItems.filter((item) => completedIds.has(item.catalogId || "")).length;
+  const completedCount = pathItems.filter((item) => completedIds.has(item.id)).length;
   const totalCount = pathItems.length;
   const percent = totalCount ? Math.round((completedCount / totalCount) * 100) : 0;
-  const attempts = Object.values(learning.state.practiceAttempts).reduce((sum, count) => sum + count, 0);
-  const bestScores = Object.values(learning.state.bestScores);
+  const attemptCounts = Object.values(learning.state.practiceAttempts) as number[];
+  const attempts = attemptCounts.reduce((sum, count) => sum + count, 0);
+  const bestScores = Object.values(learning.state.bestScores) as number[];
   const bestAverage = bestScores.length ? Math.round(bestScores.reduce((sum, score) => sum + score, 0) / bestScores.length) : 0;
 
   return (
@@ -54,6 +55,15 @@ export default function GermanProgressPanel({ level = "A1" }: GermanProgressPane
           <p className="mt-2 text-2xl font-bold text-slate-100">{bestAverage}/100</p>
           <p className="mt-1 text-xs text-slate-400">No demo scores are shown.</p>
         </div>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <button onClick={() => selectedSubtopicId && learning.completeSubtopic(selectedSubtopicId)} disabled={!selectedSubtopicId} className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-4 py-2 text-sm font-bold text-slate-950 hover:bg-cyan-400 disabled:cursor-not-allowed disabled:opacity-50">
+          <CheckCircle2 className="h-4 w-4" /> Mark selected topic done
+        </button>
+        <button onClick={learning.reset} className="inline-flex items-center gap-2 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-100 hover:bg-red-500/20">
+          <RotateCcw className="h-4 w-4" /> Reset German progress
+        </button>
       </div>
     </div>
   );

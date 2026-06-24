@@ -3,6 +3,7 @@ import { CheckCircle2, RotateCcw, Send, Sparkles } from "lucide-react";
 import type { GermanLevel, GermanSubtopic } from "../lib/germanCurriculumRegistry";
 import { buildGermanPracticeTasks, reviewGermanAnswer, reviewLabel, type GermanPracticeReview } from "../lib/germanPracticeEngine";
 import { buildRepairPracticeTasks } from "../lib/germanRepairPracticeAdapter";
+import { useGermanLearningState } from "../hooks/useGermanLearningState";
 
 interface GermanPracticePanelProps {
   level: GermanLevel;
@@ -10,6 +11,7 @@ interface GermanPracticePanelProps {
 }
 
 export default function GermanPracticePanel({ level, subtopic }: GermanPracticePanelProps) {
+  const learning = useGermanLearningState();
   const tasks = useMemo(() => {
     const baseTasks = buildGermanPracticeTasks(level, subtopic);
     const repairTasks = buildRepairPracticeTasks(level, subtopic);
@@ -28,7 +30,10 @@ export default function GermanPracticePanel({ level, subtopic }: GermanPracticeP
 
   function submitAnswer() {
     if (!task || !answer.trim()) return;
-    setReview(reviewGermanAnswer(task, answer));
+    const nextReview = reviewGermanAnswer(task, answer);
+    setReview(nextReview);
+    const score = nextReview.result === "correct" ? 100 : nextReview.result === "almost" ? 70 : 40;
+    learning.recordAttempt(task.id, score);
   }
 
   function nextTask() {

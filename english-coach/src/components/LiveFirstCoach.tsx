@@ -66,7 +66,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
   useEffect(() => { bootstrap(); }, [user?.uid, activeProfile]);
 
   function stopLiveIfActive() {
-    if (live.isConnected) live.stop();
+    live.stop();
   }
 
   async function bootstrap() {

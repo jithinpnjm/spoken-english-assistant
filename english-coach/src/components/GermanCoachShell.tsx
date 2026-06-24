@@ -19,12 +19,14 @@ interface GermanCoachShellProps {
 type GermanWorkMode = "study" | "practice" | "exam" | "mock";
 
 type TopicCardProps = {
+  key?: string;
   section: GermanSection;
   selected: boolean;
   onSelect: () => void;
 };
 
 type SubtopicCardProps = {
+  key?: string;
   subtopic: GermanSubtopic;
   selected: boolean;
   onSelect: () => void;
@@ -148,7 +150,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
 
   function stopLiveIfNeeded() {
     setLiveTranscript([]);
-    if (live.isConnected) live.stop();
+    live.stop();
   }
 
   function chooseLevel(level: GermanLevel) {
@@ -176,6 +178,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
   }
 
   async function startGermanLive() {
+    stopLiveIfNeeded();
     setLiveTranscript([]);
     await live.startGermanSession({ learnerName, level: selectedLevel, section: selectedSection || null, subtopic: selectedSubtopic || null });
   }
@@ -223,7 +226,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
           </div>
         </section>
 
-        <GermanProgressPanel level={selectedLevel} />
+        <GermanProgressPanel level={selectedLevel} selectedSubtopicId={selectedSubtopic?.id} />
 
         <section className="grid gap-5 lg:grid-cols-3">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-5">

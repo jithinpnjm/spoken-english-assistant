@@ -74,6 +74,7 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
   const nextStartTimeRef = useRef<number>(0);
   const audioQueueRef = useRef<AudioBufferSourceNode[]>([]);
   const agentPCMRef = useRef<Int16Array[]>([]);
+  const sessionIdRef = useRef(0);
 
   const onMessageRef = useRef(onMessage);
   useEffect(() => { onMessageRef.current = onMessage; }, [onMessage]);
@@ -86,7 +87,18 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
 
   const stopClient = useCallback(() => {
     dbg.live.log("stopClient called");
-    if (wsRef.current) { try { wsRef.current.close(); } catch {} wsRef.current = null; }
+    sessionIdRef.current += 1;
+    stopAllPlayback();
+    if (wsRef.current) {
+      try {
+        wsRef.current.onopen = null;
+        wsRef.current.onmessage = null;
+        wsRef.current.onerror = null;
+        wsRef.current.onclose = null;
+        wsRef.current.close(1000, "client stopped");
+      } catch {}
+      wsRef.current = null;
+    }
     if (processorRef.current && sourceRef.current) {
       try { sourceRef.current.disconnect(processorRef.current); } catch {}
       try { processorRef.current.disconnect(); } catch {}
@@ -96,7 +108,6 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
     if (streamRef.current) { streamRef.current.getTracks().forEach(t => t.stop()); streamRef.current = null; }
     if (captureCtxRef.current) { captureCtxRef.current.close().catch(() => {}); captureCtxRef.current = null; }
     if (playbackCtxRef.current) { playbackCtxRef.current.close().catch(() => {}); playbackCtxRef.current = null; }
-    stopAllPlayback();
     agentPCMRef.current = [];
     setIsConnected(false);
     nextStartTimeRef.current = 0;
@@ -111,12 +122,18 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
     customSystemInstructionText?: string
   ) => {
     try {
+      stopClient();
+      const sessionId = sessionIdRef.current + 1;
+      sessionIdRef.current = sessionId;
+      const isCurrentSession = () => sessionIdRef.current === sessionId;
       setError(null);
       dbg.live.log("connect: fetching config...");
 
       const resConfig = await fetch("/api/config");
+      if (!isCurrentSession()) return;
       if (!resConfig.ok) throw new Error(`Config fetch failed: ${resConfig.status}`);
       const config = await resConfig.json();
+      if (!isCurrentSession()) return;
       const liveModel: string = config.liveModel || "models/gemini-3.1-flash-live-preview";
       const bridgePath: string = config.audioBridgePath || "/api/audio-bridge";
       dbg.live.log("connect: using server audio bridge", bridgePath);
@@ -127,16 +144,28 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
 
       const captureCtx = new AudioCtxClass({ sampleRate: INPUT_RATE });
       await captureCtx.resume();
+      if (!isCurrentSession()) {
+        captureCtx.close().catch(() => {});
+        return;
+      }
       captureCtxRef.current = captureCtx;
 
       const playbackCtx = new AudioCtxClass({ sampleRate: OUTPUT_RATE });
       await playbackCtx.resume();
+      if (!isCurrentSession()) {
+        playbackCtx.close().catch(() => {});
+        return;
+      }
       playbackCtxRef.current = playbackCtx;
       nextStartTimeRef.current = playbackCtx.currentTime + 0.1;
 
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true, sampleRate: INPUT_RATE },
       });
+      if (!isCurrentSession()) {
+        stream.getTracks().forEach((track) => track.stop());
+        return;
+      }
       streamRef.current = stream;
       dbg.live.log("connect: mic stream acquired");
 
@@ -180,6 +209,7 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
       const systemInstructionText = customSystemInstructionText || defaultSystemInstructionText;
 
       ws.onopen = () => {
+        if (!isCurrentSession()) return;
         dbg.live.log("bridge ws.onopen: sending setup");
         ws.send(JSON.stringify({
           setupClient: {
@@ -192,11 +222,13 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
       };
 
       ws.onmessage = async (event) => {
+        if (!isCurrentSession()) return;
         try {
           const raw = typeof event.data === "string" ? event.data : await (event.data as Blob).text();
           const msg = JSON.parse(raw);
 
           if (msg.setupComplete) {
+            if (!isCurrentSession()) return;
             dbg.live.log("bridge ws: setupComplete — starting audio capture");
             const source = captureCtx.createMediaStreamSource(stream);
             sourceRef.current = source;
@@ -275,6 +307,7 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
                 });
                 if (res.ok) {
                   const { transcript } = await res.json();
+                  if (!isCurrentSession()) return;
                   if (transcript) onMessageRef.current?.({ text: transcript });
                 } else {
                   dbg.live.warn("transcribe failed:", res.status);
@@ -290,12 +323,14 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
       };
 
       ws.onerror = (e) => {
+        if (!isCurrentSession()) return;
         dbg.live.error("bridge ws.onerror:", e);
         setError("Live agent connection failed.");
         stopClient();
       };
 
       ws.onclose = (e) => {
+        if (!isCurrentSession()) return;
         dbg.live.log("bridge ws.onclose code:", e.code, "reason:", e.reason);
         if (e.code !== 1000) setError(`Disconnected (${e.code}): ${e.reason || "unknown"}`);
         stopClient();

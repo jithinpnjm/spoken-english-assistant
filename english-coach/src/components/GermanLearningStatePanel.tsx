@@ -10,8 +10,9 @@ interface GermanLearningStatePanelProps {
 export default function GermanLearningStatePanel({ level, selectedSubtopicId }: GermanLearningStatePanelProps) {
   const learning = useGermanLearningState();
   const completedForLevel = learning.state.completedSubtopicIds.filter((id) => id.startsWith(level.toLowerCase())).length;
-  const attempts = Object.values(learning.state.practiceAttempts).reduce((sum, count) => sum + count, 0);
-  const bestScores = Object.values(learning.state.bestScores);
+  const attemptCounts = Object.values(learning.state.practiceAttempts) as number[];
+  const attempts = attemptCounts.reduce((sum, count) => sum + count, 0);
+  const bestScores = Object.values(learning.state.bestScores) as number[];
   const bestAverage = bestScores.length ? Math.round(bestScores.reduce((sum, score) => sum + score, 0) / bestScores.length) : 0;
 
   function markSelectedDone() {

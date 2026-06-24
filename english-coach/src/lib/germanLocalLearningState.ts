@@ -33,6 +33,14 @@ export const defaultGermanLearningState: GermanLearningState = {
   updatedAt: new Date().toISOString(),
 };
 
+function numberRecord(value: unknown): Record<string, number> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value)
+      .filter((entry): entry is [string, number] => typeof entry[1] === "number" && Number.isFinite(entry[1]))
+  );
+}
+
 function safeParse(raw: string | null): GermanLearningState {
   if (!raw) return defaultGermanLearningState;
   try {
@@ -40,11 +48,11 @@ function safeParse(raw: string | null): GermanLearningState {
     return {
       ...defaultGermanLearningState,
       ...parsed,
-      completedSubtopicIds: parsed.completedSubtopicIds || [],
-      practiceAttempts: parsed.practiceAttempts || {},
-      bestScores: parsed.bestScores || {},
-      mistakes: parsed.mistakes || [],
-      vocabularyDueIds: parsed.vocabularyDueIds || [],
+      completedSubtopicIds: Array.isArray(parsed.completedSubtopicIds) ? parsed.completedSubtopicIds.filter((id): id is string => typeof id === "string") : [],
+      practiceAttempts: numberRecord(parsed.practiceAttempts),
+      bestScores: numberRecord(parsed.bestScores),
+      mistakes: Array.isArray(parsed.mistakes) ? parsed.mistakes : [],
+      vocabularyDueIds: Array.isArray(parsed.vocabularyDueIds) ? parsed.vocabularyDueIds.filter((id): id is string => typeof id === "string") : [],
     };
   } catch {
     return defaultGermanLearningState;
