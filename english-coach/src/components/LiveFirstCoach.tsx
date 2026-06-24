@@ -65,6 +65,10 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
 
   useEffect(() => { bootstrap(); }, [user?.uid, activeProfile]);
 
+  function stopLiveIfActive() {
+    if (live.isConnected) live.stop();
+  }
+
   async function bootstrap() {
     if (!user?.uid || !activeProfile) return;
     setError(null);
@@ -114,6 +118,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
 
   async function startLive() {
     setError(null);
+    stopLiveIfActive();
     if (!activeSessionRef.current) await createLiveSession();
     const context = buildLiveLessonContext({ courses, cursor, selectedTrack, fallbackTopic: selectedTrack?.title || "English speaking practice" });
     await live.startEnglishSession({ learnerName: profileDisplayName, userLevel: level, dailyTopic: context, coachMode: mode });
@@ -123,6 +128,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
 
   async function startVocabPractice(words: VocabWord[], practiceMode: VocabPracticeMode) {
     setError(null);
+    stopLiveIfActive();
     const band = levelToBand(level);
     const sess: CoachSession = {
       sessionId: `sess_vocab_${Date.now()}`,
@@ -149,8 +155,24 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
     setVocabSetIndex((prev) => (prev + 1) % maxSets);
   }
 
+  function changeLevel(nextLevel: ProficiencyLevel) {
+    stopLiveIfActive();
+    setLevel(nextLevel);
+  }
+
+  function changeTrack(trackId: string) {
+    stopLiveIfActive();
+    setSelectedTrackId(trackId);
+  }
+
+  function changeModule(moduleId: string) {
+    stopLiveIfActive();
+    setSelectedModuleId(moduleId);
+  }
+
   async function selectTopic(subsectionId: string) {
     setError(null);
+    stopLiveIfActive();
     try {
       const next = await startCurriculum({
         learnerId: activeProfile,
@@ -184,9 +206,9 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
         selectedLevel={levelToBand(level)}
         selectedTrackId={selectedTrackId}
         selectedModuleId={selectedModuleId}
-        onSelectLevel={(l) => setLevel(l)}
-        onSelectTrack={setSelectedTrackId}
-        onSelectModule={setSelectedModuleId}
+        onSelectLevel={changeLevel}
+        onSelectTrack={changeTrack}
+        onSelectModule={changeModule}
         onSelectTopic={selectTopic}
         onStartLive={startLive}
         onStopLive={stopLive}
