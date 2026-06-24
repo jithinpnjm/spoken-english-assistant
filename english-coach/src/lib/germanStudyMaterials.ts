@@ -1,4 +1,5 @@
 import type { GermanLevel, GermanSubtopic } from "./germanCurriculumRegistry";
+import { getA1SourceLessonsForSkill, germanA1SourceLessons } from "./germanA1SourceLessons";
 
 export interface GermanStudyExample {
   de: string;
@@ -29,11 +30,8 @@ export interface GermanStudyMaterial {
   repeatWithLiveAgent: string[];
 }
 
-const specificStudyMaterials: Record<string, GermanStudyMaterial> = {
+const specificStudyMaterials: Record<string, Partial<GermanStudyMaterial>> = {
   "a1-hoeren-time-numbers": {
-    id: "study-a1-hoeren-time-numbers",
-    level: "A1",
-    subtopicId: "a1-hoeren-time-numbers",
     lessonGoal: "Understand appointment times, phone numbers, prices, and simple dates in German audio.",
     simpleExplanation: [
       "In Germany, appointments, train announcements, shop prices, and phone numbers are usually said quickly.",
@@ -80,29 +78,16 @@ const specificStudyMaterials: Record<string, GermanStudyMaterial> = {
       "Say a fake German phone number slowly."
     ],
     writingOrListeningTask: "Listen for or read one short appointment sentence and extract only the time/date/number. Do not translate everything.",
-    repeatWithLiveAgent: [
-      "Der Termin ist um 10 Uhr.",
-      "Der Termin ist am Montag.",
-      "Können Sie das bitte wiederholen?"
-    ]
+    repeatWithLiveAgent: ["Der Termin ist um 10 Uhr.", "Der Termin ist am Montag.", "Können Sie das bitte wiederholen?"]
   },
   "a1-schreiben-form": {
-    id: "study-a1-schreiben-form",
-    level: "A1",
-    subtopicId: "a1-schreiben-form",
     lessonGoal: "Fill basic German forms with personal information correctly.",
     simpleExplanation: [
       "German A1 exams and real German life both require form filling.",
       "You should be able to write your name, address, date of birth, nationality, phone number, and email clearly.",
       "Most mistakes are not grammar mistakes; they are field-understanding mistakes. Learn what each field asks for."
     ],
-    germanPattern: [
-      "Name: Jithin Joseph",
-      "Adresse: Straße + Hausnummer, PLZ + Stadt",
-      "Geburtsdatum: TT.MM.JJJJ",
-      "Nationalität: indisch",
-      "Telefonnummer: +49 ..."
-    ],
+    germanPattern: ["Name: Jithin Joseph", "Adresse: Straße + Hausnummer, PLZ + Stadt", "Geburtsdatum: TT.MM.JJJJ", "Nationalität: indisch", "Telefonnummer: +49 ..."],
     wordByWord: [
       { de: "Vorname", en: "first name" },
       { de: "Nachname / Familienname", en: "last name / family name" },
@@ -116,50 +101,16 @@ const specificStudyMaterials: Record<string, GermanStudyMaterial> = {
       { de: "die Postleitzahl", en: "postal code" },
       { de: "die Staatsangehörigkeit", en: "nationality" }
     ],
-    modelExamples: [
-      { de: "Vorname: Jithin", en: "First name: Jithin" },
-      { de: "Nachname: Joseph", en: "Last name: Joseph" },
-      { de: "Nationalität: indisch", en: "Nationality: Indian" }
-    ],
-    commonMistakes: [
-      "Writing full address into the wrong field.",
-      "Confusing Vorname and Nachname.",
-      "Writing India instead of indisch when nationality is requested."
-    ],
-    miniDrills: [
-      "What does Vorname mean?",
-      "What does PLZ mean?",
-      "Write a fake form line for Telefonnummer.",
-      "Write Nationalität for Indian."
-    ],
-    speakingPrompts: [
-      "Spell your first name in German letters.",
-      "Say your phone number slowly.",
-      "Ask someone to repeat a form question."
-    ],
+    commonMistakes: ["Writing full address into the wrong field.", "Confusing Vorname and Nachname.", "Writing India instead of indisch when nationality is requested."],
+    miniDrills: ["What does Vorname mean?", "What does PLZ mean?", "Write a fake form line for Telefonnummer.", "Write Nationalität for Indian."],
+    speakingPrompts: ["Spell your first name in German letters.", "Say your phone number slowly.", "Ask someone to repeat a form question."],
     writingOrListeningTask: "Fill a mini-form with name, address, date of birth, nationality, and phone number.",
-    repeatWithLiveAgent: [
-      "Mein Vorname ist Jithin.",
-      "Mein Nachname ist Joseph.",
-      "Meine Nationalität ist indisch."
-    ]
+    repeatWithLiveAgent: ["Mein Vorname ist Jithin.", "Mein Nachname ist Joseph.", "Meine Nationalität ist indisch."]
   },
   "a2-schreiben-problem-email": {
-    id: "study-a2-problem-email",
-    level: "A2",
-    subtopicId: "a2-schreiben-problem-email",
     lessonGoal: "Write a short polite email about a problem, cancellation, or new appointment.",
-    simpleExplanation: [
-      "A2 writing often asks you to explain a small real-life problem in a polite way.",
-      "You need a greeting, the problem, the reason, a request, and a closing.",
-      "The safest structure is short and clear. Do not write long complicated sentences."
-    ],
-    germanPattern: [
-      "Sehr geehrte Damen und Herren,",
-      "leider kann ich nicht kommen, weil ...",
-      "Könnten Sie mir bitte einen neuen Termin geben?",
-      "Mit freundlichen Grüßen"
-    ],
+    simpleExplanation: ["A2 writing often asks you to explain a small real-life problem in a polite way.", "You need a greeting, the problem, the reason, a request, and a closing.", "The safest structure is short and clear. Do not write long complicated sentences."],
+    germanPattern: ["Sehr geehrte Damen und Herren,", "leider kann ich nicht kommen, weil ...", "Könnten Sie mir bitte einen neuen Termin geben?", "Mit freundlichen Grüßen"],
     wordByWord: [
       { de: "leider", en: "unfortunately" },
       { de: "weil ich krank bin", en: "because I am sick", note: "verb goes to the end after weil" },
@@ -176,44 +127,16 @@ const specificStudyMaterials: Record<string, GermanStudyMaterial> = {
       { de: "Leider kann ich morgen nicht zum Termin kommen, weil ich krank bin.", en: "Unfortunately I cannot come to the appointment tomorrow because I am sick." },
       { de: "Könnten Sie mir bitte einen neuen Termin geben?", en: "Could you please give me a new appointment?" }
     ],
-    commonMistakes: [
-      "Putting the verb in the wrong place after weil.",
-      "Writing too informal for an office/doctor email.",
-      "Forgetting to ask clearly what you want."
-    ],
-    miniDrills: [
-      "Complete: Leider kann ich nicht kommen, weil ich krank ___.",
-      "Write one polite request with Könnten Sie bitte.",
-      "Rewrite: Ich bin krank. Ich kann nicht kommen. Use weil."
-    ],
-    speakingPrompts: [
-      "Say you cannot come because you are sick.",
-      "Ask politely for a new appointment.",
-      "Say you want to reschedule the appointment."
-    ],
+    commonMistakes: ["Putting the verb in the wrong place after weil.", "Writing too informal for an office/doctor email.", "Forgetting to ask clearly what you want."],
+    miniDrills: ["Complete: Leider kann ich nicht kommen, weil ich krank ___.", "Write one polite request with Könnten Sie bitte.", "Rewrite: Ich bin krank. Ich kann nicht kommen. Use weil."],
+    speakingPrompts: ["Say you cannot come because you are sick.", "Ask politely for a new appointment.", "Say you want to reschedule the appointment."],
     writingOrListeningTask: "Write a 40-60 word email cancelling an appointment and asking for a new one.",
-    repeatWithLiveAgent: [
-      "Leider kann ich nicht kommen, weil ich krank bin.",
-      "Könnten Sie mir bitte einen neuen Termin geben?",
-      "Mit freundlichen Grüßen"
-    ]
+    repeatWithLiveAgent: ["Leider kann ich nicht kommen, weil ich krank bin.", "Könnten Sie mir bitte einen neuen Termin geben?", "Mit freundlichen Grüßen"]
   },
   "b1-schreiben-opinion-email": {
-    id: "study-b1-opinion-writing",
-    level: "B1",
-    subtopicId: "b1-schreiben-opinion-email",
     lessonGoal: "Write a structured B1 opinion with a reason, example, and conclusion.",
-    simpleExplanation: [
-      "B1 writing expects you to express an opinion clearly, not just write isolated sentences.",
-      "Use fixed Redemittel to reduce grammar risk: Meiner Meinung nach, Ich finde, dass, Ein Vorteil ist, dass, Zum Schluss.",
-      "A safe B1 answer has: opinion, reason, example, maybe advantage/disadvantage, short conclusion."
-    ],
-    germanPattern: [
-      "Meiner Meinung nach + verb ...",
-      "Ich finde, dass + subject + ... + verb at the end.",
-      "Ein Vorteil ist, dass ...",
-      "Zum Schluss möchte ich sagen, dass ..."
-    ],
+    simpleExplanation: ["B1 writing expects you to express an opinion clearly, not just write isolated sentences.", "Use fixed Redemittel to reduce grammar risk: Meiner Meinung nach, Ich finde, dass, Ein Vorteil ist, dass, Zum Schluss.", "A safe B1 answer has: opinion, reason, example, maybe advantage/disadvantage, short conclusion."],
+    germanPattern: ["Meiner Meinung nach + verb ...", "Ich finde, dass + subject + ... + verb at the end.", "Ein Vorteil ist, dass ...", "Zum Schluss möchte ich sagen, dass ..."],
     wordByWord: [
       { de: "Meiner Meinung nach ist Deutsch wichtig.", en: "In my opinion, German is important.", note: "verb comes after the fronted phrase" },
       { de: "Ich finde, dass Deutsch im Alltag hilft.", en: "I think that German helps in daily life.", note: "verb at the end after dass" }
@@ -229,27 +152,11 @@ const specificStudyMaterials: Record<string, GermanStudyMaterial> = {
       { de: "Meiner Meinung nach ist Deutsch sehr wichtig für das Leben in Deutschland.", en: "In my opinion, German is very important for life in Germany." },
       { de: "Ein Vorteil ist, dass man Briefe und Termine besser versteht.", en: "One advantage is that you understand letters and appointments better." }
     ],
-    commonMistakes: [
-      "Forgetting verb position after Meiner Meinung nach.",
-      "Using dass but not sending the verb to the end.",
-      "Writing an opinion without a reason or example."
-    ],
-    miniDrills: [
-      "Write one sentence starting with Meiner Meinung nach.",
-      "Write one dass sentence about learning German.",
-      "Write one advantage of speaking German in Germany."
-    ],
-    speakingPrompts: [
-      "Give your opinion about learning German.",
-      "Say one advantage and one disadvantage of online learning.",
-      "End with a short conclusion."
-    ],
+    commonMistakes: ["Forgetting verb position after Meiner Meinung nach.", "Using dass but not sending the verb to the end.", "Writing an opinion without a reason or example."],
+    miniDrills: ["Write one sentence starting with Meiner Meinung nach.", "Write one dass sentence about learning German.", "Write one advantage of speaking German in Germany."],
+    speakingPrompts: ["Give your opinion about learning German.", "Say one advantage and one disadvantage of online learning.", "End with a short conclusion."],
     writingOrListeningTask: "Write an 80-word B1 opinion post about whether German is important for living in Germany.",
-    repeatWithLiveAgent: [
-      "Meiner Meinung nach ist Deutsch wichtig.",
-      "Ein Vorteil ist, dass man mehr versteht.",
-      "Zum Schluss möchte ich sagen, dass Deutsch im Alltag hilft."
-    ]
+    repeatWithLiveAgent: ["Meiner Meinung nach ist Deutsch wichtig.", "Ein Vorteil ist, dass man mehr versteht.", "Zum Schluss möchte ich sagen, dass Deutsch im Alltag hilft."]
   }
 };
 
@@ -280,15 +187,56 @@ function exampleFor(term: string): string {
   return `Practise: ${term}.`;
 }
 
-export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSubtopic): GermanStudyMaterial {
-  const specific = specificStudyMaterials[subtopic.id];
-  if (specific) return specific;
+function enrichWithA1SourceLessons(level: GermanLevel, subtopic: GermanSubtopic, material: GermanStudyMaterial): GermanStudyMaterial {
+  if (level !== "A1") return material;
 
+  const relatedLessons = getA1SourceLessonsForSkill([
+    subtopic.title,
+    subtopic.description,
+    subtopic.grammarFocus.join(" "),
+    subtopic.vocabularyFocus.join(" "),
+    subtopic.goetheUse,
+    subtopic.survivalUse
+  ].join(" "), 12);
+
+  const relatedLessonLines = relatedLessons.map((lesson) => `Lesson ${lesson.lessonNo}: ${lesson.titleEn} / ${lesson.titleDe}`);
+  const relatedVocabulary = Array.from(new Set(relatedLessons.flatMap((lesson) => lesson.goetheVocabulary))).slice(0, 12);
+  const relatedMistakes = Array.from(new Set(relatedLessons.flatMap((lesson) => lesson.commonMistakes))).slice(0, 6);
+  const sourceDrills = relatedLessons.slice(0, 5).map((lesson) => `Study Lesson ${lesson.lessonNo} (${lesson.titleEn}) and write one short German sentence from it.`);
+
+  return {
+    ...material,
+    simpleExplanation: [
+      `This A1 Study tab is connected to the full 65-topic A1 lesson bank. Showing ${relatedLessons.length} related source lessons for this subtopic.`,
+      ...material.simpleExplanation
+    ],
+    germanPattern: [
+      "Related A1 source lessons from the 65-topic curriculum:",
+      ...relatedLessonLines,
+      ...material.germanPattern
+    ],
+    vocabulary: [
+      ...material.vocabulary,
+      ...relatedVocabulary.map((item) => ({ de: item, en: englishMeaningFor(item), example: exampleFor(item) }))
+    ].slice(0, 18),
+    commonMistakes: Array.from(new Set([...material.commonMistakes, ...relatedMistakes])),
+    miniDrills: [...sourceDrills, ...material.miniDrills],
+    repeatWithLiveAgent: [
+      ...material.repeatWithLiveAgent,
+      "Bitte korrigieren Sie meinen Satz.",
+      "Ich möchte diese Lektion noch einmal üben."
+    ],
+    writingOrListeningTask: `${material.writingOrListeningTask} Also review the related A1 source lessons: ${relatedLessonLines.join("; ")}.`
+  };
+}
+
+export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSubtopic): GermanStudyMaterial {
+  const specific = specificStudyMaterials[subtopic.id] || {};
   const grammar = subtopic.grammarFocus.length ? subtopic.grammarFocus : ["basic sentence structure"];
   const vocabulary = subtopic.vocabularyFocus.length ? subtopic.vocabularyFocus : [subtopic.title];
   const firstVocab = vocabulary[0] || subtopic.title;
 
-  return {
+  const base: GermanStudyMaterial = {
     id: `study-${subtopic.id}`,
     level,
     subtopicId: subtopic.id,
@@ -328,6 +276,11 @@ export function buildGermanStudyMaterial(level: GermanLevel, subtopic: GermanSub
       exampleFor(firstVocab),
       "Bitte langsam.",
       "Können Sie das bitte wiederholen?"
-    ]
+    ],
+    ...specific
   };
+
+  return enrichWithA1SourceLessons(level, subtopic, base);
 }
+
+export const germanA1StudyLessonCount = germanA1SourceLessons.length;
