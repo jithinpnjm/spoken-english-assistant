@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { ArrowLeft, BookOpen, CheckCircle2, GraduationCap, Mic, PenLine, Radio, ShieldCheck, StopCircle, Volume2 } from "lucide-react";
 import { germanCurriculum, getGermanLevel, getGermanSubtopicCount, type GermanLevel, type GermanSection, type GermanSubtopic } from "../lib/germanCurriculumRegistry";
+import { buildGermanStudyMaterial } from "../lib/germanStudyMaterials";
 import { useLiveCoachSession } from "../hooks/useLiveCoachSession";
 import GermanPracticePanel from "./GermanPracticePanel";
 import GermanWritingReviewPanel from "./GermanWritingReviewPanel";
@@ -58,10 +59,7 @@ const sectionIcons: Partial<Record<GermanSection["skill"], any>> = {
 function TopicCard({ section, selected, onSelect }: TopicCardProps) {
   const Icon = sectionIcons[section.skill] || BookOpen;
   return (
-    <button
-      onClick={onSelect}
-      className={`w-full rounded-2xl border p-4 text-left transition ${selected ? "border-cyan-300 bg-cyan-500/20 shadow-lg shadow-cyan-950/30" : "border-white/10 bg-white/5 hover:border-cyan-300/60 hover:bg-white/10"}`}
-    >
+    <button onClick={onSelect} className={`w-full rounded-2xl border p-4 text-left transition ${selected ? "border-cyan-300 bg-cyan-500/20 shadow-lg shadow-cyan-950/30" : "border-white/10 bg-white/5 hover:border-cyan-300/60 hover:bg-white/10"}`}>
       <div className="flex items-center gap-3">
         <span className="rounded-xl bg-black/30 p-2"><Icon className="h-5 w-5 text-cyan-200" /></span>
         <div>
@@ -76,10 +74,7 @@ function TopicCard({ section, selected, onSelect }: TopicCardProps) {
 
 function SubtopicCard({ subtopic, selected, onSelect }: SubtopicCardProps) {
   return (
-    <button
-      onClick={onSelect}
-      className={`w-full rounded-2xl border p-4 text-left transition ${selected ? "border-amber-300 bg-amber-500/20 shadow-lg shadow-amber-950/30" : "border-white/10 bg-slate-900/70 hover:border-amber-300/60 hover:bg-slate-900"}`}
-    >
+    <button onClick={onSelect} className={`w-full rounded-2xl border p-4 text-left transition ${selected ? "border-amber-300 bg-amber-500/20 shadow-lg shadow-amber-950/30" : "border-white/10 bg-slate-900/70 hover:border-amber-300/60 hover:bg-slate-900"}`}>
       <div className="flex items-start justify-between gap-3">
         <div>
           <h4 className="font-bold text-slate-100">{subtopic.title}</h4>
@@ -91,37 +86,112 @@ function SubtopicCard({ subtopic, selected, onSelect }: SubtopicCardProps) {
   );
 }
 
-function StudyPanel({ subtopic }: { subtopic: GermanSubtopic }) {
+function StudyPanel({ level, subtopic }: { level: GermanLevel; subtopic: GermanSubtopic }) {
+  const material = buildGermanStudyMaterial(level, subtopic);
+
   return (
     <div className="rounded-3xl border border-emerald-400/20 bg-emerald-500/10 p-5">
-      <p className="text-xs uppercase tracking-widest text-emerald-200">Study</p>
-      <h3 className="mt-1 text-xl font-bold text-slate-100">{subtopic.title}</h3>
-      <p className="mt-3 text-sm leading-6 text-slate-300">{subtopic.description}</p>
+      <p className="text-xs uppercase tracking-widest text-emerald-200">Study lesson</p>
+      <h3 className="mt-1 text-2xl font-bold text-slate-100">{subtopic.title}</h3>
+      <p className="mt-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm font-semibold leading-6 text-slate-100">Goal: {material.lessonGoal}</p>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+        <p className="text-xs uppercase tracking-widest text-emerald-200">1. Simple English explanation</p>
+        <div className="mt-3 space-y-2 text-sm leading-6 text-slate-300">
+          {material.simpleExplanation.map((item) => <p key={item}>{item}</p>)}
+        </div>
+      </div>
+
+      <div className="mt-4 grid gap-4 lg:grid-cols-2">
         <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-          <p className="text-xs uppercase tracking-widest text-cyan-200">Grammar focus</p>
-          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-300">
-            {subtopic.grammarFocus.map((item) => <li key={item}>{item}</li>)}
+          <p className="text-xs uppercase tracking-widest text-cyan-200">2. German pattern</p>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
+            {material.germanPattern.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
+
         <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-          <p className="text-xs uppercase tracking-widest text-amber-200">Vocabulary focus</p>
-          <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-300">
-            {subtopic.vocabularyFocus.map((item) => <li key={item}>{item}</li>)}
+          <p className="text-xs uppercase tracking-widest text-amber-200">3. Word-by-word meaning</p>
+          <div className="mt-3 space-y-3">
+            {material.wordByWord.map((example) => (
+              <div key={`${example.de}-${example.en}`} className="rounded-xl bg-white/5 p-3">
+                <p className="font-semibold text-slate-100">{example.de}</p>
+                <p className="text-sm text-slate-300">{example.en}</p>
+                {example.note && <p className="mt-1 text-xs text-slate-400">{example.note}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+        <p className="text-xs uppercase tracking-widest text-yellow-200">4. Mini vocabulary table</p>
+        <div className="mt-3 overflow-hidden rounded-xl border border-white/10">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-white/10 text-xs uppercase tracking-wider text-slate-300">
+              <tr><th className="p-3">German</th><th className="p-3">Meaning</th><th className="p-3">Example</th></tr>
+            </thead>
+            <tbody>
+              {material.vocabulary.map((item) => (
+                <tr key={`${item.de}-${item.en}`} className="border-t border-white/10">
+                  <td className="p-3 font-semibold text-slate-100">{item.de}</td>
+                  <td className="p-3 text-slate-300">{item.en}</td>
+                  <td className="p-3 text-slate-400">{item.example || "-"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="mt-4 grid gap-4 lg:grid-cols-2">
+        <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+          <p className="text-xs uppercase tracking-widest text-purple-200">5. Model examples</p>
+          <div className="mt-3 space-y-3">
+            {material.modelExamples.map((example) => (
+              <div key={`${example.de}-${example.en}`} className="rounded-xl bg-white/5 p-3">
+                <p className="font-semibold text-slate-100">{example.de}</p>
+                <p className="text-sm text-slate-300">{example.en}</p>
+                {example.note && <p className="mt-1 text-xs text-slate-400">{example.note}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-red-400/20 bg-red-500/10 p-4">
+          <p className="text-xs uppercase tracking-widest text-red-100">6. Common mistakes</p>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
+            {material.commonMistakes.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </div>
       </div>
 
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <div className="mt-4 grid gap-4 lg:grid-cols-3">
         <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-          <p className="text-xs uppercase tracking-widest text-emerald-200">Why this matters in Germany</p>
-          <p className="mt-3 text-sm leading-6 text-slate-300">{subtopic.survivalUse}</p>
+          <p className="text-xs uppercase tracking-widest text-cyan-200">7. Mini drills</p>
+          <ul className="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-300">
+            {material.miniDrills.map((item) => <li key={item}>{item}</li>)}
+          </ul>
         </div>
+
         <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-          <p className="text-xs uppercase tracking-widest text-purple-200">Goethe exam use</p>
-          <p className="mt-3 text-sm leading-6 text-slate-300">{subtopic.goetheUse}</p>
+          <p className="text-xs uppercase tracking-widest text-emerald-200">8. Speaking prompts</p>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
+            {material.speakingPrompts.map((item) => <li key={item}>{item}</li>)}
+          </ul>
         </div>
+
+        <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+          <p className="text-xs uppercase tracking-widest text-amber-200">9. Repeat with Live</p>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
+            {material.repeatWithLiveAgent.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+        <p className="text-xs uppercase tracking-widest text-fuchsia-200">10. Writing or listening task</p>
+        <p className="mt-3 text-sm leading-6 text-slate-300">{material.writingOrListeningTask}</p>
       </div>
     </div>
   );
@@ -268,7 +338,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
               </div>
             </div>
 
-            {workMode === "study" && <StudyPanel subtopic={selectedSubtopic} />}
+            {workMode === "study" && <StudyPanel level={selectedLevel} subtopic={selectedSubtopic} />}
             {workMode === "practice" && <GermanPracticePanel level={selectedLevel} subtopic={selectedSubtopic} />}
             {workMode === "exam" && (
               <div className="space-y-4">
