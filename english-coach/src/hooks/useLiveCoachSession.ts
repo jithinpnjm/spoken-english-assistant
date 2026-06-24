@@ -16,6 +16,7 @@ export interface StartGermanLiveSessionArgs {
   level: GermanLevel;
   section: GermanSection | null;
   subtopic: GermanSubtopic | null;
+  customSystemInstructionText?: string;
 }
 
 export function useLiveCoachSession(onMessage?: (msg: LiveMessage) => void) {
@@ -31,7 +32,7 @@ export function useLiveCoachSession(onMessage?: (msg: LiveMessage) => void) {
   }
 
   async function startGermanSession(args: StartGermanLiveSessionArgs) {
-    const systemInstructionText = buildGermanLiveTeacherContext({
+    const systemInstructionText = args.customSystemInstructionText ?? buildGermanLiveTeacherContext({
       learnerName: args.learnerName,
       level: args.level,
       section: args.section,
