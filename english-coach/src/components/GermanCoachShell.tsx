@@ -8,12 +8,17 @@ import GermanWritingReviewPanel from "./GermanWritingReviewPanel";
 import GermanVocabularyBankPanel from "./GermanVocabularyBankPanel";
 import GermanProgressPanel from "./GermanProgressPanel";
 import GermanA1MiniMockPanel from "./GermanA1MiniMockPanel";
+import GermanA2MiniMockPanel from "./GermanA2MiniMockPanel";
+import GermanB1MockPanel from "./GermanB1MockPanel";
 import GermanListeningPracticePanel from "./GermanListeningPracticePanel";
+import GermanOrderedPathPanel from "./GermanOrderedPathPanel";
 
 interface GermanCoachShellProps {
   learnerName: string;
   onBackToPortals: () => void;
 }
+
+type GermanViewMode = "exam" | "ordered";
 
 const levelStyles: Record<GermanLevel, string> = {
   A0: "border-sky-400/40 bg-sky-500/10 text-sky-100",
@@ -36,10 +41,7 @@ const sectionIcons: Partial<Record<GermanSection["skill"], any>> = {
 function SectionCard({ section, selected, onSelect }: { section: GermanSection; selected: boolean; onSelect: () => void }) {
   const Icon = sectionIcons[section.skill] || BookOpen;
   return (
-    <button
-      onClick={onSelect}
-      className={`rounded-2xl border p-4 text-left transition ${selected ? "border-cyan-300/70 bg-cyan-500/15" : "border-white/10 bg-white/5 hover:bg-white/10"}`}
-    >
+    <button onClick={onSelect} className={`rounded-2xl border p-4 text-left transition ${selected ? "border-cyan-300/70 bg-cyan-500/15" : "border-white/10 bg-white/5 hover:bg-white/10"}`}>
       <div className="mb-3 flex items-center gap-2">
         <Icon className="h-5 w-5 text-cyan-200" />
         <h3 className="font-bold text-slate-100">{section.title}</h3>
@@ -94,18 +96,14 @@ function SubtopicCard({ subtopic, selected, onSelect }: { subtopic: GermanSubtop
 
 export default function GermanCoachShell({ learnerName, onBackToPortals }: GermanCoachShellProps) {
   const [selectedLevel, setSelectedLevel] = useState<GermanLevel>("A1");
+  const [viewMode, setViewMode] = useState<GermanViewMode>("exam");
   const plan = getGermanLevel(selectedLevel);
   const [selectedSectionId, setSelectedSectionId] = useState(plan.sections[0]?.id || "");
   const [selectedSubtopicId, setSelectedSubtopicId] = useState("");
   const [liveTranscript, setLiveTranscript] = useState<string[]>([]);
 
-  const selectedSection = useMemo(() => {
-    return plan.sections.find((section) => section.id === selectedSectionId) || plan.sections[0];
-  }, [plan, selectedSectionId]);
-
-  const selectedSubtopic = useMemo(() => {
-    return selectedSection?.subtopics.find((subtopic) => subtopic.id === selectedSubtopicId) || selectedSection?.subtopics[0] || null;
-  }, [selectedSection, selectedSubtopicId]);
+  const selectedSection = useMemo(() => plan.sections.find((section) => section.id === selectedSectionId) || plan.sections[0], [plan, selectedSectionId]);
+  const selectedSubtopic = useMemo(() => selectedSection?.subtopics.find((subtopic) => subtopic.id === selectedSubtopicId) || selectedSection?.subtopics[0] || null, [selectedSection, selectedSubtopicId]);
 
   const handleLiveMessage = useCallback((msg: { text?: string }) => {
     if (!msg.text?.trim()) return;
@@ -131,12 +129,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
   }
 
   async function startGermanLive() {
-    const context = buildGermanLiveTeacherContext({
-      learnerName,
-      level: selectedLevel,
-      section: selectedSection || null,
-      subtopic: selectedSubtopic || null,
-    });
+    const context = buildGermanLiveTeacherContext({ learnerName, level: selectedLevel, section: selectedSection || null, subtopic: selectedSubtopic || null });
     setLiveTranscript([]);
     await live.connect(learnerName, selectedLevel, selectedSubtopic?.title || selectedSection?.title, "german", context);
   }
@@ -148,6 +141,8 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
   const showWritingReview = selectedSection?.skill === "schreiben" || selectedSection?.skill === "mock_exam";
   const showAudioPractice = selectedSection?.skill === "hoeren";
   const showA1Mock = selectedLevel === "A1" && selectedSection?.skill === "mock_exam";
+  const showA2Mock = selectedLevel === "A2" && selectedSection?.skill === "mock_exam";
+  const showB1Mock = selectedLevel === "B1" && selectedSection?.skill === "mock_exam";
 
   return (
     <div className="min-h-screen bg-slate-950 p-4 text-slate-100 md:p-6">
@@ -167,10 +162,7 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
                 Current goal: <span className="font-bold">Goethe A1</span>
                 <p className="mt-1 text-xs text-emerald-200/80">Path: A0 → A1 → A2 → B1</p>
               </div>
-              <button
-                onClick={live.isConnected ? stopGermanLive : startGermanLive}
-                className={`inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold ${live.isConnected ? "bg-red-600 hover:bg-red-500" : "bg-amber-500 text-slate-950 hover:bg-amber-400"}`}
-              >
+              <button onClick={live.isConnected ? stopGermanLive : startGermanLive} className={`inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold ${live.isConnected ? "bg-red-600 hover:bg-red-500" : "bg-amber-500 text-slate-950 hover:bg-amber-400"}`}>
                 {live.isConnected ? <><StopCircle className="h-4 w-4" /> Stop German Live</> : <><Mic className="h-4 w-4" /> Start German Live</>}
               </button>
             </div>
@@ -185,20 +177,14 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
               <h2 className="font-bold">German live transcript</h2>
             </div>
             <div className="space-y-2">
-              {liveTranscript.map((line, index) => (
-                <p key={`${line}-${index}`} className="rounded-xl border border-white/10 bg-black/20 p-3 text-sm leading-6 text-slate-100">{line}</p>
-              ))}
+              {liveTranscript.map((line, index) => <p key={`${line}-${index}`} className="rounded-xl border border-white/10 bg-black/20 p-3 text-sm leading-6 text-slate-100">{line}</p>)}
             </div>
           </section>
         )}
 
         <section className="grid gap-3 md:grid-cols-4">
           {germanCurriculum.map((level) => (
-            <button
-              key={level.level}
-              onClick={() => chooseLevel(level.level)}
-              className={`rounded-2xl border p-4 text-left transition ${selectedLevel === level.level ? levelStyles[level.level] : "border-white/10 bg-white/5 hover:bg-white/10"}`}
-            >
+            <button key={level.level} onClick={() => chooseLevel(level.level)} className={`rounded-2xl border p-4 text-left transition ${selectedLevel === level.level ? levelStyles[level.level] : "border-white/10 bg-white/5 hover:bg-white/10"}`}>
               <p className="text-xs uppercase tracking-wider text-slate-400">{level.level}</p>
               <h2 className="mt-1 font-bold">{level.title}</h2>
               <p className="mt-2 text-xs leading-5 text-slate-400">{level.subtitle}</p>
@@ -219,39 +205,41 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
               <h2 className="mt-1 text-2xl font-bold">{plan.title}</h2>
               <p className="mt-2 text-sm leading-6 text-slate-400">{plan.goal}</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-xs text-slate-300">
-              Exam sections first. Grammar and vocabulary appear under the section where they are used.
+            <div className="flex rounded-2xl border border-white/10 bg-black/20 p-1 text-xs text-slate-300">
+              <button onClick={() => setViewMode("exam")} className={`rounded-xl px-4 py-2 font-semibold ${viewMode === "exam" ? "bg-cyan-500 text-slate-950" : "hover:bg-white/10"}`}>Exam Sections</button>
+              <button onClick={() => setViewMode("ordered")} className={`rounded-xl px-4 py-2 font-semibold ${viewMode === "ordered" ? "bg-cyan-500 text-slate-950" : "hover:bg-white/10"}`}>Ordered Path</button>
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="space-y-3">
-              {plan.sections.map((section) => (
-                <SectionCard key={section.id} section={section} selected={section.id === selectedSection?.id} onSelect={() => chooseSection(section)} />
-              ))}
+          {viewMode === "ordered" ? (
+            <GermanOrderedPathPanel level={selectedLevel} variant="catalog" />
+          ) : (
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="space-y-3">
+                {plan.sections.map((section) => <SectionCard key={section.id} section={section} selected={section.id === selectedSection?.id} onSelect={() => chooseSection(section)} />)}
+              </div>
+              <div className="md:col-span-2 space-y-4">
+                {selectedSection ? (
+                  <>
+                    <div className="rounded-2xl border border-cyan-400/20 bg-cyan-500/10 p-4">
+                      <p className="text-xs uppercase tracking-widest text-cyan-300">{selectedLevel} section</p>
+                      <h3 className="mt-1 text-xl font-bold">{selectedSection.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-300">{selectedSection.description}</p>
+                    </div>
+                    {selectedSection.subtopics.map((subtopic) => <SubtopicCard key={subtopic.id} subtopic={subtopic} selected={subtopic.id === selectedSubtopic?.id} onSelect={() => setSelectedSubtopicId(subtopic.id)} />)}
+                    {selectedSubtopic && <GermanPracticePanel level={selectedLevel} subtopic={selectedSubtopic} />}
+                    {showWritingReview && <GermanWritingReviewPanel level={selectedLevel} />}
+                    {showAudioPractice && <GermanListeningPracticePanel level={selectedLevel} />}
+                    {showA1Mock && <GermanA1MiniMockPanel />}
+                    {showA2Mock && <GermanA2MiniMockPanel />}
+                    {showB1Mock && <GermanB1MockPanel />}
+                  </>
+                ) : (
+                  <p className="rounded-2xl border border-white/10 bg-slate-900 p-4 text-sm text-slate-400">Choose a section to view subtopics.</p>
+                )}
+              </div>
             </div>
-
-            <div className="md:col-span-2 space-y-4">
-              {selectedSection ? (
-                <>
-                  <div className="rounded-2xl border border-cyan-400/20 bg-cyan-500/10 p-4">
-                    <p className="text-xs uppercase tracking-widest text-cyan-300">{selectedLevel} section</p>
-                    <h3 className="mt-1 text-xl font-bold">{selectedSection.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">{selectedSection.description}</p>
-                  </div>
-                  {selectedSection.subtopics.map((subtopic) => (
-                    <SubtopicCard key={subtopic.id} subtopic={subtopic} selected={subtopic.id === selectedSubtopic?.id} onSelect={() => setSelectedSubtopicId(subtopic.id)} />
-                  ))}
-                  {selectedSubtopic && <GermanPracticePanel level={selectedLevel} subtopic={selectedSubtopic} />}
-                  {showWritingReview && <GermanWritingReviewPanel level={selectedLevel} />}
-                  {showAudioPractice && <GermanListeningPracticePanel level={selectedLevel} />}
-                  {showA1Mock && <GermanA1MiniMockPanel />}
-                </>
-              ) : (
-                <p className="rounded-2xl border border-white/10 bg-slate-900 p-4 text-sm text-slate-400">Choose a section to view subtopics.</p>
-              )}
-            </div>
-          </div>
+          )}
         </section>
       </div>
     </div>
