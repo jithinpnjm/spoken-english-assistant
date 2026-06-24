@@ -4,6 +4,11 @@ import { germanCurriculum, getGermanLevel, getGermanSubtopicCount, type GermanLe
 import { buildGermanLiveTeacherContext } from "../lib/germanLiveTeacherContext";
 import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
 import GermanPracticePanel from "./GermanPracticePanel";
+import GermanWritingReviewPanel from "./GermanWritingReviewPanel";
+import GermanVocabularyBankPanel from "./GermanVocabularyBankPanel";
+import GermanProgressPanel from "./GermanProgressPanel";
+import GermanA1MiniMockPanel from "./GermanA1MiniMockPanel";
+import GermanListeningPracticePanel from "./GermanListeningPracticePanel";
 
 interface GermanCoachShellProps {
   learnerName: string;
@@ -140,6 +145,10 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
     live.stopClient();
   }
 
+  const showWritingReview = selectedSection?.skill === "schreiben" || selectedSection?.skill === "mock_exam";
+  const showAudioPractice = selectedSection?.skill === "hoeren";
+  const showA1Mock = selectedLevel === "A1" && selectedSection?.skill === "mock_exam";
+
   return (
     <div className="min-h-screen bg-slate-950 p-4 text-slate-100 md:p-6">
       <div className="mx-auto max-w-7xl space-y-5">
@@ -198,6 +207,11 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
           ))}
         </section>
 
+        <section className="grid gap-4 lg:grid-cols-2">
+          <GermanProgressPanel />
+          <GermanVocabularyBankPanel level={selectedLevel} />
+        </section>
+
         <section className="rounded-3xl border border-white/10 bg-white/5 p-5">
           <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
             <div>
@@ -229,6 +243,9 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
                     <SubtopicCard key={subtopic.id} subtopic={subtopic} selected={subtopic.id === selectedSubtopic?.id} onSelect={() => setSelectedSubtopicId(subtopic.id)} />
                   ))}
                   {selectedSubtopic && <GermanPracticePanel level={selectedLevel} subtopic={selectedSubtopic} />}
+                  {showWritingReview && <GermanWritingReviewPanel level={selectedLevel} />}
+                  {showAudioPractice && <GermanListeningPracticePanel level={selectedLevel} />}
+                  {showA1Mock && <GermanA1MiniMockPanel />}
                 </>
               ) : (
                 <p className="rounded-2xl border border-white/10 bg-slate-900 p-4 text-sm text-slate-400">Choose a section to view subtopics.</p>
