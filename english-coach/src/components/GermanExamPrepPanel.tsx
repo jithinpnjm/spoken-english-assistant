@@ -3,6 +3,7 @@ import { Ear, PenLine, BookOpen, Mic, ClipboardCheck } from "lucide-react";
 import type { GermanLevel } from "../lib/germanCurriculumRegistry";
 import { findRelatedA1BookLessons } from "../lib/a1-book/germanA1BookLessons";
 import { getGermanExamPrepMaterial, type GermanExamSection } from "../lib/germanExamPrepMaterials";
+import { germanA1ExamRubrics, getWeakTopicMappingsForSection } from "../lib/germanExamScoring";
 import GermanListeningPracticePanel from "./GermanListeningPracticePanel";
 import GermanWritingReviewPanel from "./GermanWritingReviewPanel";
 import GermanA1MiniMockPanel from "./GermanA1MiniMockPanel";
@@ -58,6 +59,8 @@ export default function GermanExamPrepPanel({ level, learnerName, isLiveActive, 
   const [active, setActive] = useState<GermanExamSection>("hoeren");
   const meta = SECTION_META[active];
   const material = getGermanExamPrepMaterial(level, active);
+  const rubric = germanA1ExamRubrics[active];
+  const weakTopics = getWeakTopicMappingsForSection(active);
   const c = colorMap[meta.color];
 
   const relatedLessons = level === "A1" ? findRelatedA1BookLessons(queryForSection(active), 10) : [];
@@ -149,6 +152,52 @@ export default function GermanExamPrepPanel({ level, learnerName, isLiveActive, 
           </div>
         </section>
       </div>
+
+      <section className="rounded-3xl border border-white/10 bg-white/5 p-5">
+        <div className="mb-4 flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-slate-400">Goethe-style scoring rubric</p>
+            <h3 className="mt-1 text-lg font-bold text-slate-100">{rubric.totalPoints} points — what Sky should evaluate</h3>
+          </div>
+          <p className="max-w-md text-xs leading-relaxed text-slate-400">{rubric.passGuidance}</p>
+        </div>
+        <div className="grid gap-3 md:grid-cols-2">
+          {rubric.criteria.map((criterion) => (
+            <div key={criterion.name} className="rounded-2xl border border-white/10 bg-black/20 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <p className="font-semibold text-slate-100">{criterion.name}</p>
+                <span className="rounded-full bg-emerald-500/15 px-2 py-1 text-xs font-bold text-emerald-200">{criterion.maxPoints} pts</span>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">{criterion.whatGoodLooksLike}</p>
+              <p className="mt-3 text-xs uppercase tracking-widest text-red-200">Common losses</p>
+              <ul className="mt-1 space-y-1">
+                {criterion.commonLosses.map((loss) => (
+                  <li key={loss} className="text-xs text-red-100">• {loss}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-3xl border border-cyan-400/20 bg-cyan-500/10 p-5">
+        <p className="text-xs uppercase tracking-widest text-cyan-200 mb-3">Weak-topic revision map</p>
+        <div className="grid gap-3 md:grid-cols-2">
+          {weakTopics.map((topic) => (
+            <div key={topic.issue} className="rounded-2xl border border-cyan-400/20 bg-black/20 p-4">
+              <p className="font-semibold text-slate-100">{topic.issue}</p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">{topic.correctionStrategy}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {topic.reviseLessons.map((lessonNo) => (
+                  <button key={lessonNo} onClick={() => onJumpToLesson?.(lessonNo)} className="rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2 py-1 text-xs text-cyan-100 hover:bg-cyan-500/20">
+                    Lesson {lessonNo}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="rounded-3xl border border-red-400/20 bg-red-500/10 p-5">
         <p className="text-xs uppercase tracking-widest text-red-200 mb-3">Mistake checklist before the exam</p>
