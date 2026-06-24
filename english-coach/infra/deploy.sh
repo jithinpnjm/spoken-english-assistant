@@ -38,6 +38,8 @@ gcloud services enable \
   artifactregistry.googleapis.com \
   cloudbuild.googleapis.com \
   secretmanager.googleapis.com \
+  firestore.googleapis.com \
+  identitytoolkit.googleapis.com \
   iam.googleapis.com
 
 echo "→ Creating Artifact Registry repo (if needed)..."
@@ -79,6 +81,11 @@ gcloud secrets add-iam-policy-binding GEMINI_API_KEY \
   --project="${PROJECT_ID}" \
   --member="serviceAccount:${SERVICE_ACCOUNT_EMAIL}" \
   --role="roles/secretmanager.secretAccessor" >/dev/null
+
+echo "→ Granting Firestore access to service account..."
+gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
+  --member="serviceAccount:${SERVICE_ACCOUNT_EMAIL}" \
+  --role="roles/datastore.user" >/dev/null
 
 echo "→ Building and pushing Docker image via Cloud Build..."
 gcloud builds submit --project="${PROJECT_ID}" --tag "${IMAGE}" "${APP_DIR}"
