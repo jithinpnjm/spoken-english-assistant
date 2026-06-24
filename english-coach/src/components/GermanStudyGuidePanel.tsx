@@ -3,6 +3,7 @@ import { Mic, StopCircle } from "lucide-react";
 import { germanA1BookLessons } from "../lib/a1-book/germanA1BookLessons";
 import type { GermanA1BookLesson } from "../lib/germanA1BookLessonTypes";
 import type { GermanLevel } from "../lib/germanCurriculumRegistry";
+import { getVerbConjugationsForLesson } from "../lib/germanVerbConjugations";
 
 interface GermanStudyGuidePanelProps {
   level: GermanLevel;
@@ -29,7 +30,9 @@ ${lesson.modelSentences.slice(0, 4).map((item) => `- ${item.de} (${item.en})`).j
 
 COMMON MISTAKES TO WATCH FOR: ${lesson.commonMistakes.map((item) => `${item.wrong} -> ${item.right}`).join("; ")}
 
-Start by greeting the learner and giving a 1–2 sentence overview of this lesson. Then ask them to try using one of the key vocabulary words in a sentence. Correct all errors immediately and clearly.`;
+When the lesson contains a verb, always show how the infinitive transforms into ich/du/er/wir/ihr/sie forms before asking the learner to make a sentence.
+
+Start by greeting the learner and giving a 1–2 sentence overview of this lesson. Then explain the sentence-building pattern, show verb transformation if relevant, and ask them to build one short German sentence. Correct all errors immediately and clearly.`;
 }
 
 export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive, onPracticeWithSky, onStopLive, initialLessonNo, onLessonViewed }: GermanStudyGuidePanelProps) {
@@ -56,6 +59,16 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
   }, [search]);
 
   const selected = germanA1BookLessons.find((l) => l.lessonNo === selectedNo) ?? germanA1BookLessons[0];
+  const verbConjugations = selected
+    ? getVerbConjugationsForLesson([
+        selected.titleEn,
+        selected.titleDe,
+        selected.theRule.join(" "),
+        selected.formula.join(" "),
+        selected.vocabulary.map((item) => `${item.de} ${item.en}`).join(" "),
+        selected.modelSentences.map((item) => item.de).join(" ")
+      ].join(" "), 3)
+    : [];
 
   if (level !== "A1") {
     return (
@@ -124,6 +137,25 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
             </div>
           </div>
 
+          <div className="rounded-2xl border border-indigo-400/20 bg-indigo-500/10 p-4">
+            <p className="text-xs uppercase tracking-widest text-indigo-200 mb-3">Sentence-building order</p>
+            <div className="grid gap-3 md:grid-cols-3">
+              <div className="rounded-xl border border-white/10 bg-black/20 p-3">
+                <p className="text-xs uppercase tracking-widest text-slate-400">1. Choose person</p>
+                <p className="mt-1 text-sm text-slate-100">ich / du / er / wir / Sie</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-black/20 p-3">
+                <p className="text-xs uppercase tracking-widest text-slate-400">2. Transform verb</p>
+                <p className="mt-1 text-sm text-slate-100">trinken → ich trinke</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-black/20 p-3">
+                <p className="text-xs uppercase tracking-widest text-slate-400">3. Add rest</p>
+                <p className="mt-1 text-sm text-slate-100">Ich trinke Wasser.</p>
+              </div>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-slate-300">This is why conjugation matters: without the transformed verb, you cannot build a correct German sentence.</p>
+          </div>
+
           {/* Content grid */}
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-cyan-400/20 bg-cyan-500/10 p-4">
@@ -150,6 +182,39 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
               </div>
             </div>
           </div>
+
+          {verbConjugations.length > 0 && (
+            <div className="rounded-2xl border border-fuchsia-400/20 bg-fuchsia-500/10 p-4">
+              <p className="text-xs uppercase tracking-widest text-fuchsia-200 mb-3">Verb transformation / Konjugation</p>
+              <div className="space-y-4">
+                {verbConjugations.map((verb) => (
+                  <div key={verb.infinitive} className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                    <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
+                      <div>
+                        <p className="text-lg font-bold text-slate-100">{verb.infinitive}</p>
+                        <p className="text-sm text-slate-400">{verb.meaning}</p>
+                      </div>
+                      <p className="text-xs text-fuchsia-100">Infinitive → finite verb form</p>
+                    </div>
+                    <div className="mt-3 grid gap-2 md:grid-cols-3">
+                      {verb.forms.map((form) => (
+                        <div key={`${verb.infinitive}-${form.pronoun}`} className="rounded-xl border border-fuchsia-400/10 bg-fuchsia-500/10 p-3">
+                          <p className="text-xs uppercase tracking-wider text-fuchsia-200">{form.pronoun}</p>
+                          <p className="mt-1 text-base font-bold text-white">{form.form}</p>
+                          <p className="mt-1 text-xs leading-relaxed text-slate-300">{form.example}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <ul className="mt-3 space-y-1">
+                      {verb.notes.map((note) => (
+                        <li key={note} className="text-xs leading-relaxed text-fuchsia-100">• {note}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="rounded-2xl border border-amber-400/20 bg-amber-500/10 p-4">
             <p className="text-xs uppercase tracking-widest text-amber-200 mb-3">Model sentences</p>
