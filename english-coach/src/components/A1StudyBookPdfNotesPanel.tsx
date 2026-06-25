@@ -35,11 +35,16 @@ const STAGE_STYLES: Record<string, { badge: string; border: string }> = {
 };
 
 // Lines that are PDF boilerplate — skip entirely
-const BOILERPLATE_RE = /^(?:A1 German Notes|.*\|\s*Page \d+\s*$|Handwritten Page \d+:|CONTENTS IN THIS BATCH|Quality method:|Quality-first|This PDF|🇩🇪)/i;
+const BOILERPLATE_RE = /^(?:A1 German Notes|.*\|\s*Page \d+\s*$|Handwritten Page \d+:|CONTENTS IN THIS BATCH|Quality method:|Quality-first|This PDF|🇩🇪|Fresh rewrite|Complete line-by-line|Method:|This batch|Original PDF page|Quality-first edition|This PDF follows|Important: The source|are visible but not|marking|note is not lost|structured table|Obvious A1-level|^meaning$)/i;
 const PAGE_TITLE_RE = /^Page \d+\s*[-–]/i;
+// Method column-purpose rows (batch01 p2 and similar meta pages)
+const METHOD_ROW_RE = /^(?:Handwritten source|Correct\s*\/\s*clean German|English meaning|Correction\s*\/\s*source note|Quality Method Used|Batch \d+ Scope|This PDF continues|The handwritten source|For vocabulary pages|Each visible German|Unclear handwriting|Every visible|line-by-line transcription)/i;
 
 // Table header rows (all batch formats) — skip entirely
 const TABLE_HEADER_RE = /^(?:No\.?\s+(?:Handwritten|Source|Clean|Page)|Column\s+Purpose|Handwritten source\s+(?:Correct|Clean)|Source note\s+(?:Correct|Clean|Corrected)|German\s*\/\s*Source\s+Correct|Columns:\s|What this batch|Symbol.+German|Letters.+sounds|No\.\s+Clean|Page\/No\.\s+)/i;
+
+// Notes that convey no information ("Correct." "Correct!" "Correct")
+const TRIVIAL_NOTE_RE = /^\s*[Cc]orrect[.!]?\s*$|^\s*[Oo][Kk][.!]?\s*$/;
 
 // Numbered data row: "1  text...", "1a  text...", "18-Q1  text...", "18-A2  text..."
 const NUMBERED_ROW_RE = /^\s*(\d+[a-zA-Z0-9\-]*)\s{2,}(.+)/;
@@ -51,10 +56,16 @@ function splitByCols(text: string): string[] {
   return text.split(/\s{3,}/).map((c) => c.trim()).filter(Boolean);
 }
 
+function cleanNote(raw: string | undefined): string | undefined {
+  if (!raw) return undefined;
+  if (TRIVIAL_NOTE_RE.test(raw)) return undefined;
+  return raw;
+}
+
 function entryFromCols(no: string, cols: string[]): PhraseEntry | null {
   if (cols.length >= 4) {
     // [handwritten-source, clean-German, English, note]
-    if (cols[1] && cols[2]) return { no, german: cols[1], english: cols[2], note: cols[3] || undefined };
+    if (cols[1] && cols[2]) return { no, german: cols[1], english: cols[2], note: cleanNote(cols[3]) };
   }
   if (cols.length === 3) {
     // [handwritten-source, clean-German, English] or [German, English, note]
@@ -72,7 +83,7 @@ function parsePageContent(rawText: string): ContentBlock[] {
     .map((l) => l.trimEnd())
     .filter((l) => {
       const t = l.trim();
-      return t && !BOILERPLATE_RE.test(t) && !PAGE_TITLE_RE.test(t);
+      return t && !BOILERPLATE_RE.test(t) && !PAGE_TITLE_RE.test(t) && !METHOD_ROW_RE.test(t);
     });
 
   const blocks: ContentBlock[] = [{ entries: [], rawLines: [] }];
@@ -81,6 +92,7 @@ function parsePageContent(rawText: string): ContentBlock[] {
     const trimmed = line.trim();
     if (!trimmed) continue;
     if (TABLE_HEADER_RE.test(trimmed)) continue;
+    if (METHOD_ROW_RE.test(trimmed)) continue;
 
     // ── Numbered row ────────────────────────────────────────────────────────
     const nm = line.match(NUMBERED_ROW_RE);
