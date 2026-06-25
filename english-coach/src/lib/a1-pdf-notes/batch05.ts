@@ -1,0 +1,18 @@
+import type { GermanA1PdfStudyNotePage } from "./types";
+
+export const germanA1PdfStudyNotesBatch05: GermanA1PdfStudyNotePage[] = [
+  {
+    "batch": "Batch 05",
+    "sourcePages": "source pages 61-75",
+    "page": 1,
+    "heading": "1. Food and Drink - Essen und Trinken",
+    "text": "A1 German Typed Study Notes\nPage 1\n A1 German Notes - Batch 05\n Typed study notes from handwritten source pages 61-75. Corrected and organized for self-study.\nFood, shopping, accusative, and negation\nNote: The original file is handwritten and scanned. These notes preserve the learning topics and examples, while\ncorrecting obvious spelling, article, capitalization, and sentence-order issues where needed.\n1. Food and Drink - Essen und Trinken\nFood vocabulary helps you order, shop, and talk about your daily habits.\nDeutsch\nEnglish\nExample\nder Tee\ntea\nIch trinke Tee.\nder Saft\njuice\nDer Saft ist kalt.\ndas Wasser\nwater\nIch trinke Wasser.\nder Kaffee\ncoffee\nIch möchte Kaffee.\ndas Brot\nbread\nIch esse Brot.\nder Reis\nrice\nIch esse Reis.\ndie Suppe\nsoup\nIch trinke/esse Suppe.\ndas Gemüse\nvegetables\nDas Gemüse ist frisch.\ndas Obst\nfruit\nIch kaufe Obst.\nder Apfel\napple\nDer Apfel ist rot.\ndie Banane\nbanana\nDie Banane ist gelb.\ndie Milch\nmilk\nDie Milch ist im Kühlschrank.\n2. Ordering Politely\nUse ich möchte for polite requests. It is safer and more natural than saying ich will in shops and restaurants.\nDeutsch\nEnglish\nIch möchte einen Tee.\nI would like a tea.\nIch möchte ein Wasser.\nI would like a water.\nIch möchte bitte bezahlen.\nI would like to pay, please.\nWas kostet das?\nHow much does that cost?\nHaben Sie ...?\nDo you have ...?\nExamples\nIch möchte einen Kaffee, bitte.\nHaben Sie Wasser? - Ja, natürlich.\n3. Accusative Case - Basic Object Form\nAfter many verbs, the direct object is in the accusative. At A1 level, focus first on masculine changes."
+  },
+  {
+    "batch": "Batch 05",
+    "sourcePages": "source pages 61-75",
+    "page": 2,
+    "heading": "4. Negation: nicht and kein",
+    "text": "A1 German Typed Study Notes\nPage 2\n Only masculine singular changes clearly: der -> den, ein -> einen, kein -> keinen.\n Common verbs with accusative: haben, sehen, kaufen, essen, trinken, suchen.\nNominative\nAccusative\nExample\nder / ein / kein\nden / einen / keinen\nIch sehe den Bahnhof. Ich habe einen\nHund.\ndie / eine / keine\ndie / eine / keine\nIch sehe die Schule.\ndas / ein / kein\ndas / ein / kein\nIch kaufe ein Buch.\ndie plural / keine\ndie plural / keine\nIch sehe die Kinder.\nPractice\nChoose the correct form: Ich habe (ein/einen) Bruder. Ich kaufe (ein/einen) Buch. Ich sehe (der/den)\nBahnhof.\nAnswer key\nIch habe einen Bruder. Ich kaufe ein Buch. Ich sehe den Bahnhof.\n4. Negation: nicht and kein\nUse kein for nouns with indefinite articles or no article. Use nicht for verbs, adjectives, and definite\nexpressions.\nUse\nExample\nkein + noun\nIch habe kein Auto. Das ist keine Tasche.\nnicht + verb/adjective\nIch arbeite nicht. Das ist nicht gut.\nnicht + definite object\nIch kenne den Mann nicht.\nExamples\nIch bin nicht Arzt. / Ich bin kein Arzt. Both can appear, but kein Arzt is the standard noun negation.\nDas ist kein Problem. Das ist nicht schwer.\n5. Mini Dialogues: Shop and Restaurant\nPractise short complete dialogues. Do not memorize isolated vocabulary only.\nExamples\nA: Guten Tag. Was möchten Sie? B: Ich möchte einen Kaffee und ein Stück Kuchen, bitte. A: Sonst noch\netwas? B: Nein, danke. Was kostet das?\nA: Haben Sie Wasser? B: Ja. Mit Kohlensäure oder ohne Kohlensäure? A: Ohne Kohlensäure, bitte."
+  }
+];

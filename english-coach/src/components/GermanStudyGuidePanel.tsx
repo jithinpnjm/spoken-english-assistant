@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Mic, StopCircle } from "lucide-react";
 import { germanA1BookLessons } from "../lib/a1-book/germanA1BookLessons";
+import { buildPdfStudyNoteQueryForLesson, findRelatedPdfStudyNotes } from "../lib/a1-pdf-notes/germanA1PdfStudyNotes";
 import type { GermanA1BookLesson } from "../lib/germanA1BookLessonTypes";
 import type { GermanLevel } from "../lib/germanCurriculumRegistry";
 import { getVerbConjugationsForLesson } from "../lib/germanVerbConjugations";
@@ -59,6 +60,10 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
   }, [search]);
 
   const selected = germanA1BookLessons.find((l) => l.lessonNo === selectedNo) ?? germanA1BookLessons[0];
+  const relatedPdfNotes = useMemo(() => {
+    if (!selected) return [];
+    return findRelatedPdfStudyNotes(buildPdfStudyNoteQueryForLesson(selected), 4);
+  }, [selected]);
   const verbConjugations = selected
     ? getVerbConjugationsForLesson([
         selected.titleEn,
@@ -209,6 +214,23 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
               ))}
             </div>
           </div>
+
+          {relatedPdfNotes.length > 0 && (
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-xs uppercase tracking-widest text-slate-400 mb-3">Related PDF notes</p>
+              <div className="space-y-2">
+                {relatedPdfNotes.map((note) => (
+                  <details key={`${note.batch}-${note.page}`} className="rounded-xl border border-white/10 bg-black/20 p-3">
+                    <summary className="cursor-pointer text-sm font-semibold text-slate-100">
+                      {note.heading}
+                      <span className="ml-2 text-xs font-normal text-slate-500">{note.batch}, page {note.page} · {note.sourcePages}</span>
+                    </summary>
+                    <p className="mt-3 whitespace-pre-wrap text-xs leading-5 text-slate-300">{note.text}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-violet-400/20 bg-violet-500/10 p-4">
