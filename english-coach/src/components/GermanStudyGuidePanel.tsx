@@ -8,6 +8,7 @@ import { getVerbConjugationsForLesson } from "../lib/germanVerbConjugations";
 import { getArticleTransformationsForLesson, getSentencePatternsForLesson } from "../lib/germanSentenceMechanics";
 import GermanLessonPracticePanel from "./GermanLessonPracticePanel";
 import GermanMistakeTrainerPanel from "./GermanMistakeTrainerPanel";
+import GermanLessonMasteryChecklist from "./GermanLessonMasteryChecklist";
 
 interface GermanStudyGuidePanelProps {
   level: GermanLevel;
@@ -53,7 +54,8 @@ Teaching order:
 3. If articles or cases appear, explain nominative -> accusative -> dative transformation with one concrete noun.
 4. Run controlled drills before free speaking.
 5. Use the mistake trainer to correct common errors before final speaking.
-6. Only then ask the learner to build one short sentence.
+6. Use the mastery checklist before moving to the next lesson.
+7. Only then ask the learner to build one short sentence.
 
 Start by greeting the learner and giving a 1–2 sentence overview of this lesson. Then teach the mechanics before asking for production. Correct all errors immediately and clearly.`;
 }
@@ -142,26 +144,9 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
             <p className="mt-3 text-sm leading-relaxed text-slate-300">This is the production path: choose the person, transform the verb, choose the article/case, then add object, time, place, or reason.</p>
           </div>
 
-          {sentencePatterns.length > 0 && (
-            <div className="rounded-2xl border border-blue-400/20 bg-blue-500/10 p-4">
-              <p className="text-xs uppercase tracking-widest text-blue-200 mb-3">Sentence patterns / Satzmuster</p>
-              <div className="space-y-3">
-                {sentencePatterns.map((pattern) => (
-                  <details key={pattern.id} className="rounded-2xl border border-white/10 bg-black/20 p-4" open={pattern.id === "statement-v2"}>
-                    <summary className="cursor-pointer font-bold text-slate-100">{pattern.title}</summary>
-                    <p className="mt-3 rounded-xl bg-blue-500/10 px-3 py-2 text-sm font-semibold text-blue-100">{pattern.formula}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-300">{pattern.teacherNote}</p>
-                    <div className="mt-3 grid gap-2 md:grid-cols-3">{pattern.examples.map((example) => <div key={example.de} className="rounded-xl border border-blue-400/10 bg-blue-500/10 p-3"><p className="text-sm font-semibold text-white">{example.de}</p><p className="mt-1 text-xs text-slate-400">{example.en}</p><p className="mt-2 text-xs leading-relaxed text-blue-100">{example.breakdown}</p></div>)}</div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          )}
+          {sentencePatterns.length > 0 && <div className="rounded-2xl border border-blue-400/20 bg-blue-500/10 p-4"><p className="text-xs uppercase tracking-widest text-blue-200 mb-3">Sentence patterns / Satzmuster</p><div className="space-y-3">{sentencePatterns.map((pattern) => <details key={pattern.id} className="rounded-2xl border border-white/10 bg-black/20 p-4" open={pattern.id === "statement-v2"}><summary className="cursor-pointer font-bold text-slate-100">{pattern.title}</summary><p className="mt-3 rounded-xl bg-blue-500/10 px-3 py-2 text-sm font-semibold text-blue-100">{pattern.formula}</p><p className="mt-2 text-sm leading-relaxed text-slate-300">{pattern.teacherNote}</p><div className="mt-3 grid gap-2 md:grid-cols-3">{pattern.examples.map((example) => <div key={example.de} className="rounded-xl border border-blue-400/10 bg-blue-500/10 p-3"><p className="text-sm font-semibold text-white">{example.de}</p><p className="mt-1 text-xs text-slate-400">{example.en}</p><p className="mt-2 text-xs leading-relaxed text-blue-100">{example.breakdown}</p></div>)}</div></details>)}</div></div>}
 
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-cyan-400/20 bg-cyan-500/10 p-4"><p className="text-xs uppercase tracking-widest text-cyan-200 mb-3">Core content</p><ul className="space-y-2">{selected.theRule.map((item, i) => <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2"><span className="shrink-0 text-cyan-400">•</span>{item}</li>)}</ul></div>
-            <div className="rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-4"><p className="text-xs uppercase tracking-widest text-emerald-200 mb-3">Goethe vocabulary</p><div className="space-y-2">{selected.vocabulary.slice(0, 10).map((word, i) => <div key={`${word.de}-${i}`} className="rounded-xl border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100"><span className="font-semibold">{word.de}</span><span className="text-emerald-200/70"> = {word.en}</span><p className="mt-1 text-slate-300">{word.example}</p></div>)}</div></div>
-          </div>
+          <div className="grid gap-4 md:grid-cols-2"><div className="rounded-2xl border border-cyan-400/20 bg-cyan-500/10 p-4"><p className="text-xs uppercase tracking-widest text-cyan-200 mb-3">Core content</p><ul className="space-y-2">{selected.theRule.map((item, i) => <li key={i} className="text-sm text-slate-300 leading-relaxed flex gap-2"><span className="shrink-0 text-cyan-400">•</span>{item}</li>)}</ul></div><div className="rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-4"><p className="text-xs uppercase tracking-widest text-emerald-200 mb-3">Goethe vocabulary</p><div className="space-y-2">{selected.vocabulary.slice(0, 10).map((word, i) => <div key={`${word.de}-${i}`} className="rounded-xl border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-100"><span className="font-semibold">{word.de}</span><span className="text-emerald-200/70"> = {word.en}</span><p className="mt-1 text-slate-300">{word.example}</p></div>)}</div></div></div>
 
           {verbConjugations.length > 0 && <div className="rounded-2xl border border-fuchsia-400/20 bg-fuchsia-500/10 p-4"><p className="text-xs uppercase tracking-widest text-fuchsia-200 mb-3">Verb transformation / Konjugation</p><div className="space-y-4">{verbConjugations.map((verb) => <details key={verb.infinitive} className="rounded-2xl border border-white/10 bg-black/20 p-4" open={verb.infinitive === "trinken" || verb.infinitive === "haben" || verb.infinitive === "sein"}><summary className="cursor-pointer text-lg font-bold text-slate-100">{verb.infinitive}<span className="ml-2 text-sm font-normal text-slate-400">{verb.meaning}</span></summary><div className="mt-3 grid gap-2 md:grid-cols-3">{verb.forms.map((form) => <div key={`${verb.infinitive}-${form.pronoun}`} className="rounded-xl border border-fuchsia-400/10 bg-fuchsia-500/10 p-3"><p className="text-xs uppercase tracking-wider text-fuchsia-200">{form.pronoun}</p><p className="mt-1 text-base font-bold text-white">{form.form}</p><p className="mt-1 text-xs leading-relaxed text-slate-300">{form.example}</p></div>)}</div><ul className="mt-3 space-y-1">{verb.notes.map((note) => <li key={note} className="text-xs leading-relaxed text-fuchsia-100">• {note}</li>)}</ul></details>)}</div></div>}
 
@@ -171,14 +156,11 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
 
           <GermanLessonPracticePanel lesson={selected} />
           <GermanMistakeTrainerPanel lesson={selected} />
+          <GermanLessonMasteryChecklist lesson={selected} />
 
           {relatedPdfNotes.length > 0 && <div className="rounded-2xl border border-white/10 bg-white/5 p-4"><p className="text-xs uppercase tracking-widest text-slate-400 mb-3">Related PDF notes</p><div className="space-y-2">{relatedPdfNotes.map((note) => <details key={`${note.batch}-${note.page}`} className="rounded-xl border border-white/10 bg-black/20 p-3"><summary className="cursor-pointer text-sm font-semibold text-slate-100">{note.heading}<span className="ml-2 text-xs font-normal text-slate-500">{note.batch}, page {note.page} · {note.sourcePages}</span></summary><p className="mt-3 whitespace-pre-wrap text-xs leading-5 text-slate-300">{note.text}</p></details>)}</div></div>}
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-violet-400/20 bg-violet-500/10 p-4"><p className="text-xs uppercase tracking-widest text-violet-200 mb-2">Exam relevance</p><p className="text-sm leading-relaxed text-slate-300">{selected.examRelevance}</p></div>
-            <div className="rounded-2xl border border-sky-400/20 bg-sky-500/10 p-4"><p className="text-xs uppercase tracking-widest text-sky-200 mb-2">Formula</p><ul className="space-y-1.5">{selected.formula.map((item, i) => <li key={i} className="text-sm text-slate-300 leading-relaxed">• {item}</li>)}</ul></div>
-            <div className="rounded-2xl border border-red-400/20 bg-red-500/10 p-4"><p className="text-xs uppercase tracking-widest text-red-200 mb-2">Common mistakes</p><ul className="space-y-1.5">{selected.commonMistakes.map((item, i) => <li key={i} className="text-sm text-red-100 leading-relaxed">• {item.wrong} → {item.right}</li>)}</ul></div>
-          </div>
+          <div className="grid gap-4 md:grid-cols-3"><div className="rounded-2xl border border-violet-400/20 bg-violet-500/10 p-4"><p className="text-xs uppercase tracking-widest text-violet-200 mb-2">Exam relevance</p><p className="text-sm leading-relaxed text-slate-300">{selected.examRelevance}</p></div><div className="rounded-2xl border border-sky-400/20 bg-sky-500/10 p-4"><p className="text-xs uppercase tracking-widest text-sky-200 mb-2">Formula</p><ul className="space-y-1.5">{selected.formula.map((item, i) => <li key={i} className="text-sm text-slate-300 leading-relaxed">• {item}</li>)}</ul></div><div className="rounded-2xl border border-red-400/20 bg-red-500/10 p-4"><p className="text-xs uppercase tracking-widest text-red-200 mb-2">Common mistakes</p><ul className="space-y-1.5">{selected.commonMistakes.map((item, i) => <li key={i} className="text-sm text-red-100 leading-relaxed">• {item.wrong} → {item.right}</li>)}</ul></div></div>
         </div>
       )}
     </div>
