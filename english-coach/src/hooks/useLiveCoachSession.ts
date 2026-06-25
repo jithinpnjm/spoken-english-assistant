@@ -50,6 +50,7 @@ export function useLiveCoachSession(onMessage?: (msg: LiveMessage) => void) {
 
   return {
     isConnected: live.isConnected,
+    isAgentSpeaking: live.isAgentSpeaking,
     error: live.error,
     stop: live.stopClient,
     startEnglishSession,

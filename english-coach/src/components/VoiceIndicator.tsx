@@ -4,9 +4,10 @@ import { motion } from "motion/react";
 interface VoiceIndicatorProps {
   state: "idle" | "listening" | "thinking" | "speaking";
   highContrast: boolean;
+  isAgentSpeaking?: boolean;
 }
 
-export default function VoiceIndicator({ state, highContrast }: VoiceIndicatorProps) {
+export default function VoiceIndicator({ state, highContrast, isAgentSpeaking }: VoiceIndicatorProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
 
@@ -106,13 +107,14 @@ export default function VoiceIndicator({ state, highContrast }: VoiceIndicatorPr
   }, [state, highContrast]);
 
   const getStatusText = () => {
+    if (isAgentSpeaking) return "Sky is speaking — your mic is muted automatically";
     switch (state) {
       case "listening":
-        return "Listening to your voice - Speak whenever you are ready";
+        return "Listening — speak whenever you are ready";
       case "speaking":
-        return "Sky Coach is speaking... (Interrupt anytime by talking)";
+        return "Sky is speaking — your mic is muted automatically";
       case "thinking":
-        return "Sky is analyzing grammar and spelling rules...";
+        return "Sky is thinking...";
       default:
         return "Voice channel open and idle";
     }
@@ -148,8 +150,19 @@ export default function VoiceIndicator({ state, highContrast }: VoiceIndicatorPr
           : "scale-0"
       }`}></div>
 
-      <div className={`mt-4 px-4 py-1.5 rounded-full border text-xs font-semibold tracking-wide transition-all uppercase duration-300 ${getStatusBadgeColor()}`}>
-        {state}
+      <div className="mt-4 flex items-center gap-2">
+        <div className={`px-4 py-1.5 rounded-full border text-xs font-semibold tracking-wide transition-all uppercase duration-300 ${getStatusBadgeColor()}`}>
+          {state}
+        </div>
+        {isAgentSpeaking && (
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-500/40 bg-red-500/15 text-red-300 text-xs font-semibold uppercase tracking-wide">
+            <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4M3 11a9 9 0 0118 0" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+              <line x1="3" y1="3" x2="21" y2="21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+            Mic muted
+          </div>
+        )}
       </div>
 
       <p className="mt-3 text-sm text-center font-medium opacity-80 min-h-6 transition-all">

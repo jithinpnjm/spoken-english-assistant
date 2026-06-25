@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { ArrowLeft, BookOpen, ClipboardCheck, GraduationCap, Mic, StopCircle, Volume2 } from "lucide-react";
+import { ArrowLeft, BookOpen, ClipboardCheck, GraduationCap, Mic, MicOff, StopCircle, Volume2 } from "lucide-react";
 import { germanCurriculum, type GermanLevel } from "../lib/germanCurriculumRegistry";
 import { useLiveCoachSession } from "../hooks/useLiveCoachSession";
 import GermanProgressPanel from "./GermanProgressPanel";
@@ -87,6 +87,20 @@ export default function GermanCoachShell({ learnerName, onBackToPortals }: Germa
               {live.isConnected ? <><StopCircle className="h-4 w-4" /> Stop</> : <><Mic className="h-4 w-4" /> Start German Live</>}
             </button>
           </div>
+
+          {live.isConnected && (
+            <div className="mt-3 flex items-center gap-2">
+              {live.isAgentSpeaking ? (
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-red-500/40 bg-red-500/15 px-3 py-1.5 text-xs font-semibold text-red-300">
+                  <MicOff className="h-3 w-3" /> Mic muted — Sky is speaking
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-300">
+                  <Mic className="h-3 w-3" /> Listening
+                </span>
+              )}
+            </div>
+          )}
 
           {live.error && (
             <p className="mt-3 rounded-xl border border-red-500/30 bg-red-950/70 px-3 py-2 text-xs text-red-100">{live.error}</p>

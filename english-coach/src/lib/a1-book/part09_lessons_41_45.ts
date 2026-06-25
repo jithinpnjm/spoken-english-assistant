@@ -5,11 +5,11 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
     lessonNo: 41,
     titleEn: "war / hatte — Simple Past of sein/haben",
     titleDe: "war / hatte — Präteritum von sein und haben",
-    introduction: "To talk about the past in spoken German, we almost always use a complex two-verb structure (the Present Perfect). However, there are two massive exceptions: 'sein' (to be) and 'haben' (to have). For these two verbs, Germans use the Simple Past (Präteritum) even in casual conversation. Saying 'I was sick' or 'I had time' requires memorizing 'war' and 'hatte'.",
+    introduction: "To talk about the past in spoken German, we almost always use a complex two-verb structure (the Present Perfect). However, there are two massive exceptions: 'sein' (to be) and 'haben' (to have). For these two verbs, Germans use the Simple Past even in casual conversation. Saying 'I was sick' or 'I had time' requires memorizing 'war' and 'hatte'.",
     theRule: [
-      "'war' is the past tense of 'sein' (I was). 'hatte' is the past tense of 'haben' (I had).",
+      "'war' is the past form of 'sein' (I was). 'hatte' is the past form of 'haben' (I had).",
       "Just like with modal verbs, the 'ich' form and the 'er/sie/es' form are completely identical (ich war / er war).",
-      "Do NOT add a '-t' to the 'er/sie/es' form. It remains exactly the same as 'ich'.",
+      "Do NOT add a '-t' to the 'er/sie/es' form. It stays exactly the same as 'ich'.",
       "Use 'war' to describe past states or locations (I was tired, I was in Berlin).",
       "Use 'hatte' to describe past possessions or physical feelings (I had a car, I had a headache)."
     ],
@@ -44,35 +44,35 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         de: "Gestern war ich krank.",
         en: "Yesterday I was sick.",
-        breakdown: "Gestern(Time/pos 1) war(was/verb pos 2) ich(subject pos 3) krank(sick)."
+        breakdown: "Gestern = Yesterday (position 1) | war = was (position 2) | ich = I (position 3) | krank = sick → Inversion rule still applies with 'war'."
       },
       {
         de: "Letzte Woche hatte ich viel Stress.",
         en: "Last week I had a lot of stress.",
-        breakdown: "Letzte Woche(Time block/pos 1) hatte(had/pos 2) ich(subject) viel Stress(a lot of stress)."
+        breakdown: "Letzte Woche = Last week (position 1, time block) | hatte = had (position 2) | ich = I (position 3) | viel Stress = a lot of stress → Time block in position 1 forces subject to position 3."
       },
       {
         de: "Wo warst du am Wochenende?",
         en: "Where were you on the weekend?",
-        breakdown: "Wo(Where) warst(were/du form) du(subject) am Wochenende(on the weekend)?"
+        breakdown: "Wo = Where | warst = were (past of 'sein' for 'du') | du = you | am Wochenende = on the weekend → 'du' form adds '-st': war + st = warst."
       },
       {
         de: "Früher hatten wir kein Geld, aber wir waren glücklich.",
         en: "In the past we had no money, but we were happy.",
-        breakdown: "Früher(In the past) hatten(had/wir form) wir(we) kein Geld(no money), aber(but) wir(we) waren(were/wir form) glücklich(happy)."
+        breakdown: "Früher = In the past | hatten = had (wir form) | wir = we | kein Geld = no money | aber = but | wir = we | waren = were (wir form) | glücklich = happy → 'wir' form adds '-en' to both."
       },
       {
         de: "Mein Vater hatte ein altes Auto. Es war sehr laut.",
         en: "My father had an old car. It was very loud.",
-        breakdown: "Mein Vater(Subject) hatte(had/er form identical to ich) ein altes Auto. Es(It) war(was) sehr laut(loud)."
+        breakdown: "Mein Vater = My father | hatte = had ('er' form — identical to 'ich' form, no extra '-t') | ein altes Auto = an old car | Es = It | war = was | sehr laut = very loud → 'er' form never gets a '-t'."
       },
       {
         de: "Hattet ihr einen guten Flug?",
         en: "Did you all have a good flight?",
-        breakdown: "Hattet(Had/ihr form for yes/no question pos 1) ihr(you all) einen guten Flug(a good flight/accusative)?"
+        breakdown: "Hattet = Had (verb first for yes/no question, 'ihr' form) | ihr = you all | einen guten Flug = a good flight → 'ihr' form of 'hatte' is 'hattet'."
       }
     ],
-    culturalNote: "While you *can* technically form the complex past tense for these verbs ('Ich bin gewesen' for 'I have been', or 'Ich habe gehabt' for 'I have had'), Germans almost never use them in spoken language. They sound clumsy and overly formal. Relying exclusively on 'war' and 'hatte' will make you sound much more natural.",
+    culturalNote: "While you *can* technically form the present perfect for these verbs ('Ich bin gewesen' for 'I have been', or 'Ich habe gehabt' for 'I have had'), Germans almost never use them in spoken language. They sound clumsy and overly formal. Relying exclusively on 'war' and 'hatte' will make you sound much more natural.",
     exercises: [
       {
         type: "fill_blank",
@@ -101,7 +101,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         wrong: "Mein Bruder wart hier.",
         right: "Mein Bruder war hier.",
-        explanation: "Adding a '-t' to the 3rd person singular. Modal verbs and 'war/hatte' do NOT take a '-t' for 'er/sie/es'. The 'er' form of 'war' is just 'war'."
+        explanation: "Adding a '-t' to the 3rd person singular. The 'er/sie/es' form of 'war' is just 'war' — no '-t' is ever added."
       },
       {
         wrong: "Ich war Hunger.",
@@ -115,7 +115,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       "Ask Sky: How do I say 'I was at the doctor's' using 'war' and the correct preposition?"
     ],
     examRelevance: "Sprechen Teil 2 & Schreiben Teil 1: When recounting an experience (e.g., 'Wie war der Urlaub?'), you must be able to use 'war' and 'hatte' fluently. Writing an excuse email (e.g., 'Gestern war ich krank') is a standard A1 task.",
-    lessonGoal: "Describe past states and possessions using 'war' and 'hatte' while maintaining correct Verb-Second word order and avoiding the '-t' ending mistake for the 3rd person."
+    lessonGoal: "Describe past states and possessions using 'war' and 'hatte' while maintaining correct word order and avoiding the '-t' ending mistake for the 3rd person."
   },
   {
     lessonNo: 42,
@@ -148,32 +148,32 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         de: "Ich verstehe dieses Wort nicht.",
         en: "I do not understand this word.",
-        breakdown: "Ich(subject) verstehe(understand/glued prefix 'ver') dieses Wort(this word) nicht."
+        breakdown: "Ich = I | verstehe = understand (the 'ver-' prefix stays glued — it never moves to the end) | dieses Wort = this word | nicht = not → No splitting. The whole verb stays in position 2."
       },
       {
         de: "Besuchst du am Wochenende deine Eltern?",
         en: "Are you visiting your parents on the weekend?",
-        breakdown: "Besuchst(Visit/glued prefix 'be') du am Wochenende deine Eltern?"
+        breakdown: "Besuchst = Visit (the 'be-' prefix stays glued) | du = you | am Wochenende = on the weekend | deine Eltern = your parents → Conjugate the full word, nothing separates."
       },
       {
         de: "Wir bekommen heute Besuch.",
         en: "We are getting visitors today.",
-        breakdown: "Wir bekommen(get/receive) heute Besuch(visit/noun)."
+        breakdown: "Wir = We | bekommen = get/receive (the 'be-' prefix stays glued) | heute = today | Besuch = visit (noun) → Watch out: 'bekommen' means 'receive', not 'become'!"
       },
       {
         de: "Der Mann verkauft sein altes Fahrrad.",
         en: "The man is selling his old bicycle.",
-        breakdown: "Der Mann verkauft(sells) sein altes Fahrrad."
+        breakdown: "Der Mann = The man | verkauft = sells (the 'ver-' prefix stays glued) | sein altes Fahrrad = his old bicycle → Whole verb in position 2 as normal."
       },
       {
         de: "Erzählen Sie mir von Ihrem Beruf.",
-        en: "Tell me about your profession. (Formal imperative)",
-        breakdown: "Erzählen(Tell) Sie mir(to me/dative) von Ihrem(about your) Beruf."
+        en: "Tell me about your profession. (Formal command)",
+        breakdown: "Erzählen Sie = Tell (formal command with 'er-' prefix, stays glued) | mir = to me | von Ihrem Beruf = about your profession → Even in commands, the prefix never separates."
       },
       {
         de: "Ich vergesse immer meinen Schlüssel.",
         en: "I always forget my key.",
-        breakdown: "Ich vergesse(forget/glued prefix 'ver') immer(always) meinen Schlüssel(my key/accusative)."
+        breakdown: "Ich = I | vergesse = forget (the 'ver-' prefix stays glued) | immer = always | meinen Schlüssel = my key (masculine direct object) → Nothing moves to the end."
       }
     ],
     culturalNote: "The prefix changes the entire meaning of the base word. 'Kaufen' means to buy, but 'verkaufen' means to sell! 'Kommen' means to come, but 'bekommen' means to receive! Do not assume you know what a word means just because you recognize the root verb.",
@@ -200,7 +200,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         wrong: "Ich suche meine Oma be.",
         right: "Ich besuche meine Oma.",
-        explanation: "Treating a 'be-' verb as separable. The prefix 'be-' is on the permanent superglue list. It never goes to the end of the sentence."
+        explanation: "Treating a 'be-' verb as separable. The prefix 'be-' is permanently glued. It never goes to the end of the sentence."
       },
       {
         wrong: "Ich bekomme nach Berlin.",
@@ -210,7 +210,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         wrong: "Wir zahlen die Rechnung be.",
         right: "Wir bezahlen die Rechnung.",
-        explanation: "Again, splitting an inseparable verb. 'Bezahlen' (to pay) stays whole in Position 2."
+        explanation: "Splitting an inseparable verb. 'Bezahlen' (to pay) stays whole in Position 2."
       }
     ],
     skyPracticePrompts: [
@@ -227,9 +227,9 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
     titleDe: "Über Gesundheit sprechen",
     introduction: "If you need to call in sick to work or visit a doctor in Germany, you must know how to describe where you hurt. Germans use two very specific structures to express pain: the noun-based 'I have...-pain' (Ich habe Kopfschmerzen) and the verb-based 'My... hurts me' (Mir tut der Kopf weh). Mastering these ensures you get the right help quickly.",
     theRule: [
-      "Structure 1: Noun + Schmerzen. Use the verb 'haben'. (Ich habe Kopfschmerzen = I have head-pains).",
+      "Structure 1: Combine the body part + 'schmerzen' (pains). Use the verb 'haben'. (Ich habe Kopfschmerzen = I have head-pains).",
       "Structure 2: The separable verb 'wehtun' (to hurt).",
-      "In Structure 2, the body part is the subject (doing the hurting), and you are the victim (in the Dative case -> 'mir').",
+      "In Structure 2, the body part is the subject (doing the hurting), and you are the receiver (use 'mir').",
       "Therefore: [Body part] + tut + mir + weh. (Der Kopf tut mir weh).",
       "If plural body parts hurt (like teeth or eyes), use the plural verb 'tun': [Plural body parts] + tun + mir + weh."
     ],
@@ -263,32 +263,32 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         de: "Ich bin krank. Ich habe Kopfschmerzen und Fieber.",
         en: "I am sick. I have a headache and a fever.",
-        breakdown: "Ich bin krank. Ich habe Kopfschmerzen(headaches/compound noun) und Fieber(fever)."
+        breakdown: "Ich bin krank = I am sick | Ich habe = I have | Kopfschmerzen = head-pains (body part + schmerzen combined into one word) | und = and | Fieber = fever → German builds compound words for pain."
       },
       {
         de: "Mein Rücken tut mir sehr weh.",
         en: "My back hurts me a lot.",
-        breakdown: "Mein Rücken(My back/subject pos 1) tut(does/verb pos 2) mir(to me/dative) sehr(very) weh(hurt/prefix at end)."
+        breakdown: "Mein Rücken = My back (the subject — it is doing the hurting) | tut = does (verb in position 2) | mir = to me (the receiver) | sehr = very | weh = hurt (the prefix, sent to the end) → 'wehtun' splits: 'tut' stays in position 2, 'weh' goes to the end."
       },
       {
         de: "Meine Augen tun mir weh. Ich brauche eine Brille.",
         en: "My eyes hurt. I need glasses.",
-        breakdown: "Meine Augen(My eyes/plural subject) tun(do/plural verb) mir(to me) weh(hurt/prefix). Ich brauche eine Brille."
+        breakdown: "Meine Augen = My eyes (plural subject) | tun = do (plural verb — note 'tun' not 'tut') | mir = to me | weh = hurt (at the end) | Ich brauche = I need | eine Brille = glasses → Plural body parts use 'tun' instead of 'tut'."
       },
       {
         de: "Wo tut es Ihnen weh, Herr Müller?",
         en: "Where does it hurt you, Mr. Müller? (Formal)",
-        breakdown: "Wo(Where) tut(does) es(it/subject) Ihnen(to you/formal dative) weh(hurt prefix)?"
+        breakdown: "Wo = Where | tut = does | es = it (subject) | Ihnen = to you (formal) | weh = hurt (at the end) | Herr Müller = address → Doctor's standard question to a formal patient."
       },
       {
         de: "Gehen Sie in die Apotheke und kaufen Sie Medikamente.",
         en: "Go to the pharmacy and buy medicine.",
-        breakdown: "Gehen Sie(Imperative formal) in die Apotheke(into the pharmacy) und kaufen Sie(buy) Medikamente."
+        breakdown: "Gehen Sie = Go (formal command) | in die Apotheke = into the pharmacy | und = and | kaufen Sie = buy (formal command) | Medikamente = medicine → Two commands linked with 'und'."
       },
       {
         de: "Gute Besserung!",
         en: "Get well soon!",
-        breakdown: "Gute(Good) Besserung(bettering/recovery) - Fixed expression."
+        breakdown: "Gute = Good | Besserung = bettering/recovery → A fixed phrase. Just memorize it as one whole expression."
       }
     ],
     culturalNote: "When someone is sick, the standard German response is 'Gute Besserung!' (literally: Good bettering!). If you need over-the-counter medicine like aspirin or cough syrup, you cannot buy it in a normal supermarket or drugstore (Drogerie). You MUST go to a specialized pharmacy ('die Apotheke'), which is indicated by a large red 'A' sign.",
@@ -325,7 +325,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         wrong: "Mein Bein tut mich weh.",
         right: "Mein Bein tut mir weh.",
-        explanation: "Using the Accusative 'mich' instead of the Dative 'mir'. The pain is happening TO you, so it requires the Dative."
+        explanation: "Using 'mich' (direct object form) instead of 'mir' (indirect object form). The pain is happening TO you, so it requires 'mir'."
       }
     ],
     skyPracticePrompts: [
@@ -334,7 +334,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       "Ask Sky: How do I say 'I need to make an appointment with the doctor' in German?"
     ],
     examRelevance: "Sprechen Teil 3 & Hören Teil 2: Picture cards frequently show body parts or a doctor's office. You must be able to formulate a request like 'Haben Sie etwas gegen Halsschmerzen?' (Do you have something for a sore throat?).",
-    lessonGoal: "Describe illness and pain fluently using both compound nouns (Kopfschmerzen) and the separable dative verb 'wehtun'."
+    lessonGoal: "Describe illness and pain fluently using both compound nouns (Kopfschmerzen) and the separable verb 'wehtun'."
   },
   {
     lessonNo: 44,
@@ -367,32 +367,32 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         de: "Ich habe gestern ein Buch gekauft.",
         en: "I bought a book yesterday.",
-        breakdown: "Ich habe(helper verb pos 2) gestern ein Buch(middle stuff) gekauft(Partizip II at end)."
+        breakdown: "Ich = I | habe = have (helper verb, position 2) | gestern = yesterday | ein Buch = a book (everything in the middle) | gekauft = bought (Partizip II sent to the very end) → The bracket: helper verb on the left, Partizip II on the right."
       },
       {
         de: "Was hast du am Wochenende gemacht?",
         en: "What did you do on the weekend?",
-        breakdown: "Was(W-Word) hast(helper verb pos 2) du am Wochenende(middle stuff) gemacht(Partizip II at end)?"
+        breakdown: "Was = What (W-word, position 1) | hast = have (helper verb, position 2) | du = you | am Wochenende = on the weekend (middle) | gemacht = done (Partizip II at the very end) → W-question uses same bracket structure."
       },
       {
         de: "Wir haben schon Pizza bestellt.",
         en: "We have already ordered pizza.",
-        breakdown: "Wir haben(helper verb) schon(already) Pizza bestellt(ordered/Partizip II)."
+        breakdown: "Wir = We | haben = have (helper verb) | schon = already | Pizza = pizza (middle) | bestellt = ordered (Partizip II at the end) → Note: 'bestellen' has a permanently glued 'be-' prefix, so the Partizip II has no 'ge-'."
       },
       {
         de: "Er hat mir eine Geschichte erzählt.",
         en: "He told me a story.",
-        breakdown: "Er hat(helper verb) mir eine Geschichte(middle stuff) erzählt(told/Partizip II without 'ge' because 'er-' is inseparable)."
+        breakdown: "Er = He | hat = has (helper verb) | mir = to me | eine Geschichte = a story (middle) | erzählt = told (Partizip II at the end, no 'ge-' because 'er-' prefix is permanently glued) → Non-separable verbs don't get a 'ge-' prefix."
       },
       {
         de: "Haben Sie das Wort gehört?",
         en: "Did you hear the word? (Formal)",
-        breakdown: "Haben(Helper verb pos 1 for yes/no question) Sie das Wort gehört(Partizip II at end)?"
+        breakdown: "Haben = Have (helper verb moves to position 1 for yes/no question) | Sie = you (formal) | das Wort = the word | gehört = heard (Partizip II at the end) → Yes/no question: helper verb jumps to front."
       },
       {
         de: "Heute Morgen habe ich Deutsch gelernt.",
         en: "This morning I studied German.",
-        breakdown: "Heute Morgen(Time pos 1) habe(helper verb pos 2) ich Deutsch gelernt(Partizip II at end)."
+        breakdown: "Heute Morgen = This morning (position 1) | habe = have (helper verb, position 2) | ich = I (position 3) | Deutsch = German | gelernt = learned (Partizip II at the very end) → Inversion applies: helper verb stays in position 2."
       }
     ],
     culturalNote: "When Germans tell a story, you won't know exactly what happened until they say the final word of the sentence. They might say, 'Ich habe gestern im Supermarkt einen großen Kuchen...' (I have yesterday in the supermarket a big cake...) and you have to wait to find out if they 'gekauft' (bought it), 'gegessen' (ate it), or 'gemacht' (made it).",
@@ -418,17 +418,17 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         wrong: "Ich habe gemacht meine Hausaufgaben.",
         right: "Ich habe meine Hausaufgaben gemacht.",
-        explanation: "A classic English-speaker mistake. You cannot place the main action verb right after the helper verb. 'gemacht' MUST go to the end."
+        explanation: "A classic English-speaker mistake. You cannot place the main action verb right after the helper verb. 'gemacht' MUST go to the very end."
       },
       {
         wrong: "Wir haben gekauftet ein Brot.",
         right: "Wir haben ein Brot gekauft.",
-        explanation: "Do not add present tense endings (-e, -st, -t, -en) to the Partizip II! 'gekauft' is the final, frozen form. It never changes."
+        explanation: "Do not add present tense endings to the Partizip II! 'gekauft' is the final, frozen form. It never changes."
       },
       {
         wrong: "Gestern ich habe gearbeitet.",
         right: "Gestern habe ich gearbeitet.",
-        explanation: "Forgetting the Inversion rule. If 'gestern' is in Pos 1, the helper verb 'habe' stays in Pos 2, pushing 'ich' to Pos 3."
+        explanation: "Forgetting the Inversion rule. If 'gestern' is in Position 1, the helper verb 'habe' stays in Position 2, pushing 'ich' to Position 3."
       }
     ],
     skyPracticePrompts: [
@@ -448,7 +448,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       "Use 'sein' (bin, bist, ist, sind, seid) as the helper verb for verbs that express MOTION from point A to point B (e.g., gehen, fahren, fliegen, kommen).",
       "Use 'sein' for verbs that express a CHANGE OF STATE (e.g., aufwachen - to wake up, sterben - to die).",
       "Use 'sein' for two major exceptions: 'bleiben' (to stay - geblieben) and 'passieren' (to happen - passiert).",
-      "For ALL OTHER VERBS (90% of verbs, including transitive verbs that take a direct object), use 'haben'."
+      "For ALL OTHER VERBS (90% of verbs, including verbs that take a direct object), use 'haben'."
     ],
     formula: [
       "Motion/Change of state: Subject + sein (conjugated) + ... + Partizip II (End).",
@@ -478,35 +478,35 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         de: "Ich bin gestern nach Berlin gefahren.",
         en: "I drove to Berlin yesterday.",
-        breakdown: "Ich bin(helper 'sein' for motion) gestern nach Berlin gefahren(driven/Partizip II at end)."
+        breakdown: "Ich = I | bin = am (helper 'sein' for motion from A to B) | gestern = yesterday | nach Berlin = to Berlin | gefahren = driven (Partizip II at the end) → Driving yourself from one place to another = 'sein'."
       },
       {
         de: "Wann bist du nach Hause gekommen?",
         en: "When did you come home?",
-        breakdown: "Wann(When) bist(are/helper 'sein' for du) du nach Hause gekommen(come)?"
+        breakdown: "Wann = When | bist = are (helper 'sein' for 'du') | du = you | nach Hause = home | gekommen = come (Partizip II at the end) → Coming home is motion A to B = 'sein'."
       },
       {
         de: "Wir sind am Wochenende zu Hause geblieben.",
         en: "We stayed at home on the weekend.",
-        breakdown: "Wir sind(are/helper 'sein' exception) am Wochenende zu Hause geblieben(stayed)."
+        breakdown: "Wir = We | sind = are (helper 'sein' — 'bleiben' is a fixed exception) | am Wochenende = on the weekend | zu Hause = at home | geblieben = stayed (Partizip II at the end) → 'bleiben' always uses 'sein', even though it means staying still."
       },
       {
         de: "Was ist gestern im Büro passiert?",
         en: "What happened in the office yesterday?",
-        breakdown: "Was ist(is/helper 'sein') gestern im Büro passiert(happened)?"
+        breakdown: "Was = What | ist = is (helper 'sein' — 'passieren' is a fixed exception) | gestern = yesterday | im Büro = in the office | passiert = happened (Partizip II at the end) → 'passieren' always uses 'sein'."
       },
       {
         de: "Er hat das Auto gefahren.",
         en: "He drove the car.",
-        breakdown: "Er hat(helper 'haben' because there is a direct object 'das Auto') das Auto gefahren. (Note: When driving an object, use haben. When traveling yourself, use sein)."
+        breakdown: "Er = He | hat = has (helper 'haben' — there is a direct object 'das Auto') | das Auto = the car | gefahren = driven (Partizip II at the end) → Driving an object = 'haben'. Traveling yourself = 'sein'."
       },
       {
         de: "Wir haben viel getanzt und dann sind wir gegangen.",
         en: "We danced a lot and then we went/left.",
-        breakdown: "Wir haben(helper) viel getanzt(danced/no A-to-B motion) und dann sind(helper for motion) wir gegangen(gone)."
+        breakdown: "Wir = We | haben = have (helper — dancing is not A-to-B motion) | viel = a lot | getanzt = danced | und = and | dann = then | sind = are (helper — going/leaving is A-to-B motion) | wir = we | gegangen = gone (Partizip II at the end) → Two helper verbs in one sentence."
       }
     ],
-    culturalNote: "Understanding this rule instantly levels up your German. If someone asks 'Was hast du gemacht?' (What did you do?), they use 'hast' because doing something isn't moving. If you answer 'Ich habe nach Berlin gefahren', it sounds like you literally picked up the city of Berlin and drove it somewhere like a steering wheel. You must say 'Ich bin nach Berlin gefahren'.",
+    culturalNote: "Understanding this rule instantly levels up your German. If someone asks 'Was hast du gemacht?' (What did you do?), they use 'hast' because doing something isn't moving. If you answer 'Ich habe nach Berlin gefahren', it sounds like you literally picked up the city of Berlin and drove it somewhere. You must say 'Ich bin nach Berlin gefahren'.",
     exercises: [
       {
         type: "choose",
@@ -514,7 +514,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
         items: [
           { prompt: "Ich ___ gestern Pizza gegessen. ( habe / bin )", answer: "habe", hint: "Eating is not motion A to B." },
           { prompt: "Wir ___ am Montag nach Hamburg geflogen. ( haben / sind )", answer: "sind", hint: "Flying is motion A to B." },
-          { prompt: "Wo ___ ihr am Sonntag geblieben? ( habt / seid )", answer: "seid", hint: "bleiben (to stay) is an exception that takes sein." }
+          { prompt: "Wo ___ ihr am Sonntag geblieben? ( habt / seid )", answer: "seid", hint: "bleiben (to stay) is a fixed exception that takes sein." }
         ]
       },
       {
@@ -530,7 +530,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         wrong: "Ich habe nach München gefahren.",
         right: "Ich bin nach München gefahren.",
-        explanation: "Fahren is motion from A to B. It MUST use the 'sein' helper verb (bin)."
+        explanation: "Driving yourself to Munich is motion from A to B. It MUST use 'sein' as the helper verb (bin)."
       },
       {
         wrong: "Wir sind geschlafen.",
@@ -540,7 +540,7 @@ export const germanA1BookLessonsPart09: GermanA1BookLesson[] = [
       {
         wrong: "Ich habe zu Hause geblieben.",
         right: "Ich bin zu Hause geblieben.",
-        explanation: "'Bleiben' (to stay) means staying in ONE place, so logic suggests 'haben'. But German grammar dictates 'bleiben' is a strict exception that always takes 'sein'."
+        explanation: "'Bleiben' (to stay) means staying in one place, so logic suggests 'haben'. But German grammar dictates 'bleiben' is a strict exception that always takes 'sein'. Just memorize: bleiben = sein."
       }
     ],
     skyPracticePrompts: [

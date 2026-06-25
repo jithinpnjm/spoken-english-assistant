@@ -340,7 +340,7 @@ export const germanA1BookLessonsPart10: GermanA1BookLesson[] = [
       {
         de: "Gestern war es schön, aber heute regnet es.",
         en: "Yesterday it was nice, but today it is raining.",
-        breakdown: "Gestern(Time pos 1) war(was pos 2) es(subject pos 3) schön, aber heute regnet(verb pos 2) es(subject pos 3)."
+        breakdown: "Gestern = Yesterday | war = was | es schön = it nice | aber = but | heute = today | regnet es = it rains → Time word first, then the verb, then 'es' — same inversion rule."
       },
       {
         de: "Die Sonne scheint und es ist warm.",
@@ -443,12 +443,12 @@ export const germanA1BookLessonsPart10: GermanA1BookLesson[] = [
       {
         de: "Passt es Ihnen am Mittwochmorgen?",
         en: "Does Wednesday morning suit you? (Formal)",
-        breakdown: "Passt(Suits) es Ihnen(you/formal dative) am Mittwochmorgen(on Wednesday morning)?"
+        breakdown: "Passt = Suits | es = it | Ihnen = you (formal) | am Mittwochmorgen = on Wednesday morning → Polite way to suggest a time to someone you address formally."
       },
       {
         de: "Ja, das passt mir sehr gut. Wir treffen uns am Mittwoch.",
         en: "Yes, that suits me very well. We will meet on Wednesday.",
-        breakdown: "Ja, das passt mir(me/dative) sehr gut. Wir treffen uns(meet each other) am Mittwoch."
+        breakdown: "Ja = Yes | das passt = that suits | mir = me | sehr gut = very well | Wir treffen uns = We meet each other | am Mittwoch = on Wednesday → Confirming the appointment."
       }
     ],
     culturalNote: "Punctuality is not a stereotype; it is a rigid social expectation in Germany. If you agree to a 'Termin' at 14:00, arriving at 14:05 requires an apology. If you need to cancel (absagen) or postpone (verschieben), you must do so as early as possible. Ghosting an appointment is considered extremely disrespectful.",

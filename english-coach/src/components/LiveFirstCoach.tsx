@@ -203,6 +203,7 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
         sessions={sessions}
         messages={messages}
         isLiveActive={live.isConnected}
+        isAgentSpeaking={live.isAgentSpeaking}
         selectedLevel={levelToBand(level)}
         selectedTrackId={selectedTrackId}
         selectedModuleId={selectedModuleId}

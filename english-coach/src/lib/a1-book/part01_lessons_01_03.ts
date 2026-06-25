@@ -5,7 +5,7 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
     lessonNo: 1,
     titleEn: "Greetings",
     titleDe: "Begrüßungen",
-    introduction: "In Germany, how you say hello immediately establishes the relationship between you and the listener. Using the wrong greeting can seem either overly stiff or uncomfortably casual. Mastering formal and informal greetings unlocks your ability to navigate both a Berlin bakery and a corporate office with respect.",
+    introduction: "The first thing you say in Germany sets the whole tone. Walk into a bakery, a waiting room, or a job interview — the greeting tells people immediately whether you are respectful or clueless. This lesson gives you the exact words for the right moment of day, and teaches you when to keep it formal and when you can relax.",
     theRule: [
       "Use formal greetings like 'Guten Tag' with strangers, adults in shops, doctors, and colleagues you don't know well.",
       "Use informal greetings like 'Hallo' or 'Hi' with friends, family members, children, and peers in casual settings.",
@@ -34,22 +34,22 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
       {
         de: "Guten Morgen, Herr Fischer.",
         en: "Good morning, Mr. Fischer.",
-        breakdown: "Guten(Good/accusative adjective ending -en) Morgen(morning/masculine noun), Herr(Mr./title) Fischer(last name)."
+        breakdown: "Guten = Good | Morgen = Morning | Herr Fischer = Mr. Fischer → Formal morning greeting."
       },
       {
         de: "Gute Nacht, Maria.",
         en: "Good night, Maria.",
-        breakdown: "Gute(Good/accusative adjective ending -e because Nacht is feminine) Nacht(night/feminine noun), Maria(first name)."
+        breakdown: "Gute = Good | Nacht = Night | Maria = first name → 'Gute Nacht' is always said this way — just memorize it."
       },
       {
         de: "Hallo Lukas, bis bald!",
         en: "Hello Lukas, see you soon!",
-        breakdown: "Hallo(Hello/informal) Lukas(first name), bis(until/preposition) bald(soon/adverb)!"
+        breakdown: "Hallo = Hello | Lukas = first name | bis = until | bald = soon → Casual goodbye to a friend."
       },
       {
         de: "Auf Wiedersehen, Frau Becker.",
         en: "Goodbye, Mrs. Becker.",
-        breakdown: "Auf(On/preposition) Wiedersehen(seeing again/neuter noun acting as a fixed phrase), Frau(Mrs./title) Becker(last name)."
+        breakdown: "Auf Wiedersehen = Goodbye (formal, literally 'until we see each other again') | Frau Becker = Mrs. Becker → Formal farewell."
       }
     ],
     culturalNote: "In rural areas like Bavaria or Austria, people often say 'Grüß Gott' (Greet God) instead of 'Guten Tag'. In Northern Germany, like Hamburg, you will hear 'Moin' at any time of day, not just the morning. When entering smaller shops or waiting rooms in Germany, it is considered very rude not to say a general 'Guten Tag' to the room.",
@@ -76,12 +76,12 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
       {
         wrong: "Gute Tag.",
         right: "Guten Tag.",
-        explanation: "Because 'der Tag' is a masculine noun, the adjective 'gut' must take the masculine accusative ending '-en' in this fixed greeting."
+        explanation: "Germans always say 'Guten Tag' — this is a fixed phrase. 'Guten' is the correct form here. Just memorize it as one whole chunk: 'Guten Tag!'"
       },
       {
         wrong: "Guten Nacht.",
         right: "Gute Nacht.",
-        explanation: "Because 'die Nacht' is a feminine noun, the adjective 'gut' takes the feminine accusative ending '-e', NOT '-en'."
+        explanation: "Germans always say 'Gute Nacht' — this is a fixed phrase too. 'Gute' is the correct form before 'Nacht'. Memorize it as a chunk: 'Gute Nacht!'"
       },
       {
         wrong: "Hallo Herr Schmidt.",
@@ -101,7 +101,7 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
     lessonNo: 2,
     titleEn: "Common Phrases",
     titleDe: "Häufige Redemittel",
-    introduction: "In German, politeness relies heavily on a few essential words used frequently and in the right context. Without words like 'bitte' and 'danke', even grammatically perfect sentences can sound demanding or harsh. Mastering these common phrases ensures your interactions are smooth, respectful, and culturally appropriate.",
+    introduction: "A few small words can make the difference between sounding polite and sounding rude in Germany. 'Bitte', 'Danke', and 'Entschuldigung' are the building blocks of everyday politeness. Without them, even a grammatically perfect sentence can come across as demanding. These are the words you will use every single day — in shops, on the street, and in the office.",
     theRule: [
       "'Bitte' translates to 'please' when asking for something, but it also means 'you're welcome' when responding to 'danke'.",
       "When someone says 'Danke' (thank you), it is mandatory in German culture to reply with 'Bitte' or 'Gerne' (gladly).",
@@ -129,22 +129,22 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
       {
         de: "Ein Wasser, bitte.",
         en: "A water, please.",
-        breakdown: "Ein(A/neuter indefinite article) Wasser(water/neuter noun), bitte(please/politeness marker)."
+        breakdown: "Ein = A | Wasser = water | bitte = please → Short and polite way to order something."
       },
       {
         de: "Vielen Dank für den Kaffee.",
         en: "Many thanks for the coffee.",
-        breakdown: "Vielen(Many/accusative adjective) Dank(thanks/masculine noun) für(for/preposition forcing accusative) den(the/accusative masculine article) Kaffee(coffee/masculine noun)."
+        breakdown: "Vielen = Many | Dank = thanks | für = for | den Kaffee = the coffee → 'Vielen Dank' is a warm way to say thank you."
       },
       {
         de: "Entschuldigung, ich habe eine Frage.",
         en: "Excuse me, I have a question.",
-        breakdown: "Entschuldigung(Excuse me/noun used as interjection), ich(I/subject pronoun) habe(have/verb pos 2) eine(a/feminine accusative article) Frage(question/feminine noun)."
+        breakdown: "Entschuldigung = Excuse me | ich = I | habe = have | eine = a | Frage = question → Use 'Entschuldigung' to politely get attention."
       },
       {
         de: "Nein, danke. Das ist alles.",
         en: "No, thank you. That is all.",
-        breakdown: "Nein(No/particle), danke(thanks). Das(That/demonstrative pronoun) ist(is/verb pos 2) alles(all/indefinite pronoun)."
+        breakdown: "Nein = No | danke = thank you | Das = That | ist = is | alles = all → Polite way to decline and signal you are finished."
       }
     ],
     culturalNote: "Germans value directness, which foreigners sometimes mistake for rudeness. If a German waiter asks if you want more bread, a simple 'Nein, danke' is perfectly polite. You don't need to invent an excuse. However, omitting 'bitte' when ordering (saying just 'Ein Bier') is considered incredibly rude.",
@@ -170,12 +170,12 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
       {
         wrong: "Danke dir. -> Ich bin willkommen.",
         right: "Danke dir. -> Bitte schön! (or Gerne!)",
-        explanation: "English speakers often try to translate 'You are welcome' literally as 'Du bist willkommen'. In German, 'willkommen' is only used to welcome someone to a physical place. To say 'you're welcome' in response to thanks, always use 'Bitte'."
+        explanation: "In German, 'willkommen' only means 'welcome' as in welcoming someone to a place, like 'Welcome to Germany!'. When someone thanks you, always reply with 'Bitte' or 'Gerne' — never 'Du bist willkommen'."
       },
       {
         wrong: "Entschuldigen.",
         right: "Entschuldigung.",
-        explanation: "While 'entschuldigen' is the verb (to excuse), the noun form 'Entschuldigung' is the standard fixed expression used to get someone's attention on the street or in a shop."
+        explanation: "The word you use to get someone's attention on the street or in a shop is 'Entschuldigung'. Just use that one word — it is a set expression, like saying 'Excuse me'."
       }
     ],
     skyPracticePrompts: [
@@ -190,7 +190,7 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
     lessonNo: 3,
     titleEn: "Numbers Part 1: 1–20",
     titleDe: "Zahlen Teil 1: 1–20",
-    introduction: "Numbers are the foundation of navigating daily life. Without numbers 1 through 20, you cannot tell someone your age, provide a phone number, or understand a basic price in a bakery. German numbers from 1 to 12 are unique words, while 13 to 19 follow a strict, predictable pattern that is easy to master.",
+    introduction: "You cannot survive a single day in Germany without numbers. You need them to say your age, give your phone number, pay for something, or tell someone what floor you live on. The good news: 1 to 12 are unique words you just learn by heart, and 13 to 19 follow a very clear pattern — so they are not as hard as they look.",
     theRule: [
       "Numbers 0 to 12 are unique and must be memorized individually.",
       "Numbers 13 to 19 are formed by taking the base number and adding '-zehn' (ten). For example: vier (4) + zehn (10) = vierzehn (14).",
@@ -233,22 +233,22 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
       {
         de: "Ich bin neunzehn Jahre alt.",
         en: "I am nineteen years old.",
-        breakdown: "Ich(I/subject) bin(am/verb pos 2) neunzehn(nineteen/number) Jahre(years/plural noun) alt(old/adjective)."
+        breakdown: "Ich = I | bin = am | neunzehn = nineteen | Jahre = years | alt = old → 'I am nineteen years old.'"
       },
       {
         de: "Fünf plus sieben ist zwölf.",
         en: "Five plus seven is twelve.",
-        breakdown: "Fünf(Five/number) plus(plus/math operator) sieben(seven/number) ist(is/verb pos 2) zwölf(twelve/number)."
+        breakdown: "Fünf = Five | plus = plus | sieben = seven | ist = is | zwölf = twelve → 'Five plus seven is twelve.'"
       },
       {
         de: "Meine Nummer ist null eins sieben...",
         en: "My number is zero one seven...",
-        breakdown: "Meine(My/possessive pronoun) Nummer(number/feminine subject) ist(is/verb pos 2) null(zero) eins(one) sieben(seven)..."
+        breakdown: "Meine = My | Nummer = number | ist = is | null = zero | eins = one | sieben = seven → Phone numbers are read digit by digit."
       },
       {
         de: "Wir haben vierzehn Stühle.",
         en: "We have fourteen chairs.",
-        breakdown: "Wir(We/subject) haben(have/verb pos 2) vierzehn(fourteen/number) Stühle(chairs/plural noun)."
+        breakdown: "Wir = We | haben = have | vierzehn = fourteen | Stühle = chairs → 'We have fourteen chairs.'"
       }
     ],
     culturalNote: "When spelling out phone numbers in Germany, people usually read them in pairs (e.g., 01 76 ... read as 'null eins, sechsundsiebzehn'). However, for A1, dictating numbers single digit by digit ('null, eins, sieben, sechs') is perfectly acceptable and ensures you make no mistakes.",

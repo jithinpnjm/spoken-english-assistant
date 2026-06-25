@@ -5,21 +5,21 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
     lessonNo: 31,
     titleEn: "Personal Pronouns Accusative",
     titleDe: "Personalpronomen im Akkusativ",
-    introduction: "In English, if you want to say 'I love he', it sounds completely wrong. You must change 'he' to the object pronoun 'him'. German does the exact same thing when a person receives an action. You must change the Nominative subject pronouns (ich, du, er) into Accusative object pronouns (mich, dich, ihn) to show who is being called, visited, or loved.",
+    introduction: "In English, if you want to say 'I love he', it sounds completely wrong. You must change 'he' to the object pronoun 'him'. German does the exact same thing when a person receives an action. You must change the subject pronouns (ich, du, er) into object pronouns (mich, dich, ihn) to show who is being called, visited, or loved.",
     theRule: [
-      "When a pronoun is the direct object of a sentence, it must be in the Accusative case.",
+      "When a pronoun is the direct object of a sentence, it must change form.",
       "'ich' (I) becomes 'mich' (me).",
       "'du' (you) becomes 'dich' (you).",
       "'er' (he) becomes 'ihn' (him).",
-      "Just like with articles, the feminine 'sie' (she/they) and neuter 'es' (it) DO NOT change in the Accusative.",
+      "Just like with articles, the feminine 'sie' (she/they) and neuter 'es' (it) DO NOT change.",
       "'wir' (we) becomes 'uns' (us), and 'ihr' (you all) becomes 'euch' (you all)."
     ],
     formula: [
-      "Subject + Verb + Accusative Pronoun",
-      "Example: Ich (Subject) + sehe (Verb) + dich (Acc. Pronoun)."
+      "Subject + Verb + Object Pronoun",
+      "Example: Ich (Subject) + sehe (Verb) + dich (Object Pronoun)."
     ],
     grammarTable: {
-      headers: ["Nominative (Subject)", "Accusative (Direct Object)", "English Meaning"],
+      headers: ["Subject Pronoun", "Object Pronoun", "English Meaning"],
       rows: [
         ["ich", "mich", "me"],
         ["du", "dich", "you (informal)"],
@@ -47,29 +47,29 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       {
         de: "Ich kenne den Mann nicht. Kennst du ihn?",
         en: "I don't know the man. Do you know him?",
-        breakdown: "Ich kenne den Mann(masculine object) nicht. Kennst du(subject) ihn(him/accusative pronoun replacing der Mann)?"
+        breakdown: "Ich = I | kenne = know | den Mann = the man (direct object) | nicht = not | Kennst = Know | du = you | ihn = him (replaces 'den Mann' as the direct object pronoun) → 'er' (he) becomes 'ihn' (him) as the object."
       },
       {
         de: "Wir suchen Maria. Siehst du sie?",
         en: "We are looking for Maria. Do you see her?",
-        breakdown: "Wir suchen Maria. Siehst(See) du(subject) sie(her/feminine accusative pronoun, no change)?"
+        breakdown: "Wir = We | suchen = looking for | Maria = name | Siehst = See | du = you | sie = her (replaces 'Maria' as the object) → Feminine pronouns do not change — 'sie' stays 'sie'."
       },
       {
         de: "Der Chef braucht uns heute im Büro.",
         en: "The boss needs us in the office today.",
-        breakdown: "Der Chef(Subject) braucht(needs) uns(us/accusative) heute(today) im Büro(in the office)."
+        breakdown: "Der Chef = The boss (doing the needing) | braucht = needs | uns = us (direct object) | heute = today | im Büro = in the office → 'wir' becomes 'uns' as the direct object."
       },
       {
         de: "Ich liebe dich und du liebst mich.",
         en: "I love you and you love me.",
-        breakdown: "Ich(Subject) liebe(love) dich(you/accusative) und du(subject) liebst(love) mich(me/accusative)."
+        breakdown: "Ich = I | liebe = love | dich = you (direct object, 'du' becomes 'dich') | und = and | du = you | liebst = love | mich = me (direct object, 'ich' becomes 'mich') → Both pronouns switch to their object forms."
       }
     ],
     culturalNote: "The phrase 'Ich liebe dich' (I love you) is a very heavy, serious statement in Germany, reserved strictly for romantic partners or close family. You do not say 'Ich liebe dich' to a friend or to describe your favorite pizza. For those lighter feelings, Germans say 'Ich mag dich' (I like you) or 'Ich liebe Pizza' (without the personal pronoun).",
     exercises: [
       {
         type: "fill_blank",
-        instruction: "Fill in the correct Accusative personal pronoun.",
+        instruction: "Fill in the correct object pronoun.",
         items: [
           { prompt: "Wo ist Thomas? Ich sehe ___ nicht.", answer: "ihn", hint: "him" },
           { prompt: "Hallo Anna, ich verstehe ___ nicht.", answer: "dich", hint: "you (informal)" },
@@ -89,7 +89,7 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       {
         wrong: "Ruf ich an!",
         right: "Ruf mich an!",
-        explanation: "Translating 'Call I' instead of 'Call me'. The person being called is receiving the action, so they must be in the Accusative case."
+        explanation: "Translating 'Call I' instead of 'Call me'. The person being called is receiving the action, so they must be in the object form — 'ich' becomes 'mich'."
       },
       {
         wrong: "Wo ist mein Stift? Ich brauche er.",
@@ -99,20 +99,20 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
     ],
     skyPracticePrompts: [
       "Ask Sky: Can you give me 5 sentences using 'er', 'sie', 'ich', and 'wir', and I will rewrite them to make those pronouns the object?",
-      "Ask Sky: Why doesn't the pronoun 'es' change in the accusative? Give me some examples.",
-      "Ask Sky: Let's do a roleplay where we are looking for lost friends at a party using accusative pronouns ('Ihn? Nein, ich sehe ihn nicht.')."
+      "Ask Sky: Why doesn't the pronoun 'es' change when it is the direct object? Give me some examples.",
+      "Ask Sky: Let's do a roleplay where we are looking for lost friends at a party using object pronouns ('Ihn? Nein, ich sehe ihn nicht.')."
     ],
     examRelevance: "Lesen & Hören: Exam texts heavily rely on pronouns to avoid repeating nouns. If an email says 'Wir besuchen ihn', you must know that 'ihn' refers to the male friend mentioned two sentences earlier.",
-    lessonGoal: "Replace nouns with correctly declined Accusative personal pronouns to smoothly say 'me, him, us, you' in a sentence."
+    lessonGoal: "Replace nouns with correctly changed object personal pronouns to smoothly say 'me, him, us, you' in a sentence."
   },
   {
     lessonNo: 32,
     titleEn: "Dative Articles",
     titleDe: "Dativartikel",
-    introduction: "In German, there is a difference between doing something TO an object and doing something FOR someone. If you give a book to the man, the book is the direct object (Accusative), but the man receiving it is the indirect object. This is the Dative case. The Dative case signals the receiver, the beneficiary, or the target of an action, and it forces EVERY article to change its shape.",
+    introduction: "In German, there is a difference between doing something TO an object and doing something FOR someone. If you give a book to the man, the book is what you are giving (direct object), but the man receiving it is the indirect object. This is the Dative case. The Dative case signals the receiver, the beneficiary, or the target of an action, and it forces EVERY article to change its shape.",
     theRule: [
       "The Dative case is used for indirect objects (e.g., giving *to someone*, helping *someone*).",
-      "Unlike Accusative, the Dative case changes EVERY gender's article.",
+      "Unlike the direct object case, the Dative case changes EVERY gender's article.",
       "Masculine (der) and Neuter (das) both become 'dem' (or 'einem').",
       "Feminine (die) becomes 'der' (or 'einer'). Yes, the feminine article becomes 'der' in Dative!",
       "Plural (die) becomes 'den'. Additionally, you must attach an extra '-n' to the end of the plural noun itself if it doesn't already end in 'n' or 's'."
@@ -123,7 +123,7 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       "Plural: die -> den + Noun(n)"
     ],
     grammarTable: {
-      headers: ["Gender", "Nominative (Subject)", "Dative (Indirect Object)"],
+      headers: ["Gender", "When Subject", "When Indirect Object"],
       rows: [
         ["Masculine", "der / ein Mann", "dem / einem Mann"],
         ["Neuter", "das / ein Kind", "dem / einem Kind"],
@@ -147,38 +147,38 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       {
         de: "Ich helfe dem Mann und der Frau.",
         en: "I help the man and the woman.",
-        breakdown: "Ich helfe(help always triggers dative) dem Mann(masculine dative) und der Frau(feminine dative)."
+        breakdown: "Ich = I | helfe = help (this verb always needs an indirect object) | dem Mann = to the man (masculine -> 'der' becomes 'dem') | und = and | der Frau = to the woman (feminine -> 'die' becomes 'der') → Both articles change for the indirect object."
       },
       {
         de: "Das Buch gehört dem Kind.",
         en: "The book belongs to the child.",
-        breakdown: "Das Buch(subject) gehört(belongs to / dative verb) dem Kind(neuter dative)."
+        breakdown: "Das Buch = The book (subject, unchanged) | gehört = belongs to (this verb always needs an indirect object) | dem Kind = to the child (neuter -> 'das' becomes 'dem') → The verb 'gehören' always points to the person who owns something."
       },
       {
         de: "Er gibt den Kindern ein Geschenk.",
         en: "He gives the children a gift.",
-        breakdown: "Er gibt den Kindern(plural dative 'den' + extra 'n' on Kinder) ein Geschenk(accusative object)."
+        breakdown: "Er = He | gibt = gives | den Kindern = to the children (plural -> 'die' becomes 'den', and 'Kinder' gets an extra '-n') | ein Geschenk = a gift (direct object) → Plural indirect object: article becomes 'den' and noun gets '-n'."
       },
       {
         de: "Wie gefällt der Tisch einer Frau?",
         en: "How does a woman like the table?",
-        breakdown: "Wie gefällt(pleases) der Tisch(subject) einer Frau(to a woman / feminine dative with indefinite article)?"
+        breakdown: "Wie = How | gefällt = pleases | der Tisch = the table (subject) | einer Frau = to a woman (feminine indirect object with indefinite article -> 'eine' becomes 'einer') → 'gefallen' works backwards from English: the thing being liked is the subject."
       }
     ],
-    culturalNote: "Some common German verbs simply demand the Dative case, even if they don't look like they have two objects. For instance, 'helfen' (to help), 'danken' (to thank), and 'antworten' (to answer). A German views this as 'I give help TO you' or 'I give thanks TO you'. Memorizing these 'Dative Verbs' is essential.",
+    culturalNote: "Some common German verbs simply require the indirect object form, even if they don't look like they have two objects. For instance, 'helfen' (to help), 'danken' (to thank), and 'antworten' (to answer). A German views this as 'I give help TO you' or 'I give thanks TO you'. Memorizing these verbs is essential.",
     exercises: [
       {
         type: "fill_blank",
-        instruction: "Fill in the correct Dative definite article (dem, der, den).",
+        instruction: "Fill in the correct indirect object article (dem, der, den).",
         items: [
-          { prompt: "Ich helfe ___ Mann. (der Mann)", answer: "dem", hint: "Masculine dative" },
-          { prompt: "Das Haus gehört ___ Frau. (die Frau)", answer: "der", hint: "Feminine dative" },
-          { prompt: "Wir danken ___ Kindern. (die Kinder)", answer: "den", hint: "Plural dative" }
+          { prompt: "Ich helfe ___ Mann. (der Mann)", answer: "dem", hint: "Masculine indirect object" },
+          { prompt: "Das Haus gehört ___ Frau. (die Frau)", answer: "der", hint: "Feminine indirect object" },
+          { prompt: "Wir danken ___ Kindern. (die Kinder)", answer: "den", hint: "Plural indirect object" }
         ]
       },
       {
         type: "translate",
-        instruction: "Translate into German using Dative.",
+        instruction: "Translate into German.",
         items: [
           { prompt: "I am helping a child. (das Kind)", answer: "Ich helfe einem Kind." },
           { prompt: "The car belongs to the woman. (die Frau)", answer: "Das Auto gehört der Frau." }
@@ -189,21 +189,21 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       {
         wrong: "Ich danke die Frau.",
         right: "Ich danke der Frau.",
-        explanation: "'Danken' strictly requires the Dative case. The feminine article 'die' changes to 'der' in the Dative."
+        explanation: "'Danken' strictly requires the indirect object form. The feminine article 'die' changes to 'der' here."
       },
       {
         wrong: "Er gibt das Buch den Kinder.",
         right: "Er gibt das Buch den Kindern.",
-        explanation: "In the plural Dative ('den'), you must also attach an '-n' to the end of the noun if it does not already end in one."
+        explanation: "In the plural indirect object form ('den'), you must also attach an '-n' to the end of the noun if it does not already end in one."
       }
     ],
     skyPracticePrompts: [
-      "Ask Sky: Give me a list of the 10 most common 'Dative Verbs' that I must memorize for A1.",
-      "Ask Sky: Can you explain the difference between the direct object (Accusative) and indirect object (Dative) using the verb 'geben' (to give)?",
-      "Ask Sky: Test me! Give me a Nominative noun and I will change it to both Accusative and Dative."
+      "Ask Sky: Give me a list of the 10 most common verbs that always use the indirect object form for A1.",
+      "Ask Sky: Can you explain the difference between the direct object and indirect object using the verb 'geben' (to give)?",
+      "Ask Sky: Test me! Give me a noun and I will change it to both the direct object form and the indirect object form."
     ],
-    examRelevance: "Schreiben Teil 2 & Hören: Incorrectly applying Dative articles is a major red flag for examiners. If you write 'Ich helfe den Mann' instead of 'dem Mann', you lose grammar points immediately.",
-    lessonGoal: "Understand the concept of the indirect object and correctly change articles into the Dative case for all genders and plurals."
+    examRelevance: "Schreiben Teil 2 & Hören: Incorrectly applying the indirect object article is a major red flag for examiners. If you write 'Ich helfe den Mann' instead of 'dem Mann', you lose grammar points immediately.",
+    lessonGoal: "Understand the concept of the indirect object and correctly change articles into the indirect object form for all genders and plurals."
   },
   {
     lessonNo: 33,
@@ -249,22 +249,22 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       {
         de: "Heute ist der vierte Januar.",
         en: "Today is the fourth of January.",
-        breakdown: "Heute ist der vierte(fourth / vier + te) Januar."
+        breakdown: "Heute = Today | ist = is | der vierte = the fourth (vier + te) | Januar = January → Ordinal is formed by adding '-te' to the number."
       },
       {
         de: "Ich habe am zwanzigsten Mai Geburtstag.",
         en: "I have my birthday on the twentieth of May.",
-        breakdown: "Ich habe am zwanzigsten(on the twentieth / zwanzig + sten because of 'am') Mai Geburtstag."
+        breakdown: "Ich habe = I have | am = on the | zwanzigsten = twentieth (zwanzig + sten, because of 'am') | Mai = May | Geburtstag = birthday → When using 'am', ordinals get an extra '-n' at the end."
       },
       {
         de: "Das Büro ist im ersten Stock.",
         en: "The office is on the first floor.",
-        breakdown: "Das Büro ist im ersten(first / extra 'n' because of dative 'im') Stock."
+        breakdown: "Das Büro = The office | ist = is | im = in the | ersten = first (erste + n because of the article 'im') | Stock = floor → Exception: 1 is 'erste', not 'einste'."
       },
       {
         de: "Er ist als dritter angekommen.",
         en: "He arrived as third.",
-        breakdown: "Er ist als dritter(third / exception word) angekommen."
+        breakdown: "Er = He | ist angekommen = arrived | als dritter = as third → Exception: 3 is 'dritte', not 'dreite'."
       }
     ],
     culturalNote: "When looking at a German calendar or invitation, you will never see '3rd' or '4th'. You will see '3.' and '4.'. If you are invited to a party on '12.05.', this means the twelfth of May (Tag.Monat.Jahr), not the fifth of December. Europe puts the day before the month.",
@@ -294,9 +294,9 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
         explanation: "You must use ordinal numbers for dates. Saying 'am vier' is like saying 'on the four of May'."
       },
       {
-        wrong: "Heute ist der erste September.",
-        right: "Heute ist der erste September.", // No change, illustrating the mistake is missing the 'am' ending when using 'am'
-        explanation: "If you use 'am', you must add an 'n'. 'Heute ist der erste' is correct. But 'Die Party ist am erste' is wrong. It must be 'am ersten'."
+        wrong: "Die Party ist am erste Mai.",
+        right: "Die Party ist am ersten Mai.",
+        explanation: "When you use 'am', you always need an extra '-n' on the ordinal. 'Heute ist der erste' is correct (no 'am'). But 'am erste' is wrong — it must be 'am ersten'."
       }
     ],
     skyPracticePrompts: [
@@ -314,7 +314,7 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
     introduction: "Appointments in Germany run like clockwork, and showing up at the wrong time is considered highly unprofessional. To manage your schedule, a simple 'When?' (Wann) is not enough. You need to know how to ask how long something takes, since when something has been happening, and until when a shop stays open.",
     theRule: [
       "'Wie lange?' asks about the duration of an event (How long?). The answer usually includes 'für' (for) or just a time frame.",
-      "'Seit wann?' asks about an event that started in the past and is STILL ongoing (Since when?). The answer uses 'seit' (since) + Dative.",
+      "'Seit wann?' asks about an event that started in the past and is STILL ongoing (Since when?). The answer uses 'seit' (since).",
       "'Ab wann?' asks about an event starting in the future (From when on?). The answer uses 'ab' (from).",
       "'Bis wann?' asks about the end point of an event (Until when?). The answer uses 'bis' (until)."
     ],
@@ -340,22 +340,22 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       {
         de: "Wie lange dauert der Kurs? Er dauert drei Stunden.",
         en: "How long does the course last? It lasts three hours.",
-        breakdown: "Wie lange(How long) dauert(lasts) der Kurs? Er dauert drei Stunden(three hours)."
+        breakdown: "Wie lange = How long | dauert = lasts | der Kurs = the course | Er dauert = It lasts | drei Stunden = three hours → 'dauern' is the verb for how long something takes."
       },
       {
         de: "Seit wann wohnen Sie in Berlin? Seit 2020.",
         en: "Since when have you lived in Berlin? Since 2020.",
-        breakdown: "Seit wann(Since when) wohnen(live) Sie in Berlin? Seit(Since) 2020."
+        breakdown: "Seit wann = Since when | wohnen = live | Sie = you (formal) | in Berlin = in Berlin | Seit 2020 = Since 2020 → 'seit' is used for actions that started in the past and are still true now."
       },
       {
         de: "Ab wann kann ich das Auto holen? Ab morgen.",
         en: "From when can I get the car? From tomorrow.",
-        breakdown: "Ab wann(From when/future start) kann(can) ich das Auto holen? Ab(From) morgen(tomorrow)."
+        breakdown: "Ab wann = From when (future start) | kann = can | ich = I | das Auto = the car | holen = get | Ab morgen = From tomorrow → 'ab' is used for future starting points."
       },
       {
         de: "Bis wann hat der Supermarkt geöffnet? Bis 22 Uhr.",
         en: "Until when is the supermarket open? Until 10 PM.",
-        breakdown: "Bis wann(Until when) hat der Supermarkt geöffnet? Bis(Until) 22 Uhr(22:00/10 PM)."
+        breakdown: "Bis wann = Until when | hat der Supermarkt geöffnet = is the supermarket open | Bis 22 Uhr = Until 22:00 → 'bis' is used for end points."
       }
     ],
     culturalNote: "Unlike English, which uses the present perfect tense for ongoing actions ('I have been living here for a year'), German simply uses the present tense with 'seit'. 'Ich lebe hier seit einem Jahr' translates literally to 'I live here since a year', but it is the perfectly correct way to express an ongoing condition in German.",
@@ -402,13 +402,13 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
     lessonNo: 35,
     titleEn: "Possessive Pronouns Dative",
     titleDe: "Possessivpronomen Dativ",
-    introduction: "In Lesson 32, you learned that helping 'the' mother requires the Dative article 'der' (Ich helfe der Mutter). But what if you want to help YOUR mother? The possessive pronoun must take on that Dative identity. Navigating possessive pronouns in the Dative case sounds intimidating, but it follows a beautifully consistent pattern: you just glue the Dative article endings directly onto the words like 'mein' or 'dein'.",
+    introduction: "In Lesson 32, you learned that helping 'the' mother requires the indirect object article 'der' (Ich helfe der Mutter). But what if you want to help YOUR mother? The possessive pronoun must take on that same indirect object form. Navigating possessive pronouns here sounds intimidating, but it follows a beautifully consistent pattern: you just glue the indirect object endings directly onto the words like 'mein' or 'dein'.",
     theRule: [
-      "Possessive pronouns (mein, dein, sein, etc.) adopt the Dative case endings whenever they represent an indirect object.",
+      "Possessive pronouns (mein, dein, sein, etc.) adopt the indirect object endings whenever they represent an indirect object.",
       "Masculine and Neuter nouns demand the '-em' ending. (mein -> meinem).",
       "Feminine nouns demand the '-er' ending. (mein -> meiner).",
       "Plural nouns demand the '-en' ending AND an extra '-n' attached to the noun itself. (mein -> meinen).",
-      "This happens automatically after Dative verbs (helfen, danken, gehören) or Dative prepositions (mit, von, zu)."
+      "This happens automatically after certain verbs (helfen, danken, gehören) or prepositions (mit, von, zu)."
     ],
     formula: [
       "Masculine/Neuter: mein + em -> meinem [Vater / Kind]",
@@ -416,7 +416,7 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       "Plural: mein + en -> meinen [Eltern]"
     ],
     grammarTable: {
-      headers: ["Gender", "Nominative (Subject)", "Dative (Indirect Object)"],
+      headers: ["Gender", "When Subject", "When Indirect Object"],
       rows: [
         ["Masculine", "mein Bruder", "meinem Bruder"],
         ["Neuter", "mein Auto", "meinem Auto"],
@@ -425,11 +425,11 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       ]
     },
     vocabulary: [
-      { de: "meinem", en: "my (masc/neuter dative)", example: "Ich helfe meinem Vater.", exampleEn: "I help my father." },
-      { de: "meiner", en: "my (fem dative)", example: "Das gehört meiner Mutter.", exampleEn: "That belongs to my mother." },
-      { de: "meinen", en: "my (plural dative)", example: "Ich danke meinen Eltern.", exampleEn: "I thank my parents." },
-      { de: "deinem", en: "your (masc/neuter dative)", example: "Wie geht es deinem Bruder?", exampleEn: "How is your brother?" },
-      { de: "mit", en: "with (always Dative)", example: "Ich spiele mit meinem Hund.", exampleEn: "I am playing with my dog." },
+      { de: "meinem", en: "my (masc/neuter indirect object)", example: "Ich helfe meinem Vater.", exampleEn: "I help my father." },
+      { de: "meiner", en: "my (fem indirect object)", example: "Das gehört meiner Mutter.", exampleEn: "That belongs to my mother." },
+      { de: "meinen", en: "my (plural indirect object)", example: "Ich danke meinen Eltern.", exampleEn: "I thank my parents." },
+      { de: "deinem", en: "your (masc/neuter indirect object)", example: "Wie geht es deinem Bruder?", exampleEn: "How is your brother?" },
+      { de: "mit", en: "with (always Indirect Object)", example: "Ich spiele mit meinem Hund.", exampleEn: "I am playing with my dog." },
       { de: "gratulieren", en: "to congratulate", example: "Wir gratulieren deinem Sohn.", exampleEn: "We congratulate your son." },
       { de: "passen", en: "to fit", example: "Das Shirt passt meinem Kind.", exampleEn: "The shirt fits my child." },
       { de: "der Freund", en: "friend", example: "Ich antworte meinem Freund.", exampleEn: "I am answering my friend." },
@@ -440,38 +440,38 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       {
         de: "Ich helfe meinem Vater im Garten.",
         en: "I help my father in the garden.",
-        breakdown: "Ich helfe(verb demands dative) meinem(mein + em for masc.) Vater im Garten."
+        breakdown: "Ich = I | helfe = help (this verb points to the person being helped) | meinem Vater = my father (masculine indirect object -> 'mein' + 'em') | im Garten = in the garden → 'mein' becomes 'meinem' for masculine."
       },
       {
         de: "Das Auto gehört meiner Schwester.",
         en: "The car belongs to my sister.",
-        breakdown: "Das Auto gehört(belongs to / dative verb) meiner(mein + er for fem.) Schwester."
+        breakdown: "Das Auto = The car | gehört = belongs to (points to the owner) | meiner Schwester = my sister (feminine indirect object -> 'mein' + 'er') → 'mein' becomes 'meiner' for feminine."
       },
       {
         de: "Gehst du mit deinen Freunden ins Kino?",
         en: "Are you going to the movies with your friends?",
-        breakdown: "Gehst du mit(with / always demands dative) deinen(dein + en for plural) Freunden(extra 'n' on Freund) ins Kino?"
+        breakdown: "Gehst du = Are you going | mit = with (this word always requires the indirect object form) | deinen Freunden = your friends (plural indirect object -> 'dein' + 'en', and 'Freunde' gets extra '-n') | ins Kino = to the movies → 'mit' always triggers this ending."
       },
       {
         de: "Wie geht es Ihrem Mann?",
         en: "How is your husband? (Formal)",
-        breakdown: "Wie geht es(How goes it / demands dative) Ihrem(Ihr + em for formal masc.) Mann?"
+        breakdown: "Wie geht es = How goes it (the 'es' in this phrase always points to an indirect object) | Ihrem Mann = your husband (formal 'your', masculine indirect object -> 'Ihr' + 'em') → Formal 'Ihr' follows the same pattern."
       }
     ],
-    culturalNote: "The phrase 'Wie geht es...?' (How are you?) literally translates to 'How goes it TO...'. Therefore, if you ask how someone's family members are doing, you must use the Dative case. Asking a colleague 'Wie geht es deiner Frau?' (How is your wife?) shows excellent grammatical command and politeness.",
+    culturalNote: "The phrase 'Wie geht es...?' (How are you?) literally translates to 'How goes it TO...'. Therefore, if you ask how someone's family members are doing, you must use the indirect object form. Asking a colleague 'Wie geht es deiner Frau?' (How is your wife?) shows excellent grammatical command and politeness.",
     exercises: [
       {
         type: "fill_blank",
-        instruction: "Add the correct Dative ending (-em, -er, -en) to the possessive pronoun.",
+        instruction: "Add the correct ending (-em, -er, -en) to the possessive pronoun.",
         items: [
-          { prompt: "Ich fahre mit mein___ Bruder. (der Bruder)", answer: "meinem", hint: "Masculine dative" },
-          { prompt: "Das gehört mein___ Mutter. (die Mutter)", answer: "meiner", hint: "Feminine dative" },
-          { prompt: "Ich danke mein___ Eltern. (die Eltern)", answer: "meinen", hint: "Plural dative" }
+          { prompt: "Ich fahre mit mein___ Bruder. (der Bruder)", answer: "meinem", hint: "Masculine indirect object" },
+          { prompt: "Das gehört mein___ Mutter. (die Mutter)", answer: "meiner", hint: "Feminine indirect object" },
+          { prompt: "Ich danke mein___ Eltern. (die Eltern)", answer: "meinen", hint: "Plural indirect object" }
         ]
       },
       {
         type: "translate",
-        instruction: "Translate into German using the correct Dative possessive pronoun.",
+        instruction: "Translate into German using the correct possessive pronoun ending.",
         items: [
           { prompt: "How is your father? (informal / der Vater)", answer: "Wie geht es deinem Vater?" },
           { prompt: "I am helping my sister. (die Schwester)", answer: "Ich helfe meiner Schwester." }
@@ -482,20 +482,20 @@ export const germanA1BookLessonsPart07: GermanA1BookLesson[] = [
       {
         wrong: "Ich spiele mit mein Hund.",
         right: "Ich spiele mit meinem Hund.",
-        explanation: "The preposition 'mit' (with) is a Dative trigger. It forces the possessive pronoun to take the '-em' ending for the masculine dog."
+        explanation: "The preposition 'mit' (with) always requires the indirect object ending. It forces the possessive pronoun to take the '-em' ending for the masculine dog."
       },
       {
         wrong: "Ich helfe meine Mutter.",
         right: "Ich helfe meiner Mutter.",
-        explanation: "Learners look at 'die Mutter' and think 'meine' is fine. But 'helfen' requires the Dative, and the feminine Dative ending is '-er'."
+        explanation: "Learners look at 'die Mutter' and think 'meine' is fine. But 'helfen' requires the indirect object form, and the feminine ending is '-er', not '-e'."
       }
     ],
     skyPracticePrompts: [
       "Ask Sky: Give me 10 sentences missing the possessive pronoun ending. I will fill in -em, -er, or -en based on the noun.",
-      "Ask Sky: Explain which prepositions ALWAYS force the Dative case (like 'mit' and 'von').",
+      "Ask Sky: Explain which prepositions ALWAYS force the indirect object form (like 'mit' and 'von').",
       "Ask Sky: Roleplay an office conversation where we ask about each other's family members using 'Wie geht es...?'."
     ],
     examRelevance: "Schreiben Teil 1: When writing informal letters, asking 'Wie geht es deiner Familie?' or 'Wie geht es deinem Hund?' is standard letter etiquette and will earn you full marks for grammar and context.",
-    lessonGoal: "Correctly attach Dative endings (-em, -er, -en) to possessive pronouns after Dative verbs or prepositions like 'mit'."
+    lessonGoal: "Correctly attach the '-em', '-er', or '-en' ending to possessive pronouns after certain verbs or prepositions like 'mit'."
   }
 ];

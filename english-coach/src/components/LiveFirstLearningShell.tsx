@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Mic, Radio, StopCircle, Volume2, BookOpen, GraduationCap } from "lucide-react";
+import { Mic, MicOff, Radio, StopCircle, Volume2, BookOpen, GraduationCap } from "lucide-react";
 import type { CoachMessage, CoachSession } from "../types";
 import type { CurriculumCourseView, LessonCursorView, ProductTrackView } from "../lib/curriculumClient";
 import { buildTopicProgress, topicProgressSummary } from "../lib/topicProgress";
@@ -17,6 +17,7 @@ interface LiveFirstLearningShellProps {
   sessions: CoachSession[];
   messages: CoachMessage[];
   isLiveActive: boolean;
+  isAgentSpeaking?: boolean;
   selectedLevel: "Beginner" | "Intermediate" | "Advanced";
   selectedTrackId: string;
   selectedModuleId: string;
@@ -167,7 +168,14 @@ export default function LiveFirstLearningShell(props: LiveFirstLearningShellProp
                     <p className="text-xs uppercase tracking-widest text-emerald-200 font-bold">Live transcript</p>
                     <p className="text-[11px] text-slate-400">What Sky says during vocabulary practice.</p>
                   </div>
-                  <Radio className={`h-5 w-5 ${props.isLiveActive ? "text-emerald-300 animate-pulse" : "text-slate-500"}`} />
+                  <div className="flex items-center gap-2">
+                    {props.isLiveActive && props.isAgentSpeaking && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-red-500/40 bg-red-500/15 px-2 py-1 text-[10px] font-semibold text-red-300">
+                        <MicOff className="h-3 w-3" /> Muted
+                      </span>
+                    )}
+                    <Radio className={`h-5 w-5 ${props.isLiveActive ? "text-emerald-300 animate-pulse" : "text-slate-500"}`} />
+                  </div>
                 </div>
                 <div className="max-h-96 overflow-y-auto rounded-xl border border-white/10 bg-black/20 p-3 space-y-2">
                   {liveMessages.length === 0 ? (

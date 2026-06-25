@@ -10,7 +10,7 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
       "German has singular pronouns (ich, du, er, sie, es) and plural pronouns (wir, ihr, sie).",
       "'sie' (lowercase) can mean 'she' OR 'they'. You can only tell the difference by looking at the verb ending.",
       "'Sie' (capitalized) is the formal 'you' and can be used for one person or multiple people.",
-      "'es' (it) is used not just for objects, but for any noun that has the neuter 'das' article (like 'das Mädchen' - the girl)."
+      "'es' (it) is used not just for objects, but for any noun with 'das' as its article (like 'das Mädchen' — the girl)."
     ],
     formula: [
       "Singular: ich (I), du (you), er (he), sie (she), es (it)",
@@ -40,22 +40,22 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
       {
         de: "Ich komme aus Berlin und er kommt aus München.",
         en: "I come from Berlin and he comes from Munich.",
-        breakdown: "Ich(I/1st person) komme(come/verb) aus(from) Berlin und(and) er(he/3rd person) kommt(comes/verb) aus München."
+        breakdown: "Ich = I | komme = come | aus Berlin = from Berlin | und = and | er = he | kommt = comes | aus München = from Munich → Two subjects, two different verb forms."
       },
       {
         de: "Das ist das Kind. Es spielt.",
         en: "That is the child. It is playing.",
-        breakdown: "Das(That) ist(is) das Kind(the child/neuter noun). Es(It/neuter pronoun replacing 'das Kind') spielt(plays/verb)."
+        breakdown: "Das = That | ist = is | das Kind = the child | Es = It (replaces 'das Kind') | spielt = plays → Any noun with 'das' is replaced by 'es'."
       },
       {
         de: "Hallo Kinder, was macht ihr?",
         en: "Hello children, what are you all doing?",
-        breakdown: "Hallo Kinder(children/plural informal group), was(what) macht(do) ihr(you all/2nd person plural)?"
+        breakdown: "Hallo Kinder = Hello children | was = what | macht = do | ihr = you all → 'ihr' is the informal word for addressing a group."
       },
       {
         de: "Herr Müller, wohnen Sie hier?",
         en: "Mr. Müller, do you live here?",
-        breakdown: "Herr Müller(formal address), wohnen(live) Sie(you formal/capitalized) hier(here)?"
+        breakdown: "Herr Müller = formal address | wohnen = live | Sie = you (formal, capitalized) | hier = here → Always capitalize 'Sie' when using it formally."
       }
     ],
     culturalNote: "When addressing a group of friends or children, Germans use 'ihr' (you all). English lacks a formal equivalent for this, often relying on 'you guys' or 'y'all'. However, if a German addresses a group of strangers or clients, they will use the plural formal 'Sie', not 'ihr'.",
@@ -104,10 +104,10 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
     titleDe: "Verbkonjugation Teil 1: haben & sein",
     introduction: "To speak any language, you must be able to express what you 'have' and what you 'are'. In German, the verbs 'haben' (to have) and 'sein' (to be) are the absolute core of daily communication. Unfortunately, they are highly irregular and do not follow normal grammar rules. You must memorize them by heart before moving forward.",
     theRule: [
-      "'sein' (to be) is completely irregular. The stem changes entirely depending on the pronoun.",
-      "'haben' (to have) is mostly regular, but drops the 'b' for 'du' (hast) and 'er/sie/es' (hat).",
-      "Whenever you use 'sein', the noun that follows is in the Nominative case (e.g., Ich bin ein Mann).",
-      "Whenever you use 'haben', the noun that follows must be in the Accusative case (which we will learn later, but it means 'a direct object')."
+      "'sein' (to be) is completely irregular. The form changes entirely depending on the pronoun — just memorize the table.",
+      "'haben' (to have) is mostly regular, but it drops the 'b' for 'du' (hast) and 'er/sie/es' (hat).",
+      "Use 'sein' + adjective to describe people or things: 'Er ist müde' (He is tired).",
+      "Use 'haben' + noun to express possession or physical states: 'Ich habe Hunger' (I have hunger = I am hungry)."
     ],
     formula: [
       "Subject + form of 'sein' + Adjective/Noun (Er ist müde.)",
@@ -140,22 +140,22 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
       {
         de: "Ich bin krank und ich habe Hunger.",
         en: "I am sick and I am hungry (have hunger).",
-        breakdown: "Ich bin(am) krank(sick) und ich habe(have) Hunger(hunger/noun)."
+        breakdown: "Ich = I | bin = am | krank = sick | und = and | ich = I | habe = have | Hunger = hunger → In German, hunger and thirst are things you 'have', not things you 'are'."
       },
       {
         de: "Er hat keine Zeit, denn er ist müde.",
         en: "He has no time, because he is tired.",
-        breakdown: "Er hat(has) keine Zeit(no time), denn er ist(is) müde(tired)."
+        breakdown: "Er = He | hat = has | keine Zeit = no time | denn = because | er = he | ist = is | müde = tired → 'keine' is the word for 'no/none'."
       },
       {
         de: "Wir sind hier. Wo seid ihr?",
         en: "We are here. Where are you all?",
-        breakdown: "Wir sind(are) hier(here). Wo(Where) seid(are) ihr(you all)?"
+        breakdown: "Wir = We | sind = are | hier = here | Wo = Where | seid = are (plural informal) | ihr = you all → 'seid' is the form of 'sein' for 'ihr'."
       },
       {
         de: "Haben Sie heute Zeit, Herr Meyer?",
         en: "Do you have time today, Mr. Meyer?",
-        breakdown: "Haben(Have/verb pos 1 for question) Sie(you formal) heute(today) Zeit(time), Herr Meyer?"
+        breakdown: "Haben = Have (verb moves to front for question) | Sie = you (formal) | heute = today | Zeit = time | Herr Meyer = Mr. Meyer → Putting the verb first turns a statement into a yes/no question."
       }
     ],
     culturalNote: "In German, physical states like being hungry, thirsty, or afraid are expressed using 'haben' (to have), not 'sein' (to be). You do not say 'I am hungry' (Ich bin hungrig); it sounds unnatural. You say 'Ich habe Hunger' (I have hunger).",
@@ -206,9 +206,9 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
     introduction: "In English, past tense verbs are often irregular (go -> went, catch -> caught). In German, verbs can be irregular even in the *present tense*. Knowing how to categorize a verb as 'regular' or 'irregular' immediately tells you how it behaves, saving you from making embarrassing mistakes when speaking to locals.",
     theRule: [
       "Every German verb in its dictionary form ends in '-en' or '-n' (e.g., mach-en, spiel-en).",
-      "The core of the verb (what is left when you remove '-en') is called the 'stem' (mach-, spiel-).",
-      "Regular verbs (schwache Verben) NEVER change their stem. You just stick the ending on (mach-st, mach-t).",
-      "Irregular verbs (starke Verben) change their stem vowel, but ONLY for the 'du' and 'er/sie/es' forms. The endings remain the same."
+      "The core of the verb — what is left when you remove '-en' — is called the 'stem' (mach-, spiel-).",
+      "Regular verbs NEVER change their stem. You just stick the ending on (mach-st, mach-t).",
+      "Irregular verbs change their stem vowel, but ONLY for the 'du' and 'er/sie/es' forms. The endings themselves stay the same."
     ],
     formula: [
       "Regular Pattern: Stem stays the same + Ending (lernen -> du lernst)",
@@ -230,22 +230,22 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
       {
         de: "Ich spiele, und du spielst. Das ist regelmäßig.",
         en: "I play, and you play. That is regular.",
-        breakdown: "Ich spiele(play/regular), und du spielst(play/regular). Das ist regelmäßig(regular)."
+        breakdown: "Ich = I | spiele = play (stem: spiel + e) | du = you | spielst = play (stem: spiel + st) | Das ist regelmäßig = That is regular → The stem 'spiel' never changes."
       },
       {
         de: "Ich spreche, aber du sprichst. Das ist unregelmäßig.",
         en: "I speak, but you speak. That is irregular.",
-        breakdown: "Ich spreche(speak/e-stem), aber du sprichst(speak/i-stem change). Das ist unregelmäßig."
+        breakdown: "Ich = I | spreche = speak (stem: sprech, vowel e) | aber = but | du = you | sprichst = speak (vowel changes to 'i') | Das ist unregelmäßig = That is irregular → Only 'du' and 'er/sie/es' trigger the vowel change."
       },
       {
         de: "Er lernt schnell.",
         en: "He learns fast.",
-        breakdown: "Er lernt(learns/regular verb 'lernen' stem stays 'lern') schnell(fast)."
+        breakdown: "Er = He | lernt = learns (stem: lern + t, no vowel change) | schnell = fast → A regular verb — the stem stays the same."
       },
       {
         de: "Sie schläft jetzt.",
         en: "She is sleeping now.",
-        breakdown: "Sie schläft(sleeps/irregular verb 'schlafen' changes a to ä) jetzt(now)."
+        breakdown: "Sie = She | schläft = sleeps (stem: schlaf, 'a' changes to 'ä') | jetzt = now → An irregular verb — the vowel changes for 'er/sie/es'."
       }
     ],
     culturalNote: "When looking up verbs in a German dictionary, irregular verbs are clearly marked (usually with their stem changes in parentheses). Germans call regular verbs 'weak verbs' (schwache Verben) and irregular verbs 'strong verbs' (starke Verben) because strong verbs change their own vowels.",
@@ -274,7 +274,7 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
       {
         wrong: "Wir sprechen, also sprichst wir.",
         right: "Wir sprechen.",
-        explanation: "Students often panic and apply the stem change to ALL pronouns. The plural pronouns (wir, ihr, sie) ALMOST NEVER undergo stem vowel changes in the present tense."
+        explanation: "Students often panic and apply the vowel change to ALL pronouns. The plural pronouns (wir, ihr, sie) almost never undergo the vowel change in the present tense."
       },
       {
         wrong: "Der Stamm von 'lernen' ist 'lernen'.",
@@ -336,22 +336,22 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
       {
         de: "Ich kaufe einen Kaffee.",
         en: "I buy a coffee.",
-        breakdown: "Ich(I) kaufe(buy / kauf + e) einen Kaffee."
+        breakdown: "Ich = I | kaufe = buy (stem: kauf + e) | einen Kaffee = a coffee → Regular verb, stem 'kauf' does not change."
       },
       {
         de: "Was kocht sie heute?",
         en: "What is she cooking today?",
-        breakdown: "Was(What) kocht(cooks / koch + t) sie(she) heute(today)?"
+        breakdown: "Was = What | kocht = cooks (stem: koch + t) | sie = she | heute = today → Regular ending '-t' for 'sie' (she)."
       },
       {
         de: "Wir suchen ein Haus und ihr sucht eine Wohnung.",
         en: "We are looking for a house and you all are looking for an apartment.",
-        breakdown: "Wir suchen(look for / such + en) ein Haus und ihr sucht(look for / such + t) eine Wohnung."
+        breakdown: "Wir = We | suchen = look for (stem: such + en) | ein Haus = a house | und = and | ihr = you all | sucht = look for (stem: such + t) | eine Wohnung = an apartment → Same stem, different endings."
       },
       {
         de: "Brauchen Sie Hilfe?",
         en: "Do you need help? (Formal)",
-        breakdown: "Brauchen(Need / brauch + en) Sie(you formal) Hilfe?"
+        breakdown: "Brauchen = Need (stem: brauch + en) | Sie = you (formal) | Hilfe = help → Formal 'Sie' always uses the '-en' ending, same as the dictionary form."
       }
     ],
     culturalNote: "A common memory trick used in German schools to remember the singular and plural endings is 'EST TEN TEN' (e, st, t - en, t, en). While native speakers don't think about these rules, failing to use the '-st' for 'du' sounds incredibly abrasive and uneducated in casual conversation.",
@@ -398,14 +398,14 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
     lessonNo: 15,
     titleEn: "Verb Conjugation Part 3: Irregular Verbs",
     titleDe: "Verbkonjugation Teil 3: Unregelmäßige Verben",
-    introduction: "Some of the most common verbs in daily life (eating, speaking, reading) are irregular. If you invite someone to eat and use regular rules, you will say 'du esst' instead of the correct 'du isst'. These stem changes only affect the 2nd and 3rd person singular, but getting them wrong can cause confusion and mark you as a beginner.",
+    introduction: "Some of the most common verbs in daily life (eating, speaking, reading) are irregular. If you invite someone to eat and use regular rules, you will say 'du esst' instead of the correct 'du isst'. These vowel changes only affect two pronouns, but getting them wrong can cause confusion and mark you as a beginner.",
     theRule: [
       "Irregular verbs change their stem vowel ONLY for 'du' (you) and 'er/sie/es' (he/she/it).",
-      "The plural pronouns (wir, ihr, sie) and 'ich' behave completely normally (no vowel change).",
-      "There are three main vowel changes to memorize:",
-      "1. 'e' changes to 'i' (sprechen -> er spricht)",
-      "2. 'e' changes to 'ie' (lesen -> er liest)",
-      "3. 'a' changes to 'ä' (fahren -> er fährt)"
+      "The plural pronouns (wir, ihr, sie) and 'ich' behave completely normally — no vowel change.",
+      "There are three main vowel shifts to memorize:",
+      "1. 'e' shifts to 'i' (sprechen -> er spricht)",
+      "2. 'e' shifts to 'ie' (lesen -> er liest)",
+      "3. 'a' shifts to 'ä' (fahren -> er fährt)"
     ],
     formula: [
       "e -> i pattern: essen -> ich esse, du isst, er isst.",
@@ -439,29 +439,29 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
       {
         de: "Ich spreche Englisch, aber er spricht Spanisch.",
         en: "I speak English, but he speaks Spanish.",
-        breakdown: "Ich spreche(speak/normal 'e'), aber er spricht(speaks/irregular 'i')."
+        breakdown: "Ich = I | spreche = speak (vowel stays 'e') | aber = but | er = he | spricht = speaks (vowel changes to 'i') → Only 'er' triggers the change, not 'ich'."
       },
       {
         de: "Liest du gern Bücher?",
         en: "Do you like reading books?",
-        breakdown: "Liest(Read/irregular 'ie' + st ending) du gern(gladly) Bücher(books)?"
+        breakdown: "Liest = Read (vowel changes to 'ie', add 'st' for 'du') | du = you | gern = gladly | Bücher = books → 'e' becomes 'ie' for 'du'."
       },
       {
         de: "Wir schlafen lange, aber mein Vater schläft wenig.",
         en: "We sleep long, but my father sleeps little.",
-        breakdown: "Wir schlafen(sleep/normal 'a'), aber mein Vater schläft(sleeps/irregular 'ä')."
+        breakdown: "Wir = We | schlafen = sleep (vowel stays 'a' — plural pronouns never change) | aber = but | mein Vater = my father | schläft = sleeps (vowel changes to 'ä') | wenig = little → 'wir' keeps the original vowel; 'er/sie/es' changes it."
       },
       {
         de: "Nimmst du den Zug? Er nimmt das Auto.",
         en: "Are you taking the train? He takes the car.",
-        breakdown: "Nimmst(Take/irregular stem change to 'nimm' + st) du den Zug? Er nimmt(takes) das Auto."
+        breakdown: "Nimmst = Take (stem changes to 'nimm', add 'st') | du = you | den Zug = the train | Er = He | nimmt = takes (stem 'nimm' + t) | das Auto = the car → 'nehmen' is a special case — the vowel changes AND the 'm' doubles."
       }
     ],
     culturalNote: "There is no logical rule for WHY a verb is irregular; it is tied to ancient Germanic language history. However, these are the verbs you will use constantly when planning activities (eating, meeting, driving, seeing). German speakers are very forgiving of vocabulary mistakes, but saying 'du fahrst' instead of 'du fährst' sounds like nails on a chalkboard.",
     exercises: [
       {
         type: "fill_blank",
-        instruction: "Apply the correct stem vowel change for the irregular verb.",
+        instruction: "Apply the correct vowel change for the irregular verb.",
         items: [
           { prompt: "Tom ___ (essen) einen Apfel.", answer: "isst", hint: "e becomes i" },
           { prompt: "___ (fahren) du mit dem Zug?", answer: "Fährst", hint: "a becomes ä" },
@@ -481,18 +481,18 @@ export const germanA1BookLessonsPart03: GermanA1BookLesson[] = [
       {
         wrong: "Wir schläfen viel.",
         right: "Wir schlafen viel.",
-        explanation: "Applying the stem change to plural pronouns. Remember: 'wir', 'ihr', and 'sie' NEVER undergo these vowel stem changes."
+        explanation: "Applying the vowel change to plural pronouns. Remember: 'wir', 'ihr', and 'sie' NEVER undergo these vowel changes."
       },
       {
         wrong: "Er nehmt das Buch.",
         right: "Er nimmt das Buch.",
-        explanation: "'nehmen' (to take) is a special irregular verb. The 'e' changes to 'i', AND it gains a double 'm'. It becomes 'nimmt', not 'nehmt' or 'niemt'."
+        explanation: "'nehmen' (to take) is a special irregular verb. The vowel changes from 'e' to 'i', AND the 'm' doubles. It becomes 'nimmt', not 'nehmt' or 'niemt'. Just memorize this one as a fixed form."
       }
     ],
     skyPracticePrompts: [
-      "Ask Sky: Can you give me a list of the 15 most important irregular verbs in A1 German and their stem changes?",
+      "Ask Sky: Can you give me a list of the 15 most important irregular verbs in A1 German and their vowel changes?",
       "Ask Sky: Give me a verb and a pronoun, and I will try to correctly conjugate it.",
-      "Ask Sky: Why doesn't the verb 'gehen' (to go) have a stem change? Is it regular?"
+      "Ask Sky: Why doesn't the verb 'gehen' (to go) have a vowel change? Is it regular?"
     ],
     examRelevance: "Sprechen Teil 2 & Hören: In the speaking test, you often have to formulate questions using irregular verbs (e.g., 'Fährst du mit dem Auto?'). If you use the wrong vowel, the examiner will note a lack of basic grammar control.",
     lessonGoal: "Correctly conjugate A1 irregular verbs by applying the e->i, e->ie, and a->ä vowel changes to the 2nd and 3rd person singular."

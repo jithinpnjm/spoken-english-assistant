@@ -5,9 +5,9 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
     lessonNo: 36,
     titleEn: "Personal Pronouns Dative",
     titleDe: "Personalpronomen im Dativ",
-    introduction: "Just as you learned that 'helfen' (to help) forces a noun into the Dative case, it also forces personal pronouns into the Dative case. If you want to say 'Help me!' or 'I thank you', you cannot use 'ich' or 'mich'. You must use the Dative pronouns 'mir' and 'dir'. Mastering these short words completely transforms how you interact with Germans.",
+    introduction: "Just as you learned that 'helfen' (to help) forces a noun into the indirect object form, it also forces personal pronouns to change. If you want to say 'Help me!' or 'I thank you', you cannot use 'ich' or 'mich'. You must use the special words 'mir' and 'dir'. Mastering these short words completely transforms how you interact with Germans.",
     theRule: [
-      "When a pronoun receives an action from a Dative verb (like helfen, danken, gehören, antworten) or follows a Dative preposition (mit, von, zu), it MUST be in the Dative case.",
+      "When a pronoun is the indirect object of a sentence (following verbs like helfen, danken, gehören) or a preposition like 'mit', it must take a special form.",
       "'ich' becomes 'mir' (to me).",
       "'du' becomes 'dir' (to you).",
       "'er' (he) and 'es' (it) both become 'ihm' (to him/to it).",
@@ -15,11 +15,11 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       "Plurals: 'wir' -> 'uns', 'ihr' -> 'euch', 'sie/Sie' -> 'ihnen/Ihnen'."
     ],
     formula: [
-      "Subject + Dative Verb + Dative Pronoun",
+      "Subject + Verb + Indirect Object Pronoun",
       "Example: Das Auto + gehört + mir."
     ],
     grammarTable: {
-      headers: ["Nominative (Subject)", "Dative (Indirect Object)", "English Meaning"],
+      headers: ["Subject Form", "Indirect Object Form", "English Meaning"],
       rows: [
         ["ich", "mir", "(to) me"],
         ["du", "dir", "(to) you (informal)"],
@@ -46,29 +46,29 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         de: "Kannst du mir helfen?",
         en: "Can you help me?",
-        breakdown: "Kannst(Can) du(subject) mir(to me / dative pronoun) helfen(help / infinitive at end)?"
+        breakdown: "Kannst = Can | du = you (subject) | mir = to me (indirect object pronoun) | helfen = help (sent to the end) → 'ich' becomes 'mir' as the indirect object."
       },
       {
         de: "Das Essen ist sehr lecker. Es schmeckt mir gut.",
         en: "The food is very delicious. It tastes good to me.",
-        breakdown: "Das Essen ist sehr lecker. Es(It/subject) schmeckt(tastes/dative verb) mir(to me) gut."
+        breakdown: "Das Essen = The food | ist sehr lecker = is very delicious | Es = It (subject) | schmeckt = tastes (this verb always points to the person experiencing the taste) | mir = to me | gut = well → 'schmecken' always needs an indirect object pronoun."
       },
       {
         de: "Gehört der Stift dir oder gehört er ihm?",
         en: "Does the pen belong to you or does it belong to him?",
-        breakdown: "Gehört(Belongs) der Stift(subject) dir(to you / dative) oder gehört er ihm(to him / dative)?"
+        breakdown: "Gehört = Belongs | der Stift = the pen (subject) | dir = to you (indirect object pronoun) | oder = or | gehört er = does it belong | ihm = to him (indirect object pronoun) → 'gehören' always points to the owner."
       },
       {
         de: "Ich antworte der Chefin. Ich antworte ihr.",
         en: "I answer the boss. I answer her.",
-        breakdown: "Ich antworte(answer) der Chefin(dative noun). Ich antworte ihr(her / dative pronoun)."
+        breakdown: "Ich = I | antworte = answer | der Chefin = the boss (indirect object noun) | Ich = I | antworte = answer | ihr = her (indirect object pronoun replacing 'die Chefin') → The pronoun replaces the noun but stays in the same indirect object form."
       }
     ],
-    culturalNote: "You have been using Dative pronouns since Lesson 8 without realizing it! When you ask 'Wie geht es dir?' (How are you?), you are literally asking 'How goes it TO YOU?'. The response 'Mir geht es gut' literally means 'TO ME it goes well'. This is why you cannot say 'Ich bin gut'.",
+    culturalNote: "You have been using indirect object pronouns since Lesson 8 without realizing it! When you ask 'Wie geht es dir?' (How are you?), you are literally asking 'How goes it TO YOU?'. The response 'Mir geht es gut' literally means 'TO ME it goes well'. This is why you cannot say 'Ich bin gut'.",
     exercises: [
       {
         type: "fill_blank",
-        instruction: "Fill in the correct Dative pronoun.",
+        instruction: "Fill in the correct indirect object pronoun.",
         items: [
           { prompt: "Der Kaffee ist für Tom. Er schmeckt ___ sehr gut.", answer: "ihm", hint: "to him" },
           { prompt: "Anna sucht ihr Buch. Das Buch gehört ___.", answer: "ihr", hint: "to her" },
@@ -77,7 +77,7 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       },
       {
         type: "translate",
-        instruction: "Translate the sentence, making sure to use the Dative pronoun.",
+        instruction: "Translate the sentence, making sure to use the correct pronoun form.",
         items: [
           { prompt: "I thank you (informal).", answer: "Ich danke dir." },
           { prompt: "The car belongs to me.", answer: "Das Auto gehört mir." }
@@ -88,21 +88,21 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         wrong: "Ich helfe dich.",
         right: "Ich helfe dir.",
-        explanation: "English speakers use the direct object (Accusative) for 'help'. In German, 'helfen' strictly demands the Dative case, so 'dich' MUST become 'dir'."
+        explanation: "English speakers use the direct object for 'help'. In German, 'helfen' strictly requires the indirect object form, so 'dich' MUST become 'dir'."
       },
       {
         wrong: "Das T-Shirt gefällt mich.",
         right: "Das T-Shirt gefällt mir.",
-        explanation: "Same issue. 'gefallen' (to be pleasing to) requires the Dative case. It pleases TO me -> 'mir'."
+        explanation: "Same issue. 'gefallen' (to be pleasing to) requires the indirect object form. It pleases TO me -> 'mir'."
       }
     ],
     skyPracticePrompts: [
-      "Ask Sky: Give me 5 sentences using 'mich' or 'dich' incorrectly with Dative verbs, and I will fix them.",
-      "Ask Sky: Create a short dialogue where someone is trying on clothes, using 'passen' and 'gefallen' with Dative pronouns.",
-      "Ask Sky: How do I tell the difference between 'ihr' (her) and 'ihr' (you all) in a sentence?"
+      "Ask Sky: Give me 5 sentences using 'mich' or 'dich' incorrectly with verbs like helfen or gefallen, and I will fix them.",
+      "Ask Sky: Create a short dialogue where someone is trying on clothes, using 'passen' and 'gefallen' with indirect object pronouns.",
+      "Ask Sky: How do I tell the difference between 'ihr' (to her) and 'ihr' (you all) in a sentence?"
     ],
     examRelevance: "Sprechen Teil 2: Responding naturally with 'Das gefällt mir' (I like that) or 'Ich helfe dir' shows native-like command of cases. Writing emails to friends also frequently requires 'dir' and 'mir'.",
-    lessonGoal: "Replace nouns with correctly chosen Dative personal pronouns (mir, dir, ihm, ihr, uns, euch, ihnen) when using Dative verbs."
+    lessonGoal: "Replace nouns with correctly chosen indirect object personal pronouns (mir, dir, ihm, ihr, uns, euch, ihnen) when using the right verbs."
   },
   {
     lessonNo: 37,
@@ -113,7 +113,7 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       "A separable verb consists of a prefix (an-, auf-, ein-, mit-, etc.) and a base verb (fangen, stehen, kaufen).",
       "In a present tense statement, the base verb takes Position 2 and is conjugated normally.",
       "The prefix breaks off and goes to the VERY END of the clause.",
-      "If you use a Modal verb (like 'möchten' or 'können'), the separable verb does NOT split. The whole word goes to the end in its infinitive form."
+      "If you use a Modal verb (like 'möchten' or 'können'), the separable verb does NOT split. The whole word goes to the end in its full form."
     ],
     formula: [
       "Standard: Subject (1) + Conjugated Base Verb (2) + Object/Time + Prefix (End).",
@@ -135,22 +135,22 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         de: "Ich kaufe heute im Supermarkt ein.",
         en: "I am shopping in the supermarket today.",
-        breakdown: "Ich kaufe(buy / pos 2) heute im Supermarkt ein(prefix 'ein' at the very end)."
+        breakdown: "Ich = I | kaufe = buy (base verb in position 2, without the 'ein' prefix) | heute = today | im Supermarkt = in the supermarket | ein = prefix sent to the very end → The prefix 'ein' breaks off from 'einkaufen'."
       },
       {
         de: "Der Film fängt um acht Uhr an.",
         en: "The movie starts at eight o'clock.",
-        breakdown: "Der Film(subject) fängt(starts / pos 2) um acht Uhr an(prefix 'an' at the end)."
+        breakdown: "Der Film = The movie (subject) | fängt = starts (base verb in position 2) | um acht Uhr = at eight o'clock | an = prefix sent to the end → 'anfangen' splits: base verb comes 2nd, prefix goes last."
       },
       {
         de: "Wann stehst du am Wochenende auf?",
         en: "When do you get up on the weekend?",
-        breakdown: "Wann(When) stehst(stand / pos 2) du(subject) am Wochenende auf(prefix 'auf' at end)?"
+        breakdown: "Wann = When (position 1) | stehst = stand (base verb, position 2) | du = you | am Wochenende = on the weekend | auf = prefix sent to the end → Question structure with a separable verb."
       },
       {
         de: "Ich möchte heute einkaufen.",
         en: "I would like to shop today.",
-        breakdown: "Ich möchte(would like / modal pos 2) heute einkaufen(full verb does NOT split, goes to end)."
+        breakdown: "Ich = I | möchte = would like (modal verb, position 2) | heute = today | einkaufen = the full separable verb goes to the end without splitting → When a modal verb is used, the separable verb stays whole."
       }
     ],
     culturalNote: "When listening to Germans speak, you must pay attention until the very last word of the sentence. If someone says 'Ich rufe meine Mutter...', you don't know if they are calling out to her (rufen) or calling her on the phone (anrufen) until you hear the 'an' drop at the end of the sentence.",
@@ -181,11 +181,11 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         wrong: "Er seht fern.",
         right: "Er sieht fern.",
-        explanation: "Forgetting that the base verb might be irregular! 'sehen' changes from e to ie. So 'fernsehen' becomes 'er sieht... fern'."
+        explanation: "Forgetting that the base verb might be irregular! 'sehen' changes its vowel from 'e' to 'ie' for 'er'. So 'fernsehen' becomes 'er sieht... fern'."
       }
     ],
     skyPracticePrompts: [
-      "Ask Sky: Give me 5 separable verbs in their infinitive form, and I will write a sentence for each showing how they split.",
+      "Ask Sky: Give me 5 separable verbs in their full form, and I will write a sentence for each showing how they split.",
       "Ask Sky: Can we practice a phone call scenario where we use 'anrufen', 'mitkommen', and 'ankommen'?",
       "Ask Sky: Why doesn't the verb split when I use a modal verb like 'können' or 'möchten'?"
     ],
@@ -223,29 +223,29 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         de: "Zuerst stehe ich um sieben Uhr auf.",
         en: "First I get up at seven o'clock.",
-        breakdown: "Zuerst(First/pos 1) stehe(stand/verb pos 2) ich(I/subject pos 3) um sieben Uhr auf(prefix at end)."
+        breakdown: "Zuerst = First (position 1) | stehe = stand (base verb, position 2) | ich = I (pushed to position 3) | um sieben Uhr = at seven o'clock | auf = prefix sent to the end → Sequence word pushes 'ich' back."
       },
       {
         de: "Dann dusche ich und danach frühstücke ich.",
         en: "Then I shower and after that I eat breakfast.",
-        breakdown: "Dann(Then/pos 1) dusche(shower/pos 2) ich(pos 3) und danach(after that/pos 1) frühstücke(eat breakfast/pos 2) ich(pos 3)."
+        breakdown: "Dann = Then (position 1) | dusche = shower (position 2) | ich = I (position 3) | und = and | danach = after that (position 1 again) | frühstücke = eat breakfast (position 2) | ich = I (position 3) → The rule repeats for each new clause."
       },
       {
         de: "Um acht Uhr fahre ich zur Arbeit.",
         en: "At eight o'clock I drive to work.",
-        breakdown: "Um acht Uhr(Time block/pos 1) fahre(drive/pos 2) ich(pos 3) zur Arbeit(to work)."
+        breakdown: "Um acht Uhr = At eight o'clock (position 1 — time block) | fahre = drive (position 2) | ich = I (position 3) | zur Arbeit = to work → A time block in position 1 works the same way."
       },
       {
         de: "Später sehe ich fern und gehe ins Bett.",
         en: "Later I watch TV and go to bed.",
-        breakdown: "Später(Later/pos 1) sehe(see/pos 2) ich(pos 3) fern(prefix) und gehe ins Bett."
+        breakdown: "Später = Later (position 1) | sehe = see (position 2) | ich = I (position 3) | fern = prefix at the end | und = and | gehe ins Bett = go to bed → Two actions linked with 'und'."
       }
     ],
     culturalNote: "The word 'Feierabend' is a beloved German concept. It literally translates to 'celebration evening', but it simply means the time when your workday is officially over. Wishing colleagues 'Schönen Feierabend!' (Have a nice evening off!) as you leave the office is deeply embedded in German work culture.",
     exercises: [
       {
         type: "reorder",
-        instruction: "Build the daily routine sentence with correct V2 word order.",
+        instruction: "Build the daily routine sentence with correct word order.",
         items: [
           { prompt: "Dann / ich / Kaffee / trinke", answer: "Dann trinke ich Kaffee." },
           { prompt: "auf / Zuerst / ich / stehe", answer: "Zuerst stehe ich auf." },
@@ -270,7 +270,7 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         wrong: "Zuerst ich stehe auf.",
         right: "Zuerst stehe ich auf.",
-        explanation: "A double mistake. Not only is the verb pushed to pos 3, but the separable prefix is forgotten. Correct inversion: 'Zuerst stehe ich auf'."
+        explanation: "A double mistake: the verb is pushed to the wrong position, and the separable prefix is forgotten. Correct order: 'Zuerst stehe ich auf'."
       }
     ],
     skyPracticePrompts: [
@@ -278,8 +278,8 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       "Ask Sky: Give me a list of 5 activities in English, and I will write a German paragraph linking them together chronologically.",
       "Ask Sky: What exactly is 'Feierabend' and how do I use it in a sentence?"
     ],
-    examRelevance: "Sprechen Teil 2 & Schreiben Teil 2: Describing what you do on a normal day or on the weekend is a classic exam prompt. Seamlessly linking sentences with 'dann' and 'danach' (with perfect V2 order) guarantees high marks.",
-    lessonGoal: "Narrate a chronological sequence of events describing a daily routine using transition words, correct Verb-Second inversion, and separable verbs."
+    examRelevance: "Sprechen Teil 2 & Schreiben Teil 2: Describing what you do on a normal day or on the weekend is a classic exam prompt. Seamlessly linking sentences with 'dann' and 'danach' (with perfect word order) guarantees high marks.",
+    lessonGoal: "Narrate a chronological sequence of events describing a daily routine using transition words, correct word order, and separable verbs."
   },
   {
     lessonNo: 39,
@@ -289,7 +289,7 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
     theRule: [
       "For Formal 'Sie' (strangers/adults): Put the verb in Position 1, followed immediately by 'Sie'. (Kommen Sie!)",
       "For Informal Plural 'ihr' (a group of friends): Just use the normal 'ihr' conjugation and drop the pronoun. (Kommt!)",
-      "For Informal Singular 'du' (one friend): Take the 'du' conjugation, and chop off both the 'st' and the 'du'. (Kommst du -> Komm!)",
+      "For Informal Singular 'du' (one friend): Take the 'du' conjugation, and chop off both the '-st' ending and the word 'du'. (Kommst du -> Komm!)",
       "To make a command polite, simply add the word 'bitte' (please) anywhere after the verb."
     ],
     formula: [
@@ -303,7 +303,7 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
         ["kommen (to come)", "Kommen Sie!", "Kommt!", "Komm!"],
         ["machen (to do/make)", "Machen Sie!", "Macht!", "Mach!"],
         ["trinken (to drink)", "Trinken Sie!", "Trinkt!", "Trink!"],
-        ["lesen (to read / e->ie)", "Lesen Sie!", "Lest!", "Lies! (keep vowel change, drop 't')"]
+        ["lesen (to read / e->ie)", "Lesen Sie!", "Lest!", "Lies! (keep vowel change, drop '-st')"]
       ]
     },
     vocabulary: [
@@ -322,33 +322,33 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         de: "Trinken Sie viel Wasser!",
         en: "Drink lots of water! (Formal)",
-        breakdown: "Trinken(Verb pos 1) Sie(formal pronoun) viel Wasser(lots of water)!"
+        breakdown: "Trinken = Verb in position 1 | Sie = formal pronoun right after | viel Wasser = lots of water → Formal command: verb first, then 'Sie'."
       },
       {
         de: "Komm bitte heute Abend zu mir.",
         en: "Please come to my place tonight. (Informal singular)",
-        breakdown: "Komm(Base stem without 'st') bitte heute Abend zu mir."
+        breakdown: "Komm = Base verb with '-st' removed (no 'du' needed) | bitte = please | heute Abend = tonight | zu mir = to my place → Informal singular command: just the bare stem."
       },
       {
         de: "Macht die Tür zu, Kinder!",
         en: "Close the door, children! (Informal plural)",
-        breakdown: "Macht(Normal 'ihr' conjugation) die Tür zu(prefix at end), Kinder!"
+        breakdown: "Macht = Normal '-t' ending for 'ihr' (no 'ihr' needed) | die Tür = the door | zu = prefix at end | Kinder = children → Informal plural command: normal '-t' form without the pronoun."
       },
       {
         de: "Sprich bitte etwas lauter.",
         en: "Please speak a little louder. (Informal singular)",
-        breakdown: "Sprich(Irregular stem with 'i', drop the 'st') bitte etwas lauter."
+        breakdown: "Sprich = Irregular vowel-changed stem (e -> i), drop the '-st' | bitte = please | etwas lauter = a little louder → Irregular verb: keep the vowel change, drop the '-st'."
       }
     ],
     culturalNote: "German commands sound very harsh when directly translated into English, but they are completely normal. A doctor will tell you 'Trinken Sie viel Tee!' (Drink lots of tea!) rather than saying 'You might want to consider drinking tea'. It is viewed as clear advice, not an aggressive order, especially if 'bitte' is included.",
     exercises: [
       {
         type: "fill_blank",
-        instruction: "Form the correct imperative for one friend ('du' form).",
+        instruction: "Form the correct command for one friend ('du' form).",
         items: [
-          { prompt: "___ (kaufen) Milch!", answer: "Kauf", hint: "Drop the 'st'" },
-          { prompt: "___ (trinken) den Kaffee!", answer: "Trink", hint: "Drop the 'st'" },
-          { prompt: "___ (helfen) mir!", answer: "Hilf", hint: "Irregular stem with 'i'" }
+          { prompt: "___ (kaufen) Milch!", answer: "Kauf", hint: "Drop the '-st'" },
+          { prompt: "___ (trinken) den Kaffee!", answer: "Trink", hint: "Drop the '-st'" },
+          { prompt: "___ (helfen) mir!", answer: "Hilf", hint: "Irregular vowel changes to 'i'" }
         ]
       },
       {
@@ -364,21 +364,21 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         wrong: "Kommst du hier!",
         right: "Komm hier!",
-        explanation: "You must drop BOTH the 'st' and the word 'du' to form a command for a friend. Keeping them makes it a question ('Are you coming here?')."
+        explanation: "You must drop BOTH the '-st' and the word 'du' to form a command for a friend. Keeping them makes it a question ('Are you coming here?')."
       },
       {
         wrong: "Machen das bitte!",
         right: "Machen Sie das bitte!",
-        explanation: "For the formal imperative, you CANNOT drop the pronoun. The word 'Sie' is absolutely mandatory immediately after the verb."
+        explanation: "For the formal command, you CANNOT drop the pronoun. The word 'Sie' is absolutely mandatory immediately after the verb."
       }
     ],
     skyPracticePrompts: [
-      "Ask Sky: Give me 5 situations (e.g., 'A friend is talking too fast'), and I will write an imperative sentence for each.",
-      "Ask Sky: How do I form the imperative for the verb 'sein' (to be) for 'du', 'ihr', and 'Sie'?",
+      "Ask Sky: Give me 5 situations (e.g., 'A friend is talking too fast'), and I will write a command sentence for each.",
+      "Ask Sky: How do I form the command for the verb 'sein' (to be) for 'du', 'ihr', and 'Sie'?",
       "Ask Sky: Test me! Give me a verb and tell me if I need to make a command for 'Sie', 'du', or 'ihr'."
     ],
     examRelevance: "Sprechen Teil 3 (Bitten formulieren): In the final speaking task, you must formulate requests based on pictures. For example, if you see an open window, you must say 'Machen Sie bitte das Fenster zu!' (Please close the window!).",
-    lessonGoal: "Give clear commands, advice, and instructions using the correct Imperative forms for formal (Sie), informal singular (du), and informal plural (ihr) situations."
+    lessonGoal: "Give clear commands, advice, and instructions using the correct forms for formal (Sie), informal singular (du), and informal plural (ihr) situations."
   },
   {
     lessonNo: 40,
@@ -389,12 +389,12 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       "Use the Imperative 'Gehen Sie...' (Go...) or 'Fahren Sie...' (Drive/Ride...) to give directions.",
       "To say 'straight ahead', use 'geradeaus'.",
       "To say 'turn right/left', use the separable verb 'abbiegen' -> 'Biegen Sie rechts/links ab'.",
-      "Use 'bis zu' (until/up to) + Dative to specify a landmark: 'bis zur Ampel' (up to the traffic light) or 'bis zur Kreuzung' (up to the intersection)."
+      "Use 'bis zur' (until/up to) with feminine landmarks: 'bis zur Ampel' (up to the traffic light) or 'bis zur Kreuzung' (up to the intersection)."
     ],
     formula: [
       "Gehen/Fahren Sie + [Direction: geradeaus / nach links / nach rechts].",
       "Biegen Sie + [links/rechts] + ab.",
-      "Gehen Sie bis zur + [Feminine Landmark: Ampel / Kreuzung]."
+      "Gehen Sie bis zur + [Landmark: Ampel / Kreuzung]."
     ],
     vocabulary: [
       { de: "geradeaus", en: "straight ahead", example: "Gehen Sie immer geradeaus.", exampleEn: "Always go straight ahead." },
@@ -412,22 +412,22 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         de: "Entschuldigung, wie komme ich zum Bahnhof?",
         en: "Excuse me, how do I get to the train station?",
-        breakdown: "Entschuldigung, wie komme(come) ich zum(zu dem/Dative) Bahnhof?"
+        breakdown: "Entschuldigung = Excuse me | wie = how | komme = come | ich = I | zum Bahnhof = to the train station ('zu' + 'dem' combined to 'zum') → Standard phrase to ask for directions."
       },
       {
         de: "Gehen Sie geradeaus bis zur Ampel.",
         en: "Go straight ahead up to the traffic light.",
-        breakdown: "Gehen Sie(Imperative formal) geradeaus(straight) bis zur(zu der/Dative feminine) Ampel."
+        breakdown: "Gehen Sie = Go (formal command) | geradeaus = straight ahead | bis zur = up to (preposition for feminine destination) | Ampel = traffic light → 'bis zur' means 'until you reach' a feminine landmark."
       },
       {
         de: "Biegen Sie an der Kreuzung rechts ab.",
         en: "Turn right at the intersection.",
-        breakdown: "Biegen Sie(Imperative) an der Kreuzung(at the intersection) rechts(right) ab(separable prefix)."
+        breakdown: "Biegen Sie = Turn (formal command) | an der Kreuzung = at the intersection | rechts = right | ab = prefix at the end of the clause → 'abbiegen' is a separable verb — 'ab' goes to the end."
       },
       {
         de: "Der Supermarkt ist an der Ecke auf der linken Seite.",
         en: "The supermarket is on the corner on the left side.",
-        breakdown: "Der Supermarkt ist an der Ecke(on the corner) auf der linken Seite(on the left side)."
+        breakdown: "Der Supermarkt = The supermarket | ist = is | an der Ecke = on the corner | auf der linken Seite = on the left side → Describing the location of the destination."
       }
     ],
     culturalNote: "Germans are very helpful when you ask for directions, but they will give you highly precise, literal instructions. They will not say 'it's just around the corner' if it is actually two blocks away. Expect to hear combinations like 'erste Straße links, dann zweite rechts' (first street left, then second right).",
@@ -458,7 +458,7 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       {
         wrong: "Gehen rechts.",
         right: "Gehen Sie rechts. / Geh rechts.",
-        explanation: "Failing to use the proper Imperative structure. You must either include 'Sie' for formal, or drop the 'en' entirely for informal ('Geh')."
+        explanation: "Failing to use the proper command structure. You must either include 'Sie' for formal, or drop the '-en' entirely for informal ('Geh')."
       }
     ],
     skyPracticePrompts: [
@@ -467,6 +467,6 @@ export const germanA1BookLessonsPart08: GermanA1BookLesson[] = [
       "Ask Sky: I will give you directions in German. Tell me if they make sense or if my grammar is confusing."
     ],
     examRelevance: "Hören Teil 2 & Sprechen Teil 3: You will hear people explaining where a building is, and you must select the correct map. You may also need to explain to your partner how to get to a meeting point.",
-    lessonGoal: "Ask for and give clear, step-by-step directions using the formal imperative, direction words (links/rechts/geradeaus), and the separable verb 'abbiegen'."
+    lessonGoal: "Ask for and give clear, step-by-step directions using the formal command form, direction words (links/rechts/geradeaus), and the separable verb 'abbiegen'."
   }
 ];

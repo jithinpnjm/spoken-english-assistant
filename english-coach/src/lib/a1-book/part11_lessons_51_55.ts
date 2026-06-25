@@ -33,7 +33,7 @@ export const germanA1BookLessonsPart11: GermanA1BookLesson[] = [
       {
         de: "Lieber Paul, ich lade dich zu meiner Geburtstagsparty ein.",
         en: "Dear Paul, I invite you to my birthday party.",
-        breakdown: "Lieber(Dear for male) Paul, ich(lowercase start) lade(invite) dich(you/accusative) zu meiner(to my/dative feminine) Geburtstagsparty ein(prefix at end)."
+        breakdown: "Lieber = Dear (for a male name) | Paul = name | ich lade ... ein = I invite (split verb — 'ein' goes to the end) | dich = you | zu meiner Geburtstagsparty = to my birthday party → Start lowercase after the comma, and 'ein' jumps to the end of the sentence."
       },
       {
         de: "Ich werde am Samstag 25 Jahre alt.",
@@ -230,22 +230,22 @@ export const germanA1BookLessonsPart11: GermanA1BookLesson[] = [
       {
         de: "Welcher Zug fährt nach Berlin?",
         en: "Which train travels to Berlin?",
-        breakdown: "Welcher(Which / masculine nominative subject) Zug(train) fährt nach Berlin?"
+        breakdown: "Welcher = Which | Zug = train | fährt = travels | nach Berlin = to Berlin → 'Welcher' is used for 'der' words (masculine) when asking 'which?'"
       },
       {
         de: "Welchen Apfel möchtest du?",
         en: "Which apple would you like?",
-        breakdown: "Welchen(Which / masculine accusative object) Apfel möchtest du?"
+        breakdown: "Welchen = Which | Apfel = apple | möchtest du = would you like → 'Welchen' is used when the 'der' word is the thing being chosen/wanted."
       },
       {
         de: "Welche Jacke kaufst du? Die rote Jacke.",
         en: "Which jacket are you buying? The red jacket.",
-        breakdown: "Welche(Which / feminine accusative) Jacke kaufst du?"
+        breakdown: "Welche = Which | Jacke = jacket | kaufst du = are you buying → 'Welche' is used for 'die' words (feminine) when asking 'which?'"
       },
       {
         de: "Welches Buch liest er gerade?",
         en: "Which book is he reading right now?",
-        breakdown: "Welches(Which / neuter accusative) Buch liest er gerade(right now)?"
+        breakdown: "Welches = Which | Buch = book | liest er = is he reading | gerade = right now → 'Welches' is used for 'das' words (neuter) when asking 'which?'"
       }
     ],
     culturalNote: "When shopping for clothes in Germany, assistants are usually less intrusive than in the US. They will let you browse. If you ask for help, they will ask highly specific questions like 'Welchen Stil suchen Sie?' (Which style are you looking for?) to efficiently narrow down your options.",
@@ -328,22 +328,22 @@ export const germanA1BookLessonsPart11: GermanA1BookLesson[] = [
       {
         de: "Welchen Pullover nimmst du? Ich nehme diesen Pullover.",
         en: "Which sweater are you taking? I am taking this sweater.",
-        breakdown: "Welchen(Accusative) Pullover nimmst du? Ich nehme diesen(Accusative masculine) Pullover."
+        breakdown: "Welchen Pullover = Which sweater | nimmst du = are you taking | Ich nehme = I am taking | diesen Pullover = this sweater → 'Welchen' and 'diesen' both end in '-en' here because you're choosing the sweater (it's the thing being taken)."
       },
       {
         de: "Dieses Auto ist zu teuer. Ich habe kein Geld.",
         en: "This car is too expensive. I have no money.",
-        breakdown: "Dieses(Neuter nominative) Auto ist zu teuer."
+        breakdown: "Dieses = This | Auto = car | ist = is | zu teuer = too expensive → 'Dieses' is used for 'das' words (neuter) to say 'this'."
       },
       {
         de: "Diese Schuhe gefallen mir sehr gut.",
         en: "These shoes please me very much (I like these shoes).",
-        breakdown: "Diese(Plural nominative) Schuhe gefallen(verb) mir(to me/dative)."
+        breakdown: "Diese = These | Schuhe = shoes | gefallen = please / look good | mir = to me → 'Diese' is used for plural or 'die' words. 'gefallen' works backwards: the shoes are doing the pleasing, you are the one being pleased."
       },
       {
         de: "Kennen Sie diesen Mann?",
         en: "Do you know this man?",
-        breakdown: "Kennen Sie(subject) diesen(Masculine accusative object) Mann?"
+        breakdown: "Kennen Sie = Do you know (formal) | diesen Mann = this man → 'Diesen' is used because it's a 'der' word being pointed at/referred to as the object."
       }
     ],
     culturalNote: "When pointing at objects casually, Germans often skip 'dieser' entirely and just use stressed definite articles. They will point at a cake and say 'Den Kuchen nehme ich' (literally: THE cake I take). However, in formal language and written German, 'dies-' is mandatory and tested.",
@@ -436,7 +436,7 @@ export const germanA1BookLessonsPart11: GermanA1BookLesson[] = [
       {
         de: "Dieser Mantel steht Ihnen sehr gut.",
         en: "This coat looks very good on you. (Formal)",
-        breakdown: "Dieser Mantel(Subject) steht(suits/looks good on) Ihnen(to you/formal dative) sehr gut."
+        breakdown: "Dieser Mantel = This coat | steht = suits / looks good on | Ihnen = you (formal) | sehr gut = very well → A great phrase to compliment a customer in a shop."
       },
       {
         de: "Haben Sie diese Jacke eine Nummer größer?",

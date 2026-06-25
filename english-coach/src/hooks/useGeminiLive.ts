@@ -61,8 +61,14 @@ export interface LiveMessage {
   interrupted?: boolean;
 }
 
+type ConnectArgs = [string, string, string?, string?, string?];
+
+const RECONNECT_DELAY_MS = 2500;
+const MAX_RECONNECT_ATTEMPTS = 5;
+
 export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
   const [isConnected, setIsConnected] = useState(false);
+  const [isAgentSpeaking, setIsAgentSpeaking] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const wsRef = useRef<WebSocket | null>(null);
@@ -76,19 +82,47 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
   const agentPCMRef = useRef<Int16Array[]>([]);
   const sessionIdRef = useRef(0);
 
+  // Agent-speaking tracking for auto-mute
+  const isAgentSpeakingRef = useRef(false);
+  const activeAudioCountRef = useRef(0);
+  const turnCompleteReceivedRef = useRef(false);
+
+  // Reconnect tracking
+  const lastConnectArgsRef = useRef<ConnectArgs | null>(null);
+  const reconnectTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const reconnectAttemptsRef = useRef(0);
+  const intentionalStopRef = useRef(false);
+
   const onMessageRef = useRef(onMessage);
   useEffect(() => { onMessageRef.current = onMessage; }, [onMessage]);
+
+  const setAgentSpeaking = useCallback((speaking: boolean) => {
+    isAgentSpeakingRef.current = speaking;
+    setIsAgentSpeaking(speaking);
+  }, []);
 
   const stopAllPlayback = useCallback(() => {
     audioQueueRef.current.forEach((s) => { try { s.stop(); } catch {} });
     audioQueueRef.current = [];
+    activeAudioCountRef.current = 0;
     if (playbackCtxRef.current) nextStartTimeRef.current = playbackCtxRef.current.currentTime;
   }, []);
 
-  const stopClient = useCallback(() => {
-    dbg.live.log("stopClient called");
+  const stopClient = useCallback((intentional = true) => {
+    dbg.live.log("stopClient called, intentional:", intentional);
+    intentionalStopRef.current = intentional;
+    if (reconnectTimerRef.current) {
+      clearTimeout(reconnectTimerRef.current);
+      reconnectTimerRef.current = null;
+    }
+    if (intentional) {
+      lastConnectArgsRef.current = null;
+      reconnectAttemptsRef.current = 0;
+    }
     sessionIdRef.current += 1;
     stopAllPlayback();
+    setAgentSpeaking(false);
+    turnCompleteReceivedRef.current = false;
     if (wsRef.current) {
       try {
         wsRef.current.onopen = null;
@@ -112,7 +146,7 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
     setIsConnected(false);
     nextStartTimeRef.current = 0;
     dbg.live.log("stopClient: done");
-  }, [stopAllPlayback]);
+  }, [stopAllPlayback, setAgentSpeaking]);
 
   const connect = useCallback(async (
     userName = "Student",
@@ -122,7 +156,13 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
     customSystemInstructionText?: string
   ) => {
     try {
-      stopClient();
+      // Store args for auto-reconnect before calling stopClient
+      const args: ConnectArgs = [userName, userLevel, dailyTopic, coachMode, customSystemInstructionText];
+      lastConnectArgsRef.current = args;
+      intentionalStopRef.current = false;
+
+      stopClient(false);
+
       const sessionId = sessionIdRef.current + 1;
       sessionIdRef.current = sessionId;
       const isCurrentSession = () => sessionIdRef.current === sessionId;
@@ -144,28 +184,19 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
 
       const captureCtx = new AudioCtxClass({ sampleRate: INPUT_RATE });
       await captureCtx.resume();
-      if (!isCurrentSession()) {
-        captureCtx.close().catch(() => {});
-        return;
-      }
+      if (!isCurrentSession()) { captureCtx.close().catch(() => {}); return; }
       captureCtxRef.current = captureCtx;
 
       const playbackCtx = new AudioCtxClass({ sampleRate: OUTPUT_RATE });
       await playbackCtx.resume();
-      if (!isCurrentSession()) {
-        playbackCtx.close().catch(() => {});
-        return;
-      }
+      if (!isCurrentSession()) { playbackCtx.close().catch(() => {}); return; }
       playbackCtxRef.current = playbackCtx;
       nextStartTimeRef.current = playbackCtx.currentTime + 0.1;
 
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true, sampleRate: INPUT_RATE },
       });
-      if (!isCurrentSession()) {
-        stream.getTracks().forEach((track) => track.stop());
-        return;
-      }
+      if (!isCurrentSession()) { stream.getTracks().forEach((track) => track.stop()); return; }
       streamRef.current = stream;
       dbg.live.log("connect: mic stream acquired");
 
@@ -230,12 +261,14 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
           if (msg.setupComplete) {
             if (!isCurrentSession()) return;
             dbg.live.log("bridge ws: setupComplete — starting audio capture");
+            reconnectAttemptsRef.current = 0; // reset on successful setup
             const source = captureCtx.createMediaStreamSource(stream);
             sourceRef.current = source;
             const processor = captureCtx.createScriptProcessor(4096, 1, 1);
             processorRef.current = processor;
             processor.onaudioprocess = (e) => {
-              if (ws.readyState === WebSocket.OPEN) {
+              // Auto-mute: do not send mic audio while agent is speaking
+              if (ws.readyState === WebSocket.OPEN && !isAgentSpeakingRef.current) {
                 const b64 = arrayBufferToBase64(floatTo16BitPCM(e.inputBuffer.getChannelData(0)));
                 ws.send(JSON.stringify({ realtimeInput: { audio: { data: b64, mimeType: `audio/pcm;rate=${INPUT_RATE}` } } }));
               }
@@ -257,12 +290,21 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
             dbg.live.log("bridge ws: interrupted");
             stopAllPlayback();
             agentPCMRef.current = [];
+            turnCompleteReceivedRef.current = true;
+            setAgentSpeaking(false);
             onMessageRef.current?.({ interrupted: true });
           }
 
           if (sc.modelTurn?.parts) {
             for (const part of sc.modelTurn.parts) {
               if (part.inlineData?.data) {
+                // Agent has started speaking — mute the mic
+                if (!isAgentSpeakingRef.current) {
+                  turnCompleteReceivedRef.current = false;
+                  setAgentSpeaking(true);
+                }
+                activeAudioCountRef.current++;
+
                 const binary = atob(part.inlineData.data);
                 const bytes = new Uint8Array(binary.length);
                 for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
@@ -281,7 +323,14 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
                   src.start(startTime);
                   nextStartTimeRef.current = startTime + buf.duration;
                   audioQueueRef.current.push(src);
-                  src.onended = () => { audioQueueRef.current = audioQueueRef.current.filter(s => s !== src); };
+                  src.onended = () => {
+                    audioQueueRef.current = audioQueueRef.current.filter(s => s !== src);
+                    activeAudioCountRef.current = Math.max(0, activeAudioCountRef.current - 1);
+                    // Unmute mic once all queued audio has finished AND turn is complete
+                    if (activeAudioCountRef.current === 0 && turnCompleteReceivedRef.current) {
+                      setAgentSpeaking(false);
+                    }
+                  };
                 }
               }
             }
@@ -289,6 +338,12 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
 
           if (sc.turnComplete) {
             dbg.live.log("bridge ws: turnComplete — transcribing agent audio");
+            turnCompleteReceivedRef.current = true;
+            // If audio already finished playing before turnComplete arrived, unmute now
+            if (activeAudioCountRef.current === 0) {
+              setAgentSpeaking(false);
+            }
+
             const chunks = agentPCMRef.current;
             agentPCMRef.current = [];
             if (chunks.length > 0) {
@@ -325,26 +380,59 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
       ws.onerror = (e) => {
         if (!isCurrentSession()) return;
         dbg.live.error("bridge ws.onerror:", e);
-        setError("Live agent connection failed.");
-        stopClient();
+        // onclose will fire after onerror — let it handle reconnect
       };
 
       ws.onclose = (e) => {
         if (!isCurrentSession()) return;
         dbg.live.log("bridge ws.onclose code:", e.code, "reason:", e.reason);
-        if (e.code !== 1000) setError(`Disconnected (${e.code}): ${e.reason || "unknown"}`);
-        stopClient();
+
+        const savedArgs = lastConnectArgsRef.current;
+        const wasIntentional = intentionalStopRef.current;
+
+        if (!wasIntentional && savedArgs && reconnectAttemptsRef.current < MAX_RECONNECT_ATTEMPTS) {
+          reconnectAttemptsRef.current++;
+          dbg.live.log(`Unexpected disconnect — reconnecting (attempt ${reconnectAttemptsRef.current}/${MAX_RECONNECT_ATTEMPTS})...`);
+          setError(null);
+          // Tear down current resources without clearing saved args / intentional flag
+          sessionIdRef.current += 1;
+          stopAllPlayback();
+          setAgentSpeaking(false);
+          if (processorRef.current && sourceRef.current) {
+            try { sourceRef.current.disconnect(processorRef.current); } catch {}
+            try { processorRef.current.disconnect(); } catch {}
+          }
+          processorRef.current = null;
+          sourceRef.current = null;
+          if (streamRef.current) { streamRef.current.getTracks().forEach(t => t.stop()); streamRef.current = null; }
+          if (captureCtxRef.current) { captureCtxRef.current.close().catch(() => {}); captureCtxRef.current = null; }
+          if (playbackCtxRef.current) { playbackCtxRef.current.close().catch(() => {}); playbackCtxRef.current = null; }
+          wsRef.current = null;
+          agentPCMRef.current = [];
+
+          const delay = RECONNECT_DELAY_MS * reconnectAttemptsRef.current;
+          reconnectTimerRef.current = setTimeout(() => {
+            connect(...savedArgs);
+          }, delay);
+        } else {
+          if (e.code !== 1000 && !wasIntentional) {
+            setError(`Session ended (${e.code || "network error"}). Please start again.`);
+          }
+          stopClient(true);
+        }
       };
     } catch (e: any) {
       dbg.live.error("connect failed:", e.message);
       setError(e.message || "Failed to start live session");
-      stopClient();
+      stopClient(true);
     }
-  }, [stopClient, stopAllPlayback]);
+  }, [stopClient, stopAllPlayback, setAgentSpeaking]);
 
   useEffect(() => {
-    return () => { if (wsRef.current || streamRef.current) stopClient(); };
+    return () => {
+      if (wsRef.current || streamRef.current) stopClient(true);
+    };
   }, [stopClient]);
 
-  return { isConnected, error, connect, stopClient };
+  return { isConnected, isAgentSpeaking, error, connect, stopClient: () => stopClient(true) };
 }

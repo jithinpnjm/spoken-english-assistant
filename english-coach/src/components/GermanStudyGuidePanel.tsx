@@ -137,25 +137,6 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
             </div>
           </div>
 
-          <div className="rounded-2xl border border-indigo-400/20 bg-indigo-500/10 p-4">
-            <p className="text-xs uppercase tracking-widest text-indigo-200 mb-3">Sentence-building order</p>
-            <div className="grid gap-3 md:grid-cols-3">
-              <div className="rounded-xl border border-white/10 bg-black/20 p-3">
-                <p className="text-xs uppercase tracking-widest text-slate-400">1. Choose person</p>
-                <p className="mt-1 text-sm text-slate-100">ich / du / er / wir / Sie</p>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-black/20 p-3">
-                <p className="text-xs uppercase tracking-widest text-slate-400">2. Transform verb</p>
-                <p className="mt-1 text-sm text-slate-100">trinken → ich trinke</p>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-black/20 p-3">
-                <p className="text-xs uppercase tracking-widest text-slate-400">3. Add rest</p>
-                <p className="mt-1 text-sm text-slate-100">Ich trinke Wasser.</p>
-              </div>
-            </div>
-            <p className="mt-3 text-sm leading-relaxed text-slate-300">This is why conjugation matters: without the transformed verb, you cannot build a correct German sentence.</p>
-          </div>
-
           {/* Content grid */}
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-cyan-400/20 bg-cyan-500/10 p-4">

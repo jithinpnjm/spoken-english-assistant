@@ -7,18 +7,18 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
     titleDe: "Akkusativartikel",
     introduction: "In English, we say 'He sees the table'. In German, you must prove that the table is the object being seen by changing its article. This is called the Accusative case. Without it, a German sentence like 'Der Hund beißt der Mann' literally means 'The dog bites the man AND the man bites the dog'. Accusative clarifies exactly who is doing the action and who is receiving it.",
     theRule: [
-      "The subject of the sentence (the one doing the action) is in the Nominative case.",
-      "The direct object (the thing receiving the action) is in the Accusative case.",
-      "Here is the great news: Feminine (die), Neuter (das), and Plural (die) articles DO NOT CHANGE in the Accusative.",
+      "The subject of the sentence (the one doing the action) stays unchanged.",
+      "The direct object (the thing receiving the action) must show this by changing its article.",
+      "Here is the great news: Feminine (die), Neuter (das), and Plural (die) articles DO NOT CHANGE.",
       "ONLY the masculine article changes: 'der' becomes 'den'. 'ein' becomes 'einen'. 'kein' becomes 'keinen'.",
-      "Always ask yourself: Is this noun doing the action, or is something happening to it?"
+      "Always ask yourself: Is this noun doing the action, or is something happening TO it?"
     ],
     formula: [
-      "Nominative Subject + Verb + Accusative Object",
+      "Subject (doing) + Verb + Object (receiving action)",
       "Masculine change: der -> den | ein -> einen | kein -> keinen"
     ],
     grammarTable: {
-      headers: ["Gender", "Nominative (Subject)", "Accusative (Direct Object)"],
+      headers: ["Gender", "When Subject", "When Direct Object"],
       rows: [
         ["Masculine", "der / ein / kein Tisch", "den / einen / keinen Tisch (CHANGES!)"],
         ["Feminine", "die / eine / keine Lampe", "die / eine / keine Lampe (no change)"],
@@ -42,29 +42,29 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         de: "Ich brauche einen Computer.",
         en: "I need a computer.",
-        breakdown: "Ich(I/subject) brauche(need/verb) einen Computer(a computer/masculine direct object -> einen)."
+        breakdown: "Ich = I (doing the needing) | brauche = need | einen Computer = a computer (receiving the action, masculine -> 'ein' becomes 'einen') → Masculine noun as the direct object."
       },
       {
         de: "Suchen Sie den Bahnhof?",
         en: "Are you looking for the train station?",
-        breakdown: "Suchen(Look for) Sie(you formal/subject) den Bahnhof(the train station/masculine direct object -> den)?"
+        breakdown: "Suchen = Looking for | Sie = you (formal, doing the searching) | den Bahnhof = the train station (receiving the action, masculine -> 'der' becomes 'den') → Masculine direct object: 'der' becomes 'den'."
       },
       {
         de: "Wir haben keinen Hund, wir haben eine Katze.",
         en: "We have no dog, we have a cat.",
-        breakdown: "Wir haben keinen Hund(masculine acc -> keinen), wir haben eine Katze(feminine acc -> eine/no change)."
+        breakdown: "Wir haben = We have | keinen Hund = no dog (masculine direct object -> 'kein' becomes 'keinen') | wir haben = we have | eine Katze = a cat (feminine direct object -> no change) → Only masculine changes."
       },
       {
         de: "Der Mann trinkt den Kaffee.",
         en: "The man drinks the coffee.",
-        breakdown: "Der Mann(The man/masculine subject -> der) trinkt(drinks) den Kaffee(the coffee/masculine object -> den)."
+        breakdown: "Der Mann = The man (doing the drinking, unchanged) | trinkt = drinks | den Kaffee = the coffee (receiving the action, masculine -> 'der' becomes 'den') → Subject stays 'der', object becomes 'den'."
       }
     ],
     culturalNote: "When Germans hear 'Ich habe ein Hund' instead of 'einen Hund', it sounds distinctly jarring, similar to hearing 'Me have a dog' in English. Because 'haben' (to have) always triggers the Accusative, mastering the 'einen' ending for masculine nouns is one of the biggest leaps you can make toward sounding fluent.",
     exercises: [
       {
         type: "fill_blank",
-        instruction: "Fill in the correct Accusative article (den, die, das, einen, eine, ein).",
+        instruction: "Fill in the correct article for the direct object.",
         items: [
           { prompt: "Ich habe ___ Bruder. (ein)", answer: "einen", hint: "Masculine direct object." },
           { prompt: "Wir suchen ___ Lampe. (die)", answer: "die", hint: "Feminine does not change." },
@@ -89,34 +89,34 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         wrong: "Den Mann lernt Deutsch.",
         right: "Der Mann lernt Deutsch.",
-        explanation: "Overcorrecting! The man is doing the action (he is the subject). Subjects must stay in the Nominative case ('der')."
+        explanation: "Overcorrecting! The man is doing the action (he is the subject). The subject never changes — keep it as 'der'."
       }
     ],
     skyPracticePrompts: [
-      "Ask Sky: Give me 5 sentences missing their articles. I have to figure out if the word is the subject (Nominative) or object (Accusative) and provide the right article.",
-      "Ask Sky: Does the verb 'sein' (to be) trigger the Accusative case? Why or why not?",
-      "Ask Sky: Write a short story about going shopping using lots of masculine nouns in the Accusative case."
+      "Ask Sky: Give me 5 sentences missing their articles. I have to figure out if the word is the subject or the direct object and provide the right article.",
+      "Ask Sky: Does the verb 'sein' (to be) trigger the direct object case? Why or why not?",
+      "Ask Sky: Write a short story about going shopping using lots of masculine nouns as direct objects."
     ],
-    examRelevance: "Schreiben Teil 1 & 2: You will be graded heavily on your ability to use the Accusative case. Writing 'Ich suche ein Bahnhof' will result in an immediate grammar penalty.",
+    examRelevance: "Schreiben Teil 1 & 2: You will be graded heavily on your ability to use the correct article for direct objects. Writing 'Ich suche ein Bahnhof' will result in an immediate grammar penalty.",
     lessonGoal: "Correctly identify direct objects in a sentence and accurately change masculine articles to 'den', 'einen', or 'keinen'."
   },
   {
     lessonNo: 27,
     titleEn: "Possessive Pronouns Accusative",
     titleDe: "Possessivpronomen im Akkusativ",
-    introduction: "Now that you know the Accusative case changes 'der' to 'den', you need to apply this exact same logic to your possessive pronouns. If you are visiting YOUR father or looking for MY key, those family members and objects are receiving the action. Therefore, 'mein' must become 'meinen'.",
+    introduction: "Now that you know the direct object changes 'der' to 'den', you need to apply this exact same logic to your possessive pronouns. If you are visiting YOUR father or looking for MY key, those family members and objects are receiving the action. Therefore, 'mein' must become 'meinen'.",
     theRule: [
-      "Possessive pronouns follow the exact same Accusative rules as indefinite articles (ein -> einen).",
-      "Only masculine nouns change in the Accusative case.",
+      "Possessive pronouns follow the exact same rules as indefinite articles when used as direct objects.",
+      "Only masculine nouns change.",
       "mein -> meinen, dein -> deinen, sein -> seinen, ihr -> ihren, unser -> unseren, euer -> euren, Ihr -> Ihren.",
-      "Feminine, Neuter, and Plural possessive pronouns keep their standard Nominative endings (meine, mein, meine)."
+      "Feminine, Neuter, and Plural possessive pronouns keep their standard endings (meine, mein, meine)."
     ],
     formula: [
       "Subject + Verb + [meinen/deinen/seinen/etc.] + Masculine Noun",
       "Subject + Verb + [meine/mein/meine] + Feminine/Neuter/Plural Noun"
     ],
     grammarTable: {
-      headers: ["Gender", "Nominative (Subject)", "Accusative (Direct Object)"],
+      headers: ["Gender", "When Subject", "When Direct Object"],
       rows: [
         ["Masculine", "mein Vater (my father)", "meinen Vater (CHANGES!)"],
         ["Feminine", "meine Mutter", "meine Mutter (no change)"],
@@ -140,33 +140,33 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         de: "Ich besuche morgen meinen Vater.",
         en: "I am visiting my father tomorrow.",
-        breakdown: "Ich(subject) besuche(visit) morgen(tomorrow) meinen Vater(my father/masc. object -> meinen)."
+        breakdown: "Ich = I (doing the visiting) | besuche = visit | morgen = tomorrow | meinen Vater = my father (direct object, masculine -> 'mein' becomes 'meinen') → The father is being visited, so 'mein' adds '-en'."
       },
       {
         de: "Verstehst du deinen Bruder?",
         en: "Do you understand your brother?",
-        breakdown: "Verstehst(understand) du(subject) deinen Bruder(your brother/masc. object -> deinen)?"
+        breakdown: "Verstehst = understand | du = you (doing the understanding) | deinen Bruder = your brother (direct object, masculine -> 'dein' becomes 'deinen') → Brother is the direct object."
       },
       {
         de: "Wir suchen unseren Chef und unsere Kollegin.",
         en: "We are looking for our boss and our colleague.",
-        breakdown: "Wir(subject) suchen unseren Chef(masc. object -> unseren) und unsere Kollegin(fem. object -> unsere/no change)."
+        breakdown: "Wir = We | suchen = looking for | unseren Chef = our boss (masculine direct object -> 'unser' becomes 'unseren') | und = and | unsere Kollegin = our colleague (feminine direct object -> no change) → Only the masculine one changes."
       },
       {
         de: "Herr Schmidt, ich brauche Ihren Schlüssel.",
         en: "Mr. Schmidt, I need your key.",
-        breakdown: "Herr Schmidt, ich brauche Ihren(your formal/capitalized masc. acc.) Schlüssel(key)."
+        breakdown: "Herr Schmidt = formal address | ich = I | brauche = need | Ihren Schlüssel = your key (formal 'your', masculine direct object -> 'Ihr' becomes 'Ihren') → Always capitalize the formal 'Ihr'."
       }
     ],
     culturalNote: "If you call in sick to a German office, you might say 'Ich besuche heute meinen Arzt' (I am visiting my doctor today). 'Der Arzt' is masculine, so 'mein' becomes 'meinen'. Germans appreciate correct case usage here as it shows precision and clarity in professional communication.",
     exercises: [
       {
         type: "fill_blank",
-        instruction: "Add the correct Accusative ending to the possessive pronoun.",
+        instruction: "Add the correct ending to the possessive pronoun.",
         items: [
           { prompt: "Sie liebt ihr___ Freund. (der Freund)", answer: "ihren", hint: "Masculine direct object." },
           { prompt: "Ich frage mein___ Lehrer. (der Lehrer)", answer: "meinen", hint: "Masculine direct object." },
-          { prompt: "Wir besuchen unser___ Oma. (die Oma)", answer: "unsere", hint: "Feminine does not change in Accusative." }
+          { prompt: "Wir besuchen unser___ Oma. (die Oma)", answer: "unsere", hint: "Feminine does not change." }
         ]
       },
       {
@@ -187,16 +187,16 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         wrong: "Meinen Bruder lernt Deutsch.",
         right: "Mein Bruder lernt Deutsch.",
-        explanation: "Do not put the subject into the Accusative case! The brother is doing the action (learning). He remains in the Nominative ('mein Bruder')."
+        explanation: "Do not put the subject into the direct object form! The brother is doing the action (learning). He remains the subject and stays as 'mein Bruder'."
       }
     ],
     skyPracticePrompts: [
-      "Ask Sky: Give me 5 verbs that always take the Accusative case, and let me write practice sentences using 'meinen' and 'deinen'.",
+      "Ask Sky: Give me 5 verbs that always take a direct object, and let me write practice sentences using 'meinen' and 'deinen'.",
       "Ask Sky: Test me! Give me a noun and tell me if it's the subject or the object, and I will choose between 'mein' and 'meinen'.",
       "Ask Sky: How do I say 'I miss my family' and 'I miss my brother' in German?"
     ],
     examRelevance: "Sprechen Teil 2: Formulating questions to your partner like 'Wie oft besuchst du deinen Opa?' (How often do you visit your grandpa?) demonstrates higher-level A1 grammar control.",
-    lessonGoal: "Correctly decline possessive pronouns into the Accusative case, specifically adding '-en' for masculine direct objects."
+    lessonGoal: "Correctly decline possessive pronouns when used as direct objects, specifically adding '-en' for masculine direct objects."
   },
   {
     lessonNo: 28,
@@ -205,13 +205,13 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
     introduction: "Saying 'I want a coffee' (Ich will einen Kaffee) can sound aggressive and demanding in German. To navigate polite society, cafes, and restaurants, you must use the magical word 'möchten' (would like). It is a modal verb, which means it behaves a little strangely: it alters the whole sentence by kicking the second action verb to the very end.",
     theRule: [
       "'möchten' is used to express polite wishes or requests.",
-      "Modal Verb Conjugation Rule: The 'ich' and 'er/sie/es' forms are ALWAYS identical. (Ich möchte, er möchte - NO 't' for er!).",
-      "Sentence Structure Rule: 'möchten' takes Position 2. If there is another verb in the sentence (like 'to drink' or 'to pay'), it gets kicked to the very end of the sentence in its full infinitive form (-en).",
+      "Special pattern: The 'ich' and 'er/sie/es' forms are ALWAYS identical. (Ich möchte, er möchte — NO extra '-t' for er!).",
+      "Sentence Structure Rule: 'möchten' takes Position 2. If there is another verb in the sentence (like 'to drink' or 'to pay'), that verb gets sent to the very end of the sentence in its full '-en' form.",
       "You can also use 'möchten' alone with just an object: 'Ich möchte einen Kaffee'."
     ],
     formula: [
-      "Without second verb: Subject + möchte + [Accusative Object]",
-      "With second verb: Subject + möchte + [Accusative Object / Details] + [Infinitive Verb]"
+      "Without second verb: Subject + möchte + [Direct Object]",
+      "With second verb: Subject + möchte + [Direct Object / Details] + [Infinitive Verb at end]"
     ],
     grammarTable: {
       headers: ["Pronoun", "möchten (would like)"],
@@ -240,22 +240,22 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         de: "Ich möchte einen Kaffee trinken.",
         en: "I would like to drink a coffee.",
-        breakdown: "Ich(subject) möchte(would like/pos 2) einen Kaffee(masc. object) trinken(drink/infinitive at the very end)."
+        breakdown: "Ich = I | möchte = would like (position 2) | einen Kaffee = a coffee (direct object, masculine) | trinken = drink (sent to the very end) → The second verb always goes to the end."
       },
       {
         de: "Was möchtest du heute machen?",
         en: "What would you like to do today?",
-        breakdown: "Was(What) möchtest(would like/pos 2) du(subject) heute(today) machen(do/infinitive at the end)?"
+        breakdown: "Was = What (position 1) | möchtest = would like (position 2) | du = you | heute = today | machen = do (sent to the very end) → Same end-placement rule applies in questions."
       },
       {
         de: "Er möchte jetzt bezahlen.",
         en: "He would like to pay now.",
-        breakdown: "Er(He) möchte(would like/identical to 'ich' form) jetzt(now) bezahlen(pay/end)."
+        breakdown: "Er = He | möchte = would like (note: same form as 'ich möchte', no extra '-t') | jetzt = now | bezahlen = pay (at the end) → 'er möchte', NOT 'er möchtet'."
       },
       {
         de: "Wir möchten bitte die Speisekarte.",
         en: "We would like the menu, please.",
-        breakdown: "Wir möchten(would like/pos 2) bitte(please) die Speisekarte(the menu/object). (No second verb needed here)."
+        breakdown: "Wir = We | möchten = would like (position 2) | bitte = please | die Speisekarte = the menu (object) → No second verb needed here — just order the object directly."
       }
     ],
     culturalNote: "When ordering in Germany, 'Ich bekomme...' (I get) or 'Ich nehme...' (I'll take) are also perfectly polite. However, 'Ich will...' (I want) sounds like a toddler throwing a tantrum. Defaulting to 'Ich möchte...' ensures you are always viewed as a polite guest.",
@@ -282,7 +282,7 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         wrong: "Er möchtet einen Tee.",
         right: "Er möchte einen Tee.",
-        explanation: "Learners naturally try to add the standard '-t' ending for 'er'. Modal verbs break this rule. The 'er' form is strictly 'möchte'."
+        explanation: "Learners naturally try to add the standard '-t' ending for 'er'. But 'möchten' breaks this rule. The 'er' form is strictly 'möchte', identical to the 'ich' form."
       },
       {
         wrong: "Ich möchte trinken einen Kaffee.",
@@ -342,22 +342,22 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         de: "Was machst du am Wochenende?",
         en: "What are you doing on the weekend?",
-        breakdown: "Was(What/pos 1) machst(do/pos 2) du(you/subject pos 3) am Wochenende(on the weekend)?"
+        breakdown: "Was = What (position 1) | machst = do (position 2) | du = you (position 3) | am Wochenende = on the weekend → W-Word, then verb, then subject."
       },
       {
         de: "Woher kommt der neue Kollege?",
         en: "Where does the new colleague come from?",
-        breakdown: "Woher(Where from/pos 1) kommt(comes/pos 2) der neue Kollege(the new colleague/subject block pos 3)?"
+        breakdown: "Woher = Where from (position 1) | kommt = comes (position 2) | der neue Kollege = the new colleague (subject block, position 3) → 'der neue Kollege' is one unit in position 3."
       },
       {
         de: "Wann hast du Zeit für mich?",
         en: "When do you have time for me?",
-        breakdown: "Wann(When/pos 1) hast(have/pos 2) du(you/subject pos 3) Zeit(time) für mich(for me)?"
+        breakdown: "Wann = When (position 1) | hast = have (position 2) | du = you (position 3) | Zeit = time | für mich = for me → No helper verb 'do' — just W-Word + verb."
       },
       {
         de: "Warum ist das Auto so teuer?",
         en: "Why is the car so expensive?",
-        breakdown: "Warum(Why/pos 1) ist(is/pos 2) das Auto(the car/subject pos 3) so teuer(so expensive)?"
+        breakdown: "Warum = Why (position 1) | ist = is (position 2) | das Auto = the car (position 3) | so teuer = so expensive → Same W-Word + verb + subject pattern."
       }
     ],
     culturalNote: "Germans are not fond of small talk, so they rely heavily on direct W-Questions to get straight to the point. While an English speaker might ask, 'I was wondering if you might know what time the meeting is?', a German colleague will simply ask, 'Wann ist das Meeting?'. Do not take this directness as rudeness.",
@@ -404,15 +404,15 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
     lessonNo: 30,
     titleEn: "In a Restaurant",
     titleDe: "Im Restaurant",
-    introduction: "Dining out in Germany requires putting multiple grammar concepts together: using 'möchten' to be polite, Accusative articles for the food you are ordering, and specific vocabulary for the bill. German waiters are professional, fast, and practical; knowing exactly how to order and pay ensures a stress-free meal.",
+    introduction: "Dining out in Germany requires putting multiple grammar concepts together: using 'möchten' to be polite, the correct article for the food you are ordering, and specific vocabulary for the bill. German waiters are professional, fast, and practical; knowing exactly how to order and pay ensures a stress-free meal.",
     theRule: [
       "To order food or drinks politely, use: 'Ich möchte...' (I would like) or 'Ich hätte gern...' (I would gladly have).",
-      "The food or drink you order is the direct object, so it MUST be in the Accusative case (e.g., 'einen Kaffee', 'einen Salat').",
+      "The food or drink you order is the direct object, so you must use the correct article (e.g., 'einen Kaffee', 'einen Salat').",
       "When asking for the bill, you just say 'Zahlen, bitte' (Pay, please) or 'Ich möchte bitte zahlen'.",
       "The waiter will ask 'Zusammen oder getrennt?' (Together or separate?). It is very common in Germany to split the bill item by item."
     ],
     formula: [
-      "Ordering: Ich hätte gern + [Accusative Item] + bitte.",
+      "Ordering: Ich hätte gern + [Item] + bitte.",
       "Paying: Wir möchten + bitte + zahlen."
     ],
     vocabulary: [
@@ -431,22 +431,22 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         de: "Hallo, wir möchten bitte bestellen.",
         en: "Hello, we would like to order please.",
-        breakdown: "Hallo, wir möchten(would like) bitte(please) bestellen(order/infinitive at end)."
+        breakdown: "Hallo = Hello | wir möchten = we would like | bitte = please | bestellen = order (sent to the end) → Modal verb sends the second verb to the end."
       },
       {
         de: "Ich hätte gern einen Salat und ein Wasser.",
         en: "I would like a salad and a water.",
-        breakdown: "Ich hätte gern(I would gladly have/polite phrase) einen Salat(masc. acc.) und ein Wasser(neuter acc.)."
+        breakdown: "Ich hätte gern = I would gladly have (polite ordering phrase) | einen Salat = a salad (masculine direct object -> 'einen') | und = and | ein Wasser = a water (neuter direct object -> no change) → Masculine 'Salat' needs 'einen'."
       },
       {
         de: "Hat es geschmeckt? Ja, es war sehr lecker.",
         en: "Did it taste good? Yes, it was very delicious.",
-        breakdown: "Hat(Has) es(it) geschmeckt(tasted)? Ja, es war(was) sehr lecker(delicious)."
+        breakdown: "Hat es geschmeckt = Did it taste good (waiter asking) | Ja = Yes | es war = it was | sehr lecker = very delicious → Standard waiter phrase and polite reply."
       },
       {
         de: "Zahlen, bitte. Zusammen oder getrennt?",
         en: "Pay, please. Together or separately?",
-        breakdown: "Zahlen(Pay), bitte. Zusammen(together) oder(or) getrennt(separately)?"
+        breakdown: "Zahlen = Pay | bitte = please | Zusammen = together | oder = or | getrennt = separately → Shortcut to ask for the bill."
       }
     ],
     culturalNote: "When paying the bill in Germany, the waiter usually brings a wallet directly to your table. If the bill is 18.50€ and you hand them a 20€ note, you simply say 'Stimmt so' (Keep the change / That's right). A 5% to 10% tip is standard, but you tell the waiter the final total you want to pay before they hand you your change.",
@@ -456,7 +456,7 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
         instruction: "Fill in the missing words for a restaurant scenario.",
         items: [
           { prompt: "Wir möchten bitte die ___. (menu)", answer: "Speisekarte", hint: "What you read to choose food." },
-          { prompt: "Ich hätte gern ___ Kaffee. (a)", answer: "einen", hint: "Masculine Accusative" },
+          { prompt: "Ich hätte gern ___ Kaffee. (a)", answer: "einen", hint: "Masculine direct object" },
           { prompt: "Zusammen oder ___? (separate)", answer: "getrennt", hint: "When splitting the bill." }
         ]
       },
@@ -473,7 +473,7 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       {
         wrong: "Ich nehme ein Kaffee.",
         right: "Ich nehme einen Kaffee.",
-        explanation: "Forgetting the Accusative case when ordering. The coffee is the direct object of what you are taking/getting."
+        explanation: "Forgetting that the coffee is the direct object of what you are taking/getting. Coffee is masculine (der Kaffee), so 'ein' becomes 'einen'."
       },
       {
         wrong: "Wir möchten die Kontrolle, bitte. (Trying to ask for 'the check').",
@@ -487,6 +487,6 @@ export const germanA1BookLessonsPart06: GermanA1BookLesson[] = [
       "Ask Sky: Give me a menu in German, and ask me what I would like to order."
     ],
     examRelevance: "Hören & Sprechen Teil 2: Restaurant dialogues are extremely common in the listening exam. In the speaking exam, you may have to negotiate where to eat or order food based on picture cards.",
-    lessonGoal: "Navigate a German restaurant confidently: ordering food using the Accusative case, asking for the bill, and specifying payment methods."
+    lessonGoal: "Navigate a German restaurant confidently: ordering food using the correct article for direct objects, asking for the bill, and specifying payment methods."
   }
 ];
