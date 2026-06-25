@@ -7,6 +7,7 @@ import type { GermanLevel } from "../lib/germanCurriculumRegistry";
 import { getVerbConjugationsForLesson } from "../lib/germanVerbConjugations";
 import { getArticleTransformationsForLesson, getSentencePatternsForLesson } from "../lib/germanSentenceMechanics";
 import GermanLessonPracticePanel from "./GermanLessonPracticePanel";
+import GermanMistakeTrainerPanel from "./GermanMistakeTrainerPanel";
 
 interface GermanStudyGuidePanelProps {
   level: GermanLevel;
@@ -51,7 +52,8 @@ Teaching order:
 2. If the lesson contains a verb, show how the infinitive transforms into ich/du/er/wir/ihr/sie forms before asking the learner to make a sentence.
 3. If articles or cases appear, explain nominative -> accusative -> dative transformation with one concrete noun.
 4. Run controlled drills before free speaking.
-5. Only then ask the learner to build one short sentence.
+5. Use the mistake trainer to correct common errors before final speaking.
+6. Only then ask the learner to build one short sentence.
 
 Start by greeting the learner and giving a 1–2 sentence overview of this lesson. Then teach the mechanics before asking for production. Correct all errors immediately and clearly.`;
 }
@@ -168,6 +170,7 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
           <div className="rounded-2xl border border-amber-400/20 bg-amber-500/10 p-4"><p className="text-xs uppercase tracking-widest text-amber-200 mb-3">Model sentences</p><div className="grid gap-3 md:grid-cols-2">{selected.modelSentences.slice(0, 6).map((item, i) => <div key={`${item.de}-${i}`} className="rounded-xl border border-white/10 bg-black/20 p-3"><p className="text-sm font-semibold text-slate-100">{item.de}</p><p className="mt-1 text-xs text-slate-400">{item.en}</p><p className="mt-2 text-xs leading-5 text-amber-100">{item.breakdown}</p></div>)}</div></div>
 
           <GermanLessonPracticePanel lesson={selected} />
+          <GermanMistakeTrainerPanel lesson={selected} />
 
           {relatedPdfNotes.length > 0 && <div className="rounded-2xl border border-white/10 bg-white/5 p-4"><p className="text-xs uppercase tracking-widest text-slate-400 mb-3">Related PDF notes</p><div className="space-y-2">{relatedPdfNotes.map((note) => <details key={`${note.batch}-${note.page}`} className="rounded-xl border border-white/10 bg-black/20 p-3"><summary className="cursor-pointer text-sm font-semibold text-slate-100">{note.heading}<span className="ml-2 text-xs font-normal text-slate-500">{note.batch}, page {note.page} · {note.sourcePages}</span></summary><p className="mt-3 whitespace-pre-wrap text-xs leading-5 text-slate-300">{note.text}</p></details>)}</div></div>}
 
