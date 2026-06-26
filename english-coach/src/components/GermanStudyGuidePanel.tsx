@@ -1,19 +1,12 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { BookOpen, CheckCircle2, Layers, Mic, Search, StopCircle } from "lucide-react";
+import { CheckCircle2, Layers, Mic, Search, StopCircle } from "lucide-react";
 import { germanA1BookLessons } from "../lib/a1-book/germanA1BookLessons";
-import { a1StudyBookTopicIndex, findIndexedA1StudyBookPagesForLesson, findIndexedA1StudyBookTopicsForLesson } from "../lib/a1-study-book-notes";
 import type { GermanA1BookLesson } from "../lib/germanA1BookLessonTypes";
 import type { GermanLevel } from "../lib/germanCurriculumRegistry";
-import { getVerbConjugationsForLesson } from "../lib/germanVerbConjugations";
-import { getArticleTransformationsForLesson, getSentencePatternsForLesson } from "../lib/germanSentenceMechanics";
-import A1StudyBookPdfNotesPanel from "./A1StudyBookPdfNotesPanel";
 import GermanLessonPracticePanel from "./GermanLessonPracticePanel";
 import GermanMistakeTrainerPanel from "./GermanMistakeTrainerPanel";
 import GermanLessonMasteryChecklist from "./GermanLessonMasteryChecklist";
 import GermanLessonRevisionPlan from "./GermanLessonRevisionPlan";
-
-// Precompute which lesson numbers have any indexed source topics
-const lessonNosWithNotes = new Set(a1StudyBookTopicIndex.flatMap((t) => t.lessonNos));
 
 interface GermanStudyGuidePanelProps {
   level: GermanLevel;
@@ -25,7 +18,7 @@ interface GermanStudyGuidePanelProps {
   onLessonViewed?: () => void;
 }
 
-type StudyTab = "learn" | "speak" | "build" | "practice" | "notes";
+type StudyTab = "learn" | "speak" | "practice";
 
 interface A1CourseModule {
   id: string;
@@ -54,32 +47,11 @@ const a1CourseModules: A1CourseModule[] = [
 ];
 
 function tabsForLesson(lessonNo: number): Array<{ id: StudyTab; label: string }> {
-  const noteCount = a1StudyBookTopicIndex.filter((t) => t.lessonNos.includes(lessonNo)).length;
-  const notesLabel = noteCount > 0 ? `Book notes (${noteCount})` : "Book notes";
-
-  if (lessonNo <= 5) {
-    return [
-      { id: "learn", label: "Learn" },
-      { id: "speak", label: "Listen & repeat" },
-      { id: "practice", label: "Practice" },
-      { id: "notes", label: notesLabel },
-    ];
-  }
-
-  if (lessonNo <= 8) {
-    return [
-      { id: "learn", label: "Learn" },
-      { id: "speak", label: "Answer aloud" },
-      { id: "practice", label: "Practice" },
-      { id: "notes", label: notesLabel },
-    ];
-  }
-
+  const speakLabel = lessonNo <= 5 ? "Listen & repeat" : lessonNo <= 8 ? "Answer aloud" : "Speak";
   return [
     { id: "learn", label: "Learn" },
-    { id: "build", label: "Build sentences" },
+    { id: "speak", label: speakLabel },
     { id: "practice", label: "Practice" },
-    { id: "notes", label: notesLabel },
   ];
 }
 
@@ -188,11 +160,6 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
   }, [activeModule, search]);
 
   const availableTabs = tabsForLesson(selected.lessonNo);
-  const relatedStudyBookPages = useMemo(() => findIndexedA1StudyBookPagesForLesson(selected.lessonNo), [selected]);
-  const relatedStudyBookTopics = useMemo(() => findIndexedA1StudyBookTopicsForLesson(selected.lessonNo), [selected]);
-  const verbConjugations = getVerbConjugationsForLesson(selectedSearchText, 3);
-  const sentencePatterns = getSentencePatternsForLesson(selectedSearchText);
-  const articleTransformations = getArticleTransformationsForLesson(selectedSearchText);
 
   useEffect(() => {
     if (!availableTabs.some((tab) => tab.id === activeTab)) setActiveTab("learn");
@@ -263,27 +230,21 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
             />
           </label>
           <div className="mt-3 max-h-[52vh] space-y-2 overflow-y-auto pr-1">
-            {visibleLessons.map((lesson) => {
-              const hasNotes = lessonNosWithNotes.has(lesson.lessonNo);
-              return (
-                <button
-                  key={lesson.lessonNo}
-                  onClick={() => chooseLesson(lesson.lessonNo)}
-                  className={`w-full rounded-lg border p-3 text-left transition ${
-                    selected.lessonNo === lesson.lessonNo
-                      ? "border-sky-400 bg-sky-500/10"
-                      : "border-slate-800 bg-slate-950 hover:border-slate-600"
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-xs text-slate-500">Lesson {lesson.lessonNo}</p>
-                    {hasNotes && <BookOpen className="h-3 w-3 text-sky-400 shrink-0" title="Has source notes" />}
-                  </div>
-                  <p className="mt-1 text-sm font-semibold text-slate-100">{lesson.titleEn}</p>
-                  <p className="mt-1 text-xs text-slate-400">{lesson.titleDe}</p>
-                </button>
-              );
-            })}
+            {visibleLessons.map((lesson) => (
+              <button
+                key={lesson.lessonNo}
+                onClick={() => chooseLesson(lesson.lessonNo)}
+                className={`w-full rounded-lg border p-3 text-left transition ${
+                  selected.lessonNo === lesson.lessonNo
+                    ? "border-sky-400 bg-sky-500/10"
+                    : "border-slate-800 bg-slate-950 hover:border-slate-600"
+                }`}
+              >
+                <p className="text-xs text-slate-500">Lesson {lesson.lessonNo}</p>
+                <p className="mt-1 text-sm font-semibold text-slate-100">{lesson.titleEn}</p>
+                <p className="mt-1 text-xs text-slate-400">{lesson.titleDe}</p>
+              </button>
+            ))}
             {visibleLessons.length === 0 && <p className="py-5 text-center text-xs text-slate-500">No lessons found.</p>}
           </div>
         </section>
@@ -299,20 +260,6 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
               <h1 className="mt-2 text-2xl font-bold text-white">{selected.titleEn}</h1>
               <p className="mt-1 text-sm text-slate-400">{selected.titleDe}</p>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">{selected.lessonGoal}</p>
-              {relatedStudyBookTopics.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {relatedStudyBookTopics.map((topic) => (
-                    <button
-                      key={topic.id}
-                      onClick={() => setActiveTab("notes")}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-sky-700/40 bg-sky-900/30 px-2.5 py-1 text-xs text-sky-300 hover:border-sky-500/60 hover:bg-sky-900/50 transition-colors"
-                    >
-                      <BookOpen className="h-3 w-3" />
-                      {topic.title}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
             <button
               onClick={isLiveActive ? onStopLive : () => onPracticeWithSky(buildLessonContext(selected, learnerName))}
@@ -332,9 +279,7 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
               onClick={() => setActiveTab(tab.id)}
               className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
                 activeTab === tab.id
-                  ? tab.id === "notes"
-                    ? "bg-sky-500 text-white shadow-sm"
-                    : "bg-white text-slate-950 shadow-sm"
+                  ? "bg-white text-slate-950 shadow-sm"
                   : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"
               }`}
             >
@@ -400,82 +345,6 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
           </div>
         )}
 
-        {activeTab === "build" && (
-          <div className="space-y-4">
-            <SmallSection title="Production path">
-              <div className="grid gap-3 md:grid-cols-4">
-                {["Meaning", "Person + verb", "Article/case", "Full sentence"].map((step, index) => (
-                  <div key={step} className="rounded-md border border-slate-800 bg-slate-950 p-3">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">{index + 1}. {step}</p>
-                    <p className="mt-2 text-sm text-slate-100">{index === 0 ? "What do I want to say?" : index === 1 ? "ich + trinken -> ich trinke" : index === 2 ? "ein Termin -> einen Termin" : "Ich habe einen Termin."}</p>
-                  </div>
-                ))}
-              </div>
-            </SmallSection>
-
-            {sentencePatterns.length > 0 && (
-              <SmallSection title="Sentence patterns">
-                <div className="space-y-2">
-                  {sentencePatterns.map((pattern) => (
-                    <details key={pattern.id} className="rounded-md border border-slate-800 bg-slate-950 p-3" open={pattern.id === "statement-v2"}>
-                      <summary className="cursor-pointer text-sm font-semibold text-white">{pattern.title}</summary>
-                      <p className="mt-3 rounded-md bg-slate-900 px-3 py-2 text-sm font-semibold text-sky-100">{pattern.formula}</p>
-                      <p className="mt-2 text-sm leading-6 text-slate-300">{pattern.teacherNote}</p>
-                      <div className="mt-3 grid gap-2 md:grid-cols-3">
-                        {pattern.examples.map((example) => (
-                          <div key={example.de} className="rounded-md border border-slate-800 bg-slate-900 p-3">
-                            <p className="text-sm font-semibold text-white">{example.de}</p>
-                            <p className="mt-1 text-xs text-slate-400">{example.en}</p>
-                            <p className="mt-2 text-xs leading-5 text-slate-300">{example.breakdown}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </SmallSection>
-            )}
-
-            {verbConjugations.length > 0 && (
-              <SmallSection title="Verb transformation">
-                <div className="space-y-2">
-                  {verbConjugations.map((verb) => (
-                    <details key={verb.infinitive} className="rounded-md border border-slate-800 bg-slate-950 p-3">
-                      <summary className="cursor-pointer text-sm font-semibold text-white">{verb.infinitive}<span className="ml-2 font-normal text-slate-400">{verb.meaning}</span></summary>
-                      <div className="mt-3 grid gap-2 md:grid-cols-3">
-                        {verb.forms.map((form) => (
-                          <div key={`${verb.infinitive}-${form.pronoun}`} className="rounded-md border border-slate-800 bg-slate-900 p-3">
-                            <p className="text-xs uppercase tracking-wider text-slate-500">{form.pronoun}</p>
-                            <p className="mt-1 text-sm font-bold text-white">{form.form}</p>
-                            <p className="mt-1 text-xs leading-5 text-slate-400">{form.example}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </SmallSection>
-            )}
-
-            {articleTransformations.length > 0 && (
-              <SmallSection title="Article and case transformation">
-                <div className="space-y-2">
-                  {articleTransformations.map((item) => (
-                    <details key={item.noun} className="rounded-md border border-slate-800 bg-slate-950 p-3" open>
-                      <summary className="cursor-pointer text-sm font-semibold text-white">{item.noun}<span className="ml-2 font-normal text-slate-400">{item.gender}</span></summary>
-                      <div className="mt-3 grid gap-2 md:grid-cols-3">
-                        <div className="rounded-md bg-slate-900 p-3"><p className="text-xs text-slate-500">Nominativ</p><p className="text-sm font-semibold text-white">{item.nominative}</p></div>
-                        <div className="rounded-md bg-slate-900 p-3"><p className="text-xs text-slate-500">Akkusativ</p><p className="text-sm font-semibold text-white">{item.accusative}</p></div>
-                        <div className="rounded-md bg-slate-900 p-3"><p className="text-xs text-slate-500">Dativ</p><p className="text-sm font-semibold text-white">{item.dative}</p></div>
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </SmallSection>
-            )}
-          </div>
-        )}
-
         {activeTab === "speak" && (
           <div className="space-y-4">
             <SmallSection title={selected.lessonNo <= 5 ? "Hear it, say it, recognise it" : "Question and answer patterns"}>
@@ -528,11 +397,6 @@ export default function GermanStudyGuidePanel({ level, learnerName, isLiveActive
           </div>
         )}
 
-        {activeTab === "notes" && (
-          <div className="space-y-4">
-            <A1StudyBookPdfNotesPanel pages={relatedStudyBookPages} topics={relatedStudyBookTopics} lessonNo={selected.lessonNo} lesson={selected} />
-          </div>
-        )}
       </main>
     </div>
   );
