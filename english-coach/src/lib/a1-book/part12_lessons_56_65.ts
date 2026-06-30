@@ -392,7 +392,21 @@ export const germanA1BookLessonsPart12: GermanA1BookLesson[] = [
       { de: "das Frühstück", en: "breakfast", example: "Ist das Frühstück inklusive?", exampleEn: "Is breakfast included?" },
       { de: "inklusive", en: "included", example: "WLAN ist inklusive.", exampleEn: "WiFi is included." },
       { de: "Mit freundlichen Grüßen", en: "Yours sincerely", example: "Mit freundlichen Grüßen, Max Meyer.", exampleEn: "Yours sincerely, Max Meyer." },
-      { de: "die Bestätigung", en: "confirmation", example: "Bitte schicken Sie mir eine Bestätigung.", exampleEn: "Please send me a confirmation." }
+      { de: "die Bestätigung", en: "confirmation", example: "Bitte schicken Sie mir eine Bestätigung.", exampleEn: "Please send me a confirmation." },
+      { de: "die Halbpension", en: "half board (breakfast + 1 meal)", example: "Ich möchte ein Zimmer mit Halbpension.", exampleEn: "I would like a room with half board." },
+      { de: "die Vollpension", en: "full board (all meals included)", example: "Vollpension ist teurer als Halbpension.", exampleEn: "Full board is more expensive than half board." },
+      { de: "die Ankunft", en: "arrival", example: "Meine Ankunft ist am 5. Juni.", exampleEn: "My arrival is on the 5th of June." },
+      { de: "die Abreise", en: "departure", example: "Die Abreise ist am Montag.", exampleEn: "The departure is on Monday." },
+      { de: "der Schlüssel", en: "key", example: "Kann ich den Schlüssel haben?", exampleEn: "Can I have the key?" },
+      { de: "der Aufzug", en: "elevator / lift", example: "Wo ist der Aufzug?", exampleEn: "Where is the elevator?" },
+      { de: "ausfüllen", en: "to fill in / fill out", example: "Bitte füllen Sie das Formular aus.", exampleEn: "Please fill in the form." },
+      { de: "unterschreiben", en: "to sign", example: "Bitte unterschreiben Sie hier.", exampleEn: "Please sign here." },
+      { de: "der Urlaub", en: "vacation / holiday", example: "Ich mache Urlaub in Hamburg.", exampleEn: "I am going on holiday in Hamburg." },
+      { de: "das Reisebüro", en: "travel agency", example: "Ich kaufe die Tickets im Reisebüro.", exampleEn: "I buy the tickets at the travel agency." },
+      { de: "der Reisepass", en: "passport", example: "Ich brauche meinen Reisepass.", exampleEn: "I need my passport." },
+      { de: "die Fahrkarte", en: "ticket (train/bus)", example: "Ich kaufe eine Fahrkarte.", exampleEn: "I am buying a ticket." },
+      { de: "die Sehenswürdigkeit", en: "sight / place of interest", example: "Hamburg hat viele Sehenswürdigkeiten.", exampleEn: "Hamburg has many sights." },
+      { de: "besuchen", en: "to visit", example: "Ich möchte das Museum besuchen.", exampleEn: "I would like to visit the museum." }
     ],
     modelSentences: [
       {
@@ -453,7 +467,89 @@ export const germanA1BookLessonsPart12: GermanA1BookLesson[] = [
       "Ask Sky: What are 5 common questions I might ask a hotel in an email (e.g., about parking, dogs, check-in time)?"
     ],
     examRelevance: "Schreiben Teil 2: Writing a formal email to a tourist office or a hotel is a very common exam scenario. Nailing the formal greeting, lowercase continuation, and formal closing guarantees you high marks for form/register.",
-    lessonGoal: "Write a formal hotel reservation email using proper business greetings, lowercase continuation, clear room requests, and standard closing phrases."
+    lessonGoal: "Write a formal hotel reservation email using proper business greetings, lowercase continuation, clear room requests, and standard closing phrases.",
+    letterSamples: [
+      {
+        scenario: "Hotel booking — emailing a hotel",
+        taskPrompt: "Schreiben Sie eine E-Mail an das Hotel \"Kaiser Wilhelm\" in Hamburg. Sie brauchen ein Doppelzimmer mit Halbpension. Sie bleiben vier Nächte; Ankunft: 05.06., 16:30, Flughafen Fuhlsbüttel. Das Hotelauto soll Sie am Flughafen abholen.",
+        letter: `Sehr geehrte Damen und Herren,
+
+ich bin Alexander. Ich bin Arzt. Ich mache einen Ausflug nach Hamburg. Ich brauche ein Doppelzimmer mit Halbpension. Ich möchte im Hotel Kaiser Wilhelm in Hamburg bleiben. Ich bleibe vier Nächte dort. Ich komme am 5. Juni um 16:30 Uhr am Flughafen Fuhlsbüttel an. Das Hotelauto soll mich am Flughafen abholen.
+
+Können Sie mir bitte die Informationen per E-Mail schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George`
+      },
+      {
+        scenario: "Cooking course enquiry — writing to a cooking school",
+        taskPrompt: "Sie möchten einen Kochkurs bei der Kochschule Schmidt besuchen. Schreiben Sie an die Kochschule. (Warum schreiben Sie? Kurs wann? Preis?)",
+        letter: `Sehr geehrte Damen und Herren,
+
+ich bin Alexander. Ich wohne in Frankfurt. Ich bin ledig und koche selbst. Ich möchte im Sommer einen Kochkurs besuchen. Ich will die Kochschule Schmidt besuchen, denn ich kann sehr gut kochen. Wann fängt der Kurs an? Was kostet der Kurs? Können Sie mir bitte die Informationen per E-Mail oder SMS schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George`
+      },
+      {
+        scenario: "German course — writing to a former teacher",
+        taskPrompt: "Sie waren im letzten Sommer in München in einem Deutschkurs. Ihr Lehrer war Herr Bernadt, eine sehr sympathische Person. Schreiben Sie an Herrn Bernadt.",
+        letter: `Sehr geehrter Herr Bernadt,
+
+wie geht es Ihnen? Ich bin Alex. Mein Vorname ist Alexander, mein Nachname ist George und ich komme aus Indien. Ich war im letzten Sommer in München in einem Deutschkurs. Sie waren mein Lehrer. Ich möchte dieses Jahr im Sommer weiterstudieren. Meine Handynummer ist 9447189562 und meine E-Mail-Adresse ist alexanderocean@gmail.com. Können Sie mir die Informationen per E-Mail oder SMS schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George`
+      },
+      {
+        scenario: "Party food order — ordering catering for a party",
+        taskPrompt: "Sie feiern am nächsten Samstag eine Party für 30 Personen. Sie möchten Essen bestellen. Sie haben ein Restaurant und es bringt das Essen nach Hause. (Warum schreiben Sie? Welches Essen? Preis?)",
+        letter: `Sehr geehrte Frau Nabi,
+
+ich bin Alex. Ich mache am Samstagabend um 7 Uhr eine Geburtstagsparty in meinem Haus. Ich möchte Essen für 30 Personen bestellen. Ich möchte Tomatensuppe, Brot, Pommes frites, Wurst, Cola, Bier, Hähnchen, Obst und Nachtisch bestellen. Wie viel kostet das? Können Sie das Essen bitte nach Hause bringen?
+
+Meine Hausadresse ist Renewal Centre, Azad Straße, Kaloor, Ernakulam. Meine Handynummer ist 9447189562. Können Sie mich bitte anrufen?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George`
+      },
+      {
+        scenario: "Course absence — informing a teacher",
+        taskPrompt: "Sie machen einen Deutschkurs. Nächsten Montag können Sie aber nicht zum Unterricht gehen. Schreiben Sie an Ihre Lehrerin Frau Lindner. (Warum schreiben Sie? Hausaufgabe? Zurück in den Kurs wann?)",
+        letter: `Sehr geehrte Frau Lindner,
+
+ich bin Alexander. Meine Mutter hat am nächsten Montag Geburtstag. Wir machen am Abend eine Party. Darum möchte ich am Montag nach Hause gehen. Nächsten Montag kann ich aber nicht zum Unterricht kommen. Ich komme am Dienstag zurück. Gibt es Hausaufgaben? Können Sie mir bitte die Informationen per E-Mail schicken?
+
+Bitte helfen Sie mir.
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George`
+      },
+      {
+        scenario: "Language school enquiry — requesting course information",
+        taskPrompt: "Sie möchten einen Deutschkurs machen. Schreiben Sie eine E-Mail an die Sprachschule \"Deutschbistro\" in Hannover. Wann möchten Sie den Kurs machen? Sie möchten in einer deutschen Familie wohnen. Bitten Sie um Informationen über Termine und Preise.",
+        letter: `Sehr geehrte Damen und Herren,
+
+ich bin Alexander, komme aus Indien und arbeite in Köln. Ich spreche etwas Deutsch, darum möchte ich wieder studieren. Ich habe im Sommer Urlaub. Ich will im Sommer einen Deutschkurs machen. Ich möchte einen Kurs in der Sprachschule "Deutschbistro" in Hannover machen und ich möchte in einer deutschen Familie wohnen. Gibt es einen Kurs im Sommer? Wie viel kostet das?
+
+Meine Handynummer ist +91 9447189562 und meine E-Mail-Adresse ist alexanderocean@gmail.com. Können Sie mir bitte die Informationen über Termine und Preise per E-Mail oder SMS schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George`
+      }
+    ]
   },
   {
     lessonNo: 61,

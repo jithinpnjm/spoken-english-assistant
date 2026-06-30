@@ -119,7 +119,7 @@ export default function App() {
           </motion.div>
         ) : (
           <motion.div key="live-first-coach" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <LiveFirstCoach user={currentUser} userProfile={userProfile} onSignOut={handleSignOut} activeProfile={activeProfile} profileDisplayName={profileDisplayName} />
+            <LiveFirstCoach user={currentUser} userProfile={userProfile} onSignOut={handleSignOut} onBackToPortals={() => setSelectedPortal(null)} activeProfile={activeProfile} profileDisplayName={profileDisplayName} />
           </motion.div>
         )}
       </AnimatePresence>

@@ -38,6 +38,11 @@ export interface GermanA1BookLesson {
   skyPracticePrompts: string[];
   examRelevance: string;
   lessonGoal: string;
+  letterSamples?: Array<{
+    scenario: string;
+    taskPrompt: string;
+    letter: string;
+  }>;
 }
 
 export interface GermanA1BookLessonEnrichment {

@@ -88,7 +88,47 @@ export const germanA1BookLessonsPart11: GermanA1BookLesson[] = [
       "Ask Sky: Correct my letter! I will write a short invitation in German, and you tell me if I made any punctuation or grammar mistakes."
     ],
     examRelevance: "Schreiben Teil 2: Writing a 30-word message is 50% of your writing score. You are often prompted to invite a friend, suggest a time, and ask them to bring something. Mastering the 'Liebe/r... , ich...' structure guarantees easy points.",
-    lessonGoal: "Write a grammatically correct informal invitation, applying the correct gendered greeting, lowercase continuation, and separable verb structure."
+    lessonGoal: "Write a grammatically correct informal invitation, applying the correct gendered greeting, lowercase continuation, and separable verb structure.",
+    letterSamples: [
+      {
+        scenario: "Moving help — asking a friend with a car",
+        taskPrompt: "Sie ziehen in die 11. Straße um. Ihr Freund Johannes hat ein Auto. Er soll Ihnen helfen. Schreiben Sie an Johannes. (Warum schreiben Sie? Umziehen: Tag und Uhrzeit? Auto?)",
+        letter: `Lieber Johannes,
+
+wie geht's? Ich möchte am 22. Februar um 9 Uhr in meine neue Wohnung in der 11. Straße umziehen. Ich packe alle Kisten ein und ich trage alle Möbel in das neue Haus. Meine Familie ist groß, aber mein Auto ist klein. Du hast Innova. Es ist groß. Darum hilf mir bitte! Kommst du mit deinem Auto? Du kannst auch meine Eltern abholen. Ich rufe dich am 21. an.
+
+Wir sehen uns später.
+
+Viele Grüße
+Alex`
+      },
+      {
+        scenario: "Furniture delivery — asking a neighbour for help",
+        taskPrompt: "Sie haben einen Schrank gekauft. Sie bekommen ihn am Montag. Sie müssen am Montag arbeiten. Ihr Nachbar kann Ihnen helfen. (Warum schreiben Sie? Schlüssel? Hilfe?)",
+        letter: `Lieber Tony,
+
+wie geht's? Ich habe deine Handynummer vergessen, darum schreibe ich diesen Brief. Ich habe am Samstag einen Schrank gekauft, aber er ist noch nicht gekommen. Ich bekomme ihn am Montag. Ich muss am Montag arbeiten, deswegen kann ich nicht warten. Hast du Zeit? Sie stellen den Schrank ins Arbeitszimmer. Kannst du mir bitte helfen? Ich stelle den Schlüssel unter den Teppich in der Garage. Kannst du die Tür öffnen und kannst du das Arbeitszimmer zeigen?
+
+Kannst du am Sonntag anrufen? Meine Handynummer ist +618486. Danke.
+
+Wir sehen uns später.
+
+Liebe Grüße
+Alex`
+      },
+      {
+        scenario: "New baby — congratulating a friend",
+        taskPrompt: "Ihre Freundin Jasmin hat ein Baby bekommen. Sie möchten ihr gratulieren und sie zu Hause besuchen. Schreiben Sie an Jasmin. (Warum schreiben Sie? Besuch wann? Geschenk?)",
+        letter: `Liebe Jasmin,
+
+wie geht's? Wie geht es deinem Kind? Ich kann dich nicht anrufen. Ich möchte dich zu Hause besuchen und dir gratulieren. Ich komme im Februar um 5 Uhr nach deinem Haus. Ich habe ein Paar Fußballschuhe gekauft. Ich möchte ihm die Fußballschuhe schenken.
+
+Sehen wir uns am 22. Februar?
+
+Liebe Grüße
+Alex`
+      }
+    ]
   },
   {
     lessonNo: 52,

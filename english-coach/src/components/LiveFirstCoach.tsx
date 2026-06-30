@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { LogOut } from "lucide-react";
 import { fetchLearnerProfile, fetchSessionMessages, fetchUserSessions, saveSession, saveSessionMessage } from "../lib/firebase";
 import { useLiveCoachSession } from "../hooks/useLiveCoachSession";
 import { fetchCurriculum, startCurriculum, type CurriculumCourseView, type LessonCursorView, type ProductTrackView } from "../lib/curriculumClient";
@@ -13,6 +12,7 @@ interface LiveFirstCoachProps {
   user: any;
   userProfile: any;
   onSignOut: () => void;
+  onBackToPortals: () => void;
   activeProfile: string;
   profileDisplayName: string;
 }
@@ -22,7 +22,7 @@ function levelToBand(level: ProficiencyLevel): "Beginner" | "Intermediate" | "Ad
   return "Intermediate";
 }
 
-export default function LiveFirstCoach({ user, userProfile, onSignOut, activeProfile, profileDisplayName }: LiveFirstCoachProps) {
+export default function LiveFirstCoach({ user, userProfile, onSignOut, onBackToPortals, activeProfile, profileDisplayName }: LiveFirstCoachProps) {
   const [level, setLevel] = useState<ProficiencyLevel>((userProfile?.level as ProficiencyLevel) || "Intermediate");
   const [mode] = useState<CoachMode>("balanced");
   const [learnerProfile, setLearnerProfile] = useState<LearnerProfile | null>(null);
@@ -187,14 +187,13 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
   }
 
   return (
-    <div className="relative">
-      <div className="absolute right-4 top-4 z-10 flex items-center gap-3">
-        {error && <span className="max-w-xs rounded-xl border border-red-500/30 bg-red-950/90 px-3 py-2 text-xs text-red-100">{error}</span>}
-        {live.error && <span className="max-w-xs rounded-xl border border-red-500/30 bg-red-950/90 px-3 py-2 text-xs text-red-100">{live.error}</span>}
-        <button onClick={onSignOut} className="rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-xs font-semibold text-slate-100 hover:bg-white/15 flex items-center gap-2">
-          <LogOut className="h-4 w-4" /> Sign out
-        </button>
-      </div>
+    <>
+      {(error || live.error) && (
+        <div className="fixed top-4 right-4 z-50 space-y-2">
+          {error && <span className="block max-w-xs rounded-xl border border-red-500/30 bg-red-950/90 px-3 py-2 text-xs text-red-100">{error}</span>}
+          {live.error && <span className="block max-w-xs rounded-xl border border-red-500/30 bg-red-950/90 px-3 py-2 text-xs text-red-100">{live.error}</span>}
+        </div>
+      )}
       <LiveFirstLearningShell
         learnerName={profileDisplayName}
         courses={courses}
@@ -213,11 +212,13 @@ export default function LiveFirstCoach({ user, userProfile, onSignOut, activePro
         onSelectTopic={selectTopic}
         onStartLive={startLive}
         onStopLive={stopLive}
+        onSignOut={onSignOut}
+        onBackToPortals={onBackToPortals}
         dailyVocabWords={getDailyWords(levelToBand(level), learnerProfile?.challengeDay || 1, vocabSetIndex)}
         vocabSetIndex={vocabSetIndex}
         onStartVocabPractice={startVocabPractice}
         onMarkVocabComplete={markVocabComplete}
       />
-    </div>
+    </>
   );
 }

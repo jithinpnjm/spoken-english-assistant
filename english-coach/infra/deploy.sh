@@ -102,7 +102,7 @@ gcloud run deploy "${SERVICE_NAME}" \
   --max-instances=2 \
   --memory=512Mi \
   --cpu=1 \
-  --timeout=60 \
+  --timeout=3600 \
   --port=3000 \
   --set-env-vars="NODE_ENV=production,GEMINI_MODEL=${GEMINI_MODEL},GEMINI_LIVE_MODEL=${GEMINI_LIVE_MODEL}" \
   --set-secrets="GEMINI_API_KEY=GEMINI_API_KEY:latest"

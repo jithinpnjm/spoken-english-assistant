@@ -308,88 +308,312 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   }
 
   return (
-    <div className={`h-screen flex flex-col lg:flex-row p-4 gap-4 ${ui.bg} overflow-hidden`}>
-      <aside className={`w-full lg:w-96 flex-shrink-0 overflow-y-auto p-4 ${ui.panel}`}>
-        <div className="flex items-center justify-between mb-5">
-          <div><h1 className="text-2xl font-bold">{profileDisplayName}</h1><p className="text-xs text-slate-400">Sky English Coach</p></div>
-          <button onClick={onSignOut} className="p-2 rounded-lg hover:bg-white/10"><LogOut className="h-5 w-5" /></button>
-        </div>
-        <div className="grid grid-cols-3 gap-2 mb-4">
-          <div className="p-3 rounded-2xl bg-white/10 border border-white/10"><Flame className="h-4 w-4 text-orange-300" /><p className="text-xs mt-1">Day</p><p className="font-bold">{learnerProfile?.challengeDay || 1}/60</p></div>
-          <div className="p-3 rounded-2xl bg-white/10 border border-white/10"><Target className="h-4 w-4 text-emerald-300" /><p className="text-xs mt-1">Minutes</p><p className="font-bold">{learnerProfile?.totalPracticeMinutes || 0}</p></div>
-          <div className="p-3 rounded-2xl bg-white/10 border border-white/10"><BookOpen className="h-4 w-4 text-indigo-300" /><p className="text-xs mt-1">Weak</p><p className="font-bold">{mistakeMemory.length}</p></div>
-        </div>
-        <div className="space-y-3 mb-5">
-          <select value={mode} onChange={(e) => setMode(e.target.value as CoachMode)} className="w-full bg-slate-900 border border-white/10 rounded-xl p-3 text-sm"><option value="gentle_conversation">Gentle conversation</option><option value="balanced">Balanced coaching</option><option value="strict_correction">Strict correction</option><option value="roleplay">Roleplay</option><option value="workplace">Workplace</option></select>
-          <button onClick={onToggleHighContrast} className="w-full text-left bg-white/5 border border-white/10 rounded-xl p-3 text-sm">High contrast: {highContrast ? "On" : "Off"}</button>
-        </div>
-        <button onClick={() => createNewSession()} className={`w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2 ${ui.btn}`}><Plus className="h-5 w-5" /> New Session</button>
+    <div className="flex h-screen overflow-hidden" style={{ background: "#0a1628" }}>
 
-        <ProductModePanel
-          modes={productModes}
-          tracks={productTracks}
-          selectedMode={selectedProductMode}
-          selectedTrackId={selectedTrackId}
-          onModeChange={setSelectedProductMode}
-          onTrackChange={setSelectedTrackId}
-        />
+      {/* ── Sidebar ── */}
+      <aside className="w-72 flex-shrink-0 flex flex-col overflow-hidden border-r border-emerald-900/40" style={{ background: "#0c1e2e" }}>
 
-        <ContinueLessonCard
-          courses={courses}
-          cursor={cursor}
-          selectedTrack={selectedTrack}
-          onContinue={continueCurrentLesson}
-          isBusy={isLoading}
-        />
-
-        <CurriculumProgressPanel
-          courses={courses}
-          cursor={cursor}
-          selectedLevel={levelToBand(level)}
-          onSelectedLevelChange={(newLevel) => handleLevelChange(newLevel)}
-          selectedModuleId={selectedModuleId}
-          selectedSubsectionId={selectedSubsectionId}
-          onSelectedModuleChange={setSelectedModuleId}
-          onSelectedSubsectionChange={setSelectedSubsectionId}
-          onStartLevel={startCurrentLevel}
-          onStartModule={startSelectedModule}
-          onStartSubsection={startSelectedSubsection}
-          selectedTrackTitle={selectedTrack?.title}
-          allowedModuleIds={selectedTrack?.moduleIds}
-          isBusy={curriculumBusy}
-        />
-
-        {cursor && <div className="mt-5"><LessonPhaseTimeline currentPhase={cursor.phase} /></div>}
-
-        <h2 className="mt-6 mb-2 text-xs uppercase tracking-widest text-slate-400 font-bold">General Practice</h2>
-        <p className="text-[11px] text-slate-500 mb-2">Use this after study sessions for free talk, roleplay, warm-up, or review.</p>
-        <div className="space-y-2">{generalPracticeActivities.map((a, i) => <button key={a.type} onClick={() => startActivity(a)} className={`w-full text-left p-3 rounded-xl border text-sm ${i === dayIndex ? "border-emerald-400/50 bg-emerald-500/10" : "border-white/10 bg-white/5 hover:bg-white/10"}`}><span className="font-semibold">{a.title}</span><span className="block text-xs text-slate-400">{a.type}</span></button>)}</div>
-
-        <ReviewModePanel mistakes={mistakeMemory} onStartReview={startReviewDrill} />
-      </aside>
-      <main className={`flex-1 flex flex-col overflow-hidden ${ui.card}`}>
-        <header className="p-4 border-b border-white/10 flex items-center justify-between"><div><h2 className="font-bold">{selectedMode?.title || (cursor ? "Study Mode" : todayActivity.title)}</h2><p className="text-xs text-slate-400">Track: {selectedTrack?.title || "Not selected"} · Level: {levelToBand(level)} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "Choose a track or start general practice"}</p></div><Sparkles className="h-5 w-5 text-indigo-300" /></header>
-        <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-5">
-          {error && <div className="p-4 rounded-xl text-sm border border-red-500/20 bg-red-500/10 text-red-300 flex gap-2"><AlertTriangle className="h-5 w-5" />{error}</div>}
-          <div className="space-y-5 max-w-4xl mx-auto">
-            {(listening || selectedProductMode === "live" || hasLiveTranscript) && <LiveTranscriptPanel messages={messages} isListening={listening} />}
-            {!hasConversationMessages && <LessonEmptyState courses={courses} cursor={cursor} selectedModeTitle={selectedMode?.title} selectedTrack={selectedTrack} onContinue={continueCurrentLesson} />}
-            {messages.map((item) => {
-              const isCoach = item.sender === "coach" || item.sender === "system";
-              return <div key={item.messageId} className={`flex flex-col ${isCoach ? "items-start" : "items-end"}`}><div className={`p-4 max-w-[86%] text-sm leading-relaxed ${isCoach ? ui.coach : ui.user}`}><p>{item.text}</p>{item.lessonStep && <p className="mt-2 text-[10px] text-cyan-200 border-t border-white/10 pt-2">Lesson: {item.lessonStep} · Phase: {item.teachingPhase}</p>}{isCoach && item.sender === "coach" && <button onClick={() => speak(item.text)} className="mt-2 pt-2 border-t border-white/10 text-xs text-indigo-300 flex gap-1"><Volume2 className="h-3 w-3" /> Read aloud</button>}</div>{item.grammarCorrection && item.grammarCorrection.trim() && <div className="mt-2 max-w-[86%] p-4 rounded-2xl border border-emerald-500/30 bg-emerald-950/20 text-sm"><p className="font-bold text-emerald-300 mb-1">Better sentence</p><p>{item.grammarCorrection}</p>{item.naturalVersion && <p className="mt-2 text-slate-300"><b>Natural:</b> {item.naturalVersion}</p>}{item.mistakes?.length ? <ul className="list-disc pl-5 mt-2 text-xs text-slate-300">{item.mistakes.map((m, i) => <li key={i}>{m.type}: {m.explanation}</li>)}</ul> : null}{item.microDrill?.instruction && <p className="mt-2 text-xs text-indigo-200">Drill: {item.microDrill.instruction}</p>}{typeof item.fluencyScore === "number" && <p className="mt-2 text-xs text-slate-400">Scores: Fluency {item.fluencyScore} · Grammar {item.grammarScore} · Vocabulary {item.vocabularyScore}</p>}</div>}</div>;
-            })}
-            {isLoading && <div className="text-sm text-slate-400">Sky is analysing your English...</div>}
-            <div ref={chatEndRef} />
+        {/* Header */}
+        <div className="flex-shrink-0 p-4 border-b border-emerald-900/30">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-emerald-600 font-semibold">English Coach</p>
+              <h1 className="text-sm font-bold text-white mt-0.5">{profileDisplayName}</h1>
+            </div>
+            <button onClick={onSignOut} className="p-1.5 rounded-lg text-emerald-800 hover:text-emerald-500 hover:bg-emerald-900/30 transition">
+              <LogOut className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="grid grid-cols-3 gap-2 mt-3">
+            {[
+              { icon: <Flame className="h-3.5 w-3.5 text-orange-400 mx-auto" />, label: "Day", value: `${learnerProfile?.challengeDay || 1}/60` },
+              { icon: <Target className="h-3.5 w-3.5 text-emerald-400 mx-auto" />, label: "Mins", value: String(learnerProfile?.totalPracticeMinutes || 0) },
+              { icon: <BookOpen className="h-3.5 w-3.5 text-violet-400 mx-auto" />, label: "Weak", value: String(mistakeMemory.length) },
+            ].map((s) => (
+              <div key={s.label} className="rounded-lg bg-emerald-900/20 border border-emerald-900/30 p-2 text-center">
+                {s.icon}
+                <p className="text-[10px] text-emerald-700 mt-0.5">{s.label}</p>
+                <p className="text-xs font-bold text-white">{s.value}</p>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="p-4 border-t border-white/10">
-          {listening && <div className="mb-2 text-xs text-emerald-300 flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Listening now. Speak one sentence clearly. Sky's transcript appears above.</div>}
+
+        {/* Scrollable nav */}
+        <div className="flex-1 overflow-y-auto p-3 space-y-4">
+
+          {/* Level */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-semibold mb-2">Level</p>
+            <div className="flex gap-1">
+              {(["Beginner", "Intermediate", "Advanced"] as ProficiencyLevel[]).map((lvl) => (
+                <button
+                  key={lvl}
+                  onClick={() => handleLevelChange(lvl)}
+                  className={`flex-1 rounded-md py-1.5 text-[11px] font-bold transition ${
+                    level === lvl ? "bg-emerald-600 text-white" : "bg-emerald-900/30 text-emerald-700 hover:bg-emerald-800/40 hover:text-emerald-400"
+                  }`}
+                >
+                  {lvl[0]}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Mode */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-semibold mb-2">Coaching mode</p>
+            <div className="space-y-0.5">
+              {([
+                { value: "gentle_conversation", label: "Gentle conversation" },
+                { value: "balanced",            label: "Balanced" },
+                { value: "strict_correction",   label: "Strict correction" },
+                { value: "roleplay",            label: "Roleplay" },
+                { value: "workplace",           label: "Workplace" },
+              ] as { value: CoachMode; label: string }[]).map((m) => (
+                <button
+                  key={m.value}
+                  onClick={() => setMode(m.value)}
+                  className={`w-full text-left rounded-lg px-3 py-2 text-xs font-medium transition ${
+                    mode === m.value
+                      ? "bg-emerald-700/40 text-emerald-200 border border-emerald-700/50"
+                      : "text-emerald-700 hover:bg-emerald-900/20 hover:text-emerald-400"
+                  }`}
+                >
+                  {m.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Track */}
+          {productTracks.length > 0 && (
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-semibold mb-2">Track</p>
+              <div className="space-y-0.5">
+                {productTracks.map((track) => (
+                  <button
+                    key={track.id}
+                    onClick={() => setSelectedTrackId(track.id)}
+                    className={`w-full text-left rounded-lg px-3 py-2 text-xs font-medium transition ${
+                      selectedTrackId === track.id
+                        ? "bg-emerald-700/40 text-emerald-200 border border-emerald-700/50"
+                        : "text-emerald-700 hover:bg-emerald-900/20 hover:text-emerald-400"
+                    }`}
+                  >
+                    {track.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Curriculum */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-semibold mb-2">Curriculum</p>
+            {cursor && (
+              <button
+                onClick={continueCurrentLesson}
+                disabled={isLoading}
+                className="w-full mb-2 flex items-center gap-2 rounded-lg border border-emerald-700/50 bg-emerald-700/20 px-3 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-700/30 disabled:opacity-50 transition"
+              >
+                <Sparkles className="h-3 w-3" /> Continue: {cursor.subsectionId}
+              </button>
+            )}
+            <div className="space-y-0.5">
+              {courses
+                .flatMap((c) => c.modules)
+                .filter((m) => !selectedTrack?.moduleIds || selectedTrack.moduleIds.includes(m.id))
+                .map((module) => {
+                  const isActive = selectedModuleId === module.id;
+                  return (
+                    <div key={module.id}>
+                      <button
+                        onClick={() => setSelectedModuleId(isActive ? "" : module.id)}
+                        className={`w-full text-left rounded-lg px-3 py-2 text-xs font-medium transition ${
+                          isActive
+                            ? "bg-emerald-800/40 text-emerald-200 border border-emerald-800/50"
+                            : "text-emerald-700 hover:text-emerald-400 hover:bg-emerald-900/20"
+                        }`}
+                      >
+                        {module.title}
+                      </button>
+                      {isActive && module.subsections.length > 0 && (
+                        <div className="ml-3 mt-0.5 mb-1 space-y-0.5 border-l border-emerald-900/50 pl-2">
+                          {module.subsections.map((sub) => (
+                            <button
+                              key={sub.id}
+                              onClick={() => startSelectedSubsection(sub.id)}
+                              className={`w-full text-left rounded px-2 py-1.5 text-[11px] transition ${
+                                cursor?.subsectionId === sub.id
+                                  ? "bg-emerald-600/30 text-emerald-200 font-semibold"
+                                  : "text-emerald-700 hover:text-emerald-400 hover:bg-emerald-900/20"
+                              }`}
+                            >
+                              {sub.title}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+
+          {/* General Practice */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-semibold mb-2">Practice</p>
+            <div className="space-y-0.5">
+              {generalPracticeActivities.map((a, i) => (
+                <button
+                  key={a.type}
+                  onClick={() => startActivity(a)}
+                  className={`w-full text-left rounded-lg px-3 py-2 text-xs font-medium transition ${
+                    i === dayIndex
+                      ? "border border-emerald-700/50 bg-emerald-900/30 text-emerald-300"
+                      : "text-emerald-700 hover:bg-emerald-900/20 hover:text-emerald-400"
+                  }`}
+                >
+                  {a.title}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Mistake Review */}
+          {mistakeMemory.length > 0 && (
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-semibold mb-2">Mistake Review</p>
+              <ReviewModePanel mistakes={mistakeMemory} onStartReview={startReviewDrill} />
+            </div>
+          )}
+
+          {/* Actions */}
+          <div className="space-y-1.5 pb-2">
+            <button
+              onClick={() => createNewSession()}
+              className="w-full flex items-center justify-center gap-2 rounded-lg bg-emerald-700 text-white px-3 py-2.5 text-xs font-bold hover:bg-emerald-600 transition"
+            >
+              <Plus className="h-3.5 w-3.5" /> New Session
+            </button>
+            <button onClick={onToggleHighContrast} className="w-full text-emerald-800 hover:text-emerald-600 px-3 py-1.5 text-[11px] transition">
+              High contrast: {highContrast ? "On" : "Off"}
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      {/* ── Main content ── */}
+      <main className="flex-1 flex flex-col overflow-hidden" style={{ background: "#0a1628" }}>
+
+        {/* Header */}
+        <div className="flex-shrink-0 border-b border-emerald-900/30 px-6 py-4 flex items-center justify-between gap-4" style={{ background: "#0c1e2e" }}>
+          <div className="min-w-0">
+            <h2 className="text-sm font-bold text-white truncate">{selectedMode?.title || (cursor ? "Study Mode" : todayActivity.title)}</h2>
+            <p className="text-xs text-emerald-700 truncate">
+              {selectedTrack?.title || "No track"} · {levelToBand(level)} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "General practice"}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={toggleMic}
+            disabled={isLoading}
+            className={`flex-shrink-0 flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold transition ${
+              listening || geminiLive.isConnected
+                ? "bg-red-800/70 text-red-100 hover:bg-red-800"
+                : "bg-emerald-700 text-white hover:bg-emerald-600"
+            }`}
+          >
+            {listening || geminiLive.isConnected
+              ? <><MicOff className="h-3.5 w-3.5" /> Stop</>
+              : <><Mic className="h-3.5 w-3.5" /> Live</>}
+          </button>
+        </div>
+
+        {/* Messages */}
+        <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
+          {error && (
+            <div className="flex gap-2 p-4 rounded-xl text-sm border border-red-500/20 bg-red-950/30 text-red-300">
+              <AlertTriangle className="h-5 w-5 flex-shrink-0" /> {error}
+            </div>
+          )}
+          {(listening || selectedProductMode === "live" || hasLiveTranscript) && (
+            <LiveTranscriptPanel messages={messages} isListening={listening} />
+          )}
+          {!hasConversationMessages && (
+            <LessonEmptyState courses={courses} cursor={cursor} selectedModeTitle={selectedMode?.title} selectedTrack={selectedTrack} onContinue={continueCurrentLesson} />
+          )}
+          {messages.map((item) => {
+            const isCoach = item.sender === "coach" || item.sender === "system";
+            return (
+              <div key={item.messageId} className={`flex flex-col ${isCoach ? "items-start" : "items-end"}`}>
+                <div className={`p-4 max-w-[86%] text-sm leading-relaxed rounded-2xl ${
+                  isCoach
+                    ? "bg-emerald-950/50 border border-emerald-900/40 text-emerald-100 rounded-tl-none"
+                    : "bg-emerald-700/30 border border-emerald-700/40 text-emerald-50 rounded-tr-none"
+                }`}>
+                  <p>{item.text}</p>
+                  {item.lessonStep && (
+                    <p className="mt-2 text-[10px] text-emerald-700 border-t border-emerald-900/50 pt-2">
+                      Lesson: {item.lessonStep} · Phase: {item.teachingPhase}
+                    </p>
+                  )}
+                  {isCoach && item.sender === "coach" && (
+                    <button onClick={() => speak(item.text)} className="mt-2 pt-2 border-t border-emerald-900/50 text-xs text-emerald-700 hover:text-emerald-400 flex gap-1 transition">
+                      <Volume2 className="h-3 w-3" /> Read aloud
+                    </button>
+                  )}
+                </div>
+                {item.grammarCorrection && item.grammarCorrection.trim() && (
+                  <div className="mt-2 max-w-[86%] p-4 rounded-2xl border border-emerald-700/40 bg-emerald-900/20 text-sm">
+                    <p className="font-bold text-emerald-400 mb-1 text-xs uppercase tracking-wide">Better sentence</p>
+                    <p className="text-emerald-100">{item.grammarCorrection}</p>
+                    {item.naturalVersion && <p className="mt-2 text-emerald-200"><b>Natural:</b> {item.naturalVersion}</p>}
+                    {item.mistakes?.length ? (
+                      <ul className="list-disc pl-5 mt-2 text-xs text-emerald-600">
+                        {item.mistakes.map((m, i) => <li key={i}>{m.type}: {m.explanation}</li>)}
+                      </ul>
+                    ) : null}
+                    {item.microDrill?.instruction && <p className="mt-2 text-xs text-emerald-500">Drill: {item.microDrill.instruction}</p>}
+                    {typeof item.fluencyScore === "number" && (
+                      <p className="mt-2 text-xs text-emerald-700">
+                        Fluency {item.fluencyScore} · Grammar {item.grammarScore} · Vocabulary {item.vocabularyScore}
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          {isLoading && <p className="text-sm text-emerald-700">Sky is analysing your English…</p>}
+          <div ref={chatEndRef} />
+        </div>
+
+        {/* Input */}
+        <div className="flex-shrink-0 border-t border-emerald-900/30 p-4" style={{ background: "#0c1e2e" }}>
+          {listening && (
+            <div className="mb-2 text-xs text-emerald-400 flex items-center gap-2">
+              <CheckCircle className="h-3.5 w-3.5" /> Listening — speak one sentence clearly.
+            </div>
+          )}
           <form onSubmit={(e) => { e.preventDefault(); sendToCoach(inputText, "chat"); }} className="flex gap-2">
-            <input value={inputText} onChange={(e) => setInputText(e.target.value)} disabled={isLoading} placeholder={cursor ? "Answer the current study lesson..." : "Type an English sentence or start general practice..."} className={`flex-1 px-4 py-3 rounded-xl text-sm outline-none ${ui.input}`} />
-            <button type="submit" disabled={isLoading || !inputText.trim()} className={`px-4 py-3 rounded-xl ${ui.btn}`}><Send className="h-5 w-5" /></button>
-            <button type="button" onClick={toggleMic} disabled={isLoading} className={`px-4 py-3 rounded-xl ${listening ? "bg-red-600 text-white" : ui.btn}`}>{listening ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}</button>
+            <input
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              disabled={isLoading}
+              placeholder={cursor ? "Answer the current study lesson…" : "Type an English sentence…"}
+              className="flex-1 rounded-xl border border-emerald-900/40 bg-emerald-900/20 px-4 py-3 text-sm text-emerald-100 placeholder:text-emerald-800 outline-none focus:border-emerald-700/60 transition"
+            />
+            <button type="submit" disabled={isLoading || !inputText.trim()}
+              className="px-4 py-3 rounded-xl bg-emerald-700 text-white hover:bg-emerald-600 disabled:opacity-40 transition">
+              <Send className="h-4 w-4" />
+            </button>
+            <button type="button" onClick={toggleMic} disabled={isLoading}
+              className={`px-4 py-3 rounded-xl transition ${listening ? "bg-red-700 text-white" : "bg-emerald-700 text-white hover:bg-emerald-600"}`}>
+              {listening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+            </button>
           </form>
-          <p className="text-[10px] text-slate-500 text-center mt-2">Voice mode uses backend bridge for live coaching, so your model credential is never sent to the browser.</p>
         </div>
       </main>
     </div>
