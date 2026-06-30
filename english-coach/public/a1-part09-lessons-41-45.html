@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>German A1 — Lessons 41–45</title>
+  <style>
+    :root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
+    .page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
+    .page-header h1{color:var(--sky);font-size:1.8rem}
+    .page-header p{color:var(--muted);margin-top:.5rem}
+    .lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
+    .lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
+    .lesson-nav a:hover{background:var(--border)}
+    main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+    .lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
+    .lesson:target{border-color:var(--indigo)}
+    .lesson-header{margin-bottom:1.5rem}
+    .lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
+    .lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
+    .lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
+    .section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
+    .section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
+    .section-title.sky{color:var(--sky)} .section-title.amber{color:var(--amber)} .section-title.green{color:var(--green)} .section-title.rose{color:var(--rose)} .section-title.indigo{color:var(--indigo)} .section-title.purple{color:var(--purple)} .section-title.muted{color:var(--muted)}
+    .rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+    .rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
+    .formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+    .formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
+    .vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
+    .vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
+    .vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}
+    .vocab-table tr:last-child td{border-bottom:none}
+    .vocab-de{color:var(--sky);font-weight:500}
+    .vocab-en{color:var(--text)}
+    .vocab-ex{color:var(--muted);font-size:.85rem}
+    .model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
+    .model-de{font-size:1rem;font-weight:600;color:var(--text)}
+    .model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0}
+    .model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
+    .mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
+    .mistake-wrong{color:var(--rose)}
+    .mistake-right{color:var(--green)}
+    .mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+    .exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+    .exercise-item:last-child{border-bottom:none}
+    .exercise-prompt{color:var(--text)}
+    .exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
+    .note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
+    .grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
+    .grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+    .grammar-table td{padding:.4rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}
+    .grammar-table tr:last-child td{border-bottom:none}
+    @media(max-width:600px){main{padding:1rem}.lesson{padding:1.25rem}}
+  </style>
+</head>
+<body>
+  <div class="page-header">
+    <h1>German A1 — Lessons 41–45</h1>
+    <p>war/hatte · Non-Separable Verbs · Health · Perfekt Structure · haben vs sein</p>
+  </div>
+  <nav class="lesson-nav">
+    <a href="#lesson-41">Lesson 41: war / hatte</a>
+    <a href="#lesson-42">Lesson 42: Non-Separable Verbs</a>
+    <a href="#lesson-43">Lesson 43: Health</a>
+    <a href="#lesson-44">Lesson 44: Perfekt Structure</a>
+    <a href="#lesson-45">Lesson 45: haben vs sein</a>
+  </nav>
+  <main>
+
+    <!-- LESSON 41 -->
+    <section id="lesson-41" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 41</div>
+        <h2 class="lesson-title">war / hatte — Simple Past of sein/haben — Präteritum von sein und haben</h2>
+        <p class="lesson-intro">To talk about the past in spoken German, we almost always use a complex two-verb structure (the Present Perfect). However, there are two massive exceptions: 'sein' (to be) and 'haben' (to have). For these two verbs, Germans use the Simple Past even in casual conversation. Saying 'I was sick' or 'I had time' requires memorizing 'war' and 'hatte'.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">'war' is the past form of 'sein' (I was). 'hatte' is the past form of 'haben' (I had).</div>
+        <div class="rule-item">Just like with modal verbs, the 'ich' form and the 'er/sie/es' form are completely identical (ich war / er war).</div>
+        <div class="rule-item">Do NOT add a '-t' to the 'er/sie/es' form. It stays exactly the same as 'ich'.</div>
+        <div class="rule-item">Use 'war' to describe past states or locations (I was tired, I was in Berlin).</div>
+        <div class="rule-item">Use 'hatte' to describe past possessions or physical feelings (I had a car, I had a headache).</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Past State: Subject + war(en) + Adjective/Place. (Ich war müde.)</div>
+        <div class="formula-item">Past Possession: Subject + hatte(n) + Noun. (Ich hatte Zeit.)</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>Pronoun</th><th>war (was)</th><th>hatte (had)</th></tr>
+          <tr><td>ich</td><td>war</td><td>hatte</td></tr>
+          <tr><td>du</td><td>warst</td><td>hattest</td></tr>
+          <tr><td>er/sie/es</td><td>war (identical to ich!)</td><td>hatte (identical to ich!)</td></tr>
+          <tr><td>wir</td><td>waren</td><td>hatten</td></tr>
+          <tr><td>ihr</td><td>wart</td><td>hattet</td></tr>
+          <tr><td>sie/Sie</td><td>waren</td><td>hatten</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">war</td><td class="vocab-en">was</td><td class="vocab-ex">Ich war gestern zu Hause. — I was at home yesterday.</td></tr>
+          <tr><td class="vocab-de">hatte</td><td class="vocab-en">had</td><td class="vocab-ex">Er hatte einen Hund. — He had a dog.</td></tr>
+          <tr><td class="vocab-de">gestern</td><td class="vocab-en">yesterday</td><td class="vocab-ex">Gestern war Montag. — Yesterday was Monday.</td></tr>
+          <tr><td class="vocab-de">früher</td><td class="vocab-en">in the past / earlier</td><td class="vocab-ex">Früher hatte ich kein Auto. — In the past I had no car.</td></tr>
+          <tr><td class="vocab-de">letztes Jahr</td><td class="vocab-en">last year</td><td class="vocab-ex">Letztes Jahr war ich in Berlin. — Last year I was in Berlin.</td></tr>
+          <tr><td class="vocab-de">letzte Woche</td><td class="vocab-en">last week</td><td class="vocab-ex">Letzte Woche hatte ich Urlaub. — Last week I had vacation.</td></tr>
+          <tr><td class="vocab-de">der Urlaub</td><td class="vocab-en">vacation / holiday</td><td class="vocab-ex">Mein Urlaub war schön. — My vacation was nice.</td></tr>
+          <tr><td class="vocab-de">das Glück</td><td class="vocab-en">luck</td><td class="vocab-ex">Wir hatten viel Glück. — We had a lot of luck.</td></tr>
+          <tr><td class="vocab-de">der Stress</td><td class="vocab-en">stress</td><td class="vocab-ex">Hattest du Stress auf der Arbeit? — Did you have stress at work?</td></tr>
+          <tr><td class="vocab-de">das Wochenende</td><td class="vocab-en">weekend</td><td class="vocab-ex">Das Wochenende war super. — The weekend was great.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Gestern war ich krank.</div>
+          <div class="model-en">Yesterday I was sick.</div>
+          <div class="model-breakdown">Gestern = Yesterday (position 1) | war = was (position 2) | ich = I (position 3) | krank = sick → Inversion rule still applies with 'war'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Letzte Woche hatte ich viel Stress.</div>
+          <div class="model-en">Last week I had a lot of stress.</div>
+          <div class="model-breakdown">Letzte Woche = Last week (position 1, time block) | hatte = had (position 2) | ich = I (position 3) | viel Stress = a lot of stress → Time block in position 1 forces subject to position 3.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wo warst du am Wochenende?</div>
+          <div class="model-en">Where were you on the weekend?</div>
+          <div class="model-breakdown">Wo = Where | warst = were (past of 'sein' for 'du') | du = you | am Wochenende = on the weekend → 'du' form adds '-st': war + st = warst.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Früher hatten wir kein Geld, aber wir waren glücklich.</div>
+          <div class="model-en">In the past we had no money, but we were happy.</div>
+          <div class="model-breakdown">Früher = In the past | hatten = had (wir form) | wir = we | kein Geld = no money | aber = but | wir = we | waren = were (wir form) | glücklich = happy → 'wir' form adds '-en' to both.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Mein Vater hatte ein altes Auto. Es war sehr laut.</div>
+          <div class="model-en">My father had an old car. It was very loud.</div>
+          <div class="model-breakdown">Mein Vater = My father | hatte = had ('er' form — identical to 'ich' form, no extra '-t') | ein altes Auto = an old car | Es = It | war = was | sehr laut = very loud → 'er' form never gets a '-t'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Hattet ihr einen guten Flug?</div>
+          <div class="model-en">Did you all have a good flight?</div>
+          <div class="model-breakdown">Hattet = Had (verb first for yes/no question, 'ihr' form) | ihr = you all | einen guten Flug = a good flight → 'ihr' form of 'hatte' is 'hattet'.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Gestern ___ ich keine Zeit. (had)</div>
+          <div class="exercise-answer">Answer: hatte (Past of haben)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Die Pizza ___ sehr lecker! (was)</div>
+          <div class="exercise-answer">Answer: war (Past of sein, es form)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Wo ___ ihr gestern Abend? (were)</div>
+          <div class="exercise-answer">Answer: wart (Past of sein, ihr form)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: Last week I was sick.</div>
+          <div class="exercise-answer">Answer: Letzte Woche war ich krank.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: Did you (informal) have time?</div>
+          <div class="exercise-answer">Answer: Hattest du Zeit?</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Letztes Jahr ich war in München.</div>
+          <div class="mistake-right">✓ Letztes Jahr war ich in München.</div>
+          <div class="mistake-explain">Inversion rule still applies! 'Letztes Jahr' takes Position 1, so the verb 'war' MUST stay in Position 2, pushing 'ich' to Position 3.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Mein Bruder wart hier.</div>
+          <div class="mistake-right">✓ Mein Bruder war hier.</div>
+          <div class="mistake-explain">Adding a '-t' to the 3rd person singular. The 'er/sie/es' form of 'war' is just 'war' — no '-t' is ever added.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich war Hunger.</div>
+          <div class="mistake-right">✓ Ich hatte Hunger.</div>
+          <div class="mistake-explain">Translating 'I was hungry' literally. In German, you 'have' hunger. Therefore, in the past tense, you 'had' hunger (Ich hatte Hunger).</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 42 -->
+    <section id="lesson-42" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 42</div>
+        <h2 class="lesson-title">Non-Separable Verbs — Untrennbare Verben</h2>
+        <p class="lesson-intro">In Lesson 37, you learned about verbs that split apart (like 'aufstehen'). However, there is a distinct family of prefixes in German that are permanently glued to their base verbs. They never separate, no matter what. Memorizing these specific 'superglue' prefixes will save you from breaking words that are meant to stay whole.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">There are 8 prefixes that NEVER separate from the verb: be-, emp-, ent-, er-, ge-, miss-, ver-, zer-.</div>
+        <div class="rule-item">A common mnemonic to remember them is: 'Be-emp-ent-er-ge-miss-ver-zer'.</div>
+        <div class="rule-item">Because they do not separate, you treat them exactly like completely normal verbs. The whole word takes Position 2.</div>
+        <div class="rule-item">Example: 'verstehen' (to understand). You say 'Ich verstehe das' (I understand that). You NEVER say 'Ich stehe das ver'.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Subject (1) + Non-Separable Verb (2) + Object/Rest.</div>
+        <div class="formula-item">Ich (1) + besuche (2) + meinen Vater (3).</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">verstehen</td><td class="vocab-en">to understand</td><td class="vocab-ex">Ich verstehe die Frage. — I understand the question.</td></tr>
+          <tr><td class="vocab-de">besuchen</td><td class="vocab-en">to visit</td><td class="vocab-ex">Wir besuchen unsere Oma. — We are visiting our grandma.</td></tr>
+          <tr><td class="vocab-de">bezahlen</td><td class="vocab-en">to pay</td><td class="vocab-ex">Er bezahlt die Rechnung. — He pays the bill.</td></tr>
+          <tr><td class="vocab-de">bekommen</td><td class="vocab-en">to get / receive</td><td class="vocab-ex">Ich bekomme ein Paket. — I am receiving a package.</td></tr>
+          <tr><td class="vocab-de">erzählen</td><td class="vocab-en">to tell / narrate</td><td class="vocab-ex">Die Mutter erzählt eine Geschichte. — The mother tells a story.</td></tr>
+          <tr><td class="vocab-de">vergessen</td><td class="vocab-en">to forget</td><td class="vocab-ex">Vergiss das nicht! — Don't forget that!</td></tr>
+          <tr><td class="vocab-de">verkaufen</td><td class="vocab-en">to sell</td><td class="vocab-ex">Sie verkauft ihr Auto. — She is selling her car.</td></tr>
+          <tr><td class="vocab-de">gefallen</td><td class="vocab-en">to be pleasing / to like</td><td class="vocab-ex">Das Bild gefällt mir. — I like the picture.</td></tr>
+          <tr><td class="vocab-de">erwarten</td><td class="vocab-en">to expect</td><td class="vocab-ex">Ich erwarte eine E-Mail. — I am expecting an email.</td></tr>
+          <tr><td class="vocab-de">der Fehler</td><td class="vocab-en">mistake</td><td class="vocab-ex">Er versteht den Fehler. — He understands the mistake.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Ich verstehe dieses Wort nicht.</div>
+          <div class="model-en">I do not understand this word.</div>
+          <div class="model-breakdown">Ich = I | verstehe = understand (the 'ver-' prefix stays glued — it never moves to the end) | dieses Wort = this word | nicht = not → No splitting. The whole verb stays in position 2.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Besuchst du am Wochenende deine Eltern?</div>
+          <div class="model-en">Are you visiting your parents on the weekend?</div>
+          <div class="model-breakdown">Besuchst = Visit (the 'be-' prefix stays glued) | du = you | am Wochenende = on the weekend | deine Eltern = your parents → Conjugate the full word, nothing separates.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wir bekommen heute Besuch.</div>
+          <div class="model-en">We are getting visitors today.</div>
+          <div class="model-breakdown">Wir = We | bekommen = get/receive (the 'be-' prefix stays glued) | heute = today | Besuch = visit (noun) → Watch out: 'bekommen' means 'receive', not 'become'!</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Der Mann verkauft sein altes Fahrrad.</div>
+          <div class="model-en">The man is selling his old bicycle.</div>
+          <div class="model-breakdown">Der Mann = The man | verkauft = sells (the 'ver-' prefix stays glued) | sein altes Fahrrad = his old bicycle → Whole verb in position 2 as normal.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Erzählen Sie mir von Ihrem Beruf.</div>
+          <div class="model-en">Tell me about your profession. (Formal command)</div>
+          <div class="model-breakdown">Erzählen Sie = Tell (formal command with 'er-' prefix, stays glued) | mir = to me | von Ihrem Beruf = about your profession → Even in commands, the prefix never separates.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Ich vergesse immer meinen Schlüssel.</div>
+          <div class="model-en">I always forget my key.</div>
+          <div class="model-breakdown">Ich = I | vergesse = forget (the 'ver-' prefix stays glued) | immer = always | meinen Schlüssel = my key (masculine direct object) → Nothing moves to the end.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Does 'besuchen' split or stay whole? Choose: (Ich besuche ihn / Ich suche ihn be)</div>
+          <div class="exercise-answer">Answer: Ich besuche ihn — 'be-' never splits.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Does 'anrufen' split or stay whole? Choose: (Ich anrufe ihn / Ich rufe ihn an)</div>
+          <div class="exercise-answer">Answer: Ich rufe ihn an — 'an-' IS separable, so it splits!</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: die Rechnung / bezahlt / Der Gast</div>
+          <div class="exercise-answer">Answer: Der Gast bezahlt die Rechnung.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: Auto / Er / sein / verkauft</div>
+          <div class="exercise-answer">Answer: Er verkauft sein Auto.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich suche meine Oma be.</div>
+          <div class="mistake-right">✓ Ich besuche meine Oma.</div>
+          <div class="mistake-explain">Treating a 'be-' verb as separable. The prefix 'be-' is permanently glued. It never goes to the end of the sentence.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich bekomme nach Berlin.</div>
+          <div class="mistake-right">✓ Ich komme nach Berlin.</div>
+          <div class="mistake-explain">False friend! 'Bekommen' sounds like 'become' in English, but it actually means 'to receive/get'. If you want to say you are coming to Berlin, just use 'kommen'.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Wir zahlen die Rechnung be.</div>
+          <div class="mistake-right">✓ Wir bezahlen die Rechnung.</div>
+          <div class="mistake-explain">Splitting an inseparable verb. 'Bezahlen' (to pay) stays whole in Position 2.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSON 43 -->
+    <section id="lesson-43" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 43</div>
+        <h2 class="lesson-title">Talking About Your Health — Über Gesundheit sprechen</h2>
+        <p class="lesson-intro">If you need to call in sick to work or visit a doctor in Germany, you must know how to describe where you hurt. Germans use two very specific structures to express pain: the noun-based 'I have...-pain' (Ich habe Kopfschmerzen) and the verb-based 'My... hurts me' (Mir tut der Kopf weh). Mastering these ensures you get the right help quickly.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">Structure 1: Combine the body part + 'schmerzen' (pains). Use the verb 'haben'. (Ich habe Kopfschmerzen = I have head-pains).</div>
+        <div class="rule-item">Structure 2: The separable verb 'wehtun' (to hurt).</div>
+        <div class="rule-item">In Structure 2, the body part is the subject (doing the hurting), and you are the receiver (use 'mir').</div>
+        <div class="rule-item">Therefore: [Body part] + tut + mir + weh. (Der Kopf tut mir weh).</div>
+        <div class="rule-item">If plural body parts hurt (like teeth or eyes), use the plural verb 'tun': [Plural body parts] + tun + mir + weh.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Structure 1: Ich habe + [Body Part]schmerzen.</div>
+        <div class="formula-item">Structure 2 (Singular): Mein [Body Part] + tut + mir + weh.</div>
+        <div class="formula-item">Structure 2 (Plural): Meine [Plural Body Parts] + tun + mir + weh.</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>Body Part</th><th>Structure 1 (haben)</th><th>Structure 2 (wehtun)</th></tr>
+          <tr><td>der Kopf (head)</td><td>Ich habe Kopfschmerzen.</td><td>Der Kopf tut mir weh.</td></tr>
+          <tr><td>der Bauch (stomach)</td><td>Ich habe Bauchschmerzen.</td><td>Mein Bauch tut mir weh.</td></tr>
+          <tr><td>der Zahn (tooth)</td><td>Ich habe Zahnschmerzen.</td><td>Mein Zahn tut mir weh.</td></tr>
+          <tr><td>die Augen (eyes - plural)</td><td>Ich habe Augenschmerzen.</td><td>Meine Augen tun mir weh.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">der Kopf</td><td class="vocab-en">head</td><td class="vocab-ex">Mein Kopf ist heiß. — My head is hot.</td></tr>
+          <tr><td class="vocab-de">der Bauch</td><td class="vocab-en">stomach / belly</td><td class="vocab-ex">Der Bauch tut mir weh. — My stomach hurts.</td></tr>
+          <tr><td class="vocab-de">der Hals</td><td class="vocab-en">throat / neck</td><td class="vocab-ex">Ich habe Halsschmerzen. — I have a sore throat.</td></tr>
+          <tr><td class="vocab-de">der Rücken</td><td class="vocab-en">back</td><td class="vocab-ex">Mein Rücken tut weh. — My back hurts.</td></tr>
+          <tr><td class="vocab-de">der Zahn</td><td class="vocab-en">tooth</td><td class="vocab-ex">Der Zahnarzt ist hier. — The dentist is here.</td></tr>
+          <tr><td class="vocab-de">die Schmerzen</td><td class="vocab-en">pain(s) / ache</td><td class="vocab-ex">Haben Sie Schmerzen? — Do you have pain?</td></tr>
+          <tr><td class="vocab-de">wehtun</td><td class="vocab-en">to hurt (separable)</td><td class="vocab-ex">Wo tut es weh? — Where does it hurt?</td></tr>
+          <tr><td class="vocab-de">der Arzt</td><td class="vocab-en">doctor</td><td class="vocab-ex">Ich muss zum Arzt gehen. — I must go to the doctor.</td></tr>
+          <tr><td class="vocab-de">die Apotheke</td><td class="vocab-en">pharmacy</td><td class="vocab-ex">Wo ist die Apotheke? — Where is the pharmacy?</td></tr>
+          <tr><td class="vocab-de">das Medikament</td><td class="vocab-en">medicine / drug</td><td class="vocab-ex">Ich brauche ein Medikament. — I need medicine.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Ich bin krank. Ich habe Kopfschmerzen und Fieber.</div>
+          <div class="model-en">I am sick. I have a headache and a fever.</div>
+          <div class="model-breakdown">Ich bin krank = I am sick | Ich habe = I have | Kopfschmerzen = head-pains (body part + schmerzen combined into one word) | und = and | Fieber = fever → German builds compound words for pain.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Mein Rücken tut mir sehr weh.</div>
+          <div class="model-en">My back hurts me a lot.</div>
+          <div class="model-breakdown">Mein Rücken = My back (the subject — it is doing the hurting) | tut = does (verb in position 2) | mir = to me (the receiver) | sehr = very | weh = hurt (the prefix, sent to the end) → 'wehtun' splits: 'tut' stays in position 2, 'weh' goes to the end.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Meine Augen tun mir weh. Ich brauche eine Brille.</div>
+          <div class="model-en">My eyes hurt. I need glasses.</div>
+          <div class="model-breakdown">Meine Augen = My eyes (plural subject) | tun = do (plural verb — note 'tun' not 'tut') | mir = to me | weh = hurt (at the end) | Ich brauche = I need | eine Brille = glasses → Plural body parts use 'tun' instead of 'tut'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wo tut es Ihnen weh, Herr Müller?</div>
+          <div class="model-en">Where does it hurt you, Mr. Müller? (Formal)</div>
+          <div class="model-breakdown">Wo = Where | tut = does | es = it (subject) | Ihnen = to you (formal) | weh = hurt (at the end) | Herr Müller = address → Doctor's standard question to a formal patient.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Gute Besserung!</div>
+          <div class="model-en">Get well soon!</div>
+          <div class="model-breakdown">Gute = Good | Besserung = bettering/recovery → A fixed phrase. Just memorize it as one whole expression.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Mein Zahn ___ mir weh. (tut/tun)</div>
+          <div class="exercise-answer">Answer: tut (one tooth = singular)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Meine Ohren (ears) ___ mir weh. (tut/tun)</div>
+          <div class="exercise-answer">Answer: tun (multiple ears = plural)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate using 'haben' + Schmerzen: I have a sore throat. (der Hals)</div>
+          <div class="exercise-answer">Answer: Ich habe Halsschmerzen.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: Do you have a headache? (der Kopf)</div>
+          <div class="exercise-answer">Answer: Hast du Kopfschmerzen?</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich bin Kopfschmerzen.</div>
+          <div class="mistake-right">✓ Ich habe Kopfschmerzen.</div>
+          <div class="mistake-explain">You cannot BE a headache. In German, pain is something you possess (haben). Always use 'Ich habe'.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Mein Kopf wehtut.</div>
+          <div class="mistake-right">✓ Mein Kopf tut weh.</div>
+          <div class="mistake-explain">Forgetting that 'wehtun' is a separable verb. 'tut' is the conjugated part that must sit in Position 2. 'weh' is the prefix that flies to the end.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Mein Bein tut mich weh.</div>
+          <div class="mistake-right">✓ Mein Bein tut mir weh.</div>
+          <div class="mistake-explain">Using 'mich' (direct object form) instead of 'mir' (indirect object form). The pain is happening TO you, so it requires 'mir'.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 44 -->
+    <section id="lesson-44" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 44</div>
+        <h2 class="lesson-title">Past Perfect 1: Sentence Structure — Das Perfekt: Satzbau</h2>
+        <p class="lesson-intro">In English, we have the Simple Past ('I played') and the Present Perfect ('I have played'). In spoken German, the Simple Past is almost entirely dead (except for 'war/hatte'). For 90% of daily conversations about the past, Germans use the 'Perfekt'. It requires a helper verb in Position 2 and a special past-tense word (Partizip II) at the absolute end of the sentence.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">The Perfekt consists of two parts: a helper verb (haben or sein) AND the Partizip II (the past participle, e.g., 'gemacht').</div>
+        <div class="rule-item">The helper verb goes in Position 2 and is conjugated normally to match the subject (ich habe, du hast).</div>
+        <div class="rule-item">The Partizip II NEVER changes its spelling. It flies to the VERY END of the sentence.</div>
+        <div class="rule-item">This creates the famous 'Sentence Bracket'. Everything else (time, object, place) gets squeezed between the helper verb and the Partizip II.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Subject (1) + helper verb [haben/sein] (2) + [Time/Object/Rest] + Partizip II (End).</div>
+        <div class="formula-item">Example: Ich (1) + habe (2) + gestern Pizza + gegessen (End).</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">gemacht</td><td class="vocab-en">done / made (from machen)</td><td class="vocab-ex">Ich habe meine Hausaufgaben gemacht. — I have done my homework.</td></tr>
+          <tr><td class="vocab-de">gekauft</td><td class="vocab-en">bought (from kaufen)</td><td class="vocab-ex">Er hat ein Auto gekauft. — He has bought a car.</td></tr>
+          <tr><td class="vocab-de">gelernt</td><td class="vocab-en">learned (from lernen)</td><td class="vocab-ex">Wir haben viel gelernt. — We have learned a lot.</td></tr>
+          <tr><td class="vocab-de">gespielt</td><td class="vocab-en">played (from spielen)</td><td class="vocab-ex">Hast du Fußball gespielt? — Did you play soccer?</td></tr>
+          <tr><td class="vocab-de">gekocht</td><td class="vocab-en">cooked (from kochen)</td><td class="vocab-ex">Sie hat Suppe gekocht. — She cooked soup.</td></tr>
+          <tr><td class="vocab-de">gesagt</td><td class="vocab-en">said (from sagen)</td><td class="vocab-ex">Was hast du gesagt? — What did you say?</td></tr>
+          <tr><td class="vocab-de">gehört</td><td class="vocab-en">heard (from hören)</td><td class="vocab-ex">Ich habe das Lied gehört. — I heard the song.</td></tr>
+          <tr><td class="vocab-de">gestern</td><td class="vocab-en">yesterday</td><td class="vocab-ex">Gestern habe ich gearbeitet. — Yesterday I worked.</td></tr>
+          <tr><td class="vocab-de">heute Morgen</td><td class="vocab-en">this morning</td><td class="vocab-ex">Heute Morgen habe ich Tee getrunken. — This morning I drank tea.</td></tr>
+          <tr><td class="vocab-de">schon</td><td class="vocab-en">already</td><td class="vocab-ex">Ich habe schon gegessen. — I have already eaten.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Ich habe gestern ein Buch gekauft.</div>
+          <div class="model-en">I bought a book yesterday.</div>
+          <div class="model-breakdown">Ich = I | habe = have (helper verb, position 2) | gestern = yesterday | ein Buch = a book (everything in the middle) | gekauft = bought (Partizip II sent to the very end) → The bracket: helper verb on the left, Partizip II on the right.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Was hast du am Wochenende gemacht?</div>
+          <div class="model-en">What did you do on the weekend?</div>
+          <div class="model-breakdown">Was = What (W-word, position 1) | hast = have (helper verb, position 2) | du = you | am Wochenende = on the weekend (middle) | gemacht = done (Partizip II at the very end) → W-question uses same bracket structure.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wir haben schon Pizza bestellt.</div>
+          <div class="model-en">We have already ordered pizza.</div>
+          <div class="model-breakdown">Wir = We | haben = have (helper verb) | schon = already | Pizza = pizza (middle) | bestellt = ordered (Partizip II at the end) → Note: 'bestellen' has a permanently glued 'be-' prefix, so the Partizip II has no 'ge-'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Er hat mir eine Geschichte erzählt.</div>
+          <div class="model-en">He told me a story.</div>
+          <div class="model-breakdown">Er = He | hat = has (helper verb) | mir = to me | eine Geschichte = a story (middle) | erzählt = told (Partizip II at the end, no 'ge-' because 'er-' prefix is permanently glued) → Non-separable verbs don't get a 'ge-' prefix.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Heute Morgen habe ich Deutsch gelernt.</div>
+          <div class="model-en">This morning I studied German.</div>
+          <div class="model-breakdown">Heute Morgen = This morning (position 1) | habe = have (helper verb, position 2) | ich = I (position 3) | Deutsch = German | gelernt = learned (Partizip II at the very end) → Inversion applies: helper verb stays in position 2.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: gekocht / Suppe / Ich / habe</div>
+          <div class="exercise-answer">Answer: Ich habe Suppe gekocht.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: hast / gestern / Was / gemacht / du / ?</div>
+          <div class="exercise-answer">Answer: Was hast du gestern gemacht?</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Wir ___ heute viel gearbeitet.</div>
+          <div class="exercise-answer">Answer: haben (wir form of haben)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">___ du schon das Auto gekauft?</div>
+          <div class="exercise-answer">Answer: Hast (du form of haben)</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich habe gemacht meine Hausaufgaben.</div>
+          <div class="mistake-right">✓ Ich habe meine Hausaufgaben gemacht.</div>
+          <div class="mistake-explain">A classic English-speaker mistake. You cannot place the main action verb right after the helper verb. 'gemacht' MUST go to the very end.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Wir haben gekauftet ein Brot.</div>
+          <div class="mistake-right">✓ Wir haben ein Brot gekauft.</div>
+          <div class="mistake-explain">Do not add present tense endings to the Partizip II! 'gekauft' is the final, frozen form. It never changes.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Gestern ich habe gearbeitet.</div>
+          <div class="mistake-right">✓ Gestern habe ich gearbeitet.</div>
+          <div class="mistake-explain">Forgetting the Inversion rule. If 'gestern' is in Position 1, the helper verb 'habe' stays in Position 2, pushing 'ich' to Position 3.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 45 -->
+    <section id="lesson-45" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 45</div>
+        <h2 class="lesson-title">Past Perfect 2: haben or sein as helper — Das Perfekt: haben oder sein als Hilfsverb</h2>
+        <p class="lesson-intro">In the last lesson, we used 'haben' as the helper verb for the past tense. But wait—some verbs refuse to use 'haben'! For a very specific group of verbs, you must use 'sein' (to be) as your helper verb. This sounds strange to English ears ('I am gone' instead of 'I have gone'), but the logic behind which verbs use 'sein' is actually very strict and easy to learn.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">Use 'sein' (bin, bist, ist, sind, seid) as the helper verb for verbs that express MOTION from point A to point B (e.g., gehen, fahren, fliegen, kommen).</div>
+        <div class="rule-item">Use 'sein' for verbs that express a CHANGE OF STATE (e.g., aufwachen - to wake up, sterben - to die).</div>
+        <div class="rule-item">Use 'sein' for two major exceptions: 'bleiben' (to stay - geblieben) and 'passieren' (to happen - passiert).</div>
+        <div class="rule-item">For ALL OTHER VERBS (90% of verbs, including verbs that take a direct object), use 'haben'.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Motion/Change of state: Subject + sein (conjugated) + ... + Partizip II (End).</div>
+        <div class="formula-item">Example: Ich (1) + bin (2) + nach Berlin + gefahren (End).</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>Helper Verb</th><th>When to use</th><th>Examples (Partizip II)</th></tr>
+          <tr><td>sein (bin/ist...)</td><td>Motion from A to B</td><td>gegangen (gone), gefahren (driven), geflogen (flown), gekommen (come)</td></tr>
+          <tr><td>sein (bin/ist...)</td><td>Change of state / Exceptions</td><td>aufgewacht (woken up), geblieben (stayed), passiert (happened)</td></tr>
+          <tr><td>haben (habe/hat...)</td><td>No motion / Has a direct object</td><td>gemacht (done), gekauft (bought), gelesen (read), geschlafen (slept)</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">gegangen</td><td class="vocab-en">gone / walked (from gehen)</td><td class="vocab-ex">Ich bin ins Kino gegangen. — I went to the movies.</td></tr>
+          <tr><td class="vocab-de">gefahren</td><td class="vocab-en">driven / traveled (from fahren)</td><td class="vocab-ex">Er ist nach München gefahren. — He drove to Munich.</td></tr>
+          <tr><td class="vocab-de">gekommen</td><td class="vocab-en">come / arrived (from kommen)</td><td class="vocab-ex">Wann bist du gekommen? — When did you arrive?</td></tr>
+          <tr><td class="vocab-de">geflogen</td><td class="vocab-en">flown (from fliegen)</td><td class="vocab-ex">Wir sind nach Spanien geflogen. — We flew to Spain.</td></tr>
+          <tr><td class="vocab-de">geblieben</td><td class="vocab-en">stayed (from bleiben - EXCEPTION)</td><td class="vocab-ex">Ich bin zu Hause geblieben. — I stayed at home.</td></tr>
+          <tr><td class="vocab-de">passiert</td><td class="vocab-en">happened (from passieren - EXCEPTION)</td><td class="vocab-ex">Was ist passiert? — What happened?</td></tr>
+          <tr><td class="vocab-de">umgezogen</td><td class="vocab-en">moved house (from umziehen)</td><td class="vocab-ex">Marion ist nach Berlin umgezogen. — Marion moved to Berlin.</td></tr>
+          <tr><td class="vocab-de">eingeschlafen</td><td class="vocab-en">fallen asleep (from einschlafen)</td><td class="vocab-ex">Er ist sehr schnell eingeschlafen. — He fell asleep very quickly.</td></tr>
+          <tr><td class="vocab-de">geschwommen</td><td class="vocab-en">swum (from schwimmen)</td><td class="vocab-ex">Ich bin im See geschwommen. — I swam in the lake.</td></tr>
+          <tr><td class="vocab-de">gelaufen</td><td class="vocab-en">walked/run (from laufen)</td><td class="vocab-ex">Er ist nach Hause gelaufen. — He walked/ran home.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Ich bin gestern nach Berlin gefahren.</div>
+          <div class="model-en">I drove to Berlin yesterday.</div>
+          <div class="model-breakdown">Ich = I | bin = am (helper 'sein' for motion from A to B) | gestern = yesterday | nach Berlin = to Berlin | gefahren = driven (Partizip II at the end) → Driving yourself from one place to another = 'sein'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wann bist du nach Hause gekommen?</div>
+          <div class="model-en">When did you come home?</div>
+          <div class="model-breakdown">Wann = When | bist = are (helper 'sein' for 'du') | du = you | nach Hause = home | gekommen = come (Partizip II at the end) → Coming home is motion A to B = 'sein'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wir sind am Wochenende zu Hause geblieben.</div>
+          <div class="model-en">We stayed at home on the weekend.</div>
+          <div class="model-breakdown">Wir = We | sind = are (helper 'sein' — 'bleiben' is a fixed exception) | am Wochenende = on the weekend | zu Hause = at home | geblieben = stayed (Partizip II at the end) → 'bleiben' always uses 'sein', even though it means staying still.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Er hat das Auto gefahren.</div>
+          <div class="model-en">He drove the car.</div>
+          <div class="model-breakdown">Er = He | hat = has (helper 'haben' — there is a direct object 'das Auto') | das Auto = the car | gefahren = driven (Partizip II at the end) → Driving an object = 'haben'. Traveling yourself = 'sein'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wir haben viel getanzt und dann sind wir gegangen.</div>
+          <div class="model-en">We danced a lot and then we went/left.</div>
+          <div class="model-breakdown">Wir = We | haben = have (helper — dancing is not A-to-B motion) | viel = a lot | getanzt = danced | und = and | dann = then | sind = are (helper — going/leaving is A-to-B motion) | wir = we | gegangen = gone (Partizip II) → Two helper verbs in one sentence.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Ich ___ gestern Pizza gegessen. (habe/bin)</div>
+          <div class="exercise-answer">Answer: habe (Eating is not motion A to B.)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Wir ___ am Montag nach Hamburg geflogen. (haben/sind)</div>
+          <div class="exercise-answer">Answer: sind (Flying is motion A to B.)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Wo ___ ihr am Sonntag geblieben? (habt/seid)</div>
+          <div class="exercise-answer">Answer: seid (bleiben is a fixed exception that takes sein.)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: I went to the supermarket. (gehen)</div>
+          <div class="exercise-answer">Answer: Ich bin in den Supermarkt gegangen.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: What happened? (passieren)</div>
+          <div class="exercise-answer">Answer: Was ist passiert?</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich habe nach München gefahren.</div>
+          <div class="mistake-right">✓ Ich bin nach München gefahren.</div>
+          <div class="mistake-explain">Driving yourself to Munich is motion from A to B. It MUST use 'sein' as the helper verb (bin).</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Wir sind geschlafen.</div>
+          <div class="mistake-right">✓ Wir haben geschlafen.</div>
+          <div class="mistake-explain">Overcorrecting! Sleeping is not a motion or a change of state. It uses the normal 'haben' helper verb.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich habe zu Hause geblieben.</div>
+          <div class="mistake-right">✓ Ich bin zu Hause geblieben.</div>
+          <div class="mistake-explain">'Bleiben' (to stay) means staying in one place, so logic suggests 'haben'. But German grammar dictates 'bleiben' is a strict exception that always takes 'sein'. Just memorize: bleiben = sein.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+  </main>
+</body>
+</html>

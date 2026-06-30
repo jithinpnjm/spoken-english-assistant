@@ -1,0 +1,622 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>German A1 — Lessons 21–25</title><style>
+:root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
+.page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
+.page-header h1{color:var(--sky);font-size:1.8rem}
+.page-header p{color:var(--muted);margin-top:.5rem}
+.lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
+.lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
+main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
+.lesson:target{border-color:var(--indigo)}
+.lesson-header{margin-bottom:1.5rem}
+.lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
+.lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
+.lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
+.section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
+.section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
+.section-title.sky{color:var(--sky)} .section-title.amber{color:var(--amber)} .section-title.green{color:var(--green)} .section-title.rose{color:var(--rose)} .section-title.indigo{color:var(--indigo)} .section-title.purple{color:var(--purple)} .section-title.muted{color:var(--muted)}
+.rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+.rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
+.formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+.formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
+.vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
+.vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}
+.vocab-table tr:last-child td{border-bottom:none}
+.vocab-de{color:var(--sky);font-weight:500} .vocab-en{color:var(--text)} .vocab-ex{color:var(--muted);font-size:.85rem}
+.model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
+.model-de{font-size:1rem;font-weight:600;color:var(--text)} .model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0} .model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
+.mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
+.mistake-wrong{color:var(--rose)} .mistake-right{color:var(--green)} .mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+.exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.exercise-item:last-child{border-bottom:none}
+.exercise-prompt{color:var(--text)} .exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
+.note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
+.grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
+.grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+.grammar-table td{padding:.45rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}
+.grammar-table tr:last-child td{border-bottom:none}
+.cultural-note{background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--muted);font-size:.9rem}
+.exam-note{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--amber);font-size:.85rem}
+.goal-note{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--green);font-size:.85rem}
+</style></head>
+<body>
+<div class="page-header">
+  <h1>German A1 — Lessons 21–25</h1>
+  <p>Negative Articles · Official &amp; Colloquial Time · Possessives · Family</p>
+</div>
+<nav class="lesson-nav">
+  <a href="#lesson-21">Lesson 21: Negative Articles</a>
+  <a href="#lesson-22">Lesson 22: Official Time</a>
+  <a href="#lesson-23">Lesson 23: Colloquial Time</a>
+  <a href="#lesson-24">Lesson 24: Possessive Pronouns</a>
+  <a href="#lesson-25">Lesson 25: My Family</a>
+</nav>
+<main>
+
+<!-- LESSON 21 -->
+<div class="lesson" id="lesson-21">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 21</span>
+    <div class="lesson-title">Negative Articles (kein/keine) — Negative Artikel</div>
+    <div class="lesson-intro">In English, to express a negative, we usually use 'not a' or 'not any' (e.g., I don't have a car). German takes a much more elegant approach. If a noun would normally use the article 'ein' or 'eine', you simply attach a 'k' to the front to negate the entire sentence. Mastering 'kein' allows you to express exactly what you don't have, don't need, or don't want.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">To negate a noun that has an indefinite article (ein/eine) or no article (plurals), use the negative article 'kein' or 'keine'.</div>
+    <div class="rule-item">If the noun is masculine (der) or neuter (das), use 'kein' (instead of ein).</div>
+    <div class="rule-item">If the noun is feminine (die), use 'keine' (instead of eine).</div>
+    <div class="rule-item">For plural nouns, which have no indefinite article, you always use 'keine' to say 'no [items]'.</div>
+    <div class="rule-item">Do not use 'nicht' to negate a noun that has 'ein/eine'. Always use 'kein/keine'.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Masculine (der) → ein → kein</div>
+    <div class="formula-item">Neuter (das) → ein → kein</div>
+    <div class="formula-item">Feminine (die) → eine → keine</div>
+    <div class="formula-item">Plural → (none) → keine</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table</div>
+    <table class="grammar-table">
+      <tr><th>Gender</th><th>Indefinite Article (A/An)</th><th>Negative Article (No/Not a)</th></tr>
+      <tr><td>Masculine</td><td>ein Tisch</td><td>kein Tisch</td></tr>
+      <tr><td>Neuter</td><td>ein Auto</td><td>kein Auto</td></tr>
+      <tr><td>Feminine</td><td>eine Lampe</td><td>keine Lampe</td></tr>
+      <tr><td>Plural</td><td>(none) Autos</td><td>keine Autos</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">kein</td><td class="vocab-en">no / not a (masculine/neuter)</td><td class="vocab-ex">Ich habe kein Auto. — I don't have a car.</td></tr>
+      <tr><td class="vocab-de">keine</td><td class="vocab-en">no / not a (feminine/plural)</td><td class="vocab-ex">Das ist keine Lampe. — That is not a lamp.</td></tr>
+      <tr><td class="vocab-de">das Problem</td><td class="vocab-en">problem</td><td class="vocab-ex">Kein Problem! — No problem!</td></tr>
+      <tr><td class="vocab-de">das Geld</td><td class="vocab-en">money</td><td class="vocab-ex">Ich habe kein Geld. — I have no money.</td></tr>
+      <tr><td class="vocab-de">die Lust</td><td class="vocab-en">desire / mood (to do something)</td><td class="vocab-ex">Ich habe keine Lust. — I don't feel like it.</td></tr>
+      <tr><td class="vocab-de">die Ahnung</td><td class="vocab-en">idea / clue</td><td class="vocab-ex">Ich habe keine Ahnung. — I have no idea.</td></tr>
+      <tr><td class="vocab-de">die Frage</td><td class="vocab-en">question</td><td class="vocab-ex">Ich habe keine Fragen. — I have no questions.</td></tr>
+      <tr><td class="vocab-de">das Haustier</td><td class="vocab-en">pet</td><td class="vocab-ex">Wir haben kein Haustier. — We have no pet.</td></tr>
+      <tr><td class="vocab-de">der Fehler</td><td class="vocab-en">mistake</td><td class="vocab-ex">Das ist kein Fehler. — That is not a mistake.</td></tr>
+      <tr><td class="vocab-de">brauchen</td><td class="vocab-en">to need</td><td class="vocab-ex">Ich brauche keine Hilfe. — I do not need help.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Ist das ein Tisch? Nein, das ist kein Tisch.</div>
+      <div class="model-en">Is that a table? No, that is not a table.</div>
+      <div class="model-breakdown">Ist das = Is that | ein Tisch = a table | Nein = No | das ist kein Tisch = that is not a table → 'kein' is the negative form of 'ein' for masculine nouns.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Ich habe heute keine Zeit und keine Lust.</div>
+      <div class="model-en">I have no time and no desire today.</div>
+      <div class="model-breakdown">Ich = I | habe = have | heute = today | keine Zeit = no time (feminine) | und = and | keine Lust = no desire (feminine) → Both are feminine, both use 'keine'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Wir haben keine Kinder.</div>
+      <div class="model-en">We have no children.</div>
+      <div class="model-breakdown">Wir = We | haben = have | keine Kinder = no children (plural) → Plural nouns always use 'keine'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Entschuldigung, ich habe keine Ahnung.</div>
+      <div class="model-en">Excuse me, I have no idea.</div>
+      <div class="model-breakdown">Entschuldigung = Excuse me | ich = I | habe = have | keine Ahnung = no idea (feminine) → 'keine Ahnung' is a very common phrase — learn it as a whole.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Fill in 'kein' or 'keine'.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Ich habe ___ Geld. (das Geld — Neuter noun)</div><div class="exercise-answer">Answer: kein</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist ___ Frage. (die Frage — Feminine noun)</div><div class="exercise-answer">Answer: keine</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Wir haben ___ Probleme. (die Probleme — Plural noun)</div><div class="exercise-answer">Answer: keine</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Translate using the negative article.</p>
+    <div class="exercise-item"><div class="exercise-prompt">I have no time.</div><div class="exercise-answer">Answer: Ich habe keine Zeit.</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">That is not a car. (das Auto)</div><div class="exercise-answer">Answer: Das ist kein Auto.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Ich habe nicht ein Auto.</div>
+      <div class="mistake-right">✓ Ich habe kein Auto.</div>
+      <div class="mistake-explain">English speakers literally translate 'not a' to 'nicht ein'. In German grammar, 'nicht' and 'ein' merge to form 'kein'. Never put 'nicht' directly in front of 'ein'.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Wir haben kein Kinder.</div>
+      <div class="mistake-right">✓ Wir haben keine Kinder.</div>
+      <div class="mistake-explain">Since plural words don't have an 'ein' form, learners forget to use the 'keine' ending. Remember: Feminine and Plural both strictly take 'keine'.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">The phrase 'Keine Ahnung' (No idea/clue) is one of the most frequently used conversational fillers in spoken German. If someone asks you for directions and you don't know, shrugging and saying 'Tut mir leid, keine Ahnung' is perfectly natural and widely accepted.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Hören &amp; Sprechen Teil 2: In the speaking test, if your partner asks 'Hast du ein Haustier?' (Do you have a pet?), answering 'Nein, ich habe kein Haustier' perfectly demonstrates your grasp of negative articles.</div>
+  <div class="goal-note">Lesson Goal: Correctly negate nouns using 'kein' and 'keine' based on their gender and number, completely avoiding the incorrect 'nicht ein' structure.</div>
+</div>
+
+<!-- LESSON 22 -->
+<div class="lesson" id="lesson-22">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 22</span>
+    <div class="lesson-title">Time — Official — Uhrzeit offiziell</div>
+    <div class="lesson-intro">If you want to catch a train, book a doctor's appointment, or listen to the news in Germany, you must understand the 24-hour clock. The official time format is incredibly strict but brilliantly logical. There is no AM or PM to confuse things. Once you master reading numbers up to 59, you can instantly read official German time without a second thought.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">Official time uses the 24-hour format (00:00 to 24:00).</div>
+    <div class="rule-item">The format is always spoken identically: [Hour] + Uhr + [Minute].</div>
+    <div class="rule-item">For example, 14:30 is spoken as 'vierzehn Uhr dreißig'.</div>
+    <div class="rule-item">To ask for the time, you say 'Wie spät ist es?' (How late is it?) or 'Wie viel Uhr ist es?' (How much clock is it?).</div>
+    <div class="rule-item">To express 'at' a certain time, use the preposition 'um' (e.g., um 14 Uhr).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Asking: Wie spät ist es? / Wie viel Uhr ist es?</div>
+    <div class="formula-item">Answering: Es ist + [Hour 0-24] + Uhr + [Minute 0-59].</div>
+    <div class="formula-item">At a time: um + [Hour] + Uhr + [Minute].</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table — Official Time Examples</div>
+    <table class="grammar-table">
+      <tr><th>Digital Time</th><th>Spoken Official German</th><th>Literal Translation</th></tr>
+      <tr><td>09:15</td><td>neun Uhr fünfzehn</td><td>nine clock fifteen</td></tr>
+      <tr><td>14:30</td><td>vierzehn Uhr dreißig</td><td>fourteen clock thirty</td></tr>
+      <tr><td>17:45</td><td>siebzehn Uhr fünfundvierzig</td><td>seventeen clock forty-five</td></tr>
+      <tr><td>20:00</td><td>zwanzig Uhr</td><td>twenty clock</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">die Uhr</td><td class="vocab-en">clock / o'clock</td><td class="vocab-ex">Es ist drei Uhr. — It is three o'clock.</td></tr>
+      <tr><td class="vocab-de">die Uhrzeit</td><td class="vocab-en">time of day</td><td class="vocab-ex">Was ist die Uhrzeit? — What is the time?</td></tr>
+      <tr><td class="vocab-de">die Stunde</td><td class="vocab-en">hour</td><td class="vocab-ex">Der Test dauert eine Stunde. — The test lasts one hour.</td></tr>
+      <tr><td class="vocab-de">die Minute</td><td class="vocab-en">minute</td><td class="vocab-ex">Ein Zug kommt in einer Minute. — A train arrives in one minute.</td></tr>
+      <tr><td class="vocab-de">um</td><td class="vocab-en">at (time)</td><td class="vocab-ex">Wir treffen uns um acht Uhr. — We are meeting at eight o'clock.</td></tr>
+      <tr><td class="vocab-de">von ... bis</td><td class="vocab-en">from ... to</td><td class="vocab-ex">Ich arbeite von acht bis siebzehn Uhr. — I work from 8:00 to 17:00.</td></tr>
+      <tr><td class="vocab-de">anfangen</td><td class="vocab-en">to begin / start</td><td class="vocab-ex">Der Film fängt um 20 Uhr an. — The movie starts at 20:00.</td></tr>
+      <tr><td class="vocab-de">abfahren</td><td class="vocab-en">to depart</td><td class="vocab-ex">Der Zug fährt um 14 Uhr ab. — The train departs at 14:00.</td></tr>
+      <tr><td class="vocab-de">ankommen</td><td class="vocab-en">to arrive</td><td class="vocab-ex">Der Bus kommt um 10 Uhr an. — The bus arrives at 10:00.</td></tr>
+      <tr><td class="vocab-de">spät</td><td class="vocab-en">late</td><td class="vocab-ex">Wie spät ist es? — What time is it?</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Wie spät ist es? Es ist vierzehn Uhr zwanzig.</div>
+      <div class="model-en">What time is it? It is 14:20.</div>
+      <div class="model-breakdown">Wie spät = How late (time question) | ist es = is it | Es ist = It is | vierzehn = fourteen | Uhr = o'clock (separator) | zwanzig = twenty → Always put 'Uhr' between the hour and the minutes.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Der Zug fährt um neunzehn Uhr fünfundvierzig ab.</div>
+      <div class="model-en">The train departs at 19:45.</div>
+      <div class="model-breakdown">Der Zug = The train | fährt ab = departs (the 'ab' part goes to the end of the sentence) | um = at | neunzehn Uhr fünfundvierzig = 19:45 → 'um' is the word for 'at' with clock times.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Wir arbeiten von acht Uhr bis sechzehn Uhr dreißig.</div>
+      <div class="model-en">We work from 8:00 to 16:30.</div>
+      <div class="model-breakdown">Wir = We | arbeiten = work | von = from | acht Uhr = 8:00 | bis = until | sechzehn Uhr dreißig = 16:30 → 'von...bis' means 'from...to'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Es ist null Uhr fünf.</div>
+      <div class="model-en">It is 00:05 (12:05 AM).</div>
+      <div class="model-breakdown">Es ist = It is | null = zero | Uhr = o'clock | fünf = five → Midnight is 'null Uhr', and the minutes follow as normal.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Write out the official spoken time in German.</p>
+    <div class="exercise-item"><div class="exercise-prompt">15:20</div><div class="exercise-answer">Answer: fünfzehn Uhr zwanzig</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">08:45</div><div class="exercise-answer">Answer: acht Uhr fünfundvierzig</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Select the correct question for asking the time.</p>
+    <div class="exercise-item"><div class="exercise-prompt">( Wie viel Zeit ist es? / Wie spät ist es? )</div><div class="exercise-answer">Answer: Wie spät ist es?</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">( Was ist die Uhr? / Wie viel Uhr ist es? )</div><div class="exercise-answer">Answer: Wie viel Uhr ist es?</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Es ist vierzehn dreißig Uhr.</div>
+      <div class="mistake-right">✓ Es ist vierzehn Uhr dreißig.</div>
+      <div class="mistake-explain">A very common mistake. The word 'Uhr' acts as a separator between the hours and the minutes. It must go in the middle, not at the end.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Der Kurs ist an 10 Uhr.</div>
+      <div class="mistake-right">✓ Der Kurs ist um 10 Uhr.</div>
+      <div class="mistake-explain">In English, we say 'at' a certain time. In German, the preposition for clock times is always strictly 'um'.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">When reading train schedules in Germany, Switzerland, or Austria, you will only ever see the 24-hour clock. Punctuality is culturally paramount, so distinguishing between 07:00 (morning) and 19:00 (evening) is critical to not missing your connection.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Hören Teil 1 &amp; 3: Official times are guaranteed to appear in listening comprehension tasks (like airport announcements or voicemail messages). If you hear 'dreizehn Uhr', you must instantly know it means 1 PM.</div>
+  <div class="goal-note">Lesson Goal: Confidently read, speak, and understand the 24-hour clock format using the strict 'Hour + Uhr + Minute' structure.</div>
+</div>
+
+<!-- LESSON 23 -->
+<div class="lesson" id="lesson-23">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 23</span>
+    <div class="lesson-title">Time — Colloquial — Uhrzeit inoffiziell</div>
+    <div class="lesson-intro">While the train station uses 24-hour time, your friends at the cafe do not. In casual conversation, Germans use the 12-hour clock combined with words like 'half', 'quarter', 'to', and 'past'. The biggest trap for learners? The German 'half' looks forward to the next hour, not backward. Saying 'halb drei' does NOT mean 3:30!</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">Colloquial time uses the 12-hour clock (1 to 12). The word 'Uhr' is usually dropped.</div>
+    <div class="rule-item">Use 'nach' (past) for the first 20 minutes of the hour (e.g., 14:10 = zehn nach zwei).</div>
+    <div class="rule-item">Use 'vor' (to/before) for the last 20 minutes of the hour (e.g., 14:50 = zehn vor drei).</div>
+    <div class="rule-item">15 minutes is 'Viertel'. (e.g., 14:15 = Viertel nach zwei; 14:45 = Viertel vor drei).</div>
+    <div class="rule-item">THE TRAP: 'halb' (half) means 30 minutes BEFORE the next hour. (e.g., 14:30 = halb drei [halfway to three]).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Minutes 1-20: [Minute] + nach + [Current Hour]</div>
+    <div class="formula-item">Minutes 40-59: [Minute] + vor + [Next Hour]</div>
+    <div class="formula-item">Minute 30: halb + [Next Hour]</div>
+    <div class="formula-item">Minute 15/45: Viertel nach/vor + [Hour]</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table — Colloquial Time</div>
+    <table class="grammar-table">
+      <tr><th>Digital Time</th><th>Colloquial German</th><th>Literal Meaning</th></tr>
+      <tr><td>14:05</td><td>fünf nach zwei</td><td>five past two</td></tr>
+      <tr><td>14:15</td><td>Viertel nach zwei</td><td>quarter past two</td></tr>
+      <tr><td>14:30</td><td>halb drei</td><td>half(way to) three</td></tr>
+      <tr><td>14:45</td><td>Viertel vor drei</td><td>quarter to three</td></tr>
+      <tr><td>14:50</td><td>zehn vor drei</td><td>ten to three</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">nach</td><td class="vocab-en">past / after</td><td class="vocab-ex">Es ist fünf nach zwölf. — It is five past twelve.</td></tr>
+      <tr><td class="vocab-de">vor</td><td class="vocab-en">to / before</td><td class="vocab-ex">Es ist zehn vor acht. — It is ten to eight.</td></tr>
+      <tr><td class="vocab-de">das Viertel</td><td class="vocab-en">quarter</td><td class="vocab-ex">Es ist Viertel nach eins. — It is quarter past one.</td></tr>
+      <tr><td class="vocab-de">halb</td><td class="vocab-en">half</td><td class="vocab-ex">Wir treffen uns um halb vier. — We meet at half past three (3:30).</td></tr>
+      <tr><td class="vocab-de">kurz vor</td><td class="vocab-en">shortly before</td><td class="vocab-ex">Es ist kurz vor acht. — It is just before eight.</td></tr>
+      <tr><td class="vocab-de">kurz nach</td><td class="vocab-en">shortly after</td><td class="vocab-ex">Es ist kurz nach zwei. — It is just past two.</td></tr>
+      <tr><td class="vocab-de">gleich</td><td class="vocab-en">almost / soon</td><td class="vocab-ex">Es ist gleich neun. — It is almost nine.</td></tr>
+      <tr><td class="vocab-de">morgens</td><td class="vocab-en">in the morning</td><td class="vocab-ex">Ich trinke morgens Kaffee. — I drink coffee in the morning.</td></tr>
+      <tr><td class="vocab-de">abends</td><td class="vocab-en">in the evening</td><td class="vocab-ex">Abends lese ich. — In the evening I read.</td></tr>
+      <tr><td class="vocab-de">die Mittagspause</td><td class="vocab-en">lunch break</td><td class="vocab-ex">Um halb eins ist Mittagspause. — At 12:30 is the lunch break.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Es ist Viertel vor fünf.</div>
+      <div class="model-en">It is quarter to five (4:45).</div>
+      <div class="model-breakdown">Es ist = It is | Viertel = quarter | vor = before/to | fünf = five → 15 minutes before 5 o'clock = 4:45.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Wir sehen uns um halb acht.</div>
+      <div class="model-en">We will see each other at 7:30.</div>
+      <div class="model-breakdown">Wir = We | sehen uns = see each other | um = at | halb acht = halfway to eight → 'halb acht' means halfway to 8, which is 7:30.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Ist es schon zehn nach vier?</div>
+      <div class="model-en">Is it already ten past four (4:10)?</div>
+      <div class="model-breakdown">Ist es = Is it | schon = already | zehn = ten | nach = past | vier = four → 10 minutes past 4 = 4:10.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Mein Zug kommt um kurz vor neun.</div>
+      <div class="model-en">My train arrives just before nine.</div>
+      <div class="model-breakdown">Mein Zug = My train | kommt = arrives | um = at | kurz vor = shortly before | neun = nine → Approximately 8:55 or 8:57.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Translate the digital time to the colloquial German spoken format.</p>
+    <div class="exercise-item"><div class="exercise-prompt">16:30</div><div class="exercise-answer">Answer: halb fünf</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">08:15</div><div class="exercise-answer">Answer: Viertel nach acht</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">19:50</div><div class="exercise-answer">Answer: zehn vor acht</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Select the correct digital time for the colloquial phrase.</p>
+    <div class="exercise-item"><div class="exercise-prompt">halb zwei → ( 02:30 / 13:30 / 14:00 )</div><div class="exercise-answer">Answer: 13:30</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Viertel vor zwölf → ( 11:45 / 12:15 / 12:45 )</div><div class="exercise-answer">Answer: 11:45</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Es ist halb drei (meaning 3:30).</div>
+      <div class="mistake-right">✓ Es ist halb vier. (for 3:30)</div>
+      <div class="mistake-explain">The most dangerous time trap! In German, 'halb' refers to the hour that is approaching. Halfway to 4 is 3:30. 'Halb drei' means 2:30.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Es ist zehn nach vierzehn.</div>
+      <div class="mistake-right">✓ Es ist zehn nach zwei.</div>
+      <div class="mistake-explain">You cannot mix official and colloquial systems. Never use numbers 13-24 with vor/nach/halb. Always convert back to the 12-hour clock.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">In Eastern Germany and parts of the South, you might hear 'dreiviertel drei' (three-quarters three). This means 2:45! Similarly, 'viertel drei' (quarter three) means 2:15. As an A1 learner, stick strictly to 'Viertel vor' and 'Viertel nach' everywhere in Germany.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Hören Teil 1: Exam questions deliberately try to trick you. Audio might say 'Wir treffen uns um halb acht' (7:30), but the multiple-choice options will show pictures of clocks at 8:30, 7:30, and 7:00.</div>
+  <div class="goal-note">Lesson Goal: Master colloquial time expressions using the 12-hour clock, 'vor', 'nach', and fully understand the forward-looking logic of 'halb'.</div>
+</div>
+
+<!-- LESSON 24 -->
+<div class="lesson" id="lesson-24">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 24</span>
+    <div class="lesson-title">Possessive Pronouns Nominative — Possessivpronomen Nominativ</div>
+    <div class="lesson-intro">Being able to say 'the book' is great, but saying 'my book' or 'your phone' is essential for establishing ownership and personal connection. Possessive pronouns in German are fantastic because they behave exactly like the 'ein/eine' and 'kein/keine' articles you already know. The endings match perfectly based on the gender of the noun they possess.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">The base possessive words are: mein (my), dein (your informal), sein (his/its), ihr (her/their), unser (our), euer (your plural), Ihr (your formal).</div>
+    <div class="rule-item">The ending of the possessive pronoun depends strictly on the noun coming AFTER it.</div>
+    <div class="rule-item">If the noun is masculine (der) or neuter (das), add no ending (e.g., mein Tisch, mein Buch).</div>
+    <div class="rule-item">If the noun is feminine (die) or plural, add an '-e' (e.g., meine Lampe, meine Bücher).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Masculine/Neuter → base word (mein, dein, sein...)</div>
+    <div class="formula-item">Feminine/Plural → base word + e (meine, deine, seine...)</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table — Possessives in Nominative</div>
+    <table class="grammar-table">
+      <tr><th>Person</th><th>Base Word</th><th>Masc/Neuter (der/das)</th><th>Fem/Plural (die)</th></tr>
+      <tr><td>ich (I)</td><td>mein</td><td>mein Hund</td><td>meine Katze</td></tr>
+      <tr><td>du (you)</td><td>dein</td><td>dein Hund</td><td>deine Katze</td></tr>
+      <tr><td>er / es (he/it)</td><td>sein</td><td>sein Hund</td><td>seine Katze</td></tr>
+      <tr><td>sie (she)</td><td>ihr</td><td>ihr Hund</td><td>ihre Katze</td></tr>
+      <tr><td>wir (we)</td><td>unser</td><td>unser Hund</td><td>unsere Katze</td></tr>
+      <tr><td>ihr (you all)</td><td>euer</td><td>euer Hund</td><td>eure Katze (drops middle e)</td></tr>
+      <tr><td>sie / Sie (they/formal)</td><td>ihr / Ihr</td><td>ihr / Ihr Hund</td><td>ihre / Ihre Katze</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">mein</td><td class="vocab-en">my</td><td class="vocab-ex">Das ist mein Auto. — That is my car.</td></tr>
+      <tr><td class="vocab-de">dein</td><td class="vocab-en">your (informal)</td><td class="vocab-ex">Ist das dein Handy? — Is that your cell phone?</td></tr>
+      <tr><td class="vocab-de">sein</td><td class="vocab-en">his / its</td><td class="vocab-ex">Das ist sein Bruder. — That is his brother.</td></tr>
+      <tr><td class="vocab-de">ihr</td><td class="vocab-en">her / their</td><td class="vocab-ex">Wo ist ihre Tasche? — Where is her bag?</td></tr>
+      <tr><td class="vocab-de">unser</td><td class="vocab-en">our</td><td class="vocab-ex">Unser Haus ist alt. — Our house is old.</td></tr>
+      <tr><td class="vocab-de">euer</td><td class="vocab-en">your (plural)</td><td class="vocab-ex">Ist das euer Hund? — Is that your (pl) dog?</td></tr>
+      <tr><td class="vocab-de">Ihr</td><td class="vocab-en">your (formal)</td><td class="vocab-ex">Hier ist Ihr Ticket. — Here is your ticket.</td></tr>
+      <tr><td class="vocab-de">das Handy</td><td class="vocab-en">cell phone</td><td class="vocab-ex">Mein Handy ist neu. — My cell phone is new.</td></tr>
+      <tr><td class="vocab-de">der Schlüssel</td><td class="vocab-en">key</td><td class="vocab-ex">Wo ist dein Schlüssel? — Where is your key?</td></tr>
+      <tr><td class="vocab-de">die Brille</td><td class="vocab-en">glasses</td><td class="vocab-ex">Das ist meine Brille. — Those are my glasses.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Das ist mein Auto und das ist meine Tasche.</div>
+      <div class="model-en">That is my car and that is my bag.</div>
+      <div class="model-breakdown">Das ist = That is | mein Auto = my car (neuter → no ending) | und = and | das ist = that is | meine Tasche = my bag (feminine → add -e) → The ending changes based on the noun's gender.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Ist das dein Schlüssel? Nein, das ist sein Schlüssel.</div>
+      <div class="model-en">Is that your key? No, that is his key.</div>
+      <div class="model-breakdown">Ist das = Is that | dein Schlüssel = your key (masculine → no ending) | Nein = No | das ist = that is | sein Schlüssel = his key (masculine → no ending) → Masculine always takes no extra ending.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Herr Müller, ist das Ihre Brille?</div>
+      <div class="model-en">Mr. Müller, are those your glasses?</div>
+      <div class="model-breakdown">Herr Müller = formal address | ist das = is that | Ihre Brille = your glasses (formal 'your' + -e for feminine) → Capitalize 'Ihr' when using the formal 'you'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Anna sucht ihr Buch.</div>
+      <div class="model-en">Anna is looking for her book.</div>
+      <div class="model-breakdown">Anna = subject | sucht = looks for | ihr Buch = her book (neuter → base form 'ihr', no extra ending) → Anna is female, so 'ihr' means 'her'.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Add the correct ending (-e or nothing) to the possessive pronoun.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist mein___ Tisch. (der Tisch — Masculine)</div><div class="exercise-answer">Answer: mein (no ending for masculine)</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Wo ist dein___ Lampe? (die Lampe — Feminine)</div><div class="exercise-answer">Answer: deine</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Das sind unser___ Kinder. (die Kinder — Plural)</div><div class="exercise-answer">Answer: unsere</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Select the correct base possessive word.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Peter hat ein Auto. Das ist ( ihr / sein ) Auto.</div><div class="exercise-answer">Answer: sein</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Maria hat ein Buch. Das ist ( ihr / sein ) Buch.</div><div class="exercise-answer">Answer: ihr</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Anna hat einen Hund. Das ist sein Hund.</div>
+      <div class="mistake-right">✓ Anna hat einen Hund. Das ist ihr Hund.</div>
+      <div class="mistake-explain">English speakers sometimes use 'sein' (his) as a universal 'its/their'. Anna is female, so her base possessive word MUST be 'ihr' (her).</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Das ist euere Katze.</div>
+      <div class="mistake-right">✓ Das ist eure Katze.</div>
+      <div class="mistake-explain">When adding an '-e' to 'euer', the middle 'e' drops out for smoother pronunciation. It becomes 'eure', not 'euere'.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">When addressing someone formally with 'Sie', the possessive pronoun is 'Ihr/Ihre' and it is ALWAYS capitalized in writing. This is crucial in business emails to show respect and distinguish it from the lowercase 'ihr' which means 'her' or 'their'.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Schreiben Teil 1 &amp; 2: In your exam emails, you will constantly write about 'meine Wohnung', 'mein Kurs', or ask 'Wie ist Ihre Adresse?'. Incorrect possessive endings immediately reveal a shaky grammar foundation.</div>
+  <div class="goal-note">Lesson Goal: Assign ownership to masculine, feminine, neuter, and plural nouns using the correct possessive pronoun bases and endings.</div>
+</div>
+
+<!-- LESSON 25 -->
+<div class="lesson" id="lesson-25">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 25</span>
+    <div class="lesson-title">My Family — Meine Familie</div>
+    <div class="lesson-intro">Talking about your family is a universal icebreaker. It is also the perfect practical application for the possessive pronouns you just learned. Since family members are people, their grammatical gender perfectly matches their biological gender: male relatives are 'der' (mein), and female relatives are 'die' (meine).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">Male family members (father, brother, son) are masculine (der). Use 'mein'.</div>
+    <div class="rule-item">Female family members (mother, sister, daughter) are feminine (die). Use 'meine'.</div>
+    <div class="rule-item">Plural family members (parents, children, siblings) are plural (die). Use 'meine'.</div>
+    <div class="rule-item">When introducing them, use 'Das ist mein/meine...' for one person, and 'Das sind meine...' for multiple people.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Male: Das ist + mein + [Vater / Bruder / Opa]</div>
+    <div class="formula-item">Female: Das ist + meine + [Mutter / Schwester / Oma]</div>
+    <div class="formula-item">Plural: Das sind + meine + [Eltern / Geschwister / Kinder]</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table — Family Members</div>
+    <table class="grammar-table">
+      <tr><th>Relationship</th><th>Male (mein)</th><th>Female (meine)</th><th>Plural (meine)</th></tr>
+      <tr><td>Parents</td><td>der Vater (father)</td><td>die Mutter (mother)</td><td>die Eltern (parents)</td></tr>
+      <tr><td>Siblings</td><td>der Bruder (brother)</td><td>die Schwester (sister)</td><td>die Geschwister (siblings)</td></tr>
+      <tr><td>Children</td><td>der Sohn (son)</td><td>die Tochter (daughter)</td><td>die Kinder (children)</td></tr>
+      <tr><td>Grandparents</td><td>der Großvater (Opa)</td><td>die Großmutter (Oma)</td><td>die Großeltern (grandparents)</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">die Familie</td><td class="vocab-en">family</td><td class="vocab-ex">Meine Familie ist groß. — My family is big.</td></tr>
+      <tr><td class="vocab-de">der Vater</td><td class="vocab-en">father</td><td class="vocab-ex">Mein Vater heißt Thomas. — My father is named Thomas.</td></tr>
+      <tr><td class="vocab-de">die Mutter</td><td class="vocab-en">mother</td><td class="vocab-ex">Meine Mutter arbeitet hier. — My mother works here.</td></tr>
+      <tr><td class="vocab-de">die Eltern</td><td class="vocab-en">parents</td><td class="vocab-ex">Das sind meine Eltern. — These are my parents.</td></tr>
+      <tr><td class="vocab-de">der Bruder</td><td class="vocab-en">brother</td><td class="vocab-ex">Er ist mein Bruder. — He is my brother.</td></tr>
+      <tr><td class="vocab-de">die Schwester</td><td class="vocab-en">sister</td><td class="vocab-ex">Hast du eine Schwester? — Do you have a sister?</td></tr>
+      <tr><td class="vocab-de">die Geschwister</td><td class="vocab-en">siblings</td><td class="vocab-ex">Ich habe keine Geschwister. — I have no siblings.</td></tr>
+      <tr><td class="vocab-de">der Sohn</td><td class="vocab-en">son</td><td class="vocab-ex">Mein Sohn ist fünf Jahre alt. — My son is five years old.</td></tr>
+      <tr><td class="vocab-de">die Tochter</td><td class="vocab-en">daughter</td><td class="vocab-ex">Das ist seine Tochter. — That is his daughter.</td></tr>
+      <tr><td class="vocab-de">der Ehemann / die Ehefrau</td><td class="vocab-en">husband / wife</td><td class="vocab-ex">Das ist mein Ehemann. — This is my husband.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Das ist mein Vater und das ist meine Mutter.</div>
+      <div class="model-en">This is my father and this is my mother.</div>
+      <div class="model-breakdown">Das ist = This is | mein Vater = my father (male → no ending) | und = and | das ist = this is | meine Mutter = my mother (female → add -e) → Gender of the family member determines the ending.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Hast du Geschwister? Ja, ich habe einen Bruder.</div>
+      <div class="model-en">Do you have siblings? Yes, I have a brother.</div>
+      <div class="model-breakdown">Hast du = Do you have | Geschwister = siblings (plural) | Ja = Yes | ich habe = I have | einen Bruder = a brother → 'einen' is the form of 'ein' when 'brother' is the object of 'haben'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Das sind meine Großeltern. Sie wohnen in Berlin.</div>
+      <div class="model-en">These are my grandparents. They live in Berlin.</div>
+      <div class="model-breakdown">Das sind = These are (plural) | meine Großeltern = my grandparents (plural → meine) | Sie = They | wohnen = live | in Berlin = in Berlin → Always use 'Das sind' for groups.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Wie heißt deine Schwester? Sie heißt Julia.</div>
+      <div class="model-en">What is your sister's name? She is named Julia.</div>
+      <div class="model-breakdown">Wie heißt = What is the name of | deine Schwester = your sister (female → deine with -e) | Sie heißt = She is named | Julia = name → Female family member, so use 'deine'.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Use the correct possessive pronoun (mein / meine).</p>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist ___ Bruder.</div><div class="exercise-answer">Answer: mein (Male relative)</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Hier sind ___ Eltern.</div><div class="exercise-answer">Answer: meine (Plural relatives)</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist ___ Tochter Anna.</div><div class="exercise-answer">Answer: meine (Female relative)</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Select the correct plural or singular introductory phrase.</p>
+    <div class="exercise-item"><div class="exercise-prompt">( Das ist / Das sind ) meine Geschwister.</div><div class="exercise-answer">Answer: Das sind</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">( Das ist / Das sind ) mein Opa.</div><div class="exercise-answer">Answer: Das ist</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Ich habe zwei Bruders.</div>
+      <div class="mistake-right">✓ Ich habe zwei Brüder.</div>
+      <div class="mistake-explain">English simply adds an 's' for plural. German family plurals often involve vowel changes. Bruder → Brüder. Mutter → Mütter. Vater → Väter. These must be memorized.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Das ist mein Eltern.</div>
+      <div class="mistake-right">✓ Das sind meine Eltern.</div>
+      <div class="mistake-explain">'Eltern' (parents) is always plural. Therefore, it requires the plural intro 'Das sind' and the plural possessive ending 'meine'.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">Germans rarely use the formal words 'Großvater' and 'Großmutter' in daily speech; they almost exclusively say 'Opa' and 'Oma'. Similarly, instead of 'Ehemann' (husband), many Germans simply say 'mein Mann' (my man), and instead of 'Ehefrau' (wife), they say 'meine Frau' (my woman).</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Sprechen Teil 1 &amp; 2: Examiners frequently hand you prompt cards with words like 'Familie', 'Eltern', or 'Geschwister'. You must be able to ask your partner a question like 'Wo leben deine Eltern?' and answer it smoothly.</div>
+  <div class="goal-note">Lesson Goal: Introduce your immediate and extended family members correctly using gender-accurate vocabulary and possessive pronouns.</div>
+</div>
+
+</main>
+</body></html>

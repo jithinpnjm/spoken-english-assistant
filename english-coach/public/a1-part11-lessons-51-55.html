@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>German A1 — Lessons 51–55</title>
+  <style>
+    :root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; padding: 2rem 1rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { text-align: center; font-size: 2rem; color: var(--sky); margin-bottom: 0.25rem; }
+    .subtitle { text-align: center; color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+    .lesson { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+    .lesson-header { margin-bottom: 1.5rem; }
+    .lesson-number { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .lesson-title { font-size: 1.5rem; color: var(--sky); font-weight: 700; }
+    .lesson-title-de { font-size: 1rem; color: var(--indigo); font-style: italic; margin-top: 0.1rem; }
+    .intro { color: var(--muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .section { margin-bottom: 1.5rem; }
+    .section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; padding: 0.25rem 0.6rem; border-radius: 4px; display: inline-block; }
+    .section-title.sky { color: var(--sky); background: rgba(56,189,248,0.1); }
+    .section-title.amber { color: var(--amber); background: rgba(251,191,36,0.1); }
+    .section-title.green { color: var(--green); background: rgba(74,222,128,0.1); }
+    .section-title.rose { color: var(--rose); background: rgba(251,113,133,0.1); }
+    .section-title.indigo { color: var(--indigo); background: rgba(129,140,248,0.1); }
+    .section-title.purple { color: var(--purple); background: rgba(192,132,252,0.1); }
+    .rule-item { padding: 0.5rem 0.75rem; background: var(--bg2); border-left: 3px solid var(--sky); border-radius: 0 6px 6px 0; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .formula-item { padding: 0.5rem 0.75rem; background: var(--bg2); border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; margin-bottom: 0.5rem; font-family: monospace; font-size: 0.95rem; color: var(--amber); }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .vocab-table th { background: var(--bg2); color: var(--muted); text-align: left; padding: 0.5rem 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
+    .vocab-table td { padding: 0.45rem 0.75rem; border-bottom: 1px solid rgba(45,49,87,0.5); vertical-align: top; }
+    .vocab-table tr:hover td { background: var(--bg2); }
+    .vocab-de { color: var(--green); font-weight: 600; }
+    .vocab-en { color: var(--muted); }
+    .vocab-ex { color: var(--text); font-style: italic; }
+    .vocab-exen { color: var(--muted); font-size: 0.85rem; }
+    .model-sentence { background: var(--bg2); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+    .model-de { color: var(--sky); font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .model-en { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; font-style: italic; }
+    .model-breakdown { font-size: 0.85rem; color: var(--text); background: rgba(0,0,0,0.2); padding: 0.5rem 0.75rem; border-radius: 6px; }
+    .grammar-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .grammar-table th { background: var(--bg2); color: var(--indigo); text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.8rem; text-transform: uppercase; }
+    .grammar-table td { padding: 0.45rem 0.75rem; border-bottom: 1px solid rgba(45,49,87,0.5); }
+    .grammar-table tr:hover td { background: var(--bg2); }
+    .mistake-item { background: var(--bg2); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+    .mistake-wrong { color: var(--rose); text-decoration: line-through; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .mistake-right { color: var(--green); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .mistake-explain { font-size: 0.88rem; color: var(--muted); }
+    .exercise-item { background: var(--bg2); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+    .exercise-prompt { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .exercise-answer { font-size: 0.9rem; color: var(--green); font-weight: 600; }
+    .exercise-hint { font-size: 0.82rem; color: var(--muted); margin-top: 0.25rem; }
+    .note-block { background: rgba(129,140,248,0.08); border: 1px solid rgba(129,140,248,0.25); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; font-size: 0.92rem; }
+    .note-block h4 { color: var(--indigo); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .letter-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; }
+    .letter-scenario { font-size: 0.8rem; color: var(--amber); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 700; }
+    .letter-task { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; font-style: italic; border-left: 3px solid var(--amber); padding-left: 0.6rem; }
+    .letter-text { font-family: 'Georgia', serif; font-size: 0.95rem; color: var(--text); white-space: pre-line; line-height: 1.9; }
+    nav { text-align: center; margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    nav a { color: var(--sky); text-decoration: none; background: var(--card); border: 1px solid var(--border); padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; }
+    nav a:hover { background: var(--border); }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>German A1 Study Guide</h1>
+  <p class="subtitle">Lessons 51–55 · Letter Writing · Likes &amp; Dislikes · welch- · dies- · Buying Clothes</p>
+  <nav>
+    <a href="#lesson-51">51 · Letter Invitation</a>
+    <a href="#lesson-52">52 · Likes &amp; Dislikes</a>
+    <a href="#lesson-53">53 · welch-</a>
+    <a href="#lesson-54">54 · dies-</a>
+    <a href="#lesson-55">55 · Buying Clothes</a>
+  </nav>
+
+  <!-- LESSON 51 -->
+  <div class="lesson" id="lesson-51">
+    <div class="lesson-header">
+      <div class="lesson-number">Lesson 51</div>
+      <div class="lesson-title">Letter Writing — Invitation</div>
+      <div class="lesson-title-de">Briefeschreiben — Einladung</div>
+    </div>
+    <p class="intro">In the digital age, Germans still highly value formal and semi-formal written invitations for birthdays, weddings, or office parties. Knowing how to open, structure, and close a written invitation is a core social skill. Writing a short message is also a mandatory task in the Goethe A1 exam.</p>
+
+    <div class="section">
+      <div class="section-title sky">The Rules</div>
+      <div class="rule-item">For informal letters, open with "Liebe [Female Name]," or "Lieber [Male Name],". Notice the extra "r" for men!</div>
+      <div class="rule-item">Always put a comma after the greeting. The first word of the actual letter on the next line MUST start with a lowercase letter.</div>
+      <div class="rule-item">Use the verb "einladen" (to invite) to make the request. It is separable: "Ich lade dich zu meiner Party ein."</div>
+      <div class="rule-item">Close an informal letter with "Viele Grüße" (Many greetings) or "Liebe Grüße" (Dear greetings), followed by your name on the next line.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title amber">Formula</div>
+      <div class="formula-item">Greeting: Liebe [Anna] / Lieber [Tom],</div>
+      <div class="formula-item">Body (lowercase start!): ich lade dich zu [Event / Dative] ein.</div>
+      <div class="formula-item">Closing: Viele Grüße, [Your Name]</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title green">Vocabulary</div>
+      <table class="vocab-table">
+        <thead><tr><th>German</th><th>English</th><th>Example</th><th>Translation</th></tr></thead>
+        <tbody>
+          <tr><td class="vocab-de">einladen</td><td class="vocab-en">to invite (separable)</td><td class="vocab-ex">Ich lade dich ein.</td><td class="vocab-exen">I invite you.</td></tr>
+          <tr><td class="vocab-de">die Einladung</td><td class="vocab-en">invitation</td><td class="vocab-ex">Danke für die Einladung.</td><td class="vocab-exen">Thank you for the invitation.</td></tr>
+          <tr><td class="vocab-de">feiern</td><td class="vocab-en">to celebrate</td><td class="vocab-ex">Wir feiern meinen Geburtstag.</td><td class="vocab-exen">We are celebrating my birthday.</td></tr>
+          <tr><td class="vocab-de">die Party</td><td class="vocab-en">party</td><td class="vocab-ex">Die Party ist am Samstag.</td><td class="vocab-exen">The party is on Saturday.</td></tr>
+          <tr><td class="vocab-de">mitbringen</td><td class="vocab-en">to bring along (separable)</td><td class="vocab-ex">Bring bitte Getränke mit.</td><td class="vocab-exen">Please bring drinks.</td></tr>
+          <tr><td class="vocab-de">werden</td><td class="vocab-en">to become / turn (age)</td><td class="vocab-ex">Ich werde 30 Jahre alt.</td><td class="vocab-exen">I am turning 30 years old.</td></tr>
+          <tr><td class="vocab-de">Liebe Grüße</td><td class="vocab-en">kind regards / lots of love</td><td class="vocab-ex">Liebe Grüße, Maria.</td><td class="vocab-exen">Kind regards, Maria.</td></tr>
+          <tr><td class="vocab-de">Lieber</td><td class="vocab-en">Dear (for a male)</td><td class="vocab-ex">Lieber Max,</td><td class="vocab-exen">Dear Max,</td></tr>
+          <tr><td class="vocab-de">Liebe</td><td class="vocab-en">Dear (for a female)</td><td class="vocab-ex">Liebe Sarah,</td><td class="vocab-exen">Dear Sarah,</td></tr>
+          <tr><td class="vocab-de">hoffen</td><td class="vocab-en">to hope</td><td class="vocab-ex">Ich hoffe, du hast Zeit.</td><td class="vocab-exen">I hope you have time.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">Model Sentences</div>
+      <div class="model-sentence">
+        <div class="model-de">Lieber Paul, ich lade dich zu meiner Geburtstagsparty ein.</div>
+        <div class="model-en">Dear Paul, I invite you to my birthday party.</div>
+        <div class="model-breakdown">Lieber = Dear (for a male name) | ich lade ... ein = I invite (split verb — "ein" goes to the end) | dich = you | zu meiner Geburtstagsparty = to my birthday party → Start lowercase after the comma, and "ein" jumps to the end of the sentence.</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Ich werde am Samstag 25 Jahre alt.</div>
+        <div class="model-en">I am turning 25 years old on Saturday.</div>
+        <div class="model-breakdown">Ich werde(become/turn) am Samstag 25 Jahre alt.</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Die Party fängt um 20 Uhr an. Kannst du kommen?</div>
+        <div class="model-en">The party starts at 8 PM. Can you come?</div>
+        <div class="model-breakdown">Die Party fängt(starts) um 20 Uhr an(prefix). Kannst du kommen(infinitive at end)?</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Bitte bring etwas zu trinken mit. Viele Grüße, Anna.</div>
+        <div class="model-en">Please bring something to drink. Best regards, Anna.</div>
+        <div class="model-breakdown">Bitte bring(Imperative) etwas zu trinken mit(prefix at end). Viele Grüße(Closing phrase), Anna.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title rose">Common Mistakes</div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Lieber Max,&#10;Ich lade dich ein.</div>
+        <div class="mistake-right">Lieber Max,&#10;ich lade dich ein.</div>
+        <div class="mistake-explain">In English, we capitalize the first letter of the body of an email. In German, the greeting and the body are considered ONE sentence divided by a comma. The body MUST start with a lowercase letter (unless the first word is a noun like "Morgen").</div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Ich lade dich an meiner Party.</div>
+        <div class="mistake-right">Ich lade dich zu meiner Party ein.</div>
+        <div class="mistake-explain">The verb "einladen" takes the preposition "zu" + Dative, never "an". Also, do not forget the "ein" at the end.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title purple">Exercises</div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">To your friend Thomas: ( Liebe Thomas, / Lieber Thomas, )</div>
+        <div class="exercise-answer">→ Lieber Thomas,</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">To your friend Julia: ( Liebe Julia, / Lieber Julia, )</div>
+        <div class="exercise-answer">→ Liebe Julia,</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Fill in: Lieber Tom, ___ feiere meinen Geburtstag.</div>
+        <div class="exercise-answer">→ ich</div>
+        <div class="exercise-hint">Must be lowercase because it follows the comma.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Fill in: Ich lade dich zu meiner Party ___. (einladen)</div>
+        <div class="exercise-answer">→ ein</div>
+        <div class="exercise-hint">Separable prefix at the end of the sentence.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title amber">Letter Samples — Informal Letters</div>
+
+      <div class="letter-card">
+        <div class="letter-scenario">Letter 1 · Moving Help — Asking a friend with a car</div>
+        <div class="letter-task">Sie ziehen in die 11. Straße um. Ihr Freund Johannes hat ein Auto. Er soll Ihnen helfen. Schreiben Sie an Johannes. (Warum schreiben Sie? Umziehen: Tag und Uhrzeit? Auto?)</div>
+        <div class="letter-text">Lieber Johannes,
+
+wie geht's? Ich möchte am 22. Februar um 9 Uhr in meine neue Wohnung in der 11. Straße umziehen. Ich packe alle Kisten ein und ich trage alle Möbel in das neue Haus. Meine Familie ist groß, aber mein Auto ist klein. Du hast Innova. Es ist groß. Darum hilf mir bitte! Kommst du mit deinem Auto? Du kannst auch meine Eltern abholen. Ich rufe dich am 21. an.
+
+Wir sehen uns später.
+
+Viele Grüße
+Alex</div>
+      </div>
+
+      <div class="letter-card">
+        <div class="letter-scenario">Letter 2 · Furniture Delivery — Asking a neighbour for help</div>
+        <div class="letter-task">Sie haben einen Schrank gekauft. Sie bekommen ihn am Montag. Sie müssen am Montag arbeiten. Ihr Nachbar kann Ihnen helfen. (Warum schreiben Sie? Schlüssel? Hilfe?)</div>
+        <div class="letter-text">Lieber Tony,
+
+wie geht's? Ich habe deine Handynummer vergessen, darum schreibe ich diesen Brief. Ich habe am Samstag einen Schrank gekauft, aber er ist noch nicht gekommen. Ich bekomme ihn am Montag. Ich muss am Montag arbeiten, deswegen kann ich nicht warten. Hast du Zeit? Sie stellen den Schrank ins Arbeitszimmer. Kannst du mir bitte helfen? Ich stelle den Schlüssel unter den Teppich in der Garage. Kannst du die Tür öffnen und kannst du das Arbeitszimmer zeigen?
+
+Kannst du am Sonntag anrufen? Meine Handynummer ist +618486. Danke.
+
+Wir sehen uns später.
+
+Liebe Grüße
+Alex</div>
+      </div>
+
+      <div class="letter-card">
+        <div class="letter-scenario">Letter 3 · New Baby — Congratulating a friend</div>
+        <div class="letter-task">Ihre Freundin Jasmin hat ein Baby bekommen. Sie möchten ihr gratulieren und sie zu Hause besuchen. Schreiben Sie an Jasmin. (Warum schreiben Sie? Besuch wann? Geschenk?)</div>
+        <div class="letter-text">Liebe Jasmin,
+
+wie geht's? Wie geht es deinem Kind? Ich kann dich nicht anrufen. Ich möchte dich zu Hause besuchen und dir gratulieren. Ich komme im Februar um 5 Uhr nach deinem Haus. Ich habe ein Paar Fußballschuhe gekauft. Ich möchte ihm die Fußballschuhe schenken.
+
+Sehen wir uns am 22. Februar?
+
+Liebe Grüße
+Alex</div>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <!-- LESSON 52 -->
+  <div class="lesson" id="lesson-52">
+    <div class="lesson-header">
+      <div class="lesson-number">Lesson 52</div>
+      <div class="lesson-title">Expressing Likes and Dislikes</div>
+      <div class="lesson-title-de">Vorlieben und Abneigungen ausdrücken</div>
+    </div>
+    <p class="intro">German handles "liking" things in a way that often confuses English speakers. There is a strict divide: if you like doing an ACTION (swimming, reading), you use an adverb ("gern"). If you like a NOUN (coffee, dogs), you use a verb ("mögen"). Mixing these up sounds very broken.</p>
+
+    <div class="section">
+      <div class="section-title sky">The Rules</div>
+      <div class="rule-item">To express that you like DOING an action, use the normal verb + the adverb "gern" (gladly). Example: "Ich schwimme gern" (I swim gladly = I like swimming).</div>
+      <div class="rule-item">To express that you like a NOUN (an object or person), use the verb "mögen" (to like). Example: "Ich mag Kaffee" (I like coffee).</div>
+      <div class="rule-item">Do NOT say "Ich mag schwimmen". While occasionally heard in slang, it is grammatically poor. Always use "Ich schwimme gern".</div>
+      <div class="rule-item">To express dislike, simply add "nicht" (not). "Ich schwimme nicht gern" or "Ich mag keinen Kaffee".</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title amber">Formula</div>
+      <div class="formula-item">Action: Subject + Verb + gern. (Ich koche gern.)</div>
+      <div class="formula-item">Noun: Subject + mag + Accusative Noun. (Ich mag Pizza.)</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">mögen Conjugation Table</div>
+      <table class="grammar-table">
+        <thead><tr><th>Pronoun</th><th>mögen (to like a noun)</th></tr></thead>
+        <tbody>
+          <tr><td>ich</td><td>mag (irregular!)</td></tr>
+          <tr><td>du</td><td>magst</td></tr>
+          <tr><td>er/sie/es</td><td>mag (identical to ich!)</td></tr>
+          <tr><td>wir</td><td>mögen</td></tr>
+          <tr><td>ihr</td><td>mögt</td></tr>
+          <tr><td>sie/Sie</td><td>mögen</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title green">Vocabulary</div>
+      <table class="vocab-table">
+        <thead><tr><th>German</th><th>English</th><th>Example</th><th>Translation</th></tr></thead>
+        <tbody>
+          <tr><td class="vocab-de">gern</td><td class="vocab-en">gladly / like to do</td><td class="vocab-ex">Ich lese gern.</td><td class="vocab-exen">I like to read.</td></tr>
+          <tr><td class="vocab-de">mögen</td><td class="vocab-en">to like (a thing/person)</td><td class="vocab-ex">Ich mag Hunde.</td><td class="vocab-exen">I like dogs.</td></tr>
+          <tr><td class="vocab-de">das Hobby</td><td class="vocab-en">hobby</td><td class="vocab-ex">Was ist dein Hobby?</td><td class="vocab-exen">What is your hobby?</td></tr>
+          <tr><td class="vocab-de">schwimmen</td><td class="vocab-en">to swim</td><td class="vocab-ex">Er schwimmt gern.</td><td class="vocab-exen">He likes swimming.</td></tr>
+          <tr><td class="vocab-de">kochen</td><td class="vocab-en">to cook</td><td class="vocab-ex">Kochen Sie gern?</td><td class="vocab-exen">Do you like to cook?</td></tr>
+          <tr><td class="vocab-de">tanzen</td><td class="vocab-en">to dance</td><td class="vocab-ex">Wir tanzen sehr gern.</td><td class="vocab-exen">We like dancing a lot.</td></tr>
+          <tr><td class="vocab-de">die Musik</td><td class="vocab-en">music</td><td class="vocab-ex">Ich mag klassische Musik.</td><td class="vocab-exen">I like classical music.</td></tr>
+          <tr><td class="vocab-de">der Sport</td><td class="vocab-en">sport</td><td class="vocab-ex">Magst du Sport?</td><td class="vocab-exen">Do you like sports?</td></tr>
+          <tr><td class="vocab-de">hassen</td><td class="vocab-en">to hate</td><td class="vocab-ex">Ich hasse Regen.</td><td class="vocab-exen">I hate rain.</td></tr>
+          <tr><td class="vocab-de">das Lieblingsessen</td><td class="vocab-en">favorite food</td><td class="vocab-ex">Mein Lieblingsessen ist Pizza.</td><td class="vocab-exen">My favorite food is pizza.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">Model Sentences</div>
+      <div class="model-sentence">
+        <div class="model-de">Ich spiele gern Fußball, aber ich mag kein Tennis.</div>
+        <div class="model-en">I like playing soccer, but I don't like tennis.</div>
+        <div class="model-breakdown">Ich spiele gern(play gladly = like playing) Fußball, aber ich mag(like/verb) kein Tennis(noun).</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Magst du Kaffee? Nein, ich trinke lieber Tee.</div>
+        <div class="model-en">Do you like coffee? No, I prefer to drink tea.</div>
+        <div class="model-breakdown">Magst(Like) du Kaffee? Nein, ich trinke(drink) lieber(rather/comparative of gern) Tee.</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Meine Schwester kocht sehr gern.</div>
+        <div class="model-en">My sister likes cooking a lot.</div>
+        <div class="model-breakdown">Meine Schwester kocht(cooks) sehr gern(very gladly).</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Wir mögen den neuen Kollegen nicht.</div>
+        <div class="model-en">We do not like the new colleague.</div>
+        <div class="model-breakdown">Wir mögen(like) den neuen Kollegen(masculine accusative object) nicht.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title rose">Common Mistakes</div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Ich mag kochen.</div>
+        <div class="mistake-right">Ich koche gern.</div>
+        <div class="mistake-explain">Do not use "mögen" followed by a verb in A1 German. It translates poorly. If you like an action, you must do the action "gern" (gladly).</div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Er mögt Pizza.</div>
+        <div class="mistake-right">Er mag Pizza.</div>
+        <div class="mistake-explain">"mögen" follows modal verb rules! The "er/sie/es" form is completely identical to the "ich" form (mag). You do not add a "t".</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title purple">Exercises</div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Ich ___ Schokolade. ( mag / esse gern )</div>
+        <div class="exercise-answer">→ mag</div>
+        <div class="exercise-hint">Schokolade is a noun → use mögen.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Ich ___ Musik. ( höre gern / mag )</div>
+        <div class="exercise-answer">→ höre gern</div>
+        <div class="exercise-hint">Musik here as activity (listening) → use gern with the verb hören.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Er ___ nicht arbeiten. ( mag / arbeitet nicht gern )</div>
+        <div class="exercise-answer">→ arbeitet nicht gern</div>
+        <div class="exercise-hint">Arbeiten is an action → use gern with the verb.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Conjugate mögen: ___ du den Film?</div>
+        <div class="exercise-answer">→ Magst</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Conjugate mögen: Der Hund ___ keine Katzen.</div>
+        <div class="exercise-answer">→ mag</div>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <!-- LESSON 53 -->
+  <div class="lesson" id="lesson-53">
+    <div class="lesson-header">
+      <div class="lesson-number">Lesson 53</div>
+      <div class="lesson-title">Interrogative Pronoun welch-</div>
+      <div class="lesson-title-de">Fragepronomen welch-</div>
+    </div>
+    <p class="intro">When someone offers you a drink, you might ask "Which drink?". When you are shopping, a clerk might ask "Which shirt do you want?". The word "which" (welch-) is an interrogative pronoun that acts exactly like a definite article (der/die/das). It physically changes its ending to match the gender and case of the noun it is asking about.</p>
+
+    <div class="section">
+      <div class="section-title sky">The Rules</div>
+      <div class="rule-item">The base word is "welch-". It cannot be used without an ending.</div>
+      <div class="rule-item">The ending you attach is identical to the last letter of the definite article for that noun.</div>
+      <div class="rule-item">If it's "der" (masculine nominative), use "welcher". If it's "das" (neuter), use "welches". If it's "die" (feminine or plural), use "welche".</div>
+      <div class="rule-item">If the noun is the direct object (Accusative masculine "den"), use "welchen".</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title amber">Formula</div>
+      <div class="formula-item">Nominative: Welcher (der), Welche (die), Welches (das), Welche (plural).</div>
+      <div class="formula-item">Accusative: Welchen (den), Welche (die), Welches (das), Welche (plural).</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">welch- Endings Table</div>
+      <table class="grammar-table">
+        <thead><tr><th>Gender</th><th>Nominative (Subject)</th><th>Accusative (Direct Object)</th></tr></thead>
+        <tbody>
+          <tr><td>Masculine (der/den)</td><td>welcher Rock? (which skirt?)</td><td>welchen Rock? (CHANGES!)</td></tr>
+          <tr><td>Feminine (die)</td><td>welche Jacke?</td><td>welche Jacke? (no change)</td></tr>
+          <tr><td>Neuter (das)</td><td>welches Hemd?</td><td>welches Hemd? (no change)</td></tr>
+          <tr><td>Plural (die)</td><td>welche Schuhe?</td><td>welche Schuhe? (no change)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title green">Vocabulary</div>
+      <table class="vocab-table">
+        <thead><tr><th>German</th><th>English</th><th>Example</th><th>Translation</th></tr></thead>
+        <tbody>
+          <tr><td class="vocab-de">welcher</td><td class="vocab-en">which (masculine nom)</td><td class="vocab-ex">Welcher Tag ist heute?</td><td class="vocab-exen">Which day is today?</td></tr>
+          <tr><td class="vocab-de">welches</td><td class="vocab-en">which (neuter)</td><td class="vocab-ex">Welches Auto kaufst du?</td><td class="vocab-exen">Which car are you buying?</td></tr>
+          <tr><td class="vocab-de">welche</td><td class="vocab-en">which (feminine/plural)</td><td class="vocab-ex">Welche Schuhe gefallen dir?</td><td class="vocab-exen">Which shoes do you like?</td></tr>
+          <tr><td class="vocab-de">welchen</td><td class="vocab-en">which (masculine acc)</td><td class="vocab-ex">Welchen Rock möchtest du?</td><td class="vocab-exen">Which skirt would you like?</td></tr>
+          <tr><td class="vocab-de">der Rock</td><td class="vocab-en">skirt</td><td class="vocab-ex">Der Rock ist zu kurz.</td><td class="vocab-exen">The skirt is too short.</td></tr>
+          <tr><td class="vocab-de">das Hemd</td><td class="vocab-en">shirt (button-up)</td><td class="vocab-ex">Das Hemd ist weiß.</td><td class="vocab-exen">The shirt is white.</td></tr>
+          <tr><td class="vocab-de">die Jacke</td><td class="vocab-en">jacket</td><td class="vocab-ex">Ich brauche eine Jacke.</td><td class="vocab-exen">I need a jacket.</td></tr>
+          <tr><td class="vocab-de">die Schuhe</td><td class="vocab-en">shoes (plural)</td><td class="vocab-ex">Die Schuhe sind teuer.</td><td class="vocab-exen">The shoes are expensive.</td></tr>
+          <tr><td class="vocab-de">der Pullover</td><td class="vocab-en">sweater</td><td class="vocab-ex">Welchen Pullover nimmst du?</td><td class="vocab-exen">Which sweater are you taking?</td></tr>
+          <tr><td class="vocab-de">nehmen</td><td class="vocab-en">to take</td><td class="vocab-ex">Ich nehme den Kaffee.</td><td class="vocab-exen">I'll take the coffee.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">Model Sentences</div>
+      <div class="model-sentence">
+        <div class="model-de">Welcher Zug fährt nach Berlin?</div>
+        <div class="model-en">Which train travels to Berlin?</div>
+        <div class="model-breakdown">Welcher = Which | Zug = train | fährt = travels | nach Berlin = to Berlin → "Welcher" is used for "der" words (masculine) when asking "which?"</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Welchen Apfel möchtest du?</div>
+        <div class="model-en">Which apple would you like?</div>
+        <div class="model-breakdown">Welchen = Which | Apfel = apple | möchtest du = would you like → "Welchen" is used when the "der" word is the thing being chosen/wanted.</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Welche Jacke kaufst du? Die rote Jacke.</div>
+        <div class="model-en">Which jacket are you buying? The red jacket.</div>
+        <div class="model-breakdown">Welche = Which | Jacke = jacket | kaufst du = are you buying → "Welche" is used for "die" words (feminine) when asking "which?"</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Welches Buch liest er gerade?</div>
+        <div class="model-en">Which book is he reading right now?</div>
+        <div class="model-breakdown">Welches = Which | Buch = book | liest er = is he reading | gerade = right now → "Welches" is used for "das" words (neuter) when asking "which?"</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title rose">Common Mistakes</div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Welche Tag ist heute?</div>
+        <div class="mistake-right">Welcher Tag ist heute?</div>
+        <div class="mistake-explain">"Der Tag" is masculine, and here it is the subject. The ending must mirror "der" → "welcher".</div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Welcher Pullover kaufst du?</div>
+        <div class="mistake-right">Welchen Pullover kaufst du?</div>
+        <div class="mistake-explain">You are buying the sweater, making it the direct object (Accusative). Masculine accusative is "den", so it must be "welchen".</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title purple">Exercises</div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">___ Stift brauchst du? (der Stift / Accusative object)</div>
+        <div class="exercise-answer">→ Welchen</div>
+        <div class="exercise-hint">Masculine direct object.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">___ T-Shirt kaufst du? (das T-Shirt / Accusative object)</div>
+        <div class="exercise-answer">→ Welches</div>
+        <div class="exercise-hint">Neuter object.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">___ Frau ist deine Mutter? (die Frau / Nominative subject)</div>
+        <div class="exercise-answer">→ Welche</div>
+        <div class="exercise-hint">Feminine subject.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Translate: Which train? (der Zug / Nominative)</div>
+        <div class="exercise-answer">→ Welcher Zug?</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Translate: Which shoes? (die Schuhe / Plural)</div>
+        <div class="exercise-answer">→ Welche Schuhe?</div>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <!-- LESSON 54 -->
+  <div class="lesson" id="lesson-54">
+    <div class="lesson-header">
+      <div class="lesson-number">Lesson 54</div>
+      <div class="lesson-title">Demonstrative Article dies-</div>
+      <div class="lesson-title-de">Demonstrativartikel dies-</div>
+    </div>
+    <p class="intro">Once someone asks you "Which shirt?" (Welches Hemd?), you need to be able to point to one and say "THIS shirt!". The demonstrative article "dies-" (this/these) follows the exact same mechanical rules you just learned for "welch-". It adopts the ending of the definite article so you can point things out with grammatical precision.</p>
+
+    <div class="section">
+      <div class="section-title sky">The Rules</div>
+      <div class="rule-item">The base word is "dies-". It points to a specific object close to you (this one / these ones).</div>
+      <div class="rule-item">Like "welch-", it takes the ending of the definite article (der → dieser, die → diese, das → dieses).</div>
+      <div class="rule-item">In the Accusative case, the masculine form changes: "den" → "diesen".</div>
+      <div class="rule-item">"Welch-" and "dies-" are the perfect pair: Question: Welches? Answer: Dieses.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title amber">Formula</div>
+      <div class="formula-item">Nominative: Dieser (der), Diese (die), Dieses (das), Diese (plural).</div>
+      <div class="formula-item">Accusative: Diesen (den), Diese (die), Dieses (das), Diese (plural).</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">dies- Table with welch- Pair</div>
+      <table class="grammar-table">
+        <thead><tr><th>Gender</th><th>Question (welch-)</th><th>Answer Nominative</th><th>Answer Accusative</th></tr></thead>
+        <tbody>
+          <tr><td>Masculine</td><td>welcher / welchen?</td><td>dieser Rock (this skirt)</td><td>diesen Rock (this skirt/object)</td></tr>
+          <tr><td>Feminine</td><td>welche?</td><td>diese Jacke</td><td>diese Jacke</td></tr>
+          <tr><td>Neuter</td><td>welches?</td><td>dieses Hemd</td><td>dieses Hemd</td></tr>
+          <tr><td>Plural</td><td>welche?</td><td>diese Schuhe</td><td>diese Schuhe</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title green">Vocabulary</div>
+      <table class="vocab-table">
+        <thead><tr><th>German</th><th>English</th><th>Example</th><th>Translation</th></tr></thead>
+        <tbody>
+          <tr><td class="vocab-de">dieser</td><td class="vocab-en">this (masculine nom)</td><td class="vocab-ex">Dieser Mann ist mein Vater.</td><td class="vocab-exen">This man is my father.</td></tr>
+          <tr><td class="vocab-de">dieses</td><td class="vocab-en">this (neuter)</td><td class="vocab-ex">Dieses Buch ist spannend.</td><td class="vocab-exen">This book is exciting.</td></tr>
+          <tr><td class="vocab-de">diese</td><td class="vocab-en">this (feminine) / these (plural)</td><td class="vocab-ex">Diese Schuhe sind zu klein.</td><td class="vocab-exen">These shoes are too small.</td></tr>
+          <tr><td class="vocab-de">diesen</td><td class="vocab-en">this (masculine acc)</td><td class="vocab-ex">Ich kaufe diesen Computer.</td><td class="vocab-exen">I am buying this computer.</td></tr>
+          <tr><td class="vocab-de">der Computer</td><td class="vocab-en">computer</td><td class="vocab-ex">Welchen Computer kaufst du?</td><td class="vocab-exen">Which computer are you buying?</td></tr>
+          <tr><td class="vocab-de">das Kleid</td><td class="vocab-en">dress</td><td class="vocab-ex">Dieses Kleid ist sehr schön.</td><td class="vocab-exen">This dress is very beautiful.</td></tr>
+          <tr><td class="vocab-de">die Hose</td><td class="vocab-en">pants / trousers</td><td class="vocab-ex">Diese Hose passt mir nicht.</td><td class="vocab-exen">These pants do not fit me.</td></tr>
+          <tr><td class="vocab-de">der Mantel</td><td class="vocab-en">coat</td><td class="vocab-ex">Ich brauche diesen Mantel.</td><td class="vocab-exen">I need this coat.</td></tr>
+          <tr><td class="vocab-de">das Auto</td><td class="vocab-en">car</td><td class="vocab-ex">Wem gehört dieses Auto?</td><td class="vocab-exen">Who does this car belong to?</td></tr>
+          <tr><td class="vocab-de">kosten</td><td class="vocab-en">to cost</td><td class="vocab-ex">Was kostet dieser Tisch?</td><td class="vocab-exen">What does this table cost?</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">Model Sentences</div>
+      <div class="model-sentence">
+        <div class="model-de">Welchen Pullover nimmst du? Ich nehme diesen Pullover.</div>
+        <div class="model-en">Which sweater are you taking? I am taking this sweater.</div>
+        <div class="model-breakdown">Welchen Pullover = Which sweater | nimmst du = are you taking | Ich nehme = I am taking | diesen Pullover = this sweater → "Welchen" and "diesen" both end in "-en" here because you're choosing the sweater (it's the thing being taken).</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Dieses Auto ist zu teuer. Ich habe kein Geld.</div>
+        <div class="model-en">This car is too expensive. I have no money.</div>
+        <div class="model-breakdown">Dieses = This | Auto = car | ist = is | zu teuer = too expensive → "Dieses" is used for "das" words (neuter) to say "this".</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Diese Schuhe gefallen mir sehr gut.</div>
+        <div class="model-en">These shoes please me very much (I like these shoes).</div>
+        <div class="model-breakdown">Diese = These | Schuhe = shoes | gefallen = please / look good | mir = to me → "Diese" is used for plural or "die" words. "gefallen" works backwards: the shoes are doing the pleasing, you are the one being pleased.</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Kennen Sie diesen Mann?</div>
+        <div class="model-en">Do you know this man?</div>
+        <div class="model-breakdown">Kennen Sie = Do you know (formal) | diesen Mann = this man → "Diesen" is used because it's a "der" word being pointed at/referred to as the object.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title rose">Common Mistakes</div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Ich möchte dies Auto.</div>
+        <div class="mistake-right">Ich möchte dieses Auto.</div>
+        <div class="mistake-explain">You must always finish the word "dies-". Because "Auto" is neuter (das Auto), it MUST end in "-es". "Dies" alone is only used in rare slang or poetry.</div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Ich nehme dieser Stift.</div>
+        <div class="mistake-right">Ich nehme diesen Stift.</div>
+        <div class="mistake-explain">The pen (der Stift) is being taken by you; it is the direct object. The masculine article must change to accusative (den → diesen).</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title purple">Exercises</div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Ich trinke ___ Kaffee. (der Kaffee / Accusative object)</div>
+        <div class="exercise-answer">→ diesen</div>
+        <div class="exercise-hint">Masculine direct object.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">___ Buch ist sehr gut. (das Buch / Nominative subject)</div>
+        <div class="exercise-answer">→ Dieses</div>
+        <div class="exercise-hint">Neuter subject.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">___ Lampen sind zu hell. (die Lampen / Plural)</div>
+        <div class="exercise-answer">→ Diese</div>
+        <div class="exercise-hint">Plural subject.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Which skirt? (der Rock) → This skirt.</div>
+        <div class="exercise-answer">→ Welcher Rock? → Dieser Rock.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Which jacket? (die Jacke) → This jacket.</div>
+        <div class="exercise-answer">→ Welche Jacke? → Diese Jacke.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON 55 -->
+  <div class="lesson" id="lesson-55">
+    <div class="lesson-header">
+      <div class="lesson-number">Lesson 55</div>
+      <div class="lesson-title">Buying Clothes</div>
+      <div class="lesson-title-de">Kleidung kaufen</div>
+    </div>
+    <p class="intro">Shopping for clothes in Germany is a linguistic gauntlet. You must state what you are looking for (Accusative), ask to try it on (separable verbs), and finally judge how it fits and looks on you (Dative verbs). Conquering this real-world scenario combines three major grammar pillars into one practical skill.</p>
+
+    <div class="section">
+      <div class="section-title sky">The Rules</div>
+      <div class="rule-item">To ask to try something on, use the separable verb "anprobieren": "Kann ich das anprobieren?".</div>
+      <div class="rule-item">To judge size/fit, use "passen" (to fit) + Dative: "Die Hose passt mir nicht" (The pants do not fit me).</div>
+      <div class="rule-item">To judge appearance/style, use "stehen" (to suit/look good) + Dative: "Die Farbe steht dir" (The color looks good on you).</div>
+      <div class="rule-item">Remember that clothing items have strict genders (der Rock, die Hose, das Hemd), which dictates the pronouns you use.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title amber">Formula</div>
+      <div class="formula-item">Request: Kann ich + [Accusative Item] + anprobieren?</div>
+      <div class="formula-item">Fit: [Item] + passt / passen + mir + (nicht).</div>
+      <div class="formula-item">Style: [Item] + steht / stehen + mir + (gut/nicht).</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">Shopping Actions Table</div>
+      <table class="grammar-table">
+        <thead><tr><th>Action</th><th>Verb</th><th>Structure</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Trying on</td><td>anprobieren (separable)</td><td>Modal + ... + infinitive</td><td>Kann ich das Hemd anprobieren?</td></tr>
+          <tr><td>Checking fit (size)</td><td>passen (Dative)</td><td>Item + passt + mir</td><td>Der Pullover passt mir gut.</td></tr>
+          <tr><td>Checking style (looks)</td><td>stehen (Dative)</td><td>Item + steht + mir</td><td>Die Jacke steht mir nicht.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title green">Vocabulary</div>
+      <table class="vocab-table">
+        <thead><tr><th>German</th><th>English</th><th>Example</th><th>Translation</th></tr></thead>
+        <tbody>
+          <tr><td class="vocab-de">anprobieren</td><td class="vocab-en">to try on (separable)</td><td class="vocab-ex">Ich möchte die Hose anprobieren.</td><td class="vocab-exen">I would like to try the pants on.</td></tr>
+          <tr><td class="vocab-de">passen</td><td class="vocab-en">to fit (size)</td><td class="vocab-ex">Die Schuhe passen mir.</td><td class="vocab-exen">The shoes fit me.</td></tr>
+          <tr><td class="vocab-de">stehen</td><td class="vocab-en">to suit (appearance)</td><td class="vocab-ex">Das Kleid steht dir super.</td><td class="vocab-exen">The dress looks great on you.</td></tr>
+          <tr><td class="vocab-de">die Größe</td><td class="vocab-en">size</td><td class="vocab-ex">Haben Sie das in Größe M?</td><td class="vocab-exen">Do you have that in size M?</td></tr>
+          <tr><td class="vocab-de">die Umkleidekabine</td><td class="vocab-en">fitting room</td><td class="vocab-ex">Wo ist die Umkleidekabine?</td><td class="vocab-exen">Where is the fitting room?</td></tr>
+          <tr><td class="vocab-de">die Farbe</td><td class="vocab-en">color</td><td class="vocab-ex">Die Farbe ist zu dunkel.</td><td class="vocab-exen">The color is too dark.</td></tr>
+          <tr><td class="vocab-de">eng</td><td class="vocab-en">tight</td><td class="vocab-ex">Das Hemd ist zu eng.</td><td class="vocab-exen">The shirt is too tight.</td></tr>
+          <tr><td class="vocab-de">weit</td><td class="vocab-en">wide / loose</td><td class="vocab-ex">Die Hose ist zu weit.</td><td class="vocab-exen">The pants are too loose.</td></tr>
+          <tr><td class="vocab-de">die Hose</td><td class="vocab-en">pants / trousers</td><td class="vocab-ex">Ich suche eine schwarze Hose.</td><td class="vocab-exen">I am looking for black pants.</td></tr>
+          <tr><td class="vocab-de">das T-Shirt</td><td class="vocab-en">T-shirt</td><td class="vocab-ex">Dieses T-Shirt ist billig.</td><td class="vocab-exen">This T-shirt is cheap.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title indigo">Model Sentences</div>
+      <div class="model-sentence">
+        <div class="model-de">Entschuldigung, kann ich diese Hose anprobieren?</div>
+        <div class="model-en">Excuse me, can I try these pants on?</div>
+        <div class="model-breakdown">Entschuldigung, kann(Modal pos 2) ich diese Hose(Accusative feminine object) anprobieren(Infinitive at end)?</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Wie passt das Hemd? Es ist leider zu eng.</div>
+        <div class="model-en">How does the shirt fit? It is unfortunately too tight.</div>
+        <div class="model-breakdown">Wie passt das Hemd(subject)? Es ist leider(unfortunately) zu eng(too tight).</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Dieser Mantel steht Ihnen sehr gut.</div>
+        <div class="model-en">This coat looks very good on you. (Formal)</div>
+        <div class="model-breakdown">Dieser Mantel = This coat | steht = suits / looks good on | Ihnen = you (formal) | sehr gut = very well → A great phrase to compliment a customer in a shop.</div>
+      </div>
+      <div class="model-sentence">
+        <div class="model-de">Haben Sie diese Jacke eine Nummer größer?</div>
+        <div class="model-en">Do you have this jacket one size larger?</div>
+        <div class="model-breakdown">Haben Sie(Do you have) diese Jacke eine Nummer(one number/size) größer(larger/comparative)?</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title rose">Common Mistakes</div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Die Hose steht zu klein.</div>
+        <div class="mistake-right">Die Hose ist zu klein. (oder: Die Hose passt nicht.)</div>
+        <div class="mistake-explain">You cannot use "stehen" to describe size. "Stehen" is ONLY used for aesthetics (how it looks on you).</div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-wrong">Das Hemd passt mich.</div>
+        <div class="mistake-right">Das Hemd passt mir.</div>
+        <div class="mistake-explain">Both "passen" and "stehen" strictly require the Dative pronoun. The shirt fits TO me (mir), not "mich".</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title purple">Exercises</div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Der Rock ist zu groß. Er ___ mir nicht. ( passt / steht )</div>
+        <div class="exercise-answer">→ passt</div>
+        <div class="exercise-hint">Relates to physical size/fit.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Die blaue Farbe ___ dir fantastisch! ( passt / steht )</div>
+        <div class="exercise-answer">→ steht</div>
+        <div class="exercise-hint">Relates to visual appearance.</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Translate: Where is the fitting room?</div>
+        <div class="exercise-answer">→ Wo ist die Umkleidekabine?</div>
+      </div>
+      <div class="exercise-item">
+        <div class="exercise-prompt">Translate: Can I try this on? (anprobieren)</div>
+        <div class="exercise-answer">→ Kann ich das anprobieren?</div>
+      </div>
+    </div>
+
+    
+  </div>
+
+</div>
+</body>
+</html>

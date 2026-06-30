@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>German A1 — Lessons 36–40</title>
+  <style>
+    :root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
+    .page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
+    .page-header h1{color:var(--sky);font-size:1.8rem}
+    .page-header p{color:var(--muted);margin-top:.5rem}
+    .lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
+    .lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
+    .lesson-nav a:hover{background:var(--border)}
+    main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+    .lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
+    .lesson:target{border-color:var(--indigo)}
+    .lesson-header{margin-bottom:1.5rem}
+    .lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
+    .lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
+    .lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
+    .section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
+    .section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
+    .section-title.sky{color:var(--sky)} .section-title.amber{color:var(--amber)} .section-title.green{color:var(--green)} .section-title.rose{color:var(--rose)} .section-title.indigo{color:var(--indigo)} .section-title.purple{color:var(--purple)} .section-title.muted{color:var(--muted)}
+    .rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+    .rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
+    .formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+    .formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
+    .vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
+    .vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
+    .vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}
+    .vocab-table tr:last-child td{border-bottom:none}
+    .vocab-de{color:var(--sky);font-weight:500}
+    .vocab-en{color:var(--text)}
+    .vocab-ex{color:var(--muted);font-size:.85rem}
+    .model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
+    .model-de{font-size:1rem;font-weight:600;color:var(--text)}
+    .model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0}
+    .model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
+    .mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
+    .mistake-wrong{color:var(--rose)}
+    .mistake-right{color:var(--green)}
+    .mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+    .exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+    .exercise-item:last-child{border-bottom:none}
+    .exercise-prompt{color:var(--text)}
+    .exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
+    .note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
+    .grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
+    .grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+    .grammar-table td{padding:.4rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}
+    .grammar-table tr:last-child td{border-bottom:none}
+    @media(max-width:600px){main{padding:1rem}.lesson{padding:1.25rem}}
+  </style>
+</head>
+<body>
+  <div class="page-header">
+    <h1>German A1 — Lessons 36–40</h1>
+    <p>Dative Pronouns · Separable Verbs · Daily Routines · Imperatives · Directions</p>
+  </div>
+  <nav class="lesson-nav">
+    <a href="#lesson-36">Lesson 36: Dative Pronouns</a>
+    <a href="#lesson-37">Lesson 37: Separable Verbs</a>
+    <a href="#lesson-38">Lesson 38: Daily Routine</a>
+    <a href="#lesson-39">Lesson 39: Imperatives</a>
+    <a href="#lesson-40">Lesson 40: Giving Directions</a>
+  </nav>
+  <main>
+
+    <!-- LESSON 36 -->
+    <section id="lesson-36" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 36</div>
+        <h2 class="lesson-title">Personal Pronouns Dative — Personalpronomen im Dativ</h2>
+        <p class="lesson-intro">Just as you learned that 'helfen' (to help) forces a noun into the indirect object form, it also forces personal pronouns to change. If you want to say 'Help me!' or 'I thank you', you cannot use 'ich' or 'mich'. You must use the special words 'mir' and 'dir'. Mastering these short words completely transforms how you interact with Germans.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">When a pronoun is the indirect object (following verbs like helfen, danken, gehören) or a preposition like 'mit', it must take a special form.</div>
+        <div class="rule-item">'ich' becomes 'mir' (to me).</div>
+        <div class="rule-item">'du' becomes 'dir' (to you).</div>
+        <div class="rule-item">'er' (he) and 'es' (it) both become 'ihm' (to him / to it).</div>
+        <div class="rule-item">'sie' (she) becomes 'ihr' (to her).</div>
+        <div class="rule-item">Plurals: 'wir' → 'uns', 'ihr' → 'euch', 'sie/Sie' → 'ihnen/Ihnen'.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Subject + Verb + Indirect Object Pronoun</div>
+        <div class="formula-item">Example: Das Auto + gehört + mir.</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>Subject Form</th><th>Indirect Object Form</th><th>English Meaning</th></tr>
+          <tr><td>ich</td><td>mir</td><td>(to) me</td></tr>
+          <tr><td>du</td><td>dir</td><td>(to) you (informal)</td></tr>
+          <tr><td>er / es</td><td>ihm</td><td>(to) him / it</td></tr>
+          <tr><td>sie</td><td>ihr</td><td>(to) her</td></tr>
+          <tr><td>wir</td><td>uns</td><td>(to) us</td></tr>
+          <tr><td>ihr</td><td>euch</td><td>(to) you all</td></tr>
+          <tr><td>sie / Sie</td><td>ihnen / Ihnen</td><td>(to) them / you (formal)</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">mir</td><td class="vocab-en">to me</td><td class="vocab-ex">Hilf mir bitte. — Help me please.</td></tr>
+          <tr><td class="vocab-de">dir</td><td class="vocab-en">to you (informal)</td><td class="vocab-ex">Ich danke dir. — I thank you.</td></tr>
+          <tr><td class="vocab-de">ihm</td><td class="vocab-en">to him / it</td><td class="vocab-ex">Das Buch gehört ihm. — The book belongs to him.</td></tr>
+          <tr><td class="vocab-de">ihr</td><td class="vocab-en">to her</td><td class="vocab-ex">Das Kleid passt ihr. — The dress fits her.</td></tr>
+          <tr><td class="vocab-de">ihnen</td><td class="vocab-en">to them</td><td class="vocab-ex">Ich antworte ihnen. — I answer them.</td></tr>
+          <tr><td class="vocab-de">Ihnen</td><td class="vocab-en">to you (formal)</td><td class="vocab-ex">Wie geht es Ihnen? — How are you?</td></tr>
+          <tr><td class="vocab-de">gehören</td><td class="vocab-en">to belong to</td><td class="vocab-ex">Wem gehört das? — Who does that belong to?</td></tr>
+          <tr><td class="vocab-de">passen</td><td class="vocab-en">to fit</td><td class="vocab-ex">Die Schuhe passen mir. — The shoes fit me.</td></tr>
+          <tr><td class="vocab-de">antworten</td><td class="vocab-en">to answer</td><td class="vocab-ex">Bitte antworte mir. — Please answer me.</td></tr>
+          <tr><td class="vocab-de">schmecken</td><td class="vocab-en">to taste good to</td><td class="vocab-ex">Die Pizza schmeckt mir. — The pizza tastes good to me.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Kannst du mir helfen?</div>
+          <div class="model-en">Can you help me?</div>
+          <div class="model-breakdown">Kannst = Can | du = you (subject) | mir = to me (indirect object pronoun) | helfen = help (sent to the end) → 'ich' becomes 'mir' as the indirect object.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Das Essen ist sehr lecker. Es schmeckt mir gut.</div>
+          <div class="model-en">The food is very delicious. It tastes good to me.</div>
+          <div class="model-breakdown">Das Essen = The food | ist sehr lecker = is very delicious | Es = It (subject) | schmeckt = tastes | mir = to me | gut = well → 'schmecken' always needs an indirect object pronoun.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Gehört der Stift dir oder gehört er ihm?</div>
+          <div class="model-en">Does the pen belong to you or does it belong to him?</div>
+          <div class="model-breakdown">Gehört = Belongs | der Stift = the pen (subject) | dir = to you | oder = or | ihm = to him → 'gehören' always points to the owner.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Ich antworte der Chefin. Ich antworte ihr.</div>
+          <div class="model-en">I answer the boss. I answer her.</div>
+          <div class="model-breakdown">Ich antworte = I answer | der Chefin = the boss (indirect object noun) | ihr = her (indirect object pronoun replacing 'die Chefin') → The pronoun replaces the noun but stays in the same indirect object form.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Der Kaffee ist für Tom. Er schmeckt ___ sehr gut.</div>
+          <div class="exercise-answer">Answer: ihm (to him)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Anna sucht ihr Buch. Das Buch gehört ___.</div>
+          <div class="exercise-answer">Answer: ihr (to her)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Herr Schmidt, kann ich ___ helfen?</div>
+          <div class="exercise-answer">Answer: Ihnen (to you formal)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: I thank you (informal).</div>
+          <div class="exercise-answer">Answer: Ich danke dir.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: The car belongs to me.</div>
+          <div class="exercise-answer">Answer: Das Auto gehört mir.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich helfe dich.</div>
+          <div class="mistake-right">✓ Ich helfe dir.</div>
+          <div class="mistake-explain">English speakers use the direct object for 'help'. In German, 'helfen' strictly requires the indirect object form — 'dich' MUST become 'dir'.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Das T-Shirt gefällt mich.</div>
+          <div class="mistake-right">✓ Das T-Shirt gefällt mir.</div>
+          <div class="mistake-explain">'gefallen' (to be pleasing to) requires the indirect object form. It pleases TO me → 'mir'.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 37 -->
+    <section id="lesson-37" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 37</div>
+        <h2 class="lesson-title">Separable Verbs — Trennbare Verben</h2>
+        <p class="lesson-intro">German has a fantastic way of creating new verbs: it glues a little preposition (like 'an' or 'auf') to the front of a base verb. 'Kommen' means to come, but 'ankommen' means to arrive. However, in a normal sentence, these verbs break apart! The prefix detaches and flies all the way to the very end of the sentence, creating the famous German 'sentence bracket'.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">A separable verb consists of a prefix (an-, auf-, ein-, mit-, etc.) and a base verb (fangen, stehen, kaufen).</div>
+        <div class="rule-item">In a present tense statement, the base verb takes Position 2 and is conjugated normally.</div>
+        <div class="rule-item">The prefix breaks off and goes to the VERY END of the clause.</div>
+        <div class="rule-item">If you use a Modal verb (like 'möchten' or 'können'), the separable verb does NOT split. The whole word goes to the end in its full form.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Standard: Subject (1) + Conjugated Base Verb (2) + Object/Time + Prefix (End).</div>
+        <div class="formula-item">Modal: Subject (1) + Modal Verb (2) + Object/Time + Full Separable Verb (End).</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">aufstehen</td><td class="vocab-en">to wake up / get up</td><td class="vocab-ex">Ich stehe um 7 Uhr auf. — I get up at 7 o'clock.</td></tr>
+          <tr><td class="vocab-de">anfangen</td><td class="vocab-en">to begin / start</td><td class="vocab-ex">Der Kurs fängt jetzt an. — The course starts now.</td></tr>
+          <tr><td class="vocab-de">einkaufen</td><td class="vocab-en">to shop (groceries)</td><td class="vocab-ex">Wir kaufen im Supermarkt ein. — We are shopping in the supermarket.</td></tr>
+          <tr><td class="vocab-de">fernsehen</td><td class="vocab-en">to watch TV</td><td class="vocab-ex">Er sieht abends fern. — He watches TV in the evening.</td></tr>
+          <tr><td class="vocab-de">anrufen</td><td class="vocab-en">to call (phone)</td><td class="vocab-ex">Rufst du mich heute an? — Are you calling me today?</td></tr>
+          <tr><td class="vocab-de">mitkommen</td><td class="vocab-en">to come along</td><td class="vocab-ex">Kommst du mit? — Are you coming along?</td></tr>
+          <tr><td class="vocab-de">zumachen</td><td class="vocab-en">to close</td><td class="vocab-ex">Ich mache die Tür zu. — I close the door.</td></tr>
+          <tr><td class="vocab-de">aufmachen</td><td class="vocab-en">to open</td><td class="vocab-ex">Machst du das Fenster auf? — Are you opening the window?</td></tr>
+          <tr><td class="vocab-de">abfahren</td><td class="vocab-en">to depart</td><td class="vocab-ex">Der Zug fährt um 8 Uhr ab. — The train departs at 8 o'clock.</td></tr>
+          <tr><td class="vocab-de">ankommen</td><td class="vocab-en">to arrive</td><td class="vocab-ex">Wann kommt der Bus an? — When does the bus arrive?</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Ich kaufe heute im Supermarkt ein.</div>
+          <div class="model-en">I am shopping in the supermarket today.</div>
+          <div class="model-breakdown">Ich = I | kaufe = buy (base verb in position 2, without the 'ein' prefix) | heute = today | im Supermarkt = in the supermarket | ein = prefix sent to the very end → The prefix 'ein' breaks off from 'einkaufen'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Der Film fängt um acht Uhr an.</div>
+          <div class="model-en">The movie starts at eight o'clock.</div>
+          <div class="model-breakdown">Der Film = The movie (subject) | fängt = starts (base verb in position 2) | um acht Uhr = at eight o'clock | an = prefix sent to the end → 'anfangen' splits: base verb comes 2nd, prefix goes last.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wann stehst du am Wochenende auf?</div>
+          <div class="model-en">When do you get up on the weekend?</div>
+          <div class="model-breakdown">Wann = When (position 1) | stehst = stand (base verb, position 2) | du = you | am Wochenende = on the weekend | auf = prefix sent to the end → Question structure with a separable verb.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Ich möchte heute einkaufen.</div>
+          <div class="model-en">I would like to shop today.</div>
+          <div class="model-breakdown">Ich = I | möchte = would like (modal verb, position 2) | heute = today | einkaufen = the full separable verb goes to the end without splitting → When a modal verb is used, the separable verb stays whole.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: stehe / um sechs Uhr / auf / Ich</div>
+          <div class="exercise-answer">Answer: Ich stehe um sechs Uhr auf.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: fern / wir / am Abend / sehen</div>
+          <div class="exercise-answer">Answer: Am Abend sehen wir fern.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Der Zug kommt um 15 Uhr ___. (ankommen)</div>
+          <div class="exercise-answer">Answer: an</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Bitte mache das Fenster ___. (zumachen)</div>
+          <div class="exercise-answer">Answer: zu</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich aufstehe um 7 Uhr.</div>
+          <div class="mistake-right">✓ Ich stehe um 7 Uhr auf.</div>
+          <div class="mistake-explain">Treating a separable verb like an English word. You MUST physically break the prefix off and move it to the end.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Er seht fern.</div>
+          <div class="mistake-right">✓ Er sieht fern.</div>
+          <div class="mistake-explain">Forgetting that the base verb might be irregular! 'sehen' changes its vowel from 'e' to 'ie' for 'er'. So 'fernsehen' becomes 'er sieht... fern'.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 38 -->
+    <section id="lesson-38" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 38</div>
+        <h2 class="lesson-title">Daily Routine — Tagesablauf</h2>
+        <p class="lesson-intro">Talking about your daily routine is the ultimate test of everything you've learned so far. You will need to use time expressions, separable verbs (like waking up), and most importantly: Inversion. When you string actions together using 'first', 'then', and 'after that', those words take Position 1, which means the verb stays in Position 2, pushing the subject to Position 3.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">To describe a sequence of events, use transition words: zuerst (first), dann (then), danach (after that), and später (later).</div>
+        <div class="rule-item">Because these transition words occupy Position 1, the verb MUST be in Position 2.</div>
+        <div class="rule-item">The subject ('ich') gets pushed to Position 3 (e.g., Dann trinke ich Kaffee).</div>
+        <div class="rule-item">If you use a separable verb (like aufstehen), the prefix still goes to the very end of the sentence.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Time/Sequence Word (1) + Verb (2) + Subject (3) + Rest + (Prefix).</div>
+        <div class="formula-item">Zuerst + stehe + ich + um 7 Uhr + auf.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">zuerst</td><td class="vocab-en">first</td><td class="vocab-ex">Zuerst dusche ich. — First I shower.</td></tr>
+          <tr><td class="vocab-de">dann</td><td class="vocab-en">then</td><td class="vocab-ex">Dann frühstücke ich. — Then I eat breakfast.</td></tr>
+          <tr><td class="vocab-de">danach</td><td class="vocab-en">after that</td><td class="vocab-ex">Danach gehe ich arbeiten. — After that I go to work.</td></tr>
+          <tr><td class="vocab-de">später</td><td class="vocab-en">later</td><td class="vocab-ex">Später kaufe ich ein. — Later I go shopping.</td></tr>
+          <tr><td class="vocab-de">duschen</td><td class="vocab-en">to take a shower</td><td class="vocab-ex">Ich dusche morgens. — I shower in the morning.</td></tr>
+          <tr><td class="vocab-de">frühstücken</td><td class="vocab-en">to eat breakfast</td><td class="vocab-ex">Wann frühstückst du? — When do you eat breakfast?</td></tr>
+          <tr><td class="vocab-de">arbeiten</td><td class="vocab-en">to work</td><td class="vocab-ex">Ich arbeite von 9 bis 17 Uhr. — I work from 9 to 17.</td></tr>
+          <tr><td class="vocab-de">Mittagspause machen</td><td class="vocab-en">to take a lunch break</td><td class="vocab-ex">Dann mache ich Mittagspause. — Then I take a lunch break.</td></tr>
+          <tr><td class="vocab-de">Feierabend machen</td><td class="vocab-en">to finish work for the day</td><td class="vocab-ex">Um 18 Uhr mache ich Feierabend. — At 18:00 I finish work.</td></tr>
+          <tr><td class="vocab-de">ins Bett gehen</td><td class="vocab-en">to go to bed</td><td class="vocab-ex">Ich gehe um 23 Uhr ins Bett. — I go to bed at 23:00.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Zuerst stehe ich um sieben Uhr auf.</div>
+          <div class="model-en">First I get up at seven o'clock.</div>
+          <div class="model-breakdown">Zuerst = First (position 1) | stehe = stand (base verb, position 2) | ich = I (pushed to position 3) | um sieben Uhr = at seven o'clock | auf = prefix sent to the end → Sequence word pushes 'ich' back.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Dann dusche ich und danach frühstücke ich.</div>
+          <div class="model-en">Then I shower and after that I eat breakfast.</div>
+          <div class="model-breakdown">Dann = Then (position 1) | dusche = shower (position 2) | ich = I (position 3) | und = and | danach = after that (position 1 again) | frühstücke = eat breakfast (position 2) | ich = I (position 3) → The rule repeats for each new clause.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Um acht Uhr fahre ich zur Arbeit.</div>
+          <div class="model-en">At eight o'clock I drive to work.</div>
+          <div class="model-breakdown">Um acht Uhr = At eight o'clock (position 1 — time block) | fahre = drive (position 2) | ich = I (position 3) | zur Arbeit = to work → A time block in position 1 works the same way.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Später sehe ich fern und gehe ins Bett.</div>
+          <div class="model-en">Later I watch TV and go to bed.</div>
+          <div class="model-breakdown">Später = Later (position 1) | sehe = see (position 2) | ich = I (position 3) | fern = prefix at the end | und = and | gehe ins Bett = go to bed → Two actions linked with 'und'.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: Dann / ich / Kaffee / trinke</div>
+          <div class="exercise-answer">Answer: Dann trinke ich Kaffee.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: auf / Zuerst / ich / stehe</div>
+          <div class="exercise-answer">Answer: Zuerst stehe ich auf.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: gehe / ich / Danach / arbeiten</div>
+          <div class="exercise-answer">Answer: Danach gehe ich arbeiten.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: Later I eat breakfast.</div>
+          <div class="exercise-answer">Answer: Später frühstücke ich.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: Then I watch TV. (fernsehen)</div>
+          <div class="exercise-answer">Answer: Dann sehe ich fern.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Dann ich frühstücke.</div>
+          <div class="mistake-right">✓ Dann frühstücke ich.</div>
+          <div class="mistake-explain">The most persistent A1 mistake! When you start a sentence with 'Dann', 'Zuerst', or 'Danach', the verb MUST come immediately after it in Position 2.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Zuerst ich stehe auf.</div>
+          <div class="mistake-right">✓ Zuerst stehe ich auf.</div>
+          <div class="mistake-explain">A double mistake: the verb is pushed to the wrong position, and the separable prefix is forgotten. Correct order: 'Zuerst stehe ich auf'.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 39 -->
+    <section id="lesson-39" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 39</div>
+        <h2 class="lesson-title">Imperative Sentences — Imperativsätze</h2>
+        <p class="lesson-intro">Sometimes you don't want to ask a question; you need to give a command, advice, or an instruction. 'Come here!', 'Read this!', 'Drink water!'. In German, this is called the Imperative. Depending on who you are talking to, the way you construct a command changes significantly.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">For Formal 'Sie' (strangers/adults): Put the verb in Position 1, followed immediately by 'Sie'. (Kommen Sie!)</div>
+        <div class="rule-item">For Informal Plural 'ihr' (a group of friends): Just use the normal 'ihr' conjugation and drop the pronoun. (Kommt!)</div>
+        <div class="rule-item">For Informal Singular 'du' (one friend): Take the 'du' conjugation, and chop off both the '-st' ending and the word 'du'. (Kommst du → Komm!)</div>
+        <div class="rule-item">To make a command polite, simply add the word 'bitte' (please) anywhere after the verb.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Formal (Sie): Verb(en) + Sie + Rest! (Gehen Sie!)</div>
+        <div class="formula-item">Plural (ihr): Verb(t) + Rest! (Geht!)</div>
+        <div class="formula-item">Singular (du): Verb stem + Rest! (Geh!)</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>Base Verb</th><th>Formal (Sie)</th><th>Informal Plural (ihr)</th><th>Informal Singular (du)</th></tr>
+          <tr><td>kommen (to come)</td><td>Kommen Sie!</td><td>Kommt!</td><td>Komm!</td></tr>
+          <tr><td>machen (to do/make)</td><td>Machen Sie!</td><td>Macht!</td><td>Mach!</td></tr>
+          <tr><td>trinken (to drink)</td><td>Trinken Sie!</td><td>Trinkt!</td><td>Trink!</td></tr>
+          <tr><td>lesen (to read / e→ie)</td><td>Lesen Sie!</td><td>Lest!</td><td>Lies! (keep vowel change, drop '-st')</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">kommen</td><td class="vocab-en">to come</td><td class="vocab-ex">Komm bitte her! — Please come here!</td></tr>
+          <tr><td class="vocab-de">gehen</td><td class="vocab-en">to go</td><td class="vocab-ex">Gehen Sie geradeaus. — Go straight ahead.</td></tr>
+          <tr><td class="vocab-de">machen</td><td class="vocab-en">to do / make</td><td class="vocab-ex">Mach deine Hausaufgaben! — Do your homework!</td></tr>
+          <tr><td class="vocab-de">sprechen</td><td class="vocab-en">to speak</td><td class="vocab-ex">Sprechen Sie langsam, bitte. — Speak slowly, please.</td></tr>
+          <tr><td class="vocab-de">lesen</td><td class="vocab-en">to read</td><td class="vocab-ex">Lies den Text. — Read the text.</td></tr>
+          <tr><td class="vocab-de">warten</td><td class="vocab-en">to wait</td><td class="vocab-ex">Wartet hier auf mich. — Wait here for me. (to a group)</td></tr>
+          <tr><td class="vocab-de">helfen</td><td class="vocab-en">to help</td><td class="vocab-ex">Hilf mir! — Help me!</td></tr>
+          <tr><td class="vocab-de">ruhig</td><td class="vocab-en">quiet</td><td class="vocab-ex">Sei ruhig! — Be quiet!</td></tr>
+          <tr><td class="vocab-de">langsam</td><td class="vocab-en">slow(ly)</td><td class="vocab-ex">Fahrt langsam! — Drive slowly! (to a group)</td></tr>
+          <tr><td class="vocab-de">bitte</td><td class="vocab-en">please</td><td class="vocab-ex">Unterschreiben Sie bitte hier. — Please sign here.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Trinken Sie viel Wasser!</div>
+          <div class="model-en">Drink lots of water! (Formal)</div>
+          <div class="model-breakdown">Trinken = Verb in position 1 | Sie = formal pronoun right after | viel Wasser = lots of water → Formal command: verb first, then 'Sie'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Komm bitte heute Abend zu mir.</div>
+          <div class="model-en">Please come to my place tonight. (Informal singular)</div>
+          <div class="model-breakdown">Komm = Base verb with '-st' removed (no 'du' needed) | bitte = please | heute Abend = tonight | zu mir = to my place → Informal singular command: just the bare stem.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Macht die Tür zu, Kinder!</div>
+          <div class="model-en">Close the door, children! (Informal plural)</div>
+          <div class="model-breakdown">Macht = Normal '-t' ending for 'ihr' (no 'ihr' needed) | die Tür = the door | zu = prefix at end | Kinder = children → Informal plural command: normal '-t' form without the pronoun.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Sprich bitte etwas lauter.</div>
+          <div class="model-en">Please speak a little louder. (Informal singular)</div>
+          <div class="model-breakdown">Sprich = Irregular vowel-changed stem (e → i), drop the '-st' | bitte = please | etwas lauter = a little louder → Irregular verb: keep the vowel change, drop the '-st'.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">___ (kaufen) Milch! (du form)</div>
+          <div class="exercise-answer">Answer: Kauf (Drop the '-st')</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">___ (trinken) den Kaffee! (du form)</div>
+          <div class="exercise-answer">Answer: Trink (Drop the '-st')</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">___ (helfen) mir! (du form)</div>
+          <div class="exercise-answer">Answer: Hilf (Irregular vowel changes to 'i')</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate (formal): Come here, please! (herkommen)</div>
+          <div class="exercise-answer">Answer: Kommen Sie bitte her!</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate (formal): Wait here. (warten)</div>
+          <div class="exercise-answer">Answer: Warten Sie hier.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Kommst du hier!</div>
+          <div class="mistake-right">✓ Komm hier!</div>
+          <div class="mistake-explain">You must drop BOTH the '-st' and the word 'du' to form a command for a friend. Keeping them makes it a question ('Are you coming here?').</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Machen das bitte!</div>
+          <div class="mistake-right">✓ Machen Sie das bitte!</div>
+          <div class="mistake-explain">For the formal command, you CANNOT drop the pronoun. The word 'Sie' is absolutely mandatory immediately after the verb.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 40 -->
+    <section id="lesson-40" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 40</div>
+        <h2 class="lesson-title">Giving Directions — Wegbeschreibung</h2>
+        <p class="lesson-intro">Getting lost in a German city is inevitable, but asking for and understanding directions is a skill you can easily master. This lesson combines the Imperative (commands like 'go', 'turn') with specific directional vocabulary. Once you know your left from your right, you can navigate any street in Berlin or Munich.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">Use the Imperative 'Gehen Sie...' (Go...) or 'Fahren Sie...' (Drive/Ride...) to give directions.</div>
+        <div class="rule-item">To say 'straight ahead', use 'geradeaus'.</div>
+        <div class="rule-item">To say 'turn right/left', use the separable verb 'abbiegen' → 'Biegen Sie rechts/links ab'.</div>
+        <div class="rule-item">Use 'bis zur' (until/up to) with feminine landmarks: 'bis zur Ampel' or 'bis zur Kreuzung'.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Gehen/Fahren Sie + [Direction: geradeaus / nach links / nach rechts].</div>
+        <div class="formula-item">Biegen Sie + [links/rechts] + ab.</div>
+        <div class="formula-item">Gehen Sie bis zur + [Landmark: Ampel / Kreuzung].</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">geradeaus</td><td class="vocab-en">straight ahead</td><td class="vocab-ex">Gehen Sie immer geradeaus. — Always go straight ahead.</td></tr>
+          <tr><td class="vocab-de">links</td><td class="vocab-en">left</td><td class="vocab-ex">Biegen Sie links ab. — Turn left.</td></tr>
+          <tr><td class="vocab-de">rechts</td><td class="vocab-en">right</td><td class="vocab-ex">Die Bank ist auf der rechten Seite. — The bank is on the right side.</td></tr>
+          <tr><td class="vocab-de">abbiegen</td><td class="vocab-en">to turn (direction)</td><td class="vocab-ex">Biegen Sie hier ab. — Turn here.</td></tr>
+          <tr><td class="vocab-de">die Straße</td><td class="vocab-en">street</td><td class="vocab-ex">Gehen Sie diese Straße entlang. — Go along this street.</td></tr>
+          <tr><td class="vocab-de">die Kreuzung</td><td class="vocab-en">intersection</td><td class="vocab-ex">Gehen Sie bis zur Kreuzung. — Go up to the intersection.</td></tr>
+          <tr><td class="vocab-de">die Ampel</td><td class="vocab-en">traffic light</td><td class="vocab-ex">An der Ampel rechts. — At the traffic light, right.</td></tr>
+          <tr><td class="vocab-de">die Ecke</td><td class="vocab-en">corner</td><td class="vocab-ex">Das Café ist an der Ecke. — The cafe is on the corner.</td></tr>
+          <tr><td class="vocab-de">weitergehen</td><td class="vocab-en">to keep walking</td><td class="vocab-ex">Gehen Sie weiter. — Keep walking.</td></tr>
+          <tr><td class="vocab-de">wenden</td><td class="vocab-en">to turn around</td><td class="vocab-ex">Bitte wenden Sie. — Please turn around.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Entschuldigung, wie komme ich zum Bahnhof?</div>
+          <div class="model-en">Excuse me, how do I get to the train station?</div>
+          <div class="model-breakdown">Entschuldigung = Excuse me | wie = how | komme = come | ich = I | zum Bahnhof = to the train station ('zu' + 'dem' combined to 'zum') → Standard phrase to ask for directions.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Gehen Sie geradeaus bis zur Ampel.</div>
+          <div class="model-en">Go straight ahead up to the traffic light.</div>
+          <div class="model-breakdown">Gehen Sie = Go (formal command) | geradeaus = straight ahead | bis zur = up to (preposition for feminine destination) | Ampel = traffic light → 'bis zur' means 'until you reach' a feminine landmark.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Biegen Sie an der Kreuzung rechts ab.</div>
+          <div class="model-en">Turn right at the intersection.</div>
+          <div class="model-breakdown">Biegen Sie = Turn (formal command) | an der Kreuzung = at the intersection | rechts = right | ab = prefix at the end of the clause → 'abbiegen' is a separable verb — 'ab' goes to the end.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Der Supermarkt ist an der Ecke auf der linken Seite.</div>
+          <div class="model-en">The supermarket is on the corner on the left side.</div>
+          <div class="model-breakdown">Der Supermarkt = The supermarket | ist = is | an der Ecke = on the corner | auf der linken Seite = on the left side → Describing the location of the destination.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate (formal): Go straight ahead.</div>
+          <div class="exercise-answer">Answer: Gehen Sie geradeaus.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate (formal): Turn left here. (abbiegen)</div>
+          <div class="exercise-answer">Answer: Biegen Sie hier links ab.</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Gehen Sie bis zur ___ (traffic light).</div>
+          <div class="exercise-answer">Answer: Ampel</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Die Apotheke ist an der ___ (corner).</div>
+          <div class="exercise-answer">Answer: Ecke</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Biegen Sie links.</div>
+          <div class="mistake-right">✓ Biegen Sie links ab.</div>
+          <div class="mistake-explain">The verb is 'abbiegen', which is separable. If you just say 'biegen', it means 'bend'. You MUST put the 'ab' at the end of the sentence to mean 'turn'.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Gehen rechts.</div>
+          <div class="mistake-right">✓ Gehen Sie rechts. / Geh rechts.</div>
+          <div class="mistake-explain">Failing to use the proper command structure. You must either include 'Sie' for formal, or drop the '-en' entirely for informal ('Geh').</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>German A1 — Lessons 16–20</title><style>
+:root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
+.page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
+.page-header h1{color:var(--sky);font-size:1.8rem}
+.page-header p{color:var(--muted);margin-top:.5rem}
+.lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
+.lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
+main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
+.lesson:target{border-color:var(--indigo)}
+.lesson-header{margin-bottom:1.5rem}
+.lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
+.lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
+.lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
+.section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
+.section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
+.section-title.sky{color:var(--sky)} .section-title.amber{color:var(--amber)} .section-title.green{color:var(--green)} .section-title.rose{color:var(--rose)} .section-title.indigo{color:var(--indigo)} .section-title.purple{color:var(--purple)} .section-title.muted{color:var(--muted)}
+.rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+.rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
+.formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+.formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
+.vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
+.vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}
+.vocab-table tr:last-child td{border-bottom:none}
+.vocab-de{color:var(--sky);font-weight:500} .vocab-en{color:var(--text)} .vocab-ex{color:var(--muted);font-size:.85rem}
+.model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
+.model-de{font-size:1rem;font-weight:600;color:var(--text)} .model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0} .model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
+.mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
+.mistake-wrong{color:var(--rose)} .mistake-right{color:var(--green)} .mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+.exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.exercise-item:last-child{border-bottom:none}
+.exercise-prompt{color:var(--text)} .exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
+.note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
+.grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
+.grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+.grammar-table td{padding:.45rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}
+.grammar-table tr:last-child td{border-bottom:none}
+.cultural-note{background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--muted);font-size:.9rem}
+.exam-note{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--amber);font-size:.85rem}
+.goal-note{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--green);font-size:.85rem}
+</style></head>
+<body>
+<div class="page-header">
+  <h1>German A1 — Lessons 16–20</h1>
+  <p>Numbers Above 100 · Adjectives · Introductions · Articles</p>
+</div>
+<nav class="lesson-nav">
+  <a href="#lesson-16">Lesson 16: Numbers Above 100</a>
+  <a href="#lesson-17">Lesson 17: Adjectives &amp; Opposites</a>
+  <a href="#lesson-18">Lesson 18: Introducing Someone</a>
+  <a href="#lesson-19">Lesson 19: Definite Articles</a>
+  <a href="#lesson-20">Lesson 20: Indefinite Articles</a>
+</nav>
+<main>
+
+<!-- LESSON 16 -->
+<div class="lesson" id="lesson-16">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 16</span>
+    <div class="lesson-title">Numbers Part 3: Above 100 — Zahlen Teil 3: Über 100</div>
+    <div class="lesson-intro">Knowing numbers above 100 is crucial for stating years, paying rent, and giving exact addresses. German strings numbers together into massive single words, which looks terrifying at first. However, the pattern is completely logical. Once you break it down into blocks, reading large numbers becomes a simple puzzle.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">To say numbers above 100, say the hundreds first, then add the tens and units exactly as you learned them (e.g., 121 = hundert einundzwanzig).</div>
+    <div class="rule-item">Numbers below one million are technically written as one single, long word (e.g., dreihundertfünfundvierzig for 345).</div>
+    <div class="rule-item">For years between 1100 and 1999, Germans say 'hundreds' instead of thousands. 1985 is 'neunzehnhundertfünfundachtzig' (19-hundred-85).</div>
+    <div class="rule-item">Years 2000 and above are spoken normally using 'tausend' (zweitausend, zweitausendfünf).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Standard: [Hundreds] + hundert + [Tens/Units] → zwei + hundert + zehn = zweihundertzehn</div>
+    <div class="formula-item">Years (1100–1999): [First two digits] + hundert + [Last two digits] → neunzehn + hundert + neunzig = neunzehnhundertneunzig</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">hundert</td><td class="vocab-en">hundred</td><td class="vocab-ex">Das kostet hundert Euro. — That costs a hundred euros.</td></tr>
+      <tr><td class="vocab-de">tausend</td><td class="vocab-en">thousand</td><td class="vocab-ex">Er hat tausend Fragen. — He has a thousand questions.</td></tr>
+      <tr><td class="vocab-de">die Million</td><td class="vocab-en">million</td><td class="vocab-ex">Berlin hat vier Millionen Einwohner. — Berlin has four million inhabitants.</td></tr>
+      <tr><td class="vocab-de">das Jahr</td><td class="vocab-en">year</td><td class="vocab-ex">Wir sind im Jahr zweitausend. — We are in the year two thousand.</td></tr>
+      <tr><td class="vocab-de">die Miete</td><td class="vocab-en">rent</td><td class="vocab-ex">Die Miete ist achthundert Euro. — The rent is eight hundred euros.</td></tr>
+      <tr><td class="vocab-de">verdienen</td><td class="vocab-en">to earn</td><td class="vocab-ex">Wie viel verdienst du? — How much do you earn?</td></tr>
+      <tr><td class="vocab-de">das Gehalt</td><td class="vocab-en">salary</td><td class="vocab-ex">Das Gehalt ist gut. — The salary is good.</td></tr>
+      <tr><td class="vocab-de">teuer</td><td class="vocab-en">expensive</td><td class="vocab-ex">Tausend Euro ist zu teuer. — A thousand euros is too expensive.</td></tr>
+      <tr><td class="vocab-de">die Zahl</td><td class="vocab-en">number / figure</td><td class="vocab-ex">Das ist eine große Zahl. — That is a big number.</td></tr>
+      <tr><td class="vocab-de">geboren</td><td class="vocab-en">born</td><td class="vocab-ex">Ich bin zweitausend geboren. — I was born in 2000.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Das Auto kostet viertausendzweihundert Euro.</div>
+      <div class="model-en">The car costs four thousand two hundred euros.</div>
+      <div class="model-breakdown">Das Auto = The car | kostet = costs | viertausend = four thousand | zweihundert = two hundred | Euro = euros → Just stack the blocks: thousands + hundreds + smaller number.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Ich bin im Jahr neunzehnhundertneunundneunzig geboren.</div>
+      <div class="model-en">I was born in the year 1999.</div>
+      <div class="model-breakdown">Ich = I | bin = am | im Jahr = in the year | neunzehn = nineteen | hundert = hundred | neunundneunzig = ninety-nine | geboren = born → Years before 2000 use the 'hundreds' format.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Meine Miete ist siebenhundertfünfzig Euro.</div>
+      <div class="model-en">My rent is 750 euros.</div>
+      <div class="model-breakdown">Meine Miete = My rent | ist = is | siebenhundert = seven hundred | fünfzig = fifty | Euro = euros → 750 is built as: seven hundred + fifty.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Zweitausendfünfzehn war ein gutes Jahr.</div>
+      <div class="model-en">2015 was a good year.</div>
+      <div class="model-breakdown">Zweitausend = Two thousand | fünfzehn = fifteen | war = was | ein gutes Jahr = a good year → Years after 2000 use 'zweitausend' + the remaining number.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Write the numerical digits for the spelled-out German numbers.</p>
+    <div class="exercise-item"><div class="exercise-prompt">eintausendfünfhundert</div><div class="exercise-answer">Answer: 1500</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">neunzehnhundertachtzig</div><div class="exercise-answer">Answer: 1980</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">dreihundertfünfundvierzig</div><div class="exercise-answer">Answer: 345</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Select the correct way to read the year out loud.</p>
+    <div class="exercise-item"><div class="exercise-prompt">1994 (eintausendneunhundertvierundneunzig / neunzehnhundertvierundneunzig)</div><div class="exercise-answer">Answer: neunzehnhundertvierundneunzig</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">2012 (zwanzighundertzwölf / zweitausendzwölf)</div><div class="exercise-answer">Answer: zweitausendzwölf</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ eintausendneunhundertneunzig (for the year 1990)</div>
+      <div class="mistake-right">✓ neunzehnhundertneunzig</div>
+      <div class="mistake-explain">While 'eintausendneunhundert...' is mathematically correct for the number 1,990, Germans almost never use it for historical dates before 2000. You must use the 'hundreds' format for years.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ zwei hundert und fünfzig</div>
+      <div class="mistake-right">✓ zweihundertfünfzig</div>
+      <div class="mistake-explain">English speakers naturally add 'and' (und) between the hundreds and the tens. In German, there is no 'und' there. 'und' is ONLY used between single units and tens (fünf-und-fünfzig).</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">When writing text messages or emails, Germans use digits for almost any number above 12 because writing out 'dreitausendvierhundertfünfundzwanzig' is visually exhausting. However, you must be able to read these numbers aloud accurately when dealing with bank clerks, real estate agents, or government offices.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Hören Teil 3: You will often hear radio announcements or news clips with large numbers, such as a traffic jam length (z.B. 15 Kilometer), a year, or a ticket price. Misinterpreting these numbers costs points.</div>
+  <div class="goal-note">Lesson Goal: Correctly pronounce years, prices, and large numbers up to 10,000, understanding the structural differences from English.</div>
+</div>
+
+<!-- LESSON 17 -->
+<div class="lesson" id="lesson-17">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 17</span>
+    <div class="lesson-title">Adjectives and Opposites — Adjektive und Gegenteile</div>
+    <div class="lesson-intro">Adjectives breathe life into your sentences, allowing you to describe feelings, sizes, and quality. Here is a massive relief for A1 learners: when an adjective comes AFTER the verb 'sein' (to be) to describe the subject, it takes NO complex endings. It stays exactly as it appears in the dictionary. Learning these adjectives in pairs of opposites is the fastest way to double your vocabulary.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">When an adjective comes after a form of 'sein' (is, am, are), it describes the subject and takes NO extra ending.</div>
+    <div class="rule-item">It does not matter if the noun is masculine, feminine, neuter, or plural — the adjective form stays the same (Das Auto ist klein. Die Autos sind klein).</div>
+    <div class="rule-item">Use 'sehr' (very) before the adjective to make it stronger in a positive or neutral way.</div>
+    <div class="rule-item">Use 'zu' (too) before the adjective to say that something is excessive or causes a problem.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Subject + sein + Adjective → Der Kaffee ist heiß.</div>
+    <div class="formula-item">Subject + sein + (sehr / zu) + Adjective → Der Kaffee ist zu heiß.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">groß</td><td class="vocab-en">big / tall</td><td class="vocab-ex">Das Haus ist groß. — The house is big.</td></tr>
+      <tr><td class="vocab-de">klein</td><td class="vocab-en">small / short</td><td class="vocab-ex">Das Kind ist klein. — The child is small.</td></tr>
+      <tr><td class="vocab-de">heiß</td><td class="vocab-en">hot</td><td class="vocab-ex">Der Tee ist zu heiß. — The tea is too hot.</td></tr>
+      <tr><td class="vocab-de">kalt</td><td class="vocab-en">cold</td><td class="vocab-ex">Das Wasser ist sehr kalt. — The water is very cold.</td></tr>
+      <tr><td class="vocab-de">teuer</td><td class="vocab-en">expensive</td><td class="vocab-ex">Das Auto ist teuer. — The car is expensive.</td></tr>
+      <tr><td class="vocab-de">billig</td><td class="vocab-en">cheap</td><td class="vocab-ex">Das Brot ist billig. — The bread is cheap.</td></tr>
+      <tr><td class="vocab-de">neu</td><td class="vocab-en">new</td><td class="vocab-ex">Mein Handy ist neu. — My cellphone is new.</td></tr>
+      <tr><td class="vocab-de">alt</td><td class="vocab-en">old</td><td class="vocab-ex">Die Frau ist alt. — The woman is old.</td></tr>
+      <tr><td class="vocab-de">sehr</td><td class="vocab-en">very</td><td class="vocab-ex">Das Essen ist sehr gut. — The food is very good.</td></tr>
+      <tr><td class="vocab-de">zu</td><td class="vocab-en">too (excessive)</td><td class="vocab-ex">Die Wohnung ist zu klein. — The apartment is too small.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Mein Haus ist neu, aber es ist zu klein.</div>
+      <div class="model-en">My house is new, but it is too small.</div>
+      <div class="model-breakdown">Mein Haus = My house | ist = is | neu = new | aber = but | es = it | ist = is | zu = too | klein = small → No ending on the adjective — it follows 'ist'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Der Kaffee ist sehr heiß.</div>
+      <div class="model-en">The coffee is very hot.</div>
+      <div class="model-breakdown">Der Kaffee = The coffee | ist = is | sehr = very | heiß = hot → 'sehr' adds strength positively or neutrally.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Sind die Tomaten billig oder teuer?</div>
+      <div class="model-en">Are the tomatoes cheap or expensive?</div>
+      <div class="model-breakdown">Sind = Are | die Tomaten = the tomatoes (plural) | billig = cheap | oder = or | teuer = expensive → Even with a plural noun, the adjectives 'billig' and 'teuer' take no extra ending.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Das Auto ist alt und sehr teuer.</div>
+      <div class="model-en">The car is old and very expensive.</div>
+      <div class="model-breakdown">Das Auto = The car | ist = is | alt = old | und = and | sehr = very | teuer = expensive → Two adjectives after 'ist', both stay unchanged.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Select the logical opposite of the adjective.</p>
+    <div class="exercise-item"><div class="exercise-prompt">heiß → ( neu / groß / kalt )</div><div class="exercise-answer">Answer: kalt</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">teuer → ( billig / alt / klein )</div><div class="exercise-answer">Answer: billig</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">neu → ( sehr / alt / schlecht )</div><div class="exercise-answer">Answer: alt</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Fill in 'sehr' (very) or 'zu' (too) based on the context hint.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Ich trinke den Kaffee nicht. Er ist ___ heiß. (negative/excessive)</div><div class="exercise-answer">Answer: zu</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Das Essen schmeckt fantastisch! Es ist ___ gut. (positive intensifier)</div><div class="exercise-answer">Answer: sehr</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Die Autos sind kleines.</div>
+      <div class="mistake-right">✓ Die Autos sind klein.</div>
+      <div class="mistake-explain">Learners often try to make adjectives plural if the noun is plural. When the adjective comes after 'sein', it NEVER takes an ending. Only the verb (sind) changes for plurals.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Der Kaffee ist zu gut.</div>
+      <div class="mistake-right">✓ Der Kaffee ist sehr gut.</div>
+      <div class="mistake-explain">In English slang, 'too good' can mean 'amazing'. In German, 'zu' is strictly negative/excessive. 'Zu gut' implies it's suspiciously good or causing a problem. Use 'sehr' for positive enhancement.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">Germans are known for direct communication. If you ask a German friend if your new jacket looks good, and they don't like it, they might just say 'Nein, sie ist nicht schön' (No, it's not beautiful). While English speakers might cushion the blow, Germans view direct adjectives as honest rather than rude.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Schreiben Teil 1 &amp; Sprechen Teil 2: Describing things simply is a core A1 task. You must be able to state whether your apartment is big, your food is hot, or a ticket is expensive without getting tangled in adjective endings.</div>
+  <div class="goal-note">Lesson Goal: Describe people, objects, and situations using basic adjectives and intensifiers without applying unnecessary grammatical endings.</div>
+</div>
+
+<!-- LESSON 18 -->
+<div class="lesson" id="lesson-18">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 18</span>
+    <div class="lesson-title">How to Introduce Someone Else — Jemanden vorstellen</div>
+    <div class="lesson-intro">Once you can introduce yourself, the next step is introducing colleagues, friends, or family to each other. This requires a mental shift from 'I' (ich) to 'he/she/they' (er/sie), ensuring you change the verb endings to match. Mastering this allows you to act as a bridge in social and professional settings.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">To point out or introduce someone, use the fixed phrase 'Das ist...' (This is...) for one person, or 'Das sind...' (These are...) for multiple people.</div>
+    <div class="rule-item">After the introduction, switch to the 3rd person pronouns 'er' (he) or 'sie' (she/they) to provide more details.</div>
+    <div class="rule-item">Remember to add a '-t' ending to the verb when talking about one person (er kommt, sie wohnt).</div>
+    <div class="rule-item">If you introduce two people, use 'sie' (they) and add '-en' to the verb (sie kommen).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Singular Introduction: Das ist + [Name]. Er/Sie + verb(-t) + aus/in...</div>
+    <div class="formula-item">Plural Introduction: Das sind + [Name 1] und [Name 2]. Sie + verb(-en) + aus/in...</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">vorstellen</td><td class="vocab-en">to introduce</td><td class="vocab-ex">Ich möchte Tom vorstellen. — I would like to introduce Tom.</td></tr>
+      <tr><td class="vocab-de">der Freund</td><td class="vocab-en">male friend / boyfriend</td><td class="vocab-ex">Das ist mein Freund. — This is my friend.</td></tr>
+      <tr><td class="vocab-de">die Freundin</td><td class="vocab-en">female friend / girlfriend</td><td class="vocab-ex">Das ist meine Freundin Anna. — This is my friend Anna.</td></tr>
+      <tr><td class="vocab-de">der Kollege</td><td class="vocab-en">male colleague</td><td class="vocab-ex">Er ist mein Kollege. — He is my colleague.</td></tr>
+      <tr><td class="vocab-de">die Kollegin</td><td class="vocab-en">female colleague</td><td class="vocab-ex">Sie ist eine Kollegin. — She is a colleague.</td></tr>
+      <tr><td class="vocab-de">das ist</td><td class="vocab-en">this is</td><td class="vocab-ex">Das ist Herr Weber. — This is Mr. Weber.</td></tr>
+      <tr><td class="vocab-de">das sind</td><td class="vocab-en">these are</td><td class="vocab-ex">Das sind Maria und Tom. — These are Maria and Tom.</td></tr>
+      <tr><td class="vocab-de">auch</td><td class="vocab-en">also / too</td><td class="vocab-ex">Er kommt auch aus Berlin. — He also comes from Berlin.</td></tr>
+      <tr><td class="vocab-de">zusammen</td><td class="vocab-en">together</td><td class="vocab-ex">Sie arbeiten zusammen. — They work together.</td></tr>
+      <tr><td class="vocab-de">kennen</td><td class="vocab-en">to know (a person)</td><td class="vocab-ex">Kennst du Tom? — Do you know Tom?</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Das ist mein Kollege, Tom. Er arbeitet hier.</div>
+      <div class="model-en">This is my colleague, Tom. He works here.</div>
+      <div class="model-breakdown">Das ist = This is | mein Kollege = my colleague | Tom = name | Er = He | arbeitet = works (verb ends in '-t' for 'er') | hier = here → When talking about one man, use 'er' + verb ending '-t'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Das ist Frau Müller. Sie kommt aus Österreich.</div>
+      <div class="model-en">This is Mrs. Müller. She comes from Austria.</div>
+      <div class="model-breakdown">Das ist = This is | Frau Müller = Mrs. Müller | Sie = She | kommt = comes (verb ends in '-t' for 'sie') | aus Österreich = from Austria → Same '-t' ending for 'sie' (she).</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Das sind Laura und Paul. Sie wohnen in München.</div>
+      <div class="model-en">These are Laura and Paul. They live in Munich.</div>
+      <div class="model-breakdown">Das sind = These are (plural) | Laura und Paul = two people | Sie = They | wohnen = live (verb ends in '-en' for 'they') | in München = in Munich → For two or more people, use 'sie' (they) + verb ending '-en'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Kennst du Max? Er ist mein Freund.</div>
+      <div class="model-en">Do you know Max? He is my friend.</div>
+      <div class="model-breakdown">Kennst = Know | du = you | Max = name | Er = He | ist = is | mein Freund = my friend → Simple introduction using 'er ist'.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Choose between 'Das ist' (singular) and 'Das sind' (plural).</p>
+    <div class="exercise-item"><div class="exercise-prompt">___ Herr und Frau Schmidt. (Two people)</div><div class="exercise-answer">Answer: Das sind</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">___ mein Kollege Peter. (One person)</div><div class="exercise-answer">Answer: Das ist</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Conjugate the verb for the 3rd person.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist Anna. Sie ___ (kommen) aus Spanien. (she - singular)</div><div class="exercise-answer">Answer: kommt</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Das sind Tom und Lisa. Sie ___ (arbeiten) hier. (they - plural)</div><div class="exercise-answer">Answer: arbeiten</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Das sind meine Kollegin.</div>
+      <div class="mistake-right">✓ Das ist meine Kollegin.</div>
+      <div class="mistake-explain">Because 'Kollegin' (female colleague) ends in 'in', learners sometimes confuse it for a plural. It is singular, so it must be 'Das ist'.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Das ist Herr Wagner. Sie kommt aus Berlin.</div>
+      <div class="mistake-right">✓ Das ist Herr Wagner. Er kommt aus Berlin.</div>
+      <div class="mistake-explain">When stressed, learners mix up 'er' (he) and 'sie' (she). Always align the pronoun with the gender of the person you just introduced.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">In German, the words 'Freund' and 'Freundin' are notoriously ambiguous. Saying 'Er ist mein Freund' usually implies he is your romantic boyfriend. To introduce a platonic friend, Germans usually say 'Er ist ein Freund von mir' (He is a friend of mine) to avoid any awkward misunderstandings.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Sprechen Teil 1 &amp; 2: While you primarily introduce yourself, the examiner might ask you questions about your partner, family members, or friends, forcing you to use 'er' or 'sie' and the correct 3rd person verb endings.</div>
+  <div class="goal-note">Lesson Goal: Introduce individuals and groups correctly using 'Das ist' / 'Das sind' and smoothly transition to 3rd person pronouns and verb endings to provide details.</div>
+</div>
+
+<!-- LESSON 19 -->
+<div class="lesson" id="lesson-19">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 19</span>
+    <div class="lesson-title">Definite Articles: der, die, das — Bestimmte Artikel</div>
+    <div class="lesson-intro">In English, there is only one word for 'the'. In German, every single noun is assigned a grammatical gender: masculine, feminine, or neuter. The article reveals this gender. Learning a German noun without its article is like learning only half the word, because every grammar rule you learn from this point forward will depend on whether a word is der, die, or das.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">Masculine nouns use the article 'der'. Feminine nouns use 'die'. Neuter nouns use 'das'.</div>
+    <div class="rule-item">Grammatical gender often ignores logic. For example, 'das Mädchen' (the girl) is neuter, and 'der Tisch' (the table) is masculine.</div>
+    <div class="rule-item">In the plural (more than one), the definite article is ALWAYS 'die', regardless of what gender the word had in the singular.</div>
+    <div class="rule-item">You must memorize the article at the exact same time you memorize the noun. Do not just learn 'Hund'. Learn 'der Hund'.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Singular: der [Masculine], die [Feminine], das [Neuter]</div>
+    <div class="formula-item">Plural: die [All Genders]</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table</div>
+    <table class="grammar-table">
+      <tr><th>Gender</th><th>Article (Singular)</th><th>Example</th><th>Plural Article</th></tr>
+      <tr><td>Masculine</td><td>der</td><td>der Tisch (table)</td><td>die Tische</td></tr>
+      <tr><td>Feminine</td><td>die</td><td>die Lampe (lamp)</td><td>die Lampen</td></tr>
+      <tr><td>Neuter</td><td>das</td><td>das Buch (book)</td><td>die Bücher</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">der Tisch</td><td class="vocab-en">table</td><td class="vocab-ex">Der Tisch ist groß. — The table is big.</td></tr>
+      <tr><td class="vocab-de">der Stuhl</td><td class="vocab-en">chair</td><td class="vocab-ex">Der Stuhl ist alt. — The chair is old.</td></tr>
+      <tr><td class="vocab-de">der Mann</td><td class="vocab-en">man</td><td class="vocab-ex">Der Mann arbeitet. — The man is working.</td></tr>
+      <tr><td class="vocab-de">die Tür</td><td class="vocab-en">door</td><td class="vocab-ex">Die Tür ist offen. — The door is open.</td></tr>
+      <tr><td class="vocab-de">die Lampe</td><td class="vocab-en">lamp</td><td class="vocab-ex">Die Lampe ist hell. — The lamp is bright.</td></tr>
+      <tr><td class="vocab-de">die Frau</td><td class="vocab-en">woman</td><td class="vocab-ex">Die Frau liest. — The woman is reading.</td></tr>
+      <tr><td class="vocab-de">das Fenster</td><td class="vocab-en">window</td><td class="vocab-ex">Das Fenster ist zu. — The window is closed.</td></tr>
+      <tr><td class="vocab-de">das Buch</td><td class="vocab-en">book</td><td class="vocab-ex">Das Buch ist neu. — The book is new.</td></tr>
+      <tr><td class="vocab-de">das Mädchen</td><td class="vocab-en">girl</td><td class="vocab-ex">Das Mädchen spielt. — The girl is playing.</td></tr>
+      <tr><td class="vocab-de">das Kind</td><td class="vocab-en">child</td><td class="vocab-ex">Das Kind schläft. — The child is sleeping.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Der Tisch ist sehr groß und der Stuhl ist neu.</div>
+      <div class="model-en">The table is very big and the chair is new.</div>
+      <div class="model-breakdown">Der Tisch = The table (masculine, use 'der') | ist = is | sehr groß = very big | und = and | der Stuhl = the chair (also masculine) | ist = is | neu = new → Both are masculine, so both use 'der'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Die Frau kauft die Lampe.</div>
+      <div class="model-en">The woman buys the lamp.</div>
+      <div class="model-breakdown">Die Frau = The woman (feminine, use 'die') | kauft = buys | die Lampe = the lamp (also feminine, use 'die') → Two feminine words, both use 'die'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Das Buch ist gut. Die Bücher sind sehr gut.</div>
+      <div class="model-en">The book is good. The books are very good.</div>
+      <div class="model-breakdown">Das Buch = The book (neuter, use 'das') | ist = is | gut = good | Die Bücher = The books (plural always uses 'die') | sind = are | sehr gut = very good → Once plural, always 'die'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Das Mädchen heißt Anna.</div>
+      <div class="model-en">The girl is named Anna.</div>
+      <div class="model-breakdown">Das Mädchen = The girl (neuter — words ending in '-chen' are always neuter) | heißt = is named | Anna = name → Even though a girl is female, the word itself is grammatically neuter.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Select the correct definite article for the noun.</p>
+    <div class="exercise-item"><div class="exercise-prompt">___ Buch ( der / die / das )</div><div class="exercise-answer">Answer: das</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">___ Tisch ( der / die / das )</div><div class="exercise-answer">Answer: der</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">___ Lampe ( der / die / das )</div><div class="exercise-answer">Answer: die</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Fill in the correct plural article.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist das Kind. Hier spielen ___ Kinder.</div><div class="exercise-answer">Answer: die</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Der Stuhl ist alt. ___ Stühle sind neu.</div><div class="exercise-answer">Answer: Die</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Die Mädchen spielt.</div>
+      <div class="mistake-right">✓ Das Mädchen spielt.</div>
+      <div class="mistake-explain">Because a girl is female, learners assume the article is 'die'. However, words ending in '-chen' are always neuter in German. 'Mädchen' ends in '-chen', so it uses 'das'. Just memorize: das Mädchen.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Der Bücher sind hier.</div>
+      <div class="mistake-right">✓ Die Bücher sind hier.</div>
+      <div class="mistake-explain">'Buch' is 'das Buch'. But once it becomes plural (Bücher), you abandon the original article and MUST use the universal plural article 'die'.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">There is no fast trick to mastering articles. German toddlers learn them naturally through thousands of hours of listening. As an adult learner, you will make article mistakes for years. Don't let it stop you from speaking! Germans are used to foreigners mixing up 'der', 'die', and 'das', and they will still understand you perfectly.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Lesen, Schreiben, Hören, Sprechen: Articles are the bedrock of German grammar. If you don't know the article, you cannot form many sentence structures properly, which will cause massive point deductions in the Writing exam.</div>
+  <div class="goal-note">Lesson Goal: Understand the concept of grammatical gender and memorize the definite articles 'der, die, das' along with their base nouns.</div>
+</div>
+
+<!-- LESSON 20 -->
+<div class="lesson" id="lesson-20">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 20</span>
+    <div class="lesson-title">Indefinite Articles (ein, eine) — Unbestimmte Artikel</div>
+    <div class="lesson-intro">When you go to a bakery, you rarely ask for 'THE bread'; you usually ask for 'A bread'. For this, you need indefinite articles. Fortunately, if you have already memorized whether a word is 'der', 'die', or 'das', learning the indefinite articles is incredibly simple because masculine and neuter nouns share the exact same word.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">If the noun is masculine ('der') or neuter ('das'), the indefinite article is 'ein' (a/an).</div>
+    <div class="rule-item">If the noun is feminine ('die'), the indefinite article is 'eine' (a/an).</div>
+    <div class="rule-item">There is NO indefinite article in the plural! Just like in English, you cannot say 'a books'. You simply drop the article entirely.</div>
+    <div class="rule-item">This rule applies when the noun is the subject of the sentence, or when it comes after the verb 'sein' (to be).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">der (Masculine) → ein</div>
+    <div class="formula-item">das (Neuter) → ein</div>
+    <div class="formula-item">die (Feminine) → eine</div>
+    <div class="formula-item">Plural → [no article]</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table</div>
+    <table class="grammar-table">
+      <tr><th>Gender</th><th>Definite (The)</th><th>Indefinite (A/An)</th></tr>
+      <tr><td>Masculine</td><td>der</td><td>ein</td></tr>
+      <tr><td>Neuter</td><td>das</td><td>ein</td></tr>
+      <tr><td>Feminine</td><td>die</td><td>eine</td></tr>
+      <tr><td>Plural</td><td>die</td><td>(none)</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">ein</td><td class="vocab-en">a / an (masculine/neuter)</td><td class="vocab-ex">Das ist ein Tisch. — That is a table.</td></tr>
+      <tr><td class="vocab-de">eine</td><td class="vocab-en">a / an (feminine)</td><td class="vocab-ex">Das ist eine Lampe. — That is a lamp.</td></tr>
+      <tr><td class="vocab-de">der Apfel</td><td class="vocab-en">apple</td><td class="vocab-ex">Das ist ein Apfel. — This is an apple.</td></tr>
+      <tr><td class="vocab-de">die Banane</td><td class="vocab-en">banana</td><td class="vocab-ex">Das ist eine Banane. — This is a banana.</td></tr>
+      <tr><td class="vocab-de">das Brötchen</td><td class="vocab-en">bread roll</td><td class="vocab-ex">Ein Brötchen kostet einen Euro. — A bread roll costs one euro.</td></tr>
+      <tr><td class="vocab-de">der Computer</td><td class="vocab-en">computer</td><td class="vocab-ex">Das ist ein Computer. — That is a computer.</td></tr>
+      <tr><td class="vocab-de">die Tasche</td><td class="vocab-en">bag</td><td class="vocab-ex">Ist das eine Tasche? — Is that a bag?</td></tr>
+      <tr><td class="vocab-de">das Auto</td><td class="vocab-en">car</td><td class="vocab-ex">Ein Auto ist teuer. — A car is expensive.</td></tr>
+      <tr><td class="vocab-de">der Hund</td><td class="vocab-en">dog</td><td class="vocab-ex">Hier ist ein Hund. — Here is a dog.</td></tr>
+      <tr><td class="vocab-de">die Katze</td><td class="vocab-en">cat</td><td class="vocab-ex">Das ist eine Katze. — That is a cat.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Das ist ein Tisch und das ist eine Lampe.</div>
+      <div class="model-en">That is a table and that is a lamp.</div>
+      <div class="model-breakdown">Das ist = That is | ein Tisch = a table (masculine → ein) | und = and | das ist = that is | eine Lampe = a lamp (feminine → eine) → Masculine uses 'ein', feminine uses 'eine'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Ist das ein Auto? Nein, das ist ein Fahrrad.</div>
+      <div class="model-en">Is that a car? No, that is a bicycle.</div>
+      <div class="model-breakdown">Ist das = Is that | ein Auto = a car (neuter → ein) | Nein = No | das ist = that is | ein Fahrrad = a bicycle (neuter → ein) → Both car and bicycle are neuter, both use 'ein'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Das ist eine Banane und das sind Äpfel.</div>
+      <div class="model-en">That is a banana and those are apples.</div>
+      <div class="model-breakdown">Das ist = That is | eine Banane = a banana (feminine → eine) | und = and | das sind = those are | Äpfel = apples (plural → no article) → Plural nouns drop the article entirely.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Hier ist ein Hund.</div>
+      <div class="model-en">Here is a dog.</div>
+      <div class="model-breakdown">Hier = Here | ist = is | ein Hund = a dog (masculine → ein) → Masculine noun, so use 'ein'.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Select the correct indefinite article.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist ___ Tasche. (die Tasche) → ( ein / eine )</div><div class="exercise-answer">Answer: eine</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist ___ Computer. (der Computer) → ( ein / eine )</div><div class="exercise-answer">Answer: ein</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Das ist ___ Brötchen. (das Brötchen) → ( ein / eine )</div><div class="exercise-answer">Answer: ein</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Translate the sentences to German using indefinite articles.</p>
+    <div class="exercise-item"><div class="exercise-prompt">That is a dog. (der Hund)</div><div class="exercise-answer">Answer: Das ist ein Hund.</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Those are bananas. (die Bananen)</div><div class="exercise-answer">Answer: Das sind Bananen.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Das sind eine Äpfel.</div>
+      <div class="mistake-right">✓ Das sind Äpfel.</div>
+      <div class="mistake-explain">Learners often try to put 'eine' in front of plural nouns because 'eine' ends in 'e' like many plural words. Just like in English, you cannot say 'a apples'. Plurals take no indefinite article.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Das ist eine Mädchen.</div>
+      <div class="mistake-right">✓ Das ist ein Mädchen.</div>
+      <div class="mistake-explain">Even though a girl is biologically female, the word 'das Mädchen' is grammatically neuter because it ends in '-chen'. Therefore, it takes 'ein', not 'eine'. Just memorize: das Mädchen = ein Mädchen.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">When speaking quickly, Germans often swallow the end of the indefinite article. You might hear someone say 'Das is 'n Auto' instead of 'ein Auto', or 'Das is 'ne Lampe' instead of 'eine Lampe'. Do not write this in your exam, but expect to hear it on the street.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Sprechen Teil 2: Describing what you see on the prompt cards usually starts with identifying the object: 'Auf dem Bild sehe ich ein Auto' (On the picture I see a car). Misgendering objects here is a classic beginner mistake.</div>
+  <div class="goal-note">Lesson Goal: Correctly use 'ein' and 'eine' to identify singular masculine, feminine, and neuter objects, and correctly omit the article for plurals.</div>
+</div>
+
+</main>
+</body></html>

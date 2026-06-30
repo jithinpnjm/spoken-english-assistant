@@ -1,0 +1,606 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>German A1 — Lessons 26–30</title><style>
+:root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
+.page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
+.page-header h1{color:var(--sky);font-size:1.8rem}
+.page-header p{color:var(--muted);margin-top:.5rem}
+.lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
+.lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
+main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
+.lesson:target{border-color:var(--indigo)}
+.lesson-header{margin-bottom:1.5rem}
+.lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
+.lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
+.lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
+.section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
+.section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
+.section-title.sky{color:var(--sky)} .section-title.amber{color:var(--amber)} .section-title.green{color:var(--green)} .section-title.rose{color:var(--rose)} .section-title.indigo{color:var(--indigo)} .section-title.purple{color:var(--purple)} .section-title.muted{color:var(--muted)}
+.rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+.rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
+.formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+.formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
+.vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
+.vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}
+.vocab-table tr:last-child td{border-bottom:none}
+.vocab-de{color:var(--sky);font-weight:500} .vocab-en{color:var(--text)} .vocab-ex{color:var(--muted);font-size:.85rem}
+.model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
+.model-de{font-size:1rem;font-weight:600;color:var(--text)} .model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0} .model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
+.mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
+.mistake-wrong{color:var(--rose)} .mistake-right{color:var(--green)} .mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+.exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.exercise-item:last-child{border-bottom:none}
+.exercise-prompt{color:var(--text)} .exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
+.note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
+.grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
+.grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+.grammar-table td{padding:.45rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}
+.grammar-table tr:last-child td{border-bottom:none}
+.cultural-note{background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--muted);font-size:.9rem}
+.exam-note{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--amber);font-size:.85rem}
+.goal-note{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--green);font-size:.85rem}
+</style></head>
+<body>
+<div class="page-header">
+  <h1>German A1 — Lessons 26–30</h1>
+  <p>Accusative Case · Possessives · möchten · W-Questions · Restaurant</p>
+</div>
+<nav class="lesson-nav">
+  <a href="#lesson-26">Lesson 26: Accusative Articles</a>
+  <a href="#lesson-27">Lesson 27: Possessives Accusative</a>
+  <a href="#lesson-28">Lesson 28: Modal Verb möchten</a>
+  <a href="#lesson-29">Lesson 29: W-Questions</a>
+  <a href="#lesson-30">Lesson 30: In a Restaurant</a>
+</nav>
+<main>
+
+<!-- LESSON 26 -->
+<div class="lesson" id="lesson-26">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 26</span>
+    <div class="lesson-title">Accusative Articles — Akkusativartikel</div>
+    <div class="lesson-intro">In English, we say 'He sees the table'. In German, you must prove that the table is the object being seen by changing its article. This is called the Accusative case. Without it, a German sentence like 'Der Hund beißt der Mann' literally means 'The dog bites the man AND the man bites the dog'. Accusative clarifies exactly who is doing the action and who is receiving it.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">The subject of the sentence (the one doing the action) stays unchanged.</div>
+    <div class="rule-item">The direct object (the thing receiving the action) must show this by changing its article.</div>
+    <div class="rule-item">Here is the great news: Feminine (die), Neuter (das), and Plural (die) articles DO NOT CHANGE.</div>
+    <div class="rule-item">ONLY the masculine article changes: 'der' becomes 'den'. 'ein' becomes 'einen'. 'kein' becomes 'keinen'.</div>
+    <div class="rule-item">Always ask yourself: Is this noun doing the action, or is something happening TO it?</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Subject (doing) + Verb + Object (receiving action)</div>
+    <div class="formula-item">Masculine change: der → den | ein → einen | kein → keinen</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table — Accusative Articles</div>
+    <table class="grammar-table">
+      <tr><th>Gender</th><th>When Subject</th><th>When Direct Object</th></tr>
+      <tr><td>Masculine</td><td>der / ein / kein Tisch</td><td>den / einen / keinen Tisch (CHANGES!)</td></tr>
+      <tr><td>Feminine</td><td>die / eine / keine Lampe</td><td>die / eine / keine Lampe (no change)</td></tr>
+      <tr><td>Neuter</td><td>das / ein / kein Buch</td><td>das / ein / kein Buch (no change)</td></tr>
+      <tr><td>Plural</td><td>die / — / keine Autos</td><td>die / — / keine Autos (no change)</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">brauchen</td><td class="vocab-en">to need</td><td class="vocab-ex">Ich brauche den Stift. — I need the pen.</td></tr>
+      <tr><td class="vocab-de">suchen</td><td class="vocab-en">to look for</td><td class="vocab-ex">Wir suchen einen Tisch. — We are looking for a table.</td></tr>
+      <tr><td class="vocab-de">finden</td><td class="vocab-en">to find</td><td class="vocab-ex">Er findet den Schlüssel nicht. — He cannot find the key.</td></tr>
+      <tr><td class="vocab-de">kaufen</td><td class="vocab-en">to buy</td><td class="vocab-ex">Sie kauft das Auto. — She is buying the car.</td></tr>
+      <tr><td class="vocab-de">haben</td><td class="vocab-en">to have</td><td class="vocab-ex">Ich habe einen Hund. — I have a dog.</td></tr>
+      <tr><td class="vocab-de">der Stift</td><td class="vocab-en">pen</td><td class="vocab-ex">Hast du einen Stift? — Do you have a pen?</td></tr>
+      <tr><td class="vocab-de">der Computer</td><td class="vocab-en">computer</td><td class="vocab-ex">Er kauft einen Computer. — He is buying a computer.</td></tr>
+      <tr><td class="vocab-de">der Garten</td><td class="vocab-en">garden</td><td class="vocab-ex">Wir haben einen Garten. — We have a garden.</td></tr>
+      <tr><td class="vocab-de">der Kaffee</td><td class="vocab-en">coffee</td><td class="vocab-ex">Ich trinke den Kaffee. — I drink the coffee.</td></tr>
+      <tr><td class="vocab-de">der Tee</td><td class="vocab-en">tea</td><td class="vocab-ex">Trinkst du einen Tee? — Are you drinking a tea?</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Ich brauche einen Computer.</div>
+      <div class="model-en">I need a computer.</div>
+      <div class="model-breakdown">Ich = I (doing the needing) | brauche = need | einen Computer = a computer (receiving the action, masculine → 'ein' becomes 'einen') → Masculine noun as the direct object.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Suchen Sie den Bahnhof?</div>
+      <div class="model-en">Are you looking for the train station?</div>
+      <div class="model-breakdown">Suchen = Looking for | Sie = you (formal, doing the searching) | den Bahnhof = the train station (receiving the action, masculine → 'der' becomes 'den') → Masculine direct object: 'der' becomes 'den'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Wir haben keinen Hund, wir haben eine Katze.</div>
+      <div class="model-en">We have no dog, we have a cat.</div>
+      <div class="model-breakdown">Wir haben = We have | keinen Hund = no dog (masculine direct object → 'kein' becomes 'keinen') | wir haben = we have | eine Katze = a cat (feminine direct object → no change) → Only masculine changes.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Der Mann trinkt den Kaffee.</div>
+      <div class="model-en">The man drinks the coffee.</div>
+      <div class="model-breakdown">Der Mann = The man (doing the drinking, unchanged) | trinkt = drinks | den Kaffee = the coffee (receiving the action, masculine → 'der' becomes 'den') → Subject stays 'der', object becomes 'den'.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Fill in the correct article for the direct object.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Ich habe ___ Bruder. (ein — Masculine direct object)</div><div class="exercise-answer">Answer: einen</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Wir suchen ___ Lampe. (die — Feminine does not change)</div><div class="exercise-answer">Answer: die</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Kaufst du ___ Stift? (der — Masculine direct object)</div><div class="exercise-answer">Answer: den</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Translate the sentence, paying attention to the masculine object.</p>
+    <div class="exercise-item"><div class="exercise-prompt">I need a coffee. (der Kaffee)</div><div class="exercise-answer">Answer: Ich brauche einen Kaffee.</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">He cannot find the key. (der Schlüssel)</div><div class="exercise-answer">Answer: Er findet den Schlüssel nicht.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Ich trinke ein Kaffee.</div>
+      <div class="mistake-right">✓ Ich trinke einen Kaffee.</div>
+      <div class="mistake-explain">Coffee is masculine (der Kaffee). When you drink it, it becomes the direct object. You must change 'ein' to 'einen'.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Den Mann lernt Deutsch.</div>
+      <div class="mistake-right">✓ Der Mann lernt Deutsch.</div>
+      <div class="mistake-explain">Overcorrecting! The man is doing the action (he is the subject). The subject never changes — keep it as 'der'.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">When Germans hear 'Ich habe ein Hund' instead of 'einen Hund', it sounds distinctly jarring, similar to hearing 'Me have a dog' in English. Because 'haben' (to have) always triggers the Accusative, mastering the 'einen' ending for masculine nouns is one of the biggest leaps you can make toward sounding fluent.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Schreiben Teil 1 &amp; 2: You will be graded heavily on your ability to use the correct article for direct objects. Writing 'Ich suche ein Bahnhof' will result in an immediate grammar penalty.</div>
+  <div class="goal-note">Lesson Goal: Correctly identify direct objects in a sentence and accurately change masculine articles to 'den', 'einen', or 'keinen'.</div>
+</div>
+
+<!-- LESSON 27 -->
+<div class="lesson" id="lesson-27">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 27</span>
+    <div class="lesson-title">Possessive Pronouns Accusative — Possessivpronomen im Akkusativ</div>
+    <div class="lesson-intro">Now that you know the direct object changes 'der' to 'den', you need to apply this exact same logic to your possessive pronouns. If you are visiting YOUR father or looking for MY key, those family members and objects are receiving the action. Therefore, 'mein' must become 'meinen'.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">Possessive pronouns follow the exact same rules as indefinite articles when used as direct objects.</div>
+    <div class="rule-item">Only masculine nouns change.</div>
+    <div class="rule-item">mein → meinen, dein → deinen, sein → seinen, ihr → ihren, unser → unseren, euer → euren, Ihr → Ihren.</div>
+    <div class="rule-item">Feminine, Neuter, and Plural possessive pronouns keep their standard endings (meine, mein, meine).</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Subject + Verb + [meinen/deinen/seinen/etc.] + Masculine Noun</div>
+    <div class="formula-item">Subject + Verb + [meine/mein/meine] + Feminine/Neuter/Plural Noun</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Grammar Table — Possessives as Direct Objects</div>
+    <table class="grammar-table">
+      <tr><th>Gender</th><th>When Subject</th><th>When Direct Object</th></tr>
+      <tr><td>Masculine</td><td>mein Vater (my father)</td><td>meinen Vater (CHANGES!)</td></tr>
+      <tr><td>Feminine</td><td>meine Mutter</td><td>meine Mutter (no change)</td></tr>
+      <tr><td>Neuter</td><td>mein Kind</td><td>mein Kind (no change)</td></tr>
+      <tr><td>Plural</td><td>meine Eltern</td><td>meine Eltern (no change)</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">besuchen</td><td class="vocab-en">to visit</td><td class="vocab-ex">Ich besuche meinen Opa. — I am visiting my grandpa.</td></tr>
+      <tr><td class="vocab-de">anrufen</td><td class="vocab-en">to call (on the phone)</td><td class="vocab-ex">Rufst du deinen Vater an? — Are you calling your father?</td></tr>
+      <tr><td class="vocab-de">lieben</td><td class="vocab-en">to love</td><td class="vocab-ex">Sie liebt ihren Hund. — She loves her dog.</td></tr>
+      <tr><td class="vocab-de">fragen</td><td class="vocab-en">to ask</td><td class="vocab-ex">Ich frage meinen Lehrer. — I ask my teacher.</td></tr>
+      <tr><td class="vocab-de">verstehen</td><td class="vocab-en">to understand</td><td class="vocab-ex">Ich verstehe meinen Bruder nicht. — I don't understand my brother.</td></tr>
+      <tr><td class="vocab-de">der Lehrer</td><td class="vocab-en">male teacher</td><td class="vocab-ex">Das ist mein Lehrer. — That is my teacher.</td></tr>
+      <tr><td class="vocab-de">der Chef</td><td class="vocab-en">male boss</td><td class="vocab-ex">Ich suche meinen Chef. — I am looking for my boss.</td></tr>
+      <tr><td class="vocab-de">der Freund</td><td class="vocab-en">boyfriend / male friend</td><td class="vocab-ex">Sie liebt ihren Freund. — She loves her boyfriend.</td></tr>
+      <tr><td class="vocab-de">der Koffer</td><td class="vocab-en">suitcase</td><td class="vocab-ex">Ich packe meinen Koffer. — I pack my suitcase.</td></tr>
+      <tr><td class="vocab-de">der Termin</td><td class="vocab-en">appointment</td><td class="vocab-ex">Ich vergesse meinen Termin. — I forget my appointment.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Ich besuche morgen meinen Vater.</div>
+      <div class="model-en">I am visiting my father tomorrow.</div>
+      <div class="model-breakdown">Ich = I (doing the visiting) | besuche = visit | morgen = tomorrow | meinen Vater = my father (direct object, masculine → 'mein' becomes 'meinen') → The father is being visited, so 'mein' adds '-en'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Verstehst du deinen Bruder?</div>
+      <div class="model-en">Do you understand your brother?</div>
+      <div class="model-breakdown">Verstehst = understand | du = you (doing the understanding) | deinen Bruder = your brother (direct object, masculine → 'dein' becomes 'deinen') → Brother is the direct object.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Wir suchen unseren Chef und unsere Kollegin.</div>
+      <div class="model-en">We are looking for our boss and our colleague.</div>
+      <div class="model-breakdown">Wir = We | suchen = looking for | unseren Chef = our boss (masculine direct object → 'unser' becomes 'unseren') | und = and | unsere Kollegin = our colleague (feminine direct object → no change) → Only the masculine one changes.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Herr Schmidt, ich brauche Ihren Schlüssel.</div>
+      <div class="model-en">Mr. Schmidt, I need your key.</div>
+      <div class="model-breakdown">Herr Schmidt = formal address | ich = I | brauche = need | Ihren Schlüssel = your key (formal 'your', masculine direct object → 'Ihr' becomes 'Ihren') → Always capitalize the formal 'Ihr'.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Add the correct ending to the possessive pronoun.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Sie liebt ihr___ Freund. (der Freund — Masculine direct object)</div><div class="exercise-answer">Answer: ihren</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Ich frage mein___ Lehrer. (der Lehrer — Masculine direct object)</div><div class="exercise-answer">Answer: meinen</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Wir besuchen unser___ Oma. (die Oma — Feminine does not change)</div><div class="exercise-answer">Answer: unsere</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Translate into German.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Do you (informal) have your key? (der Schlüssel)</div><div class="exercise-answer">Answer: Hast du deinen Schlüssel?</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">I am looking for my suitcase. (der Koffer)</div><div class="exercise-answer">Answer: Ich suche meinen Koffer.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Ich liebe mein Hund.</div>
+      <div class="mistake-right">✓ Ich liebe meinen Hund.</div>
+      <div class="mistake-explain">The dog is receiving the love (direct object). Because 'der Hund' is masculine, 'mein' MUST become 'meinen'.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Meinen Bruder lernt Deutsch.</div>
+      <div class="mistake-right">✓ Mein Bruder lernt Deutsch.</div>
+      <div class="mistake-explain">Do not put the subject into the direct object form! The brother is doing the action (learning). He remains the subject and stays as 'mein Bruder'.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">If you call in sick to a German office, you might say 'Ich besuche heute meinen Arzt' (I am visiting my doctor today). 'Der Arzt' is masculine, so 'mein' becomes 'meinen'. Germans appreciate correct case usage here as it shows precision and clarity in professional communication.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Sprechen Teil 2: Formulating questions to your partner like 'Wie oft besuchst du deinen Opa?' (How often do you visit your grandpa?) demonstrates higher-level A1 grammar control.</div>
+  <div class="goal-note">Lesson Goal: Correctly decline possessive pronouns when used as direct objects, specifically adding '-en' for masculine direct objects.</div>
+</div>
+
+<!-- LESSON 28 -->
+<div class="lesson" id="lesson-28">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 28</span>
+    <div class="lesson-title">Modal Verb: möchten — Modalverb: möchten</div>
+    <div class="lesson-intro">Saying 'I want a coffee' (Ich will einen Kaffee) can sound aggressive and demanding in German. To navigate polite society, cafes, and restaurants, you must use the magical word 'möchten' (would like). It is a modal verb, which means it behaves a little strangely: it alters the whole sentence by kicking the second action verb to the very end.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">'möchten' is used to express polite wishes or requests.</div>
+    <div class="rule-item">Special pattern: The 'ich' and 'er/sie/es' forms are ALWAYS identical. (Ich möchte, er möchte — NO extra '-t' for er!).</div>
+    <div class="rule-item">Sentence Structure Rule: 'möchten' takes Position 2. If there is another verb in the sentence (like 'to drink' or 'to pay'), that verb gets sent to the very end of the sentence in its full '-en' form.</div>
+    <div class="rule-item">You can also use 'möchten' alone with just an object: 'Ich möchte einen Kaffee'.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Without second verb: Subject + möchte + [Direct Object]</div>
+    <div class="formula-item">With second verb: Subject + möchte + [Direct Object / Details] + [Infinitive Verb at end]</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">Conjugation Table — möchten</div>
+    <table class="grammar-table">
+      <tr><th>Pronoun</th><th>möchten (would like)</th></tr>
+      <tr><td>ich</td><td>möchte</td></tr>
+      <tr><td>du</td><td>möchtest</td></tr>
+      <tr><td>er/sie/es</td><td>möchte (IDENTICAL to ich!)</td></tr>
+      <tr><td>wir</td><td>möchten</td></tr>
+      <tr><td>ihr</td><td>möchtet</td></tr>
+      <tr><td>sie/Sie</td><td>möchten</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">möchten</td><td class="vocab-en">would like</td><td class="vocab-ex">Ich möchte zahlen. — I would like to pay.</td></tr>
+      <tr><td class="vocab-de">trinken</td><td class="vocab-en">to drink</td><td class="vocab-ex">Was möchten Sie trinken? — What would you like to drink?</td></tr>
+      <tr><td class="vocab-de">essen</td><td class="vocab-en">to eat</td><td class="vocab-ex">Wir möchten etwas essen. — We would like to eat something.</td></tr>
+      <tr><td class="vocab-de">bestellen</td><td class="vocab-en">to order</td><td class="vocab-ex">Ich möchte jetzt bestellen. — I would like to order now.</td></tr>
+      <tr><td class="vocab-de">bezahlen (oder zahlen)</td><td class="vocab-en">to pay</td><td class="vocab-ex">Wir möchten bitte bezahlen. — We would like to pay, please.</td></tr>
+      <tr><td class="vocab-de">die Speisekarte</td><td class="vocab-en">menu</td><td class="vocab-ex">Die Speisekarte, bitte. — The menu, please.</td></tr>
+      <tr><td class="vocab-de">das Wasser</td><td class="vocab-en">water</td><td class="vocab-ex">Ich möchte ein Wasser. — I would like a water.</td></tr>
+      <tr><td class="vocab-de">der Kuchen</td><td class="vocab-en">cake</td><td class="vocab-ex">Er möchte den Kuchen probieren. — He would like to try the cake.</td></tr>
+      <tr><td class="vocab-de">probieren</td><td class="vocab-en">to try / taste</td><td class="vocab-ex">Möchtest du probieren? — Would you like to try?</td></tr>
+      <tr><td class="vocab-de">bitte</td><td class="vocab-en">please</td><td class="vocab-ex">Einen Kaffee, bitte. — A coffee, please.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Ich möchte einen Kaffee trinken.</div>
+      <div class="model-en">I would like to drink a coffee.</div>
+      <div class="model-breakdown">Ich = I | möchte = would like (position 2) | einen Kaffee = a coffee (direct object, masculine) | trinken = drink (sent to the very end) → The second verb always goes to the end.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Was möchtest du heute machen?</div>
+      <div class="model-en">What would you like to do today?</div>
+      <div class="model-breakdown">Was = What (position 1) | möchtest = would like (position 2) | du = you | heute = today | machen = do (sent to the very end) → Same end-placement rule applies in questions.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Er möchte jetzt bezahlen.</div>
+      <div class="model-en">He would like to pay now.</div>
+      <div class="model-breakdown">Er = He | möchte = would like (note: same form as 'ich möchte', no extra '-t') | jetzt = now | bezahlen = pay (at the end) → 'er möchte', NOT 'er möchtet'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Wir möchten bitte die Speisekarte.</div>
+      <div class="model-en">We would like the menu, please.</div>
+      <div class="model-breakdown">Wir = We | möchten = would like (position 2) | bitte = please | die Speisekarte = the menu (object) → No second verb needed here — just order the object directly.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Conjugate 'möchten' correctly.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Was ___ du essen?</div><div class="exercise-answer">Answer: möchtest (du form)</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Der Mann ___ einen Tee trinken.</div><div class="exercise-answer">Answer: möchte (er/sie/es form is identical to ich)</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Wir ___ bestellen, bitte.</div><div class="exercise-answer">Answer: möchten (wir form)</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Put the sentence in the correct order, placing the infinitive verb at the end.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Kaffee / trinken / Ich / möchte / einen</div><div class="exercise-answer">Answer: Ich möchte einen Kaffee trinken.</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">bezahlen / Wir / jetzt / möchten</div><div class="exercise-answer">Answer: Wir möchten jetzt bezahlen.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Er möchtet einen Tee.</div>
+      <div class="mistake-right">✓ Er möchte einen Tee.</div>
+      <div class="mistake-explain">Learners naturally try to add the standard '-t' ending for 'er'. But 'möchten' breaks this rule. The 'er' form is strictly 'möchte', identical to the 'ich' form.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Ich möchte trinken einen Kaffee.</div>
+      <div class="mistake-right">✓ Ich möchte einen Kaffee trinken.</div>
+      <div class="mistake-explain">Applying English word order ('I would like to drink a coffee'). In German, the second verb ('trinken') MUST go to the very end of the clause.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">When ordering in Germany, 'Ich bekomme...' (I get) or 'Ich nehme...' (I'll take) are also perfectly polite. However, 'Ich will...' (I want) sounds like a toddler throwing a tantrum. Defaulting to 'Ich möchte...' ensures you are always viewed as a polite guest.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Sprechen Teil 2 &amp; 3: Making polite requests is a mandatory requirement. You will have to ask your partner for things ('Möchtest du ins Kino gehen?' or 'Ich möchte bitte das Buch haben').</div>
+  <div class="goal-note">Lesson Goal: Politely express wishes using 'möchten', conjugating it correctly, and successfully sending the second infinitive verb to the end of the sentence.</div>
+</div>
+
+<!-- LESSON 29 -->
+<div class="lesson" id="lesson-29">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 29</span>
+    <div class="lesson-title">W-Questions (Was? Wo? Wann?) — W-Fragen</div>
+    <div class="lesson-intro">A conversation dies quickly if you can only ask Yes/No questions. To gather real information, you need open-ended questions. In German, these are called 'W-Fragen' because almost all the question words begin with 'W'. Mastering the word order for W-Questions ensures you never get lost, miss an appointment, or misunderstand a price.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">In a W-Question, the W-Word is ALWAYS in Position 1.</div>
+    <div class="rule-item">The conjugated verb is ALWAYS locked in Position 2.</div>
+    <div class="rule-item">The subject comes immediately after the verb in Position 3.</div>
+    <div class="rule-item">This is a strict mathematical formula. Unlike English, German does not use helper verbs like 'do' or 'does' to make a question.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Position 1 (W-Word) + Position 2 (Verb) + Position 3 (Subject) + Rest?</div>
+    <div class="formula-item">Example: Wann (1) + fängt (2) + die Party (3) + an (Rest)?</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title indigo">W-Word Reference Table</div>
+    <table class="grammar-table">
+      <tr><th>W-Word</th><th>English Meaning</th><th>Example</th></tr>
+      <tr><td>Was</td><td>What</td><td>Was machst du? (What are you doing?)</td></tr>
+      <tr><td>Wo</td><td>Where (location)</td><td>Wo bist du? (Where are you?)</td></tr>
+      <tr><td>Woher</td><td>Where from</td><td>Woher kommst du? (Where do you come from?)</td></tr>
+      <tr><td>Wohin</td><td>Where to</td><td>Wohin gehst du? (Where are you going?)</td></tr>
+      <tr><td>Wann</td><td>When</td><td>Wann fängt der Kurs an? (When does the course start?)</td></tr>
+      <tr><td>Wer</td><td>Who</td><td>Wer ist das? (Who is that?)</td></tr>
+      <tr><td>Wie</td><td>How</td><td>Wie alt bist du? (How old are you?)</td></tr>
+      <tr><td>Warum</td><td>Why</td><td>Warum lernst du Deutsch? (Why are you learning German?)</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">was</td><td class="vocab-en">what</td><td class="vocab-ex">Was essen wir? — What are we eating?</td></tr>
+      <tr><td class="vocab-de">wo</td><td class="vocab-en">where</td><td class="vocab-ex">Wo wohnst du? — Where do you live?</td></tr>
+      <tr><td class="vocab-de">wann</td><td class="vocab-en">when</td><td class="vocab-ex">Wann kommst du? — When are you coming?</td></tr>
+      <tr><td class="vocab-de">wer</td><td class="vocab-en">who</td><td class="vocab-ex">Wer ist der Mann? — Who is the man?</td></tr>
+      <tr><td class="vocab-de">wie</td><td class="vocab-en">how</td><td class="vocab-ex">Wie funktioniert das? — How does that work?</td></tr>
+      <tr><td class="vocab-de">warum</td><td class="vocab-en">why</td><td class="vocab-ex">Warum bist du hier? — Why are you here?</td></tr>
+      <tr><td class="vocab-de">wohin</td><td class="vocab-en">where to</td><td class="vocab-ex">Wohin fährst du? — Where are you driving to?</td></tr>
+      <tr><td class="vocab-de">der Kurs</td><td class="vocab-en">course / class</td><td class="vocab-ex">Wann beginnt der Kurs? — When does the course begin?</td></tr>
+      <tr><td class="vocab-de">die Party</td><td class="vocab-en">party</td><td class="vocab-ex">Wo ist die Party? — Where is the party?</td></tr>
+      <tr><td class="vocab-de">anfangen</td><td class="vocab-en">to start / begin</td><td class="vocab-ex">Wann fängt der Film an? — When does the movie start?</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Was machst du am Wochenende?</div>
+      <div class="model-en">What are you doing on the weekend?</div>
+      <div class="model-breakdown">Was = What (position 1) | machst = do (position 2) | du = you (position 3) | am Wochenende = on the weekend → W-Word, then verb, then subject.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Woher kommt der neue Kollege?</div>
+      <div class="model-en">Where does the new colleague come from?</div>
+      <div class="model-breakdown">Woher = Where from (position 1) | kommt = comes (position 2) | der neue Kollege = the new colleague (subject block, position 3) → 'der neue Kollege' is one unit in position 3.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Wann hast du Zeit für mich?</div>
+      <div class="model-en">When do you have time for me?</div>
+      <div class="model-breakdown">Wann = When (position 1) | hast = have (position 2) | du = you (position 3) | Zeit = time | für mich = for me → No helper verb 'do' — just W-Word + verb.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Warum ist das Auto so teuer?</div>
+      <div class="model-en">Why is the car so expensive?</div>
+      <div class="model-breakdown">Warum = Why (position 1) | ist = is (position 2) | das Auto = the car (position 3) | so teuer = so expensive → Same W-Word + verb + subject pattern.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Choose the correct W-Word.</p>
+    <div class="exercise-item"><div class="exercise-prompt">___ wohnen Sie? — Ich wohne in Berlin. (Asking for location)</div><div class="exercise-answer">Answer: Wo</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">___ kommst du heute? — Um 18 Uhr. (Asking for a time)</div><div class="exercise-answer">Answer: Wann</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">___ ist die Frau? — Das ist meine Chefin. (Asking for a person)</div><div class="exercise-answer">Answer: Wer</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Build the W-Question in the correct word order.</p>
+    <div class="exercise-item"><div class="exercise-prompt">du / Warum / Deutsch / lernst / ?</div><div class="exercise-answer">Answer: Warum lernst du Deutsch?</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">beginnt / Wann / der Kurs / ?</div><div class="exercise-answer">Answer: Wann beginnt der Kurs?</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Was du machst heute?</div>
+      <div class="mistake-right">✓ Was machst du heute?</div>
+      <div class="mistake-explain">Directly translating 'What you doing today?'. The verb MUST be in Position 2 immediately following the W-Word.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Wer heißt du?</div>
+      <div class="mistake-right">✓ Wie heißt du?</div>
+      <div class="mistake-explain">Translating 'Who are you called' or 'What is your name' literally. In German, you ask 'How are you called?' → 'Wie heißt du?'.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">Germans are not fond of small talk, so they rely heavily on direct W-Questions to get straight to the point. While an English speaker might ask, 'I was wondering if you might know what time the meeting is?', a German colleague will simply ask, 'Wann ist das Meeting?'. Do not take this directness as rudeness.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Sprechen Teil 2: In the speaking exam, you pick up cards with a single topic word on them (e.g., 'Essen'). You MUST form a correct W-Question to ask your partner (e.g., 'Was isst du gern?').</div>
+  <div class="goal-note">Lesson Goal: Formulate open-ended questions using various W-Words while strictly maintaining the 'W-Word + Verb + Subject' word order.</div>
+</div>
+
+<!-- LESSON 30 -->
+<div class="lesson" id="lesson-30">
+  <div class="lesson-header">
+    <span class="lesson-number">Lesson 30</span>
+    <div class="lesson-title">In a Restaurant — Im Restaurant</div>
+    <div class="lesson-intro">Dining out in Germany requires putting multiple grammar concepts together: using 'möchten' to be polite, the correct article for the food you are ordering, and specific vocabulary for the bill. German waiters are professional, fast, and practical; knowing exactly how to order and pay ensures a stress-free meal.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">The Rules</div>
+    <div class="rule-item">To order food or drinks politely, use: 'Ich möchte...' (I would like) or 'Ich hätte gern...' (I would gladly have).</div>
+    <div class="rule-item">The food or drink you order is the direct object, so you must use the correct article (e.g., 'einen Kaffee', 'einen Salat').</div>
+    <div class="rule-item">When asking for the bill, you just say 'Zahlen, bitte' (Pay, please) or 'Ich möchte bitte zahlen'.</div>
+    <div class="rule-item">The waiter will ask 'Zusammen oder getrennt?' (Together or separate?). It is very common in Germany to split the bill item by item.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Formulas</div>
+    <div class="formula-item">Ordering: Ich hätte gern + [Item] + bitte.</div>
+    <div class="formula-item">Paying: Wir möchten + bitte + zahlen.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title sky">Vocabulary</div>
+    <table class="vocab-table">
+      <tr><th>German</th><th>English</th><th>Example</th></tr>
+      <tr><td class="vocab-de">das Restaurant</td><td class="vocab-en">restaurant</td><td class="vocab-ex">Das Restaurant ist gut. — The restaurant is good.</td></tr>
+      <tr><td class="vocab-de">der Kellner / die Kellnerin</td><td class="vocab-en">waiter / waitress</td><td class="vocab-ex">Der Kellner kommt sofort. — The waiter is coming immediately.</td></tr>
+      <tr><td class="vocab-de">die Speisekarte</td><td class="vocab-en">menu</td><td class="vocab-ex">Die Speisekarte, bitte. — The menu, please.</td></tr>
+      <tr><td class="vocab-de">bestellen</td><td class="vocab-en">to order</td><td class="vocab-ex">Wir möchten bestellen. — We would like to order.</td></tr>
+      <tr><td class="vocab-de">die Rechnung</td><td class="vocab-en">bill / check</td><td class="vocab-ex">Die Rechnung, bitte. — The bill, please.</td></tr>
+      <tr><td class="vocab-de">zahlen</td><td class="vocab-en">to pay</td><td class="vocab-ex">Ich möchte zahlen. — I would like to pay.</td></tr>
+      <tr><td class="vocab-de">zusammen</td><td class="vocab-en">together</td><td class="vocab-ex">Zahlen Sie zusammen? — Are you paying together?</td></tr>
+      <tr><td class="vocab-de">getrennt</td><td class="vocab-en">separate</td><td class="vocab-ex">Nein, bitte getrennt. — No, separately please.</td></tr>
+      <tr><td class="vocab-de">das Trinkgeld</td><td class="vocab-en">tip / gratuity</td><td class="vocab-ex">Das Trinkgeld ist wichtig. — The tip is important.</td></tr>
+      <tr><td class="vocab-de">lecker</td><td class="vocab-en">delicious / tasty</td><td class="vocab-ex">Das Essen ist sehr lecker. — The food is very delicious.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title green">Model Sentences</div>
+    <div class="model-sentence">
+      <div class="model-de">Hallo, wir möchten bitte bestellen.</div>
+      <div class="model-en">Hello, we would like to order please.</div>
+      <div class="model-breakdown">Hallo = Hello | wir möchten = we would like | bitte = please | bestellen = order (sent to the end) → Modal verb sends the second verb to the end.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Ich hätte gern einen Salat und ein Wasser.</div>
+      <div class="model-en">I would like a salad and a water.</div>
+      <div class="model-breakdown">Ich hätte gern = I would gladly have (polite ordering phrase) | einen Salat = a salad (masculine direct object → 'einen') | und = and | ein Wasser = a water (neuter direct object → no change) → Masculine 'Salat' needs 'einen'.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Hat es geschmeckt? Ja, es war sehr lecker.</div>
+      <div class="model-en">Did it taste good? Yes, it was very delicious.</div>
+      <div class="model-breakdown">Hat es geschmeckt = Did it taste good (waiter asking) | Ja = Yes | es war = it was | sehr lecker = very delicious → Standard waiter phrase and polite reply.</div>
+    </div>
+    <div class="model-sentence">
+      <div class="model-de">Zahlen, bitte. Zusammen oder getrennt?</div>
+      <div class="model-en">Pay, please. Together or separately?</div>
+      <div class="model-breakdown">Zahlen = Pay | bitte = please | Zusammen = together | oder = or | getrennt = separately → Shortcut to ask for the bill.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title amber">Exercises</div>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:.75rem;">Fill in the missing words for a restaurant scenario.</p>
+    <div class="exercise-item"><div class="exercise-prompt">Wir möchten bitte die ___. (menu — what you read to choose food)</div><div class="exercise-answer">Answer: Speisekarte</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Ich hätte gern ___ Kaffee. (a — Masculine direct object)</div><div class="exercise-answer">Answer: einen</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">Zusammen oder ___? (separate — when splitting the bill)</div><div class="exercise-answer">Answer: getrennt</div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin:.75rem 0;">Translate your request to the waiter.</p>
+    <div class="exercise-item"><div class="exercise-prompt">We would like to pay, please.</div><div class="exercise-answer">Answer: Wir möchten bitte zahlen.</div></div>
+    <div class="exercise-item"><div class="exercise-prompt">I would like a water.</div><div class="exercise-answer">Answer: Ich möchte ein Wasser.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title rose">Common Mistakes</div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Ich nehme ein Kaffee.</div>
+      <div class="mistake-right">✓ Ich nehme einen Kaffee.</div>
+      <div class="mistake-explain">Forgetting that the coffee is the direct object of what you are taking/getting. Coffee is masculine (der Kaffee), so 'ein' becomes 'einen'.</div>
+    </div>
+    <div class="mistake-item">
+      <div class="mistake-wrong">✗ Wir möchten die Kontrolle, bitte. (Trying to ask for 'the check')</div>
+      <div class="mistake-right">✓ Wir möchten die Rechnung, bitte.</div>
+      <div class="mistake-explain">False friend! 'Die Kontrolle' means inspection or security check. You must ask for 'die Rechnung' (the calculation/bill).</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="section-title purple">Cultural Note</div>
+    <div class="cultural-note">When paying the bill in Germany, the waiter usually brings a wallet directly to your table. If the bill is 18.50€ and you hand them a 20€ note, you simply say 'Stimmt so' (Keep the change / That's right). A 5% to 10% tip is standard, but you tell the waiter the final total you want to pay before they hand you your change.</div>
+  </div>
+
+  <div class="exam-note">Exam Relevance — Hören &amp; Sprechen Teil 2: Restaurant dialogues are extremely common in the listening exam. In the speaking exam, you may have to negotiate where to eat or order food based on picture cards.</div>
+  <div class="goal-note">Lesson Goal: Navigate a German restaurant confidently: ordering food using the correct article for direct objects, asking for the bill, and specifying payment methods.</div>
+</div>
+
+</main>
+</body></html>

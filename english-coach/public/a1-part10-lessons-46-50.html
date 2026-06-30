@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>German A1 — Lessons 46–50</title>
+  <style>
+    :root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
+    .page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
+    .page-header h1{color:var(--sky);font-size:1.8rem}
+    .page-header p{color:var(--muted);margin-top:.5rem}
+    .lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
+    .lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
+    .lesson-nav a:hover{background:var(--border)}
+    main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+    .lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
+    .lesson:target{border-color:var(--indigo)}
+    .lesson-header{margin-bottom:1.5rem}
+    .lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
+    .lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
+    .lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
+    .section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
+    .section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
+    .section-title.sky{color:var(--sky)} .section-title.amber{color:var(--amber)} .section-title.green{color:var(--green)} .section-title.rose{color:var(--rose)} .section-title.indigo{color:var(--indigo)} .section-title.purple{color:var(--purple)} .section-title.muted{color:var(--muted)}
+    .rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+    .rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
+    .formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
+    .formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
+    .vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
+    .vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
+    .vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}
+    .vocab-table tr:last-child td{border-bottom:none}
+    .vocab-de{color:var(--sky);font-weight:500}
+    .vocab-en{color:var(--text)}
+    .vocab-ex{color:var(--muted);font-size:.85rem}
+    .model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
+    .model-de{font-size:1rem;font-weight:600;color:var(--text)}
+    .model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0}
+    .model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
+    .mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
+    .mistake-wrong{color:var(--rose)}
+    .mistake-right{color:var(--green)}
+    .mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+    .exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+    .exercise-item:last-child{border-bottom:none}
+    .exercise-prompt{color:var(--text)}
+    .exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
+    .note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
+    .grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
+    .grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+    .grammar-table td{padding:.4rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}
+    .grammar-table tr:last-child td{border-bottom:none}
+    @media(max-width:600px){main{padding:1rem}.lesson{padding:1.25rem}}
+  </style>
+</head>
+<body>
+  <div class="page-header">
+    <h1>German A1 — Lessons 46–50</h1>
+    <p>Partizip II Forms · Vacation · Supermarket Quantities · Weather · Appointments</p>
+  </div>
+  <nav class="lesson-nav">
+    <a href="#lesson-46">Lesson 46: Partizip II Forms</a>
+    <a href="#lesson-47">Lesson 47: Vacation</a>
+    <a href="#lesson-48">Lesson 48: Supermarket</a>
+    <a href="#lesson-49">Lesson 49: Weather</a>
+    <a href="#lesson-50">Lesson 50: Appointments</a>
+  </nav>
+  <main>
+
+    <!-- LESSON 46 -->
+    <section id="lesson-46" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 46</div>
+        <h2 class="lesson-title">Past Perfect 3: Partizip II Forms — Das Perfekt: Partizip II Formen</h2>
+        <p class="lesson-intro">You know how to build a past tense sentence with 'haben' or 'sein' in Position 2. But what goes at the end? The 'Partizip II' (the past participle). In English, we usually just add '-ed' (play → played). In German, there is a clear system to build these end-words, depending on whether the base verb is regular, irregular, separable, or ends in '-ieren'.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">Regular Verbs (Weak): Add 'ge-' to the front and '-t' to the end of the stem (machen → ge-mach-t).</div>
+        <div class="rule-item">Irregular Verbs (Strong): Add 'ge-' to the front and '-en' to the end. The middle vowel often changes! (trinken → ge-trunk-en).</div>
+        <div class="rule-item">Separable Verbs: The 'ge-' goes BETWEEN the prefix and the stem (einkaufen → ein-ge-kauf-t).</div>
+        <div class="rule-item">Verbs ending in '-ieren': NEVER take 'ge-'. Just add '-t' (studieren → studier-t).</div>
+        <div class="rule-item">Inseparable prefixes (be-, ver-, er-): NEVER take 'ge-' (besuchen → besuch-t).</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Regular: ge + stem + t (gesagt, gemacht, gehört, gelernt, gearbeitet)</div>
+        <div class="formula-item">Irregular: ge + stem + en (gesehen, gegessen, gegangen, geschrieben)</div>
+        <div class="formula-item">Separable: prefix + ge + stem + t/en (aufgestanden, eingekauft, angefangen, zurückgekommen)</div>
+        <div class="formula-item">-ieren Verbs: stem + t (telefoniert, studiert, repariert, notiert, buchstabiert)</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>Verb Type</th><th>Infinitive</th><th>Partizip II</th><th>Rule</th></tr>
+          <tr><td>Regular</td><td>kaufen</td><td>gekauft</td><td>ge + kauf + t</td></tr>
+          <tr><td>Irregular</td><td>finden</td><td>gefunden</td><td>ge + fund + en (vowel change!)</td></tr>
+          <tr><td>Separable</td><td>anrufen</td><td>angerufen</td><td>an + ge + ruf + en</td></tr>
+          <tr><td>-ieren Verb</td><td>telefonieren</td><td>telefoniert</td><td>telefonier + t (No ge-)</td></tr>
+          <tr><td>Inseparable</td><td>verstehen</td><td>verstanden</td><td>verstand + en (No ge-)</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">gemacht</td><td class="vocab-en">done / made</td><td class="vocab-ex">Ich habe Sport gemacht. — I did sports.</td></tr>
+          <tr><td class="vocab-de">gekauft</td><td class="vocab-en">bought</td><td class="vocab-ex">Wir haben ein Auto gekauft. — We bought a car.</td></tr>
+          <tr><td class="vocab-de">gegessen</td><td class="vocab-en">eaten</td><td class="vocab-ex">Hast du schon gegessen? — Have you already eaten?</td></tr>
+          <tr><td class="vocab-de">getrunken</td><td class="vocab-en">drunk</td><td class="vocab-ex">Er hat Wasser getrunken. — He drank water.</td></tr>
+          <tr><td class="vocab-de">gesehen</td><td class="vocab-en">seen</td><td class="vocab-ex">Ich habe den Film gesehen. — I saw the movie.</td></tr>
+          <tr><td class="vocab-de">eingekauft</td><td class="vocab-en">shopped</td><td class="vocab-ex">Sie hat im Supermarkt eingekauft. — She shopped in the supermarket.</td></tr>
+          <tr><td class="vocab-de">telefoniert</td><td class="vocab-en">telephoned / called</td><td class="vocab-ex">Ich habe mit Anna telefoniert. — I talked on the phone with Anna.</td></tr>
+          <tr><td class="vocab-de">studiert</td><td class="vocab-en">studied (at university)</td><td class="vocab-ex">Er hat in Berlin studiert. — He studied in Berlin.</td></tr>
+          <tr><td class="vocab-de">besucht</td><td class="vocab-en">visited</td><td class="vocab-ex">Wir haben Oma besucht. — We visited grandma.</td></tr>
+          <tr><td class="vocab-de">verstanden</td><td class="vocab-en">understood</td><td class="vocab-ex">Ich habe das nicht verstanden. — I did not understand that.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Ich habe gestern viel gearbeitet und danach eingekauft.</div>
+          <div class="model-en">I worked a lot yesterday and shopped afterwards.</div>
+          <div class="model-breakdown">gearbeitet = ge+arbeit+et (regular) | eingekauft = ein+ge+kauf+t (separable — 'ge' goes BETWEEN 'ein' and the stem 'kauf').</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Wir haben mit dem Chef telefoniert.</div>
+          <div class="model-en">We talked on the phone with the boss.</div>
+          <div class="model-breakdown">telefoniert = telefonier+t (No 'ge' because it ends in -ieren) → -ieren verbs never get a 'ge-' prefix.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Hast du meine E-Mail bekommen?</div>
+          <div class="model-en">Did you receive my email?</div>
+          <div class="model-breakdown">bekommen = bekomm+en (Inseparable prefix 'be-', so no 'ge-' is added) → 'be-' verbs never get a 'ge-' prefix.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Ich habe eine Pizza gegessen und Cola getrunken.</div>
+          <div class="model-en">I ate a pizza and drank cola.</div>
+          <div class="model-breakdown">gegessen = ge+gess+en (irregular: essen → gegessen, vowel change e→ess) | getrunken = ge+trunk+en (irregular: trinken → getrunken, vowel change ink→unk).</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">studieren → ( gestudiert / studiert )</div>
+          <div class="exercise-answer">Answer: studiert (ends in -ieren, no ge-)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">sagen → ( gesagen / gesagt )</div>
+          <div class="exercise-answer">Answer: gesagt (regular: ge + sag + t)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">aufstehen → ( aufgestanden / geaufstanden )</div>
+          <div class="exercise-answer">Answer: aufgestanden (separable: auf + ge + stand + en)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Ich habe meine Oma ___ (besuchen).</div>
+          <div class="exercise-answer">Answer: besucht (inseparable 'be-' takes no 'ge-')</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Wir haben das Auto ___ (kaufen).</div>
+          <div class="exercise-answer">Answer: gekauft (regular verb)</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Wir haben ge-telefoniert.</div>
+          <div class="mistake-right">✓ Wir haben telefoniert.</div>
+          <div class="mistake-explain">Verbs ending in '-ieren' (usually words imported from French or Latin, like reparieren, studieren) never take the 'ge-' prefix.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich habe die Oma be-ge-sucht.</div>
+          <div class="mistake-right">✓ Ich habe die Oma besucht.</div>
+          <div class="mistake-explain">Never add 'ge-' to a verb that starts with an inseparable prefix like 'be-', 'ver-', or 'er-'.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 47 -->
+    <section id="lesson-47" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 47</div>
+        <h2 class="lesson-title">Talking About Your Vacation — Über den Urlaub sprechen</h2>
+        <p class="lesson-intro">Germans are the world champions of traveling! Asking 'Wie war der Urlaub?' (How was the vacation?) is the ultimate Monday morning office icebreaker. To join the conversation, you need to combine your new past tense skills ('war' and the Perfekt) with specific travel vocabulary, and know how to say exactly where you went.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">To say you went TO a country or city, use the preposition 'nach' (Ich bin nach Spanien geflogen).</div>
+        <div class="rule-item">EXCEPTION: A few countries have feminine or plural articles (die Schweiz, die Türkei, die USA). For these, you must use 'in' + Accusative (Ich bin in die Türkei geflogen).</div>
+        <div class="rule-item">To describe how the vacation was, use the Simple Past of sein: 'Der Urlaub war toll' (The vacation was great).</div>
+        <div class="rule-item">Use 'sein' as the helper verb for all travel motion (fliegen, fahren, reisen, schwimmen, laufen, gehen).</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Travel: Subject + bin/ist + nach + [City/Country without article] + geflogen/gefahren.</div>
+        <div class="formula-item">Exception countries: Subject + bin/ist + in + die/den + [Country with article] + geflogen.</div>
+        <div class="formula-item">State: Der Urlaub / Das Hotel / Das Wetter + war + [Adjective].</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">der Urlaub</td><td class="vocab-en">vacation / holiday</td><td class="vocab-ex">Mein Urlaub war super. — My vacation was great.</td></tr>
+          <tr><td class="vocab-de">das Meer</td><td class="vocab-en">sea / ocean</td><td class="vocab-ex">Wir sind ans Meer gefahren. — We drove to the sea.</td></tr>
+          <tr><td class="vocab-de">der Strand</td><td class="vocab-en">beach</td><td class="vocab-ex">Ich lag am Strand. — I lay on the beach.</td></tr>
+          <tr><td class="vocab-de">die Berge</td><td class="vocab-en">mountains</td><td class="vocab-ex">Wir wandern in den Bergen. — We are hiking in the mountains.</td></tr>
+          <tr><td class="vocab-de">das Hotel</td><td class="vocab-en">hotel</td><td class="vocab-ex">Das Hotel war sehr teuer. — The hotel was very expensive.</td></tr>
+          <tr><td class="vocab-de">die Fahrkarte</td><td class="vocab-en">ticket (train/bus)</td><td class="vocab-ex">Ich habe die Fahrkarte gekauft. — I bought the ticket.</td></tr>
+          <tr><td class="vocab-de">das Flugzeug</td><td class="vocab-en">airplane</td><td class="vocab-ex">Das Flugzeug ist groß. — The airplane is big.</td></tr>
+          <tr><td class="vocab-de">reisen</td><td class="vocab-en">to travel</td><td class="vocab-ex">Ich reise gern. — I like to travel.</td></tr>
+          <tr><td class="vocab-de">buchen</td><td class="vocab-en">to book</td><td class="vocab-ex">Hast du das Hotel gebucht? — Did you book the hotel?</td></tr>
+          <tr><td class="vocab-de">das Wetter</td><td class="vocab-en">weather</td><td class="vocab-ex">Das Wetter war fantastisch. — The weather was fantastic.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Wir sind im Sommer nach Italien gefahren.</div>
+          <div class="model-en">We drove to Italy in the summer.</div>
+          <div class="model-breakdown">Wir sind (helper for motion) | im Sommer (time) | nach Italien (to Italy — no article, so 'nach') | gefahren (driven).</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Ich bin in die USA geflogen.</div>
+          <div class="model-en">I flew to the USA.</div>
+          <div class="model-breakdown">Ich bin (helper) | in die USA (into the USA — plural exception, no 'nach') | geflogen (flown) → Countries with articles use 'in' + Accusative.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Das Wetter war sehr schön und das Hotel war günstig.</div>
+          <div class="model-en">The weather was very nice and the hotel was cheap.</div>
+          <div class="model-breakdown">Das Wetter war (was) | sehr schön (nice) | und = and | das Hotel war (was) | günstig (cheap/favorable) → Use simple past 'war' to describe holiday states.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Hast du die Tickets schon gebucht?</div>
+          <div class="model-en">Have you already booked the tickets?</div>
+          <div class="model-breakdown">Hast (helper 'haben' because booking is not motion) | du | die Tickets | schon | gebucht (booked) → Booking uses 'haben', not 'sein'.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Wir fliegen ___ Spanien. ( nach / in )</div>
+          <div class="exercise-answer">Answer: nach (Spanien has no article)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Er reist ___ die Schweiz. ( nach / in )</div>
+          <div class="exercise-answer">Answer: in (die Schweiz has a feminine article)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Wir ___ das Hotel online gebucht.</div>
+          <div class="exercise-answer">Answer: haben (Booking is not motion.)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Ich ___ nach Paris geflogen.</div>
+          <div class="exercise-answer">Answer: bin (Flying is motion A to B.)</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich fliege nach der Türkei.</div>
+          <div class="mistake-right">✓ Ich fliege in die Türkei.</div>
+          <div class="mistake-explain">Because Turkey has an article (die Türkei), you cannot use 'nach'. You must use 'in' + the Accusative article.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Der Urlaub hat sehr gut gewesen.</div>
+          <div class="mistake-right">✓ Der Urlaub war sehr gut.</div>
+          <div class="mistake-explain">Avoid trying to build the complex past tense of 'sein'. Just use the simple past 'war'.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 48 -->
+    <section id="lesson-48" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 48</div>
+        <h2 class="lesson-title">In the Supermarket — Im Supermarkt</h2>
+        <p class="lesson-intro">Buying groceries in Germany is a fast-paced experience. The cashiers are famously swift, and you need to know how to navigate weights, packaging, and quantities. A major grammatical quirk in German makes this easier than in English: when specifying weights or measures, the unit word itself does NOT become plural!</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">When asking for quantities, use 'Ich brauche...' (I need) or 'Ich möchte...' (I would like).</div>
+        <div class="rule-item">Nouns expressing weight or measure (Kilo, Gramm, Liter, Flasche) stay SINGULAR after a number, unless they are feminine words like 'Flasche' or 'Packung' or 'Dose'.</div>
+        <div class="rule-item">Rule of thumb: Neuter/Masculine units (das Kilo, das Gramm, der Liter) stay singular: 2 Kilo (NOT 2 Kilos).</div>
+        <div class="rule-item">Feminine units (die Flasche, die Packung) become plural normally: 2 Flaschen, 2 Packungen.</div>
+        <div class="rule-item">The food item that follows the weight takes NO connecting word. (e.g., 'ein Kilo Äpfel' — NOT 'ein Kilo von Äpfeln').</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Quantity + Neuter/Masc Measure (Singular) + Item → zwei Kilo Tomaten.</div>
+        <div class="formula-item">Quantity + Fem Measure (Plural) + Item → zwei Flaschen Wasser.</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>Quantity</th><th>Measure Word</th><th>Item</th><th>Correct German</th></tr>
+          <tr><td>1</td><td>das Kilo</td><td>Äpfel</td><td>ein Kilo Äpfel</td></tr>
+          <tr><td>2</td><td>das Kilo (stays singular!)</td><td>Äpfel</td><td>zwei Kilo Äpfel</td></tr>
+          <tr><td>500</td><td>das Gramm</td><td>Käse</td><td>fünfhundert Gramm Käse</td></tr>
+          <tr><td>2</td><td>die Flasche (fem → plural!)</td><td>Milch</td><td>zwei Flaschen Milch</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">das Kilo (Kilogramm)</td><td class="vocab-en">kilo</td><td class="vocab-ex">Ich möchte ein Kilo Tomaten. — I would like a kilo of tomatoes.</td></tr>
+          <tr><td class="vocab-de">das Gramm</td><td class="vocab-en">gram</td><td class="vocab-ex">200 Gramm Käse, bitte. — 200 grams of cheese, please.</td></tr>
+          <tr><td class="vocab-de">der Liter</td><td class="vocab-en">liter</td><td class="vocab-ex">Ich brauche zwei Liter Milch. — I need two liters of milk.</td></tr>
+          <tr><td class="vocab-de">die Flasche</td><td class="vocab-en">bottle</td><td class="vocab-ex">Wir kaufen drei Flaschen Wasser. — We are buying three bottles of water.</td></tr>
+          <tr><td class="vocab-de">die Packung</td><td class="vocab-en">package / packet</td><td class="vocab-ex">Eine Packung Nudeln, bitte. — A package of pasta, please.</td></tr>
+          <tr><td class="vocab-de">das Brot</td><td class="vocab-en">bread</td><td class="vocab-ex">Das Brot ist frisch. — The bread is fresh.</td></tr>
+          <tr><td class="vocab-de">das Obst</td><td class="vocab-en">fruit (collective)</td><td class="vocab-ex">Essen Sie gern Obst? — Do you like eating fruit?</td></tr>
+          <tr><td class="vocab-de">das Gemüse</td><td class="vocab-en">vegetables (collective)</td><td class="vocab-ex">Gemüse ist gesund. — Vegetables are healthy.</td></tr>
+          <tr><td class="vocab-de">das Fleisch</td><td class="vocab-en">meat</td><td class="vocab-ex">Ich esse kein Fleisch. — I don't eat meat.</td></tr>
+          <tr><td class="vocab-de">kosten</td><td class="vocab-en">to cost</td><td class="vocab-ex">Was kostet das Kilo? — How much is the kilo?</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Ich brauche zwei Kilo Kartoffeln und drei Flaschen Saft.</div>
+          <div class="model-en">I need two kilos of potatoes and three bottles of juice.</div>
+          <div class="model-breakdown">zwei Kilo (no plural '-s') | Kartoffeln | und | drei Flaschen (feminine measure takes plural '-n') | Saft → Kilo stays singular; Flasche becomes Flaschen.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Haben Sie frisches Brot?</div>
+          <div class="model-en">Do you have fresh bread?</div>
+          <div class="model-breakdown">Haben Sie = formal question | frisches Brot = fresh bread (adjective ending '-es' for neuter nominative).</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Ich möchte bitte 100 Gramm Käse.</div>
+          <div class="model-en">I would like 100 grams of cheese, please.</div>
+          <div class="model-breakdown">hundert Gramm (no plural) | Käse → No 'von', no 'Grammen', just Gramm unchanged.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Was kosten zwei Packungen Eier?</div>
+          <div class="model-en">What do two packages of eggs cost?</div>
+          <div class="model-breakdown">kosten (plural verb) | zwei Packungen (plural feminine measure) | Eier (eggs) → Packung (feminine) → Packungen.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">3 kilos of apples → ( drei Kilos Äpfel / drei Kilo Äpfel )</div>
+          <div class="exercise-answer">Answer: drei Kilo Äpfel (Kilo never gets -s)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">2 bottles of water → ( zwei Flasche Wasser / zwei Flaschen Wasser )</div>
+          <div class="exercise-answer">Answer: zwei Flaschen Wasser (feminine Flasche → Flaschen)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Ich brauche eine ___ (package) Reis.</div>
+          <div class="exercise-answer">Answer: Packung</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Was ___ (costs) das Fleisch?</div>
+          <div class="exercise-answer">Answer: kostet (singular verb for 'das Fleisch')</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Zwei Kilo von Tomaten.</div>
+          <div class="mistake-right">✓ Zwei Kilo Tomaten.</div>
+          <div class="mistake-explain">English uses 'of' (a kilo OF tomatoes). German completely omits this preposition. Just put the two nouns next to each other.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich brauche 3 Kilos Äpfel.</div>
+          <div class="mistake-right">✓ Ich brauche 3 Kilo Äpfel.</div>
+          <div class="mistake-explain">Neuter and masculine measurement words (Kilo, Gramm, Liter) NEVER take a plural ending when following a number.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSON 49 -->
+    <section id="lesson-49" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 49</div>
+        <h2 class="lesson-title">How is the Weather? — Wie ist das Wetter?</h2>
+        <p class="lesson-intro">Talking about the weather is the ultimate small talk topic worldwide. In German, discussing the weather is very straightforward, but it relies heavily on the impersonal pronoun 'es' (it). While we say 'the sun is shining', Germans often build sentences around 'Es ist...' (It is...).</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">To ask about the weather, say: 'Wie ist das Wetter heute?' (How is the weather today?).</div>
+        <div class="rule-item">For adjectives (warm, cold, nice, cloudy), use 'Es ist + [Adjective]'. (Es ist kalt).</div>
+        <div class="rule-item">For specific weather actions (raining, snowing), 'Es' acts as the subject doing the verb. (Es regnet = It rains / It is raining).</div>
+        <div class="rule-item">Unlike English, German does NOT have an 'is raining' or 'is snowing' continuous form. You just use the present tense verb: 'Es regnet'.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Describing states: Es + ist + [Adjective: warm/kalt/schön/bewölkt/windig/heiß].</div>
+        <div class="formula-item">Describing actions: Es + [Verb: regnet/schneit] OR Die Sonne + scheint.</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>English</th><th>German Sentence</th><th>Grammar Structure</th></tr>
+          <tr><td>It is cold.</td><td>Es ist kalt.</td><td>Es + ist + Adjective</td></tr>
+          <tr><td>It is sunny.</td><td>Es ist sonnig. (or: Die Sonne scheint.)</td><td>Es + ist + Adjective</td></tr>
+          <tr><td>It is raining.</td><td>Es regnet.</td><td>Es + Verb (regnen)</td></tr>
+          <tr><td>It is snowing.</td><td>Es schneit.</td><td>Es + Verb (schneien)</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">das Wetter</td><td class="vocab-en">weather</td><td class="vocab-ex">Das Wetter ist heute schön. — The weather is nice today.</td></tr>
+          <tr><td class="vocab-de">die Sonne</td><td class="vocab-en">sun</td><td class="vocab-ex">Die Sonne scheint. — The sun is shining.</td></tr>
+          <tr><td class="vocab-de">regnen</td><td class="vocab-en">to rain</td><td class="vocab-ex">Es regnet stark. — It is raining heavily.</td></tr>
+          <tr><td class="vocab-de">der Regen</td><td class="vocab-en">rain</td><td class="vocab-ex">Wir brauchen keinen Regen. — We don't need rain.</td></tr>
+          <tr><td class="vocab-de">schneien</td><td class="vocab-en">to snow</td><td class="vocab-ex">Im Winter schneit es oft. — In winter it snows often.</td></tr>
+          <tr><td class="vocab-de">warm</td><td class="vocab-en">warm</td><td class="vocab-ex">Heute ist es sehr warm. — Today it is very warm.</td></tr>
+          <tr><td class="vocab-de">kalt</td><td class="vocab-en">cold</td><td class="vocab-ex">Mir ist kalt. — I am cold.</td></tr>
+          <tr><td class="vocab-de">windig</td><td class="vocab-en">windy</td><td class="vocab-ex">Es ist windig an der Küste. — It is windy on the coast.</td></tr>
+          <tr><td class="vocab-de">bewölkt</td><td class="vocab-en">cloudy</td><td class="vocab-ex">Der Himmel ist bewölkt. — The sky is cloudy.</td></tr>
+          <tr><td class="vocab-de">heiß</td><td class="vocab-en">hot</td><td class="vocab-ex">Im August ist es heiß. — In August it is hot.</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Wie ist das Wetter heute in Berlin?</div>
+          <div class="model-en">How is the weather today in Berlin?</div>
+          <div class="model-breakdown">Wie (How) | ist (is) | das Wetter (the weather) | heute (today) | in Berlin → Standard weather question.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Es ist sehr kalt und es schneit.</div>
+          <div class="model-en">It is very cold and it is snowing.</div>
+          <div class="model-breakdown">Es ist sehr kalt (It is very cold) | und | es schneit (it snows — verb form, no continuous '-ing') → German uses simple present for continuous weather actions.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Gestern war es schön, aber heute regnet es.</div>
+          <div class="model-en">Yesterday it was nice, but today it is raining.</div>
+          <div class="model-breakdown">Gestern = Yesterday (position 1) | war = was | es schön = it nice | aber = but | heute = today | regnet es = it rains → Time word first, then verb, then 'es'.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Die Sonne scheint und es ist warm.</div>
+          <div class="model-en">The sun is shining and it is warm.</div>
+          <div class="model-breakdown">Die Sonne scheint (The sun shines) | und | es ist warm (it is warm) → Two weather facts linked with 'und'.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Nimm einen Regenschirm mit. Es ___. (fill: regnet/schneit/ist)</div>
+          <div class="exercise-answer">Answer: regnet (action of water falling from sky)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Es ___ heute sehr windig. (fill)</div>
+          <div class="exercise-answer">Answer: ist (state of being windy)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Im Dezember ___ es oft in Deutschland. (fill: schneit)</div>
+          <div class="exercise-answer">Answer: schneit</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Reorder: kalt / sehr / ist / Es / heute</div>
+          <div class="exercise-answer">Answer: Heute ist es sehr kalt. / Es ist heute sehr kalt.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Es ist regnen.</div>
+          <div class="mistake-right">✓ Es regnet.</div>
+          <div class="mistake-explain">English speakers constantly try to translate 'It is raining' literally. German has no continuous 'is ...ing' form. You just use the base verb 'regnen' conjugated for 'es'.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Ich bin kalt.</div>
+          <div class="mistake-right">✓ Mir ist kalt.</div>
+          <div class="mistake-explain">If you say 'Ich bin kalt', it literally means 'My personality is cold'. To say you feel cold, you must use the Dative structure: 'Mir ist kalt' (To me it is cold).</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- LESSON 50 -->
+    <section id="lesson-50" class="lesson">
+      <div class="lesson-header">
+        <div class="lesson-number">Lesson 50</div>
+        <h2 class="lesson-title">Fixing Appointments — Termine vereinbaren</h2>
+        <p class="lesson-intro">In Germany, spontaneity is rare in professional or even social settings; everything revolves around 'der Termin' (the appointment). To successfully navigate daily life, you need to be able to propose a time, accept a time, or politely decline and suggest an alternative. This requires mastering the days of the week and a few key verbs.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Grammar Rules</div>
+        <div class="rule-item">Days of the week are all masculine (der). When you say 'on Monday', you must use the preposition 'am' (am Montag).</div>
+        <div class="rule-item">To ask if someone is free, use: 'Hast du / Haben Sie Zeit am [Tag] um [Uhrzeit]?'</div>
+        <div class="rule-item">To accept, say: 'Ja, das passt mir' (Yes, that suits me) or 'Ja, da habe ich Zeit'.</div>
+        <div class="rule-item">To decline, say: 'Nein, das geht leider nicht' (No, unfortunately that doesn't work) or 'Da habe ich leider keine Zeit'.</div>
+        <div class="rule-item">To suggest an alternative: 'Können wir uns am [Tag] treffen?' (Can we meet on [Day]?).</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title amber">Formula</div>
+        <div class="formula-item">Proposing: Hast du am + [Tag] + um + [Uhrzeit] + Zeit?</div>
+        <div class="formula-item">Accepting: Ja, das passt mir (gut).</div>
+        <div class="formula-item">Declining: Tut mir leid, da habe ich keine Zeit.</div>
+        <table class="grammar-table" style="margin-top:1rem">
+          <tr><th>Day of the Week</th><th>German</th><th>On [Day] (am...)</th></tr>
+          <tr><td>Monday</td><td>der Montag</td><td>am Montag</td></tr>
+          <tr><td>Tuesday</td><td>der Dienstag</td><td>am Dienstag</td></tr>
+          <tr><td>Wednesday</td><td>der Mittwoch</td><td>am Mittwoch</td></tr>
+          <tr><td>Thursday</td><td>der Donnerstag</td><td>am Donnerstag</td></tr>
+          <tr><td>Friday</td><td>der Freitag</td><td>am Freitag</td></tr>
+          <tr><td>Saturday</td><td>der Samstag</td><td>am Samstag</td></tr>
+          <tr><td>Sunday</td><td>der Sonntag</td><td>am Sonntag</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title green">Vocabulary</div>
+        <table class="vocab-table">
+          <tr><th>German</th><th>English</th><th>Example</th></tr>
+          <tr><td class="vocab-de">der Termin</td><td class="vocab-en">appointment</td><td class="vocab-ex">Ich habe einen Termin beim Arzt. — I have an appointment at the doctor.</td></tr>
+          <tr><td class="vocab-de">passen</td><td class="vocab-en">to suit / fit</td><td class="vocab-ex">Am Montag passt es mir gut. — On Monday it suits me well.</td></tr>
+          <tr><td class="vocab-de">vereinbaren</td><td class="vocab-en">to arrange / agree on</td><td class="vocab-ex">Wir müssen einen Termin vereinbaren. — We must arrange an appointment.</td></tr>
+          <tr><td class="vocab-de">verschieben</td><td class="vocab-en">to postpone / move</td><td class="vocab-ex">Können wir den Termin verschieben? — Can we postpone the appointment?</td></tr>
+          <tr><td class="vocab-de">absagen</td><td class="vocab-en">to cancel</td><td class="vocab-ex">Ich muss den Termin leider absagen. — I unfortunately have to cancel.</td></tr>
+          <tr><td class="vocab-de">leider</td><td class="vocab-en">unfortunately</td><td class="vocab-ex">Leider habe ich keine Zeit. — Unfortunately I have no time.</td></tr>
+          <tr><td class="vocab-de">frei haben</td><td class="vocab-en">to have free time</td><td class="vocab-ex">Hast du morgen frei? — Do you have time off tomorrow?</td></tr>
+          <tr><td class="vocab-de">das Wochenende</td><td class="vocab-en">weekend</td><td class="vocab-ex">Was machst du am Wochenende? — What are you doing on the weekend?</td></tr>
+          <tr><td class="vocab-de">sich treffen</td><td class="vocab-en">to meet (each other)</td><td class="vocab-ex">Wir treffen uns um 8 Uhr. — We meet at 8 o'clock.</td></tr>
+          <tr><td class="vocab-de">gehen</td><td class="vocab-en">to work / be possible</td><td class="vocab-ex">Geht es am Dienstag? — Does Tuesday work?</td></tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title sky">Model Sentences</div>
+        <div class="model-sentence">
+          <div class="model-de">Hast du am Freitag um 15 Uhr Zeit?</div>
+          <div class="model-en">Do you have time on Friday at 3 PM?</div>
+          <div class="model-breakdown">Hast du = Do you have | am Freitag = on Friday | um 15 Uhr = at 15:00 | Zeit = time → Preposition rule: am + day, um + time.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Tut mir leid, am Freitag geht es leider nicht. Da muss ich arbeiten.</div>
+          <div class="model-en">I'm sorry, Friday unfortunately doesn't work. I have to work then.</div>
+          <div class="model-breakdown">Tut mir leid = I'm sorry | am Freitag geht es leider nicht = Friday unfortunately doesn't work | Da muss ich arbeiten = Then I have to work → Polite decline structure.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Passt es Ihnen am Mittwochmorgen?</div>
+          <div class="model-en">Does Wednesday morning suit you? (Formal)</div>
+          <div class="model-breakdown">Passt = Suits | es = it | Ihnen = you (formal) | am Mittwochmorgen = on Wednesday morning → Polite way to suggest a time.</div>
+        </div>
+        <div class="model-sentence">
+          <div class="model-de">Ja, das passt mir sehr gut. Wir treffen uns am Mittwoch.</div>
+          <div class="model-en">Yes, that suits me very well. We will meet on Wednesday.</div>
+          <div class="model-breakdown">Ja = Yes | das passt = that suits | mir = me (dative) | sehr gut = very well | Wir treffen uns = We meet each other | am Mittwoch = on Wednesday → Confirming the appointment.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title purple">Practice Exercises</div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Wir treffen uns ___ Montag. ( um / am / im )</div>
+          <div class="exercise-answer">Answer: am (days of the week use am)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Der Termin ist ___ 14 Uhr. ( um / am / im )</div>
+          <div class="exercise-answer">Answer: um (clock times use um)</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: Does Friday work? (gehen)</div>
+          <div class="exercise-answer">Answer: Geht es am Freitag?</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-prompt">Translate: Yes, that suits me. (passen)</div>
+          <div class="exercise-answer">Answer: Ja, das passt mir.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title rose">Common Mistakes</div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Wir treffen uns in Montag.</div>
+          <div class="mistake-right">✓ Wir treffen uns am Montag.</div>
+          <div class="mistake-explain">In English, we say 'on Monday'. In German, you must combine 'an' + 'dem' to create the fixed preposition 'am' for all days of the week.</div>
+        </div>
+        <div class="mistake-item">
+          <div class="mistake-wrong">❌ Das passt mich.</div>
+          <div class="mistake-right">✓ Das passt mir.</div>
+          <div class="mistake-explain">The verb 'passen' (to suit) requires the Dative case because the time 'is suitable TO you'. You must use 'mir', not the accusative 'mich'.</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+  </main>
+</body>
+</html>
