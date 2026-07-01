@@ -39,6 +39,14 @@ function normalizeClientSetup(raw: any, defaultLiveModel: string) {
           },
         },
       },
+      realtimeInputConfig: {
+        automaticActivityDetection: {
+          startOfSpeechSensitivity: "START_SENSITIVITY_HIGH",
+          endOfSpeechSensitivity: "END_SENSITIVITY_HIGH",
+          prefixPaddingMs: 20,
+          silenceDurationMs: 500,
+        },
+      },
       systemInstruction: {
         parts: [{ text: systemText }],
       },

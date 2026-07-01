@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>A1 German — Basics Vocabulary</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* File-specific classes */
+.container { max-width: 860px; margin: 0 auto; }
+.subtitle { color: var(--fg-soft); font-size: 1rem; margin-bottom: 2.5rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 2px solid var(--border); }
+section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem; margin-bottom: 2rem; }
+.trick { background: #1c1500; border-left: 4px solid var(--gold); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.trick strong { color: var(--gold); display: block; margin-bottom: .3rem; }
+.situation { background: #0c1a2e; border-left: 4px solid var(--accent); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.situation strong { color: var(--accent); display: block; margin-bottom: .3rem; }
+.mistake { background: #2d0a0a; border-left: 4px solid var(--red); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.mistake strong { color: var(--red); display: block; margin-bottom: .3rem; }
+.pron { background: #0a1a0a; border-left: 4px solid var(--green); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.pron strong { color: var(--green); display: block; margin-bottom: .3rem; }
+.hi { color: var(--gold); font-weight: 600; }
+.dim { color: var(--fg-soft); }
+.en { color: var(--fg-soft); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .8rem; margin: .8rem 0; }
+@media(max-width:600px) { .grid2 { grid-template-columns: 1fr; } .grid3 { grid-template-columns: 1fr 1fr; } }
+.card { background: #263347; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.card-title { font-weight: 700; margin-bottom: .6rem; font-size: 1rem; color: var(--accent); }
+.vocab-item { display: flex; justify-content: space-between; padding: .3rem 0; border-bottom: 1px solid var(--border); }
+.vocab-item:last-child { border-bottom: none; }
+.vocab-de { color: #93c5fd; font-weight: 600; }
+.vocab-en { color: var(--fg-soft); font-size: .9rem; }
+/* Alphabet grid */
+.alpha-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: .5rem; margin: .8rem 0; }
+.alpha-card { background: #263347; border: 1px solid var(--border); border-radius: 6px; padding: .5rem; text-align: center; }
+.alpha-letter { font-size: 1.3rem; font-weight: 700; color: var(--violet); }
+.alpha-sound { font-size: .8rem; color: var(--gold); }
+/* Number grid */
+.num-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: .4rem; margin: .6rem 0; }
+.num-item { background: #263347; border: 1px solid var(--border); border-radius: 6px; padding: .4rem .6rem; display: flex; justify-content: space-between; }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header">
+  <div class="badge">A1 German · Vocabulary</div>
+  <h1>📚 Basics Vocabulary</h1>
+  <p>Greetings · Introductions · Alphabet · Numbers · Question Words · Pronouns · Time · Family · Jobs</p>
+</div>
+
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#vb01">Greetings</a>
+  <a href="#vb02">Introductions</a>
+  <a href="#vb03">Alphabet</a>
+  <a href="#vb04">Numbers 1–100</a>
+  <a href="#vb05">Numbers 100+</a>
+  <a href="#vb06">Question Words</a>
+  <a href="#vb07">Pronouns</a>
+  <a href="#vb08">Days &amp; Months</a>
+  <a href="#vb09">Time Expressions</a>
+  <a href="#vb10">Family</a>
+  <a href="#vb11">Jobs</a>
+  <a href="#vb12">Useful Phrases</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ──────────────────────────────────── vb01 -->
+<section id="vb01">
+<h2>Greetings &amp; Farewells</h2>
+
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Formal (Sie)</div>
+    <div class="vocab-item"><span class="vocab-de">Guten Morgen!</span><span class="vocab-en">Good morning!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Guten Tag!</span><span class="vocab-en">Good day! (Hello)</span></div>
+    <div class="vocab-item"><span class="vocab-de">Guten Abend!</span><span class="vocab-en">Good evening!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Auf Wiedersehen!</span><span class="vocab-en">Goodbye!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Gute Nacht!</span><span class="vocab-en">Good night!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Wie geht es Ihnen?</span><span class="vocab-en">How are you? (formal)</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Informal (du)</div>
+    <div class="vocab-item"><span class="vocab-de">Hallo!</span><span class="vocab-en">Hello!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Hi!</span><span class="vocab-en">Hi!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Hey!</span><span class="vocab-en">Hey!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Tschüss!</span><span class="vocab-en">Bye!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Ciao! / Tschau!</span><span class="vocab-en">Bye! (casual)</span></div>
+    <div class="vocab-item"><span class="vocab-de">Wie geht's?</span><span class="vocab-en">How's it going?</span></div>
+    <div class="vocab-item"><span class="vocab-de">Bis morgen!</span><span class="vocab-en">See you tomorrow!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Bis später!</span><span class="vocab-en">See you later!</span></div>
+    <div class="vocab-item"><span class="vocab-de">Bis bald!</span><span class="vocab-en">See you soon!</span></div>
+  </div>
+</div>
+
+<h3>How to Answer "Wie geht's?"</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>Level</th></tr>
+  <tr><td class="de">Sehr gut, danke!</td><td>Very well, thank you!</td><td>😊 Great</td></tr>
+  <tr><td class="de">Gut, danke!</td><td>Good, thanks!</td><td>🙂 Good</td></tr>
+  <tr><td class="de">Es geht so.</td><td>So-so. / It's OK.</td><td>😐 Neutral</td></tr>
+  <tr><td class="de">Nicht so gut.</td><td>Not so good.</td><td>😕 Bad</td></tr>
+  <tr><td class="de">Danke, und Ihnen/dir?</td><td>Thanks, and you?</td><td>↩ Return question</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 Regional Greetings</strong>
+  Bavaria / Austria: <em>"Grüß Gott!"</em> (formal) / <em>"Servus!"</em> (informal)<br>
+  Switzerland: <em>"Grüezi!"</em> (formal) / <em>"Sali!"</em> (informal)<br>
+  Northern Germany: <em>"Moin!"</em> (any time of day!)
+</div>
+
+<div class="pron">
+  <strong>🔊 Pronunciation Tips</strong>
+  <em>Tschüss</em> = "chuse" (like English "choose" + "s")<br>
+  <em>Guten Morgen</em> = "GOO-ten MOR-gen" (G is hard like "go")<br>
+  <em>Auf Wiedersehen</em> = "owf VEE-der-zay-en"
+</div>
+
+<div class="situation">
+  <strong>🗣️ Meeting someone for the first time</strong>
+  A: <em>"Guten Tag! Ich bin Anna. Wie heißen Sie?"</em> (Hello! I am Anna. What is your name?)<br>
+  B: <em>"Guten Tag! Mein Name ist Klaus."</em> (Hello! My name is Klaus.)<br>
+  A: <em>"Wie geht es Ihnen?"</em> (How are you?)<br>
+  B: <em>"Gut, danke. Und Ihnen?"</em> (Good, thanks. And you?)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb02 -->
+<section id="vb02">
+<h2>Introducing Yourself</h2>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>English</th><th>Notes</th></tr>
+  <tr><td class="de">Ich heiße …</td><td>My name is …</td><td>Most common in conversation</td></tr>
+  <tr><td class="de">Mein Name ist …</td><td>My name is …</td><td>Slightly more formal</td></tr>
+  <tr><td class="de">Ich bin …</td><td>I am …</td><td>Works too, but less specific</td></tr>
+  <tr><td class="de">Ich komme aus …</td><td>I come from …</td><td>Country/City</td></tr>
+  <tr><td class="de">Ich wohne in …</td><td>I live in …</td><td>Current location</td></tr>
+  <tr><td class="de">Ich bin … Jahre alt.</td><td>I am … years old.</td><td>Age</td></tr>
+  <tr><td class="de">Ich bin … von Beruf.</td><td>I am a … by profession.</td><td>Job</td></tr>
+  <tr><td class="de">Ich arbeite als …</td><td>I work as …</td><td>Job (with article)</td></tr>
+  <tr><td class="de">Ich spreche Englisch / Deutsch.</td><td>I speak English / German.</td><td>Languages</td></tr>
+  <tr><td class="de">Ich lerne Deutsch.</td><td>I am learning German.</td><td>Study</td></tr>
+  <tr><td class="de">Ich bin verheiratet / ledig.</td><td>I am married / single.</td><td>Status</td></tr>
+  <tr><td class="de">Ich habe zwei Kinder.</td><td>I have two children.</td><td>Family</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Full Self-Introduction Script</strong>
+  <em>"Hallo! Ich heiße Jithin. Ich komme aus Indien und wohne in [Stadt]. Ich bin [Alter] Jahre alt. Ich arbeite als Ingenieur. Ich spreche Englisch und lerne Deutsch. Schön, Sie kennenzulernen!"</em><br>
+  (Hello! My name is Jithin. I come from India and live in [city]. I am [age] years old. I work as an engineer. I speak English and am learning German. Nice to meet you!)
+</div>
+
+<div class="trick">
+  <strong>💡 Job without article!</strong>
+  In German, when stating your profession with <em>sein</em> (to be), you DON'T use an article:<br>
+  ✅ <em>"Ich bin Arzt."</em> (I am a doctor.)<br>
+  ❌ <em>"Ich bin ein Arzt."</em> — sounds odd in German!<br>
+  Exception: when using <em>arbeiten als</em> → <em>"Ich arbeite als ein Arzt."</em> (fine either way)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb03 -->
+<section id="vb03">
+<h2>The German Alphabet</h2>
+<p>German uses the same 26 letters as English plus 4 special characters: ä, ö, ü, and ß.</p>
+
+<div class="alpha-grid">
+  <div class="alpha-card"><div class="alpha-letter">A</div><div class="alpha-sound">ah</div></div>
+  <div class="alpha-card"><div class="alpha-letter">B</div><div class="alpha-sound">bay</div></div>
+  <div class="alpha-card"><div class="alpha-letter">C</div><div class="alpha-sound">tsay</div></div>
+  <div class="alpha-card"><div class="alpha-letter">D</div><div class="alpha-sound">day</div></div>
+  <div class="alpha-card"><div class="alpha-letter">E</div><div class="alpha-sound">ay</div></div>
+  <div class="alpha-card"><div class="alpha-letter">F</div><div class="alpha-sound">eff</div></div>
+  <div class="alpha-card"><div class="alpha-letter">G</div><div class="alpha-sound">gay</div></div>
+  <div class="alpha-card"><div class="alpha-letter">H</div><div class="alpha-sound">hah</div></div>
+  <div class="alpha-card"><div class="alpha-letter">I</div><div class="alpha-sound">ee</div></div>
+  <div class="alpha-card"><div class="alpha-letter">J</div><div class="alpha-sound">yot</div></div>
+  <div class="alpha-card"><div class="alpha-letter">K</div><div class="alpha-sound">kah</div></div>
+  <div class="alpha-card"><div class="alpha-letter">L</div><div class="alpha-sound">ell</div></div>
+  <div class="alpha-card"><div class="alpha-letter">M</div><div class="alpha-sound">emm</div></div>
+  <div class="alpha-card"><div class="alpha-letter">N</div><div class="alpha-sound">enn</div></div>
+  <div class="alpha-card"><div class="alpha-letter">O</div><div class="alpha-sound">oh</div></div>
+  <div class="alpha-card"><div class="alpha-letter">P</div><div class="alpha-sound">pay</div></div>
+  <div class="alpha-card"><div class="alpha-letter">Q</div><div class="alpha-sound">koo</div></div>
+  <div class="alpha-card"><div class="alpha-letter">R</div><div class="alpha-sound">err</div></div>
+  <div class="alpha-card"><div class="alpha-letter">S</div><div class="alpha-sound">ess</div></div>
+  <div class="alpha-card"><div class="alpha-letter">T</div><div class="alpha-sound">tay</div></div>
+  <div class="alpha-card"><div class="alpha-letter">U</div><div class="alpha-sound">oo</div></div>
+  <div class="alpha-card"><div class="alpha-letter">V</div><div class="alpha-sound">fow</div></div>
+  <div class="alpha-card"><div class="alpha-letter">W</div><div class="alpha-sound">vay</div></div>
+  <div class="alpha-card"><div class="alpha-letter">X</div><div class="alpha-sound">ix</div></div>
+  <div class="alpha-card"><div class="alpha-letter">Y</div><div class="alpha-sound">üpsilon</div></div>
+  <div class="alpha-card"><div class="alpha-letter">Z</div><div class="alpha-sound">tset</div></div>
+  <div class="alpha-card" style="border-color:var(--gold)"><div class="alpha-letter" style="color:var(--gold)">Ä</div><div class="alpha-sound">like "air"</div></div>
+  <div class="alpha-card" style="border-color:var(--gold)"><div class="alpha-letter" style="color:var(--gold)">Ö</div><div class="alpha-sound">like "fur"</div></div>
+  <div class="alpha-card" style="border-color:var(--gold)"><div class="alpha-letter" style="color:var(--gold)">Ü</div><div class="alpha-sound">like "ü" in "über"</div></div>
+  <div class="alpha-card" style="border-color:var(--gold)"><div class="alpha-letter" style="color:var(--gold)">ß</div><div class="alpha-sound">"sharp s"</div></div>
+</div>
+
+<div class="pron">
+  <strong>🔊 The Special Characters</strong>
+  <strong>Ä</strong>: like English "air" or "bear" — Ä = ähnlich → "AIR-nlich"<br>
+  <strong>Ö</strong>: say "ee" then round your lips → Öl (oil) = "URL"<br>
+  <strong>Ü</strong>: say "ee" with rounded lips → über = "OO-ber" with tight lips<br>
+  <strong>ß</strong>: always sounds like a double "ss" → Straße = SHTRAH-sse<br>
+  <em>Tip: If you can't type ß, write "ss" instead — it's acceptable.</em>
+</div>
+
+<div class="trick">
+  <strong>💡 Letters that sound different from English</strong>
+  <em>V</em> sounds like English F: <em>Vater</em> = FAH-ter (not Vah-ter)<br>
+  <em>W</em> sounds like English V: <em>Wasser</em> = VASS-er (not Wasser)<br>
+  <em>J</em> sounds like English Y: <em>ja</em> = ya (not "jah")<br>
+  <em>Z</em> sounds like "ts": <em>Zeit</em> = TSYTE (not zite)<br>
+  <em>S</em> before vowel sounds like Z: <em>sagen</em> = ZAH-gen
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb04 -->
+<section id="vb04">
+<h2>Numbers 1–100</h2>
+
+<div class="num-grid">
+  <div class="num-item"><span class="de">1 — eins</span></div>
+  <div class="num-item"><span class="de">2 — zwei</span></div>
+  <div class="num-item"><span class="de">3 — drei</span></div>
+  <div class="num-item"><span class="de">4 — vier</span></div>
+  <div class="num-item"><span class="de">5 — fünf</span></div>
+  <div class="num-item"><span class="de">6 — sechs</span></div>
+  <div class="num-item"><span class="de">7 — sieben</span></div>
+  <div class="num-item"><span class="de">8 — acht</span></div>
+  <div class="num-item"><span class="de">9 — neun</span></div>
+  <div class="num-item"><span class="de">10 — zehn</span></div>
+  <div class="num-item"><span class="de">11 — elf</span></div>
+  <div class="num-item"><span class="de">12 — zwölf</span></div>
+  <div class="num-item"><span class="de">13 — dreizehn</span></div>
+  <div class="num-item"><span class="de">14 — vierzehn</span></div>
+  <div class="num-item"><span class="de">15 — fünfzehn</span></div>
+  <div class="num-item"><span class="de">16 — sechzehn</span></div>
+  <div class="num-item"><span class="de">17 — siebzehn</span></div>
+  <div class="num-item"><span class="de">18 — achtzehn</span></div>
+  <div class="num-item"><span class="de">19 — neunzehn</span></div>
+  <div class="num-item"><span class="de">20 — zwanzig</span></div>
+  <div class="num-item"><span class="de">21 — einundzwanzig</span></div>
+  <div class="num-item"><span class="de">22 — zweiundzwanzig</span></div>
+  <div class="num-item"><span class="de">30 — dreißig</span></div>
+  <div class="num-item"><span class="de">40 — vierzig</span></div>
+  <div class="num-item"><span class="de">50 — fünfzig</span></div>
+  <div class="num-item"><span class="de">60 — sechzig</span></div>
+  <div class="num-item"><span class="de">70 — siebzig</span></div>
+  <div class="num-item"><span class="de">80 — achtzig</span></div>
+  <div class="num-item"><span class="de">90 — neunzig</span></div>
+  <div class="num-item"><span class="de">100 — hundert</span></div>
+</div>
+
+<div class="trick">
+  <strong>💡 Pattern for 21–99 (ones before tens!)</strong>
+  German says units BEFORE tens, connected by "und":<br>
+  <em>21</em> = ein<strong>und</strong>zwanzig (one-and-twenty)<br>
+  <em>35</em> = fünf<strong>und</strong>dreißig (five-and-thirty)<br>
+  <em>67</em> = sieben<strong>und</strong>sechzig (seven-and-sixty)<br>
+  Think like German clocks: "quarter to/past" reversed too!
+</div>
+
+<div class="trick">
+  <strong>💡 Irregular teens to memorise</strong>
+  <em>16</em> = sech<strong>zehn</strong> (sechs drops the -s!)<br>
+  <em>17</em> = sieb<strong>zehn</strong> (sieben drops the -en!)<br>
+  <em>30</em> = drei<strong>ßig</strong> (not dreißzehn — it's a special form)<br>
+  <em>60</em> = sech<strong>zig</strong> (drops the -s again)<br>
+  <em>70</em> = sieb<strong>zig</strong> (drops the -en)
+</div>
+
+<div class="pron">
+  <strong>🔊 Pronunciation Traps</strong>
+  <em>zwei</em> = "TSVYE" (not "zwai")<br>
+  <em>sechs</em> = "ZEKS" (not "sex" — the x sounds like ks)<br>
+  <em>sieben</em> = "ZEE-ben" (soft b at end)<br>
+  <em>dreißig</em> = "DRY-ssikh" (ß = ss, -ig = -ikh)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb05 -->
+<section id="vb05">
+<h2>Numbers 100 and Above</h2>
+<div class="table-wrap"><table>
+  <tr><th>Number</th><th>German</th><th>Notes</th></tr>
+  <tr><td>100</td><td class="de">hundert / einhundert</td><td>Both forms used</td></tr>
+  <tr><td>101</td><td class="de">hunderteins</td><td>No space, no "und"</td></tr>
+  <tr><td>125</td><td class="de">hundertfünfundzwanzig</td><td>Everything in one word!</td></tr>
+  <tr><td>200</td><td class="de">zweihundert</td><td></td></tr>
+  <tr><td>500</td><td class="de">fünfhundert</td><td></td></tr>
+  <tr><td>1.000</td><td class="de">tausend / eintausend</td><td>German uses . for thousands</td></tr>
+  <tr><td>2.000</td><td class="de">zweitausend</td><td></td></tr>
+  <tr><td>10.000</td><td class="de">zehntausend</td><td></td></tr>
+  <tr><td>1.000.000</td><td class="de">eine Million</td><td>Million = separate word</td></tr>
+  <tr><td>1.000.000.000</td><td class="de">eine Milliarde</td><td>Milliarde = billion!</td></tr>
+</table></div>
+
+<div class="mistake">
+  <strong>❌ German billion ≠ English billion</strong>
+  <em>eine Milliarde</em> = 1,000,000,000 = 1 billion (English)<br>
+  <em>eine Billion</em> = 1,000,000,000,000 = 1 trillion (English)<br>
+  → German "Milliarde" is the English "billion"!
+</div>
+
+<h3>Ordinal Numbers (First, Second…)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Ordinal</th><th>German</th><th>Usage</th></tr>
+  <tr><td>1st</td><td class="de">erst-</td><td><em>der erste Tag</em> (the first day)</td></tr>
+  <tr><td>2nd</td><td class="de">zweit-</td><td><em>die zweite Woche</em></td></tr>
+  <tr><td>3rd</td><td class="de">dritt-</td><td><em>das dritte Mal</em> (the third time)</td></tr>
+  <tr><td>4th–19th</td><td class="de">viert-, fünft-…</td><td>stem + -t + adjective ending</td></tr>
+  <tr><td>20th+</td><td class="de">zwanzigst-…</td><td>stem + -st + adjective ending</td></tr>
+</table></div>
+<div class="trick">
+  <strong>💡 Dates in German</strong>
+  <em>"Heute ist der <span class="hi">dritte</span> Mai."</em> (Today is the 3rd of May.)<br>
+  <em>"Ich komme am <span class="hi">fünften</span> Juni."</em> (I come on the 5th of June.)<br>
+  → Ordinals need adjective endings (nominative: -e, dative after am: -en)
+</div>
+
+<h3>Math Signs (Rechenzeichen)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Symbol</th><th>German</th><th>Example</th></tr>
+  <tr><td>+</td><td class="de">plus</td><td><em>drei plus vier = sieben</em></td></tr>
+  <tr><td>-</td><td class="de">minus</td><td><em>zehn minus drei = sieben</em></td></tr>
+  <tr><td>×</td><td class="de">mal</td><td><em>vier mal fünf = zwanzig</em></td></tr>
+  <tr><td>÷</td><td class="de">durch</td><td><em>zwanzig durch vier = fünf</em></td></tr>
+  <tr><td>=</td><td class="de">ist / gleich</td><td><em>... ist/gleich ...</em></td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── vb06 -->
+<section id="vb06">
+<h2>Question Words</h2>
+<div class="table-wrap"><table>
+  <tr><th>Question Word</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="de">Wer?</td><td>Who? (Nom)</td><td><em>Wer ist das?</em></td></tr>
+  <tr><td class="de">Was?</td><td>What?</td><td><em>Was machst du?</em></td></tr>
+  <tr><td class="de">Wo?</td><td>Where? (location)</td><td><em>Wo wohnst du?</em></td></tr>
+  <tr><td class="de">Wohin?</td><td>Where to? (direction)</td><td><em>Wohin gehst du?</em></td></tr>
+  <tr><td class="de">Woher?</td><td>Where from?</td><td><em>Woher kommst du?</em></td></tr>
+  <tr><td class="de">Wann?</td><td>When?</td><td><em>Wann kommst du?</em></td></tr>
+  <tr><td class="de">Wie?</td><td>How?</td><td><em>Wie heißt du?</em></td></tr>
+  <tr><td class="de">Wie viel?</td><td>How much?</td><td><em>Wie viel kostet das?</em></td></tr>
+  <tr><td class="de">Wie viele?</td><td>How many?</td><td><em>Wie viele Personen?</em></td></tr>
+  <tr><td class="de">Warum?</td><td>Why?</td><td><em>Warum lernst du Deutsch?</em></td></tr>
+  <tr><td class="de">Welch-?</td><td>Which?</td><td><em>Welchen Bus nehme ich?</em></td></tr>
+  <tr><td class="de">Wen?</td><td>Whom? (Akkusativ)</td><td><em>Wen kennst du?</em></td></tr>
+  <tr><td class="de">Wem?</td><td>To whom? (Dativ)</td><td><em>Wem gehört das?</em></td></tr>
+  <tr><td class="de">Wie lange?</td><td>How long?</td><td><em>Wie lange dauert das?</em></td></tr>
+  <tr><td class="de">Wie oft?</td><td>How often?</td><td><em>Wie oft sport du?</em></td></tr>
+  <tr><td class="de">Um wie viel Uhr?</td><td>At what time?</td><td><em>Um wie viel Uhr beginnt der Film?</em></td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── vb07 -->
+<section id="vb07">
+<h2>Personal Pronouns</h2>
+<div class="table-wrap"><table>
+  <tr><th>Person</th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th></tr>
+  <tr><td>I</td><td class="de">ich</td><td class="de">mich</td><td class="de">mir</td></tr>
+  <tr><td>you (informal)</td><td class="de">du</td><td class="de">dich</td><td class="de">dir</td></tr>
+  <tr><td>he</td><td class="de">er</td><td class="de">ihn</td><td class="de">ihm</td></tr>
+  <tr><td>she</td><td class="de">sie</td><td class="de">sie</td><td class="de">ihr</td></tr>
+  <tr><td>it</td><td class="de">es</td><td class="de">es</td><td class="de">ihm</td></tr>
+  <tr><td>we</td><td class="de">wir</td><td class="de">uns</td><td class="de">uns</td></tr>
+  <tr><td>you (plural informal)</td><td class="de">ihr</td><td class="de">euch</td><td class="de">euch</td></tr>
+  <tr><td>they</td><td class="de">sie</td><td class="de">sie</td><td class="de">ihnen</td></tr>
+  <tr><td>You (formal)</td><td class="de">Sie</td><td class="de">Sie</td><td class="de">Ihnen</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 sie vs Sie vs ihr</strong>
+  <em>sie</em> (lowercase) = she OR they (context tells you which!)<br>
+  <em>Sie</em> (CAPITAL) = formal "you" (for strangers, bosses, older people)<br>
+  <em>ihr</em> = "you all" (talking to a group of friends) OR possessive "her"!<br>
+  → In German, "Sie" is always capitalised when meaning formal "you".
+</div>
+
+<div class="teach">
+  <strong>📌 When to use du vs Sie</strong>
+  <em>du</em> = friends, family, children, young people, animals, God (in prayer)<br>
+  <em>Sie</em> = strangers, older people, colleagues you don't know well, authority figures<br>
+  <em>Rule of thumb:</em> If in doubt, use <em>Sie</em>. The other person can offer you the <em>du</em> form if they want to.
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb08 -->
+<section id="vb08">
+<h2>Days, Months &amp; Seasons</h2>
+
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Wochentage (Days)</div>
+    <div class="vocab-item"><span class="vocab-de">Montag</span><span class="vocab-en">Monday</span></div>
+    <div class="vocab-item"><span class="vocab-de">Dienstag</span><span class="vocab-en">Tuesday</span></div>
+    <div class="vocab-item"><span class="vocab-de">Mittwoch</span><span class="vocab-en">Wednesday</span></div>
+    <div class="vocab-item"><span class="vocab-de">Donnerstag</span><span class="vocab-en">Thursday</span></div>
+    <div class="vocab-item"><span class="vocab-de">Freitag</span><span class="vocab-en">Friday</span></div>
+    <div class="vocab-item"><span class="vocab-de">Samstag / Sonnabend</span><span class="vocab-en">Saturday</span></div>
+    <div class="vocab-item"><span class="vocab-de">Sonntag</span><span class="vocab-en">Sunday</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Monate (Months)</div>
+    <div class="vocab-item"><span class="vocab-de">Januar</span><span class="vocab-en">January</span></div>
+    <div class="vocab-item"><span class="vocab-de">Februar</span><span class="vocab-en">February</span></div>
+    <div class="vocab-item"><span class="vocab-de">März</span><span class="vocab-en">March</span></div>
+    <div class="vocab-item"><span class="vocab-de">April</span><span class="vocab-en">April</span></div>
+    <div class="vocab-item"><span class="vocab-de">Mai</span><span class="vocab-en">May</span></div>
+    <div class="vocab-item"><span class="vocab-de">Juni</span><span class="vocab-en">June</span></div>
+    <div class="vocab-item"><span class="vocab-de">Juli</span><span class="vocab-en">July</span></div>
+    <div class="vocab-item"><span class="vocab-de">August</span><span class="vocab-en">August</span></div>
+    <div class="vocab-item"><span class="vocab-de">September</span><span class="vocab-en">September</span></div>
+    <div class="vocab-item"><span class="vocab-de">Oktober</span><span class="vocab-en">October</span></div>
+    <div class="vocab-item"><span class="vocab-de">November</span><span class="vocab-en">November</span></div>
+    <div class="vocab-item"><span class="vocab-de">Dezember</span><span class="vocab-en">December</span></div>
+  </div>
+</div>
+
+<h3>Jahreszeiten (Seasons)</h3>
+<div class="grid2">
+  <div class="card" style="border-color:var(--violet)">
+    <div class="vocab-item"><span class="vocab-de">der Frühling</span><span class="vocab-en">spring</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Sommer</span><span class="vocab-en">summer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Herbst</span><span class="vocab-en">autumn</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Winter</span><span class="vocab-en">winter</span></div>
+  </div>
+  <div class="card">
+    <div class="vocab-item"><span class="vocab-de">im Frühling</span><span class="vocab-en">in spring</span></div>
+    <div class="vocab-item"><span class="vocab-de">im Sommer</span><span class="vocab-en">in summer</span></div>
+    <div class="vocab-item"><span class="vocab-de">im Herbst</span><span class="vocab-en">in autumn</span></div>
+    <div class="vocab-item"><span class="vocab-de">im Winter</span><span class="vocab-en">in winter</span></div>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>💡 Days and months are always masculine (der)!</strong>
+  der Montag, der Januar, der Sommer — all masculine.<br>
+  Preposition to say "on Monday": <em>am Montag</em> (am = an + dem)<br>
+  To say "in January": <em>im Januar</em> (im = in + dem)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb09 -->
+<section id="vb09">
+<h2>Time Expressions</h2>
+
+<h3>Clock Time</h3>
+<div class="table-wrap"><table>
+  <tr><th>Time</th><th>Official (24h)</th><th>Informal</th></tr>
+  <tr><td>8:00</td><td class="de">Es ist acht Uhr.</td><td class="de">Es ist acht.</td></tr>
+  <tr><td>8:15</td><td class="de">Es ist acht Uhr fünfzehn.</td><td class="de">Es ist Viertel nach acht.</td></tr>
+  <tr><td>8:30</td><td class="de">Es ist acht Uhr dreißig.</td><td class="de">Es ist halb neun.*</td></tr>
+  <tr><td>8:45</td><td class="de">Es ist acht Uhr fünfundvierzig.</td><td class="de">Es ist Viertel vor neun.</td></tr>
+  <tr><td>12:00</td><td class="de">Es ist zwölf Uhr.</td><td class="de">Es ist Mittag.</td></tr>
+  <tr><td>00:00</td><td class="de">Es ist null Uhr / Mitternacht.</td><td class="de">Mitternacht</td></tr>
+</table></div>
+
+<div class="mistake">
+  <strong>❌ halb neun ≠ half nine (8:30 not 9:30!)</strong>
+  <em>halb neun</em> = half (way to) nine = 8:30 — NOT 9:30!<br>
+  German "halb X" means "half before X" (half way TO the next hour).<br>
+  <em>halb drei</em> = 2:30, <em>halb elf</em> = 10:30, <em>halb sechs</em> = 5:30
+</div>
+
+<h3>Useful Time Words</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">heute</td><td>today</td></tr>
+  <tr><td class="de">morgen</td><td>tomorrow</td></tr>
+  <tr><td class="de">übermorgen</td><td>the day after tomorrow</td></tr>
+  <tr><td class="de">gestern</td><td>yesterday</td></tr>
+  <tr><td class="de">vorgestern</td><td>the day before yesterday</td></tr>
+  <tr><td class="de">jetzt</td><td>now</td></tr>
+  <tr><td class="de">bald</td><td>soon</td></tr>
+  <tr><td class="de">später</td><td>later</td></tr>
+  <tr><td class="de">früh / morgens</td><td>in the morning</td></tr>
+  <tr><td class="de">mittags</td><td>at noon / in the afternoon</td></tr>
+  <tr><td class="de">abends</td><td>in the evening</td></tr>
+  <tr><td class="de">nachts</td><td>at night</td></tr>
+  <tr><td class="de">immer</td><td>always</td></tr>
+  <tr><td class="de">manchmal</td><td>sometimes</td></tr>
+  <tr><td class="de">oft</td><td>often</td></tr>
+  <tr><td class="de">selten</td><td>rarely</td></tr>
+  <tr><td class="de">nie</td><td>never</td></tr>
+  <tr><td class="de">jeden Tag</td><td>every day</td></tr>
+  <tr><td class="de">wieder</td><td>again</td></tr>
+  <tr><td class="de">früher</td><td>earlier / formerly</td></tr>
+  <tr><td class="de">damals</td><td>at that time / back then</td></tr>
+</table></div>
+
+<h3>Tagesablauf — Daily Routine (sample paragraph)</h3>
+<div class="situation">
+  <strong>🗣️ Sample Daily Routine</strong>
+  <em>Ich stehe um 6 Uhr auf. Dann jogge ich morgens. Danach dusche ich. Später gehe ich zum Goethe-Zentrum. Dann gehe ich ins Café. Danach gehe ich wieder zum Goethe-Zentrum. Um 12:30 Uhr gehe ich ins Hotel. Danach lese ich nachmittags. Später schwimme ich abends.</em><br><br>
+  I get up at 6 o'clock. Then I jog in the morning. After that I shower. Later I go to the Goethe Centre. Then I go to the café. After that I go back to the Goethe Centre. At 12:30 I go to the hotel. After that I read in the afternoon. Later I swim in the evening.
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb10 -->
+<section id="vb10">
+<h2>Family</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Core Family</div>
+    <div class="vocab-item"><span class="vocab-de">die Mutter / Mama</span><span class="vocab-en">mother / mum</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Vater / Papa</span><span class="vocab-en">father / dad</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Eltern (pl)</span><span class="vocab-en">parents</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Schwester</span><span class="vocab-en">sister</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Bruder</span><span class="vocab-en">brother</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Kind / die Kinder</span><span class="vocab-en">child / children</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Tochter</span><span class="vocab-en">daughter</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Sohn</span><span class="vocab-en">son</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Großmutter / Oma</span><span class="vocab-en">grandmother / grandma</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Großvater / Opa</span><span class="vocab-en">grandfather / grandpa</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Extended Family &amp; Relationships</div>
+    <div class="vocab-item"><span class="vocab-de">die Tante</span><span class="vocab-en">aunt</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Onkel</span><span class="vocab-en">uncle</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Cousine</span><span class="vocab-en">female cousin</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Cousin</span><span class="vocab-en">male cousin</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Nichte</span><span class="vocab-en">niece</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Neffe</span><span class="vocab-en">nephew</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Geschwister (pl)</span><span class="vocab-en">siblings</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Enkel / die Enkelin</span><span class="vocab-en">grandson / granddaughter</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Frau / Ehefrau</span><span class="vocab-en">wife</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Mann / Ehemann</span><span class="vocab-en">husband</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Freundin</span><span class="vocab-en">girlfriend / female friend</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Freund</span><span class="vocab-en">boyfriend / male friend</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Verwandte</span><span class="vocab-en">relative</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Bekannte</span><span class="vocab-en">acquaintance</span></div>
+  </div>
+</div>
+<div class="trick">
+  <strong>💡 Freund vs Freundin — context is everything!</strong>
+  <em>mein Freund</em> = "my friend" (male) OR "my boyfriend" — context tells you which!<br>
+  To be clear about "friend only": <em>"Er ist ein Freund von mir."</em><br>
+  To be clear about "boyfriend": <em>"Er ist mein Freund."</em> (possessive = relationship implied)
+</div>
+
+<h3>Schwieger- (In-Laws)</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">In-Law Family</div>
+    <div class="vocab-item"><span class="vocab-de">der Schwiegervater</span><span class="vocab-en">father-in-law</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Schwiegermutter</span><span class="vocab-en">mother-in-law</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schwiegersohn</span><span class="vocab-en">son-in-law</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Schwiegertochter</span><span class="vocab-en">daughter-in-law</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schwager</span><span class="vocab-en">brother-in-law</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Schwägerin</span><span class="vocab-en">sister-in-law</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Useful Family Q&amp;A</div>
+    <div class="vocab-item"><span class="vocab-de">Haben Sie Geschwister?</span><span class="vocab-en">Do you have siblings?</span></div>
+    <div class="vocab-item"><span class="vocab-de">Ja, ich habe einen Bruder.</span><span class="vocab-en">Yes, I have a brother.</span></div>
+    <div class="vocab-item"><span class="vocab-de">Ich bin Einzelkind.</span><span class="vocab-en">I am an only child.</span></div>
+    <div class="vocab-item"><span class="vocab-de">Wer gehört zu Ihrer Familie?</span><span class="vocab-en">Who is in your family?</span></div>
+    <div class="vocab-item"><span class="vocab-de">Wie viele Kinder haben Sie?</span><span class="vocab-en">How many children do you have?</span></div>
+    <div class="vocab-item"><span class="vocab-de">Ich habe kein Kind.</span><span class="vocab-en">I have no children.</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb11 -->
+<section id="vb11">
+<h2>Jobs &amp; Professions</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Common Jobs</div>
+    <div class="vocab-item"><span class="vocab-de">der Arzt / die Ärztin</span><span class="vocab-en">doctor (m/f)</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Lehrer / die Lehrerin</span><span class="vocab-en">teacher (m/f)</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Ingenieur / die Ingenieurin</span><span class="vocab-en">engineer (m/f)</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Polizist / die Polizistin</span><span class="vocab-en">police officer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Kellner / die Kellnerin</span><span class="vocab-en">waiter / waitress</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Verkäufer / die Verkäuferin</span><span class="vocab-en">salesperson</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Koch / die Köchin</span><span class="vocab-en">cook / chef</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Fahrer / die Fahrerin</span><span class="vocab-en">driver</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">More Professions</div>
+    <div class="vocab-item"><span class="vocab-de">der Anwalt / die Anwältin</span><span class="vocab-en">lawyer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Kaufmann / die Kauffrau</span><span class="vocab-en">businessman/woman</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Student / die Studentin</span><span class="vocab-en">student (university)</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schüler / die Schülerin</span><span class="vocab-en">student (school)</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Rentner / die Rentnerin</span><span class="vocab-en">pensioner/retired</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Hausmann / die Hausfrau</span><span class="vocab-en">stay-at-home parent</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Pfleger / die Pflegerin</span><span class="vocab-en">nurse / carer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Programmierer</span><span class="vocab-en">programmer</span></div>
+  </div>
+</div>
+<h3>More Professions (from notes)</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Creative &amp; Service</div>
+    <div class="vocab-item"><span class="vocab-de">der Pilot / die Pilotin</span><span class="vocab-en">pilot</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Sänger / die Sängerin</span><span class="vocab-en">singer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Fotograf / die Fotografin</span><span class="vocab-en">photographer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Journalist / die Journalistin</span><span class="vocab-en">journalist</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Maler / die Malerin</span><span class="vocab-en">painter / artist</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Regisseur / die Regisseurin</span><span class="vocab-en">director (film/theatre)</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Dirigent / die Dirigentin</span><span class="vocab-en">conductor (orchestra)</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schauspieler / die Schauspielerin</span><span class="vocab-en">actor / actress</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Friseur / die Friseurin</span><span class="vocab-en">hairdresser</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Putzfrau / der Putzmann</span><span class="vocab-en">cleaning lady / man</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Sekretärin</span><span class="vocab-en">secretary</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Flugbegleiterin</span><span class="vocab-en">flight attendant</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Trades &amp; Professional</div>
+    <div class="vocab-item"><span class="vocab-de">der Richter / die Richterin</span><span class="vocab-en">judge</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Detektiv / die Detektivin</span><span class="vocab-en">detective</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Zahnarzt / die Zahnärztin</span><span class="vocab-en">dentist</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Tierarzt / die Tierärztin</span><span class="vocab-en">veterinarian</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Architekt / die Architektin</span><span class="vocab-en">architect</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Mechaniker / die Mechanikerin</span><span class="vocab-en">mechanic</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Installateur / die Installateurin</span><span class="vocab-en">plumber / installer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Tischler / die Tischlerin</span><span class="vocab-en">carpenter</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Maurer / die Maurerin</span><span class="vocab-en">bricklayer / mason</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Bäcker / die Bäckerin</span><span class="vocab-en">baker</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Metzger / die Metzgerin</span><span class="vocab-en">butcher</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Bauer / die Bäuerin</span><span class="vocab-en">farmer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Politiker / die Politikerin</span><span class="vocab-en">politician</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Soldat / die Soldatin</span><span class="vocab-en">soldier</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schiffskapitän</span><span class="vocab-en">ship captain</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schneider / die Schneiderin</span><span class="vocab-en">tailor</span></div>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>💡 Female job forms: just add -in!</strong>
+  Most male job titles → female version by adding <strong>-in</strong>:<br>
+  Lehrer → Lehrerin, Arzt → Ärztin (umlaut!), Student → Studentin<br>
+  When talking about a group: use the <strong>plural -innen</strong>: Lehrerinnen = (female) teachers<br>
+  Modern inclusive: Lehrer*innen or Lehrende (gender-neutral)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vb12 -->
+<section id="vb12">
+<h2>Useful Phrases for Every Situation</h2>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>English</th><th>When to use</th></tr>
+  <tr><td class="de">Entschuldigung!</td><td>Excuse me! / Sorry!</td><td>Getting attention, apologising</td></tr>
+  <tr><td class="de">Es tut mir leid.</td><td>I am sorry.</td><td>Formal apology</td></tr>
+  <tr><td class="de">Bitte.</td><td>Please. / You're welcome.</td><td>Requesting or responding</td></tr>
+  <tr><td class="de">Danke. / Danke schön.</td><td>Thank you. / Thank you very much.</td><td>Gratitude</td></tr>
+  <tr><td class="de">Bitte sehr!</td><td>You're very welcome!</td><td>Response to thank you</td></tr>
+  <tr><td class="de">Kein Problem.</td><td>No problem.</td><td>Casual reassurance</td></tr>
+  <tr><td class="de">Ich verstehe (nicht).</td><td>I (don't) understand.</td><td>Comprehension</td></tr>
+  <tr><td class="de">Können Sie das wiederholen?</td><td>Can you repeat that?</td><td>Asking for repetition</td></tr>
+  <tr><td class="de">Langsamer bitte!</td><td>Slower please!</td><td>Asking someone to slow down</td></tr>
+  <tr><td class="de">Wie bitte?</td><td>Pardon? / What did you say?</td><td>Didn't hear / understand</td></tr>
+  <tr><td class="de">Was bedeutet …?</td><td>What does … mean?</td><td>Asking word meaning</td></tr>
+  <tr><td class="de">Wie sagt man … auf Deutsch?</td><td>How do you say … in German?</td><td>Translation request</td></tr>
+  <tr><td class="de">Ich weiß nicht.</td><td>I don't know.</td><td>Expressing uncertainty</td></tr>
+  <tr><td class="de">Natürlich!</td><td>Of course!</td><td>Agreement</td></tr>
+  <tr><td class="de">Genau!</td><td>Exactly!</td><td>Strong agreement</td></tr>
+  <tr><td class="de">Schön!</td><td>Nice! / Great!</td><td>Positive reaction</td></tr>
+  <tr><td class="de">Toll! / Super!</td><td>Awesome! / Great!</td><td>Enthusiasm</td></tr>
+  <tr><td class="de">Viel Glück!</td><td>Good luck!</td><td>Wishing someone luck</td></tr>
+  <tr><td class="de">Gute Reise!</td><td>Have a good trip!</td><td>Farewell for travel</td></tr>
+  <tr><td class="de">Herzlichen Glückwunsch!</td><td>Congratulations!</td><td>Celebrating</td></tr>
+</table></div>
+</section>
+
+</div>
+</body>
+</html>

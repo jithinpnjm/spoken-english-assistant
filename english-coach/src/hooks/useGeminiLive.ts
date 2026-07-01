@@ -264,7 +264,7 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
             reconnectAttemptsRef.current = 0; // reset on successful setup
             const source = captureCtx.createMediaStreamSource(stream);
             sourceRef.current = source;
-            const processor = captureCtx.createScriptProcessor(4096, 1, 1);
+            const processor = captureCtx.createScriptProcessor(2048, 1, 1);
             processorRef.current = processor;
             processor.onaudioprocess = (e) => {
               // Auto-mute: do not send mic audio while agent is speaking

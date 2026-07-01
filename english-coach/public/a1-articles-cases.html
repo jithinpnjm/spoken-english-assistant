@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A1 German — Articles, Cases & Pronouns</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --card2: #162032;
+    --fg: #e2e8f0;
+    --fg-soft: #94a3b8;
+    --accent: #38bdf8;
+    --accent-dark: #0369a1;
+    --border: #334155;
+    --th-bg: #1e3a5f;
+    --th-fg: #bae6fd;
+    --tr-alt: #1a2e45;
+    --gold: #fbbf24;
+    --green: #34d399;
+    --red: #f87171;
+    --purple: #c084fc;
+    --violet: #a78bfa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.8;
+    padding: 28px 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Page header */
+  .page-header {
+    text-align: center;
+    padding: 32px 20px 20px;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--accent-dark);
+    color: #bae6fd;
+    font-size: 0.78em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding: 4px 14px;
+    margin-bottom: 12px;
+  }
+  .page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+  .page-header p { color: var(--fg-soft); font-size: 1.05em; }
+
+  /* Navigation bar */
+  .navback {
+    display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .navback a {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+    color: var(--fg-soft); transition: border-color 0.15s;
+  }
+  .navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* TOC */
+  .toc {
+    background: var(--card); border: 1px solid var(--accent-dark);
+    border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+  }
+  .toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+  .toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+  .toc a:hover { color: var(--accent); text-decoration: none; }
+
+  /* Section headers */
+  h2.section {
+    font-size: 1.35em; color: #f8fafc;
+    background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+    border-left: 6px solid var(--accent);
+    padding: 12px 18px; margin: 48px 0 0 0;
+    border-radius: 0 10px 10px 0;
+  }
+  h3 {
+    font-size: 1.08em; color: var(--accent);
+    margin: 22px 0 8px 0;
+    border-bottom: 1px solid var(--border); padding-bottom: 5px;
+  }
+  h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+  th {
+    background: var(--th-bg); color: var(--th-fg);
+    padding: 9px 13px; text-align: left; font-size: 0.9em;
+    letter-spacing: 0.04em;
+  }
+  td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--tr-alt); }
+  .de { font-weight: 600; color: #93c5fd; }
+  .changed { background: #1a3a5c !important; color: var(--gold); font-weight: 700; }
+  .same { color: var(--fg-soft); }
+
+  /* Coloured call-out boxes */
+  .teach {
+    background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+    border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+    font-size: 0.96em; line-height: 1.8;
+  }
+  .teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+  .teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+  .teach li { margin: 5px 0; }
+
+  .trick {
+    background: #1c1a00; border: 1px solid #f59e0b; border-left: 6px solid #f59e0b;
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+  }
+  .trick h4 { color: #fbbf24; margin: 0 0 8px 0; }
+  .trick ul { padding-left: 20px; }
+  .trick li { margin: 4px 0; }
+
+  .situation {
+    background: #071a0e; border: 1px solid #22c55e; border-left: 6px solid #22c55e;
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+  }
+  .situation h4 { color: #4ade80; margin: 0 0 8px 0; }
+  .situation ul { padding-left: 20px; }
+  .situation li { margin: 5px 0; }
+
+  .mistake {
+    background: #1f0a0a; border: 1px solid #f43f5e; border-left: 6px solid #f43f5e;
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+  }
+  .mistake h4 { color: #fb7185; margin: 0 0 8px 0; }
+  .mistake ul { padding-left: 20px; }
+  .mistake li { margin: 5px 0; }
+  .wrong { color: var(--red); }
+  .right { color: var(--green); font-weight: 600; }
+
+  .analogy {
+    background: #160b20; border: 1px solid #a855f7; border-left: 6px solid #a855f7;
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+  }
+  .analogy h4 { color: var(--purple); margin: 0 0 8px 0; }
+  .analogy ul { padding-left: 20px; }
+  .analogy li { margin: 5px 0; }
+
+  .example-pair {
+    background: var(--card2); border-left: 3px solid var(--accent);
+    padding: 9px 14px; margin: 7px 0; border-radius: 0 6px 6px 0;
+  }
+  .example-pair .de { display: block; font-size: 1.05em; }
+  .example-pair .en { display: block; color: var(--fg-soft); font-size: 0.9em; }
+  .example-pair .why { display: block; color: #93c5fd; font-size: 0.88em; font-style: italic; margin-top: 2px; }
+
+  .highlight { background: #3b2a00; border-radius: 4px; padding: 2px 7px; font-weight: 700; color: var(--gold); }
+  .tag { display: inline-block; background: #1e3a5f; color: #bae6fd; border-radius: 4px; padding: 1px 9px; font-size: 0.82em; font-weight: 700; margin: 2px; }
+  ul { padding-left: 22px; margin: 8px 0; }
+  li { margin: 4px 0; }
+  p { margin: 8px 0; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 12px 0; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 12px 0; }
+  @media (max-width: 720px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+
+  /* Article colour legend */
+  .der { color: #60a5fa; font-weight: 700; }
+  .die { color: #f472b6; font-weight: 700; }
+  .das { color: #4ade80; font-weight: 700; }
+  .den { color: #fb923c; font-weight: 700; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+
+  @media print {
+    body { background: #fff; color: #111; font-size: 12px; }
+    .teach, .trick, .situation, .mistake, .analogy { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h2.section { page-break-before: always; }
+  }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="navback">
+  <a href="/a1-german-grammar.html">← Full Grammar Guide</a>
+  <a href="/a1-german-study-guide.html">Vocabulary Guide</a>
+  <a href="/">App Home</a>
+</div>
+
+<div class="page-header">
+  <div class="badge">A1 German · Topic Guide</div>
+  <h1>Articles, Cases &amp; Pronouns</h1>
+  <p>Gender · der/die/das · Nominativ · Akkusativ · Dativ · Possessives · Personal Pronouns · kein/keine</p>
+</div>
+
+<div class="toc">
+  <h2>In this guide</h2>
+  <div class="toc-grid">
+    <a href="#art01">1. What is grammatical gender?</a>
+    <a href="#art02">2. Rules for guessing gender</a>
+    <a href="#art03">3. The three cases — what they do</a>
+    <a href="#art04">4. Definite article tables (der/die/das)</a>
+    <a href="#art05">5. Indefinite articles (ein/eine)</a>
+    <a href="#art06">6. Negative articles (kein/keine)</a>
+    <a href="#art07">7. Possessive articles — full table</a>
+    <a href="#art08">8. Personal pronouns — Nom / Akk / Dat</a>
+    <a href="#art09">9. Real-life situations with cases</a>
+    <a href="#art10">10. Most common case mistakes</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art01">1. What Is Grammatical Gender? — The Big Picture</h2>
+
+<div class="teach">
+  <h4>🎯 Why German has three genders</h4>
+  <p>German nouns are divided into three grammatical genders: <span class="der">masculine (der)</span>, <span class="die">feminine (die)</span>, and <span class="das">neuter (das)</span>. This is a grammatical property of the word — it does <strong>not</strong> always match real-world sex. A table is masculine. A girl is neuter. A door is feminine.</p>
+  <p>Gender matters because it controls the form of:</p>
+  <ul>
+    <li>The <strong>article</strong> — der/die/das changes in each case</li>
+    <li>The <strong>adjective ending</strong> — alte/alter/altes</li>
+    <li>The <strong>pronoun</strong> — er/sie/es when referring back</li>
+  </ul>
+  <p>Get the gender right → everything else falls into place. Get it wrong → a cascade of errors. This is why you must <span class="highlight">always learn every noun with its article.</span></p>
+</div>
+
+<div class="analogy">
+  <h4>🔄 The English connection — you already know this</h4>
+  <p>English pronouns still carry gender: <em>he/him/his</em> (masculine), <em>she/her/hers</em> (feminine), <em>it/its</em> (neuter). When you say "The book — I lost <strong>it</strong>", you're assigning neuter gender. German extends this same logic to the articles, so the noun itself carries gender information via its article.</p>
+</div>
+
+<div class="trick">
+  <h4>🧠 The Colour Flashcard Method — the most effective gender trick</h4>
+  <ul>
+    <li>Assign a permanent colour: <span class="der">BLUE = der</span> · <span class="die">PINK = die</span> · <span class="das">GREEN = das</span></li>
+    <li>Write every new noun flashcard in its gender colour. See a blue card → it's masculine.</li>
+    <li>When you visualise the word, see it glowing in its colour. "Tisch" = blue (der Tisch). "Tür" = pink (die Tür).</li>
+    <li><strong>Never write a noun alone.</strong> Always write: <span class="der">der</span> Tisch, <span class="die">die</span> Tür, <span class="das">das</span> Kind.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art02">2. Rules for Guessing Gender — 80% Coverage</h2>
+
+<div class="teach">
+  <h4>📌 These patterns cover most vocabulary. Not perfect — but essential.</h4>
+</div>
+
+<h3>Masculine (der) patterns</h3>
+<div class="table-wrap"><table>
+  <tr><th>Pattern</th><th>Examples</th><th>Memory hook</th></tr>
+  <tr><td>Male people &amp; animals</td><td class="de">der Vater, der Bruder, der Hund, der Lehrer</td><td>Biological male = grammatically male ✓</td></tr>
+  <tr><td>Days, months, seasons</td><td class="de">der Montag, der Januar, der Sommer, der Frühling</td><td>Time markers → der. ALL of them.</td></tr>
+  <tr><td>Weather phenomena</td><td class="de">der Regen, der Wind, der Schnee, der Nebel</td><td>Weather → der</td></tr>
+  <tr><td>Endings: <span class="highlight">-er</span> (agent nouns)</td><td class="de">der Lehrer, der Fahrer, der Computer, der Drucker</td><td>"-er" = the person/thing doing something → der</td></tr>
+  <tr><td>Endings: <span class="highlight">-ig / -ling / -ismus</span></td><td class="de">der König, der Frühling, der Realismus</td><td>These endings = masculine</td></tr>
+  <tr><td>Most drinks &amp; alcoholic beverages</td><td class="de">der Wein, der Tee, der Kaffee, der Saft</td><td>Exception: das Bier, das Wasser</td></tr>
+</table></div>
+
+<h3>Feminine (die) patterns</h3>
+<div class="table-wrap"><table>
+  <tr><th>Pattern</th><th>Examples</th><th>Memory hook</th></tr>
+  <tr><td>Female people &amp; animals</td><td class="de">die Mutter, die Schwester, die Lehrerin, die Katze</td><td>Biological female = grammatically female ✓</td></tr>
+  <tr><td>Endings: <span class="highlight">-ung</span></td><td class="de">die Wohnung, die Zeitung, die Meinung, die Heizung</td><td>-ung = always die. No exceptions.</td></tr>
+  <tr><td>Endings: <span class="highlight">-heit / -keit</span></td><td class="de">die Freiheit, die Möglichkeit, die Gesundheit</td><td>-heit/-keit = always die. No exceptions.</td></tr>
+  <tr><td>Endings: <span class="highlight">-schaft</span></td><td class="de">die Mannschaft, die Freundschaft, die Gesellschaft</td><td>-schaft = always die</td></tr>
+  <tr><td>Endings: <span class="highlight">-ion</span></td><td class="de">die Station, die Nation, die Information, die Situation</td><td>-ion = always die (these are borrowed words from Latin/French)</td></tr>
+  <tr><td>Endings: <span class="highlight">-in</span> (female job titles)</td><td class="de">die Lehrerin, die Ärztin, die Studentin</td><td>Just add -in to the male version → always die</td></tr>
+  <tr><td>Numbers as nouns, most flowers</td><td class="de">die Eins, die Zwei, die Rose, die Tulpe</td><td>—</td></tr>
+</table></div>
+
+<h3>Neuter (das) patterns</h3>
+<div class="table-wrap"><table>
+  <tr><th>Pattern</th><th>Examples</th><th>Memory hook</th></tr>
+  <tr><td>Endings: <span class="highlight">-chen / -lein</span> (diminutives)</td><td class="de">das Mädchen, das Häuschen, das Fräulein, das Brötchen</td><td>Making something smaller (cute/little) → always das. Even "das Mädchen" (girl) is neuter!</td></tr>
+  <tr><td>Endings: <span class="highlight">-ment / -um</span></td><td class="de">das Experiment, das Datum, das Zentrum, das Museum</td><td>Latin-style endings → das</td></tr>
+  <tr><td>Infinitives used as nouns</td><td class="de">das Essen, das Lernen, das Schreiben, das Laufen</td><td>Verb → noun = always das</td></tr>
+  <tr><td>Young animals</td><td class="de">das Küken, das Kalb, das Lamm, das Fohlen</td><td>Baby animals → das</td></tr>
+  <tr><td>Metals &amp; chemical elements</td><td class="de">das Gold, das Silber, das Eisen, das Kupfer</td><td>Most elements → das</td></tr>
+  <tr><td>Most countries &amp; continents</td><td class="de">das Deutschland *, das Frankreich, das Europa</td><td>*Countries rarely take an article in everyday speech but the underlying gender is neuter</td></tr>
+</table></div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art03">3. The Three Cases — What They Do &amp; Why</h2>
+
+<div class="teach">
+  <h4>🎯 Cases = the article does the grammar work</h4>
+  <p>A "case" shows the <strong>role of a noun in a sentence</strong>. In English, word order shows this: "The dog bites the man" vs "The man bites the dog." In German, the <strong>article changes</strong> to show who is doing what — so word order can be more flexible.</p>
+  <p>There are four cases in German; A1 uses three: Nominativ, Akkusativ, and Dativ.</p>
+</div>
+
+<div class="analogy">
+  <h4>🔄 English still has this — in pronouns</h4>
+  
+<div class="table-wrap"><table style="width:auto; margin:10px 0;">
+    <tr><th>Role</th><th>English</th><th>German case</th><th>German article</th></tr>
+    <tr><td>Subject (does the action)</td><td>he / she / it</td><td>Nominativ</td><td class="de der">der / die / das</td></tr>
+    <tr><td>Direct object (receives action)</td><td>him / her / it</td><td>Akkusativ</td><td class="de den">den / die / das</td></tr>
+    <tr><td>Indirect object (benefits / receives)</td><td>him / her / it (to him)</td><td>Dativ</td><td class="de">dem / der / dem</td></tr>
+  </table></div>
+  <p>Just as English says "He loves her" (not "Him loves she"), German changes the article to signal which noun is the subject and which is the object.</p>
+</div>
+
+<h3>When to use each case — with the test question</h3>
+<div class="table-wrap"><table>
+  <tr><th>Case</th><th>Ask this question</th><th>Use for</th><th>Example</th></tr>
+  <tr><td><strong>Nominativ</strong></td><td><span class="highlight">Wer? Was?</span> Who/What does the action?</td><td>Subject of the sentence</td><td class="de"><span class="der">Der</span> Mann schläft.</td></tr>
+  <tr><td><strong>Akkusativ</strong></td><td><span class="highlight">Wen? Was?</span> Whom/What is affected?</td><td>Direct object — thing/person directly acted on</td><td class="de">Ich sehe <span class="den">den</span> Mann.</td></tr>
+  <tr><td><strong>Dativ</strong></td><td><span class="highlight">Wem?</span> To whom / for whom?</td><td>Indirect object — recipient / beneficiary</td><td class="de">Ich gebe <span class="der">dem</span> Mann das Buch.</td></tr>
+</table></div>
+
+<div class="situation">
+  <h4>🌍 Situation: Ordering food — all three cases in one sentence</h4>
+  <div class="example-pair">
+    <span class="de">Der Kellner bringt dem Gast den Kaffee.</span>
+    <span class="en">The waiter brings the guest the coffee.</span>
+    <span class="why">der Kellner (Nom — he does the bringing) · dem Gast (Dat — he receives it) · den Kaffee (Akk — the thing being brought)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art04">4. Definite Articles — Full Table (der/die/das)</h2>
+
+<div class="teach">
+  <h4>📌 The master table — learn every cell</h4>
+  <p>The highlighted cells are the ones that change from Nominativ. Only the masculine changes in Akkusativ. Everything changes in Dativ.</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Case</th><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Plural</th></tr>
+  <tr>
+    <td><strong>Nominativ</strong> (subject)</td>
+    <td class="de der">der</td><td class="de die">die</td><td class="de das">das</td><td class="de die">die</td>
+  </tr>
+  <tr>
+    <td><strong>Akkusativ</strong> (direct obj.)</td>
+    <td class="changed">den ⬅</td><td class="de same die">die</td><td class="de same das">das</td><td class="de same die">die</td>
+  </tr>
+  <tr>
+    <td><strong>Dativ</strong> (indirect obj.)</td>
+    <td class="changed">dem</td><td class="changed">der</td><td class="changed">dem</td><td class="changed">den +n</td>
+  </tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 What actually changes — the short version</h4>
+  <ul>
+    <li><strong>Akkusativ:</strong> only masculine changes → <span class="der">der</span> → <span class="den">den</span>. (Feminine, neuter, plural: no change.)</li>
+    <li><strong>Dativ:</strong> everything changes — <span class="highlight">dem · der · dem · den+n</span>. Chant this out loud until automatic.</li>
+    <li>Plural Dativ: ALL nouns add -n in the plural form if they don't already end in -n. Example: die Kinder → <span class="de">mit den Kindern</span></li>
+  </ul>
+</div>
+
+<h3>Examples in all three cases</h3>
+<div class="table-wrap"><table>
+  <tr><th>Noun</th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th></tr>
+  <tr>
+    <td>Mann (m)</td>
+    <td class="de">Der Mann kommt.</td>
+    <td class="de">Ich sehe den Mann.</td>
+    <td class="de">Ich helfe dem Mann.</td>
+  </tr>
+  <tr>
+    <td>Frau (f)</td>
+    <td class="de">Die Frau liest.</td>
+    <td class="de">Ich rufe die Frau.</td>
+    <td class="de">Ich schreibe der Frau.</td>
+  </tr>
+  <tr>
+    <td>Kind (n)</td>
+    <td class="de">Das Kind spielt.</td>
+    <td class="de">Ich sehe das Kind.</td>
+    <td class="de">Ich gebe dem Kind Eis.</td>
+  </tr>
+  <tr>
+    <td>Kinder (pl)</td>
+    <td class="de">Die Kinder lachen.</td>
+    <td class="de">Ich mag die Kinder.</td>
+    <td class="de">Ich helfe den Kindern.</td>
+  </tr>
+</table></div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art05">5. Indefinite Articles — ein/eine in All Cases</h2>
+
+<div class="teach">
+  <h4>📌 ein/eine follow the same pattern as der/die/das — with one extra rule</h4>
+  <p>The indefinite article (a/an) changes for case and gender just like the definite article. Masculine nominativ is "ein" (no ending). This is called the "bare" form — because there's no marker for masculine in this slot, the ADJECTIVE has to carry the gender information if there is one.</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Case</th><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Plural</th></tr>
+  <tr><td><strong>Nominativ</strong></td><td class="de">ein Mann</td><td class="de">eine Frau</td><td class="de">ein Kind</td><td class="de">— Kinder <em>(no article)</em></td></tr>
+  <tr><td><strong>Akkusativ</strong></td><td class="changed">einen Mann</td><td class="de same">eine Frau</td><td class="de same">ein Kind</td><td class="de">— Kinder</td></tr>
+  <tr><td><strong>Dativ</strong></td><td class="changed">einem Mann</td><td class="changed">einer Frau</td><td class="changed">einem Kind</td><td class="de">— Kindern</td></tr>
+</table></div>
+
+<div class="situation">
+  <h4>🌍 Situation: Introducing people</h4>
+  <div class="example-pair">
+    <span class="de">Das ist mein Vater. Er hat einen Bruder und eine Schwester.</span>
+    <span class="en">This is my father. He has a brother and a sister.</span>
+    <span class="why">einen Bruder (m, Akkusativ after "haben") · eine Schwester (f, Akkusativ after "haben")</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ich brauche einen Arzt.</span>
+    <span class="en">I need a doctor.</span>
+    <span class="why">einen (m Akk — Arzt is masculine)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art06">6. Negative Articles — kein/keine</h2>
+
+<div class="teach">
+  <h4>📌 kein = k + ein. It negates nouns that use ein/eine or no article at all.</h4>
+  <p>kein takes the <strong>exact same endings</strong> as ein/eine. The difference: kein can also be used in plural (eine has no plural — kein does).</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Case</th><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Plural</th></tr>
+  <tr><td><strong>Nominativ</strong></td><td class="de">kein Mann</td><td class="de">keine Frau</td><td class="de">kein Kind</td><td class="de">keine Kinder</td></tr>
+  <tr><td><strong>Akkusativ</strong></td><td class="de">keinen Mann</td><td class="de">keine Frau</td><td class="de">kein Kind</td><td class="de">keine Kinder</td></tr>
+  <tr><td><strong>Dativ</strong></td><td class="de">keinem Mann</td><td class="de">keiner Frau</td><td class="de">keinem Kind</td><td class="de">keinen Kindern</td></tr>
+</table></div>
+
+<h3>When to use kein vs nicht — the decision tree</h3>
+
+<div class="teach">
+  <ol>
+    <li>Is there a noun? → Go to step 2. No noun? → Use <span class="highlight">nicht</span>.</li>
+    <li>Would the positive sentence use ein/eine OR no article? → Use <span class="highlight">kein/keine</span>.</li>
+    <li>Would the positive sentence use der/die/das? → Use <span class="highlight">nicht</span>.</li>
+  </ol>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Positive sentence</th><th>Negative — which word?</th><th>Why</th></tr>
+  <tr><td class="de">Ich habe einen Bruder.</td><td class="de right">Ich habe keinen Bruder.</td><td>einen → keinen</td></tr>
+  <tr><td class="de">Sie trinkt Kaffee.</td><td class="de right">Sie trinkt keinen Kaffee.</td><td>no article (mass noun) → kein</td></tr>
+  <tr><td class="de">Er ist Arzt.</td><td class="de right">Er ist kein Arzt.</td><td>no article (profession) → kein</td></tr>
+  <tr><td class="de">Ich sehe den Mann.</td><td class="de right">Ich sehe den Mann nicht.</td><td>den (definite) → nicht, goes to end</td></tr>
+  <tr><td class="de">Er schläft.</td><td class="de right">Er schläft nicht.</td><td>verb → nicht, goes to end</td></tr>
+  <tr><td class="de">Das ist schön.</td><td class="de right">Das ist nicht schön.</td><td>adjective → nicht before adjective</td></tr>
+</table></div>
+
+<div class="mistake">
+  <h4>❌ Kein/Nicht confusion — the classic mistake</h4>
+  <ul>
+    <li><span class="wrong">Ich habe nicht einen Bruder.</span> ← Wrong: "einen" → use kein</li>
+    <li><span class="right">Ich habe keinen Bruder.</span> ✓</li>
+    <li><span class="wrong">Ich sehe keinen den Mann.</span> ← Completely wrong</li>
+    <li><span class="right">Ich sehe den Mann nicht.</span> ✓ (definite → nicht at end)</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art07">7. Possessive Articles — Full Table</h2>
+
+<div class="teach">
+  <h4>📌 Possessive articles work like kein — same endings as ein/eine</h4>
+  <p>Possessive articles show ownership: my, your, his, her, our, their. In German, these are: mein/dein/sein/ihr/unser/euer/Ihr/ihr. They all take the same endings as ein/eine (and kein/keine). The stem (mein-, dein-, etc.) stays constant; only the ending changes.</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Person</th><th>Possessive</th><th>English</th></tr>
+  <tr><td class="de">ich</td><td class="de">mein</td><td>my</td></tr>
+  <tr><td class="de">du</td><td class="de">dein</td><td>your (informal, one person)</td></tr>
+  <tr><td class="de">er / es</td><td class="de">sein</td><td>his / its</td></tr>
+  <tr><td class="de">sie</td><td class="de">ihr</td><td>her</td></tr>
+  <tr><td class="de">wir</td><td class="de">unser</td><td>our</td></tr>
+  <tr><td class="de">ihr</td><td class="de">euer</td><td>your (informal, multiple)</td></tr>
+  <tr><td class="de">sie / Sie</td><td class="de">ihr / Ihr</td><td>their / Your (formal)</td></tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 The sein/ihr confusion — solved</h4>
+  <ul>
+    <li><span class="de">sein</span> = <strong>his</strong> (belongs to er / es): <em class="de">Das ist sein Buch.</em> (That is his book.)</li>
+    <li><span class="de">ihr</span> = <strong>her</strong> OR <strong>their</strong> — context tells you which: <em class="de">Das ist ihr Buch.</em> (her book OR their book)</li>
+    <li>Capitalised <span class="de">Ihr</span> = <strong>Your</strong> (formal): <em class="de">Ist das Ihr Buch, Herr Müller?</em></li>
+  </ul>
+</div>
+
+<h3>mein — declined through all cases (same pattern for all possessives)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Case</th><th>m (Vater)</th><th>f (Mutter)</th><th>n (Kind)</th><th>pl (Eltern)</th></tr>
+  <tr><td><strong>Nominativ</strong></td><td class="de">mein Vater</td><td class="de">meine Mutter</td><td class="de">mein Kind</td><td class="de">meine Eltern</td></tr>
+  <tr><td><strong>Akkusativ</strong></td><td class="changed">meinen Vater</td><td class="de same">meine Mutter</td><td class="de same">mein Kind</td><td class="de same">meine Eltern</td></tr>
+  <tr><td><strong>Dativ</strong></td><td class="changed">meinem Vater</td><td class="changed">meiner Mutter</td><td class="changed">meinem Kind</td><td class="changed">meinen Eltern</td></tr>
+</table></div>
+
+<div class="situation">
+  <h4>🌍 Situation: Talking about family</h4>
+  <div class="example-pair">
+    <span class="de">Ich besuche meine Eltern am Wochenende.</span>
+    <span class="en">I visit my parents at the weekend.</span>
+    <span class="why">besuchen takes Akkusativ · meine Eltern (pl Akk — same as Nom for plural)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ich helfe meiner Mutter in der Küche.</span>
+    <span class="en">I help my mother in the kitchen.</span>
+    <span class="why">helfen takes Dativ · meiner Mutter (f Dat)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Das Fahrrad gehört meinem Bruder.</span>
+    <span class="en">The bicycle belongs to my brother.</span>
+    <span class="why">gehören takes Dativ · meinem Bruder (m Dat)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art08">8. Personal Pronouns — All Cases</h2>
+
+<div class="teach">
+  <h4>📌 Pronouns change for every case — they are the original case system</h4>
+  <p>Just like English "I/me/my" (Nom/Akk/Dat-ish), German pronouns have different forms in each case. These MUST be learnt by heart — they are used in every single sentence.</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Person</th><th>Nominativ (subject)</th><th>Akkusativ (direct obj.)</th><th>Dativ (indirect obj.)</th></tr>
+  <tr><td>I</td><td class="de">ich</td><td class="de changed">mich</td><td class="de changed">mir</td></tr>
+  <tr><td>you (informal)</td><td class="de">du</td><td class="de changed">dich</td><td class="de changed">dir</td></tr>
+  <tr><td>he</td><td class="de">er</td><td class="de changed">ihn</td><td class="de changed">ihm</td></tr>
+  <tr><td>she</td><td class="de">sie</td><td class="de same">sie</td><td class="de changed">ihr</td></tr>
+  <tr><td>it</td><td class="de">es</td><td class="de same">es</td><td class="de changed">ihm</td></tr>
+  <tr><td>we</td><td class="de">wir</td><td class="de same">uns</td><td class="de same">uns</td></tr>
+  <tr><td>you (plural)</td><td class="de">ihr</td><td class="de same">euch</td><td class="de same">euch</td></tr>
+  <tr><td>they / you (formal)</td><td class="de">sie / Sie</td><td class="de same">sie / Sie</td><td class="de changed">ihnen / Ihnen</td></tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 Quick pattern: Akkusativ pronouns</h4>
+  <ul>
+    <li><strong>ich → mich</strong> (add -ch, like "me" in English)</li>
+    <li><strong>du → dich</strong> (same pattern: add -ch)</li>
+    <li><strong>er → ihn</strong> (compare English "him")</li>
+    <li><strong>sie/es → sie/es</strong> (no change for f and n — like English "her/it")</li>
+  </ul>
+</div>
+
+<div class="trick">
+  <h4>🧠 Quick pattern: Dativ pronouns</h4>
+  <ul>
+    <li><strong>ich → mir</strong> · <strong>du → dir</strong> · <strong>er/es → ihm</strong> · <strong>sie → ihr</strong></li>
+    <li>Trick: Dativ adds "-r" to many pronouns: mi<strong>r</strong>, di<strong>r</strong>, ih<strong>r</strong>, ih<strong>m</strong> (exception)</li>
+    <li><strong>wir/ihr</strong> → both stay <strong>uns/euch</strong> in Akk AND Dat (only two forms, not three)</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art09">9. Real-Life Situations with Cases</h2>
+
+<h3>Situation 1: At a shop — Akkusativ</h3>
+<div class="situation">
+  <ul>
+    <li class="de">Ich suche einen Pullover. <span style="color:var(--fg-soft)">— I'm looking for a jumper. (m Akk)</span></li>
+    <li class="de">Haben Sie eine Größe 40? <span style="color:var(--fg-soft)">— Do you have a size 40? (f Akk)</span></li>
+    <li class="de">Ich nehme den Pullover hier. <span style="color:var(--fg-soft)">— I'll take this jumper. (m Akk → den)</span></li>
+    <li class="de">Ich nehme ihn. <span style="color:var(--fg-soft)">— I'll take it. (pronoun for m Akk → ihn)</span></li>
+  </ul>
+</div>
+
+<h3>Situation 2: At a restaurant — Dativ</h3>
+<div class="situation">
+  <ul>
+    <li class="de">Kann ich dem Gast etwas bringen? <span style="color:var(--fg-soft)">— Can I bring the guest something? (m Dat)</span></li>
+    <li class="de">Ich gebe der Frau die Karte. <span style="color:var(--fg-soft)">— I give the woman the menu. (f Dat)</span></li>
+    <li class="de">Das Essen hat mir gut geschmeckt. <span style="color:var(--fg-soft)">— The food tasted good to me. (Dativ mir)</span></li>
+  </ul>
+</div>
+
+<h3>Situation 3: Asking for directions — Dativ prepositions</h3>
+<div class="situation">
+  <ul>
+    <li class="de">Die Bank ist neben dem Supermarkt. <span style="color:var(--fg-soft)">— The bank is next to the supermarket. (m Dat)</span></li>
+    <li class="de">Gehen Sie nach dem Kreisverkehr links. <span style="color:var(--fg-soft)">— After the roundabout, go left. (m Dat)</span></li>
+    <li class="de">Fahren Sie mit der U-Bahn. <span style="color:var(--fg-soft)">— Take the underground. (f Dat — mit always Dativ)</span></li>
+  </ul>
+</div>
+
+<h3>Possessive Articles in Dativ — Practice Sentences</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>Possessive (Dativ)</th></tr>
+  <tr><td class="de">Ich helfe <strong>meiner Mutter</strong>.</td><td>I help my mother.</td><td>meine → meiner (f Dat)</td></tr>
+  <tr><td class="de">Er gibt <strong>seinem Bruder</strong> das Buch.</td><td>He gives his brother the book.</td><td>sein → seinem (m Dat)</td></tr>
+  <tr><td class="de">Sie schreibt <strong>ihren Eltern</strong>.</td><td>She writes to her parents.</td><td>ihre → ihren (pl Dat)</td></tr>
+  <tr><td class="de">Das gehört <strong>meinem Kind</strong>.</td><td>That belongs to my child.</td><td>mein → meinem (n Dat)</td></tr>
+  <tr><td class="de">Ich danke <strong>meinem Lehrer</strong>.</td><td>I thank my teacher.</td><td>mein → meinem (m Dat)</td></tr>
+  <tr><td class="de">Wir fahren mit <strong>unserem Auto</strong>.</td><td>We drive with our car.</td><td>unser → unserem (n Dat)</td></tr>
+  <tr><td class="de">Er spricht mit <strong>seiner Frau</strong>.</td><td>He speaks with his wife.</td><td>sein → seiner (f Dat)</td></tr>
+  <tr><td class="de">Das Essen schmeckt <strong>meinem Vater</strong> nicht.</td><td>My father doesn't like the food.</td><td>mein → meinem (m Dat)</td></tr>
+</table></div>
+
+<h3>Verbs that always take Dativ</h3>
+<div class="teach">
+  <p>Some verbs ALWAYS require their object in Dativ — even though in English they look like they should take a direct object. These must be memorised.</p>
+  
+<div class="table-wrap"><table>
+    <tr><th>Verb</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="de">helfen</td><td>to help</td><td class="de">Ich helfe <u>dir</u>. / Ich helfe <u>dem Mann</u>.</td></tr>
+    <tr><td class="de">danken</td><td>to thank</td><td class="de">Ich danke <u>dir</u>.</td></tr>
+    <tr><td class="de">gefallen</td><td>to like (lit. to please)</td><td class="de">Das gefällt <u>mir</u>. (I like that.)</td></tr>
+    <tr><td class="de">gehören</td><td>to belong to</td><td class="de">Das gehört <u>mir</u>.</td></tr>
+    <tr><td class="de">schmecken</td><td>to taste (good)</td><td class="de">Es schmeckt <u>mir</u>.</td></tr>
+    <tr><td class="de">passen</td><td>to fit / suit</td><td class="de">Das passt <u>mir</u> nicht.</td></tr>
+    <tr><td class="de">fehlen</td><td>to be missing / lack</td><td class="de">Das Geld fehlt <u>mir</u>.</td></tr>
+  </table></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="art10">10. Most Common Article &amp; Case Mistakes</h2>
+
+<div class="mistake">
+  <h4>❌ Top 10 Case Mistakes — and how to avoid them</h4>
+  <ul>
+    <li><span class="wrong">Ich sehe der Mann.</span> → <span class="right">Ich sehe den Mann.</span> — sehen takes Akk; masculine → der becomes den</li>
+    <li><span class="wrong">Ich helfe ihn.</span> → <span class="right">Ich helfe ihm.</span> — helfen takes Dativ always; er → ihm (not ihn)</li>
+    <li><span class="wrong">Das schmeckt mich gut.</span> → <span class="right">Das schmeckt mir gut.</span> — schmecken takes Dativ; ich → mir</li>
+    <li><span class="wrong">Das Mädchen, sie ist süß.</span> → <span class="right">Das Mädchen, es ist süß.</span> — Mädchen = neuter (-chen), so pronoun is es</li>
+    <li><span class="wrong">Ich habe einen Hunger.</span> → <span class="right">Ich habe Hunger.</span> — set expressions like Hunger/Durst/Angst haben use no article</li>
+    <li><span class="wrong">mit die U-Bahn</span> → <span class="right">mit der U-Bahn</span> — mit always takes Dativ; die → der in Dativ f.</li>
+    <li><span class="wrong">Er kauft ein Pullover.</span> → <span class="right">Er kauft einen Pullover.</span> — kaufen takes Akk; masculine → ein becomes einen</li>
+    <li><span class="wrong">Ich gebe ihr Buch zurück.</span> (meaning "I give her book back") → <span class="right">Ich gebe ihr das Buch zurück.</span> — ihr here = Dativ pronoun "to her"; the book needs its own article</li>
+    <li><span class="wrong">Das gefällt mich.</span> → <span class="right">Das gefällt mir.</span> — gefallen takes Dativ; ich → mir</li>
+    <li><span class="wrong">mit den Kindern +n missing</span> → <span class="right">mit den Kindern</span> ✓ — plural Dativ adds -n to noun if not already ending in -n. Children → Kindern ✓</li>
+  </ul>
+</div>
+
+<hr>
+<p style="text-align:center; color:var(--fg-soft); font-size:0.9em; margin-top:20px;">
+  A1 German · Articles, Cases &amp; Pronouns · Topic Guide<br>
+  <a href="/a1-german-grammar.html">← Full Grammar Guide</a> ·
+  <a href="/a1-german-study-guide.html">Vocabulary Guide</a>
+</p>
+
+</body>
+</html>

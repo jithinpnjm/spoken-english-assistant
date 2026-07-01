@@ -302,6 +302,9 @@ export const germanA1BookLessonsPart12: GermanA1BookLesson[] = [
       { de: "das Rezept", en: "prescription", example: "Ich gebe Ihnen ein Rezept.", exampleEn: "I will give you a prescription." },
       { de: "die Apotheke", en: "pharmacy", example: "Geben Sie das Rezept in der Apotheke ab.", exampleEn: "Hand the prescription in at the pharmacy." },
       { de: "die Tablette", en: "pill / tablet", example: "Nehmen Sie eine Tablette pro Tag.", exampleEn: "Take one pill per day." },
+      { de: "einatmen", en: "to breathe in / inhale", example: "Bitte langsam einatmen.", exampleEn: "Please breathe in slowly." },
+      { de: "ausatmen", en: "to breathe out / exhale", example: "Und jetzt ausatmen.", exampleEn: "And now breathe out." },
+      { de: "Rauchen schadet der Gesundheit.", en: "Smoking harms health.", example: "Rauchen schadet der Gesundheit.", exampleEn: "Smoking harms health." },
       { de: "krankgeschrieben", en: "on sick leave", example: "Sie sind für drei Tage krankgeschrieben.", exampleEn: "You are on sick leave for three days." }
     ],
     modelSentences: [
@@ -399,12 +402,14 @@ export const germanA1BookLessonsPart12: GermanA1BookLesson[] = [
       { de: "die Abreise", en: "departure", example: "Die Abreise ist am Montag.", exampleEn: "The departure is on Monday." },
       { de: "der Schlüssel", en: "key", example: "Kann ich den Schlüssel haben?", exampleEn: "Can I have the key?" },
       { de: "der Aufzug", en: "elevator / lift", example: "Wo ist der Aufzug?", exampleEn: "Where is the elevator?" },
+      { de: "das Anmeldeformular", en: "registration form", example: "Bitte geben Sie mir das Anmeldeformular.", exampleEn: "Please give me the registration form." },
       { de: "ausfüllen", en: "to fill in / fill out", example: "Bitte füllen Sie das Formular aus.", exampleEn: "Please fill in the form." },
       { de: "unterschreiben", en: "to sign", example: "Bitte unterschreiben Sie hier.", exampleEn: "Please sign here." },
       { de: "der Urlaub", en: "vacation / holiday", example: "Ich mache Urlaub in Hamburg.", exampleEn: "I am going on holiday in Hamburg." },
       { de: "das Reisebüro", en: "travel agency", example: "Ich kaufe die Tickets im Reisebüro.", exampleEn: "I buy the tickets at the travel agency." },
       { de: "der Reisepass", en: "passport", example: "Ich brauche meinen Reisepass.", exampleEn: "I need my passport." },
-      { de: "die Fahrkarte", en: "ticket (train/bus)", example: "Ich kaufe eine Fahrkarte.", exampleEn: "I am buying a ticket." },
+      { de: "das Reiseziel", en: "destination", example: "Was ist Ihr Reiseziel?", exampleEn: "What is your destination?" },
+      { de: "die Fluggesellschaft", en: "airline / flight company", example: "Welche Fluggesellschaft fliegt nach Berlin?", exampleEn: "Which airline flies to Berlin?" },
       { de: "die Sehenswürdigkeit", en: "sight / place of interest", example: "Hamburg hat viele Sehenswürdigkeiten.", exampleEn: "Hamburg has many sights." },
       { de: "besuchen", en: "to visit", example: "Ich möchte das Museum besuchen.", exampleEn: "I would like to visit the museum." }
     ],
@@ -963,7 +968,8 @@ Alexander George`
       { de: "aussteigen", en: "to disembark / get off", example: "Hier müssen wir aussteigen.", exampleEn: "We must get off here." },
       { de: "der Automat", en: "ticket machine", example: "Ich kaufe die Karte am Automaten.", exampleEn: "I buy the ticket at the machine." },
       { de: "die Verspätung", en: "delay", example: "Der Zug hat 10 Minuten Verspätung.", exampleEn: "The train has a 10 minute delay." },
-      { de: "der Fahrplan", en: "timetable / schedule", example: "Schauen Sie auf den Fahrplan.", exampleEn: "Look at the timetable." }
+      { de: "der Fahrplan", en: "timetable / schedule", example: "Schauen Sie auf den Fahrplan.", exampleEn: "Look at the timetable." },
+      { de: "das Kleingeld", en: "change / small coins", example: "Haben Sie Kleingeld für den Automaten?", exampleEn: "Do you have change for the machine?" }
     ],
     modelSentences: [
       {

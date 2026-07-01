@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>English — Workplace Vocabulary</title>
+<style>
+:root{
+  --bg:#0f172a;--surface:#1e293b;--surface2:#2a1e2e;
+  --text:#e2e8f0;--muted:#94a3b8;--border:#334155;
+  --accent:#f472b6;--accent2:#ec4899;
+  --amber:#fbbf24;--red:#f87171;--sky:#38bdf8;--green:#34d399;--teal:#2dd4bf;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.7;padding:2rem 1rem}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:2.2rem;color:var(--accent);margin-bottom:.4rem}
+.subtitle{color:var(--muted);font-size:1rem;margin-bottom:2.5rem}
+h2{font-size:1.4rem;color:var(--accent);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent2)}
+h3{font-size:1.1rem;color:var(--accent2);margin:1.2rem 0 .6rem}
+section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;margin-bottom:2rem}
+p{color:var(--text);margin-bottom:.8rem}
+ul,ol{padding-left:1.4rem;margin-bottom:.8rem;color:var(--text)}
+li{margin-bottom:.3rem}
+.tip{background:#1f0a1a;border-left:4px solid var(--accent);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.tip strong{color:var(--accent);display:block;margin-bottom:.3rem}
+.trick{background:#1c1917;border-left:4px solid var(--amber);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.trick strong{color:var(--amber);display:block;margin-bottom:.3rem}
+.phrase{background:#0c1a2e;border-left:4px solid var(--sky);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.phrase strong{color:var(--sky);display:block;margin-bottom:.3rem}
+.warn{background:#2d0a0a;border-left:4px solid var(--red);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.warn strong{color:var(--red);display:block;margin-bottom:.3rem}
+.green-box{background:#091a14;border-left:4px solid var(--green);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.green-box strong{color:var(--green);display:block;margin-bottom:.3rem}
+.banner{background:linear-gradient(135deg,#200a1a,#1a0a20);border:1px solid var(--accent2);border-radius:10px;padding:1rem 1.4rem;margin-bottom:1.2rem;font-size:.95rem}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.94rem}
+th{background:var(--surface2);color:var(--accent);padding:.6rem .8rem;text-align:left;font-weight:600}
+td{padding:.5rem .8rem;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:rgba(255,255,255,0.04)}
+.word{color:var(--accent);font-weight:700}
+.ex{color:var(--muted);font-style:italic;font-size:.9rem}
+.phonetic{color:var(--teal);font-size:.85rem;font-family:monospace}
+nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+nav a{background:var(--surface2);color:var(--accent);border:1px solid var(--border);padding:.4rem .9rem;border-radius:20px;text-decoration:none;font-size:.85rem;transition:background .15s}
+nav a:hover{background:#2a1e2e}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.8rem 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin:.8rem 0}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+.card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1rem}
+.card-title{font-weight:700;margin-bottom:.6rem;font-size:.95rem;color:var(--accent)}
+.tag{display:inline-block;background:#1f0a1a;color:var(--accent2);border:1px solid var(--accent2);border-radius:12px;padding:.15rem .6rem;font-size:.78rem;margin:.15rem .1rem}
+.tag-green{display:inline-block;background:#091a14;color:var(--green);border:1px solid var(--green);border-radius:12px;padding:.15rem .6rem;font-size:.78rem;margin:.15rem .1rem}
+.sec-id{font-size:.75rem;color:var(--muted);float:right;margin-top:.2rem}
+.num{color:var(--accent);font-weight:700;margin-right:.4rem;font-size:.9rem}
+.page-header{text-align:center;padding:32px 20px 20px;margin-bottom:28px;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border:1px solid var(--border);border-radius:16px}
+.page-header .badge{display:inline-block;background:#2d0a1e;color:#fbcfe8;font-size:.78em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:4px 14px;margin-bottom:12px}
+.page-header h1{font-size:2.2em;color:#f8fafc;margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:1.05em}
+.navback{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.navback a{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:.88em;color:var(--muted);text-decoration:none;transition:border-color .15s}
+.navback a:hover{border-color:var(--accent);color:var(--accent)}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="page-header">
+  <div class="badge">English · Workplace</div>
+  <h1>English Workplace Vocabulary</h1>
+  <p>Office · Meetings · Emails · Presentations · Job Interviews · Conversations · Reports · Professional Phrases</p>
+</div>
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#vw01">The Office</a>
+  <a href="#vw02">Meetings</a>
+  <a href="#vw03">Emails</a>
+  <a href="#vw04">Presentations</a>
+  <a href="#vw05">Job Interviews</a>
+  <a href="#vw06">Workplace Conversations</a>
+  <a href="#vw07">Reports &amp; Documents</a>
+  <a href="#vw08">Professional Phrases</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════ vw01 -->
+<section id="vw01">
+<h2>The Office <span class="sec-id">vw01</span></h2>
+<div class="banner">Whether you work in-person, remotely, or hybrid, knowing office vocabulary helps you navigate the professional world with confidence.</div>
+
+<h3>Office Furniture &amp; Equipment</h3>
+<div class="table-wrap"><table>
+  <tr><th>Item</th><th>Meaning</th><th>Example Sentence</th></tr>
+  <tr><td class="word">desk</td><td>work surface you sit at</td><td class="ex">"Clear your desk before the end of the day."</td></tr>
+  <tr><td class="word">partition / cubicle</td><td>low dividing wall between workspaces</td><td class="ex">"He has a cubicle near the window."</td></tr>
+  <tr><td class="word">monitor / screen</td><td>the display connected to your computer</td><td class="ex">"Can you increase the font size on your monitor?"</td></tr>
+  <tr><td class="word">printer / scanner</td><td>device for printing or digitising documents</td><td class="ex">"The printer is out of paper — could you refill it?"</td></tr>
+  <tr><td class="word">whiteboard</td><td>large board for writing with erasable markers</td><td class="ex">"Let me draw the process on the whiteboard."</td></tr>
+  <tr><td class="word">filing cabinet</td><td>metal drawers for storing paper documents</td><td class="ex">"The contracts are in the top drawer of the filing cabinet."</td></tr>
+  <tr><td class="word">stationery</td><td>pens, paper, folders, staples etc.</td><td class="ex">"Help yourself to stationery from the supply cupboard."</td></tr>
+  <tr><td class="word">projector</td><td>device that displays images on a large screen</td><td class="ex">"Set up the projector before the 10 o'clock meeting."</td></tr>
+  <tr><td class="word">headset</td><td>headphones with a microphone for calls</td><td class="ex">"Use a headset on video calls to reduce background noise."</td></tr>
+  <tr><td class="word">standing desk</td><td>adjustable desk allowing you to work standing up</td><td class="ex">"She switched to a standing desk to help her back."</td></tr>
+</table></div>
+
+<h3>Colleagues &amp; Departments</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Job Titles</div>
+    <ul>
+      <li><strong>CEO</strong> — Chief Executive Officer (top leader)</li>
+      <li><strong>CFO / CTO / CMO</strong> — Finance / Tech / Marketing director</li>
+      <li><strong>line manager</strong> — your direct supervisor</li>
+      <li><strong>team lead</strong> — leads a small team, reports to a manager</li>
+      <li><strong>intern</strong> — temporary trainee, often unpaid</li>
+      <li><strong>contractor / freelancer</strong> — hired for specific projects, not permanent</li>
+      <li><strong>HR (Human Resources)</strong> — handles hiring and employee welfare</li>
+      <li><strong>PA (Personal Assistant)</strong> — supports a senior executive</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Common Departments</div>
+    <ul>
+      <li><strong>Finance / Accounts</strong> — money, budgets, invoices</li>
+      <li><strong>Sales</strong> — selling products/services</li>
+      <li><strong>Marketing</strong> — promoting the brand</li>
+      <li><strong>IT / Tech</strong> — systems and technology</li>
+      <li><strong>Legal / Compliance</strong> — contracts and regulations</li>
+      <li><strong>Operations</strong> — day-to-day running of the business</li>
+      <li><strong>Customer Service / Support</strong> — handling clients</li>
+      <li><strong>R&amp;D (Research &amp; Development)</strong> — innovation</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Daily Office Tasks</h3>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>Meaning</th></tr>
+  <tr><td class="word">to attend a meeting</td><td>to be present at a formal discussion</td></tr>
+  <tr><td class="word">to meet a deadline</td><td>to complete work by a required date/time</td></tr>
+  <tr><td class="word">to chase someone</td><td>to follow up with someone who hasn't responded</td></tr>
+  <tr><td class="word">to cc someone</td><td>to copy someone into an email</td></tr>
+  <tr><td class="word">to sign off on something</td><td>to formally approve something</td></tr>
+  <tr><td class="word">to delegate</td><td>to assign tasks to others</td></tr>
+  <tr><td class="word">to be on annual leave</td><td>to be on holiday (British) / vacation (American)</td></tr>
+  <tr><td class="word">to work from home (WFH)</td><td>to carry out your job from home</td></tr>
+  <tr><td class="word">to clock in / out</td><td>to register the start/end of a working shift</td></tr>
+  <tr><td class="word">to submit a report</td><td>to formally send a document to your manager</td></tr>
+</table></div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vw02 -->
+<section id="vw02">
+<h2>Meetings <span class="sec-id">vw02</span></h2>
+<div class="banner">Meetings are where careers are made or stalled. Knowing the vocabulary helps you contribute, lead, and follow up confidently.</div>
+
+<h3>Scheduling a Meeting</h3>
+<div class="phrase"><strong>Scheduling Phrases</strong>
+  <ul>
+    <li>"I'd like to schedule a call to discuss the project timeline."</li>
+    <li>"Are you free on Thursday afternoon?"</li>
+    <li>"Would Tuesday at 2pm work for you?"</li>
+    <li>"I'll send a calendar invite now."</li>
+    <li>"Could we push the meeting back by 30 minutes?"</li>
+    <li>"I'm afraid I have a conflict at that time — could we reschedule?"</li>
+    <li>"Let me check my diary and get back to you."</li>
+  </ul>
+</div>
+
+<h3>Running a Meeting</h3>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>Purpose</th></tr>
+  <tr><td class="word">"Let's get started."</td><td>opening the meeting</td></tr>
+  <tr><td class="word">"Today's agenda covers three points."</td><td>outlining the structure</td></tr>
+  <tr><td class="word">"I'll hand over to [name] to present the figures."</td><td>passing the floor to someone</td></tr>
+  <tr><td class="word">"Can we come back to that point later?"</td><td>parking an issue to stay on track</td></tr>
+  <tr><td class="word">"Let's take a five-minute break."</td><td>calling a break</td></tr>
+  <tr><td class="word">"We're running over time — let's wrap up."</td><td>closing when overrunning</td></tr>
+  <tr><td class="word">"To summarise what we've agreed…"</td><td>recapping decisions</td></tr>
+  <tr><td class="word">"I'll send the minutes afterwards."</td><td>promising written notes</td></tr>
+</table></div>
+
+<h3>Agreeing &amp; Disagreeing Professionally</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Agreeing</div>
+    <ul>
+      <li>"That's a great point."</li>
+      <li>"I'm fully on board with that."</li>
+      <li>"That aligns with my thinking exactly."</li>
+      <li>"Absolutely — let's go with that approach."</li>
+      <li>"I think that's the right way to go."</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Disagreeing Diplomatically</div>
+    <ul>
+      <li>"I take your point, but I have some concerns."</li>
+      <li>"Could we explore an alternative approach?"</li>
+      <li>"I'm not entirely convinced — here's why."</li>
+      <li>"That might work, but what about…?"</li>
+      <li>"With respect, I see it slightly differently."</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Action Items &amp; Follow-Up</h3>
+<div class="tip"><strong>After the Meeting</strong>
+  <ul>
+    <li><strong>action item</strong> — a task assigned to a specific person with a deadline</li>
+    <li><strong>minutes</strong> — written record of what was discussed and decided</li>
+    <li><strong>follow up</strong> — to check on progress after the meeting</li>
+    <li><strong>circulate</strong> — to share a document with all participants</li>
+    <li>"I'll circulate the minutes by end of day."</li>
+    <li>"Your action item is to send the proposal by Friday."</li>
+    <li>"Can we schedule a follow-up call next week?"</li>
+  </ul>
+</div>
+<div class="trick"><strong>Memory Trick</strong> <em>Minutes</em> in a meeting context has nothing to do with time — it refers to the written notes. The name comes from the Latin <em>minuta scriptura</em> meaning "small writing."</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vw03 -->
+<section id="vw03">
+<h2>Emails <span class="sec-id">vw03</span></h2>
+<div class="banner">Professional emails are often your first impression — clear, well-structured writing builds credibility and gets responses.</div>
+
+<h3>Formal vs Informal Tone</h3>
+<div class="table-wrap"><table>
+  <tr><th>Formal</th><th>Informal Equivalent</th></tr>
+  <tr><td>Dear Mr / Ms [Surname],</td><td>Hi [First name],</td></tr>
+  <tr><td>I hope this email finds you well.</td><td>Hope you're doing well! / How are things?</td></tr>
+  <tr><td>I am writing to enquire about…</td><td>I wanted to ask about…</td></tr>
+  <tr><td>Please find attached…</td><td>I've attached… / Here's the file.</td></tr>
+  <tr><td>I would be grateful if you could…</td><td>Could you…? / Any chance you could…?</td></tr>
+  <tr><td>I look forward to hearing from you.</td><td>Let me know what you think! / Speak soon.</td></tr>
+  <tr><td>Yours sincerely, / Yours faithfully,</td><td>Best, / Cheers, / Thanks,</td></tr>
+</table></div>
+
+<h3>Email Openings</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">When You Know the Person</div>
+    <ul>
+      <li>"Thank you for your email."</li>
+      <li>"Following up on our conversation yesterday…"</li>
+      <li>"As discussed in today's meeting…"</li>
+      <li>"I hope you had a good weekend."</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">First Contact / Formal</div>
+    <ul>
+      <li>"My name is [X] and I am contacting you regarding…"</li>
+      <li>"I was referred to you by [name]."</li>
+      <li>"I am reaching out to discuss a potential opportunity."</li>
+      <li>"I came across your profile on LinkedIn and…"</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Common Email Phrases</h3>
+<div class="table-wrap"><table>
+  <tr><th>Purpose</th><th>Phrase</th></tr>
+  <tr><td>Giving reason for writing</td><td class="word">"I am writing to inform you / request / confirm…"</td></tr>
+  <tr><td>Attaching a file</td><td class="word">"Please find the report attached."</td></tr>
+  <tr><td>Requesting action</td><td class="word">"Could you please review and send your feedback by Friday?"</td></tr>
+  <tr><td>Apologising for delay</td><td class="word">"I apologise for the delayed response."</td></tr>
+  <tr><td>Acknowledging receipt</td><td class="word">"Thank you for sending this over."</td></tr>
+  <tr><td>Clarifying a point</td><td class="word">"Just to clarify, the deadline is the 15th, not the 20th."</td></tr>
+  <tr><td>Chasing a response</td><td class="word">"I just wanted to follow up on my email from Monday."</td></tr>
+  <tr><td>Signing off</td><td class="word">"Please do not hesitate to contact me if you have any questions."</td></tr>
+</table></div>
+
+<h3>Subject Lines</h3>
+<div class="tip"><strong>Effective Subject Line Patterns</strong>
+  <ul>
+    <li><strong>Action required:</strong> "Action Required: Please Review Contract by Thursday"</li>
+    <li><strong>For information:</strong> "FYI: Updated Office Policy on Remote Working"</li>
+    <li><strong>Follow-up:</strong> "Following Up: Design Proposal — [Your Name]"</li>
+    <li><strong>Request:</strong> "Request for Budget Approval — Q3 Marketing Campaign"</li>
+    <li><strong>Meeting:</strong> "Meeting Invitation: Quarterly Review — 14 March, 2pm"</li>
+    <li><strong>Introduction:</strong> "Introduction: [Your Name], New Account Manager"</li>
+  </ul>
+</div>
+<div class="warn"><strong>Common Email Mistakes to Avoid</strong>
+  <ul>
+    <li>Writing a blank subject line — always include one</li>
+    <li>"Dear Sir/Madam" when you know the name — use their name</li>
+    <li>"Yours faithfully" when you used the person's name — use "Yours sincerely"</li>
+    <li>Overusing "ASAP" — try "by end of day" or "by [specific date]" instead</li>
+    <li>Forgetting the attachment you mentioned in the email</li>
+  </ul>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vw04 -->
+<section id="vw04">
+<h2>Presentations <span class="sec-id">vw04</span></h2>
+<div class="banner">A well-structured presentation uses specific language to guide your audience from start to finish. These phrases signal clearly what is coming next.</div>
+
+<h3>Structure Words &amp; Signposting</h3>
+<div class="table-wrap"><table>
+  <tr><th>Stage</th><th>Phrase</th><th>Example</th></tr>
+  <tr><td>Opening</td><td class="word">Good morning everyone. Today I'll be presenting…</td><td class="ex">"Good morning everyone. Today I'll be presenting our Q3 results."</td></tr>
+  <tr><td>Agenda</td><td class="word">I'll cover three main areas…</td><td class="ex">"I'll cover three main areas: context, findings, and recommendations."</td></tr>
+  <tr><td>First point</td><td class="word">To begin with / Firstly…</td><td class="ex">"To begin with, let's look at the market context."</td></tr>
+  <tr><td>Adding a point</td><td class="word">In addition / Furthermore / Moreover…</td><td class="ex">"Moreover, customer satisfaction scores have improved by 12%."</td></tr>
+  <tr><td>Contrasting</td><td class="word">However / On the other hand / That said…</td><td class="ex">"However, costs have also increased in the same period."</td></tr>
+  <tr><td>Emphasising</td><td class="word">It's worth noting that… / Crucially…</td><td class="ex">"It's worth noting that this is the highest growth we've seen in five years."</td></tr>
+  <tr><td>Giving an example</td><td class="word">For instance / Take, for example…</td><td class="ex">"For instance, the London region outperformed targets by 18%."</td></tr>
+  <tr><td>Moving on</td><td class="word">Moving on to… / Let's now turn to…</td><td class="ex">"Let's now turn to the recommendations."</td></tr>
+  <tr><td>Summarising</td><td class="word">To summarise / In summary…</td><td class="ex">"To summarise: we are on track, but need to address costs."</td></tr>
+  <tr><td>Concluding</td><td class="word">In conclusion / To conclude…</td><td class="ex">"In conclusion, I recommend we proceed with Option B."</td></tr>
+</table></div>
+
+<h3>Visual Aids Language</h3>
+<div class="phrase"><strong>Referring to Slides &amp; Charts</strong>
+  <ul>
+    <li>"As you can see on this slide…"</li>
+    <li>"This chart illustrates the year-on-year growth."</li>
+    <li>"The figures on the left show revenue; on the right, costs."</li>
+    <li>"I'd like to draw your attention to the bottom line here."</li>
+    <li>"This graph shows a clear upward trend from 2022 onwards."</li>
+    <li>"If you look at the pie chart, you'll notice that…"</li>
+    <li>"The red bars represent last year; the blue bars, this year."</li>
+  </ul>
+</div>
+
+<h3>Handling Questions</h3>
+<div class="table-wrap"><table>
+  <tr><th>Situation</th><th>Phrase</th></tr>
+  <tr><td>Welcoming questions</td><td class="word">"Please feel free to ask questions at the end."</td></tr>
+  <tr><td>Checking understanding</td><td class="word">"Does that make sense? Are there any questions so far?"</td></tr>
+  <tr><td>Answering confidently</td><td class="word">"That's a great question. The answer is…"</td></tr>
+  <tr><td>Buying thinking time</td><td class="word">"Let me just think about that for a moment."</td></tr>
+  <tr><td>You don't know the answer</td><td class="word">"I don't have that data to hand — I'll find out and come back to you."</td></tr>
+  <tr><td>Deferring to later</td><td class="word">"Could we hold that thought until the end? I'll address it then."</td></tr>
+  <tr><td>Closing Q&amp;A</td><td class="word">"If there are no further questions, I'll leave it there — thank you!"</td></tr>
+</table></div>
+
+<div class="trick"><strong>Presenter's Secret</strong> Start with "Good morning/afternoon" not "Um, so…". End with "Thank you for your time and attention." These two sentences alone make you sound 50% more polished.</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vw05 -->
+<section id="vw05">
+<h2>Job Interviews <span class="sec-id">vw05</span></h2>
+<div class="banner">Interviewers want to hear confident, structured, and honest answers. Learning these phrases helps you sound professional even when nervous.</div>
+
+<h3>Common Interview Questions &amp; Strong Answers</h3>
+<div class="table-wrap"><table>
+  <tr><th>Question</th><th>Strong Answer Starter</th></tr>
+  <tr><td>"Tell me about yourself."</td><td class="word">"I have [X] years of experience in [field]. Most recently, I was [role] at [company], where I…"</td></tr>
+  <tr><td>"Why do you want this role?"</td><td class="word">"I'm particularly drawn to this role because… and I believe my background in… makes me a strong fit."</td></tr>
+  <tr><td>"What are your strengths?"</td><td class="word">"One of my key strengths is [X]. For example, in my previous role I…"</td></tr>
+  <tr><td>"What is your greatest weakness?"</td><td class="word">"I used to struggle with [X], but I've actively worked on this by…"</td></tr>
+  <tr><td>"Give me an example of a challenge you overcame."</td><td class="word">"In my previous role, we faced [situation]. I [action I took], which resulted in [positive outcome]."</td></tr>
+  <tr><td>"Where do you see yourself in five years?"</td><td class="word">"I'd like to grow into a more senior position where I can… and I see this company as the ideal place to develop those skills."</td></tr>
+  <tr><td>"Why did you leave your last job?"</td><td class="word">"I'm looking for a new challenge / I wanted to develop my skills in [area] / The company was restructuring."</td></tr>
+  <tr><td>"Do you have any questions for us?"</td><td class="word">"Yes — what does success look like in this role after six months?"</td></tr>
+</table></div>
+
+<h3>Talking About Experience</h3>
+<div class="tip"><strong>STAR Method — Answer Structure</strong>
+  <ul>
+    <li><strong>S — Situation:</strong> "At my previous company, we had a problem with…"</li>
+    <li><strong>T — Task:</strong> "My responsibility was to…"</li>
+    <li><strong>A — Action:</strong> "I decided to… / I led a team to… / I introduced a new system…"</li>
+    <li><strong>R — Result:</strong> "As a result, we reduced costs by 20% / the project was delivered on time / customer complaints fell by 30%."</li>
+  </ul>
+  <p style="margin-top:.5rem">Always try to quantify your results — numbers make your answers memorable and credible.</p>
+</div>
+
+<h3>Strengths &amp; Weaknesses Vocabulary</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Positive Strengths to Mention</div>
+    <ul>
+      <li>analytical thinking</li>
+      <li>attention to detail</li>
+      <li>strong communication skills</li>
+      <li>ability to work under pressure</li>
+      <li>team player / collaborative</li>
+      <li>proactive / self-motivated</li>
+      <li>adaptable to change</li>
+      <li>problem-solving ability</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Weaknesses (with improvement)</div>
+    <ul>
+      <li>"I used to take on too much at once — I now prioritise using a task management system."</li>
+      <li>"I was sometimes too detail-focused, slowing projects down — I now set time limits per task."</li>
+      <li>"Public speaking made me nervous — I joined a Toastmasters group to build confidence."</li>
+      <li>"I found it hard to delegate — I've been consciously trusting my team more."</li>
+    </ul>
+  </div>
+</div>
+
+<div class="green-box"><strong>Questions to Ask at the End</strong>
+  <ul>
+    <li>"What are the biggest challenges someone in this role typically faces?"</li>
+    <li>"How would you describe the team culture here?"</li>
+    <li>"What opportunities are there for professional development?"</li>
+    <li>"What does the onboarding process look like?"</li>
+    <li>"What are the next steps in your selection process?"</li>
+  </ul>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vw06 -->
+<section id="vw06">
+<h2>Workplace Conversations <span class="sec-id">vw06</span></h2>
+<div class="banner">Day-to-day work involves far more informal chat than formal meetings. These phrases help you build relationships and collaborate smoothly.</div>
+
+<h3>Small Talk at Work</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Arriving in the Morning</div>
+    <ul>
+      <li>"Morning! Sleep well?"</li>
+      <li>"How was your commute?"</li>
+      <li>"Is it cold out there today?"</li>
+      <li>"Did you catch the game last night?"</li>
+      <li>"Any big plans for the week?"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Around the Office</div>
+    <ul>
+      <li>"Fancy a coffee?" / "Can I grab you anything from the kitchen?"</li>
+      <li>"Did you hear about the new project?"</li>
+      <li>"How's [project name] going?"</li>
+      <li>"Nearly Friday!" / "Thank goodness it's Friday."</li>
+      <li>"Have a good weekend!" / "See you Monday!"</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Asking for Help</h3>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>When to Use</th></tr>
+  <tr><td class="word">"Would you be able to help me with this?"</td><td>polite, general request</td></tr>
+  <tr><td class="word">"I'm a bit stuck on this — do you have a moment?"</td><td>informal, when you're blocked</td></tr>
+  <tr><td class="word">"I just want to make sure I've understood this correctly."</td><td>before asking for clarification</td></tr>
+  <tr><td class="word">"Could you talk me through the process?"</td><td>asking for a step-by-step explanation</td></tr>
+  <tr><td class="word">"Who's the best person to speak to about…?"</td><td>finding the right contact</td></tr>
+  <tr><td class="word">"No rush on this — whenever you have a spare moment."</td><td>making a non-urgent request feel easier</td></tr>
+</table></div>
+
+<h3>Giving Instructions</h3>
+<div class="phrase"><strong>Instruction Language</strong>
+  <ul>
+    <li>"First, open the spreadsheet and go to the second tab."</li>
+    <li>"Make sure you save a copy before making any changes."</li>
+    <li>"Once you've done that, send it to me for review."</li>
+    <li>"If you run into any issues, just give me a shout."</li>
+    <li>"The key thing to remember is…"</li>
+    <li>"Let me know if anything isn't clear."</li>
+    <li>"Can I check you're happy with what needs to be done?"</li>
+  </ul>
+</div>
+
+<h3>Giving &amp; Receiving Feedback</h3>
+<div class="table-wrap"><table>
+  <tr><th>Giving Positive Feedback</th><th>Giving Constructive Feedback</th></tr>
+  <tr>
+    <td><ul style="margin:0;padding-left:1.2rem"><li>"This is really well done."</li><li>"You handled that brilliantly."</li><li>"Great work on the presentation."</li><li>"I really liked how you structured this."</li></ul></td>
+    <td><ul style="margin:0;padding-left:1.2rem"><li>"One thing to think about for next time…"</li><li>"It would be even stronger if you…"</li><li>"I noticed [issue] — have you considered…?"</li><li>"This is good overall — just a few tweaks."</li></ul></td>
+  </tr>
+</table></div>
+
+<div class="trick"><strong>The Feedback Sandwich</strong> A classic technique: say something positive → give your suggestion for improvement → end with something positive again. Example: "Really clear writing — I'd suggest adding a summary at the end — overall very professional work."</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vw07 -->
+<section id="vw07">
+<h2>Reports &amp; Documents <span class="sec-id">vw07</span></h2>
+<div class="banner">Formal written English uses specific vocabulary that signals professionalism. Learn these patterns to write reports that are clear, credible, and polished.</div>
+
+<h3>Formal Vocabulary for Writing</h3>
+<div class="table-wrap"><table>
+  <tr><th>Informal Word</th><th>Formal Equivalent</th><th>Example</th></tr>
+  <tr><td>get</td><td class="word">obtain / receive / acquire</td><td class="ex">"The company obtained planning permission last month."</td></tr>
+  <tr><td>show</td><td class="word">demonstrate / illustrate / indicate</td><td class="ex">"The data indicates a significant decline in sales."</td></tr>
+  <tr><td>use</td><td class="word">utilise / employ / implement</td><td class="ex">"The team implemented a new tracking system."</td></tr>
+  <tr><td>need</td><td class="word">require / necessitate</td><td class="ex">"This project will require additional funding."</td></tr>
+  <tr><td>think</td><td class="word">consider / believe / conclude</td><td class="ex">"It is considered best practice to review quarterly."</td></tr>
+  <tr><td>say</td><td class="word">state / note / report / indicate</td><td class="ex">"The report notes that costs have risen by 15%."</td></tr>
+  <tr><td>help</td><td class="word">facilitate / assist / support / enable</td><td class="ex">"This system facilitates efficient data management."</td></tr>
+  <tr><td>look at</td><td class="word">examine / analyse / assess / evaluate</td><td class="ex">"The committee evaluated three potential strategies."</td></tr>
+  <tr><td>find out</td><td class="word">ascertain / determine / establish</td><td class="ex">"Further research is needed to establish the cause."</td></tr>
+  <tr><td>do</td><td class="word">conduct / carry out / perform / undertake</td><td class="ex">"A review was conducted in January."</td></tr>
+</table></div>
+
+<h3>Transition Words in Reports</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Adding Information</div>
+    <ul>
+      <li>Furthermore, … / Moreover, …</li>
+      <li>In addition to this, …</li>
+      <li>It should also be noted that …</li>
+      <li>A further consideration is …</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Contrasting</div>
+    <ul>
+      <li>However, … / Nevertheless, …</li>
+      <li>Despite this, … / In spite of …</li>
+      <li>On the other hand, …</li>
+      <li>Whilst this is true, it should be noted…</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Cause &amp; Effect</div>
+    <ul>
+      <li>As a result, … / Consequently, …</li>
+      <li>This led to … / This resulted in …</li>
+      <li>Due to … / Owing to …</li>
+      <li>Therefore, … / Thus, …</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Concluding</div>
+    <ul>
+      <li>In conclusion, … / To summarise, …</li>
+      <li>On balance, … / Overall, …</li>
+      <li>It is recommended that …</li>
+      <li>Based on the above findings, …</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Hedging Language</h3>
+<p>Hedging softens claims — it shows you are being careful rather than overstating facts. This is highly valued in formal writing.</p>
+<div class="table-wrap"><table>
+  <tr><th>Direct (avoid in reports)</th><th>Hedged (preferred)</th></tr>
+  <tr><td>"This will solve the problem."</td><td class="word">"This is likely to help address the issue."</td></tr>
+  <tr><td>"The product failed because of poor quality."</td><td class="word">"The decline may be partly attributable to quality concerns."</td></tr>
+  <tr><td>"Customers don't like the new design."</td><td class="word">"Customer feedback suggests some dissatisfaction with the new design."</td></tr>
+  <tr><td>"This proves that sales will increase."</td><td class="word">"The data indicates a potential improvement in sales."</td></tr>
+  <tr><td>"We must change this immediately."</td><td class="word">"It would be advisable to review this as a priority."</td></tr>
+</table></div>
+
+<div class="tip"><strong>Report Structure Template</strong>
+  <ol>
+    <li><strong>Executive Summary</strong> — one paragraph: purpose, key findings, main recommendation</li>
+    <li><strong>Introduction</strong> — background and scope of the report</li>
+    <li><strong>Findings</strong> — what the research/data shows</li>
+    <li><strong>Analysis</strong> — interpretation of the findings</li>
+    <li><strong>Recommendations</strong> — what should happen next</li>
+    <li><strong>Conclusion</strong> — brief summary, re-state the main recommendation</li>
+  </ol>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vw08 -->
+<section id="vw08">
+<h2>Professional Phrases <span class="sec-id">vw08</span></h2>
+<div class="banner">40 essential professional English phrases — with context, example sentences, and phonetic hints to help you say them confidently out loud.</div>
+
+<h3>On the Phone &amp; Video Calls</h3>
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Phrase</th><th>Context &amp; Example</th><th>Phonetic Hint</th></tr>
+  <tr>
+    <td class="num">1</td>
+    <td class="word">Speaking.</td>
+    <td class="ex">When someone calls and asks for you: "Could I speak to James?" → "Speaking."</td>
+    <td class="phonetic">SPEE-king</td>
+  </tr>
+  <tr>
+    <td class="num">2</td>
+    <td class="word">Could you hold for a moment?</td>
+    <td class="ex">Asking someone to wait briefly while you check something.</td>
+    <td class="phonetic">kud yoo HOLD fuh a MO-ment</td>
+  </tr>
+  <tr>
+    <td class="num">3</td>
+    <td class="word">I'm afraid she's not available right now. Can I take a message?</td>
+    <td class="ex">When the person called isn't there.</td>
+    <td class="phonetic">aim uh-FRAYD... kan eye TAKE a MES-ij</td>
+  </tr>
+  <tr>
+    <td class="num">4</td>
+    <td class="word">You're breaking up a little — could you repeat that?</td>
+    <td class="ex">On a poor connection; polite way to ask them to repeat.</td>
+    <td class="phonetic">yor BRAKE-ing UP... kud yoo re-PEET that</td>
+  </tr>
+  <tr>
+    <td class="num">5</td>
+    <td class="word">Let me just pull that up.</td>
+    <td class="ex">Looking for a document or file on your computer during a call.</td>
+    <td class="phonetic">let mee just PULL that UP</td>
+  </tr>
+</table></div>
+
+<h3>Emails &amp; Written Communication</h3>
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Phrase</th><th>Context &amp; Example</th><th>Phonetic Hint</th></tr>
+  <tr>
+    <td class="num">6</td>
+    <td class="word">As per my previous email…</td>
+    <td class="ex">Politely drawing attention to something you already said.</td>
+    <td class="phonetic">az PUR my PREE-vee-us EE-mayl</td>
+  </tr>
+  <tr>
+    <td class="num">7</td>
+    <td class="word">Please revert at your earliest convenience.</td>
+    <td class="ex">Formal way to ask someone to respond when they can (common in South Asian professional English).</td>
+    <td class="phonetic">pleez re-VERT at yor UR-lee-est kun-VEE-nyunce</td>
+  </tr>
+  <tr>
+    <td class="num">8</td>
+    <td class="word">I wanted to touch base regarding…</td>
+    <td class="ex">Checking in informally: "I wanted to touch base regarding the launch timeline."</td>
+    <td class="phonetic">touch BASE re-GAR-ding</td>
+  </tr>
+  <tr>
+    <td class="num">9</td>
+    <td class="word">Looping in [name] for visibility.</td>
+    <td class="ex">Adding someone to an email chain so they are informed.</td>
+    <td class="phonetic">LOOP-ing IN... for VIZ-uh-bil-ity</td>
+  </tr>
+  <tr>
+    <td class="num">10</td>
+    <td class="word">Please disregard my previous email.</td>
+    <td class="ex">When you sent something by mistake or need to correct it.</td>
+    <td class="phonetic">pleez dis-re-GARD my PREE-vee-us EE-mayl</td>
+  </tr>
+</table></div>
+
+<h3>In Meetings &amp; Discussions</h3>
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Phrase</th><th>Context &amp; Example</th><th>Phonetic Hint</th></tr>
+  <tr>
+    <td class="num">11</td>
+    <td class="word">Let's take this offline.</td>
+    <td class="ex">Suggesting a side conversation outside the main meeting to avoid derailing it.</td>
+    <td class="phonetic">lets TAKE this OFF-line</td>
+  </tr>
+  <tr>
+    <td class="num">12</td>
+    <td class="word">Can we circle back to that?</td>
+    <td class="ex">Deferring a topic to later in the meeting or a future meeting.</td>
+    <td class="phonetic">kan wee SUR-kul BAK to that</td>
+  </tr>
+  <tr>
+    <td class="num">13</td>
+    <td class="word">To piggyback on what [name] said…</td>
+    <td class="ex">Adding to a point someone else made: "To piggyback on what Sarah said, I'd also add…"</td>
+    <td class="phonetic">to PIG-ee-bak on wot... SED</td>
+  </tr>
+  <tr>
+    <td class="num">14</td>
+    <td class="word">Let's put a pin in that.</td>
+    <td class="ex">Pausing an idea to come back to it: avoids losing good thoughts without derailing.</td>
+    <td class="phonetic">lets put a PIN in that</td>
+  </tr>
+  <tr>
+    <td class="num">15</td>
+    <td class="word">I want to flag something before we move on.</td>
+    <td class="ex">Raising a concern or important point: "I want to flag something — the timeline assumes no delays."</td>
+    <td class="phonetic">I wont to FLAG SUM-thing</td>
+  </tr>
+  <tr>
+    <td class="num">16</td>
+    <td class="word">Can you walk us through that?</td>
+    <td class="ex">Asking someone to explain step by step.</td>
+    <td class="phonetic">kan yoo WAWK us THROO that</td>
+  </tr>
+  <tr>
+    <td class="num">17</td>
+    <td class="word">Who's the point of contact for this?</td>
+    <td class="ex">Asking who is responsible for a particular area.</td>
+    <td class="phonetic">hooz the POINT of KON-takt for THIS</td>
+  </tr>
+  <tr>
+    <td class="num">18</td>
+    <td class="word">Let's make sure we're aligned on this.</td>
+    <td class="ex">Checking everyone agrees before moving forward.</td>
+    <td class="phonetic">lets mayk SHOOR wer uh-LYND on this</td>
+  </tr>
+</table></div>
+
+<h3>Deadlines, Progress &amp; Prioritising</h3>
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Phrase</th><th>Context &amp; Example</th><th>Phonetic Hint</th></tr>
+  <tr>
+    <td class="num">19</td>
+    <td class="word">What's the turnaround time on this?</td>
+    <td class="ex">Asking how long something will take from start to delivery.</td>
+    <td class="phonetic">wots the TUR-nuh-rownd TYM on this</td>
+  </tr>
+  <tr>
+    <td class="num">20</td>
+    <td class="word">This is on my radar.</td>
+    <td class="ex">Saying you are aware of something and keeping track of it.</td>
+    <td class="phonetic">this iz on my RAY-dar</td>
+  </tr>
+  <tr>
+    <td class="num">21</td>
+    <td class="word">We're pushing back the deadline to Friday.</td>
+    <td class="ex">Delaying a deadline. "Pushing back" = moving it later.</td>
+    <td class="phonetic">wer PUSH-ing BAK the DED-line</td>
+  </tr>
+  <tr>
+    <td class="num">22</td>
+    <td class="word">This is a priority — can we fast-track it?</td>
+    <td class="ex">Asking to speed up the process on something urgent.</td>
+    <td class="phonetic">this iz a pry-OR-ity... FAST-trak it</td>
+  </tr>
+  <tr>
+    <td class="num">23</td>
+    <td class="word">I'm tied up this afternoon — can we reschedule?</td>
+    <td class="ex">"Tied up" = too busy to meet.</td>
+    <td class="phonetic">aim TYED UP this AF-ter-noon</td>
+  </tr>
+  <tr>
+    <td class="num">24</td>
+    <td class="word">We need to get the ball rolling on this.</td>
+    <td class="ex">Saying it's time to start a project or process.</td>
+    <td class="phonetic">wee need to get the BAWL ROH-ling on this</td>
+  </tr>
+  <tr>
+    <td class="num">25</td>
+    <td class="word">Just to keep you in the loop…</td>
+    <td class="ex">Sharing an update so someone stays informed.</td>
+    <td class="phonetic">just to keep yoo in the LOOP</td>
+  </tr>
+</table></div>
+
+<h3>Negotiations &amp; Decisions</h3>
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Phrase</th><th>Context &amp; Example</th><th>Phonetic Hint</th></tr>
+  <tr>
+    <td class="num">26</td>
+    <td class="word">We'll need to run this by legal first.</td>
+    <td class="ex">Saying something needs legal approval before proceeding.</td>
+    <td class="phonetic">weel need to RUN this by LEE-gul</td>
+  </tr>
+  <tr>
+    <td class="num">27</td>
+    <td class="word">Can we find a middle ground?</td>
+    <td class="ex">Suggesting a compromise during a negotiation.</td>
+    <td class="phonetic">kan wee FYND a MID-ul GROWND</td>
+  </tr>
+  <tr>
+    <td class="num">28</td>
+    <td class="word">We're prepared to be flexible on the timeline.</td>
+    <td class="ex">Showing willingness to adjust one element of a deal.</td>
+    <td class="phonetic">wer pre-PAIRD to be FLEX-uh-bul on the TYM-line</td>
+  </tr>
+  <tr>
+    <td class="num">29</td>
+    <td class="word">That's outside the scope of this project.</td>
+    <td class="ex">Declining to include extra work not in the original plan.</td>
+    <td class="phonetic">thats OWT-side the SKOPE of this PRO-jekt</td>
+  </tr>
+  <tr>
+    <td class="num">30</td>
+    <td class="word">We'll need to revisit this at the next review.</td>
+    <td class="ex">Deferring a decision to a more appropriate time.</td>
+    <td class="phonetic">weel need to REE-viz-it this at the NEXT re-VYOO</td>
+  </tr>
+</table></div>
+
+<h3>Building Rapport &amp; Culture</h3>
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Phrase</th><th>Context &amp; Example</th><th>Phonetic Hint</th></tr>
+  <tr>
+    <td class="num">31</td>
+    <td class="word">That's above my pay grade.</td>
+    <td class="ex">Saying something is beyond your level of authority — often said with a smile.</td>
+    <td class="phonetic">thats uh-BUV my PAY grayd</td>
+  </tr>
+  <tr>
+    <td class="num">32</td>
+    <td class="word">We're on the same page.</td>
+    <td class="ex">Confirming mutual understanding: "Good — I think we're on the same page now."</td>
+    <td class="phonetic">wer on the SAYM payj</td>
+  </tr>
+  <tr>
+    <td class="num">33</td>
+    <td class="word">Don't hesitate to reach out.</td>
+    <td class="ex">Encouraging someone to contact you with questions.</td>
+    <td class="phonetic">dohnt HEZ-uh-tayt to REECH owt</td>
+  </tr>
+  <tr>
+    <td class="num">34</td>
+    <td class="word">It's been a pleasure working with you.</td>
+    <td class="ex">At the end of a project or when someone leaves the company.</td>
+    <td class="phonetic">its ben a PLEH-zhur WUR-king with yoo</td>
+  </tr>
+  <tr>
+    <td class="num">35</td>
+    <td class="word">I'll keep you posted.</td>
+    <td class="ex">Promising to provide future updates.</td>
+    <td class="phonetic">Ill keep yoo POH-sted</td>
+  </tr>
+  <tr>
+    <td class="num">36</td>
+    <td class="word">We really hit the ground running.</td>
+    <td class="ex">The team or project started very productively from day one.</td>
+    <td class="phonetic">wee REE-lee hit the GROWND RUN-ing</td>
+  </tr>
+  <tr>
+    <td class="num">37</td>
+    <td class="word">Let's not reinvent the wheel.</td>
+    <td class="ex">Suggesting you use existing solutions rather than creating something unnecessarily from scratch.</td>
+    <td class="phonetic">lets NOT ree-in-VENT the WHEEL</td>
+  </tr>
+  <tr>
+    <td class="num">38</td>
+    <td class="word">I want to give credit where it's due.</td>
+    <td class="ex">Acknowledging someone's contribution publicly: "James drove this — I want to give credit where it's due."</td>
+    <td class="phonetic">I wont to give KRED-it wair its DYOO</td>
+  </tr>
+  <tr>
+    <td class="num">39</td>
+    <td class="word">Let's take stock of where we are.</td>
+    <td class="ex">Pausing to review current progress before deciding next steps.</td>
+    <td class="phonetic">lets TAYK STOK of wair wee AR</td>
+  </tr>
+  <tr>
+    <td class="num">40</td>
+    <td class="word">Thank you for your patience and understanding.</td>
+    <td class="ex">Closing a difficult conversation or apology professionally.</td>
+    <td class="phonetic">thank yoo for yor PAY-shunce and UN-der-STAN-ding</td>
+  </tr>
+</table></div>
+
+<div class="green-box"><strong>How to Use This Section</strong> Pick 5 phrases per week, say each one aloud three times using the phonetic hint, then try to use at least 2 in real conversation or writing by Friday. Small consistent practice is far more effective than trying to memorise all 40 at once.</div>
+</section>
+
+</div>
+</body>
+</html>

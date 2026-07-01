@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>A1 German — Tenses</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.changed { background: #1a3a5c !important; color: var(--gold); font-weight: 700; }
+.same { color: var(--fg-soft); }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.pronounce {
+  background: #1a0a2e; border: 1px solid var(--purple); border-left: 6px solid var(--purple);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+}
+.pronounce h4 { color: var(--purple); margin: 0 0 6px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* File-specific classes */
+.container { max-width: 860px; margin: 0 auto; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 2px solid var(--accent-dark); }
+section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem; margin-bottom: 2rem; }
+.trick { background: #1c1a00; border-left: 4px solid var(--gold); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.trick strong { color: var(--gold); display: block; margin-bottom: .3rem; }
+.situation { background: #0c2039; border-left: 4px solid var(--accent); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.situation strong { color: var(--accent); display: block; margin-bottom: .3rem; }
+.mistake { background: #2d0a0a; border-left: 4px solid var(--red); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.mistake strong { color: var(--red); display: block; margin-bottom: .3rem; }
+.analogy { background: #1a0533; border-left: 4px solid var(--purple); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.analogy strong { color: var(--purple); display: block; margin-bottom: .3rem; }
+.formula { background: #0a1628; border: 2px solid var(--accent); border-radius: 10px; padding: 1rem 1.4rem; font-size: 1.05rem; color: var(--fg); margin: 1rem 0; text-align: center; }
+.formula span { color: var(--accent); font-weight: 700; }
+.dtree { margin: .8rem 0; }
+.dtree-node { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .7rem 1rem; margin: .4rem 0; }
+.dtree-yes { color: var(--green); font-weight: 600; }
+.dtree-no { color: var(--red); font-weight: 600; }
+.dtree-arrow { color: var(--fg-soft); font-size: .85rem; padding-left: 1rem; }
+.chip { display: inline-block; padding: .2rem .6rem; border-radius: 20px; font-size: .8rem; font-weight: 600; margin: .2rem; }
+.chip-g { background: #052e16; color: var(--green); border: 1px solid var(--green); }
+.chip-b { background: #0c1a2e; color: var(--accent); border: 1px solid var(--accent); }
+.chip-r { background: #2d0a0a; color: var(--red); border: 1px solid var(--red); }
+.chip-a { background: #1c1a00; color: var(--gold); border: 1px solid var(--gold); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+@media(max-width:600px) { .grid2 { grid-template-columns: 1fr; } }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.card-title { font-weight: 700; margin-bottom: .4rem; font-size: 1rem; }
+.hi { color: var(--gold); font-weight: 600; }
+.dim { color: var(--fg-soft); }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header">
+  <div class="badge">A1 German · Tenses</div>
+  <h1>⏱ Tenses in German A1</h1>
+  <p>Perfekt · haben vs sein · Partizip II · Präteritum · war &amp; hatte</p>
+</div>
+
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#t01">Overview</a>
+  <a href="#t02">Perfekt Structure</a>
+  <a href="#t03">haben vs sein</a>
+  <a href="#t04">Partizip II</a>
+  <a href="#t05">Irregular Partizip</a>
+  <a href="#t06">Separable &amp; Insep.</a>
+  <a href="#t07">Präteritum Intro</a>
+  <a href="#t08">war &amp; hatte</a>
+  <a href="#t09">Perfekt vs Präteritum</a>
+  <a href="#t10">Common Mistakes</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ──────────────────────────────────── t01 -->
+<section id="t01">
+<h2>Overview — German Tenses at A1</h2>
+<p>German has several tenses, but at A1 you only need to know <strong>two</strong>:</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title" style="color:var(--green)">Perfekt</div>
+    <p>Used in <strong>everyday speech</strong> to talk about completed past actions.</p>
+    <p><em>"Ich habe Kaffee getrunken."</em><br><span class="dim">I drank coffee.</span></p>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--gold)">Präteritum</div>
+    <p>Used in <strong>written German</strong>, stories, news. In speech: only <em>war</em> and <em>hatte</em>.</p>
+    <p><em>"Ich war müde."</em><br><span class="dim">I was tired.</span></p>
+  </div>
+</div>
+
+<div class="analogy">
+  <strong>🧩 Analogy — English comparison</strong>
+  Perfekt ≈ "I have eaten" or "I ate" (both!).<br>
+  German uses Perfekt for both! Unlike English, Germans rarely say the past simple in conversation — they always go Perfekt.
+</div>
+
+<div class="teach">
+  <strong>📌 The Big Rule</strong>
+  In everyday speaking: <strong>Use Perfekt for everything in the past</strong> — EXCEPT for <em>war</em> (was) and <em>hatte</em> (had), which you always say in Präteritum even in casual speech.
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t02 -->
+<section id="t02">
+<h2>Perfekt — Sentence Structure</h2>
+<p>The Perfekt tense uses <strong>two parts</strong>: a helper verb + Partizip II (past participle).</p>
+
+<div class="formula">
+Subject + <span>haben/sein</span> + ... + <span>Partizip II</span>
+</div>
+
+<p>The helper verb (<em>haben</em> or <em>sein</em>) is in position 2. The Partizip II goes to the <strong>very end</strong> of the sentence.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>Subject</th><th>Helper</th><th>Middle</th><th>Partizip II</th></tr>
+  <tr><td>Ich</td><td class="hi">habe</td><td>Kaffee</td><td class="hi">getrunken</td></tr>
+  <tr><td>Sie</td><td class="hi">hat</td><td>das Buch</td><td class="hi">gelesen</td></tr>
+  <tr><td>Er</td><td class="hi">ist</td><td>nach Hause</td><td class="hi">gegangen</td></tr>
+  <tr><td>Wir</td><td class="hi">haben</td><td>Fußball</td><td class="hi">gespielt</td></tr>
+  <tr><td>Ich</td><td class="hi">bin</td><td>früh</td><td class="hi">aufgestanden</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 Memory trick — The Verb Sandwich</strong>
+  Think of the sentence as a sandwich: the helper verb is the top slice (position 2), the Partizip II is the bottom slice (end), and all the other words are the filling in between. The verb always wraps around the content.
+</div>
+
+<h3>Perfekt in Questions</h3>
+<div class="table-wrap"><table>
+  <tr><th>Type</th><th>Structure</th><th>Example</th></tr>
+  <tr><td>Yes/No</td><td>Helper + Subject + ... + Partizip II?</td><td><em>Hast du geschlafen?</em></td></tr>
+  <tr><td>W-Question</td><td>W-word + Helper + Subject + ... + Partizip II?</td><td><em>Was hast du gegessen?</em></td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Real Situation — Monday morning at work</strong>
+  Your colleague asks: <em>"Was hast du am Wochenende gemacht?"</em> (What did you do at the weekend?)<br>
+  You answer: <em>"Ich habe Freunde besucht und Filme geschaut."</em> (I visited friends and watched films.)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t03 -->
+<section id="t03">
+<h2>haben vs sein — Which Helper Verb?</h2>
+<p>This is the hardest part of Perfekt. You must choose between <em>habe/hat/hast</em> and <em>bin/ist/bist</em>.</p>
+
+<div class="teach">
+  <strong>📌 The Rule in One Sentence</strong>
+  Use <strong>sein</strong> for verbs that describe <em>movement from A to B</em> or a <em>change of state</em>. Use <strong>haben</strong> for everything else.
+</div>
+
+<h3>Decision Tree — haben or sein?</h3>
+<div class="dtree">
+  <div class="dtree-node">❓ Does the verb describe movement from one place to another?</div>
+  <div class="dtree-arrow">➡ <span class="dtree-yes">YES</span> → Use <strong>sein</strong> (e.g. <em>gehen, fahren, fliegen, kommen, laufen, reisen</em>)</div>
+  <div class="dtree-arrow">➡ <span class="dtree-no">NO</span> → Continue ↓</div>
+  <div class="dtree-node">❓ Does the verb describe a change of state / condition?</div>
+  <div class="dtree-arrow">➡ <span class="dtree-yes">YES</span> → Use <strong>sein</strong> (e.g. <em>aufwachen, einschlafen, werden, sterben, aufstehen</em>)</div>
+  <div class="dtree-arrow">➡ <span class="dtree-no">NO</span> → Use <strong>haben</strong></div>
+</div>
+
+<div class="grid2">
+  <div class="card" style="border-color:var(--accent)">
+    <div class="card-title" style="color:var(--accent)">sein — Movement &amp; Change</div>
+    <ul>
+      <li>gehen → ist gegangen</li>
+      <li>fahren → ist gefahren</li>
+      <li>fliegen → ist geflogen</li>
+      <li>kommen → ist gekommen</li>
+      <li>laufen → ist gelaufen</li>
+      <li>reisen → ist gereist</li>
+      <li>aufwachen → ist aufgewacht</li>
+      <li>einschlafen → ist eingeschlafen</li>
+      <li>aufstehen → ist aufgestanden</li>
+      <li>werden → ist geworden</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:var(--green)">
+    <div class="card-title" style="color:var(--green)">haben — Everything Else</div>
+    <ul>
+      <li>essen → hat gegessen</li>
+      <li>trinken → hat getrunken</li>
+      <li>kaufen → hat gekauft</li>
+      <li>spielen → hat gespielt</li>
+      <li>arbeiten → hat gearbeitet</li>
+      <li>machen → hat gemacht</li>
+      <li>sehen → hat gesehen</li>
+      <li>hören → hat gehört</li>
+      <li>lesen → hat gelesen</li>
+      <li>schreiben → hat geschrieben</li>
+    </ul>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>💡 The MOVES trick for sein verbs</strong>
+  <strong>M</strong>ovement from A to B (gehen, fahren, laufen)<br>
+  <strong>O</strong>nset of sleep / waking (einschlafen, aufwachen)<br>
+  <strong>V</strong>anishing / dying (sterben, verschwinden)<br>
+  <strong>E</strong>ntering a new state (werden, aufstehen)<br>
+  <strong>S</strong>pecials: bleiben (stay), passieren (happen), sein (be)
+</div>
+
+<div class="trick">
+  <strong>💡 Special sein verbs (memorise these!)</strong>
+  <em>bleiben</em> = stay → <strong>ist geblieben</strong> (no movement! but sein anyway)<br>
+  <em>passieren</em> = happen → <strong>ist passiert</strong><br>
+  <em>sein</em> = be → <strong>ist gewesen</strong><br>
+  These three are exceptions — just memorise them.
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>German Sentence</th><th>English</th><th>Why sein?</th></tr>
+  <tr><td><em>Ich bin nach Berlin gefahren.</em></td><td>I drove to Berlin.</td><td>Movement A→B</td></tr>
+  <tr><td><em>Er ist um 7 aufgewacht.</em></td><td>He woke up at 7.</td><td>Change of state</td></tr>
+  <tr><td><em>Sie ist Ärztin geworden.</em></td><td>She became a doctor.</td><td>Change of state</td></tr>
+  <tr><td><em>Wir sind zu Hause geblieben.</em></td><td>We stayed at home.</td><td>Special: bleiben</td></tr>
+  <tr><td><em>Ich habe Pizza gegessen.</em></td><td>I ate pizza.</td><td>No movement/change</td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── t04 -->
+<section id="t04">
+<h2>Partizip II — How to Form It</h2>
+<p>The Partizip II (past participle) is the key building block of Perfekt. There are clear rules:</p>
+
+<h3>Regular Verbs — ge + stem + t</h3>
+<div class="formula">
+ge + <span>verb stem</span> + t
+</div>
+<div class="table-wrap"><table>
+  <tr><th>Infinitive</th><th>Stem</th><th>Partizip II</th><th>Example</th></tr>
+  <tr><td>spielen</td><td>spiel</td><td class="hi">gespielt</td><td><em>Ich habe gespielt.</em></td></tr>
+  <tr><td>kaufen</td><td>kauf</td><td class="hi">gekauft</td><td><em>Sie hat gekauft.</em></td></tr>
+  <tr><td>machen</td><td>mach</td><td class="hi">gemacht</td><td><em>Er hat gemacht.</em></td></tr>
+  <tr><td>hören</td><td>hör</td><td class="hi">gehört</td><td><em>Wir haben gehört.</em></td></tr>
+  <tr><td>sagen</td><td>sag</td><td class="hi">gesagt</td><td><em>Du hast gesagt.</em></td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 The -et ending rule</strong>
+  If the stem ends in -t or -d, add <strong>-et</strong> instead of just -t to make it pronounceable:<br>
+  <em>arbeiten</em> → gearbeit<strong>et</strong><br>
+  <em>warten</em> → gewart<strong>et</strong>
+</div>
+
+<h3>Irregular Verbs — ge + changed-stem + en</h3>
+<div class="formula">
+ge + <span>changed stem</span> + en
+</div>
+<p>These must be memorised — the stem changes, and the ending is <strong>-en</strong>.</p>
+<div class="table-wrap"><table>
+  <tr><th>Infinitive</th><th>Partizip II</th><th>Example</th></tr>
+  <tr><td>essen</td><td class="hi">gegessen</td><td><em>Ich habe gegessen.</em></td></tr>
+  <tr><td>trinken</td><td class="hi">getrunken</td><td><em>Er hat getrunken.</em></td></tr>
+  <tr><td>fahren</td><td class="hi">gefahren</td><td><em>Sie ist gefahren.</em></td></tr>
+  <tr><td>gehen</td><td class="hi">gegangen</td><td><em>Wir sind gegangen.</em></td></tr>
+  <tr><td>schreiben</td><td class="hi">geschrieben</td><td><em>Du hast geschrieben.</em></td></tr>
+  <tr><td>lesen</td><td class="hi">gelesen</td><td><em>Ich habe gelesen.</em></td></tr>
+  <tr><td>sehen</td><td class="hi">gesehen</td><td><em>Er hat gesehen.</em></td></tr>
+  <tr><td>kommen</td><td class="hi">gekommen</td><td><em>Sie ist gekommen.</em></td></tr>
+  <tr><td>bleiben</td><td class="hi">geblieben</td><td><em>Ich bin geblieben.</em></td></tr>
+  <tr><td>laufen</td><td class="hi">gelaufen</td><td><em>Er ist gelaufen.</em></td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── t05 -->
+<section id="t05">
+<h2>Complete Irregular Partizip II Table</h2>
+<p>The most important irregular forms to know at A1. Starred ⭐ = very common, must know first.</p>
+<div class="table-wrap"><table>
+  <tr><th>Infinitive</th><th>Meaning</th><th>Partizip II</th><th>Helper</th></tr>
+  <tr><td>sein ⭐</td><td>be</td><td class="hi">gewesen</td><td>ist</td></tr>
+  <tr><td>haben ⭐</td><td>have</td><td class="hi">gehabt</td><td>hat</td></tr>
+  <tr><td>werden ⭐</td><td>become</td><td class="hi">geworden</td><td>ist</td></tr>
+  <tr><td>gehen ⭐</td><td>go</td><td class="hi">gegangen</td><td>ist</td></tr>
+  <tr><td>kommen ⭐</td><td>come</td><td class="hi">gekommen</td><td>ist</td></tr>
+  <tr><td>fahren ⭐</td><td>drive/travel</td><td class="hi">gefahren</td><td>ist</td></tr>
+  <tr><td>essen ⭐</td><td>eat</td><td class="hi">gegessen</td><td>hat</td></tr>
+  <tr><td>trinken ⭐</td><td>drink</td><td class="hi">getrunken</td><td>hat</td></tr>
+  <tr><td>schlafen</td><td>sleep</td><td class="hi">geschlafen</td><td>hat</td></tr>
+  <tr><td>aufwachen</td><td>wake up</td><td class="hi">aufgewacht</td><td>ist</td></tr>
+  <tr><td>aufstehen</td><td>get up</td><td class="hi">aufgestanden</td><td>ist</td></tr>
+  <tr><td>lesen</td><td>read</td><td class="hi">gelesen</td><td>hat</td></tr>
+  <tr><td>sehen</td><td>see</td><td class="hi">gesehen</td><td>hat</td></tr>
+  <tr><td>schreiben</td><td>write</td><td class="hi">geschrieben</td><td>hat</td></tr>
+  <tr><td>sprechen</td><td>speak</td><td class="hi">gesprochen</td><td>hat</td></tr>
+  <tr><td>nehmen</td><td>take</td><td class="hi">genommen</td><td>hat</td></tr>
+  <tr><td>geben</td><td>give</td><td class="hi">gegeben</td><td>hat</td></tr>
+  <tr><td>finden</td><td>find</td><td class="hi">gefunden</td><td>hat</td></tr>
+  <tr><td>laufen</td><td>run/walk</td><td class="hi">gelaufen</td><td>ist</td></tr>
+  <tr><td>fliegen</td><td>fly</td><td class="hi">geflogen</td><td>ist</td></tr>
+  <tr><td>treffen</td><td>meet</td><td class="hi">getroffen</td><td>hat</td></tr>
+  <tr><td>helfen</td><td>help</td><td class="hi">geholfen</td><td>hat</td></tr>
+  <tr><td>bleiben</td><td>stay</td><td class="hi">geblieben</td><td>ist</td></tr>
+  <tr><td>anfangen</td><td>begin</td><td class="hi">angefangen</td><td>hat</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 Vowel pattern trick</strong>
+  Many irregular verbs change their vowel in a predictable way:<br>
+  <em>ei → ie</em>: schreiben → geschr<strong>ie</strong>ben, bleiben → gebl<strong>ie</strong>ben<br>
+  <em>i → u</em>: trinken → getr<strong>u</strong>nken, finden → gef<strong>u</strong>nden, fliegen → gefl<strong>o</strong>gen<br>
+  <em>a → a</em>: fahren → gef<strong>a</strong>hren, schlafen → geschl<strong>a</strong>fen
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t06 -->
+<section id="t06">
+<h2>Separable &amp; Inseparable Verbs in Perfekt</h2>
+
+<h3>Separable Verbs — ge goes INSIDE</h3>
+<div class="formula">
+prefix + <span>ge</span> + stem + t/en
+</div>
+<p>For separable verbs, the <em>ge-</em> is inserted between the prefix and the stem:</p>
+<div class="table-wrap"><table>
+  <tr><th>Infinitive</th><th>Partizip II</th><th>Example</th></tr>
+  <tr><td>aufmachen</td><td>auf<span class="hi">ge</span>macht</td><td><em>Ich habe die Tür aufgemacht.</em></td></tr>
+  <tr><td>anrufen</td><td>an<span class="hi">ge</span>rufen</td><td><em>Er hat mich angerufen.</em></td></tr>
+  <tr><td>aufstehen</td><td>auf<span class="hi">ge</span>standen</td><td><em>Ich bin aufgestanden.</em></td></tr>
+  <tr><td>einkaufen</td><td>ein<span class="hi">ge</span>kauft</td><td><em>Sie hat eingekauft.</em></td></tr>
+  <tr><td>ankommen</td><td>an<span class="hi">ge</span>kommen</td><td><em>Der Zug ist angekommen.</em></td></tr>
+  <tr><td>anfangen</td><td>an<span class="hi">ge</span>fangen</td><td><em>Wir haben angefangen.</em></td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 Separable verb trick — Say it fast</strong>
+  "aufgemacht" = auf + ge + macht. Stress the prefix: <strong>AUF</strong>-ge-macht.
+</div>
+
+<h3>Inseparable Verbs — NO ge</h3>
+<p>Verbs with inseparable prefixes (be-, ver-, ent-, er-, ge-, miss-, zer-) never get a <em>ge-</em>:</p>
+<div class="table-wrap"><table>
+  <tr><th>Infinitive</th><th>Partizip II</th><th>Example</th></tr>
+  <tr><td>besuchen</td><td class="hi">besucht</td><td><em>Ich habe meinen Freund besucht.</em></td></tr>
+  <tr><td>verkaufen</td><td class="hi">verkauft</td><td><em>Er hat sein Auto verkauft.</em></td></tr>
+  <tr><td>verstehen</td><td class="hi">verstanden</td><td><em>Sie hat alles verstanden.</em></td></tr>
+  <tr><td>erzählen</td><td class="hi">erzählt</td><td><em>Er hat eine Geschichte erzählt.</em></td></tr>
+  <tr><td>bezahlen</td><td class="hi">bezahlt</td><td><em>Wir haben bezahlt.</em></td></tr>
+  <tr><td>entscheiden</td><td class="hi">entschieden</td><td><em>Sie hat entschieden.</em></td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 No ge- because it's already there!</strong>
+  Inseparable prefixes start with consonant clusters that would clash with ge-. Also the prefix ge- itself is inseparable → <em>gehören</em> → gehört (not gegehört!).
+</div>
+
+<div class="mistake">
+  <strong>❌ Common Mistake — Separable vs Inseparable</strong>
+  ❌ <em>Ich habe gebesucht.</em> → ✅ <em>Ich habe besucht.</em> (be- is inseparable, no ge-)<br>
+  ❌ <em>Ich habe aufmachte.</em> → ✅ <em>Ich habe aufgemacht.</em> (use Perfekt, not Präteritum for speech)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t07 -->
+<section id="t07">
+<h2>Präteritum — Introduction</h2>
+<p>The Präteritum (simple past) is used mainly in <strong>written German</strong>: books, news articles, formal reports. In spoken German, Germans almost always prefer Perfekt — except for <em>war</em> and <em>hatte</em>.</p>
+
+<div class="teach">
+  <strong>📌 When do you actually need Präteritum at A1?</strong>
+  Only when reading texts (e.g. stories, exercises). In speaking, you can ignore it and use Perfekt for everything — EXCEPT war/hatte, which everyone says even in casual conversation.
+</div>
+
+<h3>Weak (Regular) Verbs in Präteritum</h3>
+<div class="formula">
+stem + <span>te</span> + personal ending
+</div>
+<div class="table-wrap"><table>
+  <tr><th>Person</th><th>machen</th><th>spielen</th><th>kaufen</th></tr>
+  <tr><td>ich</td><td class="hi">machte</td><td class="hi">spielte</td><td class="hi">kaufte</td></tr>
+  <tr><td>du</td><td class="hi">machtest</td><td class="hi">spieltest</td><td class="hi">kauftest</td></tr>
+  <tr><td>er/sie/es</td><td class="hi">machte</td><td class="hi">spielte</td><td class="hi">kaufte</td></tr>
+  <tr><td>wir</td><td class="hi">machten</td><td class="hi">spielten</td><td class="hi">kauften</td></tr>
+  <tr><td>ihr</td><td class="hi">machtet</td><td class="hi">spieltet</td><td class="hi">kauftet</td></tr>
+  <tr><td>sie/Sie</td><td class="hi">machten</td><td class="hi">spielten</td><td class="hi">kauften</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ When you'll see Präteritum</strong>
+  Reading a German children's story: <em>"Es war einmal ein König. Er lebte in einem großen Schloss."</em> (Once upon a time there was a king. He lived in a large castle.) — This is classic Präteritum narrative style.
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t08 -->
+<section id="t08">
+<h2>war &amp; hatte — The Spoken Past</h2>
+<p>These two Präteritum forms are <strong>used by everyone in everyday speech</strong>. Even when natives use Perfekt for everything else, they switch to <em>war</em> and <em>hatte</em>:</p>
+
+<div class="grid2">
+  <div class="card" style="border-color:var(--gold)">
+    <div class="card-title" style="color:var(--gold)">war — was / were</div>
+    
+<div class="table-wrap"><table>
+      <tr><td>ich</td><td class="hi">war</td></tr>
+      <tr><td>du</td><td class="hi">warst</td></tr>
+      <tr><td>er/sie/es</td><td class="hi">war</td></tr>
+      <tr><td>wir</td><td class="hi">waren</td></tr>
+      <tr><td>ihr</td><td class="hi">wart</td></tr>
+      <tr><td>sie/Sie</td><td class="hi">waren</td></tr>
+    </table></div>
+  </div>
+  <div class="card" style="border-color:var(--accent)">
+    <div class="card-title" style="color:var(--accent)">hatte — had</div>
+    
+<div class="table-wrap"><table>
+      <tr><td>ich</td><td class="hi">hatte</td></tr>
+      <tr><td>du</td><td class="hi">hattest</td></tr>
+      <tr><td>er/sie/es</td><td class="hi">hatte</td></tr>
+      <tr><td>wir</td><td class="hi">hatten</td></tr>
+      <tr><td>ihr</td><td class="hi">hattet</td></tr>
+      <tr><td>sie/Sie</td><td class="hi">hatten</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="situation">
+  <strong>🗣️ Real Situations — war &amp; hatte</strong>
+  <em>"Ich war gestern krank."</em> — I was ill yesterday. ✅ (not: Ich bin krank gewesen — sounds formal/weird)<br>
+  <em>"Wir waren im Urlaub."</em> — We were on holiday. ✅<br>
+  <em>"Er hatte keine Zeit."</em> — He had no time. ✅<br>
+  <em>"Das Wetter war toll!"</em> — The weather was great! ✅<br>
+  <em>"Ich hatte Kopfschmerzen."</em> — I had a headache. ✅
+</div>
+
+<div class="trick">
+  <strong>💡 Pronunciation tip</strong>
+  <em>war</em> = rhymes with English "far" but shorter.<br>
+  <em>waren</em> = VAR-en (the W sounds like English V).<br>
+  <em>hatte</em> = HAT-uh (short 'a', the 'e' is a schwa sound).
+</div>
+
+<div class="mistake">
+  <strong>❌ Don't use gewesen/gehabt in casual speech</strong>
+  ❌ <em>"Ich bin gestern krank gewesen."</em> → sounds overly formal/written in everyday speech.<br>
+  ✅ <em>"Ich war gestern krank."</em> → natural spoken German.<br>
+  Both are grammatically correct, but war/hatte sound much more natural in conversation.
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t09 -->
+<section id="t09">
+<h2>Perfekt vs Präteritum — When to Use Which</h2>
+
+<div class="table-wrap"><table>
+  <tr><th>Situation</th><th>Use</th><th>Example</th></tr>
+  <tr><td>Speaking to someone</td><td class="hi">Perfekt</td><td><em>"Ich habe gegessen."</em></td></tr>
+  <tr><td>Text message / WhatsApp</td><td class="hi">Perfekt</td><td><em>"Hab' ich gemacht!"</em></td></tr>
+  <tr><td>"was" in speech</td><td class="hi">war (Präteritum)</td><td><em>"Ich war müde."</em></td></tr>
+  <tr><td>"had" in speech</td><td class="hi">hatte (Präteritum)</td><td><em>"Ich hatte Hunger."</em></td></tr>
+  <tr><td>Story / novel</td><td class="hi">Präteritum</td><td><em>"Er ging ins Zimmer."</em></td></tr>
+  <tr><td>News article</td><td class="hi">Präteritum</td><td><em>"Der Minister sprach…"</em></td></tr>
+  <tr><td>Formal report</td><td class="hi">Präteritum</td><td><em>"Das Unternehmen erzielte…"</em></td></tr>
+</table></div>
+
+<div class="analogy">
+  <strong>🧩 The Restaurant Rule</strong>
+  Imagine telling a story in a restaurant. You'd say:<br>
+  <em>"Ich habe gestern Pizza bestellt, aber sie war kalt und ich hatte keinen Hunger mehr."</em><br>
+  = "I ordered pizza yesterday (Perfekt), but it was cold (war) and I had no appetite anymore (hatte)."<br>
+  → Mixed usage in natural speech: Perfekt for actions, war/hatte for states.
+</div>
+
+<div class="trick">
+  <strong>💡 North vs South Germany</strong>
+  In Northern Germany, people say Perfekt even more strictly for everything (except war/hatte). In Southern Germany (Bavaria, Austria, Switzerland), Präteritum is avoided almost entirely in speech. The rule: <strong>Perfekt = safe in any region.</strong>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t10 -->
+<section id="t10">
+<h2>Common Mistakes with Tenses</h2>
+
+<div class="mistake">
+  <strong>❌ Mistake 1 — Wrong helper verb</strong>
+  ❌ <em>"Ich habe nach Hause gegangen."</em><br>
+  ✅ <em>"Ich bin nach Hause gegangen."</em><br>
+  → gehen = movement, needs sein.
+</div>
+
+<div class="mistake">
+  <strong>❌ Mistake 2 — Partizip II not at the end</strong>
+  ❌ <em>"Ich habe gegessen Pizza."</em><br>
+  ✅ <em>"Ich habe Pizza gegessen."</em><br>
+  → The Partizip II must always go to the very end of the clause.
+</div>
+
+<div class="mistake">
+  <strong>❌ Mistake 3 — Using Präteritum in speech</strong>
+  ❌ <em>"Ich aß gestern Pizza."</em> (sounds like you're writing a novel)<br>
+  ✅ <em>"Ich habe gestern Pizza gegessen."</em> (natural speech)<br>
+  → Use Perfekt for past actions in conversation.
+</div>
+
+<div class="mistake">
+  <strong>❌ Mistake 4 — ge- on inseparable verbs</strong>
+  ❌ <em>"Ich habe gebesucht."</em><br>
+  ✅ <em>"Ich habe besucht."</em><br>
+  → be- is inseparable, no ge- added.
+</div>
+
+<div class="mistake">
+  <strong>❌ Mistake 5 — seit + Perfekt</strong>
+  ❌ <em>"Ich habe hier seit zwei Jahren gewohnt."</em><br>
+  ✅ <em>"Ich wohne seit zwei Jahren hier."</em><br>
+  → <em>seit</em> (since/for ongoing) always uses Präsens in German, not Perfekt!
+</div>
+
+<div class="mistake">
+  <strong>❌ Mistake 6 — Missing the ge- for separable verbs</strong>
+  ❌ <em>"Ich habe aufmacht."</em><br>
+  ✅ <em>"Ich habe aufgemacht."</em><br>
+  → For separable verbs, ge- goes between prefix and stem: auf + ge + macht.
+</div>
+
+<div class="teach">
+  <strong>📌 Quick-check Checklist for Perfekt</strong>
+  1. ✅ Is the helper verb (haben/sein) in position 2?<br>
+  2. ✅ Is it the right helper? (Movement/change = sein, else = haben)<br>
+  3. ✅ Is the Partizip II at the very end?<br>
+  4. ✅ For separable verbs: is ge- inside the prefix?<br>
+  5. ✅ For inseparable verbs: no ge- at all?<br>
+  6. ✅ Using war/hatte for "was/had" in speech (not war sein)?
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t11 -->
+<section id="t11">
+<h2>Partizip II — Pattern Summary (4 Categories)</h2>
+
+<div class="table-wrap"><table>
+  <tr><th>Category</th><th>Pattern</th><th>Examples</th></tr>
+  <tr><td>Regular (weak) verbs</td><td class="hi">ge- + stem + -t</td><td class="de">spielen → gespielt · kaufen → gekauft · machen → gemacht</td></tr>
+  <tr><td>Irregular (strong) verbs</td><td class="hi">ge- + (often changed) stem + -en</td><td class="de">gehen → gegangen · sehen → gesehen · fahren → gefahren · schreiben → geschrieben</td></tr>
+  <tr><td>Separable verbs</td><td class="hi">prefix + ge- + stem + ending</td><td class="de">aufmachen → aufgemacht · anrufen → angerufen · einladen → eingeladen</td></tr>
+  <tr><td>-ieren verbs (no ge-!)</td><td class="hi">stem + -t (no ge-)</td><td class="de">telefonieren → telefoniert · studieren → studiert · fotografieren → fotografiert</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 -ieren verbs never get ge-</strong>
+  All verbs ending in <em>-ieren</em> form their Partizip II without <em>ge-</em> and with a <em>-t</em> ending.<br>
+  <em>telefonieren → telefoniert</em> (NOT getelefoniert!)<br>
+  <em>studieren → studiert · passieren → passiert · reparieren → repariert</em>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── t12 -->
+<section id="t12">
+<h2>Time Adverbs: Zuerst → Dann → Später → Zum Schluss</h2>
+
+<p>These four words are used to describe a sequence of actions — essential for writing about daily routines, stories, or descriptions.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Position in sentence</th></tr>
+  <tr><td class="de">Zuerst</td><td>First / First of all</td><td>Sentence-initial → verb follows immediately: <em>Zuerst stehe ich auf.</em></td></tr>
+  <tr><td class="de">Dann</td><td>Then / Next</td><td>Sentence-initial: <em>Dann frühstücke ich.</em></td></tr>
+  <tr><td class="de">Später</td><td>Later</td><td>Sentence-initial: <em>Später fahre ich in die Schule.</em></td></tr>
+  <tr><td class="de">Zum Schluss</td><td>Finally / At the end</td><td>Sentence-initial: <em>Zum Schluss gehe ich schlafen.</em></td></tr>
+  <tr><td class="de">Danach</td><td>After that</td><td><em>Danach mache ich die Hausaufgaben.</em></td></tr>
+  <tr><td class="de">Zuletzt</td><td>Lastly / At last</td><td><em>Zuletzt räume ich auf.</em></td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Tagesablauf — Daily Routine paragraph</strong>
+  <em>Zuerst stehe ich um 7 Uhr auf. Dann dusche ich und frühstücke. Später fahre ich mit dem Bus zur Arbeit. Nach der Arbeit mache ich Sport. Zum Schluss esse ich zu Abend und gehe um 23 Uhr schlafen.</em><br><br>
+  First I get up at 7 o'clock. Then I shower and have breakfast. Later I travel to work by bus. After work I do sport. Finally I eat dinner and go to sleep at 11 PM.
+</div>
+
+<div class="trick">
+  <strong>💡 These adverbs cause inversion!</strong>
+  When any time adverb starts the sentence, the verb must come in position 2 and the subject moves to position 3:<br>
+  <em>Zuerst | stehe | ich | auf.</em> (Zuerst = pos.1, stehe = pos.2, ich = pos.3)<br>
+  This is the standard German verb-second (V2) rule.
+</div>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>A1 German — Daily Life Vocabulary</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* File-specific classes */
+.container { max-width: 860px; margin: 0 auto; }
+.subtitle { color: var(--fg-soft); font-size: 1rem; margin-bottom: 2.5rem; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 2px solid var(--border); }
+section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem; margin-bottom: 2rem; }
+.trick { background: #1c1500; border-left: 4px solid var(--gold); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.trick strong { color: var(--gold); display: block; margin-bottom: .3rem; }
+.situation { background: #0c1a2e; border-left: 4px solid var(--accent); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.situation strong { color: var(--accent); display: block; margin-bottom: .3rem; }
+.mistake { background: #2d0a0a; border-left: 4px solid var(--red); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.mistake strong { color: var(--red); display: block; margin-bottom: .3rem; }
+.hi { color: var(--gold); font-weight: 600; }
+.dim { color: var(--fg-soft); }
+.en { color: var(--fg-soft); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .8rem; margin: .8rem 0; }
+@media(max-width:600px) { .grid2 { grid-template-columns: 1fr; } .grid3 { grid-template-columns: 1fr 1fr; } }
+.card { background: #263347; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.card-title { font-weight: 700; margin-bottom: .6rem; font-size: 1rem; color: var(--accent); }
+.vocab-item { display: flex; justify-content: space-between; padding: .3rem 0; border-bottom: 1px solid var(--border); }
+.vocab-item:last-child { border-bottom: none; }
+.vocab-de { color: #93c5fd; font-weight: 600; }
+.vocab-en { color: var(--fg-soft); font-size: .9rem; }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header">
+  <div class="badge">A1 German · Vocabulary</div>
+  <h1>🏙 Daily Life Vocabulary</h1>
+  <p>City · Directions · Food · Restaurant · House · Clothing · Transport · Hobbies · Weather</p>
+</div>
+
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#vd01">City &amp; Places</a>
+  <a href="#vd02">Directions</a>
+  <a href="#vd03">Food &amp; Drink</a>
+  <a href="#vd04">In the Restaurant</a>
+  <a href="#vd05">House &amp; Rooms</a>
+  <a href="#vd06">Furniture</a>
+  <a href="#vd07">Clothing</a>
+  <a href="#vd08">Transport</a>
+  <a href="#vd09">Hobbies</a>
+  <a href="#vd10">Weather</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ──────────────────────────────────── vd01 -->
+<section id="vd01">
+<h2>City &amp; Places</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Buildings &amp; Services</div>
+    <div class="vocab-item"><span class="vocab-de">das Krankenhaus</span><span class="vocab-en">hospital</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Apotheke</span><span class="vocab-en">pharmacy</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Schule</span><span class="vocab-en">school</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Universität</span><span class="vocab-en">university</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Bank</span><span class="vocab-en">bank</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Post</span><span class="vocab-en">post office</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Hotel</span><span class="vocab-en">hotel</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Restaurant</span><span class="vocab-en">restaurant</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Café</span><span class="vocab-en">café</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Supermarkt</span><span class="vocab-en">supermarket</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Places &amp; Transport Hubs</div>
+    <div class="vocab-item"><span class="vocab-de">der Bahnhof</span><span class="vocab-en">train station</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Flughafen</span><span class="vocab-en">airport</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Bushaltestelle</span><span class="vocab-en">bus stop</span></div>
+    <div class="vocab-item"><span class="vocab-de">die U-Bahn-Station</span><span class="vocab-en">underground station</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Markt / Marktplatz</span><span class="vocab-en">market / market square</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Park</span><span class="vocab-en">park</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Kirche</span><span class="vocab-en">church</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Museum</span><span class="vocab-en">museum</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Kino</span><span class="vocab-en">cinema</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Bibliothek</span><span class="vocab-en">library</span></div>
+  </div>
+</div>
+
+<div class="situation">
+  <strong>🗣️ Asking where something is</strong>
+  <em>"Entschuldigung, wo ist die nächste Apotheke?"</em> (Excuse me, where is the nearest pharmacy?)<br>
+  <em>"Gibt es hier ein Café in der Nähe?"</em> (Is there a café nearby?)<br>
+  <em>"Wie weit ist es zum Bahnhof?"</em> (How far is it to the train station?)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vd02 -->
+<section id="vd02">
+<h2>Directions</h2>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">geradeaus</td><td>straight ahead</td></tr>
+  <tr><td class="de">links</td><td>left</td></tr>
+  <tr><td class="de">rechts</td><td>right</td></tr>
+  <tr><td class="de">nach links abbiegen</td><td>to turn left</td></tr>
+  <tr><td class="de">nach rechts abbiegen</td><td>to turn right</td></tr>
+  <tr><td class="de">die erste Straße links</td><td>the first street on the left</td></tr>
+  <tr><td class="de">die zweite Straße rechts</td><td>the second street on the right</td></tr>
+  <tr><td class="de">an der Ampel</td><td>at the traffic lights</td></tr>
+  <tr><td class="de">an der Kreuzung</td><td>at the crossroads</td></tr>
+  <tr><td class="de">an der Ecke</td><td>at the corner</td></tr>
+  <tr><td class="de">über die Brücke</td><td>over the bridge</td></tr>
+  <tr><td class="de">neben der Kirche</td><td>next to the church</td></tr>
+  <tr><td class="de">gegenüber vom Hotel</td><td>opposite the hotel</td></tr>
+  <tr><td class="de">circa 5 Minuten zu Fuß</td><td>about 5 minutes on foot</td></tr>
+  <tr><td class="de">Sie können nicht verfehlen.</td><td>You can't miss it.</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Full Directions Exchange</strong>
+  A: <em>"Entschuldigung, wie komme ich zum Bahnhof?"</em> (How do I get to the station?)<br>
+  B: <em>"Gehen Sie geradeaus, dann an der Ampel nach links. Der Bahnhof ist auf der rechten Seite."</em><br>
+  (Go straight ahead, then turn left at the traffic lights. The station is on the right side.)<br>
+  A: <em>"Ist es weit?"</em> (Is it far?)<br>
+  B: <em>"Nein, etwa zehn Minuten zu Fuß."</em> (No, about ten minutes on foot.)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vd03 -->
+<section id="vd03">
+<h2>Food &amp; Drink</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Essen (Food)</div>
+    <div class="vocab-item"><span class="vocab-de">das Brot</span><span class="vocab-en">bread</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Brötchen</span><span class="vocab-en">bread roll</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Butter</span><span class="vocab-en">butter</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Käse</span><span class="vocab-en">cheese</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Fleisch</span><span class="vocab-en">meat</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Fisch</span><span class="vocab-en">fish</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Ei / die Eier</span><span class="vocab-en">egg / eggs</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Salat</span><span class="vocab-en">salad / lettuce</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Suppe</span><span class="vocab-en">soup</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Kartoffel</span><span class="vocab-en">potato</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Reis</span><span class="vocab-en">rice</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Nudeln (pl)</span><span class="vocab-en">pasta / noodles</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Trinken (Drinks) &amp; Obst/Gemüse</div>
+    <div class="vocab-item"><span class="vocab-de">das Wasser</span><span class="vocab-en">water</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Kaffee</span><span class="vocab-en">coffee</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Tee</span><span class="vocab-en">tea</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Saft</span><span class="vocab-en">juice</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Bier</span><span class="vocab-en">beer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Wein</span><span class="vocab-en">wine</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Apfel</span><span class="vocab-en">apple</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Banane</span><span class="vocab-en">banana</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Tomate</span><span class="vocab-en">tomato</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Karotte</span><span class="vocab-en">carrot</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Zwiebel</span><span class="vocab-en">onion</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Knoblauch</span><span class="vocab-en">garlic</span></div>
+  </div>
+</div>
+
+<h3>More Food Items (from your notes)</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Obst (Fruit)</div>
+    <div class="vocab-item"><span class="vocab-de">der Apfel / die Äpfel</span><span class="vocab-en">apple</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Banane</span><span class="vocab-en">banana</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Orange</span><span class="vocab-en">orange</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Tomate</span><span class="vocab-en">tomato</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Erdbeere</span><span class="vocab-en">strawberry</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Traube</span><span class="vocab-en">grape</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Zitrone</span><span class="vocab-en">lemon</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Wassermelone</span><span class="vocab-en">watermelon</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Ananas</span><span class="vocab-en">pineapple</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Birne</span><span class="vocab-en">pear</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Pflaume</span><span class="vocab-en">plum</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Kirsche</span><span class="vocab-en">cherry</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Gemüse (Vegetables)</div>
+    <div class="vocab-item"><span class="vocab-de">die Karotte</span><span class="vocab-en">carrot</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Zwiebel</span><span class="vocab-en">onion</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Knoblauch</span><span class="vocab-en">garlic</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Paprika</span><span class="vocab-en">bell pepper</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Gurke</span><span class="vocab-en">cucumber</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Spinat</span><span class="vocab-en">spinach</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Bohne</span><span class="vocab-en">bean</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Mais</span><span class="vocab-en">corn / maize</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Pilz</span><span class="vocab-en">mushroom</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Blumenkohl</span><span class="vocab-en">cauliflower</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Kohl</span><span class="vocab-en">cabbage</span></div>
+  </div>
+</div>
+
+<h3>More Food &amp; Drinks</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Essen (More)</div>
+    <div class="vocab-item"><span class="vocab-de">die Wurst</span><span class="vocab-en">sausage</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Hähnchen</span><span class="vocab-en">chicken</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Hamburger</span><span class="vocab-en">hamburger</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Pommes frites (pl)</span><span class="vocab-en">chips / French fries</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Müsli</span><span class="vocab-en">muesli / cereal</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Joghurt</span><span class="vocab-en">yoghurt</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Nachtisch / das Dessert</span><span class="vocab-en">dessert</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Kuchen</span><span class="vocab-en">cake</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Schokolade</span><span class="vocab-en">chocolate</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Zucker</span><span class="vocab-en">sugar</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Öl</span><span class="vocab-en">oil</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Essig</span><span class="vocab-en">vinegar</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Trinken (More)</div>
+    <div class="vocab-item"><span class="vocab-de">die Cola</span><span class="vocab-en">cola</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Limonade</span><span class="vocab-en">lemonade / soft drink</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Milch</span><span class="vocab-en">milk</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Orangensaft</span><span class="vocab-en">orange juice</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Mineralwasser</span><span class="vocab-en">mineral water</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Apfelsaft</span><span class="vocab-en">apple juice</span></div>
+  </div>
+</div>
+
+<h3>Shopping Quantities</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>Example</th></tr>
+  <tr><td class="de">ein Kilo (Kilogramm)</td><td>one kilo</td><td><em>ein Kilo Tomaten</em></td></tr>
+  <tr><td class="de">ein Pfund</td><td>500g / one pound</td><td><em>ein Pfund Hackfleisch</em></td></tr>
+  <tr><td class="de">ein Liter</td><td>one litre</td><td><em>ein Liter Milch</em></td></tr>
+  <tr><td class="de">eine Flasche</td><td>a bottle</td><td><em>eine Flasche Wasser</em></td></tr>
+  <tr><td class="de">eine Dose</td><td>a can / tin</td><td><em>eine Dose Suppe</em></td></tr>
+  <tr><td class="de">eine Tüte</td><td>a bag</td><td><em>eine Tüte Chips</em></td></tr>
+  <tr><td class="de">ein Glas</td><td>a jar / glass</td><td><em>ein Glas Marmelade</em></td></tr>
+  <tr><td class="de">ein Stück</td><td>a piece</td><td><em>ein Stück Kuchen</em></td></tr>
+  <tr><td class="de">eine Scheibe</td><td>a slice</td><td><em>eine Scheibe Brot</em></td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── vd04 -->
+<section id="vd04">
+<h2>In the Restaurant</h2>
+<div class="table-wrap"><table>
+  <tr><th>Situation</th><th>German</th><th>English</th></tr>
+  <tr><td>Arriving</td><td class="de">Einen Tisch für zwei Personen, bitte.</td><td>A table for two, please.</td></tr>
+  <tr><td>Arriving</td><td class="de">Haben Sie reserviert?</td><td>Have you reserved? (waiter asks)</td></tr>
+  <tr><td>Ordering</td><td class="de">Die Speisekarte, bitte.</td><td>The menu, please.</td></tr>
+  <tr><td>Ordering</td><td class="de">Was empfehlen Sie?</td><td>What do you recommend?</td></tr>
+  <tr><td>Ordering</td><td class="de">Ich hätte gerne …</td><td>I would like … (polite)</td></tr>
+  <tr><td>Ordering</td><td class="de">Ich nehme … / Für mich …</td><td>I'll take … / For me …</td></tr>
+  <tr><td>Ordering</td><td class="de">Einmal Schnitzel, bitte.</td><td>One Schnitzel, please.</td></tr>
+  <tr><td>During meal</td><td class="de">Guten Appetit!</td><td>Enjoy your meal!</td></tr>
+  <tr><td>During meal</td><td class="de">Noch ein Bier, bitte.</td><td>Another beer, please.</td></tr>
+  <tr><td>Complaining</td><td class="de">Das ist nicht meine Bestellung.</td><td>That is not my order.</td></tr>
+  <tr><td>Complaining</td><td class="de">Das Essen ist kalt / zu salzig.</td><td>The food is cold / too salty.</td></tr>
+  <tr><td>Paying</td><td class="de">Die Rechnung, bitte.</td><td>The bill, please.</td></tr>
+  <tr><td>Paying</td><td class="de">Zusammen oder getrennt?</td><td>Together or separate?</td></tr>
+  <tr><td>Paying</td><td class="de">Das stimmt so.</td><td>Keep the change.</td></tr>
+</table></div>
+
+<h3>Restaurant Tableware (Geschirr &amp; Besteck)</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Geschirr (Dishes)</div>
+    <div class="vocab-item"><span class="vocab-de">der Teller</span><span class="vocab-en">plate</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Schüssel</span><span class="vocab-en">bowl</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Pfanne</span><span class="vocab-en">frying pan</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Topf</span><span class="vocab-en">pot / saucepan</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Glas</span><span class="vocab-en">glass</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Tasse</span><span class="vocab-en">cup</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Besteck (Cutlery)</div>
+    <div class="vocab-item"><span class="vocab-de">der Löffel</span><span class="vocab-en">spoon</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Gabel</span><span class="vocab-en">fork</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Messer</span><span class="vocab-en">knife</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Serviette</span><span class="vocab-en">napkin</span></div>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>💡 "Ich hätte gerne" — the magic polite phrase</strong>
+  <em>Ich hätte gerne</em> = "I would like" — use this for ordering anything politely.<br>
+  More formal than <em>ich möchte</em>, and much more natural than <em>ich will</em> (which sounds rude!)<br>
+  Examples: <em>"Ich hätte gerne ein Wasser."</em> / <em>"Ich hätte gerne die Rechnung."</em>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vd05 -->
+<section id="vd05">
+<h2>House &amp; Rooms</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Räume (Rooms)</div>
+    <div class="vocab-item"><span class="vocab-de">das Wohnzimmer</span><span class="vocab-en">living room</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Küche</span><span class="vocab-en">kitchen</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Schlafzimmer</span><span class="vocab-en">bedroom</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Badezimmer / Bad</span><span class="vocab-en">bathroom</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Toilette / das WC</span><span class="vocab-en">toilet</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Esszimmer</span><span class="vocab-en">dining room</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Flur</span><span class="vocab-en">hallway / corridor</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Keller</span><span class="vocab-en">cellar / basement</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Balkon</span><span class="vocab-en">balcony</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Garten</span><span class="vocab-en">garden</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Gebäude (Building)</div>
+    <div class="vocab-item"><span class="vocab-de">das Haus</span><span class="vocab-en">house</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Wohnung</span><span class="vocab-en">flat / apartment</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Zimmer</span><span class="vocab-en">room</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Etage / das Stockwerk</span><span class="vocab-en">floor / storey</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Erdgeschoss</span><span class="vocab-en">ground floor</span></div>
+    <div class="vocab-item"><span class="vocab-de">der erste Stock</span><span class="vocab-en">first floor (= 2nd UK)</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Aufzug / Lift</span><span class="vocab-en">lift / elevator</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Treppe</span><span class="vocab-en">stairs</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Miete</span><span class="vocab-en">rent</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Vermieter / Mieter</span><span class="vocab-en">landlord / tenant</span></div>
+  </div>
+</div>
+<h3>Wohnformen (House Types)</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">das Einfamilienhaus</td><td>single-family house</td></tr>
+  <tr><td class="de">das Mehrfamilienhaus</td><td>multi-family house / apartment building</td></tr>
+  <tr><td class="de">das Reihenhaus</td><td>terraced house / row house</td></tr>
+  <tr><td class="de">das Loft</td><td>loft / studio flat</td></tr>
+  <tr><td class="de">das Fachwerkhaus</td><td>half-timbered house</td></tr>
+  <tr><td class="de">die Wohngemeinschaft (WG)</td><td>shared apartment</td></tr>
+  <tr><td class="de">die Jugendherberge</td><td>youth hostel</td></tr>
+  <tr><td class="de">das Studentenwohnheim</td><td>student dormitory</td></tr>
+</table></div>
+
+<h3>More Rooms &amp; Parts of the House</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Mehr Räume</div>
+    <div class="vocab-item"><span class="vocab-de">das Arbeitszimmer</span><span class="vocab-en">study / home office</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Kinderzimmer</span><span class="vocab-en">children's room</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Terrasse</span><span class="vocab-en">terrace / patio</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Abstellraum</span><span class="vocab-en">storage room</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Dach</span><span class="vocab-en">roof</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Dachboden</span><span class="vocab-en">attic</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Renting Vocab</div>
+    <div class="vocab-item"><span class="vocab-de">die Miete</span><span class="vocab-en">rent</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Mieter</span><span class="vocab-en">tenant</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Vermieter</span><span class="vocab-en">landlord</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Makler</span><span class="vocab-en">estate agent / broker</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Anzeige</span><span class="vocab-en">advertisement</span></div>
+    <div class="vocab-item"><span class="vocab-de">mieten / vermieten</span><span class="vocab-en">to rent / to rent out</span></div>
+    <div class="vocab-item"><span class="vocab-de">einziehen / ausziehen</span><span class="vocab-en">to move in / move out</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Umzug</span><span class="vocab-en">move / relocation</span></div>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>💡 German floor numbering is different!</strong>
+  Erdgeschoss = Ground floor (0)<br>
+  Erster Stock = First floor (= what English calls "second floor")<br>
+  Zweiter Stock = Second floor (= "third floor" in UK/US counting)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vd06 -->
+<section id="vd06">
+<h2>Furniture &amp; Home Objects</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Möbel (Furniture)</div>
+    <div class="vocab-item"><span class="vocab-de">das Bett</span><span class="vocab-en">bed</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Tisch</span><span class="vocab-en">table</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Stuhl</span><span class="vocab-en">chair</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Sofa / die Couch</span><span class="vocab-en">sofa / couch</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schrank</span><span class="vocab-en">wardrobe / cupboard</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Regal</span><span class="vocab-en">shelf / bookcase</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Herd</span><span class="vocab-en">cooker / stove</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Kühlschrank</span><span class="vocab-en">fridge</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Waschmaschine</span><span class="vocab-en">washing machine</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Fernseher</span><span class="vocab-en">TV</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Common Objects</div>
+    <div class="vocab-item"><span class="vocab-de">das Fenster</span><span class="vocab-en">window</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Tür</span><span class="vocab-en">door</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Licht / die Lampe</span><span class="vocab-en">light / lamp</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schlüssel</span><span class="vocab-en">key</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Telefon</span><span class="vocab-en">telephone</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Computer</span><span class="vocab-en">computer</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Handy</span><span class="vocab-en">mobile phone</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Bild</span><span class="vocab-en">picture / photo</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Spiegel</span><span class="vocab-en">mirror</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Dusche</span><span class="vocab-en">shower</span></div>
+  </div>
+</div>
+
+<h3>More Furniture &amp; Appliances (from your notes)</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Mehr Möbel</div>
+    <div class="vocab-item"><span class="vocab-de">der Sessel</span><span class="vocab-en">armchair</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Drucker</span><span class="vocab-en">printer</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Vorhang</span><span class="vocab-en">curtain</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Teppich</span><span class="vocab-en">carpet / rug</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Bücherregal</span><span class="vocab-en">bookshelf</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Lampe</span><span class="vocab-en">lamp</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Papierkorb</span><span class="vocab-en">wastepaper basket</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Besen</span><span class="vocab-en">broom</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Küchengeräte (Kitchen Appliances)</div>
+    <div class="vocab-item"><span class="vocab-de">der Geschirrspüler</span><span class="vocab-en">dishwasher</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Mikrowelle</span><span class="vocab-en">microwave</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Spüle</span><span class="vocab-en">kitchen sink</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Wasserhahn</span><span class="vocab-en">tap / faucet</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Badewanne</span><span class="vocab-en">bathtub</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Abfalleimer</span><span class="vocab-en">rubbish bin</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Heizung</span><span class="vocab-en">heating / radiator</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Seife</span><span class="vocab-en">soap</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vd07 -->
+<section id="vd07">
+<h2>Clothing &amp; Accessories</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Kleidung (Clothes)</div>
+    <div class="vocab-item"><span class="vocab-de">das Hemd</span><span class="vocab-en">shirt (formal)</span></div>
+    <div class="vocab-item"><span class="vocab-de">das T-Shirt</span><span class="vocab-en">T-shirt</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Hose</span><span class="vocab-en">trousers</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Jeans</span><span class="vocab-en">jeans</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Rock</span><span class="vocab-en">skirt</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Kleid</span><span class="vocab-en">dress</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Pullover / Pulli</span><span class="vocab-en">sweater / jumper</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Jacke</span><span class="vocab-en">jacket</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Mantel</span><span class="vocab-en">coat</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Anzug</span><span class="vocab-en">suit</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Accessoires &amp; Schuhe</div>
+    <div class="vocab-item"><span class="vocab-de">die Schuhe (pl)</span><span class="vocab-en">shoes</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Stiefel (pl)</span><span class="vocab-en">boots</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Socken (pl)</span><span class="vocab-en">socks</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Unterwäsche</span><span class="vocab-en">underwear</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Hut</span><span class="vocab-en">hat (with brim)</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Mütze</span><span class="vocab-en">beanie / cap</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schal</span><span class="vocab-en">scarf</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Handschuhe (pl)</span><span class="vocab-en">gloves</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Tasche</span><span class="vocab-en">bag / handbag</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Gürtel</span><span class="vocab-en">belt</span></div>
+  </div>
+</div>
+
+<h3>More Clothing &amp; Accessories (from your notes)</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Mehr Kleidung</div>
+    <div class="vocab-item"><span class="vocab-de">die Bluse</span><span class="vocab-en">blouse</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Shorts</span><span class="vocab-en">shorts</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Kappe</span><span class="vocab-en">cap</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Trainingsanzug</span><span class="vocab-en">tracksuit</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Badeanzug</span><span class="vocab-en">swimsuit</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Sandalen (pl)</span><span class="vocab-en">sandals</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Badeschuhe (pl)</span><span class="vocab-en">bathroom slippers</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Unterwäsche</span><span class="vocab-en">underwear</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Unterhemd</span><span class="vocab-en">undershirt</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Unterhose</span><span class="vocab-en">underpants</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Strumpf</span><span class="vocab-en">stocking</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Top</span><span class="vocab-en">top</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Accessoires</div>
+    <div class="vocab-item"><span class="vocab-de">der Ring</span><span class="vocab-en">ring</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Ohrring</span><span class="vocab-en">earring</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Halskette</span><span class="vocab-en">necklace</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Fußkette</span><span class="vocab-en">anklet</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Krawatte</span><span class="vocab-en">tie</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Kamm</span><span class="vocab-en">comb</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Lippenstift</span><span class="vocab-en">lipstick</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Handtuch</span><span class="vocab-en">towel</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Badetuch</span><span class="vocab-en">bath towel</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Baumwolle</span><span class="vocab-en">cotton</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Mode</span><span class="vocab-en">fashion</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Marke</span><span class="vocab-en">brand</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Größe</span><span class="vocab-en">size</span></div>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>💡 Clothing Verb Forms</strong>
+  <em>tragen</em> = to wear (general)<br>
+  <em>anziehen</em> (separable) = to put on: <em>Ich ziehe den Mantel an.</em><br>
+  <em>anhaben</em> (separable) = to have on: <em>Was haben Sie an?</em>
+</div>
+
+<h3>Shopping for Clothes</h3>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>English</th></tr>
+  <tr><td class="de">Welche Größe haben Sie?</td><td>What size are you?</td></tr>
+  <tr><td class="de">Ich habe Größe 40.</td><td>I'm size 40.</td></tr>
+  <tr><td class="de">Kann ich das anprobieren?</td><td>Can I try this on?</td></tr>
+  <tr><td class="de">Haben Sie das in Blau?</td><td>Do you have this in blue?</td></tr>
+  <tr><td class="de">Es passt (nicht).</td><td>It fits (doesn't fit).</td></tr>
+  <tr><td class="de">Es ist zu groß / zu klein.</td><td>It's too big / too small.</td></tr>
+  <tr><td class="de">Was kostet das?</td><td>How much does this cost?</td></tr>
+  <tr><td class="de">Ich nehme es.</td><td>I'll take it.</td></tr>
+</table></div>
+
+<h3>Colours</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>German</th><th>English</th></tr>
+  <tr><td class="de">rot</td><td>red</td><td class="de">grün</td><td>green</td></tr>
+  <tr><td class="de">blau</td><td>blue</td><td class="de">gelb</td><td>yellow</td></tr>
+  <tr><td class="de">schwarz</td><td>black</td><td class="de">weiß</td><td>white</td></tr>
+  <tr><td class="de">grau</td><td>grey</td><td class="de">braun</td><td>brown</td></tr>
+  <tr><td class="de">orange</td><td>orange</td><td class="de">lila / violett</td><td>purple</td></tr>
+  <tr><td class="de">rosa</td><td>pink</td><td class="de">beige</td><td>beige</td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── vd08 -->
+<section id="vd08">
+<h2>Transport &amp; Getting Around</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Verkehrsmittel (Transport)</div>
+    <div class="vocab-item"><span class="vocab-de">der Bus</span><span class="vocab-en">bus</span></div>
+    <div class="vocab-item"><span class="vocab-de">die U-Bahn</span><span class="vocab-en">underground / metro</span></div>
+    <div class="vocab-item"><span class="vocab-de">die S-Bahn</span><span class="vocab-en">suburban train</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Straßenbahn</span><span class="vocab-en">tram</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Zug</span><span class="vocab-en">train</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Taxi</span><span class="vocab-en">taxi</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Auto</span><span class="vocab-en">car</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Fahrrad / Rad</span><span class="vocab-en">bicycle</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Motorrad</span><span class="vocab-en">motorbike</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Flugzeug</span><span class="vocab-en">aeroplane</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Useful Transport Phrases</div>
+    <div class="vocab-item"><span class="vocab-de">einsteigen</span><span class="vocab-en">to get in / board</span></div>
+    <div class="vocab-item"><span class="vocab-de">aussteigen</span><span class="vocab-en">to get out / alight</span></div>
+    <div class="vocab-item"><span class="vocab-de">umsteigen</span><span class="vocab-en">to change (train/bus)</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Ticket / die Fahrkarte</span><span class="vocab-en">ticket</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Fahrplan</span><span class="vocab-en">timetable</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Abfahrt</span><span class="vocab-en">departure</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Ankunft</span><span class="vocab-en">arrival</span></div>
+    <div class="vocab-item"><span class="vocab-de">Gleis 3</span><span class="vocab-en">Platform 3</span></div>
+    <div class="vocab-item"><span class="vocab-de">einfach / hin und zurück</span><span class="vocab-en">single / return</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Stau</span><span class="vocab-en">traffic jam</span></div>
+  </div>
+</div>
+
+<div class="situation">
+  <strong>🗣️ Buying a Train Ticket</strong>
+  A: <em>"Einmal nach München, bitte. Einfach."</em> (One ticket to Munich, please. Single.)<br>
+  B: <em>"Wann möchten Sie fahren?"</em> (When would you like to travel?)<br>
+  A: <em>"Morgen früh um 8 Uhr."</em> (Tomorrow morning at 8 o'clock.)<br>
+  B: <em>"Das kostet 35 Euro. Gleis 4."</em> (That costs 35 euros. Platform 4.)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vd09 -->
+<section id="vd09">
+<h2>Hobbies &amp; Free Time</h2>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>Sentence</th></tr>
+  <tr><td class="de">Fußball spielen</td><td>play football</td><td><em>Ich spiele gern Fußball.</em></td></tr>
+  <tr><td class="de">Tennis spielen</td><td>play tennis</td><td><em>Er spielt Tennis.</em></td></tr>
+  <tr><td class="de">Musik hören</td><td>listen to music</td><td><em>Ich höre gern Musik.</em></td></tr>
+  <tr><td class="de">Lesen</td><td>reading</td><td><em>Sie liest viel.</em></td></tr>
+  <tr><td class="de">Kochen</td><td>cooking</td><td><em>Er kocht gern.</em></td></tr>
+  <tr><td class="de">Filme schauen</td><td>watching films</td><td><em>Wir schauen Filme.</em></td></tr>
+  <tr><td class="de">Reisen</td><td>travelling</td><td><em>Ich reise gern.</em></td></tr>
+  <tr><td class="de">Joggen / Laufen</td><td>jogging / running</td><td><em>Ich laufe jeden Morgen.</em></td></tr>
+  <tr><td class="de">Schwimmen</td><td>swimming</td><td><em>Sie schwimmt gern.</em></td></tr>
+  <tr><td class="de">Tanzen</td><td>dancing</td><td><em>Wir tanzen gern.</em></td></tr>
+  <tr><td class="de">Fotografieren</td><td>photography</td><td><em>Er fotografiert gern.</em></td></tr>
+  <tr><td class="de">Zeichnen / Malen</td><td>drawing / painting</td><td><em>Sie malt gern.</em></td></tr>
+</table></div>
+
+<h3>More Hobbies (from your notes)</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">basteln</td><td>to do crafts / make things</td></tr>
+  <tr><td class="de">Federball spielen</td><td>to play badminton</td></tr>
+  <tr><td class="de">Ski fahren</td><td>to ski</td></tr>
+  <tr><td class="de">Inliner skaten</td><td>to rollerblade</td></tr>
+  <tr><td class="de">reiten</td><td>to ride (a horse)</td></tr>
+  <tr><td class="de">surfen</td><td>to surf</td></tr>
+  <tr><td class="de">Münzen sammeln</td><td>to collect coins</td></tr>
+  <tr><td class="de">Briefmarken sammeln</td><td>to collect stamps</td></tr>
+  <tr><td class="de">klettern</td><td>to climb</td></tr>
+  <tr><td class="de">faulenzen</td><td>to laze / do nothing</td></tr>
+  <tr><td class="de">angeln</td><td>to fish / go fishing</td></tr>
+  <tr><td class="de">backen</td><td>to bake</td></tr>
+  <tr><td class="de">malen</td><td>to paint</td></tr>
+  <tr><td class="de">segeln</td><td>to sail</td></tr>
+  <tr><td class="de">Theater machen</td><td>to do theatre / act</td></tr>
+  <tr><td class="de">Klavier spielen</td><td>to play piano</td></tr>
+  <tr><td class="de">chatten</td><td>to chat (online)</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 "gern" = "like to" — the key adverb</strong>
+  Add <em>gern</em> after any verb to say you LIKE doing it:<br>
+  <em>Ich trinke gern Kaffee.</em> = I like drinking coffee.<br>
+  <em>Ich schwimme gern.</em> = I like swimming.<br>
+  Opposite: <em>nicht gern</em> = don't like: <em>Ich lese nicht gern.</em> (I don't like reading.)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vd10 -->
+<section id="vd10">
+<h2>Weather</h2>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>Example</th></tr>
+  <tr><td class="de">die Sonne / sonnig</td><td>sun / sunny</td><td><em>Es ist sonnig.</em></td></tr>
+  <tr><td class="de">der Regen / regnerisch</td><td>rain / rainy</td><td><em>Es regnet.</em></td></tr>
+  <tr><td class="de">der Schnee / schneeig</td><td>snow / snowy</td><td><em>Es schneit.</em></td></tr>
+  <tr><td class="de">der Wind / windig</td><td>wind / windy</td><td><em>Es ist windig.</em></td></tr>
+  <tr><td class="de">der Nebel / neblig</td><td>fog / foggy</td><td><em>Es ist neblig.</em></td></tr>
+  <tr><td class="de">das Gewitter</td><td>thunderstorm</td><td><em>Es gibt ein Gewitter.</em></td></tr>
+  <tr><td class="de">warm / heiß</td><td>warm / hot</td><td><em>Es ist heiß.</em></td></tr>
+  <tr><td class="de">kalt / kühl</td><td>cold / cool</td><td><em>Es ist kalt.</em></td></tr>
+  <tr><td class="de">die Temperatur</td><td>temperature</td><td><em>Die Temperatur ist 20 Grad.</em></td></tr>
+  <tr><td class="de">der Grad (Celsius)</td><td>degree (Celsius)</td><td><em>Es sind 15 Grad.</em></td></tr>
+  <tr><td class="de">die Wolke / bewölkt</td><td>cloud / cloudy</td><td><em>Es ist bewölkt.</em></td></tr>
+  <tr><td class="de">das Wetter</td><td>weather</td><td><em>Wie ist das Wetter?</em></td></tr>
+  <tr><td class="de">der Donner</td><td>thunder</td><td><em>Der Donner ist laut.</em></td></tr>
+  <tr><td class="de">der Blitz</td><td>lightning</td><td><em>Der Blitz ist gefährlich.</em></td></tr>
+  <tr><td class="de">der Wetterbericht</td><td>weather report / forecast</td><td><em>Hast du den Wetterbericht gesehen?</em></td></tr>
+  <tr><td class="de">das Klima</td><td>climate</td><td><em>Das Klima in Deutschland ist kühl.</em></td></tr>
+  <tr><td class="de">angenehm</td><td>pleasant</td><td><em>Das Wetter ist angenehm.</em></td></tr>
+  <tr><td class="de">die Sonne scheint</td><td>the sun is shining</td><td><em>Die Sonne scheint heute.</em></td></tr>
+  <tr><td class="de">der Wind weht</td><td>the wind is blowing</td><td><em>Der Wind weht stark.</em></td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Talking about Weather</strong>
+  <em>"Wie ist das Wetter heute?"</em> (What's the weather like today?)<br>
+  <em>"Es ist schön. Die Sonne scheint."</em> (It's nice. The sun is shining.)<br>
+  <em>"Leider regnet es. Vergiss deinen Regenschirm nicht!"</em><br>
+  (Unfortunately it's raining. Don't forget your umbrella!)
+</div>
+
+<div class="trick">
+  <strong>💡 German weather uses "es"</strong>
+  All weather expressions use <em>es</em> as the subject:<br>
+  <em>Es regnet.</em> (It rains.) / <em>Es schneit.</em> (It snows.)<br>
+  <em>Es ist kalt.</em> (It is cold.) / <em>Es ist sonnig.</em> (It is sunny.)<br>
+  → Never "Die Wetter ist…" — always "Das Wetter ist…" or "Es ist…"
+</div>
+</section>
+
+</div>
+</body>
+</html>

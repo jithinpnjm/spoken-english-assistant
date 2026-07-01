@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { ArrowLeft, BookOpen, ClipboardCheck, ExternalLink, Mic, Radio, Search, StopCircle, Volume2 } from "lucide-react";
+import { ArrowLeft, BookOpen, ClipboardCheck, ExternalLink, Menu, Mic, Radio, Search, StopCircle, Volume2, X } from "lucide-react";
 import { germanA1BookLessons } from "../lib/a1-book/germanA1BookLessons";
 import type { GermanA1BookLesson } from "../lib/germanA1BookLessonTypes";
 import type { GermanLevel } from "../lib/germanCurriculumRegistry";
@@ -391,6 +391,8 @@ const GRAMMAR_LIBRARY: GrammarGroup[] = [
       { label: "Confusing Word Pairs", href: "/a1-german-grammar.html#g16", tag: "g16" },
       { label: "Numbers & Dates", href: "/a1-german-grammar.html#g17", tag: "g17" },
       { label: "Common Mistakes", href: "/a1-german-grammar.html#g18", tag: "g18" },
+      { label: "A1 Grammar Hub", href: "/a1-grammar-hub.html", tag: "grammar-hub" },
+      { label: "A1 All-in-One Hub", href: "/a1-all-in-one-hub.html", tag: "all-hub" },
     ],
   },
 ];
@@ -545,6 +547,7 @@ export default function GermanStudyGuidePanel({
   const [grammarOpen, setGrammarOpen] = useState(false);
   const [openGrammarGroup, setOpenGrammarGroup] = useState<string | null>(null);
   const [mainView, setMainView] = useState<"study" | "exam">("study");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     if (initialLessonNo && initialLessonNo !== selectedNo) {
@@ -599,16 +602,29 @@ export default function GermanStudyGuidePanel({
   return (
     <div className="flex h-screen overflow-hidden" style={{ background: "#0b0d1a" }}>
 
+      {/* Mobile backdrop */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 z-20 bg-black/60 md:hidden" onClick={() => setSidebarOpen(false)} />
+      )}
+
       {/* ── Sidebar ── */}
-      <aside className="w-72 flex-shrink-0 flex flex-col border-r border-slate-700/50 overflow-hidden" style={{ background: "#0f1120" }}>
+      <aside
+        className={`fixed inset-y-0 left-0 z-30 w-72 flex flex-col border-r border-slate-700/50 overflow-hidden transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 md:flex-shrink-0`}
+        style={{ background: "#0f1120" }}
+      >
 
         {/* Sidebar header */}
         <div className="flex-shrink-0 p-4 border-b border-slate-700/40 space-y-3">
-          {onBackToPortals && (
-            <button onClick={onBackToPortals} className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-sky-400 transition">
-              <ArrowLeft className="h-3.5 w-3.5" /> Back
+          <div className="flex items-center justify-between">
+            {onBackToPortals && (
+              <button onClick={onBackToPortals} className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-sky-400 transition">
+                <ArrowLeft className="h-3.5 w-3.5" /> Back
+              </button>
+            )}
+            <button onClick={() => setSidebarOpen(false)} className="md:hidden ml-auto p-1 text-slate-600 hover:text-white transition">
+              <X className="h-4 w-4" />
             </button>
-          )}
+          </div>
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Deutsch Coach</p>
@@ -762,6 +778,8 @@ export default function GermanStudyGuidePanel({
                   { href: "/a1-tenses.html", label: "Tenses", cls: "border-emerald-900 text-sky-400 hover:bg-slate-800/30" },
                   { href: "/a1-word-order.html", label: "Sentences", cls: "border-rose-900 text-rose-400 hover:bg-rose-900/30" },
                   { href: "/a1-german-grammar.html", label: "Full Guide", cls: "border-violet-900 text-violet-400 hover:bg-violet-900/30" },
+                  { href: "/a1-grammar-hub.html", label: "Grammar Hub", cls: "border-teal-900 text-teal-400 hover:bg-teal-900/30" },
+                  { href: "/a1-all-in-one-hub.html", label: "All A1", cls: "border-indigo-900 text-indigo-400 hover:bg-indigo-900/30" },
                 ].map((item) => (
                   <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer"
                     className={`flex items-center justify-center gap-1 rounded border px-2 py-1.5 text-[11px] font-semibold transition ${item.cls}`}>
@@ -802,6 +820,15 @@ export default function GermanStudyGuidePanel({
 
       {/* ── Main content ── */}
       <main className="flex-1 min-w-0 overflow-y-auto" style={{ background: "#0b0d1a" }}>
+
+        {/* Mobile top bar */}
+        <div className="md:hidden flex items-center justify-between px-4 py-3 border-b border-slate-700/60 sticky top-0 z-10" style={{ background: "#0f1120" }}>
+          <button onClick={() => setSidebarOpen(true)} className="p-1.5 text-slate-500 hover:text-white transition">
+            <Menu className="h-5 w-5" />
+          </button>
+          <p className="text-sm font-bold text-white">Deutsch Coach</p>
+          <div className="w-8" />
+        </div>
         {mainView === "exam" ? (
           <div className="p-6">
             <GermanExamPrepPanel
@@ -885,7 +912,7 @@ export default function GermanStudyGuidePanel({
             </div>
 
             {/* Tab content */}
-            <div className="px-6 py-5 space-y-4">
+            <div className={activeTab === "concepts" ? "" : "px-6 py-5 space-y-4"}>
               {activeTab === "learn" && (
                 <>
                   <SmallSection title="What to understand first">
@@ -1016,10 +1043,11 @@ export default function GermanStudyGuidePanel({
                 const anchor = conceptAnchorFor(selected.lessonNo);
                 const href = `/${file}#${anchor}`;
                 return (
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
+                  <div>
+                    {/* Slim toolbar */}
+                    <div className="flex items-center justify-between px-4 py-2 border-b border-slate-700/40">
                       <p className="text-xs text-slate-500 uppercase tracking-widest font-semibold">
-                        Lesson {selected.lessonNo} — merged study reference (book + handwritten notes)
+                        Lesson {selected.lessonNo} — study reference
                       </p>
                       <a
                         href={href}
@@ -1030,13 +1058,24 @@ export default function GermanStudyGuidePanel({
                         <ExternalLink className="h-3 w-3" /> Open full page
                       </a>
                     </div>
+                    {/* Full-bleed iframe — height = viewport minus sticky header + tabs + toolbar */}
                     <iframe
                       key={href}
                       src={href}
                       title={`Lesson ${selected.lessonNo} Study Concepts`}
-                      className="w-full rounded-xl border border-slate-700/50"
-                      style={{ height: "72vh", background: "#0b0d1a" }}
+                      className="w-full border-0 block"
+                      style={{ height: "calc(100vh - 160px)", background: "#0b0d1a" }}
                       sandbox="allow-same-origin allow-scripts"
+                      onLoad={(e) => {
+                        try {
+                          const doc = (e.target as HTMLIFrameElement).contentDocument;
+                          if (doc) {
+                            const s = doc.createElement("style");
+                            s.textContent = "body,main{max-width:100%!important;margin:0!important;padding:1rem!important}.container{max-width:100%!important;margin:0!important}";
+                            doc.head.appendChild(s);
+                          }
+                        } catch {}
+                      }}
                     />
                   </div>
                 );

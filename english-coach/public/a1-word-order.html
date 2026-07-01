@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>A1 German — Sentence Building</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.changed { background: #1a3a5c !important; color: var(--gold); font-weight: 700; }
+.same { color: var(--fg-soft); }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.pronounce {
+  background: #1a0a2e; border: 1px solid var(--purple); border-left: 6px solid var(--purple);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+}
+.pronounce h4 { color: var(--purple); margin: 0 0 6px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* File-specific classes */
+.container { max-width: 860px; margin: 0 auto; }
+h2 { font-size: 1.4rem; color: var(--accent); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 2px solid var(--accent-dark); }
+section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem; margin-bottom: 2rem; }
+.trick { background: #1c1a00; border-left: 4px solid var(--gold); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.trick strong { color: var(--gold); display: block; margin-bottom: .3rem; }
+.situation { background: #0c2039; border-left: 4px solid var(--accent); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.situation strong { color: var(--accent); display: block; margin-bottom: .3rem; }
+.mistake { background: #2d0a0a; border-left: 4px solid var(--red); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.mistake strong { color: var(--red); display: block; margin-bottom: .3rem; }
+.analogy { background: #1a0533; border-left: 4px solid var(--purple); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.analogy strong { color: var(--purple); display: block; margin-bottom: .3rem; }
+.formula { background: #0a1628; border: 2px solid var(--accent); border-radius: 10px; padding: 1rem 1.4rem; font-size: 1.05rem; color: var(--fg); margin: 1rem 0; text-align: center; }
+.formula span { color: var(--accent); font-weight: 700; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+@media(max-width:600px) { .grid2 { grid-template-columns: 1fr; } }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.card-title { font-weight: 700; margin-bottom: .4rem; font-size: 1rem; }
+.hi { color: var(--gold); font-weight: 600; }
+.dim { color: var(--fg-soft); }
+/* Sentence visualiser */
+.sent-box { display: flex; flex-wrap: wrap; gap: .4rem; margin: .6rem 0; align-items: center; }
+.pos { display: flex; flex-direction: column; align-items: center; }
+.pos-word { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: .3rem .7rem; font-size: .95rem; white-space: nowrap; }
+.pos-label { font-size: .7rem; color: var(--fg-soft); margin-top: .2rem; }
+.pos-verb .pos-word { background: #0c2039; border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.pos-end .pos-word { background: #1c1a00; border-color: var(--gold); color: var(--gold); font-weight: 700; }
+.pos-front .pos-word { background: #071a0e; border-color: var(--green); color: var(--green); }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header">
+  <div class="badge">A1 German · Word Order</div>
+  <h1>🏗 Sentence Building</h1>
+  <p>V2 Rule · Word Order · Questions · Imperatives · Connectors · Adjective Endings</p>
+</div>
+
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#w01">V2 Rule</a>
+  <a href="#w02">Front-Field</a>
+  <a href="#w03">Questions</a>
+  <a href="#w04">Negation</a>
+  <a href="#w05">Imperatives</a>
+  <a href="#w06">Connectors</a>
+  <a href="#w07">Subord. Clauses</a>
+  <a href="#w08">TeKaMoLo</a>
+  <a href="#w09">Adjective Endings</a>
+  <a href="#w10">Common Mistakes</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ──────────────────────────────────── w01 -->
+<section id="w01">
+<h2>The V2 Rule — Verb Always in Position 2</h2>
+<p>This is the single most important rule in German sentence structure.</p>
+
+<div class="formula">
+<span>[Position 1]</span> + <span>VERB</span> + [rest of sentence]
+</div>
+
+<p>Position 1 can hold <strong>one idea</strong> (subject, time word, place, or any element you want to emphasise). The verb is <strong>always in position 2</strong>, no matter what is in position 1.</p>
+
+<div class="sent-box">
+  <div class="pos pos-front"><div class="pos-word">Ich</div><div class="pos-label">P1 (Subject)</div></div>
+  <div class="pos pos-verb"><div class="pos-word">trinke</div><div class="pos-label">P2 (Verb)</div></div>
+  <div class="pos"><div class="pos-word">jeden Morgen</div><div class="pos-label">Time</div></div>
+  <div class="pos"><div class="pos-word">Kaffee.</div><div class="pos-label">Object</div></div>
+</div>
+<div class="sent-box">
+  <div class="pos pos-front"><div class="pos-word">Jeden Morgen</div><div class="pos-label">P1 (Time)</div></div>
+  <div class="pos pos-verb"><div class="pos-word">trinke</div><div class="pos-label">P2 (Verb)</div></div>
+  <div class="pos"><div class="pos-word">ich</div><div class="pos-label">Subject (pushed to P3)</div></div>
+  <div class="pos"><div class="pos-word">Kaffee.</div><div class="pos-label">Object</div></div>
+</div>
+<div class="sent-box">
+  <div class="pos pos-front"><div class="pos-word">Kaffee</div><div class="pos-label">P1 (Object, for emphasis)</div></div>
+  <div class="pos pos-verb"><div class="pos-word">trinke</div><div class="pos-label">P2 (Verb)</div></div>
+  <div class="pos"><div class="pos-word">ich</div><div class="pos-label">Subject</div></div>
+  <div class="pos"><div class="pos-word">jeden Morgen.</div><div class="pos-label">Time</div></div>
+</div>
+
+<div class="trick">
+  <strong>💡 Memory trick — The Verb is a Bouncer</strong>
+  Think of the verb as a nightclub bouncer at door #2. One person (one idea) goes in first. Then the bouncer (verb) stands at position 2. Everyone else queues behind. The bouncer never moves from position 2.
+</div>
+
+<div class="analogy">
+  <strong>🧩 Compare to English</strong>
+  English: "Every morning I drink coffee." → verb stays at position 3 when time comes first.<br>
+  German: "Jeden Morgen <strong>trinke</strong> ich Kaffee." → verb jumps back to P2 when time comes first.<br>
+  This "jump" is called <strong>inversion</strong>.
+</div>
+</section>
+
+<!-- ──────────────────────────────────── w02 -->
+<section id="w02">
+<h2>What Can Go in Position 1?</h2>
+<p>Position 1 holds exactly one "chunk." You can choose what to put there to change emphasis:</p>
+
+<div class="table-wrap"><table>
+  <tr><th>What in P1</th><th>Example</th><th>English</th></tr>
+  <tr><td>Subject</td><td><em>Ich wohne in Berlin.</em></td><td>I live in Berlin.</td></tr>
+  <tr><td>Time word</td><td><em>Morgen fahre ich nach München.</em></td><td>Tomorrow I'm going to Munich.</td></tr>
+  <tr><td>Place</td><td><em>In Berlin wohne ich seit zwei Jahren.</em></td><td>In Berlin I've lived for two years.</td></tr>
+  <tr><td>Object (emphasis)</td><td><em>Das Buch habe ich gelesen.</em></td><td>The book — I read it (already).</td></tr>
+  <tr><td>Connector word</td><td><em>Deshalb lerne ich Deutsch.</em></td><td>That's why I'm learning German.</td></tr>
+  <tr><td>Subordinate clause</td><td><em>Weil ich müde bin, gehe ich schlafen.</em></td><td>Because I'm tired, I'm going to sleep.</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Why P1 placement matters — Emphasis!</strong>
+  <em>"Ich habe gestern das Buch gelesen."</em> → Neutral statement.<br>
+  <em>"Gestern habe ich das Buch gelesen."</em> → Emphasises YESTERDAY.<br>
+  <em>"Das Buch habe ich gestern gelesen."</em> → Emphasises THE BOOK (not something else).<br>
+  Same meaning, different focus!
+</div>
+</section>
+
+<!-- ──────────────────────────────────── w03 -->
+<section id="w03">
+<h2>Questions — Two Types</h2>
+
+<h3>Yes/No Questions (Verb First)</h3>
+<div class="formula">
+<span>VERB</span> + Subject + ...?
+</div>
+<p>No question word needed. The verb simply jumps to position 1.</p>
+<div class="table-wrap"><table>
+  <tr><th>Statement</th><th>Yes/No Question</th></tr>
+  <tr><td><em>Du sprichst Deutsch.</em></td><td><em>Sprichst du Deutsch?</em></td></tr>
+  <tr><td><em>Er wohnt in Berlin.</em></td><td><em>Wohnt er in Berlin?</em></td></tr>
+  <tr><td><em>Sie haben Hunger.</em></td><td><em>Haben Sie Hunger?</em></td></tr>
+  <tr><td><em>Wir fahren morgen.</em></td><td><em>Fahren wir morgen?</em></td></tr>
+</table></div>
+
+<h3>W-Questions (Question Word → Verb → Subject)</h3>
+<div class="formula">
+<span>W-word</span> + <span>VERB</span> + Subject + ...?
+</div>
+<div class="table-wrap"><table>
+  <tr><th>W-word</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td>Was</td><td>What</td><td><em>Was machst du?</em></td></tr>
+  <tr><td>Wer</td><td>Who</td><td><em>Wer ist das?</em></td></tr>
+  <tr><td>Wo</td><td>Where (location)</td><td><em>Wo wohnst du?</em></td></tr>
+  <tr><td>Wohin</td><td>Where (direction)</td><td><em>Wohin gehst du?</em></td></tr>
+  <tr><td>Wann</td><td>When</td><td><em>Wann kommst du?</em></td></tr>
+  <tr><td>Wie</td><td>How</td><td><em>Wie heißt du?</em></td></tr>
+  <tr><td>Wie viel</td><td>How much</td><td><em>Wie viel kostet das?</em></td></tr>
+  <tr><td>Wie viele</td><td>How many</td><td><em>Wie viele Personen?</em></td></tr>
+  <tr><td>Warum</td><td>Why</td><td><em>Warum lernst du Deutsch?</em></td></tr>
+  <tr><td>Welch-</td><td>Which</td><td><em>Welchen Bus nehme ich?</em></td></tr>
+  <tr><td>Wen</td><td>Whom (Akk)</td><td><em>Wen kennst du hier?</em></td></tr>
+  <tr><td>Wem</td><td>To whom (Dat)</td><td><em>Wem gehört das?</em></td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 Wo vs Wohin vs Woher</strong>
+  <em>Wo?</em> = Where? (static location) → <em>Wo bist du?</em> (Where are you?)<br>
+  <em>Wohin?</em> = Where to? (direction/movement) → <em>Wohin gehst du?</em> (Where are you going?)<br>
+  <em>Woher?</em> = Where from? (origin) → <em>Woher kommst du?</em> (Where do you come from?)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── w04 -->
+<section id="w04">
+<h2>Negation — nicht vs kein</h2>
+
+<div class="grid2">
+  <div class="card" style="border-color:var(--accent)">
+    <div class="card-title" style="color:var(--accent)">nicht — negates verbs, adjectives, specific elements</div>
+    <ul>
+      <li>Verb: <em>Ich schlafe <span class="hi">nicht</span>.</em></li>
+      <li>Adjective: <em>Das ist <span class="hi">nicht</span> gut.</em></li>
+      <li>Name/specific: <em>Ich kenne <span class="hi">nicht</span> Peter.</em></li>
+      <li>Adverb: <em>Er kommt <span class="hi">nicht</span> heute.</em></li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:var(--green)">
+    <div class="card-title" style="color:var(--green)">kein/keine — negates nouns (replaces ein/eine)</div>
+    <ul>
+      <li>Masc: <em>Das ist <span class="hi">kein</span> Hund.</em></li>
+      <li>Fem: <em>Das ist <span class="hi">keine</span> Katze.</em></li>
+      <li>Neut: <em>Das ist <span class="hi">kein</span> Problem.</em></li>
+      <li>Plur: <em>Ich habe <span class="hi">keine</span> Kinder.</em></li>
+    </ul>
+  </div>
+</div>
+
+<div class="teach">
+  <strong>📌 The Simple Rule</strong>
+  If you'd use <em>ein/eine</em> (or nothing = uncountable), use <em>kein/keine</em>.<br>
+  Everything else → use <em>nicht</em>.
+</div>
+
+<h3>Where does nicht go?</h3>
+<div class="table-wrap"><table>
+  <tr><th>Negating</th><th>Position of nicht</th><th>Example</th></tr>
+  <tr><td>Whole sentence (verb)</td><td>End of clause</td><td><em>Ich schlafe nicht.</em></td></tr>
+  <tr><td>Adjective</td><td>Before the adjective</td><td><em>Das ist nicht gut.</em></td></tr>
+  <tr><td>Adverb/time</td><td>Before the adverb</td><td><em>Er kommt nicht heute.</em></td></tr>
+  <tr><td>Specific noun</td><td>Before the noun</td><td><em>Nicht Berlin, sondern Hamburg.</em></td></tr>
+  <tr><td>Partizip II (Perfekt)</td><td>Before the Partizip II</td><td><em>Ich habe nicht geschlafen.</em></td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── w05 -->
+<section id="w05">
+<h2>Imperatives — Giving Commands</h2>
+<p>There are 3 forms of imperative depending on who you're talking to:</p>
+
+<div class="table-wrap"><table>
+  <tr><th>Form</th><th>Used for</th><th>Formation</th><th>Example (machen)</th></tr>
+  <tr><td><em>du</em>-form</td><td>1 person, informal</td><td>Stem only (drop -en)</td><td class="hi">Mach!</td></tr>
+  <tr><td><em>ihr</em>-form</td><td>group, informal</td><td>ihr-form without "ihr"</td><td class="hi">Macht!</td></tr>
+  <tr><td><em>Sie</em>-form</td><td>formal (any number)</td><td>Verb + Sie (inverted)</td><td class="hi">Machen Sie!</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 du-form trick — Just the stem!</strong>
+  <em>gehen</em> → <strong>Geh!</strong> (Go!)<br>
+  <em>kommen</em> → <strong>Komm!</strong> (Come!)<br>
+  <em>essen</em> → <strong>Iss!</strong> (e→i irregular! Eat!)<br>
+  <em>lesen</em> → <strong>Lies!</strong> (e→ie irregular! Read!)<br>
+  If the verb has an e→i or e→ie stem change, that change stays in the du-imperative.
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Verb</th><th>du-form</th><th>ihr-form</th><th>Sie-form</th></tr>
+  <tr><td>gehen</td><td class="hi">Geh!</td><td class="hi">Geht!</td><td class="hi">Gehen Sie!</td></tr>
+  <tr><td>kommen</td><td class="hi">Komm!</td><td class="hi">Kommt!</td><td class="hi">Kommen Sie!</td></tr>
+  <tr><td>sprechen</td><td class="hi">Sprich!</td><td class="hi">Sprecht!</td><td class="hi">Sprechen Sie!</td></tr>
+  <tr><td>essen</td><td class="hi">Iss!</td><td class="hi">Esst!</td><td class="hi">Essen Sie!</td></tr>
+  <tr><td>lesen</td><td class="hi">Lies!</td><td class="hi">Lest!</td><td class="hi">Lesen Sie!</td></tr>
+  <tr><td>warten</td><td class="hi">Warte!</td><td class="hi">Wartet!</td><td class="hi">Warten Sie!</td></tr>
+  <tr><td>sein</td><td class="hi">Sei!</td><td class="hi">Seid!</td><td class="hi">Seien Sie!</td></tr>
+  <tr><td>aufmachen</td><td class="hi">Mach auf!</td><td class="hi">Macht auf!</td><td class="hi">Machen Sie auf!</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Real Situations — Imperatives in Daily Life</strong>
+  Doctor: <em>"Öffnen Sie den Mund bitte."</em> (Please open your mouth.)<br>
+  Friend: <em>"Komm! Wir gehen!"</em> (Come on! We're going!)<br>
+  Teacher: <em>"Lest Seite 12!"</em> (Read page 12!)<br>
+  Sign: <em>"Nicht rauchen!"</em> (No smoking — infinitive used for signs/notices)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── w06 -->
+<section id="w06">
+<h2>Connectors — Linking Sentences</h2>
+
+<h3>Coordinating Connectors (no word order change)</h3>
+<p>These link two main clauses. Word order after them stays normal (V2):</p>
+<div class="table-wrap"><table>
+  <tr><th>Connector</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="hi">und</td><td>and</td><td><em>Ich lerne Deutsch <span class="hi">und</span> er lernt Spanisch.</em></td></tr>
+  <tr><td class="hi">aber</td><td>but</td><td><em>Ich bin müde, <span class="hi">aber</span> ich arbeite.</em></td></tr>
+  <tr><td class="hi">oder</td><td>or</td><td><em>Tee <span class="hi">oder</span> Kaffee?</em></td></tr>
+  <tr><td class="hi">denn</td><td>because (reason)</td><td><em>Ich lerne, <span class="hi">denn</span> ich habe morgen eine Prüfung.</em></td></tr>
+  <tr><td class="hi">sondern</td><td>but rather (after negation)</td><td><em>Nicht Tee, <span class="hi">sondern</span> Kaffee.</em></td></tr>
+</table></div>
+
+<h3>Adverb Connectors (cause inversion)</h3>
+<p>These go to position 1, pushing the subject to position 3:</p>
+<div class="table-wrap"><table>
+  <tr><th>Connector</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="hi">deshalb / darum / deswegen</td><td>therefore / that's why</td><td><em>Ich bin krank. <span class="hi">Deshalb</span> bleibe ich zu Hause.</em></td></tr>
+  <tr><td class="hi">trotzdem</td><td>nevertheless</td><td><em>Es regnet. <span class="hi">Trotzdem</span> gehe ich spazieren.</em></td></tr>
+  <tr><td class="hi">außerdem</td><td>besides / in addition</td><td><em><span class="hi">Außerdem</span> spreche ich Englisch.</em></td></tr>
+  <tr><td class="hi">dann</td><td>then</td><td><em>Ich esse. <span class="hi">Dann</span> lerne ich.</em></td></tr>
+  <tr><td class="hi">danach</td><td>after that</td><td><em><span class="hi">Danach</span> gehe ich schlafen.</em></td></tr>
+  <tr><td class="hi">zuerst</td><td>first</td><td><em><span class="hi">Zuerst</span> trinke ich Kaffee.</em></td></tr>
+  <tr><td class="hi">also</td><td>so / thus</td><td><em>Du bist müde? <span class="hi">Also</span> schlaf!</em></td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 deshalb / darum / deswegen — they're the same!</strong>
+  All three mean "therefore / that's why." Pick one and use it consistently. <em>Deshalb</em> is the most common in everyday speech.
+</div>
+
+<h3>deshalb / darum / deswegen — More Examples</h3>
+<div class="table-wrap"><table>
+  <tr><th>Reason</th><th>Result (with connector)</th></tr>
+  <tr><td><em>Ich bin krank.</em></td><td class="de"><em>Deshalb bleibe ich zu Hause.</em> (I'm sick — that's why I'm staying home.)</td></tr>
+  <tr><td><em>Es regnet.</em></td><td class="de"><em>Darum nehme ich einen Regenschirm.</em> (It's raining, so I'm taking an umbrella.)</td></tr>
+  <tr><td><em>Ich habe Hunger.</em></td><td class="de"><em>Deswegen esse ich jetzt.</em> (I'm hungry, so I'm eating now.)</td></tr>
+  <tr><td><em>Er hat kein Geld.</em></td><td class="de"><em>Deshalb kauft er nichts.</em> (He has no money, so he buys nothing.)</td></tr>
+  <tr><td><em>Sie lernt Deutsch.</em></td><td class="de"><em>Darum versteht sie alles.</em> (She's learning German, so she understands everything.)</td></tr>
+  <tr><td><em>Wir haben keine Zeit.</em></td><td class="de"><em>Deswegen kommen wir nicht.</em> (We have no time, that's why we're not coming.)</td></tr>
+  <tr><td><em>Das Wetter ist schön.</em></td><td class="de"><em>Deshalb gehen wir spazieren.</em> (The weather is nice, so we're going for a walk.)</td></tr>
+  <tr><td><em>Er ist müde.</em></td><td class="de"><em>Darum schläft er früh.</em> (He's tired, so he goes to bed early.)</td></tr>
+  <tr><td><em>Sie möchte Deutsch lernen.</em></td><td class="de"><em>Deswegen macht sie einen Kurs.</em> (She wants to learn German, so she's doing a course.)</td></tr>
+  <tr><td><em>Das Restaurant ist zu teuer.</em></td><td class="de"><em>Deshalb essen wir zu Hause.</em> (The restaurant is too expensive, so we eat at home.)</td></tr>
+</table></div>
+
+<h3>welcher / welche / welches — Which? (Declension Table)</h3>
+<p><em>welch-</em> asks "which?" and declines like the definite article:</p>
+<div class="table-wrap"><table>
+  <tr><th>Case</th><th>Maskulin</th><th>Feminin</th><th>Neutral</th><th>Plural</th></tr>
+  <tr><td>Nominativ</td><td class="de">welcher Bus?</td><td class="de">welche Straße?</td><td class="de">welches Haus?</td><td class="de">welche Bücher?</td></tr>
+  <tr><td>Akkusativ</td><td class="de">welchen Bus?</td><td class="de">welche Straße?</td><td class="de">welches Haus?</td><td class="de">welche Bücher?</td></tr>
+  <tr><td>Dativ</td><td class="de">welchem Bus?</td><td class="de">welcher Straße?</td><td class="de">welchem Haus?</td><td class="de">welchen Büchern?</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ welch- in use</strong>
+  <em>"Welchen Bus nehme ich zum Bahnhof?"</em> (Which bus do I take to the station?) — Akkusativ, maskulin<br>
+  <em>"Welche Farbe magst du?"</em> (Which colour do you like?) — Akkusativ, feminin<br>
+  <em>"In welchem Zimmer schläfst du?"</em> (In which room do you sleep?) — Dativ, neutral<br>
+  <em>"Welche Sprachen sprichst du?"</em> (Which languages do you speak?) — Akkusativ, Plural
+</div>
+</section>
+
+<!-- ──────────────────────────────────── w07 -->
+<section id="w07">
+<h2>Subordinate Clauses — Verb Goes to the End</h2>
+<p>When you use a subordinating conjunction (weil, dass, wenn, ob, obwohl…), the verb in that clause goes to the <strong>very end</strong>.</p>
+
+<div class="formula">
+Main clause + <span>weil/dass/wenn...</span> + [rest] + <span>VERB (end)</span>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Conjunction</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="hi">weil</td><td>because (reason)</td><td><em>Ich lerne Deutsch, weil es interessant <span class="hi">ist</span>.</em></td></tr>
+  <tr><td class="hi">dass</td><td>that</td><td><em>Ich denke, dass er nett <span class="hi">ist</span>.</em></td></tr>
+  <tr><td class="hi">wenn</td><td>when / if (conditional)</td><td><em>Ich rufe an, wenn ich Zeit <span class="hi">habe</span>.</em></td></tr>
+  <tr><td class="hi">ob</td><td>whether / if (question)</td><td><em>Ich weiß nicht, ob er <span class="hi">kommt</span>.</em></td></tr>
+  <tr><td class="hi">obwohl</td><td>although</td><td><em>Ich gehe, obwohl ich müde <span class="hi">bin</span>.</em></td></tr>
+  <tr><td class="hi">als</td><td>when (single past event)</td><td><em>Als ich jung <span class="hi">war</span>, spielte ich Fußball.</em></td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 weil vs denn — the key difference</strong>
+  Both mean "because" but work differently:<br>
+  <em>denn</em> = coordinating → V2 after it: <em>"Ich lerne, denn ich <span class="hi">habe</span> morgen eine Prüfung."</em><br>
+  <em>weil</em> = subordinating → verb to end: <em>"Ich lerne, weil ich morgen eine Prüfung <span class="hi">habe</span>."</em>
+</div>
+
+<div class="situation">
+  <strong>🗣️ Subordinate Clause when it comes FIRST</strong>
+  When the subordinate clause comes first, the entire clause = Position 1, and the main verb still needs to be at P2 of the main clause:<br>
+  <em>"Weil ich müde <strong>bin</strong>, <span class="hi">gehe</span> ich schlafen."</em><br>
+  (Because I am tired, I am going to sleep.)<br>
+  → The sub-clause is P1, then verb of main clause immediately follows.
+</div>
+
+<div class="mistake">
+  <strong>❌ Don't use weil like denn</strong>
+  ❌ <em>"Ich lerne, weil ich habe morgen eine Prüfung."</em><br>
+  ✅ <em>"Ich lerne, weil ich morgen eine Prüfung habe."</em><br>
+  → After weil, the verb must go to the end.
+</div>
+</section>
+
+<!-- ──────────────────────────────────── w08 -->
+<section id="w08">
+<h2>TeKaMoLo — The Order of Adverbs</h2>
+<p>When you have multiple adverbs/phrases in the middle field of a sentence, they follow this order:</p>
+
+<div class="formula">
+<span>Te</span>mporal → <span>Ka</span>usal → <span>Mo</span>dal → <span>Lo</span>kal
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Type</th><th>What it means</th><th>Examples</th></tr>
+  <tr><td class="hi">Te (temporal)</td><td>When?</td><td>heute, morgen, um 8 Uhr, gestern</td></tr>
+  <tr><td class="hi">Ka (kausal)</td><td>Why? Reason</td><td>wegen der Arbeit, aus Liebe</td></tr>
+  <tr><td class="hi">Mo (modal)</td><td>How? Manner</td><td>schnell, mit dem Auto, allein</td></tr>
+  <tr><td class="hi">Lo (lokal)</td><td>Where?</td><td>in Berlin, nach Hause, hier</td></tr>
+</table></div>
+
+<p><strong>Example:</strong></p>
+<div class="sent-box" style="font-size:.9rem">
+  <div class="pos"><div class="pos-word">Ich</div><div class="pos-label">Subject</div></div>
+  <div class="pos pos-verb"><div class="pos-word">fahre</div><div class="pos-label">Verb (P2)</div></div>
+  <div class="pos"><div class="pos-word">morgen</div><div class="pos-label">Te (When)</div></div>
+  <div class="pos"><div class="pos-word">wegen der Arbeit</div><div class="pos-label">Ka (Why)</div></div>
+  <div class="pos"><div class="pos-word">mit dem Zug</div><div class="pos-label">Mo (How)</div></div>
+  <div class="pos pos-end"><div class="pos-word">nach München.</div><div class="pos-label">Lo (Where)</div></div>
+</div>
+
+<div class="trick">
+  <strong>💡 TeKaMoLo mnemonic — "TE KAhuna MO(vie) LOcation"</strong>
+  Te = <strong>TE</strong>mporary (time)<br>
+  Ka = <strong>CA</strong>use (reason)<br>
+  Mo = <strong>MO</strong>de (how)<br>
+  Lo = <strong>LO</strong>cation (where)
+</div>
+
+<div class="teach">
+  <strong>📌 Important: Lo vs Destination</strong>
+  The Lo slot is for <strong>static location</strong> (where you are/something is). Destinations (Wohin?) often go to the very end of the clause: <em>Ich fahre heute mit dem Zug nach München.</em>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── w09 -->
+<section id="w09">
+<h2>Adjective Endings</h2>
+<p>When an adjective comes <strong>before a noun</strong>, it gets an ending. The ending depends on gender, case, and the article used.</p>
+
+<h3>After the Definite Article (der/die/das)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Case</th><th>Masc (der)</th><th>Fem (die)</th><th>Neut (das)</th><th>Plural (die)</th></tr>
+  <tr><td>Nom</td><td>der gut<span class="hi">e</span> Mann</td><td>die gut<span class="hi">e</span> Frau</td><td>das gut<span class="hi">e</span> Kind</td><td>die gut<span class="hi">en</span> Kinder</td></tr>
+  <tr><td>Akk</td><td>den gut<span class="hi">en</span> Mann</td><td>die gut<span class="hi">e</span> Frau</td><td>das gut<span class="hi">e</span> Kind</td><td>die gut<span class="hi">en</span> Kinder</td></tr>
+  <tr><td>Dat</td><td>dem gut<span class="hi">en</span> Mann</td><td>der gut<span class="hi">en</span> Frau</td><td>dem gut<span class="hi">en</span> Kind</td><td>den gut<span class="hi">en</span> Kindern</td></tr>
+</table></div>
+
+<h3>After the Indefinite Article (ein/eine)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Case</th><th>Masc (ein)</th><th>Fem (eine)</th><th>Neut (ein)</th></tr>
+  <tr><td>Nom</td><td>ein gut<span class="hi">er</span> Mann</td><td>eine gut<span class="hi">e</span> Frau</td><td>ein gut<span class="hi">es</span> Kind</td></tr>
+  <tr><td>Akk</td><td>einen gut<span class="hi">en</span> Mann</td><td>eine gut<span class="hi">e</span> Frau</td><td>ein gut<span class="hi">es</span> Kind</td></tr>
+  <tr><td>Dat</td><td>einem gut<span class="hi">en</span> Mann</td><td>einer gut<span class="hi">en</span> Frau</td><td>einem gut<span class="hi">en</span> Kind</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 The -en shortcut (most common ending)</strong>
+  After definite articles (der/die/das), the ending is almost always <strong>-en</strong> — except Nom and Akk singular (those get -e). When in doubt, -en is the safe bet!
+</div>
+
+<div class="teach">
+  <strong>📌 Predicate adjectives — no ending!</strong>
+  When the adjective comes <strong>after</strong> the noun (via "is"), it gets NO ending:<br>
+  ✅ <em>"Das Wetter ist <span class="hi">gut</span>."</em> (no ending)<br>
+  ✅ <em>"Der Mann ist <span class="hi">groß</span>."</em> (no ending)<br>
+  Ending only needed when adjective is directly before the noun: <em>"ein gut<span class="hi">er</span> Mann"</em>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── w10 -->
+<section id="w10">
+<h2>Common Sentence-Building Mistakes</h2>
+
+<div class="mistake">
+  <strong>❌ V2 Violation — Forgetting inversion</strong>
+  ❌ <em>"Morgen ich gehe zum Supermarkt."</em><br>
+  ✅ <em>"Morgen gehe ich zum Supermarkt."</em><br>
+  → When time comes first, verb still must be P2.
+</div>
+
+<div class="mistake">
+  <strong>❌ weil with V2 word order</strong>
+  ❌ <em>"Ich bin müde, weil ich habe nicht geschlafen."</em><br>
+  ✅ <em>"Ich bin müde, weil ich nicht geschlafen habe."</em><br>
+  → After weil, verb goes to the end.
+</div>
+
+<div class="mistake">
+  <strong>❌ Wrong adjective ending</strong>
+  ❌ <em>"Ich habe ein gute Freund."</em><br>
+  ✅ <em>"Ich habe einen guten Freund."</em><br>
+  → Freund = masculine, Akkusativ after haben → einen, guten.
+</div>
+
+<div class="mistake">
+  <strong>❌ Nicht vs kein confusion</strong>
+  ❌ <em>"Ich habe nicht Hunger."</em><br>
+  ✅ <em>"Ich habe keinen Hunger."</em> (Hunger is a noun → kein)<br>
+  → Use kein/keine before nouns.
+</div>
+
+<div class="mistake">
+  <strong>❌ Missing comma before weil/dass/obwohl</strong>
+  ❌ <em>"Ich lerne Deutsch weil ich nach Deutschland reise."</em><br>
+  ✅ <em>"Ich lerne Deutsch, weil ich nach Deutschland reise."</em><br>
+  → In German writing, always use a comma before subordinating conjunctions.
+</div>
+
+<div class="mistake">
+  <strong>❌ TeKaMoLo wrong order</strong>
+  ❌ <em>"Ich fahre nach Berlin morgen mit dem Zug."</em><br>
+  ✅ <em>"Ich fahre morgen mit dem Zug nach Berlin."</em><br>
+  → Time before Manner before Place: Te-Mo-Lo.
+</div>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,47 +1,138 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>German A1 — Lessons 56–65</title>
 <style>
-:root{--bg:#0b0d1a;--bg2:#0f1120;--card:#1a1d2e;--border:#2d3157;--text:#e2e8f0;--muted:#94a3b8;--sky:#38bdf8;--indigo:#818cf8;--amber:#fbbf24;--green:#4ade80;--rose:#fb7185;--purple:#c084fc}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
-.page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
-.page-header h1{color:var(--sky);font-size:1.8rem}.page-header p{color:var(--muted);margin-top:.5rem}
-.lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
-.lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
-main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
-.lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
-.lesson:target{border-color:var(--indigo)}
-.lesson-header{margin-bottom:1.5rem}
-.lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
-.lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
-.lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
-.section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
-.section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
-.section-title.sky{color:var(--sky)}.section-title.amber{color:var(--amber)}.section-title.green{color:var(--green)}.section-title.rose{color:var(--rose)}.section-title.indigo{color:var(--indigo)}.section-title.purple{color:var(--purple)}.section-title.muted{color:var(--muted)}
-.rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}.rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
-.formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}.formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
-.vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
-.vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
-.vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}.vocab-table tr:last-child td{border-bottom:none}
-.vocab-de{color:var(--sky);font-weight:500}.vocab-en{color:var(--text)}.vocab-ex{color:var(--muted);font-size:.85rem}
-.grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
-.grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
-.grammar-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}.grammar-table tr:last-child td{border-bottom:none}
-.model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
-.model-de{font-size:1rem;font-weight:600;color:var(--text)}.model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0}.model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
-.mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
-.mistake-wrong{color:var(--rose)}.mistake-right{color:var(--green)}.mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
-.exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}.exercise-item:last-child{border-bottom:none}
-.exercise-prompt{color:var(--text)}.exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
-.exercise-group{margin-bottom:1rem}
-.exercise-instruction{color:var(--amber);font-size:.85rem;font-weight:600;margin-bottom:.5rem}
-.letter-card{background:rgba(11,13,26,.7);border-radius:8px;padding:1.25rem;margin-bottom:1rem;border:1px solid var(--border)}
-.letter-scenario{font-size:.75rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
-.letter-text{white-space:pre-wrap;font-family:inherit;font-size:.9rem;color:var(--text);line-height:1.8}
-.cultural-note{background:rgba(129,140,248,.07);border-left:3px solid var(--indigo);border-radius:6px;padding:.75rem 1rem;color:var(--muted);font-size:.9rem;margin-top:.5rem}
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+.lesson { border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; background: var(--card); }
+.lesson:target { border-color: var(--accent); }
+.lesson-header { margin-bottom: 1.5rem; }
+.lesson-number { display: inline-block; background: var(--accent-dark); color: #fff; font-size: .75rem; font-weight: 700; padding: .2rem .75rem; border-radius: 999px; margin-bottom: .5rem; }
+.lesson-title { color: var(--accent); font-size: 1.4rem; margin: .3rem 0 .5rem; }
+.lesson-intro { color: var(--fg-soft); font-style: italic; border-left: 3px solid var(--accent); padding-left: 1rem; }
+.section { margin-top: 1.5rem; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border); background: transparent; }
+.section-title { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 1rem; }
+.section-title.sky { color: var(--accent); }
+.section-title.indigo { color: var(--violet); }
+.section-title.amber { color: var(--gold); }
+.section-title.green { color: var(--green); }
+.section-title.rose { color: var(--red); }
+.section-title.muted { color: var(--fg-soft); }
+.section-title.purple { color: var(--purple); }
+.rule-item { padding: .35rem 0 .35rem 1.2rem; position: relative; color: var(--fg); font-size: .9rem; }
+.rule-item::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.formula-item { font-family: monospace; background: rgba(15,23,42,.5); border-radius: 4px; padding: .4rem .6rem; margin: .25rem 0; font-size: .85rem; color: var(--gold); }
+.vocab-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.vocab-table th { background: var(--th-bg); color: var(--th-fg); padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--border); }
+.vocab-table td { padding: .5rem .6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.vocab-table tr:last-child td { border-bottom: none; }
+.vocab-de { color: var(--accent); font-weight: 600; }
+.vocab-en { color: var(--fg); }
+.vocab-ex { color: var(--fg-soft); font-size: .85rem; }
+.model-sentence { background: rgba(15,23,42,.5); border-radius: 6px; padding: .75rem; margin-bottom: .5rem; border-left: 3px solid var(--green); }
+.model-de { font-size: 1rem; font-weight: 600; color: var(--fg); }
+.model-en { font-size: .85rem; color: var(--fg-soft); margin: .2rem 0; }
+.model-breakdown { font-size: .8rem; color: var(--accent); font-style: italic; }
+.grammar-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.grammar-table th { background: var(--th-bg); color: var(--th-fg); padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--border); }
+.grammar-table td { padding: .45rem .6rem; border-bottom: 1px solid var(--border); color: var(--fg); }
+.grammar-table td:first-child { color: var(--violet); font-weight: 600; }
+.grammar-table tr:last-child td { border-bottom: none; }
+.exercise-block { margin-bottom: .75rem; }
+.exercise-instruction { color: var(--gold); font-size: .85rem; font-weight: 600; margin-bottom: .5rem; }
+.exercise-item { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid var(--border); font-size: .85rem; }
+.exercise-item:last-child { border-bottom: none; }
+.exercise-prompt { color: var(--fg); }
+.exercise-answer { color: var(--green); font-weight: 600; font-size: .85rem; }
+.exercise-hint { color: var(--fg-soft); font-size: .75rem; margin-top: .1rem; }
+.exercise-group { margin-bottom: 1rem; }
+.mistake-item { padding: .75rem; border-radius: 6px; margin-bottom: .5rem; background: rgba(15,23,42,.5); }
+.mistake-wrong { color: var(--red); font-size: .9rem; }
+.mistake-right { color: var(--green); font-size: .9rem; margin-top: .2rem; }
+.mistake-explanation, .mistake-explain { color: var(--fg-soft); font-size: .85rem; margin-top: .25rem; }
+.cultural-note { background: rgba(167,139,250,.07); border-left: 3px solid var(--violet); border-radius: 6px; padding: .75rem 1rem; color: var(--fg-soft); font-size: .9rem; margin-top: .5rem; }
+.letter-card { background: rgba(15,23,42,.7); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; border: 1px solid var(--border); }
+.letter-scenario { font-size: .75rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .75rem; }
+.letter-text { white-space: pre-wrap; font-family: inherit; font-size: .9rem; color: var(--fg); line-height: 1.8; }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
 </style></head>
 <body>
-<div class="page-header"><h1>German A1 — Lessons 56–65</h1><p>Travel, telephone, services and real-life German</p></div>
-<nav class="lesson-nav">
+<div class="page-header">
+  <div class="badge">A1 German · Lesson Guide</div>
+  <h1>German A1 — Lessons 56–65</h1>
+  <p>Travel, telephone, services and real-life German</p>
+</div>
+<nav class="navback">
+  <a href="a1-all-in-one-hub.html">← All Lessons</a>
   <a href="#lesson-56">Lesson 56: Hiring a Taxi</a>
   <a href="#lesson-57">Lesson 57: Adverbs of Time</a>
   <a href="#lesson-58">Lesson 58: Telephone Conversations</a>
@@ -52,6 +143,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
   <a href="#lesson-63">Lesson 63: The Bank</a>
   <a href="#lesson-64">Lesson 64: Looking for an Apartment</a>
   <a href="#lesson-65">Lesson 65: Buying a Train Ticket</a>
+
+  <a href="/">Home</a>
 </nav>
 <main>
 
@@ -70,13 +163,14 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
     <div class="rule-item">For masculine (der) and neuter (das) places, 'zu' + 'dem' merges into the short word 'zum'.</div>
     <div class="rule-item">For feminine (die) places, 'zu' + 'der' merges into the short word 'zur'.</div>
     <div class="rule-item">Use 'Ich möchte bitte...' (I would like to...) + zum/zur + Destination.</div>
-    <table class="grammar-table" style="margin-top:1rem">
+    
+<div class="table-wrap"><table class="grammar-table" style="margin-top:1rem">
       <tr><th>Destination Gender</th><th>Preposition + Article</th><th>Merged Form</th><th>Example</th></tr>
       <tr><td>Masculine (der Bahnhof)</td><td>zu dem</td><td>zum</td><td>zum Bahnhof</td></tr>
       <tr><td>Neuter (das Hotel)</td><td>zu dem</td><td>zum</td><td>zum Hotel</td></tr>
       <tr><td>Feminine (die Bank)</td><td>zu der</td><td>zur</td><td>zur Bank</td></tr>
       <tr><td>Plural (no merger)</td><td>zu den</td><td>zu den</td><td>zu den Museen</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -87,7 +181,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">das Taxi</td><td class="vocab-en">taxi</td><td class="vocab-ex">Ich rufe ein Taxi. — I am calling a taxi.</td></tr>
       <tr><td class="vocab-de">der Fahrer</td><td class="vocab-en">driver</td><td class="vocab-ex">Der Fahrer ist nett. — The driver is nice.</td></tr>
@@ -99,7 +194,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">halten</td><td class="vocab-en">to stop</td><td class="vocab-ex">Bitte halten Sie hier. — Please stop here.</td></tr>
       <tr><td class="vocab-de">die Quittung</td><td class="vocab-en">receipt</td><td class="vocab-ex">Ich brauche eine Quittung. — I need a receipt.</td></tr>
       <tr><td class="vocab-de">das Wechselgeld</td><td class="vocab-en">change (money)</td><td class="vocab-ex">Das Wechselgeld ist für Sie. — The change is for you (Keep the change).</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -195,7 +290,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">immer</td><td class="vocab-en">always</td><td class="vocab-ex">Er ist immer pünktlich. — He is always on time.</td></tr>
       <tr><td class="vocab-de">oft</td><td class="vocab-en">often</td><td class="vocab-ex">Ich gehe oft ins Kino. — I go to the movies often.</td></tr>
@@ -207,7 +303,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">früh</td><td class="vocab-en">early</td><td class="vocab-ex">Der Zug fährt sehr früh ab. — The train departs very early.</td></tr>
       <tr><td class="vocab-de">spät</td><td class="vocab-en">late</td><td class="vocab-ex">Es ist schon zu spät. — It is already too late.</td></tr>
       <tr><td class="vocab-de">pünktlich</td><td class="vocab-en">on time / punctual</td><td class="vocab-ex">Bitte seien Sie pünktlich. — Please be punctual.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -300,7 +396,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">das Telefon</td><td class="vocab-en">telephone</td><td class="vocab-ex">Das Telefon klingelt. — The phone is ringing.</td></tr>
       <tr><td class="vocab-de">der Anruf</td><td class="vocab-en">phone call</td><td class="vocab-ex">Ich warte auf einen Anruf. — I am waiting for a call.</td></tr>
@@ -312,7 +409,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">hinterlassen</td><td class="vocab-en">to leave (a message)</td><td class="vocab-ex">Ich möchte eine Nachricht hinterlassen. — I want to leave a message.</td></tr>
       <tr><td class="vocab-de">falsch verbunden</td><td class="vocab-en">wrong number</td><td class="vocab-ex">Tut mir leid, Sie sind falsch verbunden. — Sorry, you have the wrong number.</td></tr>
       <tr><td class="vocab-de">Auf Wiederhören</td><td class="vocab-en">goodbye (on the phone)</td><td class="vocab-ex">Vielen Dank, auf Wiederhören. — Thank you, goodbye.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -404,7 +501,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">die Praxis</td><td class="vocab-en">doctor's office</td><td class="vocab-ex">Die Praxis ist ab 8 Uhr geöffnet. — The doctor's office is open from 8 AM.</td></tr>
       <tr><td class="vocab-de">die Versichertenkarte</td><td class="vocab-en">health insurance card</td><td class="vocab-ex">Haben Sie Ihre Versichertenkarte? — Do you have your health insurance card?</td></tr>
@@ -419,7 +517,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">ausatmen</td><td class="vocab-en">to breathe out / exhale</td><td class="vocab-ex">Und jetzt ausatmen. — And now breathe out.</td></tr>
       <tr><td class="vocab-de">Rauchen schadet der Gesundheit.</td><td class="vocab-en">Smoking harms health.</td><td class="vocab-ex">Rauchen schadet der Gesundheit. — Smoking harms health.</td></tr>
       <tr><td class="vocab-de">krankgeschrieben</td><td class="vocab-en">on sick leave</td><td class="vocab-ex">Sie sind für drei Tage krankgeschrieben. — You are on sick leave for three days.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -513,7 +611,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">Sehr geehrte Damen und Herren</td><td class="vocab-en">Dear Sir/Madam</td><td class="vocab-ex">Sehr geehrte Damen und Herren, ich brauche ein Zimmer. — Dear Sir/Madam, I need a room.</td></tr>
       <tr><td class="vocab-de">buchen</td><td class="vocab-en">to book / reserve</td><td class="vocab-ex">Ich möchte ein Zimmer buchen. — I would like to book a room.</td></tr>
@@ -531,17 +630,17 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">die Abreise</td><td class="vocab-en">departure</td><td class="vocab-ex">Die Abreise ist am Montag. — The departure is on Monday.</td></tr>
       <tr><td class="vocab-de">der Schlüssel</td><td class="vocab-en">key</td><td class="vocab-ex">Kann ich den Schlüssel haben? — Can I have the key?</td></tr>
       <tr><td class="vocab-de">der Aufzug</td><td class="vocab-en">elevator / lift</td><td class="vocab-ex">Wo ist der Aufzug? — Where is the elevator?</td></tr>
+      <tr><td class="vocab-de">das Anmeldeformular</td><td class="vocab-en">registration form</td><td class="vocab-ex">Bitte geben Sie mir das Anmeldeformular. — Please give me the registration form.</td></tr>
       <tr><td class="vocab-de">ausfüllen</td><td class="vocab-en">to fill in / fill out</td><td class="vocab-ex">Bitte füllen Sie das Formular aus. — Please fill in the form.</td></tr>
       <tr><td class="vocab-de">unterschreiben</td><td class="vocab-en">to sign</td><td class="vocab-ex">Bitte unterschreiben Sie hier. — Please sign here.</td></tr>
       <tr><td class="vocab-de">der Urlaub</td><td class="vocab-en">vacation / holiday</td><td class="vocab-ex">Ich mache Urlaub in Hamburg. — I am going on holiday in Hamburg.</td></tr>
       <tr><td class="vocab-de">das Reisebüro</td><td class="vocab-en">travel agency</td><td class="vocab-ex">Ich kaufe die Tickets im Reisebüro. — I buy the tickets at the travel agency.</td></tr>
       <tr><td class="vocab-de">der Reisepass</td><td class="vocab-en">passport</td><td class="vocab-ex">Ich brauche meinen Reisepass. — I need my passport.</td></tr>
-      <tr><td class="vocab-de">die Fahrkarte</td><td class="vocab-en">ticket (train/bus)</td><td class="vocab-ex">Ich kaufe eine Fahrkarte. — I am buying a ticket.</td></tr>
       <tr><td class="vocab-de">das Reiseziel</td><td class="vocab-en">destination</td><td class="vocab-ex">Was ist Ihr Reiseziel? — What is your destination?</td></tr>
       <tr><td class="vocab-de">die Fluggesellschaft</td><td class="vocab-en">airline / flight company</td><td class="vocab-ex">Welche Fluggesellschaft fliegt nach Berlin? — Which airline flies to Berlin?</td></tr>
       <tr><td class="vocab-de">die Sehenswürdigkeit</td><td class="vocab-en">sight / place of interest</td><td class="vocab-ex">Hamburg hat viele Sehenswürdigkeiten. — Hamburg has many sights.</td></tr>
       <tr><td class="vocab-de">besuchen</td><td class="vocab-en">to visit</td><td class="vocab-ex">Ich möchte das Museum besuchen. — I would like to visit the museum.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -708,7 +807,8 @@ Alexander George</pre>
     <div class="rule-item">'PLZ' stands for 'Postleitzahl' (Postal code/Zip code), which is always 5 digits in Germany.</div>
     <div class="rule-item">'Wohnort' is the city you live in. 'Geburtsort' is the city you were born in.</div>
     <div class="rule-item">'Familienstand' (Marital status) requires words like 'ledig' (single) or 'verheiratet' (married).</div>
-    <table class="grammar-table" style="margin-top:1rem">
+    
+<div class="table-wrap"><table class="grammar-table" style="margin-top:1rem">
       <tr><th>Form Vocabulary</th><th>English Meaning</th><th>Your Answer Example</th></tr>
       <tr><td>Vorname</td><td>First name</td><td>Maria</td></tr>
       <tr><td>Name / Nachname</td><td>Last name</td><td>Müller</td></tr>
@@ -716,7 +816,7 @@ Alexander George</pre>
       <tr><td>PLZ und Wohnort</td><td>Zip code and City</td><td>10115 Berlin</td></tr>
       <tr><td>Geburtsdatum</td><td>Date of birth</td><td>15.08.1990</td></tr>
       <tr><td>Familienstand</td><td>Marital status</td><td>ledig (single)</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -729,7 +829,8 @@ Alexander George</pre>
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">das Formular</td><td class="vocab-en">form / document</td><td class="vocab-ex">Bitte füllen Sie das Formular aus. — Please fill out the form.</td></tr>
       <tr><td class="vocab-de">ausfüllen</td><td class="vocab-en">to fill out (separable)</td><td class="vocab-ex">Ich fülle das Formular aus. — I am filling out the form.</td></tr>
@@ -741,7 +842,7 @@ Alexander George</pre>
       <tr><td class="vocab-de">der Familienstand</td><td class="vocab-en">marital status</td><td class="vocab-ex">Familienstand: verheiratet. — Marital status: married.</td></tr>
       <tr><td class="vocab-de">ledig</td><td class="vocab-en">single / unmarried</td><td class="vocab-ex">Ich bin ledig. — I am single.</td></tr>
       <tr><td class="vocab-de">die Unterschrift</td><td class="vocab-en">signature</td><td class="vocab-ex">Ihre Unterschrift, bitte. — Your signature, please.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -837,7 +938,8 @@ Alexander George</pre>
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">die Post</td><td class="vocab-en">post office / mail</td><td class="vocab-ex">Ich muss zur Post gehen. — I must go to the post office.</td></tr>
       <tr><td class="vocab-de">der Brief</td><td class="vocab-en">letter</td><td class="vocab-ex">Ich schreibe einen Brief. — I am writing a letter.</td></tr>
@@ -849,7 +951,7 @@ Alexander George</pre>
       <tr><td class="vocab-de">wiegen</td><td class="vocab-en">to weigh</td><td class="vocab-ex">Ich muss das Paket wiegen. — I have to weigh the package.</td></tr>
       <tr><td class="vocab-de">schwer</td><td class="vocab-en">heavy</td><td class="vocab-ex">Das Paket ist zu schwer. — The package is too heavy.</td></tr>
       <tr><td class="vocab-de">leicht</td><td class="vocab-en">light (weight)</td><td class="vocab-ex">Der Brief ist leicht. — The letter is light.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -941,7 +1043,8 @@ Alexander George</pre>
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">die Bank</td><td class="vocab-en">bank</td><td class="vocab-ex">Die Bank ist geschlossen. — The bank is closed.</td></tr>
       <tr><td class="vocab-de">das Konto</td><td class="vocab-en">bank account</td><td class="vocab-ex">Ich möchte ein Konto eröffnen. — I would like to open an account.</td></tr>
@@ -953,7 +1056,7 @@ Alexander George</pre>
       <tr><td class="vocab-de">die Gebühr</td><td class="vocab-en">fee</td><td class="vocab-ex">Das kostet eine Gebühr. — That costs a fee.</td></tr>
       <tr><td class="vocab-de">der Ausweis</td><td class="vocab-en">ID card</td><td class="vocab-ex">Haben Sie Ihren Ausweis? — Do you have your ID?</td></tr>
       <tr><td class="vocab-de">bar</td><td class="vocab-en">cash (in cash)</td><td class="vocab-ex">Zahlen Sie bar oder mit Karte? — Are you paying cash or with card?</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -1035,14 +1138,15 @@ Alexander George</pre>
     <div class="rule-item">Rent is split into two parts: 'Kaltmiete' (the base rent for just the space) and 'Nebenkosten' (extra costs like heating, water, garbage).</div>
     <div class="rule-item">Kaltmiete + Nebenkosten = 'Warmmiete' (the actual total amount you pay every month).</div>
     <div class="rule-item">The 'Kaution' is the security deposit, usually equal to 2 or 3 months of Kaltmiete.</div>
-    <table class="grammar-table" style="margin-top:1rem">
+    
+<div class="table-wrap"><table class="grammar-table" style="margin-top:1rem">
       <tr><th>Abbreviation in Ads</th><th>Full Word</th><th>English Meaning</th></tr>
       <tr><td>NK</td><td>die Nebenkosten</td><td>Additional costs (utilities)</td></tr>
       <tr><td>WM</td><td>die Warmmiete</td><td>Total rent (Base + Utilities)</td></tr>
       <tr><td>KM</td><td>die Kaltmiete</td><td>Base rent (without utilities)</td></tr>
       <tr><td>ZKB</td><td>Zimmer, Küche, Bad</td><td>Room, Kitchen, Bathroom</td></tr>
       <tr><td>qm / m²</td><td>die Quadratmeter</td><td>Square meters</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -1053,7 +1157,8 @@ Alexander George</pre>
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">die Wohnung</td><td class="vocab-en">apartment / flat</td><td class="vocab-ex">Ich suche eine Wohnung. — I am looking for an apartment.</td></tr>
       <tr><td class="vocab-de">die Miete</td><td class="vocab-en">rent</td><td class="vocab-ex">Die Miete ist sehr hoch. — The rent is very high.</td></tr>
@@ -1065,7 +1170,7 @@ Alexander George</pre>
       <tr><td class="vocab-de">der Balkon</td><td class="vocab-en">balcony</td><td class="vocab-ex">Ich möchte einen Balkon. — I want a balcony.</td></tr>
       <tr><td class="vocab-de">die Quadratmeter</td><td class="vocab-en">square meters</td><td class="vocab-ex">Die Wohnung hat 60 Quadratmeter. — The apartment has 60 square meters.</td></tr>
       <tr><td class="vocab-de">mieten</td><td class="vocab-en">to rent (as a tenant)</td><td class="vocab-ex">Wir mieten die Wohnung. — We are renting the apartment.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -1147,13 +1252,14 @@ Alexander George</pre>
     <div class="rule-item">You must specify if it is a one-way ticket: 'einfach' (simple/one-way) or a return ticket: 'hin und zurück' (there and back).</div>
     <div class="rule-item">Trains depart from a 'Gleis' (track/platform).</div>
     <div class="rule-item">To change trains, use the separable verb 'umsteigen'. If it's a direct train, there is no need to 'umsteigen'.</div>
-    <table class="grammar-table" style="margin-top:1rem">
+    
+<div class="table-wrap"><table class="grammar-table" style="margin-top:1rem">
       <tr><th>Term</th><th>German Translation</th><th>Action Needed</th></tr>
       <tr><td>One-way</td><td>einfach</td><td>You only travel to the destination.</td></tr>
       <tr><td>Return ticket</td><td>hin und zurück</td><td>You travel there and back.</td></tr>
       <tr><td>Direct train</td><td>direkt</td><td>You stay on the train.</td></tr>
       <tr><td>Transfer</td><td>umsteigen</td><td>You must get off and board a new train.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -1165,7 +1271,8 @@ Alexander George</pre>
 
   <div class="section">
     <div class="section-title green">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">die Fahrkarte</td><td class="vocab-en">ticket (for transport)</td><td class="vocab-ex">Ich brauche eine Fahrkarte nach Köln. — I need a ticket to Cologne.</td></tr>
       <tr><td class="vocab-de">einfach</td><td class="vocab-en">one-way / simple</td><td class="vocab-ex">Einmal Frankfurt einfach, bitte. — One ticket to Frankfurt one-way, please.</td></tr>
@@ -1178,7 +1285,7 @@ Alexander George</pre>
       <tr><td class="vocab-de">die Verspätung</td><td class="vocab-en">delay</td><td class="vocab-ex">Der Zug hat 10 Minuten Verspätung. — The train has a 10 minute delay.</td></tr>
       <tr><td class="vocab-de">der Fahrplan</td><td class="vocab-en">timetable / schedule</td><td class="vocab-ex">Schauen Sie auf den Fahrplan. — Look at the timetable.</td></tr>
       <tr><td class="vocab-de">das Kleingeld</td><td class="vocab-en">change / small coins</td><td class="vocab-ex">Haben Sie Kleingeld für den Automaten? — Do you have change for the machine?</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">

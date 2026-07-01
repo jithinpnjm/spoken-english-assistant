@@ -318,6 +318,9 @@ export const germanA1BookLessonsPart02: GermanA1BookLesson[] = [
       { de: "wo", en: "where (location)", example: "Wo wohnst du?", exampleEn: "Where do you live?" },
       { de: "sprechen", en: "to speak", example: "Sprechen Sie Englisch?", exampleEn: "Do you speak English?" },
       { de: "die Sprache", en: "language", example: "Welche Sprachen sprichst du?", exampleEn: "Which languages do you speak?" },
+      { de: "der Beruf", en: "profession / job", example: "Was sind Sie von Beruf?", exampleEn: "What is your profession?" },
+      { de: "der Priester", en: "priest", example: "Ich bin Priester von Beruf.", exampleEn: "I am a priest by profession." },
+      { de: "Kothamangalam", en: "Kothamangalam", example: "Ich komme aus Kothamangalam.", exampleEn: "I come from Kothamangalam." },
       { de: "Deutsch", en: "German", example: "Ich lerne Deutsch.", exampleEn: "I am learning German." },
       { de: "Englisch", en: "English", example: "Wir sprechen Englisch.", exampleEn: "We speak English." },
       { de: "und", en: "and", example: "Ich heiße Max und du?", exampleEn: "My name is Max, and you?" },
@@ -344,6 +347,11 @@ export const germanA1BookLessonsPart02: GermanA1BookLesson[] = [
         de: "Welche Sprachen sprichst du?",
         en: "Which languages do you speak? (Informal)",
         breakdown: "Welche = Which | Sprachen = languages | sprichst = speak | du = you (informal) → 'sprechen' changes its vowel for 'du': sprichst."
+      },
+      {
+        de: "Was sind Sie von Beruf? Ich bin Priester von Beruf.",
+        en: "What is your profession? I am a priest by profession.",
+        breakdown: "Was sind Sie von Beruf? = formal profession question | Ich bin Priester von Beruf = A1 answer pattern."
       }
     ],
     culturalNote: "The 'Sie' vs. 'du' distinction (known as 'siezen' and 'duzen') is taken very seriously in Germany. In a corporate job, you might work with a colleague for years and still use 'Sie'. It is always safest to default to 'Sie' with adults until they explicitly offer the 'du', usually by saying 'Wir können gerne du sagen' (We can gladly say 'du').",

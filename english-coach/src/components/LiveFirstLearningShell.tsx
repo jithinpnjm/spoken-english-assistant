@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ArrowLeft, BookOpen, ExternalLink, GraduationCap, LogOut, Mic, Radio, Search, StopCircle, Volume2 } from "lucide-react";
+import { ArrowLeft, BookOpen, ExternalLink, GraduationCap, LogOut, Menu, Mic, Radio, Search, StopCircle, Volume2, X } from "lucide-react";
 import type { CoachMessage, CoachSession } from "../types";
 import type { CurriculumCourseView, LessonCursorView, ProductTrackView } from "../lib/curriculumClient";
 import { buildTopicProgress, topicProgressSummary } from "../lib/topicProgress";
@@ -129,12 +129,26 @@ export default function LiveFirstLearningShell(props: LiveFirstLearningShellProp
   const currentModule = props.cursor ? filteredModules.find((m) => m.id === props.cursor!.moduleId) : null;
   const liveMessages = props.messages.filter((m) => m.sender === "coach" && m.source === "live" && m.text?.trim());
   const topicDesc = TOPIC_DESCRIPTIONS.default;
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="flex h-screen overflow-hidden bg-[#0b0d1a]">
 
+      {/* Mobile backdrop */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-20 bg-black/60 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* ── Sidebar ── */}
-      <aside className="w-72 flex-shrink-0 flex flex-col border-r border-slate-700/60 overflow-hidden bg-[#0f1120]">
+      <aside className={`
+        fixed inset-y-0 left-0 z-30 w-72 flex flex-col border-r border-slate-700/60 overflow-hidden bg-[#0f1120]
+        transition-transform duration-200
+        ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+        md:relative md:translate-x-0 md:flex-shrink-0
+      `}>
 
         {/* Header */}
         <div className="flex-shrink-0 p-4 border-b border-slate-700/50 space-y-3">
@@ -147,14 +161,23 @@ export default function LiveFirstLearningShell(props: LiveFirstLearningShellProp
                 <ArrowLeft className="h-4 w-4" /> Back
               </button>
             )}
-            {props.onSignOut && (
+            <div className="flex items-center gap-2 ml-auto">
+              {props.onSignOut && (
+                <button
+                  onClick={props.onSignOut}
+                  className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-300 transition"
+                >
+                  <LogOut className="h-4 w-4" /> Sign out
+                </button>
+              )}
               <button
-                onClick={props.onSignOut}
-                className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-300 transition ml-auto"
+                onClick={() => setSidebarOpen(false)}
+                className="md:hidden p-1 text-slate-500 hover:text-white transition"
+                aria-label="Close menu"
               >
-                <LogOut className="h-4 w-4" /> Sign out
+                <X className="h-5 w-5" />
               </button>
-            )}
+            </div>
           </div>
 
           <div className="flex items-center justify-between gap-3">
@@ -346,6 +369,28 @@ export default function LiveFirstLearningShell(props: LiveFirstLearningShellProp
 
       {/* ── Main content ── */}
       <main className="flex-1 min-w-0 overflow-y-auto bg-[#0b0d1a]">
+
+        {/* Mobile top bar */}
+        <div className="md:hidden flex items-center justify-between px-4 py-3 border-b border-slate-700/60 bg-[#0f1120] sticky top-0 z-10">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="p-1.5 text-slate-400 hover:text-white transition"
+            aria-label="Open menu"
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+          <p className="text-sm font-bold text-white">{props.learnerName}</p>
+          <button
+            onClick={props.isLiveActive ? props.onStopLive : props.onStartLive}
+            className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-bold transition ${
+              props.isLiveActive
+                ? "bg-red-600 text-white"
+                : "bg-indigo-600 text-white"
+            }`}
+          >
+            {props.isLiveActive ? <><StopCircle className="h-4 w-4" /> Stop</> : <><Mic className="h-4 w-4" /> Live</>}
+          </button>
+        </div>
 
         {/* Sticky lesson header */}
         {props.cursor && activeTab === "lesson" && (

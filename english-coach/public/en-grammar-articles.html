@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>English Grammar — Articles</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.pronounce {
+  background: #1a0a2e; border: 1px solid var(--purple); border-left: 6px solid var(--purple);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+}
+.pronounce h4 { color: var(--purple); margin: 0 0 6px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* file-specific */
+.container { max-width: 900px; margin: 0 auto; }
+.subtitle { color: var(--fg-soft); font-size: 1rem; margin-bottom: 2.5rem; }
+section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem; margin-bottom: 2rem; margin-top: 1.5rem; }
+.trick { background: #1c1917; border-left: 4px solid var(--gold); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.trick strong { color: var(--gold); display: block; margin-bottom: .3rem; }
+.situation { background: #0a1628; border-left: 4px solid var(--accent); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.situation strong { color: var(--accent); display: block; margin-bottom: .3rem; }
+.mistake { background: #2d0a0a; border-left: 4px solid var(--red); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.mistake strong { color: var(--red); display: block; margin-bottom: .3rem; }
+.analogy { background: #1a0533; border-left: 4px solid var(--violet); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.analogy strong { color: var(--violet); display: block; margin-bottom: .3rem; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.hi { color: var(--gold); font-weight: 600; }
+.ok { color: var(--green); font-weight: 600; }
+.bad { color: var(--red); font-weight: 600; }
+.dim { color: var(--fg-soft); }
+.blue { color: var(--accent); font-weight: 600; }
+.formula { background: #071629; border: 2px solid var(--accent); border-radius: 10px; padding: 1rem 1.4rem; font-size: 1.05rem; color: var(--fg); margin: 1rem 0; text-align: center; }
+.formula span { color: var(--accent); font-weight: 700; }
+.chip { display: inline-block; padding: .2rem .6rem; border-radius: 20px; font-size: .8rem; font-weight: 600; margin: .2rem; }
+.chip-g { background: #052e16; color: var(--green); border: 1px solid var(--green); }
+.chip-b { background: #0c1a2e; color: var(--accent); border: 1px solid var(--accent); }
+.chip-r { background: #2d0a0a; color: var(--red); border: 1px solid var(--red); }
+.chip-a { background: #1c1917; color: var(--gold); border: 1px solid var(--gold); }
+.chip-p { background: #1a0533; color: var(--violet); border: 1px solid var(--violet); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+@media(max-width:600px) { .grid2 { grid-template-columns: 1fr; } }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+@media(max-width:700px) { .grid3 { grid-template-columns: 1fr; } }
+.card { background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.card-title { font-weight: 700; color: var(--accent); margin-bottom: .4rem; font-size: 1rem; }
+code { background: #071629; color: var(--accent); padding: .15rem .4rem; border-radius: 4px; font-family: 'Courier New', monospace; font-size: .95rem; }
+.ex { background: #071629; border-left: 3px solid var(--accent); border-radius: 6px; padding: .8rem 1rem; margin: .6rem 0; font-family: 'Courier New', monospace; font-size: .95rem; color: var(--accent); }
+.ex .tr { color: var(--fg-soft); font-family: 'Segoe UI', sans-serif; font-size: .88rem; margin-top: .25rem; }
+.big-article { font-size: 3rem; font-weight: 900; color: var(--accent); text-align: center; padding: .5rem 1rem; display: inline-block; background: #071629; border: 2px solid var(--accent); border-radius: 10px; margin: .3rem; }
+.article-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+.sound-card { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
+.sound-card .ipa { font-size: 1.8rem; color: var(--accent); font-weight: 700; }
+.sound-card .label { color: var(--fg-soft); font-size: .85rem; margin-top: .3rem; }
+.ref-table th { background: #071629; color: var(--accent); }
+.ref-table .use-a { background: #071629; color: var(--accent); }
+.ref-table .use-the { background: #0e1e0e; color: var(--green); }
+.ref-table .use-zero { background: #1c1917; color: var(--gold); }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header">
+  <div class="badge">English Grammar · Articles</div>
+  <h1>English Articles — Complete Reference</h1>
+  <p>a · an · the · zero article · common mistakes · quick reference</p>
+</div>
+
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#s01">Overview</a>
+  <a href="#s02">a vs an</a>
+  <a href="#s03">When to use a/an</a>
+  <a href="#s04">When to use the</a>
+  <a href="#s05">Zero Article</a>
+  <a href="#s06">Articles &amp; Places</a>
+  <a href="#s07">Common Mistakes</a>
+  <a href="#s08">Quick Reference</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ─────────────────────────────────── s01 -->
+<section id="s01">
+<h2>Overview — Why Articles Are Hard</h2>
+
+<p>Articles are tiny words — just one, two, or three letters — but they carry a lot of meaning. They tell the listener <em>whether you and they share knowledge</em> about what you're talking about.</p>
+
+<p>Many languages (Hindi, Russian, Japanese, Chinese, Tamil, Malayalam, and others) don't use articles at all. This makes English articles feel invisible and optional to learners — but they are not. Missing or wrong articles make speech sound foreign and are among the most noticed errors by native speakers.</p>
+
+<div class="article-row">
+  <div style="text-align:center">
+    <div class="big-article">a</div>
+    <div class="dim" style="font-size:.85rem;margin-top:.3rem">indefinite<br>singular</div>
+  </div>
+  <div style="text-align:center">
+    <div class="big-article">an</div>
+    <div class="dim" style="font-size:.85rem;margin-top:.3rem">indefinite<br>before vowel sound</div>
+  </div>
+  <div style="text-align:center">
+    <div class="big-article">the</div>
+    <div class="dim" style="font-size:.85rem;margin-top:.3rem">definite<br>singular + plural</div>
+  </div>
+  <div style="text-align:center">
+    <div class="big-article" style="font-size:2.2rem;padding:.7rem 1.2rem">∅</div>
+    <div class="dim" style="font-size:.85rem;margin-top:.3rem">zero article<br>(no article)</div>
+  </div>
+</div>
+
+<div class="teach">
+  <strong>The core logic</strong>
+  <ul>
+    <li>Use <span class="blue">a / an</span> when you and the listener do <strong>not</strong> share knowledge about which specific thing you mean. It's one of many.</li>
+    <li>Use <span class="blue">the</span> when you and the listener <strong>both know</strong> which specific thing you mean. There's only one relevant option.</li>
+    <li>Use <span class="blue">no article (∅)</span> for general, uncountable, or abstract nouns when speaking in general terms.</li>
+  </ul>
+</div>
+
+<div class="trick">
+  <strong>Memory anchor — the "camera" test</strong>
+  Imagine your listener has a camera. Can they point it at the specific thing you mean?
+  <ul style="margin-top:.5rem">
+    <li><em>"I saw a dog"</em> → the listener cannot point — they don't know which dog → use <strong>a</strong></li>
+    <li><em>"I saw the dog"</em> → the listener can point — they know which one → use <strong>the</strong></li>
+    <li><em>"I love dogs"</em> → no specific dog, just the concept → use <strong>no article</strong></li>
+  </ul>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s02 -->
+<section id="s02">
+<h2>"a" vs "an" — Sound, not Spelling</h2>
+
+<div class="formula">
+  Use <span>an</span> before a word that <span>begins with a vowel SOUND</span> · Use <span>a</span> before a <span>consonant SOUND</span>
+</div>
+
+<div class="mistake">
+  <strong>The rule is about SOUND, not spelling</strong>
+  <p>Look at the first <em>sound</em> of the next word, not the first letter. This is the single most important rule about a vs an.</p>
+</div>
+
+<h3>Vowel sounds → use "an"</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>First sound</th><th>Correct form</th><th>Explanation</th></tr>
+  <tr><td>apple</td><td>/æ/ (a)</td><td class="ok">an apple</td><td>begins with vowel sound</td></tr>
+  <tr><td>hour</td><td>/aʊ/ (ow)</td><td class="ok">an hour</td><td>h is silent — starts with vowel sound</td></tr>
+  <tr><td>honest</td><td>/ɒ/ (o)</td><td class="ok">an honest person</td><td>h is silent — starts with vowel sound</td></tr>
+  <tr><td>honour</td><td>/ɒ/ (o)</td><td class="ok">an honour</td><td>h is silent</td></tr>
+  <tr><td>MBA</td><td>/em/ (em)</td><td class="ok">an MBA degree</td><td>M says "em" — vowel sound</td></tr>
+  <tr><td>MP</td><td>/em/ (em)</td><td class="ok">an MP</td><td>M says "em"</td></tr>
+  <tr><td>X-ray</td><td>/eks/ (ex)</td><td class="ok">an X-ray</td><td>X says "ex" — vowel sound</td></tr>
+</table></div>
+
+<h3>Consonant sounds → use "a"</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>First sound</th><th>Correct form</th><th>Explanation</th></tr>
+  <tr><td>university</td><td>/juː/ (y)</td><td class="ok">a university</td><td>starts with "y" consonant sound, not "u"</td></tr>
+  <tr><td>European</td><td>/jʊ/ (y)</td><td class="ok">a European country</td><td>starts with "y" sound</td></tr>
+  <tr><td>one-way</td><td>/wʌn/ (w)</td><td class="ok">a one-way street</td><td>"one" starts with "w" sound</td></tr>
+  <tr><td>useful</td><td>/juːz/ (y)</td><td class="ok">a useful tool</td><td>starts with "y" sound</td></tr>
+  <tr><td>united</td><td>/juː/ (y)</td><td class="ok">a united team</td><td>starts with "y" sound</td></tr>
+  <tr><td>historian</td><td>/hɪ/ (h)</td><td class="ok">a historian</td><td>h is pronounced here</td></tr>
+  <tr><td>hotel</td><td>/həʊ/ (h)</td><td class="ok">a hotel</td><td>h is pronounced</td></tr>
+</table></div>
+
+<h3>Practice pairs — tricky cases</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title" style="color:var(--accent)">Silent H → an</div>
+    <div class="ex">an <span style="color:var(--green)">h</span>our <span class="dim">(h silent → /aʊ/)</span></div>
+    <div class="ex">an <span style="color:var(--green)">h</span>onest answer</div>
+    <div class="ex">an <span style="color:var(--green)">h</span>eir to the throne</div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--accent)">Pronounced H → a</div>
+    <div class="ex">a <span style="color:var(--gold)">h</span>ouse <span class="dim">(h pronounced → /h/)</span></div>
+    <div class="ex">a <span style="color:var(--gold)">h</span>appy person</div>
+    <div class="ex">a <span style="color:var(--gold)">h</span>istorian</div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--accent)">Vowel letter, Y sound → a</div>
+    <div class="ex">a <span style="color:var(--gold)">u</span>niversity <span class="dim">(u says /j/)</span></div>
+    <div class="ex">a <span style="color:var(--gold)">u</span>sual problem</div>
+    <div class="ex">a <span style="color:var(--gold)">E</span>uropean city</div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--accent)">Acronyms — say the letter</div>
+    <div class="ex">an <span style="color:var(--green)">M</span>BA <span class="dim">(M = /em/)</span></div>
+    <div class="ex">a <span style="color:var(--gold)">B</span>Sc degree <span class="dim">(B = /biː/)</span></div>
+    <div class="ex">an <span style="color:var(--green)">F</span>IFA ruling <span class="dim">(F = /ef/)</span></div>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>Memory trick</strong>
+  Say the phrase out loud. If the two sounds crash (like saying "a apple" — feels awkward), add the n. Your mouth tells you: "a apple" stumbles → "an apple" flows.
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s03 -->
+<section id="s03">
+<h2>When to Use "a / an"</h2>
+
+<div class="formula">
+  a/an = <span>indefinite</span> · one of many · <span>not yet specified</span> · singular countable nouns only
+</div>
+
+<h3>Use a/an in these situations</h3>
+
+<div class="teach">
+  <strong>1. First mention — introducing something new</strong>
+  <div class="ex">I bought <span style="color:var(--accent)">a</span> car yesterday. <span class="dim">→ This is the first time I mention it; the listener doesn't know which car.</span></div>
+  <div class="ex">She saw <span style="color:var(--accent)">a</span> strange man outside.<div class="tr">First mention — "a strange man"</div></div>
+  <div class="ex">Then she called the police about <span style="color:var(--accent)">the</span> man.<div class="tr">Second mention — now we both know which man → "the man"</div></div>
+</div>
+
+<div class="teach">
+  <strong>2. Classifying — stating what category something/someone belongs to</strong>
+  <div class="ex">She is <span style="color:var(--accent)">a</span> doctor. <span class="dim">(member of the category "doctors")</span></div>
+  <div class="ex">He is <span style="color:var(--accent)">an</span> engineer. <span class="dim">(belonging to the profession)</span></div>
+  <div class="ex">That is <span style="color:var(--accent)">a</span> great idea. <span class="dim">(classifying the idea)</span></div>
+</div>
+
+<div class="teach">
+  <strong>3. One of many — not a specific one</strong>
+  <div class="ex">I need <span style="color:var(--accent)">a</span> pen. <span class="dim">(any pen — I don't have one particular pen in mind)</span></div>
+  <div class="ex">Could you give me <span style="color:var(--accent)">a</span> hand? <span class="dim">(asking for some help — not a specific hand)</span></div>
+</div>
+
+<div class="teach">
+  <strong>4. With jobs and roles</strong>
+  <div class="ex">My father is <span style="color:var(--accent)">a</span> teacher.</div>
+  <div class="ex">She works as <span style="color:var(--accent)">an</span> architect.</div>
+  <div class="ex">He was elected <span style="color:var(--accent)">a</span> member of the board.</div>
+</div>
+
+<div class="teach">
+  <strong>5. With exclamations (What a …!)</strong>
+  <div class="ex">What <span style="color:var(--accent)">a</span> beautiful day!</div>
+  <div class="ex">What <span style="color:var(--accent)">an</span> amazing performance!</div>
+  <div class="ex">Such <span style="color:var(--accent)">a</span> pity!</div>
+</div>
+
+<div class="situation">
+  <strong>a/an only works with singular countable nouns</strong>
+  <ul>
+    <li>Singular countable: <span class="ok">a book</span>, <span class="ok">an egg</span>, <span class="ok">a city</span></li>
+    <li>Plural countable → use some or nothing: <span class="ok">some books</span> (not <span class="bad">a books</span>)</li>
+    <li>Uncountable → use some or nothing: <span class="ok">some water</span>, <span class="ok">some advice</span> (not <span class="bad">a water</span>)</li>
+  </ul>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s04 -->
+<section id="s04">
+<h2>When to Use "the"</h2>
+
+<div class="formula">
+  the = <span>definite</span> · both speaker and listener know <span>which one</span> is meant
+</div>
+
+<h3>Use "the" in these situations</h3>
+
+<div class="teach">
+  <strong>1. Second mention — already introduced</strong>
+  <div class="ex">I have a dog. <span style="color:var(--green)">The</span> dog is very playful.</div>
+  <div class="ex">She found a wallet. <span style="color:var(--green)">The</span> wallet had no ID inside.</div>
+</div>
+
+<div class="teach">
+  <strong>2. Unique things — only one exists</strong>
+  
+<div class="table-wrap"><table style="margin-top:.5rem">
+    <tr><th>Category</th><th>Examples</th></tr>
+    <tr><td>Celestial bodies</td><td>the sun, the moon, the earth, the sky, the equator</td></tr>
+    <tr><td>World structures</td><td>the internet, the government, the economy</td></tr>
+    <tr><td>Superlatives</td><td>the best, the longest, the most expensive</td></tr>
+    <tr><td>Ordinals (first, last)</td><td>the first time, the last chance, the second floor</td></tr>
+  </table></div>
+</div>
+
+<div class="teach">
+  <strong>3. Specific / known from context</strong>
+  <div class="ex">Can you open <span style="color:var(--green)">the</span> window? <span class="dim">(both know which window — the one in this room)</span></div>
+  <div class="ex">Where is <span style="color:var(--green)">the</span> bathroom? <span class="dim">(a specific, known bathroom in this building)</span></div>
+  <div class="ex">Pass <span style="color:var(--green)">the</span> salt. <span class="dim">(the salt on this table — we both see it)</span></div>
+</div>
+
+<div class="teach">
+  <strong>4. With "of" phrases (specifying)</strong>
+  <div class="ex"><span style="color:var(--green)">The</span> top of the mountain. <span class="dim">(which top? — of the mountain → specific)</span></div>
+  <div class="ex"><span style="color:var(--green)">The</span> back of the car.</div>
+  <div class="ex"><span style="color:var(--green)">The</span> end of the film.</div>
+</div>
+
+<div class="teach">
+  <strong>5. With geographic names — rivers, seas, oceans, mountain ranges, groups of islands, plural countries</strong>
+  
+<div class="table-wrap"><table style="margin-top:.5rem">
+    <tr><th>Type</th><th>Examples (use the)</th></tr>
+    <tr><td>Rivers</td><td>the Thames, the Nile, the Amazon, the Ganges</td></tr>
+    <tr><td>Seas &amp; Oceans</td><td>the Pacific, the Atlantic, the Indian Ocean, the Red Sea</td></tr>
+    <tr><td>Mountain ranges</td><td>the Alps, the Himalayas, the Rockies, the Andes</td></tr>
+    <tr><td>Groups of islands</td><td>the Maldives, the Philippines, the Canaries</td></tr>
+    <tr><td>Plural countries</td><td>the United States, the Netherlands, the United Kingdom</td></tr>
+    <tr><td>Famous buildings</td><td>the Eiffel Tower, the Taj Mahal, the White House</td></tr>
+    <tr><td>Newspapers</td><td>the Guardian, the Times, the Hindu</td></tr>
+  </table></div>
+</div>
+
+<div class="analogy">
+  <strong>Superlatives always need "the"</strong>
+  <div class="ex"><span class="bad">✗</span>  She is best student in class.</div>
+  <div class="ex"><span class="ok">✓</span>  She is <span style="color:var(--green)">the</span> best student in the class.</div>
+  <div class="ex">It was <span style="color:var(--green)">the</span> most interesting book I've ever read.</div>
+  <div class="ex">This is <span style="color:var(--green)">the</span> only solution.</div>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s05 -->
+<section id="s05">
+<h2>Zero Article — No Article at All</h2>
+
+<div class="formula">
+  Zero article (∅) = speaking about <span>things in general</span> · uncountable nouns · most proper nouns
+</div>
+
+<p>The zero article means you use no article at all. It's one of the most confusing rules because English looks like it has "nothing" but actually has a deliberate choice.</p>
+
+<h3>Use zero article in these situations</h3>
+
+<div class="teach">
+  <strong>1. Plural nouns — general meaning</strong>
+  <div class="ex">∅ Dogs are friendly animals. <span class="dim">(dogs in general, not specific dogs)</span></div>
+  <div class="ex">∅ Mistakes happen. <span class="dim">(mistakes generally)</span></div>
+  <div class="ex">∅ Children need love. <span class="dim">(all children, generally)</span></div>
+  <p style="margin-top:.5rem">Compare: <span class="ok">The dogs in my street are friendly</span> — specific dogs on a specific street → use "the".</p>
+</div>
+
+<div class="teach">
+  <strong>2. Uncountable nouns — general meaning</strong>
+  <div class="ex">∅ Water is essential for life. <span class="dim">(water generally)</span></div>
+  <div class="ex">∅ Knowledge is power. <span class="dim">(abstract noun)</span></div>
+  <div class="ex">∅ Money can't buy happiness. <span class="dim">(both uncountable nouns)</span></div>
+  <div class="ex">∅ Information is everywhere now. <span class="dim">(uncountable)</span></div>
+</div>
+
+<div class="teach">
+  <strong>3. Countries, cities, languages, continents</strong>
+  
+<div class="table-wrap"><table style="margin-top:.5rem">
+    <tr><th>Type</th><th>Zero article ∅</th><th>Exception → use "the"</th></tr>
+    <tr><td>Countries (singular)</td><td>India, France, Japan, Brazil</td><td>the United Kingdom, the USA</td></tr>
+    <tr><td>Cities</td><td>London, Paris, Mumbai, Tokyo</td><td>(no major exceptions)</td></tr>
+    <tr><td>Continents</td><td>Asia, Europe, Africa, America</td><td>(none)</td></tr>
+    <tr><td>Languages</td><td>English, Hindi, French, Mandarin</td><td>(none)</td></tr>
+    <tr><td>Nationalities (adj.)</td><td>Indian food, French wine</td><td>(none)</td></tr>
+  </table></div>
+</div>
+
+<div class="teach">
+  <strong>4. Meals, sports, academic subjects</strong>
+  <div class="ex">∅ Breakfast is the most important meal. <span class="dim">(the concept of breakfast)</span></div>
+  <div class="ex">∅ I play cricket every weekend. <span class="dim">(the sport generally)</span></div>
+  <div class="ex">She studied ∅ history at university. <span class="dim">(the subject)</span></div>
+  <div class="ex">∅ Physics is difficult. <span class="dim">(the subject)</span></div>
+  <p style="margin-top:.5rem">Compare: <em>The breakfast at this hotel is amazing</em> — a specific breakfast at a specific place → use "the".</p>
+</div>
+
+<div class="teach">
+  <strong>5. Modes of transport</strong>
+  <div class="ex">∅ I go to work by bus. <span class="dim">(general mode)</span></div>
+  <div class="ex">∅ She travels by train. <span class="dim">(general mode)</span></div>
+  <div class="ex">∅ He goes by foot. <span class="dim">(general mode)</span></div>
+  <p style="margin-top:.5rem">But: <em>I took the bus to the station</em> — referring to a specific bus → "the".</p>
+</div>
+
+<div class="analogy">
+  <strong>The exceptions — countries that use "the"</strong>
+  <p>Countries with plural names or those containing a common noun use "the":</p>
+  <p>
+    <span class="chip chip-b">the United States</span>
+    <span class="chip chip-b">the United Kingdom</span>
+    <span class="chip chip-b">the Netherlands</span>
+    <span class="chip chip-b">the Philippines</span>
+    <span class="chip chip-b">the UAE</span>
+    <span class="chip chip-b">the Czech Republic</span>
+    <span class="chip chip-b">the Maldives</span>
+    <span class="chip chip-b">the Bahamas</span>
+  </p>
+  <p style="margin-top:.5rem">The pattern: they're plural, or they contain words like "United", "Republic", "Kingdom", "Islands" → they need "the".</p>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s06 -->
+<section id="s06">
+<h2>Articles with Places</h2>
+
+<p>Some places change meaning depending on whether you use "the" or no article. This is a very common source of mistakes for learners.</p>
+
+<h3>The meaning-changing places</h3>
+<div class="table-wrap"><table>
+  <tr><th>Place</th><th>No article (∅) — purpose/function</th><th>With "the" — physical building</th></tr>
+  <tr>
+    <td><strong>hospital</strong></td>
+    <td>in hospital = admitted as a patient</td>
+    <td>in the hospital = visiting, or at the building</td>
+  </tr>
+  <tr>
+    <td><strong>school</strong></td>
+    <td>at school = studying there as a student</td>
+    <td>at the school = physically at the building (as visitor, parent, etc.)</td>
+  </tr>
+  <tr>
+    <td><strong>university / college</strong></td>
+    <td>at university = enrolled as a student</td>
+    <td>at the university = visiting the campus</td>
+  </tr>
+  <tr>
+    <td><strong>prison</strong></td>
+    <td>in prison = serving a sentence (as prisoner)</td>
+    <td>in the prison = visiting, working there</td>
+  </tr>
+  <tr>
+    <td><strong>church</strong></td>
+    <td>at church = attending a service</td>
+    <td>at the church = at the building (for other reasons)</td>
+  </tr>
+  <tr>
+    <td><strong>court</strong></td>
+    <td>in court = as a legal participant</td>
+    <td>in the court = in the building</td>
+  </tr>
+</table></div>
+
+<div class="ex">She is <span style="color:var(--green)">in hospital</span>. <span class="dim">(She is a patient.)</span></div>
+<div class="ex">I visited her <span style="color:var(--green)">in the hospital</span> yesterday. <span class="dim">(I went to the building to visit her.)</span></div>
+<div class="ex">The children are <span style="color:var(--green)">at school</span>. <span class="dim">(They are studying — they're students.)</span></div>
+<div class="ex">I met the principal <span style="color:var(--green)">at the school</span>. <span class="dim">(I visited the building — I'm not a student.)</span></div>
+
+<h3>Home — a special case</h3>
+<div class="teach">
+  <strong>"home" never takes "the" with go/come/arrive</strong>
+  <div class="ex"><span class="ok">✓</span>  I am going <span style="color:var(--green)">home</span>. <span class="dim">(no article, no "to the")</span></div>
+  <div class="ex"><span class="bad">✗</span>  I am going to the home.</div>
+  <div class="ex"><span class="ok">✓</span>  She came home late.</div>
+  <div class="ex"><span class="ok">✓</span>  I am at home. <span class="dim">(at home = no article)</span></div>
+  <p style="margin-top:.5rem">But: <em>at someone else's home</em> → at my friend's home / at his home. Or "at the children's home" (an institution).</p>
+</div>
+
+<h3>Work, bed, sea</h3>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>Meaning</th></tr>
+  <tr><td>at work</td><td>doing one's job (no article)</td></tr>
+  <tr><td>in bed</td><td>sleeping or resting (no article)</td></tr>
+  <tr><td>at sea / by sea</td><td>on the ocean (no article)</td></tr>
+  <tr><td>on holiday</td><td>taking a vacation (BrE; no article)</td></tr>
+</table></div>
+</section>
+
+<!-- ─────────────────────────────────── s07 -->
+<section id="s07">
+<h2>Common Mistakes — 20 Errors with Fixes</h2>
+<p>These are the most frequent article mistakes made by learners, especially those whose native language has no articles.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>#</th><th class="bad">Incorrect</th><th class="ok">Correct</th><th>Rule</th></tr>
+  <tr>
+    <td>1</td>
+    <td class="bad">She is doctor.</td>
+    <td class="ok">She is a doctor.</td>
+    <td>Jobs/professions → a/an</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td class="bad">The life is short.</td>
+    <td class="ok">Life is short.</td>
+    <td>Abstract noun in general → no article</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td class="bad">I play the cricket.</td>
+    <td class="ok">I play cricket.</td>
+    <td>Sports in general → no article</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td class="bad">She speaks the English.</td>
+    <td class="ok">She speaks English.</td>
+    <td>Languages → no article</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td class="bad">I went to the India last year.</td>
+    <td class="ok">I went to India last year.</td>
+    <td>Most country names → no article</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td class="bad">I went to hospital for a visit.</td>
+    <td class="ok">I went to the hospital for a visit.</td>
+    <td>Visiting (not as patient) → the</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td class="bad">Sun rises in the east.</td>
+    <td class="ok">The sun rises in the east.</td>
+    <td>Unique things (sun, moon) → the</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td class="bad">She is best student.</td>
+    <td class="ok">She is the best student.</td>
+    <td>Superlatives → the</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td class="bad">He gave me an useful advice.</td>
+    <td class="ok">He gave me useful advice.</td>
+    <td>"advice" is uncountable (no a/an) + "useful" has /j/ sound → a, not an</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td class="bad">I saw a same movie.</td>
+    <td class="ok">I saw the same movie.</td>
+    <td>"same" always takes "the"</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td class="bad">Both the boys passed.</td>
+    <td class="ok">Both boys passed. <em>or</em> Both the boys passed.</td>
+    <td>"Both" can take "the" but often doesn't need it</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td class="bad">He is a honest man.</td>
+    <td class="ok">He is an honest man.</td>
+    <td>"honest" — h is silent → starts with vowel sound → an</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td class="bad">The music is my passion.</td>
+    <td class="ok">Music is my passion.</td>
+    <td>General abstract noun → no article</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td class="bad">I have the headache.</td>
+    <td class="ok">I have a headache.</td>
+    <td>Aches/pains → a (one of many instances)</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td class="bad">This is the good hotel.</td>
+    <td class="ok">This is a good hotel.</td>
+    <td>Not previously mentioned, not unique → a</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td class="bad">I had breakfast in the morning.</td>
+    <td class="ok">I had breakfast in the morning. <span class="dim">(OK)</span> <em>or</em> I had a quick breakfast.</td>
+    <td>"breakfast" = usually no article; with adjective → a</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td class="bad">I go to work by the bus.</td>
+    <td class="ok">I go to work by bus.</td>
+    <td>"by + transport" → no article</td>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td class="bad">He is the very smart.</td>
+    <td class="ok">He is very smart.</td>
+    <td>"very" with adjective (no noun) → no article</td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td class="bad">The Amazon is river.</td>
+    <td class="ok">The Amazon is a river.</td>
+    <td>The Amazon (river name = the) · "river" needs a/an when classifying</td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td class="bad">I need a information.</td>
+    <td class="ok">I need some information. / I need information.</td>
+    <td>"information" is uncountable — never use a/an with it</td>
+  </tr>
+</table></div>
+
+<div class="trick">
+  <strong>The always-the words</strong>
+  Certain adjectives and words almost always take "the":
+  <p style="margin-top:.5rem">
+    <span class="chip chip-b">the same</span>
+    <span class="chip chip-b">the only</span>
+    <span class="chip chip-b">the first / second / last</span>
+    <span class="chip chip-b">the next</span>
+    <span class="chip chip-b">the previous</span>
+    <span class="chip chip-b">the following</span>
+    <span class="chip chip-b">the main</span>
+    <span class="chip chip-b">the best / worst / most</span>
+    <span class="chip chip-b">the whole</span>
+  </p>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s08 -->
+<section id="s08">
+<h2>Quick Reference Card</h2>
+<p>A one-page summary of all article rules. Bookmark this section.</p>
+
+<div class="table-wrap"><table class="ref-table">
+  <tr>
+    <th style="width:12%">Article</th>
+    <th style="width:30%">Use when…</th>
+    <th style="width:30%">Examples</th>
+    <th style="width:28%">Do NOT use for…</th>
+  </tr>
+  <tr>
+    <td class="use-a"><strong>a / an</strong></td>
+    <td>
+      • First mention<br>
+      • One of many (non-specific)<br>
+      • Classifying jobs/types<br>
+      • After "What a…!" / "Such a…!"
+    </td>
+    <td>
+      a book · an apple<br>
+      She is a teacher.<br>
+      I need a pen (any pen).<br>
+      What a surprise!
+    </td>
+    <td>
+      Plural nouns (a books ✗)<br>
+      Uncountable (a water ✗)<br>
+      Second mention<br>
+      Unique things
+    </td>
+  </tr>
+  <tr>
+    <td class="use-the"><strong>the</strong></td>
+    <td>
+      • Second mention<br>
+      • Unique things (sun, moon)<br>
+      • Both know which one<br>
+      • Superlatives<br>
+      • Rivers, ranges, seas<br>
+      • With "of" phrases
+    </td>
+    <td>
+      the sun · the moon<br>
+      the best · the only one<br>
+      the Thames · the Alps<br>
+      the top of the hill<br>
+      the same mistake
+    </td>
+    <td>
+      Countries (singular)<br>
+      Cities, languages<br>
+      Sports (the cricket ✗)<br>
+      Abstract nouns in general<br>
+      Meals, by + transport
+    </td>
+  </tr>
+  <tr>
+    <td class="use-zero"><strong>∅ (none)</strong></td>
+    <td>
+      • Plural nouns (general)<br>
+      • Uncountable (general)<br>
+      • Countries, cities, languages<br>
+      • Sports, meals, subjects<br>
+      • By + transport<br>
+      • Abstract nouns (general)
+    </td>
+    <td>
+      Dogs are loyal.<br>
+      Water is essential.<br>
+      I live in France.<br>
+      She studies physics.<br>
+      He travels by train.<br>
+      Love is patient.
+    </td>
+    <td>
+      Singular countable nouns<br>
+      (a or the required)<br>
+      Unique things (sun ✗)<br>
+      Superlatives (best ✗)
+    </td>
+  </tr>
+</table></div>
+
+<h3>a vs an — sound rule at a glance</h3>
+<div class="table-wrap"><table>
+  <tr><th>Use "an" before</th><th>Use "a" before</th></tr>
+  <tr><td>vowel sound: an apple, an egg, an idea</td><td>consonant sound: a book, a dog, a cat</td></tr>
+  <tr><td>silent H: an hour, an honest person</td><td>pronounced H: a house, a hotel, a hero</td></tr>
+  <tr><td>vowel letter acronyms: an MBA, an X-ray, an MP</td><td>y-sound U: a university, a European country</td></tr>
+</table></div>
+
+<h3>Key geography rules</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title" style="color:var(--green)">No article (∅)</div>
+    <ul>
+      <li>Most countries: India, Japan, France</li>
+      <li>Cities: London, Mumbai, New York</li>
+      <li>Continents: Asia, Europe, Africa</li>
+      <li>Lakes: Lake Victoria, Lake Baikal</li>
+      <li>Mountains (single): Mount Everest, Ben Nevis</li>
+      <li>Streets: Oxford Street, Park Avenue</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--accent)">Use "the"</div>
+    <ul>
+      <li>Rivers: the Nile, the Amazon, the Thames</li>
+      <li>Seas &amp; Oceans: the Pacific, the Red Sea</li>
+      <li>Mountain ranges: the Alps, the Himalayas</li>
+      <li>Plural countries: the Netherlands, the USA</li>
+      <li>Famous buildings: the Taj Mahal, the Louvre</li>
+      <li>Newspapers: the Guardian, the Times</li>
+    </ul>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>Three questions to choose the right article</strong>
+  <ol style="margin-top:.5rem">
+    <li>Is the noun countable and singular? → Must use a, an, or the (never zero).</li>
+    <li>Do both speaker and listener know which specific one? → Use "the".</li>
+    <li>Is this a first mention, a job title, or "one of many"? → Use "a" or "an".</li>
+  </ol>
+  If none of the above → use zero article (general meaning, uncountable, or proper noun).
+</div>
+
+<div class="analogy">
+  <strong>The "newspaper front page" test</strong>
+  News headlines often drop articles because context is shared with all readers. When you read a headline like <em>"President meets Prime Minister"</em> — if this were a sentence, it would be <em>"The President met the Prime Minister"</em> because both are unique roles. Headlines skip articles for speed; real sentences don't.
+</div>
+
+<div class="situation">
+  <strong>Uncountable nouns you must never use a/an with</strong>
+  <p style="margin-top:.5rem">
+    <span class="chip chip-a">information</span>
+    <span class="chip chip-a">advice</span>
+    <span class="chip chip-a">news</span>
+    <span class="chip chip-a">furniture</span>
+    <span class="chip chip-a">luggage / baggage</span>
+    <span class="chip chip-a">equipment</span>
+    <span class="chip chip-a">traffic</span>
+    <span class="chip chip-a">weather</span>
+    <span class="chip chip-a">money</span>
+    <span class="chip chip-a">research</span>
+    <span class="chip chip-a">knowledge</span>
+    <span class="chip chip-a">education</span>
+    <span class="chip chip-a">music</span>
+    <span class="chip chip-a">homework</span>
+    <span class="chip chip-a">progress</span>
+  </p>
+  <p style="margin-top:.5rem">Use "some" or no article with these: <span class="ok">some advice</span>, <span class="ok">some information</span>, <span class="ok">some news</span>.</p>
+</div>
+</section>
+
+</div><!-- /container -->
+</body>
+</html>

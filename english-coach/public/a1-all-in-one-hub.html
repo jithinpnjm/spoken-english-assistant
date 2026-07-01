@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A1 German All-in-One Hub</title>
+  <style>
+    :root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h1 { font-size: 2.2em; color: #f8fafc; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h2 { font-size: 1.35em; color: var(--accent); margin: 28px 0 12px 0; }
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.pronounce {
+  background: #1a0a2e; border: 1px solid var(--purple); border-left: 6px solid var(--purple);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+}
+.pronounce h4 { color: var(--purple); margin: 0 0 6px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 24px; margin: 16px 0;
+}
+.card h3 { color: var(--accent); margin-top: 0; }
+.hub-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 20px 0;
+}
+.hub-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; transition: border-color 0.15s;
+}
+.hub-card:hover { border-color: var(--accent); }
+.hub-card h3 { color: var(--accent); margin: 0 0 8px 0; font-size: 1em; }
+.hub-card p { color: var(--fg-soft); font-size: 0.9em; margin: 0 0 12px 0; }
+.hub-card a { color: var(--accent); font-size: 0.88em; }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* File-specific classes */
+.subtitle { margin: 6px 0 18px; color: var(--fg-soft); }
+.hero {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.quick {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.quick a {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--fg-soft);
+  font-size: 0.9em;
+  transition: border-color 0.15s;
+}
+.quick a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.section { margin-top: 22px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+.links { display: grid; gap: 6px; }
+.muted { color: var(--fg-soft); font-size: 0.92rem; }
+.tag {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  margin-bottom: 8px;
+}
+.teal { color: var(--green); }
+.amber { color: var(--gold); }
+.rose { color: var(--red); }
+.violet { color: var(--violet); }
+@media print {
+  body { background: #0f172a; }
+  .card, .quick a, .hero { box-shadow: none; }
+}
+  
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="page-header">
+    <div class="badge">A1 German · Complete Guide</div>
+    <h1>A1 German All-in-One Hub</h1>
+    <p>One front door for everything: lessons, grammar, vocabulary, life situations, writing templates, and quick references.</p>
+  </div>
+
+  <nav class="navback">
+    <a href="javascript:history.back()">← Back</a>
+    <a href="/">Home</a>
+  </nav>
+
+  <div class="quick">
+    <a href="/a1-german-study-guide.html">Complete 65-topic Study Guide</a>
+    <a href="/a1-grammar-hub.html">Grammar Hub</a>
+    <a href="/a1-vocabulary-basics.html">Basics Vocabulary</a>
+    <a href="/a1-vocabulary-daily.html">Daily Life Vocabulary</a>
+    <a href="/a1-vocabulary-life.html">Life Skills Vocabulary</a>
+    <a href="#lesson-batches">Lesson Batches</a>
+  </div>
+
+  <section class="section">
+    <h2>Start Here</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Best single page</span>
+        <h3>Complete Study Guide</h3>
+        <p class="muted">The closest thing to "everything in one place": self-introduction, vocabulary, grammar tables, travel, health, forms, letters, and quick reference cards.</p>
+        <a href="/a1-german-study-guide.html">Open full guide</a>
+      </div>
+      <div class="card">
+        <span class="tag">Grammar only</span>
+        <h3>Grammar Hub</h3>
+        <p class="muted">All A1 grammar grouped separately: articles, cases, verbs, word order, prepositions, tenses, negation, connectors.</p>
+        <a href="/a1-grammar-hub.html">Open grammar hub</a>
+      </div>
+      <div class="card">
+        <span class="tag">App lessons</span>
+        <h3>65 Lesson References</h3>
+        <p class="muted">The lesson HTML files used as batch references, useful when you want lesson-by-lesson study.</p>
+        <a href="#lesson-batches">Jump to lesson batches</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Topic Hubs</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 class="teal">Foundations</h3>
+        <div class="links">
+          <a href="/a1-german-study-guide.html#s01">Self Introduction</a>
+          <a href="/a1-german-study-guide.html#s02">Greetings</a>
+          <a href="/a1-german-study-guide.html#s03">Alphabet &amp; Pronunciation</a>
+          <a href="/a1-german-study-guide.html#s04">Numbers</a>
+          <a href="/a1-german-study-guide.html#s05">Question Words</a>
+          <a href="/a1-vocabulary-basics.html">Basics Vocabulary Page</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="violet">Grammar</h3>
+        <div class="links">
+          <a href="/a1-grammar-hub.html">All Grammar in One Place</a>
+          <a href="/a1-articles-cases.html">Articles &amp; Cases</a>
+          <a href="/a1-verbs.html">Verbs</a>
+          <a href="/a1-prepositions.html">Prepositions</a>
+          <a href="/a1-tenses.html">Tenses</a>
+          <a href="/a1-word-order.html">Word Order</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="amber">Daily Life</h3>
+        <div class="links">
+          <a href="/a1-vocabulary-daily.html#vd01">City &amp; Places</a>
+          <a href="/a1-vocabulary-daily.html#vd02">Directions</a>
+          <a href="/a1-vocabulary-daily.html#vd03">Food &amp; Drink</a>
+          <a href="/a1-vocabulary-daily.html#vd04">Restaurant</a>
+          <a href="/a1-vocabulary-daily.html#vd05">House &amp; Rooms</a>
+          <a href="/a1-vocabulary-daily.html#vd07">Clothing &amp; Shopping</a>
+          <a href="/a1-vocabulary-daily.html#vd08">Transport</a>
+          <a href="/a1-vocabulary-daily.html#vd09">Hobbies</a>
+          <a href="/a1-vocabulary-daily.html#vd10">Weather</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="rose">Life Skills</h3>
+        <div class="links">
+          <a href="/a1-vocabulary-life.html#vs01">Body Parts</a>
+          <a href="/a1-vocabulary-life.html#vs02">Health &amp; Illness</a>
+          <a href="/a1-vocabulary-life.html#vs03">At the Doctor's</a>
+          <a href="/a1-vocabulary-life.html#vs04">Travel &amp; Hotel</a>
+          <a href="/a1-vocabulary-life.html#vs05">Bank</a>
+          <a href="/a1-vocabulary-life.html#vs06">Post Office</a>
+          <a href="/a1-vocabulary-life.html#vs07">Phone Calls</a>
+          <a href="/a1-vocabulary-life.html#vs08">Letters &amp; Emails</a>
+          <a href="/a1-vocabulary-life.html#vs09">Forms &amp; Registration</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Exam &amp; Writing Shortcuts</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Letters and Emails</h3>
+        <div class="links">
+          <a href="/a1-german-study-guide.html#s52">All letter/email templates</a>
+          <a href="/a1-part11-lessons-51-55.html#lesson-51">Invitation letter</a>
+          <a href="/a1-part12-lessons-56-65.html#lesson-60">Hotel reservation letter</a>
+          <a href="/a1-vocabulary-life.html#vs08">Writing vocabulary page</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Speaking Prep</h3>
+        <div class="links">
+          <a href="/a1-german-study-guide.html#s01">Self-introduction questions</a>
+          <a href="/a1-german-study-guide.html#s53">Question words by category</a>
+          <a href="/a1-german-study-guide.html#s62">Useful everyday phrases</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Quick Revision</h3>
+        <div class="links">
+          <a href="/a1-german-study-guide.html#s61">Prepositions quick reference</a>
+          <a href="/a1-german-study-guide.html#s63">Word order summary</a>
+          <a href="/a1-german-study-guide.html#s65">Grammar quick-reference card</a>
+          <a href="/a1-grammar-hub.html">Grammar hub checklist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lesson-batches">
+    <h2>Lesson Batches</h2>
+    <div class="grid">
+      <div class="card links">
+        <a href="/a1-part01-lessons-01-03.html">Lessons 01-03</a>
+        <a href="/a1-part02-lessons-04-10.html">Lessons 04-10</a>
+        <a href="/a1-part03-lessons-11-15.html">Lessons 11-15</a>
+        <a href="/a1-part04-lessons-16-20.html">Lessons 16-20</a>
+      </div>
+      <div class="card links">
+        <a href="/a1-part05-lessons-21-25.html">Lessons 21-25</a>
+        <a href="/a1-part06-lessons-26-30.html">Lessons 26-30</a>
+        <a href="/a1-part07-lessons-31-35.html">Lessons 31-35</a>
+        <a href="/a1-part08-lessons-36-40.html">Lessons 36-40</a>
+      </div>
+      <div class="card links">
+        <a href="/a1-part09-lessons-41-45.html">Lessons 41-45</a>
+        <a href="/a1-part10-lessons-46-50.html">Lessons 46-50</a>
+        <a href="/a1-part11-lessons-51-55.html">Lessons 51-55</a>
+        <a href="/a1-part12-lessons-56-65.html">Lessons 56-65</a>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

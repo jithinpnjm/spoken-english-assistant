@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A1 German — Prepositions: Complete Guide</title>
+<style>
+  :root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h1 { font-size: 2.2em; color: #f8fafc; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h2 { font-size: 1.35em; color: var(--accent); margin: 28px 0 12px 0; }
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.pronounce {
+  background: #1a0a2e; border: 1px solid var(--purple); border-left: 6px solid var(--purple);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+}
+.pronounce h4 { color: var(--purple); margin: 0 0 6px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 24px; margin: 16px 0;
+}
+.card h3 { color: var(--accent); margin-top: 0; }
+.hub-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 20px 0;
+}
+.hub-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; transition: border-color 0.15s;
+}
+.hub-card:hover { border-color: var(--accent); }
+.hub-card h3 { color: var(--accent); margin: 0 0 8px 0; font-size: 1em; }
+.hub-card p { color: var(--fg-soft); font-size: 0.9em; margin: 0 0 12px 0; }
+.hub-card a { color: var(--accent); font-size: 0.88em; }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* File-specific classes */
+.hi { background: #1a3a5c !important; color: var(--gold); font-weight: 700; }
+.trick { background: #1c1a00; border: 1px solid #f59e0b; border-left: 6px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em; }
+.trick h4 { color: #fbbf24; margin: 0 0 8px 0; }
+.trick ul { padding-left: 20px; }
+.trick li { margin: 5px 0; }
+.situation { background: #071a0e; border: 1px solid #22c55e; border-left: 6px solid #22c55e; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em; }
+.situation h4 { color: #4ade80; margin: 0 0 8px 0; }
+.situation ul { padding-left: 20px; }
+.situation li { margin: 5px 0; }
+.mistake { background: #1f0a0a; border: 1px solid #f43f5e; border-left: 6px solid #f43f5e; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em; }
+.mistake h4 { color: #fb7185; margin: 0 0 8px 0; }
+.mistake ul { padding-left: 20px; }
+.mistake li { margin: 5px 0; }
+.wrong { color: var(--red); }
+.right { color: var(--green); font-weight: 600; }
+.analogy { background: #160b20; border: 1px solid #a855f7; border-left: 6px solid #a855f7; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em; }
+.analogy h4 { color: #c084fc; margin: 0 0 8px 0; }
+.analogy ul { padding-left: 20px; }
+.analogy li { margin: 5px 0; }
+.example-pair { background: var(--card2); border-left: 3px solid var(--accent); padding: 9px 14px; margin: 7px 0; border-radius: 0 6px 6px 0; }
+.example-pair .de { display: block; font-size: 1.05em; }
+.example-pair .en { display: block; color: var(--fg-soft); font-size: 0.9em; }
+.example-pair .why { display: block; color: #93c5fd; font-size: 0.88em; font-style: italic; margin-top: 2px; }
+.highlight { background: #3b2a00; border-radius: 4px; padding: 2px 7px; font-weight: 700; color: var(--gold); }
+.tag-akk { display: inline-block; background: #1a2e1a; color: #4ade80; border-radius: 4px; padding: 1px 9px; font-size: 0.82em; font-weight: 700; margin: 2px; }
+.tag-dat { display: inline-block; background: #1a2945; color: #60a5fa; border-radius: 4px; padding: 1px 9px; font-size: 0.82em; font-weight: 700; margin: 2px; }
+.tag-2way { display: inline-block; background: #2a1a3a; color: #c084fc; border-radius: 4px; padding: 1px 9px; font-size: 0.82em; font-weight: 700; margin: 2px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 12px 0; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 12px 0; }
+@media (max-width: 720px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+.group-akk { border: 2px solid #22c55e; border-radius: 12px; padding: 18px; margin: 16px 0; }
+.group-akk .group-title { color: #4ade80; font-size: 1.1em; font-weight: 700; margin-bottom: 8px; }
+.group-dat { border: 2px solid #60a5fa; border-radius: 12px; padding: 18px; margin: 16px 0; }
+.group-dat .group-title { color: #93c5fd; font-size: 1.1em; font-weight: 700; margin-bottom: 8px; }
+.group-2way { border: 2px solid #c084fc; border-radius: 12px; padding: 18px; margin: 16px 0; }
+.group-2way .group-title { color: #c084fc; font-size: 1.1em; font-weight: 700; margin-bottom: 8px; }
+.contract-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin: 12px 0; }
+.contract-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; text-align: center; }
+.contract-card .full { color: var(--fg-soft); font-size: 0.85em; }
+.contract-card .short { font-size: 1.3em; font-weight: 700; color: var(--gold); }
+.contract-card .eg { font-size: 0.8em; color: var(--fg-soft); margin-top: 4px; }
+hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+@media print {
+  body { background: #0f172a; color: var(--fg); font-size: 12px; }
+  .teach, .trick, .situation, .mistake, .analogy { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h2.section { page-break-before: always; }
+}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="navback">
+  <a href="/a1-german-grammar.html">← Full Grammar Guide</a>
+  <a href="/a1-articles-cases.html">Articles &amp; Cases</a>
+  <a href="/a1-verbs.html">Verbs Guide</a>
+  <a href="/a1-german-study-guide.html">Vocabulary Guide</a>
+  <a href="/">App Home</a>
+</div>
+
+<div class="page-header">
+  <div class="badge">A1 German · Prepositions</div>
+  <h1>Prepositions — Complete Guide</h1>
+  <p>GODFU · Dative 8 · Two-Way Prepositions · Contractions · Wo? vs Wohin? · Real-life Situations</p>
+</div>
+
+<div class="toc">
+  <h2>In this guide</h2>
+  <div class="toc-grid">
+    <a href="#p01">1. The three preposition groups — overview</a>
+    <a href="#p02">2. GODFU — the 5 Akkusativ prepositions</a>
+    <a href="#p03">3. The 8 Dativ prepositions</a>
+    <a href="#p04">4. Contractions — zum/zur/im/ins/am/ans…</a>
+    <a href="#p05">5. Two-way prepositions — the 9 Wechselpräpositionen</a>
+    <a href="#p06">6. Wo? vs Wohin? — Position vs Direction</a>
+    <a href="#p07">7. Position/movement verb pairs</a>
+    <a href="#p08">8. How to say "to" in German</a>
+    <a href="#p09">9. Prepositions for time expressions</a>
+    <a href="#p10">10. Common preposition mistakes</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p01">1. The Three Preposition Groups — Overview</h2>
+
+<div class="teach">
+  <h4>🎯 The one rule that governs all German prepositions</h4>
+  <p>Every German preposition belongs to one of three groups, depending on which case it requires the following noun to take. You cannot guess — each preposition must be <strong>learnt with its group</strong>. Once you know the group, the article changes automatically.</p>
+</div>
+
+<div class="three-col">
+  <div class="group-akk">
+    <div class="group-title">Group 1 — Always Akkusativ</div>
+    <p style="font-size:1.15em; font-weight:700; color:#4ade80; letter-spacing:0.06em;">GODFU</p>
+    <p style="font-size:0.9em; color:var(--fg-soft);">gegen · ohne · durch · für · um</p>
+    <p style="font-size:0.82em; margin-top:6px; color:var(--fg-soft);">5 prepositions, easy acronym</p>
+  </div>
+  <div class="group-dat">
+    <div class="group-title">Group 2 — Always Dativ</div>
+    <p style="font-size:0.95em; font-weight:600; color:#93c5fd;">aus · bei · mit · nach · von · zu · seit · gegenüber</p>
+    <p style="font-size:0.82em; margin-top:6px; color:var(--fg-soft);">8 prepositions to memorise</p>
+  </div>
+  <div class="group-2way">
+    <div class="group-title">Group 3 — Two-way (Dativ or Akkusativ)</div>
+    <p style="font-size:0.95em; font-weight:600; color:#c084fc;">an · auf · hinter · in · neben · über · unter · vor · zwischen</p>
+    <p style="font-size:0.82em; margin-top:6px; color:var(--fg-soft);">9 prepositions — case depends on motion vs position</p>
+  </div>
+</div>
+
+<div class="trick">
+  <h4>🧠 The 3-group system at a glance</h4>
+  <ul>
+    <li><span class="tag-akk">Akkusativ</span> GODFU — these 5 always take Akkusativ. No exceptions. Ever.</li>
+    <li><span class="tag-dat">Dativ</span> The Dative 8 — always Dativ. No exceptions.</li>
+    <li><span class="tag-2way">Two-way</span> The 9 Wechselpräpositionen — Dativ when answering "Where is it?", Akkusativ when answering "Where is it going?"</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p02">2. GODFU — The 5 Akkusativ Prepositions</h2>
+
+<div class="teach">
+  <h4>📌 GODFU = Gegen · Ohne · Durch · Für · Um</h4>
+  <p>This acronym is one of the most useful memory tools in German. Say "GODFU" every time you are unsure — if your preposition is in this list, it takes Akkusativ. Always. No exceptions.</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Prep.</th><th>Meaning(s)</th><th>Example</th><th>English</th></tr>
+  <tr>
+    <td class="de" style="font-size:1.2em; color:var(--gold);">gegen</td>
+    <td>against · towards (time) · around (approx.)</td>
+    <td class="de">Ich bin gegen Lärm. / Gegen 8 Uhr.</td>
+    <td>I'm against noise. / Around 8 o'clock.</td>
+  </tr>
+  <tr>
+    <td class="de" style="font-size:1.2em; color:var(--gold);">ohne</td>
+    <td>without</td>
+    <td class="de">Ich trinke Kaffee ohne Zucker.</td>
+    <td>I drink coffee without sugar.</td>
+  </tr>
+  <tr>
+    <td class="de" style="font-size:1.2em; color:var(--gold);">durch</td>
+    <td>through · by means of · because of</td>
+    <td class="de">Wir gehen durch den Park. / Durch Übung.</td>
+    <td>We walk through the park. / Through practice.</td>
+  </tr>
+  <tr>
+    <td class="de" style="font-size:1.2em; color:var(--gold);">für</td>
+    <td>for · in favour of · for (duration, past)</td>
+    <td class="de">Das ist für dich. / Für drei Tage.</td>
+    <td>That is for you. / For three days.</td>
+  </tr>
+  <tr>
+    <td class="de" style="font-size:1.2em; color:var(--gold);">um</td>
+    <td>around · at (clock time) · for (competition)</td>
+    <td class="de">Um den Tisch. / Um 9 Uhr.</td>
+    <td>Around the table. / At 9 o'clock.</td>
+  </tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 Remembering GODFU — two tricks</h4>
+  <ul>
+    <li><strong>The acronym:</strong> <span class="highlight">G</span>egen · <span class="highlight">O</span>hne · <span class="highlight">D</span>urch · <span class="highlight">F</span>ür · <span class="highlight">U</span>m = GODFU. Say it like a word. Write it on a sticky note on your mirror.</li>
+    <li><strong>The meaning pattern:</strong> These prepositions describe motion through something (durch), purpose (für), surrounding (um), opposition (gegen), or absence (ohne) — all very "action-oriented" ideas → Akkusativ (the action case).</li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h4>🌍 Real-Life Situations — GODFU in action</h4>
+  <div class="example-pair">
+    <span class="de">Ich kaufe ein Geschenk für meine Mutter.</span>
+    <span class="en">I'm buying a gift for my mother.</span>
+    <span class="why">für + Akkusativ: meine Mutter (f Akk = meine, not meiner)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Wir fahren durch den Tunnel.</span>
+    <span class="en">We drive through the tunnel.</span>
+    <span class="why">durch + Akkusativ: der Tunnel → den Tunnel (m Akk)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ohne einen Regenschirm gehe ich nicht raus.</span>
+    <span class="en">I don't go out without an umbrella.</span>
+    <span class="why">ohne + Akkusativ: einen Regenschirm (m Akk)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Das Meeting beginnt um 10 Uhr.</span>
+    <span class="en">The meeting starts at 10 o'clock.</span>
+    <span class="why">um + time = at. No article needed with clock times.</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Bist du für oder gegen den Plan?</span>
+    <span class="en">Are you for or against the plan?</span>
+    <span class="why">für/gegen + Akkusativ: den Plan (m Akk)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p03">3. The 8 Dativ Prepositions</h2>
+
+<div class="teach">
+  <h4>📌 These 8 prepositions ALWAYS take Dativ — no exceptions, no two-way</h4>
+  <p>Memorise all 8. They are among the most common prepositions in German. In a Dativ phrase: der → dem · die → der · das → dem · plural → den (+n on noun).</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Prep.</th><th>Meaning(s)</th><th>Example</th><th>English</th></tr>
+  <tr>
+    <td class="de" style="color:var(--blue); font-size:1.1em;">aus</td>
+    <td>out of · from (origin) · made of</td>
+    <td class="de">Ich komme aus Indien. / aus Holz.</td>
+    <td>I come from India. / made of wood.</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--blue); font-size:1.1em;">bei</td>
+    <td>at (someone's place) · near · at (company) · while</td>
+    <td class="de">Ich bin bei meiner Mutter. / bei IKEA arbeiten.</td>
+    <td>I'm at my mother's place. / to work at IKEA.</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--blue); font-size:1.1em;">mit</td>
+    <td>with · by (transport)</td>
+    <td class="de">mit dem Bus fahren. / mit meinem Freund.</td>
+    <td>to travel by bus. / with my friend.</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--blue); font-size:1.1em;">nach</td>
+    <td>to (city/country) · after · according to</td>
+    <td class="de">nach Berlin fahren. / nach dem Essen.</td>
+    <td>to go to Berlin. / after the meal.</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--blue); font-size:1.1em;">von</td>
+    <td>from · of · by (author) · about</td>
+    <td class="de">ein Buch von Goethe. / von hier.</td>
+    <td>a book by Goethe. / from here.</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--blue); font-size:1.1em;">zu</td>
+    <td>to (a person/place) · at (home) · for (purpose)</td>
+    <td class="de">zum Arzt gehen. / zu Hause sein.</td>
+    <td>to go to the doctor. / to be at home.</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--blue); font-size:1.1em;">seit</td>
+    <td>since · for (ongoing time)</td>
+    <td class="de">Ich lerne seit drei Monaten Deutsch.</td>
+    <td>I have been learning German for three months.</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--blue); font-size:1.1em;">gegenüber</td>
+    <td>opposite · across from</td>
+    <td class="de">Die Bank ist gegenüber dem Bahnhof.</td>
+    <td>The bank is opposite the station.</td>
+  </tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 Memory sentence for the Dative 8</h4>
+  <p style="font-size:1.1em; background:var(--card2); border-radius:8px; padding:10px 16px; font-style:italic;">
+    "<span class="de">Aus · bei · mit · nach · von · zu · seit · gegenüber</span>"
+  </p>
+  <p>Chant this list in order, rhythmically, every day for one week. Group the rhythm as: <strong>aus-bei-mit · nach-von-zu · seit-gegenüber</strong>. After a week it becomes automatic — you'll recite it before you even finish thinking.</p>
+</div>
+
+<div class="situation">
+  <h4>🌍 Dativ 8 — Real-Life Situations</h4>
+  <div class="example-pair">
+    <span class="de">Ich fahre mit dem Zug nach München.</span>
+    <span class="en">I'm travelling to Munich by train.</span>
+    <span class="why">mit + Dat: dem Zug (m Dat) · nach + Dat: München (city = no article)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ich wohne seit zwei Jahren in Deutschland.</span>
+    <span class="en">I have been living in Germany for two years.</span>
+    <span class="why">seit + Dat: zwei Jahren (pl Dat → Jahren adds -n) · IMPORTANT: use present tense with seit for ongoing actions!</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Das Café ist gegenüber der Post.</span>
+    <span class="en">The café is opposite the post office.</span>
+    <span class="why">gegenüber + Dat: der Post (f Dat — die → der)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Nach der Arbeit gehe ich zum Supermarkt.</span>
+    <span class="en">After work I go to the supermarket.</span>
+    <span class="why">nach + Dat: der Arbeit (f Dat) · zum = zu + dem (m Dat contracted)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ich bin bei meinem Freund.</span>
+    <span class="en">I'm at my friend's place.</span>
+    <span class="why">bei + Dat: meinem Freund (m Dat → mein + em)</span>
+  </div>
+</div>
+
+<div class="teach">
+  <h4>📌 The critical seit rule — present tense for ongoing situations</h4>
+  <p>In English, we say "I have been living here for 3 years." In German, you use <strong>present tense</strong> with seit: <span class="de">Ich wohne seit 3 Jahren hier.</span> Why? Because the action is still happening NOW. Using Perfekt with seit is a very common mistake.</p>
+  <div class="example-pair">
+    <span class="de wrong">Ich habe seit drei Jahren Deutsch gelernt.</span>
+    <span class="en wrong">❌ Wrong — implies you stopped</span>
+  </div>
+  <div class="example-pair">
+    <span class="de right">Ich lerne seit drei Jahren Deutsch.</span>
+    <span class="en">✓ I have been learning German for three years (still ongoing)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p04">4. Contractions — Preposition + Article Fused Together</h2>
+
+<div class="teach">
+  <h4>📌 When a preposition and a definite article merge, they contract into one word</h4>
+  <p>These contractions are mandatory in standard German — you cannot say "zu dem" where "zum" is expected. They are extremely common and you will hear/use them in every conversation.</p>
+</div>
+
+<div class="contract-grid">
+  <div class="contract-card">
+    <div class="full">zu + dem (m/n Dat)</div>
+    <div class="short">zum</div>
+    <div class="eg">zum Arzt · zum Bahnhof</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">zu + der (f Dat)</div>
+    <div class="short">zur</div>
+    <div class="eg">zur Schule · zur Post</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">bei + dem (m/n Dat)</div>
+    <div class="short">beim</div>
+    <div class="eg">beim Arzt · beim Essen</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">von + dem (m/n Dat)</div>
+    <div class="short">vom</div>
+    <div class="eg">vom Bahnhof · vom Chef</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">an + dem (m/n Dat)</div>
+    <div class="short">am</div>
+    <div class="eg">am Montag · am Meer</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">an + das (n Akk)</div>
+    <div class="short">ans</div>
+    <div class="eg">ans Meer fahren</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">in + dem (m/n Dat)</div>
+    <div class="short">im</div>
+    <div class="eg">im Supermarkt · im Kino</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">in + das (n Akk)</div>
+    <div class="short">ins</div>
+    <div class="eg">ins Kino gehen · ins Bett</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">auf + das (n Akk)</div>
+    <div class="short">aufs</div>
+    <div class="eg">aufs Land fahren</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">durch + das (n Akk)</div>
+    <div class="short">durchs</div>
+    <div class="eg">durchs Fenster</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">für + das (n Akk)</div>
+    <div class="short">fürs</div>
+    <div class="eg">fürs Wochenende</div>
+  </div>
+  <div class="contract-card">
+    <div class="full">um + das (n Akk)</div>
+    <div class="short">ums</div>
+    <div class="eg">ums Haus gehen</div>
+  </div>
+</div>
+
+<div class="trick">
+  <h4>🧠 The 4 you absolutely must know first</h4>
+  <ul>
+    <li><span class="highlight">zum</span> — going TO a (masculine/neuter) place: <em class="de">Ich gehe zum Supermarkt.</em></li>
+    <li><span class="highlight">zur</span> — going TO a (feminine) place: <em class="de">Ich fahre zur Arbeit.</em></li>
+    <li><span class="highlight">im</span> — INSIDE a (masculine/neuter) place: <em class="de">Ich bin im Büro.</em></li>
+    <li><span class="highlight">ins</span> — going INTO a (neuter) place: <em class="de">Ich gehe ins Kino.</em></li>
+  </ul>
+  <p>Master these four and you cover 90% of daily location and movement needs.</p>
+</div>
+
+<div class="situation">
+  <h4>🌍 Contractions in everyday speech</h4>
+  <div class="example-pair">
+    <span class="de">Ich bin beim Arzt — komme erst um 18 Uhr heim.</span>
+    <span class="en">I'm at the doctor's — won't be home until 6 PM.</span>
+    <span class="why">beim = bei + dem (Arzt is masculine Dativ)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Am Wochenende fahren wir ans Meer.</span>
+    <span class="en">At the weekend we're going to the sea.</span>
+    <span class="why">am = an + dem (Wochenende, neuter Dat for time) · ans = an + das (Meer, neuter Akk for movement)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ich gehe ins Bett. Gute Nacht!</span>
+    <span class="en">I'm going to bed. Good night!</span>
+    <span class="why">ins = in + das (Bett is neuter, movement → Akkusativ)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p05">5. Two-Way Prepositions — The 9 Wechselpräpositionen</h2>
+
+<div class="teach">
+  <h4>🎯 The one question that decides the case</h4>
+  <p>Ask yourself: <strong>"Am I describing WHERE something IS? Or WHERE it is GOING?"</strong></p>
+  <ul>
+    <li>WHERE IT IS (position, no movement) → <span class="tag-dat">Dativ</span></li>
+    <li>WHERE IT IS GOING (movement toward a destination) → <span class="tag-akk">Akkusativ</span></li>
+  </ul>
+</div>
+
+<div class="two-col">
+<div>
+<h3>The 9 Two-Way Prepositions</h3>
+<div class="table-wrap"><table>
+  <tr><th>Prep.</th><th>English meaning</th></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">an</td><td>at / on (vertical surface)</td></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">auf</td><td>on (horizontal surface)</td></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">hinter</td><td>behind</td></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">in</td><td>in / into</td></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">neben</td><td>next to / beside</td></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">über</td><td>above / over / across</td></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">unter</td><td>under / below / among</td></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">vor</td><td>in front of / before</td></tr>
+  <tr><td class="de" style="font-size:1.1em; color:var(--violet);">zwischen</td><td>between</td></tr>
+</table></div>
+</div>
+<div>
+<h3>an vs auf — the key distinction</h3>
+<div class="table-wrap"><table>
+  <tr><th>Preposition</th><th>Used for</th><th>Example</th></tr>
+  <tr><td class="de">an</td><td>Vertical surfaces — walls, boards, windows, screens, rivers, borders</td><td class="de">Das Bild hängt an der Wand.</td></tr>
+  <tr><td class="de">auf</td><td>Horizontal surfaces — tables, floors, desks, mountains, islands</td><td class="de">Das Buch liegt auf dem Tisch.</td></tr>
+  <tr><td class="de">an</td><td>At the edge of a body of water</td><td class="de">am Meer · am See · am Fluss</td></tr>
+  <tr><td class="de">auf</td><td>On a public/open space</td><td class="de">auf dem Markt · auf der Straße</td></tr>
+</table></div>
+</div>
+</div>
+
+<h3>Same preposition — two cases, two meanings</h3>
+<div class="table-wrap"><table>
+  <tr><th>Preposition</th><th>+ Dativ (position)</th><th>+ Akkusativ (movement/destination)</th></tr>
+  <tr>
+    <td class="de" style="color:var(--violet);">in</td>
+    <td class="de">Ich bin <u>im</u> Supermarkt. (I am in the supermarket.)</td>
+    <td class="de">Ich gehe <u>in den</u> Supermarkt. (I go into the supermarket.)</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--violet);">auf</td>
+    <td class="de">Das Buch liegt <u>auf dem</u> Tisch. (The book is on the table.)</td>
+    <td class="de">Ich lege das Buch <u>auf den</u> Tisch. (I put the book on the table.)</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--violet);">an</td>
+    <td class="de">Das Bild hängt <u>an der</u> Wand. (The picture is on the wall.)</td>
+    <td class="de">Ich hänge das Bild <u>an die</u> Wand. (I hang the picture on the wall.)</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--violet);">vor</td>
+    <td class="de">Er wartet <u>vor dem</u> Kino. (He waits in front of the cinema.)</td>
+    <td class="de">Er stellt sich <u>vor das</u> Kino. (He positions himself in front of.)</td>
+  </tr>
+  <tr>
+    <td class="de" style="color:var(--violet);">zwischen</td>
+    <td class="de">Sie sitzt <u>zwischen dem</u> Vater und der Mutter.</td>
+    <td class="de">Sie setzt sich <u>zwischen den</u> Vater und die Mutter.</td>
+  </tr>
+</table></div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p06">6. Wo? vs Wohin? — Position vs Direction</h2>
+
+<div class="teach">
+  <h4>📌 The two magic questions</h4>
+  <ul>
+    <li><span class="highlight">Wo?</span> — Where is it? (static position) → always <strong>Dativ</strong></li>
+    <li><span class="highlight">Wohin?</span> — Where is it going? (movement to destination) → always <strong>Akkusativ</strong></li>
+  </ul>
+  <p>Whenever you use a two-way preposition, ask one of these questions in your head. The answer tells you which case to use.</p>
+</div>
+
+<div class="two-col">
+<div>
+<div class="group-dat" style="margin:0;">
+  <div class="group-title">Wo? → Dativ (position)</div>
+  <div class="example-pair" style="margin:6px 0;">
+    <span class="de">Das Kind ist im Bett.</span>
+    <span class="en">The child is in bed.</span>
+    <span class="why">im = in + dem (Dat, position)</span>
+  </div>
+  <div class="example-pair" style="margin:6px 0;">
+    <span class="de">Die Katze liegt auf dem Sofa.</span>
+    <span class="en">The cat is lying on the sofa.</span>
+    <span class="why">auf + dem (Dat, position)</span>
+  </div>
+  <div class="example-pair" style="margin:6px 0;">
+    <span class="de">Das Buch liegt unter dem Tisch.</span>
+    <span class="en">The book is under the table.</span>
+    <span class="why">unter + dem (Dat, position)</span>
+  </div>
+</div>
+</div>
+<div>
+<div class="group-akk" style="margin:0;">
+  <div class="group-title">Wohin? → Akkusativ (movement)</div>
+  <div class="example-pair" style="margin:6px 0;">
+    <span class="de">Das Kind geht ins Bett.</span>
+    <span class="en">The child goes to bed.</span>
+    <span class="why">ins = in + das (Akk, movement)</span>
+  </div>
+  <div class="example-pair" style="margin:6px 0;">
+    <span class="de">Die Katze springt auf das Sofa.</span>
+    <span class="en">The cat jumps onto the sofa.</span>
+    <span class="why">auf + das (Akk, movement/destination)</span>
+  </div>
+  <div class="example-pair" style="margin:6px 0;">
+    <span class="de">Er legt das Buch unter den Tisch.</span>
+    <span class="en">He puts the book under the table.</span>
+    <span class="why">unter + den (Akk, movement m)</span>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p07">7. Position / Movement Verb Pairs</h2>
+
+<div class="teach">
+  <h4>📌 These verb pairs always go with two-way prepositions</h4>
+  <p>German has a set of verb pairs where one describes <strong>position (Dativ)</strong> and the other describes <strong>movement (Akkusativ)</strong>. The meaning difference is built into the verb itself. Learn them always in pairs.</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Position verb (Wo? → Dativ)</th><th>Meaning</th><th>Movement verb (Wohin? → Akk.)</th><th>Meaning</th></tr>
+  <tr>
+    <td class="de">stehen</td><td>to stand / be standing upright</td>
+    <td class="de">stellen</td><td>to place / stand something upright</td>
+  </tr>
+  <tr>
+    <td class="de">liegen</td><td>to lie / be lying flat</td>
+    <td class="de">legen</td><td>to lay / put flat</td>
+  </tr>
+  <tr>
+    <td class="de">hängen</td><td>to hang / be hanging (intrans.)</td>
+    <td class="de">hängen</td><td>to hang up (transitive)</td>
+  </tr>
+  <tr>
+    <td class="de">sitzen</td><td>to sit / be seated</td>
+    <td class="de">setzen</td><td>to seat / put in a sitting position</td>
+  </tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 The SLHS pairing method — learn them together</h4>
+  <ul>
+    <li><strong>Stehen / Stellen</strong> — upright things: bottles, books on shelves. <em class="de">Das Buch steht im Regal.</em> / <em class="de">Ich stelle das Buch ins Regal.</em></li>
+    <li><strong>Liegen / Legen</strong> — flat things: papers, people in bed. <em class="de">Das Heft liegt auf dem Tisch.</em> / <em class="de">Ich lege das Heft auf den Tisch.</em></li>
+    <li><strong>Hängen / Hängen</strong> — same spelling, different usage: <em class="de">Das Bild hängt an der Wand.</em> (Dat) / <em class="de">Ich hänge das Bild an die Wand.</em> (Akk)</li>
+    <li><strong>Sitzen / Setzen</strong> — people and animals: <em class="de">Das Kind sitzt auf dem Stuhl.</em> / <em class="de">Ich setze das Kind auf den Stuhl.</em></li>
+  </ul>
+  <p>Memory rule: if YOU are doing something TO an object (you are placing/hanging/laying it), the object moves to a new location → Akkusativ. If it's just there by itself → Dativ.</p>
+</div>
+
+<div class="situation">
+  <h4>🌍 Situation: Tidying a room</h4>
+  <div class="example-pair">
+    <span class="de">Wo ist meine Jacke? — Sie hängt an der Tür.</span>
+    <span class="en">Where is my jacket? — It's hanging on the door.</span>
+    <span class="why">hängen (position) + an der Tür (f Dat)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Häng deine Jacke an die Tür!</span>
+    <span class="en">Hang your jacket on the door!</span>
+    <span class="why">hängen (movement/placement) + an die Tür (f Akk)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Stell die Tassen in den Schrank!</span>
+    <span class="en">Put the cups in the cupboard!</span>
+    <span class="why">stellen (movement) + in den Schrank (m Akk)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Die Tassen stehen im Schrank.</span>
+    <span class="en">The cups are in the cupboard.</span>
+    <span class="why">stehen (position) + im Schrank (m Dat)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p08">8. How to Say "To" in German</h2>
+
+<div class="teach">
+  <h4>🎯 The most confusing choice — nach / zu / in / auf / an</h4>
+  <p>English has one word "to" for all destinations. German has several, depending on the type of place. Here is the complete decision guide:</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Destination type</th><th>Use</th><th>Examples</th></tr>
+  <tr>
+    <td>Cities and most countries (no article)</td>
+    <td class="de highlight">nach</td>
+    <td class="de">nach Berlin · nach Deutschland · nach Japan · nach Hause</td>
+  </tr>
+  <tr>
+    <td>Countries with a definite article (f, pl, m)</td>
+    <td class="de highlight">in die / in den</td>
+    <td class="de">in die Türkei · in die USA · in den Iran · in die Schweiz</td>
+  </tr>
+  <tr>
+    <td>A person's home / someone's place</td>
+    <td class="de highlight">zu</td>
+    <td class="de">zu meiner Mutter · zu einem Freund · zum Arzt</td>
+  </tr>
+  <tr>
+    <td>A building / enclosed indoor place</td>
+    <td class="de highlight">in + Akk</td>
+    <td class="de">in die Schule · ins Kino · ins Krankenhaus · ins Büro</td>
+  </tr>
+  <tr>
+    <td>Open public spaces / market squares</td>
+    <td class="de highlight">auf + Akk</td>
+    <td class="de">auf den Markt · auf die Post · auf die Bank (=errand)</td>
+  </tr>
+  <tr>
+    <td>Events with an edge/shore</td>
+    <td class="de highlight">an + Akk</td>
+    <td class="de">ans Meer · an den See · an die Küste</td>
+  </tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 "To" at a glance — the 3-second decision</h4>
+  <ul>
+    <li>City / most countries → <span class="highlight">nach</span></li>
+    <li>Someone's home / a professional → <span class="highlight">zu / zum / zur</span></li>
+    <li>Building (indoor) → <span class="highlight">in + Akk / ins</span></li>
+    <li>Country with article → <span class="highlight">in + Akk</span></li>
+    <li>Water / shore → <span class="highlight">an + Akk / ans</span></li>
+  </ul>
+</div>
+
+<div class="situation">
+  <h4>🌍 Situation: Making plans for the weekend</h4>
+  <div class="example-pair">
+    <span class="de">Am Samstag fahren wir nach München und am Sonntag ans Meer.</span>
+    <span class="en">On Saturday we go to Munich and on Sunday to the sea.</span>
+    <span class="why">nach München (city) · ans Meer (water, an + das)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ich gehe heute Nachmittag zum Arzt und dann in die Apotheke.</span>
+    <span class="en">This afternoon I'm going to the doctor and then to the pharmacy.</span>
+    <span class="why">zum Arzt (person/professional, zu + dem) · in die Apotheke (building, f Akk)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Nächsten Sommer fliegen wir in die Türkei.</span>
+    <span class="en">Next summer we're flying to Turkey.</span>
+    <span class="why">in die Türkei (country with article: die Türkei, f Akk)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p09">9. Prepositions for Time Expressions</h2>
+
+<div class="teach">
+  <h4>📌 Time prepositions — the complete system at A1</h4>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Preposition</th><th>Used for</th><th>Examples</th><th>Note</th></tr>
+  <tr>
+    <td class="de">um</td>
+    <td>Clock time</td>
+    <td class="de">um 9 Uhr · um halb drei</td>
+    <td>Always with Uhr, no article</td>
+  </tr>
+  <tr>
+    <td class="de">am</td>
+    <td>Days of the week · specific dates · parts of day</td>
+    <td class="de">am Montag · am 3. März · am Morgen/Abend</td>
+    <td>am = an + dem. Exception: in der Nacht (not am Nacht)</td>
+  </tr>
+  <tr>
+    <td class="de">im</td>
+    <td>Months · seasons</td>
+    <td class="de">im Januar · im Sommer · im Winter</td>
+    <td>im = in + dem</td>
+  </tr>
+  <tr>
+    <td class="de">in</td>
+    <td>Future time duration</td>
+    <td class="de">in einer Stunde · in drei Tagen · in zwei Wochen</td>
+    <td>"in X time from now"</td>
+  </tr>
+  <tr>
+    <td class="de">vor</td>
+    <td>Time ago (past)</td>
+    <td class="de">vor einer Stunde · vor drei Jahren</td>
+    <td>"X time ago" — always Dativ</td>
+  </tr>
+  <tr>
+    <td class="de">nach</td>
+    <td>After (a point in time)</td>
+    <td class="de">nach dem Essen · nach der Arbeit</td>
+    <td>Always Dativ</td>
+  </tr>
+  <tr>
+    <td class="de">seit</td>
+    <td>Since / for (ongoing, started in past)</td>
+    <td class="de">seit drei Monaten · seit 2020</td>
+    <td>Present tense! Action still ongoing.</td>
+  </tr>
+  <tr>
+    <td class="de">bis</td>
+    <td>Until / up to</td>
+    <td class="de">bis morgen · bis 18 Uhr · bis nächste Woche</td>
+    <td>Can be used without article or with Akk</td>
+  </tr>
+  <tr>
+    <td class="de">ab</td>
+    <td>From (a point) onwards</td>
+    <td class="de">ab Montag · ab 9 Uhr · ab sofort</td>
+    <td>"starting from" — can be without article</td>
+  </tr>
+  <tr>
+    <td class="de">während</td>
+    <td>During (+ Genitiv in formal; Dativ in speech)</td>
+    <td class="de">während der Pause · während des Meetings</td>
+    <td>Genitiv formally; most learners use Dativ in speech</td>
+  </tr>
+</table></div>
+
+<div class="situation">
+  <h4>🌍 Time prepositions in real contexts</h4>
+  <div class="example-pair">
+    <span class="de">Der Kurs beginnt am Montag um 9 Uhr und dauert bis 12 Uhr.</span>
+    <span class="en">The course starts on Monday at 9 o'clock and lasts until 12.</span>
+    <span class="why">am Montag (day) · um 9 Uhr (time) · bis 12 Uhr (until)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ich lerne seit sechs Monaten Deutsch. In zwei Monaten mache ich die A1-Prüfung.</span>
+    <span class="en">I've been learning German for six months. In two months I'm taking the A1 exam.</span>
+    <span class="why">seit (ongoing present) · in (future: in X time from now)</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Vor einer Woche war ich krank. Jetzt geht es mir besser.</span>
+    <span class="en">A week ago I was sick. Now I feel better.</span>
+    <span class="why">vor + Dativ: einer Woche (f Dat)</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p10">10. Wechselpräpositionen — Practice Sentences</h2>
+
+<p>These 15 examples practise both Dativ (position) and Akkusativ (movement) with the 9 two-way prepositions. The key words are highlighted.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>German</th><th>English</th><th>Case &amp; Why</th></tr>
+  <tr><td>1</td><td class="de">Das Buch liegt <strong>auf dem</strong> Tisch.</td><td>The book is on the table.</td><td>Dativ — position (Wo?)</td></tr>
+  <tr><td>2</td><td class="de">Ich lege das Buch <strong>auf den</strong> Tisch.</td><td>I put the book on the table.</td><td>Akkusativ — movement (Wohin?)</td></tr>
+  <tr><td>3</td><td class="de">Die Lampe hängt <strong>an der</strong> Wand.</td><td>The lamp hangs on the wall.</td><td>Dativ — position (Wo?)</td></tr>
+  <tr><td>4</td><td class="de">Ich hänge die Lampe <strong>an die</strong> Wand.</td><td>I hang the lamp on the wall.</td><td>Akkusativ — movement (Wohin?)</td></tr>
+  <tr><td>5</td><td class="de">Das Kind sitzt <strong>vor dem</strong> Fernseher.</td><td>The child sits in front of the TV.</td><td>Dativ — position (Wo?)</td></tr>
+  <tr><td>6</td><td class="de">Stell das Sofa <strong>vor den</strong> Tisch!</td><td>Put the sofa in front of the table!</td><td>Akkusativ — movement (Wohin?)</td></tr>
+  <tr><td>7</td><td class="de">Die Schuhe stehen <strong>unter dem</strong> Bett.</td><td>The shoes are under the bed.</td><td>Dativ — position (Wo?)</td></tr>
+  <tr><td>8</td><td class="de">Leg die Schuhe <strong>unter das</strong> Bett!</td><td>Put the shoes under the bed!</td><td>Akkusativ — movement (Wohin?)</td></tr>
+  <tr><td>9</td><td class="de">Der Stuhl steht <strong>neben dem</strong> Fenster.</td><td>The chair stands next to the window.</td><td>Dativ — position (Wo?)</td></tr>
+  <tr><td>10</td><td class="de">Stell den Stuhl <strong>neben das</strong> Fenster.</td><td>Put the chair next to the window.</td><td>Akkusativ — movement (Wohin?)</td></tr>
+  <tr><td>11</td><td class="de">Das Glas steht <strong>zwischen dem</strong> Teller und der Tasse.</td><td>The glass is between the plate and the cup.</td><td>Dativ — position (Wo?)</td></tr>
+  <tr><td>12</td><td class="de">Die Katze springt <strong>über das</strong> Sofa.</td><td>The cat jumps over the sofa.</td><td>Akkusativ — movement (Wohin?)</td></tr>
+  <tr><td>13</td><td class="de">Das Hotel liegt <strong>hinter dem</strong> Bahnhof.</td><td>The hotel is behind the station.</td><td>Dativ — position (Wo?)</td></tr>
+  <tr><td>14</td><td class="de">Wir fahren <strong>in die</strong> Stadt.</td><td>We drive into the city.</td><td>Akkusativ — movement (Wohin?)</td></tr>
+  <tr><td>15</td><td class="de">Wir sind <strong>in der</strong> Stadt.</td><td>We are in the city.</td><td>Dativ — position (Wo?)</td></tr>
+</table></div>
+
+<h3>Dative Prepositions — Practice Sentences (aus/bei/mit/nach/seit/von/zu/gegenüber)</h3>
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>German</th><th>English</th><th>Preposition</th></tr>
+  <tr><td>1</td><td class="de">Ich komme <strong>aus</strong> Indien.</td><td>I come from India.</td><td>aus = origin</td></tr>
+  <tr><td>2</td><td class="de">Ich bin <strong>bei</strong> meiner Mutter.</td><td>I am at my mother's (place).</td><td>bei = at (someone's place)</td></tr>
+  <tr><td>3</td><td class="de">Ich fahre <strong>mit</strong> dem Bus.</td><td>I travel by bus.</td><td>mit = by means of transport</td></tr>
+  <tr><td>4</td><td class="de">Ich gehe <strong>nach</strong> Hause.</td><td>I go home.</td><td>nach Hause = fixed expression</td></tr>
+  <tr><td>5</td><td class="de">Ich lerne <strong>seit</strong> einem Jahr Deutsch.</td><td>I have been learning German for a year.</td><td>seit + present tense</td></tr>
+  <tr><td>6</td><td class="de">Das ist ein Brief <strong>von</strong> meiner Mutter.</td><td>That is a letter from my mother.</td><td>von = from a person</td></tr>
+  <tr><td>7</td><td class="de">Ich gehe <strong>zu</strong> meinem Arzt.</td><td>I'm going to my doctor.</td><td>zu = to a person/professional</td></tr>
+  <tr><td>8</td><td class="de">Die Post ist <strong>gegenüber</strong> dem Supermarkt.</td><td>The post office is opposite the supermarket.</td><td>gegenüber = opposite</td></tr>
+  <tr><td>9</td><td class="de">Ich komme <strong>aus</strong> dem Büro.</td><td>I'm coming from the office.</td><td>aus = out of (a building)</td></tr>
+  <tr><td>10</td><td class="de">Nach <strong>dem</strong> Essen trinke ich Tee.</td><td>After the meal I drink tea.</td><td>nach = after (time)</td></tr>
+  <tr><td>11</td><td class="de">Er wohnt <strong>bei</strong> seiner Familie.</td><td>He lives with his family.</td><td>bei = with / at the home of</td></tr>
+  <tr><td>12</td><td class="de">Ich spreche <strong>von</strong> meiner Reise.</td><td>I am talking about my trip.</td><td>von = about / concerning</td></tr>
+</table></div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="p11">11. Common Preposition Mistakes</h2>
+
+<div class="mistake">
+  <h4>❌ Top 12 Preposition Mistakes — and how to fix them</h4>
+  <ul>
+    <li><span class="wrong">Ich fahre nach die Türkei.</span> → <span class="right">Ich fahre in die Türkei.</span> — Countries with article use "in + Akk", not nach</li>
+    <li><span class="wrong">Ich gehe zu dem Kino.</span> → <span class="right">Ich gehe ins Kino.</span> — Buildings use "in + Akk" not zu; contract in + das = ins</li>
+    <li><span class="wrong">Ich lerne Deutsch seit drei Monaten habe.</span> → <span class="right">Ich lerne Deutsch seit drei Monaten.</span> — seit + present tense. No Perfekt.</li>
+    <li><span class="wrong">mit die U-Bahn</span> → <span class="right">mit der U-Bahn</span> — mit always takes Dativ; die → der (f Dat)</li>
+    <li><span class="wrong">Ich bin in dem Kino gegangen.</span> → <span class="right">Ich bin ins Kino gegangen.</span> — Going INTO = movement = Akkusativ (ins)</li>
+    <li><span class="wrong">Das Buch liegt auf den Tisch.</span> (describing where it IS) → <span class="right">Das Buch liegt auf dem Tisch.</span> — lying/position = Dativ</li>
+    <li><span class="wrong">Ich stelle das Buch auf dem Regal.</span> (meaning "I'm putting it there") → <span class="right">Ich stelle das Buch auf das Regal.</span> — placing = movement = Akkusativ</li>
+    <li><span class="wrong">gegenüber die Post</span> → <span class="right">gegenüber der Post</span> — gegenüber always Dativ; die → der (f Dat)</li>
+    <li><span class="wrong">Ich wohne seit drei Jahren in Deutschland habe.</span> → <span class="right">Ich wohne seit drei Jahren in Deutschland.</span> — present tense with seit</li>
+    <li><span class="wrong">Ich komme von Berlin.</span> → <span class="right">Ich komme aus Berlin.</span> — origin from a city = aus, not von. Von is for "from a person" or "from (away from a place)".</li>
+    <li><span class="wrong">nach dem Arzt</span> (meaning "to the doctor") → <span class="right">zum Arzt</span> — nach for cities/countries; people/professions use zu</li>
+    <li><span class="wrong">Ich bin um Hause.</span> → <span class="right">Ich bin zu Hause.</span> — "at home" = zu Hause (fixed expression, Dativ)</li>
+  </ul>
+</div>
+
+<hr>
+<p style="text-align:center; color:var(--fg-soft); font-size:0.9em; margin-top:20px;">
+  A1 German · Prepositions — Complete Guide · Topic Page<br>
+  <a href="/a1-german-grammar.html">Full Grammar Guide</a> ·
+  <a href="/a1-articles-cases.html">Articles &amp; Cases</a> ·
+  <a href="/a1-verbs.html">Verbs Guide</a> ·
+  <a href="/a1-german-study-guide.html">Vocabulary Guide</a>
+</p>
+
+</body>
+</html>

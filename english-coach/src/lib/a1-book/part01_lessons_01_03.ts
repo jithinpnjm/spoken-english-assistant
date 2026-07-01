@@ -220,6 +220,7 @@ export const germanA1BookLessonsPart01: GermanA1BookLesson[] = [
     vocabulary: [
       { de: "die Zahl", en: "number", example: "Elf ist eine Zahl.", exampleEn: "Eleven is a number." },
       { de: "die Telefonnummer", en: "telephone number", example: "Wie ist deine Telefonnummer?", exampleEn: "What is your telephone number?" },
+      { de: "die Vorwahl", en: "area code", example: "Die Vorwahl von Kothamangalam ist 0485.", exampleEn: "The area code of Kothamangalam is 0485." },
       { de: "das Alter", en: "age", example: "Mein Alter ist zwanzig.", exampleEn: "My age is twenty." },
       { de: "plus", en: "plus", example: "Zwei plus drei ist fünf.", exampleEn: "Two plus three is five." },
       { de: "minus", en: "minus", example: "Zehn minus eins ist neun.", exampleEn: "Ten minus one is nine." },

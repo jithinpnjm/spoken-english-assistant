@@ -324,7 +324,9 @@ export const germanA1BookLessonsPart10: GermanA1BookLesson[] = [
       { de: "kalt", en: "cold", example: "Mir ist kalt.", exampleEn: "I am cold." },
       { de: "windig", en: "windy", example: "Es ist windig an der Küste.", exampleEn: "It is windy on the coast." },
       { de: "bewölkt", en: "cloudy", example: "Der Himmel ist bewölkt.", exampleEn: "The sky is cloudy." },
-      { de: "heiß", en: "hot", example: "Im August ist es heiß.", exampleEn: "In August it is hot." }
+      { de: "heiß", en: "hot", example: "Im August ist es heiß.", exampleEn: "In August it is hot." },
+      { de: "die Sonnencreme", en: "sun cream / sunscreen", example: "Bei Sonne brauche ich Sonnencreme.", exampleEn: "In the sun I need sunscreen." },
+      { de: "der Sonnenschirm", en: "sun umbrella / sunshade", example: "Wir sitzen unter dem Sonnenschirm.", exampleEn: "We are sitting under the sunshade." }
     ],
     modelSentences: [
       {

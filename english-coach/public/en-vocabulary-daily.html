@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>English — Daily Life Vocabulary</title>
+<style>
+:root{
+  --bg:#0f172a;--surface:#1e293b;--surface2:#263347;
+  --text:#e2e8f0;--muted:#94a3b8;--border:#334155;
+  --accent:#2dd4bf;--accent2:#14b8a6;
+  --amber:#fbbf24;--red:#f87171;--sky:#38bdf8;--purple:#a78bfa;--green:#34d399;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.7;padding:2rem 1rem}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:2.2rem;color:var(--accent);margin-bottom:.4rem}
+.subtitle{color:var(--muted);font-size:1rem;margin-bottom:2.5rem}
+h2{font-size:1.4rem;color:var(--accent);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent2)}
+h3{font-size:1.1rem;color:var(--accent2);margin:1.2rem 0 .6rem}
+section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;margin-bottom:2rem}
+p{color:var(--text);margin-bottom:.8rem}
+ul,ol{padding-left:1.4rem;margin-bottom:.8rem;color:var(--text)}
+li{margin-bottom:.3rem}
+.tip{background:#0a1e1e;border-left:4px solid var(--accent);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.tip strong{color:var(--accent);display:block;margin-bottom:.3rem}
+.trick{background:#1c1917;border-left:4px solid var(--amber);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.trick strong{color:var(--amber);display:block;margin-bottom:.3rem}
+.phrase{background:#0c1a2e;border-left:4px solid var(--sky);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.phrase strong{color:var(--sky);display:block;margin-bottom:.3rem}
+.warn{background:#2d0a0a;border-left:4px solid var(--red);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.warn strong{color:var(--red);display:block;margin-bottom:.3rem}
+.banner{background:linear-gradient(135deg,#0f2a27,#0a1e1e);border:1px solid var(--accent2);border-radius:10px;padding:1rem 1.4rem;margin-bottom:1.2rem;font-size:.95rem}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.94rem}
+th{background:var(--surface2);color:var(--accent);padding:.6rem .8rem;text-align:left;font-weight:600}
+td{padding:.5rem .8rem;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:rgba(255,255,255,0.04)}
+.word{color:var(--accent);font-weight:700}
+.ex{color:var(--muted);font-style:italic;font-size:.9rem}
+nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+nav a{background:var(--surface2);color:var(--accent);border:1px solid var(--border);padding:.4rem .9rem;border-radius:20px;text-decoration:none;font-size:.85rem;transition:background .15s}
+nav a:hover{background:#263347}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.8rem 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin:.8rem 0}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+.card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1rem}
+.card-title{font-weight:700;margin-bottom:.6rem;font-size:.95rem;color:var(--accent)}
+.tag{display:inline-block;background:#0a1e1e;color:var(--accent2);border:1px solid var(--accent2);border-radius:12px;padding:.15rem .6rem;font-size:.78rem;margin:.15rem .1rem}
+.sec-id{font-size:.75rem;color:var(--muted);float:right;margin-top:.2rem}
+.page-header{text-align:center;padding:32px 20px 20px;margin-bottom:28px;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border:1px solid var(--border);border-radius:16px}
+.page-header .badge{display:inline-block;background:#0a1e1e;color:#99f6e4;font-size:.78em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:4px 14px;margin-bottom:12px}
+.page-header h1{font-size:2.2em;color:#f8fafc;margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:1.05em}
+.navback{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.navback a{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:.88em;color:var(--muted);text-decoration:none;transition:border-color .15s}
+.navback a:hover{border-color:var(--accent);color:var(--accent)}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="page-header">
+  <div class="badge">English · Daily Life</div>
+  <h1>English Daily Life Vocabulary</h1>
+  <p>Home · Food · Shopping · Transport · Health · Weather · Time · People · Feelings · Everyday Phrases</p>
+</div>
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#vd01">At Home</a>
+  <a href="#vd02">Food &amp; Cooking</a>
+  <a href="#vd03">Shopping</a>
+  <a href="#vd04">Transport</a>
+  <a href="#vd05">Health &amp; Body</a>
+  <a href="#vd06">Weather &amp; Seasons</a>
+  <a href="#vd07">Time &amp; Dates</a>
+  <a href="#vd08">People &amp; Relationships</a>
+  <a href="#vd09">Feelings &amp; Emotions</a>
+  <a href="#vd10">Common Useful Phrases</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════ vd01 -->
+<section id="vd01">
+<h2>At Home <span class="sec-id">vd01</span></h2>
+<div class="banner">Knowing home vocabulary helps you describe your living space, ask for things around the house, and understand housing advertisements.</div>
+
+<h3>Rooms</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Example Sentence</th></tr>
+  <tr><td class="word">living room</td><td>the main room for relaxing</td><td class="ex">We watch TV together in the living room every evening.</td></tr>
+  <tr><td class="word">bedroom</td><td>room for sleeping</td><td class="ex">She has a small bedroom with a double bed and a wardrobe.</td></tr>
+  <tr><td class="word">bathroom</td><td>room with a bath/shower and toilet</td><td class="ex">The bathroom is occupied — can you wait a moment?</td></tr>
+  <tr><td class="word">kitchen</td><td>room for cooking</td><td class="ex">He spends most Sunday mornings cooking in the kitchen.</td></tr>
+  <tr><td class="word">hallway</td><td>corridor at the entrance</td><td class="ex">Leave your umbrella in the hallway, please.</td></tr>
+  <tr><td class="word">study / home office</td><td>room for working or reading</td><td class="ex">She converted the spare bedroom into a study.</td></tr>
+  <tr><td class="word">dining room</td><td>room with a table for eating meals</td><td class="ex">We only use the dining room for special occasions.</td></tr>
+  <tr><td class="word">garage</td><td>shelter attached to the house for a car</td><td class="ex">He keeps his tools in the garage.</td></tr>
+  <tr><td class="word">garden / backyard</td><td>outdoor space behind the house</td><td class="ex">The kids played in the garden all afternoon.</td></tr>
+  <tr><td class="word">attic / loft</td><td>space under the roof for storage</td><td class="ex">We store old boxes in the attic.</td></tr>
+</table></div>
+
+<h3>Furniture &amp; Fittings</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Example Sentence</th></tr>
+  <tr><td class="word">sofa / couch</td><td>large soft seat for several people</td><td class="ex">He fell asleep on the sofa while watching football.</td></tr>
+  <tr><td class="word">bookshelf</td><td>shelves for storing books</td><td class="ex">The bookshelf is full — we need a bigger one.</td></tr>
+  <tr><td class="word">wardrobe</td><td>large cupboard for clothes</td><td class="ex">Hang your coat in the wardrobe in the bedroom.</td></tr>
+  <tr><td class="word">chest of drawers</td><td>furniture with sliding drawers for clothes</td><td class="ex">Her socks are in the bottom drawer of the chest of drawers.</td></tr>
+  <tr><td class="word">curtains / blinds</td><td>fabric/slatted covers for windows</td><td class="ex">Can you close the curtains? It's too bright.</td></tr>
+  <tr><td class="word">carpet / rug</td><td>floor covering — carpet covers the whole floor, a rug is smaller</td><td class="ex">They have a beautiful Persian rug in the living room.</td></tr>
+  <tr><td class="word">tap / faucet</td><td>device that controls water flow</td><td class="ex">Turn off the tap when you brush your teeth.</td></tr>
+  <tr><td class="word">light switch</td><td>switch on the wall to turn lights on/off</td><td class="ex">The light switch is just inside the door on the left.</td></tr>
+  <tr><td class="word">plug socket / outlet</td><td>hole in the wall to plug in appliances</td><td class="ex">There's a plug socket behind the desk for your laptop.</td></tr>
+  <tr><td class="word">radiator</td><td>metal device that heats a room</td><td class="ex">Turn the radiator up — it's getting cold in here.</td></tr>
+</table></div>
+
+<h3>Appliances</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Example Sentence</th></tr>
+  <tr><td class="word">washing machine</td><td>machine for washing clothes</td><td class="ex">Put the washing machine on before you go to bed.</td></tr>
+  <tr><td class="word">dishwasher</td><td>machine for washing dishes</td><td class="ex">Load the dishwasher after dinner, please.</td></tr>
+  <tr><td class="word">microwave</td><td>appliance for heating food quickly</td><td class="ex">Microwave the soup for two minutes.</td></tr>
+  <tr><td class="word">fridge / refrigerator</td><td>appliance for keeping food cold</td><td class="ex">Is there any milk left in the fridge?</td></tr>
+  <tr><td class="word">freezer</td><td>appliance for keeping food frozen</td><td class="ex">Put the leftover pizza in the freezer for later.</td></tr>
+  <tr><td class="word">oven / cooker</td><td>appliance for cooking food with heat</td><td class="ex">Preheat the oven to 180°C before putting the cake in.</td></tr>
+  <tr><td class="word">kettle</td><td>appliance for boiling water</td><td class="ex">The kettle has just boiled — do you want tea?</td></tr>
+  <tr><td class="word">vacuum cleaner / hoover</td><td>machine for cleaning floors by suction</td><td class="ex">Could you run the hoover around the living room?</td></tr>
+  <tr><td class="word">iron</td><td>device for smoothing clothes with heat</td><td class="ex">Your shirt needs a good iron before the interview.</td></tr>
+  <tr><td class="word">tumble dryer</td><td>machine for drying clothes with warm air</td><td class="ex">The towels are in the tumble dryer.</td></tr>
+</table></div>
+
+<div class="trick"><strong>Memory Trick</strong> In British English people say "hoover" for vacuum cleaner (from the brand Hoover). Americans say "vacuum." Both are correct in their country — just pick one!</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd02 -->
+<section id="vd02">
+<h2>Food &amp; Cooking <span class="sec-id">vd02</span></h2>
+<div class="banner">Master food vocabulary to order confidently, follow recipes, and talk about meals in any social situation.</div>
+
+<h3>Meals of the Day</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Meal Names</div>
+    <p><span class="word">breakfast</span> — first meal of the day<br><span class="ex">"I never skip breakfast on workdays."</span></p>
+    <p><span class="word">brunch</span> — late morning meal combining breakfast and lunch<br><span class="ex">"We went for brunch at eleven on Sunday."</span></p>
+    <p><span class="word">lunch</span> — midday meal<br><span class="ex">"She usually has a sandwich for lunch."</span></p>
+    <p><span class="word">dinner / supper</span> — main evening meal<br><span class="ex">"Dinner will be ready at seven."</span></p>
+    <p><span class="word">snack</span> — small amount of food eaten between meals<br><span class="ex">"He grabbed a snack before the meeting."</span></p>
+  </div>
+  <div class="card">
+    <div class="card-title">How Food Is Prepared</div>
+    <p><span class="word">raw</span> — not cooked<br><span class="ex">"I prefer raw carrots to cooked ones."</span></p>
+    <p><span class="word">fresh</span> — recently made or harvested<br><span class="ex">"This bread is fresh from the oven."</span></p>
+    <p><span class="word">frozen</span> — preserved at freezing temperature<br><span class="ex">"We only had frozen peas."</span></p>
+    <p><span class="word">tinned / canned</span> — preserved in a metal tin<br><span class="ex">"Open a tin of tomatoes for the sauce."</span></p>
+    <p><span class="word">processed</span> — industrially prepared, often with additives<br><span class="ex">"Try to eat less processed food."</span></p>
+  </div>
+</div>
+
+<h3>Cooking Methods</h3>
+<div class="table-wrap"><table>
+  <tr><th>Method</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="word">boil</td><td>cook in very hot water (100°C)</td><td class="ex">Boil the pasta for ten minutes.</td></tr>
+  <tr><td class="word">fry</td><td>cook in hot oil in a pan</td><td class="ex">Fry the onions until golden.</td></tr>
+  <tr><td class="word">grill</td><td>cook under direct heat or on a grill rack</td><td class="ex">Grill the chicken for 20 minutes, turning once.</td></tr>
+  <tr><td class="word">roast</td><td>cook meat or vegetables in a hot oven</td><td class="ex">Roast the potatoes at 200°C for 40 minutes.</td></tr>
+  <tr><td class="word">bake</td><td>cook bread, cakes or pastry in the oven</td><td class="ex">She baked a lemon cake for the party.</td></tr>
+  <tr><td class="word">steam</td><td>cook using steam from boiling water</td><td class="ex">Steam the broccoli to keep the nutrients.</td></tr>
+  <tr><td class="word">stir-fry</td><td>cook quickly in very hot oil while stirring</td><td class="ex">Stir-fry the vegetables for just three minutes.</td></tr>
+  <tr><td class="word">simmer</td><td>cook gently in liquid just below boiling point</td><td class="ex">Let the soup simmer for half an hour.</td></tr>
+</table></div>
+
+<h3>Common Ingredients</h3>
+<div class="grid3">
+  <div class="card">
+    <div class="card-title">Vegetables</div>
+    <ul>
+      <li>onion</li><li>garlic</li><li>carrot</li><li>potato</li>
+      <li>tomato</li><li>courgette / zucchini</li><li>spinach</li><li>pepper (bell pepper)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Proteins</div>
+    <ul>
+      <li>chicken breast</li><li>beef / steak</li><li>salmon / tuna</li><li>eggs</li>
+      <li>lentils</li><li>chickpeas</li><li>tofu</li><li>mince (ground meat)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Pantry Staples</div>
+    <ul>
+      <li>olive oil</li><li>salt &amp; pepper</li><li>flour</li><li>sugar</li>
+      <li>butter</li><li>milk / cream</li><li>soy sauce</li><li>stock / broth</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Restaurant Phrases</h3>
+<div class="phrase"><strong>Useful Restaurant Phrases</strong>
+  <ul>
+    <li>"A table for two, please." — when you arrive</li>
+    <li>"Could I see the menu?" — asking for the menu</li>
+    <li>"What do you recommend?" — asking the waiter for advice</li>
+    <li>"I'll have the chicken, please." — ordering your food</li>
+    <li>"Could I have it without onions?" — making a modification</li>
+    <li>"Is this dish suitable for vegetarians?" — dietary enquiry</li>
+    <li>"Could we have the bill / check, please?" — asking to pay</li>
+    <li>"Keep the change." — when tipping in cash</li>
+  </ul>
+</div>
+<div class="trick"><strong>Memory Trick</strong> <em>Bill</em> (British) vs <em>check</em> (American) — both mean the paper showing what you owe. If in doubt, mime a writing action and say "whenever you're ready" — waiters understand everywhere!</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd03 -->
+<section id="vd03">
+<h2>Shopping <span class="sec-id">vd03</span></h2>
+<div class="banner">From supermarkets to boutiques — shopping vocabulary lets you find what you need, compare prices, and handle problems confidently.</div>
+
+<h3>Types of Shops</h3>
+<div class="table-wrap"><table>
+  <tr><th>Shop</th><th>What You Buy There</th><th>Example Sentence</th></tr>
+  <tr><td class="word">supermarket</td><td>food, cleaning products, basics</td><td class="ex">I do my weekly shop at the supermarket on Saturday.</td></tr>
+  <tr><td class="word">bakery</td><td>bread, cakes, pastries</td><td class="ex">Get a fresh loaf from the bakery on your way home.</td></tr>
+  <tr><td class="word">butcher's</td><td>meat and poultry</td><td class="ex">The butcher's sells excellent free-range chicken.</td></tr>
+  <tr><td class="word">pharmacy / chemist's</td><td>medicines, health products, cosmetics</td><td class="ex">Pick up some paracetamol from the pharmacy.</td></tr>
+  <tr><td class="word">newsagent's</td><td>newspapers, magazines, sweets, cards</td><td class="ex">I grabbed a coffee from the newsagent's this morning.</td></tr>
+  <tr><td class="word">department store</td><td>clothes, homewares, electronics — all in one building</td><td class="ex">We spent the whole afternoon in the department store.</td></tr>
+  <tr><td class="word">market / farmers' market</td><td>fresh produce, crafts, street food</td><td class="ex">The farmers' market runs every Sunday morning.</td></tr>
+  <tr><td class="word">charity shop / thrift store</td><td>second-hand clothes and items</td><td class="ex">She found a designer coat in a charity shop for £5.</td></tr>
+  <tr><td class="word">off-licence / liquor store</td><td>alcohol</td><td class="ex">Is there an off-licence near here?</td></tr>
+  <tr><td class="word">hardware store / DIY store</td><td>tools, building materials</td><td class="ex">I need to pop to the hardware store for some screws.</td></tr>
+</table></div>
+
+<h3>Shopping Phrases</h3>
+<div class="phrase"><strong>In the Shop</strong>
+  <ul>
+    <li>"Do you have this in a size medium?" — asking for a size</li>
+    <li>"Where can I find the dairy section?" — asking for directions in a supermarket</li>
+    <li>"How much is this?" — asking the price</li>
+    <li>"Is there a discount on this?" — asking about offers</li>
+    <li>"I'm just browsing, thanks." — politely telling a shop assistant you don't need help yet</li>
+    <li>"Can I try this on?" — asking to use a fitting room</li>
+    <li>"Do you have a loyalty card?" — what a cashier might ask you</li>
+    <li>"Can I pay by card?" — asking about payment methods</li>
+  </ul>
+</div>
+
+<h3>Prices &amp; Value</h3>
+<div class="table-wrap"><table>
+  <tr><th>Expression</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="word">bargain</td><td>something sold for less than it is worth</td><td class="ex">That jacket was a real bargain at £20.</td></tr>
+  <tr><td class="word">on sale / on offer</td><td>sold at a reduced price</td><td class="ex">These trainers are on sale — 30% off.</td></tr>
+  <tr><td class="word">overpriced</td><td>costing more than it is worth</td><td class="ex">The coffee here is a bit overpriced.</td></tr>
+  <tr><td class="word">receipt</td><td>paper proof of purchase</td><td class="ex">Keep your receipt in case you need to return it.</td></tr>
+  <tr><td class="word">refund</td><td>money paid back when you return an item</td><td class="ex">They gave me a full refund without any questions.</td></tr>
+  <tr><td class="word">exchange / swap</td><td>replace an item with a different one</td><td class="ex">Can I exchange this for a larger size?</td></tr>
+</table></div>
+
+<h3>Making a Complaint</h3>
+<div class="warn"><strong>Complaint Phrases</strong>
+  <ul>
+    <li>"Excuse me, I think there's been a mistake with my change."</li>
+    <li>"I bought this last week and it's already broken."</li>
+    <li>"I'd like to speak to the manager, please."</li>
+    <li>"I'd like a refund, please — here is my receipt."</li>
+    <li>"This isn't what I ordered." — in a restaurant or online order</li>
+  </ul>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd04 -->
+<section id="vd04">
+<h2>Transport <span class="sec-id">vd04</span></h2>
+<div class="banner">Getting around in an English-speaking country requires knowing ticket types, signs, and the right questions to ask.</div>
+
+<h3>Types of Transport</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Example Sentence</th></tr>
+  <tr><td class="word">bus</td><td>large road vehicle for many passengers</td><td class="ex">The number 42 bus goes directly to the city centre.</td></tr>
+  <tr><td class="word">coach</td><td>long-distance comfortable bus</td><td class="ex">We took the overnight coach to Edinburgh — it was cheap.</td></tr>
+  <tr><td class="word">tube / underground / metro</td><td>city railway running underground</td><td class="ex">Take the tube from Heathrow — it's faster than a taxi.</td></tr>
+  <tr><td class="word">tram</td><td>rail vehicle running on city streets</td><td class="ex">Manchester has an excellent tram network.</td></tr>
+  <tr><td class="word">train</td><td>rail vehicle for longer distances</td><td class="ex">The train to London takes about 90 minutes.</td></tr>
+  <tr><td class="word">taxi / cab</td><td>car hired with a driver</td><td class="ex">Can you call a taxi for me? I'm running late.</td></tr>
+  <tr><td class="word">rideshare / Uber</td><td>car hired via an app</td><td class="ex">I ordered an Uber — it'll be here in four minutes.</td></tr>
+  <tr><td class="word">ferry</td><td>boat transporting passengers and vehicles across water</td><td class="ex">We took the ferry from Dover to Calais.</td></tr>
+  <tr><td class="word">flight / plane</td><td>travel by aircraft</td><td class="ex">My flight departs from Terminal 2 at 07:45.</td></tr>
+  <tr><td class="word">bike / cycling</td><td>travel by bicycle</td><td class="ex">He cycles to work every day — only 20 minutes.</td></tr>
+</table></div>
+
+<h3>Booking &amp; Ticket Phrases</h3>
+<div class="phrase"><strong>At the Ticket Office / Online</strong>
+  <ul>
+    <li>"A single to Birmingham, please." — one-way ticket</li>
+    <li>"A return to Oxford, please." — round-trip ticket</li>
+    <li>"Which platform does the train leave from?"</li>
+    <li>"Is there a direct service, or do I need to change?"</li>
+    <li>"What time is the next train to Bath?"</li>
+    <li>"I'd like a window seat, please."</li>
+    <li>"I have a railcard — does that apply?" — asking about discounts</li>
+    <li>"Could I book an aisle seat?" — on a plane</li>
+    <li>"I need to check in a bag." — at the airport</li>
+    <li>"How long is the journey?" — asking about travel time</li>
+  </ul>
+</div>
+
+<h3>Flight Vocabulary</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="word">departure / arrival</td><td>when a flight leaves / lands</td><td class="ex">Check the arrivals board for Gate 14.</td></tr>
+  <tr><td class="word">boarding pass</td><td>document allowing you onto the plane</td><td class="ex">Have your boarding pass ready at security.</td></tr>
+  <tr><td class="word">check-in</td><td>process of registering for a flight</td><td class="ex">Online check-in opens 24 hours before departure.</td></tr>
+  <tr><td class="word">hand luggage / carry-on</td><td>small bag you take into the cabin</td><td class="ex">Hand luggage must fit in the overhead locker.</td></tr>
+  <tr><td class="word">delay</td><td>when a flight or service is late</td><td class="ex">The flight has a two-hour delay due to fog.</td></tr>
+  <tr><td class="word">layover / stopover</td><td>a wait between connecting flights</td><td class="ex">We have a three-hour layover in Dubai.</td></tr>
+</table></div>
+
+<h3>Asking for Directions</h3>
+<div class="tip"><strong>Direction Phrases</strong>
+  <ul>
+    <li>"Excuse me, how do I get to the train station?"</li>
+    <li>"Is it within walking distance?"</li>
+    <li>"Turn left at the traffic lights." / "Turn right at the junction."</li>
+    <li>"Go straight ahead for about 200 metres."</li>
+    <li>"It's on your left, just past the supermarket."</li>
+    <li>"Take the second exit at the roundabout."</li>
+    <li>"Sorry, I'm not from around here." — if you can't help</li>
+  </ul>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd05 -->
+<section id="vd05">
+<h2>Health &amp; Body <span class="sec-id">vd05</span></h2>
+<div class="banner">Whether visiting a GP, going to the pharmacy, or describing how you feel, accurate health vocabulary is essential.</div>
+
+<h3>Parts of the Body</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Head &amp; Torso</div>
+    <ul>
+      <li>forehead — upper front of the head</li>
+      <li>temple — side of the forehead</li>
+      <li>jaw — lower part of the face</li>
+      <li>neck — connects head and shoulders</li>
+      <li>shoulder — top of the arm</li>
+      <li>chest — front of the upper body</li>
+      <li>back — rear of the torso</li>
+      <li>spine / backbone — central column of bones</li>
+      <li>waist — narrow middle part of the body</li>
+      <li>hip — side of the pelvis</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Limbs &amp; Extremities</div>
+    <ul>
+      <li>upper arm / forearm — above/below the elbow</li>
+      <li>elbow — joint in the middle of the arm</li>
+      <li>wrist — joint between hand and forearm</li>
+      <li>palm — inside surface of the hand</li>
+      <li>thumb / index / middle / ring / little finger</li>
+      <li>thigh — upper leg</li>
+      <li>knee — joint in the middle of the leg</li>
+      <li>shin — front of the lower leg</li>
+      <li>ankle — joint above the foot</li>
+      <li>heel / sole / toe — parts of the foot</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Illness &amp; Symptoms</h3>
+<div class="table-wrap"><table>
+  <tr><th>Symptom / Illness</th><th>Meaning</th><th>Example Sentence</th></tr>
+  <tr><td class="word">headache</td><td>pain in the head</td><td class="ex">I've had a splitting headache all day.</td></tr>
+  <tr><td class="word">sore throat</td><td>pain or irritation in the throat</td><td class="ex">She can barely swallow — she has a terrible sore throat.</td></tr>
+  <tr><td class="word">fever / temperature</td><td>raised body temperature</td><td class="ex">He has a fever — his temperature is 39°C.</td></tr>
+  <tr><td class="word">nausea / feel sick</td><td>feeling like you want to vomit</td><td class="ex">I felt nauseous on the boat trip.</td></tr>
+  <tr><td class="word">rash</td><td>red or irritated skin</td><td class="ex">She came out in a rash after eating strawberries.</td></tr>
+  <tr><td class="word">sprained</td><td>twisted joint causing pain and swelling</td><td class="ex">He sprained his ankle playing football.</td></tr>
+  <tr><td class="word">dizzy / light-headed</td><td>feeling of spinning or unsteadiness</td><td class="ex">Stand up slowly — you might feel dizzy.</td></tr>
+  <tr><td class="word">bloated</td><td>uncomfortably full or swollen abdomen</td><td class="ex">I feel bloated after that huge meal.</td></tr>
+  <tr><td class="word">allergic to</td><td>having a reaction to a substance</td><td class="ex">I'm allergic to penicillin — please note it in my records.</td></tr>
+  <tr><td class="word">contagious</td><td>can be passed from person to person</td><td class="ex">Chickenpox is highly contagious.</td></tr>
+</table></div>
+
+<h3>At the Doctor's</h3>
+<div class="phrase"><strong>Doctor's Appointment Phrases</strong>
+  <ul>
+    <li>"I'd like to make an appointment to see the doctor."</li>
+    <li>"I've been feeling unwell for about three days."</li>
+    <li>"I have a sharp pain in my lower back."</li>
+    <li>"It hurts when I press here." — pointing to the painful area</li>
+    <li>"I'm on medication for high blood pressure."</li>
+    <li>"Are there any side effects I should know about?"</li>
+    <li>"How long will it take to clear up?"</li>
+    <li>"Do I need a prescription for this?"</li>
+  </ul>
+</div>
+
+<h3>Pharmacy</h3>
+<div class="table-wrap"><table>
+  <tr><th>Item</th><th>Use</th></tr>
+  <tr><td class="word">paracetamol / ibuprofen</td><td>painkillers and fever reducers</td></tr>
+  <tr><td class="word">antihistamine</td><td>treats allergic reactions</td></tr>
+  <tr><td class="word">antiseptic cream</td><td>prevents infection in cuts and grazes</td></tr>
+  <tr><td class="word">plasters / bandages</td><td>cover wounds</td></tr>
+  <tr><td class="word">cough syrup / lozenges</td><td>soothe a sore throat or cough</td></tr>
+  <tr><td class="word">prescription</td><td>doctor's written order for medicine</td></tr>
+</table></div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd06 -->
+<section id="vd06">
+<h2>Weather &amp; Seasons <span class="sec-id">vd06</span></h2>
+<div class="banner">Weather is the most common small-talk topic in English — especially in the UK! Master this section and you'll never run out of conversation.</div>
+
+<h3>Weather Words</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Example Sentence</th></tr>
+  <tr><td class="word">sunny</td><td>bright with sunshine</td><td class="ex">It's a beautiful sunny day — let's go to the park.</td></tr>
+  <tr><td class="word">cloudy / overcast</td><td>sky covered with clouds</td><td class="ex">It's quite overcast — I'd take an umbrella.</td></tr>
+  <tr><td class="word">drizzle</td><td>light, fine rain</td><td class="ex">It's just a light drizzle — you won't need a coat.</td></tr>
+  <tr><td class="word">shower</td><td>short burst of rain</td><td class="ex">There'll be scattered showers in the afternoon.</td></tr>
+  <tr><td class="word">downpour</td><td>heavy rain falling suddenly</td><td class="ex">We got caught in a downpour without umbrellas.</td></tr>
+  <tr><td class="word">foggy / misty</td><td>thick cloud close to ground level</td><td class="ex">Drive carefully — it's very foggy on the motorway.</td></tr>
+  <tr><td class="word">humid</td><td>warm and damp — high moisture in the air</td><td class="ex">August in New York can be incredibly humid.</td></tr>
+  <tr><td class="word">frost / frosty</td><td>thin layer of ice on surfaces in cold weather</td><td class="ex">There was a heavy frost last night — the roads are icy.</td></tr>
+  <tr><td class="word">hail</td><td>frozen rain falling as small pellets</td><td class="ex">The hail dented several cars in the car park.</td></tr>
+  <tr><td class="word">thunderstorm</td><td>storm with heavy rain, thunder, and lightning</td><td class="ex">A thunderstorm is forecast for this evening.</td></tr>
+  <tr><td class="word">heatwave</td><td>extended period of unusually hot weather</td><td class="ex">The UK experienced a record heatwave last summer.</td></tr>
+  <tr><td class="word">gale / gale-force winds</td><td>very strong winds</td><td class="ex">Gale-force winds caused delays at the airport.</td></tr>
+</table></div>
+
+<h3>Describing Climate</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Temperature Words</div>
+    <ul>
+      <li><strong>boiling / scorching</strong> — extremely hot</li>
+      <li><strong>warm</strong> — pleasantly high temperature</li>
+      <li><strong>mild</strong> — moderate, not too cold or hot</li>
+      <li><strong>cool / chilly</strong> — slightly cold</li>
+      <li><strong>cold</strong> — low temperature</li>
+      <li><strong>freezing / bitter</strong> — extremely cold</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Seasons</div>
+    <ul>
+      <li><strong>spring</strong> — March–May (Northern Hemisphere)</li>
+      <li><strong>summer</strong> — June–August</li>
+      <li><strong>autumn / fall</strong> — September–November</li>
+      <li><strong>winter</strong> — December–February</li>
+    </ul>
+    <p class="ex" style="margin-top:.5rem">"My favourite season is autumn — I love the changing colours."</p>
+  </div>
+</div>
+
+<h3>Forecasting Phrases</h3>
+<div class="tip"><strong>Weather Forecast Language</strong>
+  <ul>
+    <li>"Temperatures will reach a high of 28°C tomorrow."</li>
+    <li>"Rain is expected throughout the morning."</li>
+    <li>"There's a 70% chance of showers by mid-afternoon."</li>
+    <li>"Strong winds are likely along the coast."</li>
+    <li>"It's going to clear up later this evening."</li>
+    <li>"Visibility will be poor due to fog on high ground."</li>
+  </ul>
+</div>
+<div class="trick"><strong>Memory Trick</strong> British people use the weather to break silence — "Terrible weather, isn't it?" is never rude; it's an invitation. Reply: "Awful, isn't it! At least it's supposed to improve by the weekend."</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd07 -->
+<section id="vd07">
+<h2>Time &amp; Dates <span class="sec-id">vd07</span></h2>
+<div class="banner">Telling the time accurately and confidently is one of the most practical skills in everyday English.</div>
+
+<h3>Days &amp; Months</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Days of the Week</div>
+    <ul>
+      <li>Monday — <em>"See you Monday."</em></li>
+      <li>Tuesday</li>
+      <li>Wednesday (say: <em>Wenz-day</em>)</li>
+      <li>Thursday</li>
+      <li>Friday — <em>"TGIF! Thank God It's Friday."</em></li>
+      <li>Saturday</li>
+      <li>Sunday</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Months of the Year</div>
+    <ul>
+      <li>January · February · March</li>
+      <li>April · May · June</li>
+      <li>July · August · September</li>
+      <li>October · November · December</li>
+    </ul>
+    <p class="ex" style="margin-top:.5rem">"The meeting is on the 14th of March." (British) / "March 14th" (American)</p>
+  </div>
+</div>
+
+<h3>Telling the Time</h3>
+<div class="table-wrap"><table>
+  <tr><th>Written</th><th>Formal / Digital</th><th>Informal (conversational)</th></tr>
+  <tr><td>3:00</td><td>three o'clock</td><td>"three o'clock"</td></tr>
+  <tr><td>3:05</td><td>three oh five</td><td>"five past three"</td></tr>
+  <tr><td>3:15</td><td>three fifteen</td><td>"quarter past three"</td></tr>
+  <tr><td>3:30</td><td>three thirty</td><td>"half past three"</td></tr>
+  <tr><td>3:45</td><td>three forty-five</td><td>"quarter to four"</td></tr>
+  <tr><td>3:50</td><td>three fifty</td><td>"ten to four"</td></tr>
+  <tr><td>12:00</td><td>twelve hundred / noon</td><td>"midday" / "noon"</td></tr>
+  <tr><td>00:00</td><td>midnight</td><td>"midnight"</td></tr>
+</table></div>
+
+<h3>Time Expressions</h3>
+<div class="table-wrap"><table>
+  <tr><th>Expression</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="word">just now / right now</td><td>at this exact moment</td><td class="ex">"He's in a meeting right now."</td></tr>
+  <tr><td class="word">in a moment / shortly</td><td>very soon</td><td class="ex">"The bus will arrive shortly."</td></tr>
+  <tr><td class="word">the day before yesterday</td><td>two days ago</td><td class="ex">"I saw her the day before yesterday."</td></tr>
+  <tr><td class="word">the day after tomorrow</td><td>in two days</td><td class="ex">"The results come out the day after tomorrow."</td></tr>
+  <tr><td class="word">a fortnight</td><td>two weeks (British English)</td><td class="ex">"We'll be back in a fortnight."</td></tr>
+  <tr><td class="word">at the weekend / on the weekend</td><td>British (at) vs American (on)</td><td class="ex">"What are you up to at the weekend?"</td></tr>
+  <tr><td class="word">on time</td><td>punctual — not early or late</td><td class="ex">"The train arrived exactly on time."</td></tr>
+  <tr><td class="word">in time</td><td>early enough for something</td><td class="ex">"We got there just in time for the opening."</td></tr>
+  <tr><td class="word">ahead of schedule</td><td>finishing earlier than planned</td><td class="ex">"The project is two weeks ahead of schedule."</td></tr>
+  <tr><td class="word">running late</td><td>behind schedule</td><td class="ex">"Sorry — I'm running about ten minutes late."</td></tr>
+</table></div>
+<div class="trick"><strong>Memory Trick</strong> <em>On time</em> = exactly at the right time (like a clock). <em>In time</em> = early enough not to miss something. "I was on time for the train" vs "I arrived in time to get a seat."</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd08 -->
+<section id="vd08">
+<h2>People &amp; Relationships <span class="sec-id">vd08</span></h2>
+<div class="banner">Describe family, friends, and strangers with precision — both how they look and what they are like.</div>
+
+<h3>Family Words</h3>
+<div class="grid3">
+  <div class="card">
+    <div class="card-title">Immediate Family</div>
+    <ul>
+      <li>parent (mother / father)</li>
+      <li>sibling (brother / sister)</li>
+      <li>child (son / daughter)</li>
+      <li>spouse (husband / wife)</li>
+      <li>partner</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Extended Family</div>
+    <ul>
+      <li>grandparent (grandmother / grandfather)</li>
+      <li>grandchild (grandson / granddaughter)</li>
+      <li>aunt / uncle</li>
+      <li>cousin</li>
+      <li>niece / nephew</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">In-Laws &amp; Step</div>
+    <ul>
+      <li>mother-in-law / father-in-law</li>
+      <li>brother-in-law / sister-in-law</li>
+      <li>stepfather / stepmother</li>
+      <li>stepbrother / stepsister</li>
+      <li>half-brother / half-sister</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Describing Appearance</h3>
+<div class="table-wrap"><table>
+  <tr><th>Feature</th><th>Vocabulary</th><th>Example</th></tr>
+  <tr><td>Height</td><td>tall · average height · short · petite · stocky</td><td class="ex">"He's quite tall — about 1.90m."</td></tr>
+  <tr><td>Build</td><td>slim · slender · athletic · muscular · heavyset</td><td class="ex">"She has an athletic build — she runs marathons."</td></tr>
+  <tr><td>Hair</td><td>straight · curly · wavy · bald · shoulder-length · cropped</td><td class="ex">"He has short, curly dark hair."</td></tr>
+  <tr><td>Face</td><td>round · oval · square jaw · freckled · wrinkled</td><td class="ex">"She has a round face and bright blue eyes."</td></tr>
+  <tr><td>Age</td><td>in his/her twenties · middle-aged · elderly · looks young for her age</td><td class="ex">"She's in her late forties but looks younger."</td></tr>
+</table></div>
+
+<h3>Describing Personality</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Positive Traits</div>
+    <ul>
+      <li><strong>outgoing</strong> — sociable and confident</li>
+      <li><strong>reliable</strong> — can always be trusted</li>
+      <li><strong>generous</strong> — giving freely to others</li>
+      <li><strong>patient</strong> — able to wait calmly</li>
+      <li><strong>ambitious</strong> — motivated to achieve goals</li>
+      <li><strong>easy-going</strong> — relaxed, not easily stressed</li>
+      <li><strong>witty</strong> — clever and funny</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Negative Traits</div>
+    <ul>
+      <li><strong>stubborn</strong> — refuses to change opinion</li>
+      <li><strong>bossy</strong> — likes to tell others what to do</li>
+      <li><strong>moody</strong> — emotions change unpredictably</li>
+      <li><strong>arrogant</strong> — excessively proud</li>
+      <li><strong>two-faced</strong> — says different things to different people</li>
+      <li><strong>nosy</strong> — too interested in others' business</li>
+      <li><strong>unreliable</strong> — cannot be counted on</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Relationships</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="word">acquaintance</td><td>someone you know slightly, not well</td><td class="ex">"He's just an acquaintance from work — not a close friend."</td></tr>
+  <tr><td class="word">colleague</td><td>someone you work with</td><td class="ex">"A few colleagues and I are meeting for lunch."</td></tr>
+  <tr><td class="word">flatmate / roommate</td><td>person you share accommodation with</td><td class="ex">"My flatmate is really tidy — I'm lucky!"</td></tr>
+  <tr><td class="word">to get on well with</td><td>have a good relationship with</td><td class="ex">"I get on really well with my sister."</td></tr>
+  <tr><td class="word">to fall out with</td><td>have an argument leading to a period of not speaking</td><td class="ex">"They fell out over money and haven't spoken since."</td></tr>
+  <tr><td class="word">to make up</td><td>reconcile after an argument</td><td class="ex">"They made up a week later and apologised to each other."</td></tr>
+</table></div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd09 -->
+<section id="vd09">
+<h2>Feelings &amp; Emotions <span class="sec-id">vd09</span></h2>
+<div class="banner">Going beyond "happy" and "sad" — rich emotional vocabulary helps you connect with people and express yourself authentically.</div>
+
+<h3>Positive Emotions</h3>
+<div class="table-wrap"><table>
+  <tr><th>Emotion</th><th>Meaning / Use</th><th>Example Sentence</th></tr>
+  <tr><td class="word">delighted</td><td>very pleased</td><td class="ex">"I'm absolutely delighted with the news!"</td></tr>
+  <tr><td class="word">thrilled</td><td>very excited and happy</td><td class="ex">"She was thrilled to get the job offer."</td></tr>
+  <tr><td class="word">relieved</td><td>relaxed after a worry has ended</td><td class="ex">"I'm so relieved the exam is finally over."</td></tr>
+  <tr><td class="word">content</td><td>quietly satisfied</td><td class="ex">"He's content with a simple life in the countryside."</td></tr>
+  <tr><td class="word">grateful / thankful</td><td>feeling thanks for something received</td><td class="ex">"I'm really grateful for everything you've done."</td></tr>
+  <tr><td class="word">proud</td><td>feeling satisfaction from an achievement</td><td class="ex">"Her parents were incredibly proud at graduation."</td></tr>
+  <tr><td class="word">enthusiastic</td><td>keenly interested and engaged</td><td class="ex">"She's very enthusiastic about her new project."</td></tr>
+</table></div>
+
+<h3>Negative Emotions</h3>
+<div class="table-wrap"><table>
+  <tr><th>Emotion</th><th>Meaning / Use</th><th>Example Sentence</th></tr>
+  <tr><td class="word">anxious / nervous</td><td>worried about what might happen</td><td class="ex">"I always feel anxious before a presentation."</td></tr>
+  <tr><td class="word">frustrated</td><td>annoyed because things aren't going as planned</td><td class="ex">"He's frustrated with the slow internet connection."</td></tr>
+  <tr><td class="word">overwhelmed</td><td>having too much to cope with</td><td class="ex">"She feels overwhelmed with all the deadlines."</td></tr>
+  <tr><td class="word">disappointed</td><td>sad because expectations weren't met</td><td class="ex">"I was disappointed that he cancelled at the last minute."</td></tr>
+  <tr><td class="word">embarrassed</td><td>self-conscious about a mistake in public</td><td class="ex">"He was embarrassed when he called the teacher 'Mum'."</td></tr>
+  <tr><td class="word">jealous</td><td>unhappy because someone else has what you want</td><td class="ex">"She felt jealous of her friend's promotion."</td></tr>
+  <tr><td class="word">fed up</td><td>tired and annoyed — at the end of your patience</td><td class="ex">"I'm fed up with waiting — can we just go?"</td></tr>
+  <tr><td class="word">homesick</td><td>missing home while you are away</td><td class="ex">"He felt homesick during his first months abroad."</td></tr>
+</table></div>
+
+<h3>Expressing How You Feel</h3>
+<div class="phrase"><strong>Useful Phrases</strong>
+  <ul>
+    <li>"I'm feeling a bit under the weather." — not very well</li>
+    <li>"I'm on top of the world!" — extremely happy</li>
+    <li>"I'm in two minds about it." — unsure, can't decide</li>
+    <li>"It gets on my nerves." — it irritates me</li>
+    <li>"I couldn't care less." — it doesn't matter to me at all</li>
+    <li>"I'm over the moon!" — thrilled (very British expression)</li>
+    <li>"It really got to me." — it affected me emotionally</li>
+    <li>"I'm a bit out of sorts today." — not feeling quite right</li>
+  </ul>
+</div>
+
+<h3>Asking Others How They Feel</h3>
+<div class="tip"><strong>Check-In Phrases</strong>
+  <ul>
+    <li>"Are you alright?" — British way of asking "are you okay?"</li>
+    <li>"How are you holding up?" — asked when someone is going through something difficult</li>
+    <li>"Is everything okay? You seem a bit quiet today."</li>
+    <li>"Do you want to talk about it?"</li>
+    <li>"That sounds really tough — I'm sorry you're going through that."</li>
+  </ul>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════ vd10 -->
+<section id="vd10">
+<h2>Common Useful Phrases <span class="sec-id">vd10</span></h2>
+<div class="banner">These phrases work in almost every conversation — master them and your English will sound natural and fluent straight away.</div>
+
+<h3>Agreeing &amp; Disagreeing</h3>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>Function</th><th>Register</th></tr>
+  <tr><td class="word">Absolutely!</td><td>strong agreement</td><td><span class="tag">informal</span></td></tr>
+  <tr><td class="word">Exactly / Precisely.</td><td>agreement with a specific point</td><td><span class="tag">neutral</span></td></tr>
+  <tr><td class="word">I couldn't agree more.</td><td>emphatic agreement</td><td><span class="tag">formal/neutral</span></td></tr>
+  <tr><td class="word">That's a fair point.</td><td>acknowledge the other view</td><td><span class="tag">neutral</span></td></tr>
+  <tr><td class="word">I'm not sure I agree.</td><td>gentle disagreement</td><td><span class="tag">polite</span></td></tr>
+  <tr><td class="word">I see where you're coming from, but…</td><td>diplomatic disagreement</td><td><span class="tag">professional</span></td></tr>
+  <tr><td class="word">With respect, I think…</td><td>polite strong disagreement</td><td><span class="tag">formal</span></td></tr>
+  <tr><td class="word">I beg to differ.</td><td>formal disagreement</td><td><span class="tag">formal</span></td></tr>
+</table></div>
+
+<h3>Asking for Clarification</h3>
+<div class="phrase"><strong>Clarification Phrases</strong>
+  <ul>
+    <li>"Sorry, could you repeat that?" — you didn't hear</li>
+    <li>"Could you speak a bit more slowly, please?"</li>
+    <li>"I'm sorry, I didn't quite catch that." — polite</li>
+    <li>"What do you mean by…?" — asking to explain a term</li>
+    <li>"So what you're saying is…?" — checking your understanding</li>
+    <li>"Just to clarify — are you saying that…?"</li>
+    <li>"Could you give me an example of that?"</li>
+  </ul>
+</div>
+
+<h3>Polite Requests</h3>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>Use</th></tr>
+  <tr><td class="word">Could you possibly…?</td><td>very polite request</td></tr>
+  <tr><td class="word">Would you mind…?</td><td>polite request (followed by -ing)</td></tr>
+  <tr><td class="word">I was wondering if you could…</td><td>tentative, very polite</td></tr>
+  <tr><td class="word">Do you think you could…?</td><td>neutral-polite</td></tr>
+  <tr><td class="word">Is it possible to…?</td><td>formal / professional</td></tr>
+  <tr><td class="word">Would it be alright if I…?</td><td>asking permission politely</td></tr>
+</table></div>
+
+<h3>Small Talk Starters</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">With New People</div>
+    <ul>
+      <li>"How do you know [host's name]?"</li>
+      <li>"What do you do?" / "What line of work are you in?"</li>
+      <li>"Are you from around here originally?"</li>
+      <li>"Have you been here before?"</li>
+      <li>"It's a great event, isn't it?"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">With People You Know</div>
+    <ul>
+      <li>"How's everything going?"</li>
+      <li>"Long time no see! How have you been?"</li>
+      <li>"Did you have a good weekend?"</li>
+      <li>"Any exciting plans coming up?"</li>
+      <li>"Have you seen the news about…?"</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Ending a Conversation Gracefully</h3>
+<div class="tip"><strong>Exit Phrases</strong>
+  <ul>
+    <li>"It was great chatting with you."</li>
+    <li>"I'd better let you get on." — polite way to end without offending</li>
+    <li>"I'll let you go — I know you're busy."</li>
+    <li>"We must catch up properly soon."</li>
+    <li>"Give my regards to your family."</li>
+    <li>"Take care!" / "All the best!"</li>
+  </ul>
+</div>
+
+<div class="trick"><strong>Memory Trick</strong> In English, <em>Would you mind…?</em> is answered confusingly: <em>"No, not at all"</em> means YES, I'll do it. If someone says "Do you mind if I sit here?" answer <em>"No, go ahead"</em> — not "Yes, please!" which sounds like you're objecting!</div>
+</section>
+
+</div>
+</body>
+</html>

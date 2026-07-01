@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>English Grammar — Prepositions</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.pronounce {
+  background: #1a0a2e; border: 1px solid var(--purple); border-left: 6px solid var(--purple);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+}
+.pronounce h4 { color: var(--purple); margin: 0 0 6px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* file-specific */
+.container { max-width: 900px; margin: 0 auto; }
+section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem; margin-bottom: 2rem; margin-top: 1.5rem; }
+.trick { background: #1c1917; border-left: 4px solid var(--gold); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.trick strong { color: var(--gold); display: block; margin-bottom: .3rem; }
+.mistake { background: #2d0a0a; border-left: 4px solid var(--red); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.mistake strong { color: var(--red); display: block; margin-bottom: .3rem; }
+.correct { background: #0a2018; border-left: 4px solid var(--green); border-radius: 8px; padding: 1rem 1.2rem; margin: .8rem 0; }
+.correct strong { color: var(--green); display: block; margin-bottom: .3rem; }
+tr:last-child td { border-bottom: none; }
+.hi { color: var(--accent); font-weight: 600; }
+.hi2 { color: var(--gold); font-weight: 600; }
+.hi3 { color: var(--green); font-weight: 600; }
+.hiv { color: var(--violet); font-weight: 600; }
+.red { color: var(--red); font-weight: 600; }
+.dim { color: var(--fg-soft); }
+.formula { background: #0c2039; border: 2px solid var(--accent); border-radius: 10px; padding: 1rem 1.4rem; font-size: 1.05rem; color: var(--fg); margin: 1rem 0; text-align: center; }
+.formula span { color: var(--accent); font-weight: 700; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+@media(max-width:700px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+.card { background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.card-title { font-weight: 700; margin-bottom: .6rem; font-size: 1rem; color: var(--accent); }
+.card-at .card-title { color: var(--gold); }
+.card-on .card-title { color: var(--accent); }
+.card-in .card-title { color: var(--green); }
+.badge { display: inline-block; border-radius: 20px; padding: .2rem .7rem; font-size: .78rem; font-weight: 700; margin-bottom: .4rem; }
+.badge-at { background: #7c2d12; color: #fff; }
+.badge-on { background: #0c4a6e; color: #fff; }
+.badge-in { background: #065f46; color: #fff; }
+.badge-to { background: #4c1d95; color: #fff; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: .6rem 0; }
+.pair-wrong { background: #2d0a0a; border: 1px solid var(--red); border-radius: 8px; padding: .8rem 1rem; }
+.pair-right { background: #0a2018; border: 1px solid var(--green); border-radius: 8px; padding: .8rem 1rem; }
+.pair-wrong .label { color: var(--red); font-size: .78rem; font-weight: 700; margin-bottom: .3rem; }
+.pair-right .label { color: var(--green); font-size: .78rem; font-weight: 700; margin-bottom: .3rem; }
+@media(max-width:600px) { .pair { grid-template-columns: 1fr; } }
+.pv-group { background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: .5rem 0; }
+.pv-header { font-weight: 700; color: var(--gold); margin-bottom: .5rem; font-size: 1rem; }
+.pv-list { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem .8rem; font-size: .93rem; }
+@media(max-width:500px) { .pv-list { grid-template-columns: 1fr; } }
+.pv-verb { color: var(--accent); font-weight: 600; }
+.pv-def { color: var(--fg-soft); font-size: .85rem; }
+.colloc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: .8rem 0; }
+@media(max-width:600px) { .colloc-grid { grid-template-columns: 1fr; } }
+.colloc-card { background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: .9rem; }
+.colloc-card h4 { color: var(--gold); margin-bottom: .4rem; font-size: .95rem; }
+.colloc-item { font-size: .9rem; margin-bottom: .25rem; }
+.colloc-prep { color: var(--accent); font-weight: 600; }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header">
+  <div class="badge">English Grammar · Prepositions</div>
+  <h1>English Grammar: Prepositions</h1>
+  <p>Time, place, movement, tricky pairs, phrasal verbs, collocations, and the most common mistakes.</p>
+</div>
+
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#sp01">Overview</a>
+  <a href="#sp02">Time</a>
+  <a href="#sp03">Place</a>
+  <a href="#sp04">Movement</a>
+  <a href="#sp05">Tricky Pairs</a>
+  <a href="#sp06">Phrasal Verbs</a>
+  <a href="#sp07">Collocations</a>
+  <a href="#sp08">Common Mistakes</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ─── sp01 ─── -->
+<section id="sp01">
+<h2>sp01 — Overview</h2>
+<p>Prepositions are small words that express relationships between other words — mainly relationships of <strong>time</strong>, <strong>place</strong>, <strong>movement</strong>, and <strong>reason</strong>. Despite being short, they are among the hardest parts of English for learners because:</p>
+<ul>
+  <li>The same preposition can mean different things in different contexts.</li>
+  <li>Prepositions often don't translate directly from other languages.</li>
+  <li>Many collocations (adjective + prep, verb + prep) are fixed idioms — there's no logical rule, only memory.</li>
+  <li>The boundaries between AT / ON / IN overlap and shift depending on whether you mean time, place, or something else.</li>
+</ul>
+
+<div class="grid3">
+  <div class="card card-at">
+    <div class="card-title">AT</div>
+    <p style="font-size:.9rem">A specific <strong>point</strong> — in time or place. Think of a pin on a map or an exact clock time.</p>
+    <p style="font-size:.85rem;color:var(--fg-soft)">at 3 pm · at the door · at school</p>
+  </div>
+  <div class="card card-on">
+    <div class="card-title">ON</div>
+    <p style="font-size:.9rem">A <strong>surface</strong> (place) or a <strong>day/date</strong> (time). Think of something resting on top.</p>
+    <p style="font-size:.85rem;color:var(--fg-soft)">on Monday · on the table · on the wall</p>
+  </div>
+  <div class="card card-in">
+    <div class="card-title">IN</div>
+    <p style="font-size:.9rem">Inside an <strong>enclosed space</strong> (place) or a <strong>longer period</strong> (time). Think of something surrounded.</p>
+    <p style="font-size:.85rem;color:var(--fg-soft)">in January · in the box · in London</p>
+  </div>
+</div>
+
+<div class="teach">
+  <strong>The AT / ON / IN ladder for time</strong>
+  Go from most specific to most general: <span class="hi">AT</span> (exact time) → <span style="color:var(--accent);font-weight:600">ON</span> (day/date) → <span class="hi3">IN</span> (month/year/season).
+  "I'll see you <span class="hi">at</span> 3 pm <span style="color:var(--accent);font-weight:600">on</span> Monday <span class="hi3">in</span> March."
+</div>
+</section>
+
+<!-- ─── sp02 ─── -->
+<section id="sp02">
+<h2>sp02 — Time Prepositions</h2>
+
+<h3>AT — specific / precise time</h3>
+<div class="example">
+  <strong>Use AT for…</strong>
+  <ul>
+    <li>Clock times: <span class="hi">at 7 o'clock</span>, <span class="hi">at noon</span>, <span class="hi">at midnight</span>, <span class="hi">at 3:30 pm</span></li>
+    <li>Specific points in the day: <span class="hi">at sunrise</span>, <span class="hi">at sunset</span>, <span class="hi">at dawn</span>, <span class="hi">at dusk</span></li>
+    <li>Mealtimes: <span class="hi">at breakfast</span>, <span class="hi">at lunch</span>, <span class="hi">at dinner</span></li>
+    <li>Certain fixed expressions: <span class="hi">at night</span>, <span class="hi">at the weekend</span> (BrE), <span class="hi">at Christmas</span>, <span class="hi">at Easter</span>, <span class="hi">at the moment</span>, <span class="hi">at the same time</span>, <span class="hi">at present</span>, <span class="hi">at that time</span></li>
+  </ul>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Category</th><th>Example phrases</th></tr>
+  <tr><td class="hi">Clock times</td><td>at 8 am · at half past two · at a quarter to six</td></tr>
+  <tr><td class="hi">Mealtimes</td><td>at breakfast · at lunch · at dinner · at teatime</td></tr>
+  <tr><td class="hi">Night (dark)</td><td>at night <span class="dim">(note: "in the morning/afternoon/evening")</span></td></tr>
+  <tr><td class="hi">Holidays</td><td>at Christmas · at Easter · at Diwali · at New Year</td></tr>
+  <tr><td class="hi">Fixed phrases</td><td>at the moment · at present · at first · at last · at once</td></tr>
+</table></div>
+
+<h3>ON — days and dates</h3>
+<div class="example">
+  <strong>Use ON for…</strong>
+  <ul>
+    <li>Days of the week: <span class="hi">on Monday</span>, <span class="hi">on Friday</span>, <span class="hi">on weekdays</span></li>
+    <li>Specific dates: <span class="hi">on 15 August</span>, <span class="hi">on 1st January</span></li>
+    <li>Named days: <span class="hi">on Christmas Day</span>, <span class="hi">on my birthday</span>, <span class="hi">on New Year's Eve</span></li>
+    <li>Day + part of day: <span class="hi">on Monday morning</span>, <span class="hi">on a sunny afternoon</span></li>
+  </ul>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Category</th><th>Example phrases</th></tr>
+  <tr><td class="hi">Days</td><td>on Monday · on Tuesday evening · on weekends (AmE)</td></tr>
+  <tr><td class="hi">Dates</td><td>on 3 March · on the 25th · on 1 April 2024</td></tr>
+  <tr><td class="hi">Named days</td><td>on Christmas Day · on my birthday · on our anniversary</td></tr>
+  <tr><td class="hi">Day + time</td><td>on Monday morning · on a cold winter's night</td></tr>
+</table></div>
+
+<h3>IN — months, years, seasons, periods</h3>
+<div class="example">
+  <strong>Use IN for…</strong>
+  <ul>
+    <li>Months: <span class="hi">in January</span>, <span class="hi">in March</span>, <span class="hi">in December</span></li>
+    <li>Years: <span class="hi">in 2024</span>, <span class="hi">in the 1990s</span>, <span class="hi">in the 21st century</span></li>
+    <li>Seasons: <span class="hi">in spring</span>, <span class="hi">in summer</span>, <span class="hi">in autumn</span>, <span class="hi">in winter</span></li>
+    <li>Parts of the day: <span class="hi">in the morning</span>, <span class="hi">in the afternoon</span>, <span class="hi">in the evening</span></li>
+    <li>Periods of time (future): <span class="hi">in a moment</span>, <span class="hi">in an hour</span>, <span class="hi">in two weeks</span></li>
+  </ul>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Category</th><th>Example phrases</th></tr>
+  <tr><td class="hi">Months</td><td>in January · in August · in mid-October</td></tr>
+  <tr><td class="hi">Years / decades</td><td>in 1999 · in the 80s · in the 20th century</td></tr>
+  <tr><td class="hi">Seasons</td><td>in spring · in summer · in the rainy season</td></tr>
+  <tr><td class="hi">Parts of day</td><td>in the morning · in the afternoon · in the evening</td></tr>
+  <tr><td class="hi">Durations (future)</td><td>in five minutes · in a week · in three months' time</td></tr>
+</table></div>
+
+<h3>Full comparison at a glance</h3>
+<div class="table-wrap"><table>
+  <tr><th>AT</th><th>ON</th><th>IN</th></tr>
+  <tr><td>at 6 o'clock</td><td>on Monday</td><td>in March</td></tr>
+  <tr><td>at midnight</td><td>on 5 June</td><td>in 2025</td></tr>
+  <tr><td>at Christmas</td><td>on Christmas Day</td><td>in the evening</td></tr>
+  <tr><td>at night</td><td>on a Tuesday night</td><td>in the morning</td></tr>
+  <tr><td>at the weekend (BrE)</td><td>on the weekend (AmE)</td><td>in summer</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>The "no preposition" rule</strong>
+  Drop the preposition before <em>last, next, this, every, yesterday, today, tomorrow</em>:
+  "I'll see you <span class="hi3">next Monday</span>" (not <span class="red">on next Monday</span>).
+  "She called <span class="hi3">yesterday</span>" (not <span class="red">on yesterday</span>).
+</div>
+</section>
+
+<!-- ─── sp03 ─── -->
+<section id="sp03">
+<h2>sp03 — Place Prepositions</h2>
+
+<div class="grid3">
+  <div class="card card-at">
+    <div class="badge badge-at">AT</div>
+    <div class="card-title">A point / location</div>
+    <ul style="font-size:.9rem;padding-left:1.2rem">
+      <li>at the bus stop</li>
+      <li>at the door</li>
+      <li>at the top of the page</li>
+      <li>at 10 Downing Street</li>
+      <li>at school / at work</li>
+      <li>at the airport</li>
+      <li>at the corner</li>
+      <li>at the end of the road</li>
+    </ul>
+  </div>
+  <div class="card card-on">
+    <div class="badge badge-on">ON</div>
+    <div class="card-title">A surface / line</div>
+    <ul style="font-size:.9rem;padding-left:1.2rem">
+      <li>on the table</li>
+      <li>on the wall</li>
+      <li>on the floor / ceiling</li>
+      <li>on the first floor</li>
+      <li>on Oxford Street</li>
+      <li>on the left / right</li>
+      <li>on the coast</li>
+      <li>on the border</li>
+    </ul>
+  </div>
+  <div class="card card-in">
+    <div class="badge badge-in">IN</div>
+    <div class="card-title">An enclosed space</div>
+    <ul style="font-size:.9rem;padding-left:1.2rem">
+      <li>in the box</li>
+      <li>in the room</li>
+      <li>in London / Paris</li>
+      <li>in England / France</li>
+      <li>in the sea / river</li>
+      <li>in the north</li>
+      <li>in bed (no article)</li>
+      <li>in the sky</li>
+    </ul>
+  </div>
+</div>
+
+<h3>AT vs IN for buildings and institutions</h3>
+<div class="table-wrap"><table>
+  <tr><th>AT (function / activity)</th><th>IN (physical location)</th></tr>
+  <tr><td>at school (studying)</td><td>in the school building</td></tr>
+  <tr><td>at work (working)</td><td>in the office</td></tr>
+  <tr><td>at the hospital (visiting / treated)</td><td>in the hospital (admitted, staying)</td></tr>
+  <tr><td>at home (general)</td><td>in the house (specific room/building)</td></tr>
+  <tr><td>at the cinema (watching a film)</td><td>in the cinema (inside the building)</td></tr>
+</table></div>
+<div class="trick">
+  <strong>AT = function, IN = physical</strong>
+  "She's <span class="hi">at</span> school" means she is studying there. "She's <span class="hi3">in</span> the school" means she is physically inside the building (e.g. the principal saying this during a lockdown).
+</div>
+
+<h3>ON for streets and surfaces</h3>
+<div class="example">
+  <strong>Examples</strong>
+  <ul>
+    <li>I live <span class="hi">on</span> Baker Street. <span class="dim">(not in Baker Street in British English)</span></li>
+    <li>The keys are <span class="hi">on</span> the table.</li>
+    <li>There's a spider <span class="hi">on</span> the ceiling.</li>
+    <li>We live <span class="hi">on</span> the third floor.</li>
+    <li>The village is <span class="hi">on</span> the coast.</li>
+  </ul>
+</div>
+
+<h3>IN for water bodies</h3>
+<div class="example">
+  <strong>Examples</strong>
+  <ul>
+    <li>The fish are swimming <span class="hi">in</span> the river.</li>
+    <li>She went for a swim <span class="hi">in</span> the sea.</li>
+    <li>There are sharks <span class="hi">in</span> the ocean.</li>
+    <li>He drowned <span class="hi">in</span> a lake. <span class="dim">(not "on" a lake — that would mean on a boat)</span></li>
+  </ul>
+</div>
+
+<h3>Special place expressions to memorise</h3>
+<div class="table-wrap"><table>
+  <tr><th>Expression</th><th>Preposition</th><th>Note</th></tr>
+  <tr><td>in the north/south/east/west</td><td class="hi">in</td><td>"Edinburgh is in the north of Scotland."</td></tr>
+  <tr><td>on the coast / on the border</td><td class="hi">on</td><td>"The town is on the coast."</td></tr>
+  <tr><td>at the back / at the front</td><td class="hi">at</td><td>"Meet me at the back of the theatre."</td></tr>
+  <tr><td>in the middle</td><td class="hi">in</td><td>"There's a fountain in the middle."</td></tr>
+  <tr><td>at the corner / on the corner</td><td class="hi">at/on</td><td>Both are acceptable.</td></tr>
+  <tr><td>in bed / in hospital (BrE)</td><td class="hi">in</td><td>No article in British English.</td></tr>
+  <tr><td>at sea</td><td class="hi">at</td><td>"The sailors are at sea."</td></tr>
+</table></div>
+</section>
+
+<!-- ─── sp04 ─── -->
+<section id="sp04">
+<h2>sp04 — Movement Prepositions</h2>
+<p>Movement prepositions describe direction or path of motion. They often pair with specific motion verbs.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>Preposition</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="hi">to</td><td>towards a destination (arrival implied)</td><td>She walked <span class="hi">to</span> the shop.</td></tr>
+  <tr><td class="hi">towards</td><td>in the direction of (arrival not implied)</td><td>He moved <span class="hi">towards</span> the door slowly.</td></tr>
+  <tr><td class="hi">into</td><td>movement to inside</td><td>She walked <span class="hi">into</span> the room.</td></tr>
+  <tr><td class="hi">out of</td><td>movement from inside to outside</td><td>He ran <span class="hi">out of</span> the building.</td></tr>
+  <tr><td class="hi">onto</td><td>movement to a surface</td><td>The cat jumped <span class="hi">onto</span> the table.</td></tr>
+  <tr><td class="hi">off</td><td>movement away from a surface</td><td>She fell <span class="hi">off</span> the chair.</td></tr>
+  <tr><td class="hi">away from</td><td>movement increasing distance</td><td>He drove <span class="hi">away from</span> the city.</td></tr>
+  <tr><td class="hi">through</td><td>movement from one side to another</td><td>We walked <span class="hi">through</span> the forest.</td></tr>
+  <tr><td class="hi">across</td><td>movement from one side of a surface to the other</td><td>She swam <span class="hi">across</span> the river.</td></tr>
+  <tr><td class="hi">along</td><td>movement following a line</td><td>We strolled <span class="hi">along</span> the beach.</td></tr>
+  <tr><td class="hi">past</td><td>movement going beyond a point</td><td>The bus went <span class="hi">past</span> my stop.</td></tr>
+  <tr><td class="hi">over</td><td>movement above and across</td><td>The plane flew <span class="hi">over</span> the mountains.</td></tr>
+  <tr><td class="hi">under / beneath</td><td>movement at a lower level</td><td>We drove <span class="hi">under</span> the bridge.</td></tr>
+  <tr><td class="hi">around</td><td>movement in a circle or various directions</td><td>They walked <span class="hi">around</span> the lake.</td></tr>
+  <tr><td class="hi">up / down</td><td>movement to a higher / lower level</td><td>She climbed <span class="hi">up</span> the stairs.</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>to vs towards</strong>
+  "I'm going <span class="hi">to</span> the library" — I will arrive there. "I'm walking <span class="hi">towards</span> the library" — I am moving in that direction but may not arrive (someone might stop me, or I might turn off).
+</div>
+
+<div class="trick">
+  <strong>into vs in to (two words)</strong>
+  <span class="hi">Into</span> (movement): "She walked into the shop." Two separate words <em>in to</em> appear in phrases where "in" belongs to a phrasal verb: "He gave <span class="hi3">in to</span> pressure" (gave in = surrendered).
+</div>
+
+<div class="example">
+  <strong>Movement verbs + prepositions in context</strong>
+  <ul>
+    <li>The children <strong>ran</strong> <span class="hi">across</span> the playground.</li>
+    <li>She <strong>climbed</strong> <span class="hi">over</span> the fence.</li>
+    <li>He <strong>crawled</strong> <span class="hi">through</span> the tunnel.</li>
+    <li>They <strong>drove</strong> <span class="hi">along</span> the motorway.</li>
+    <li>The bird <strong>flew</strong> <span class="hi">away from</span> the cat.</li>
+    <li>We <strong>sailed</strong> <span class="hi">past</span> the lighthouse.</li>
+    <li>She <strong>dived</strong> <span class="hi">into</span> the pool.</li>
+    <li>He <strong>stepped</strong> <span class="hi">out of</span> the car.</li>
+  </ul>
+</div>
+</section>
+
+<!-- ─── sp05 ─── -->
+<section id="sp05">
+<h2>sp05 — Tricky Preposition Pairs</h2>
+
+<h3>Transport: IN vs ON vs BY</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">IN — enclosed, small vehicles</div>
+    <ul style="font-size:.9rem;padding-left:1.2rem">
+      <li>in a car</li>
+      <li>in a taxi / cab</li>
+      <li>in a van</li>
+      <li>in a helicopter</li>
+      <li>in a lift / elevator</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">ON — larger / public transport</div>
+    <ul style="font-size:.9rem;padding-left:1.2rem">
+      <li>on a bus / coach</li>
+      <li>on a train</li>
+      <li>on a plane / aircraft</li>
+      <li>on a ship / ferry</li>
+      <li>on a bike / motorbike / horse</li>
+    </ul>
+  </div>
+</div>
+<div class="teach">
+  <strong>Quick rule</strong>
+  If you can stand up inside it (bus, train, plane, ship) → <span class="hi" style="color:var(--accent)">ON</span>. If you sit enclosed and can't easily stand (car, taxi) → <span class="hi3">IN</span>.
+</div>
+<div class="example">
+  <strong>BY — mode of transport (no article)</strong>
+  <ul>
+    <li>I came <span class="hi">by</span> car. &nbsp;/&nbsp; She travels <span class="hi">by</span> train.</li>
+    <li><span class="hi">by</span> bus · <span class="hi">by</span> plane · <span class="hi">by</span> bike · <span class="hi">by</span> foot (or on foot)</li>
+    <li>Note: "on foot" not "by foot" for walking.</li>
+  </ul>
+</div>
+
+<h3>IN vs AT for places</h3>
+<div class="table-wrap"><table>
+  <tr><th>Situation</th><th>AT</th><th>IN</th></tr>
+  <tr><td>General activity</td><td>at work · at school · at university</td><td>—</td></tr>
+  <tr><td>Physical inside</td><td>—</td><td>in the office · in the classroom · in the library</td></tr>
+  <tr><td>Events</td><td>at a concert · at a party · at a meeting</td><td>—</td></tr>
+  <tr><td>Cities / countries</td><td>—</td><td>in London · in Japan · in the UK</td></tr>
+  <tr><td>Addresses (point)</td><td>at 5 Oak Lane · at this address</td><td>—</td></tr>
+</table></div>
+
+<h3>BY vs WITH vs USING</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Use</th><th>Example</th></tr>
+  <tr><td class="hi">by</td><td>agent in passive / method / means</td><td>The book was written <span class="hi">by</span> Orwell. · I paid <span class="hi">by</span> card.</td></tr>
+  <tr><td class="hi">with</td><td>instrument / tool used</td><td>She cut it <span class="hi">with</span> a knife. · He wrote <span class="hi">with</span> a pen.</td></tr>
+  <tr><td class="hi">using</td><td>more explicit means (can replace "with")</td><td>She solved it <span class="hi">using</span> a calculator.</td></tr>
+</table></div>
+<div class="trick">
+  <strong>BY or WITH?</strong>
+  "He was hit <span class="hi">by</span> a ball" — the ball is the agent. "He was hit <span class="hi">with</span> a ball" — someone used the ball as an instrument. By = doer. With = tool.
+</div>
+
+<h3>FOR vs SINCE vs AGO</h3>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Use</th><th>Example</th></tr>
+  <tr><td class="hi">for</td><td>duration (length of time)</td><td>I've lived here <span class="hi">for</span> three years.</td></tr>
+  <tr><td class="hi">since</td><td>starting point (a moment in the past)</td><td>I've lived here <span class="hi">since</span> 2021.</td></tr>
+  <tr><td class="hi">ago</td><td>time before now (simple past only)</td><td>She left <span class="hi">two hours ago</span>.</td></tr>
+</table></div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>I have been waiting <span class="red">since</span> three hours.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>I have been waiting <span class="hi3">for</span> three hours.</div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>She left <span class="red">since</span> two days.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>She left <span class="hi3">two days ago</span>.</div>
+</div>
+</section>
+
+<!-- ─── sp06 ─── -->
+<section id="sp06">
+<h2>sp06 — Phrasal Verbs with Common Prepositions</h2>
+<p>Phrasal verbs are verb + particle combinations where the meaning is often idiomatic. These are grouped by particle.</p>
+
+<div class="pv-group">
+  <div class="pv-header"><span class="hi">UP</span> — often suggests completion, improvement, or increase</div>
+  <div class="pv-list">
+    <div><span class="pv-verb">give up</span><br><span class="pv-def">stop doing sth / surrender: "Don't give up!"</span></div>
+    <div><span class="pv-verb">pick up</span><br><span class="pv-def">collect / lift / learn informally: "Pick up the kids at 3."</span></div>
+    <div><span class="pv-verb">set up</span><br><span class="pv-def">establish / arrange: "She set up a new business."</span></div>
+    <div><span class="pv-verb">make up</span><br><span class="pv-def">invent / reconcile: "He made up an excuse."</span></div>
+    <div><span class="pv-verb">turn up</span><br><span class="pv-def">arrive / increase volume: "She turned up late."</span></div>
+    <div><span class="pv-verb">come up</span><br><span class="pv-def">arise / be mentioned: "An interesting point came up."</span></div>
+    <div><span class="pv-verb">look up</span><br><span class="pv-def">search for information: "Look it up in the dictionary."</span></div>
+    <div><span class="pv-verb">end up</span><br><span class="pv-def">finish in a state/place: "We ended up at the wrong station."</span></div>
+  </div>
+</div>
+
+<div class="pv-group">
+  <div class="pv-header"><span class="hi">OUT</span> — often suggests discovery, completion, or exhaustion</div>
+  <div class="pv-list">
+    <div><span class="pv-verb">find out</span><br><span class="pv-def">discover: "I found out the truth."</span></div>
+    <div><span class="pv-verb">run out of</span><br><span class="pv-def">exhaust supply: "We've run out of milk."</span></div>
+    <div><span class="pv-verb">carry out</span><br><span class="pv-def">perform / execute: "They carried out the plan."</span></div>
+    <div><span class="pv-verb">point out</span><br><span class="pv-def">indicate: "She pointed out my mistake."</span></div>
+    <div><span class="pv-verb">work out</span><br><span class="pv-def">exercise / calculate / succeed: "It all worked out fine."</span></div>
+    <div><span class="pv-verb">sort out</span><br><span class="pv-def">resolve / organise: "Let's sort out this problem."</span></div>
+    <div><span class="pv-verb">figure out</span><br><span class="pv-def">understand: "I can't figure out how it works."</span></div>
+    <div><span class="pv-verb">fall out</span><br><span class="pv-def">quarrel: "They fell out over money."</span></div>
+  </div>
+</div>
+
+<div class="pv-group">
+  <div class="pv-header"><span class="hi">ON</span> — often suggests continuation</div>
+  <div class="pv-list">
+    <div><span class="pv-verb">carry on</span><br><span class="pv-def">continue: "Carry on working."</span></div>
+    <div><span class="pv-verb">put on</span><br><span class="pv-def">wear / switch on: "Put on your coat."</span></div>
+    <div><span class="pv-verb">go on</span><br><span class="pv-def">continue / happen: "What's going on?"</span></div>
+    <div><span class="pv-verb">take on</span><br><span class="pv-def">accept responsibility: "She took on a new role."</span></div>
+    <div><span class="pv-verb">move on</span><br><span class="pv-def">proceed / leave behind: "It's time to move on."</span></div>
+    <div><span class="pv-verb">hold on</span><br><span class="pv-def">wait / grip: "Hold on a moment."</span></div>
+    <div><span class="pv-verb">log on</span><br><span class="pv-def">access a computer system: "Log on with your password."</span></div>
+    <div><span class="pv-verb">count on</span><br><span class="pv-def">rely on: "You can count on me."</span></div>
+  </div>
+</div>
+
+<div class="pv-group">
+  <div class="pv-header"><span class="hi">OFF</span> — often suggests stopping, leaving, or removal</div>
+  <div class="pv-list">
+    <div><span class="pv-verb">turn off</span><br><span class="pv-def">switch off: "Turn off the lights."</span></div>
+    <div><span class="pv-verb">call off</span><br><span class="pv-def">cancel: "They called off the meeting."</span></div>
+    <div><span class="pv-verb">take off</span><br><span class="pv-def">remove clothing / (plane) depart: "Take off your shoes."</span></div>
+    <div><span class="pv-verb">put off</span><br><span class="pv-def">postpone / discourage: "Stop putting it off."</span></div>
+    <div><span class="pv-verb">go off</span><br><span class="pv-def">explode / ring / go bad: "The alarm went off."</span></div>
+    <div><span class="pv-verb">lay off</span><br><span class="pv-def">dismiss workers: "They laid off 200 staff."</span></div>
+    <div><span class="pv-verb">pay off</span><br><span class="pv-def">repay / prove successful: "Hard work pays off."</span></div>
+    <div><span class="pv-verb">show off</span><br><span class="pv-def">display proudly (or boast): "Stop showing off."</span></div>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>Separable vs inseparable phrasal verbs</strong>
+  Most transitive phrasal verbs are <strong>separable</strong>: you can put the object in the middle. "Turn <em>it</em> off." / "Turn off <em>the light</em>." But with pronouns, you MUST separate: "Turn <span class="hi3">it</span> off" — never "Turn off <span class="red">it</span>." Inseparable phrasal verbs (like "run into", "look after") cannot be split.
+</div>
+</section>
+
+<!-- ─── sp07 ─── -->
+<section id="sp07">
+<h2>sp07 — Fixed Preposition Collocations</h2>
+<p>These combinations are memorised, not derived from rules. They are among the most common vocabulary gaps for advanced learners.</p>
+
+<h3>Adjective + Preposition</h3>
+<div class="colloc-grid">
+  <div class="colloc-card">
+    <h4>adjective + <span class="hi">AT</span></h4>
+    <div class="colloc-item">good <span class="colloc-prep">at</span> — "She's good <span class="hi">at</span> maths."</div>
+    <div class="colloc-item">bad <span class="colloc-prep">at</span> — "I'm terrible <span class="hi">at</span> singing."</div>
+    <div class="colloc-item">brilliant <span class="colloc-prep">at</span> — "He's brilliant <span class="hi">at</span> chess."</div>
+    <div class="colloc-item">surprised <span class="colloc-prep">at/by</span> — "She was surprised <span class="hi">at</span> the news."</div>
+    <div class="colloc-item">shocked <span class="colloc-prep">at/by</span> — "We were shocked <span class="hi">at</span> the price."</div>
+  </div>
+  <div class="colloc-card">
+    <h4>adjective + <span class="hi">OF</span></h4>
+    <div class="colloc-item">afraid <span class="colloc-prep">of</span> — "He's afraid <span class="hi">of</span> spiders."</div>
+    <div class="colloc-item">proud <span class="colloc-prep">of</span> — "I'm proud <span class="hi">of</span> you."</div>
+    <div class="colloc-item">ashamed <span class="colloc-prep">of</span> — "She was ashamed <span class="hi">of</span> her behaviour."</div>
+    <div class="colloc-item">aware <span class="colloc-prep">of</span> — "Are you aware <span class="hi">of</span> the risks?"</div>
+    <div class="colloc-item">capable <span class="colloc-prep">of</span> — "She's capable <span class="hi">of</span> more."</div>
+  </div>
+  <div class="colloc-card">
+    <h4>adjective + <span class="hi">IN</span></h4>
+    <div class="colloc-item">interested <span class="colloc-prep">in</span> — "He's interested <span class="hi">in</span> art."</div>
+    <div class="colloc-item">involved <span class="colloc-prep">in</span> — "She was involved <span class="hi">in</span> the project."</div>
+    <div class="colloc-item">experienced <span class="colloc-prep">in</span> — "They're experienced <span class="hi">in</span> finance."</div>
+    <div class="colloc-item">skilled <span class="colloc-prep">in</span> — "He's skilled <span class="hi">in</span> carpentry."</div>
+    <div class="colloc-item">successful <span class="colloc-prep">in</span> — "She was successful <span class="hi">in</span> her appeal."</div>
+  </div>
+  <div class="colloc-card">
+    <h4>adjective + <span class="hi">FOR / TO / WITH / ON</span></h4>
+    <div class="colloc-item">responsible <span class="colloc-prep">for</span> — "Who is responsible <span class="hi">for</span> this?"</div>
+    <div class="colloc-item">married <span class="colloc-prep">to</span> — "She is married <span class="hi">to</span> John."</div>
+    <div class="colloc-item">similar <span class="colloc-prep">to</span> — "This is similar <span class="hi">to</span> that one."</div>
+    <div class="colloc-item">bored <span class="colloc-prep">with</span> — "I'm bored <span class="hi">with</span> this game."</div>
+    <div class="colloc-item">keen <span class="colloc-prep">on</span> — "She's keen <span class="hi">on</span> hiking."</div>
+    <div class="colloc-item">worried <span class="colloc-prep">about</span> — "I'm worried <span class="hi">about</span> you."</div>
+  </div>
+</div>
+
+<h3>Verb + Preposition</h3>
+<div class="colloc-grid">
+  <div class="colloc-card">
+    <h4>look + preposition</h4>
+    <div class="colloc-item">look <span class="colloc-prep">at</span> — "Look <span class="hi">at</span> this photo."</div>
+    <div class="colloc-item">look <span class="colloc-prep">for</span> — "I'm looking <span class="hi">for</span> my keys."</div>
+    <div class="colloc-item">look <span class="colloc-prep">after</span> — "Can you look <span class="hi">after</span> the dog?"</div>
+    <div class="colloc-item">look <span class="colloc-prep">into</span> — "Police are looking <span class="hi">into</span> it."</div>
+    <div class="colloc-item">look <span class="colloc-prep">forward to</span> — "I look <span class="hi">forward to</span> meeting you."</div>
+  </div>
+  <div class="colloc-card">
+    <h4>depend / agree / consist</h4>
+    <div class="colloc-item">depend <span class="colloc-prep">on</span> — "It depends <span class="hi">on</span> the weather."</div>
+    <div class="colloc-item">rely <span class="colloc-prep">on</span> — "You can rely <span class="hi">on</span> her."</div>
+    <div class="colloc-item">agree <span class="colloc-prep">with</span> — "I agree <span class="hi">with</span> you."</div>
+    <div class="colloc-item">disagree <span class="colloc-prep">with</span> — "She disagreed <span class="hi">with</span> the plan."</div>
+    <div class="colloc-item">consist <span class="colloc-prep">of</span> — "The team consists <span class="hi">of</span> five people."</div>
+  </div>
+  <div class="colloc-card">
+    <h4>apply / apologise / believe</h4>
+    <div class="colloc-item">apply <span class="colloc-prep">for</span> — "She applied <span class="hi">for</span> the job."</div>
+    <div class="colloc-item">apply <span class="colloc-prep">to</span> — "This rule applies <span class="hi">to</span> everyone."</div>
+    <div class="colloc-item">apologise <span class="colloc-prep">for</span> — "I apologise <span class="hi">for</span> being late."</div>
+    <div class="colloc-item">believe <span class="colloc-prep">in</span> — "She believes <span class="hi">in</span> hard work."</div>
+    <div class="colloc-item">specialise <span class="colloc-prep">in</span> — "He specialises <span class="hi">in</span> tax law."</div>
+  </div>
+  <div class="colloc-card">
+    <h4>talk / ask / complain / care</h4>
+    <div class="colloc-item">talk <span class="colloc-prep">to / with</span> — "Talk <span class="hi">to</span> me about it."</div>
+    <div class="colloc-item">talk <span class="colloc-prep">about</span> — "Let's talk <span class="hi">about</span> the plan."</div>
+    <div class="colloc-item">ask <span class="colloc-prep">for</span> — "She asked <span class="hi">for</span> help."</div>
+    <div class="colloc-item">complain <span class="colloc-prep">about</span> — "He complained <span class="hi">about</span> the noise."</div>
+    <div class="colloc-item">care <span class="colloc-prep">about</span> — "She cares <span class="hi">about</span> others."</div>
+  </div>
+</div>
+
+<div class="trick">
+  <strong>How to memorise collocations</strong>
+  Don't learn the adjective/verb alone — always memorise the full chunk: "interested <span class="hi">in</span>", "responsible <span class="hi">for</span>", "married <span class="hi">to</span>". Record them in example sentences, not as isolated pairs.
+</div>
+</section>
+
+<!-- ─── sp08 ─── -->
+<section id="sp08">
+<h2>sp08 — Common Mistakes</h2>
+<p>Fifteen preposition errors that appear constantly in learner English — with corrections and explanations.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Wrong</th><th>Correct</th><th>Rule</th></tr>
+  <tr>
+    <td>1</td>
+    <td class="red">I arrived to London.</td>
+    <td class="hi3">I arrived in London.</td>
+    <td>"Arrive" + in (city/country) or at (specific place). Never "arrive to".</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td class="red">She is married with him.</td>
+    <td class="hi3">She is married to him.</td>
+    <td>Married <em>to</em> a person. "With" is wrong here.</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td class="red">We discussed about the problem.</td>
+    <td class="hi3">We discussed the problem.</td>
+    <td>"Discuss" is transitive — no preposition needed.</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td class="red">She explained me the answer.</td>
+    <td class="hi3">She explained the answer to me.</td>
+    <td>"Explain" uses "to" for the recipient — it's not ditransitive like "give".</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td class="red">I've been waiting since three hours.</td>
+    <td class="hi3">I've been waiting for three hours.</td>
+    <td>"Since" + point in time. "For" + duration.</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td class="red">He is good in English.</td>
+    <td class="hi3">He is good at English.</td>
+    <td>Adjectives of ability collocate with "at": good/bad/terrible/excellent at.</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td class="red">I am interested about cooking.</td>
+    <td class="hi3">I am interested in cooking.</td>
+    <td>Fixed collocation: interested <em>in</em>.</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td class="red">She depends of her parents.</td>
+    <td class="hi3">She depends on her parents.</td>
+    <td>Fixed collocation: depend <em>on</em>.</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td class="red">I went to home.</td>
+    <td class="hi3">I went home.</td>
+    <td>"Home" as adverb needs no preposition: go home, come home, stay home.</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td class="red">She entered into the room.</td>
+    <td class="hi3">She entered the room.</td>
+    <td>"Enter" is transitive — no preposition. "Into" is redundant here.</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td class="red">I listened the music.</td>
+    <td class="hi3">I listened to the music.</td>
+    <td>Fixed: listen <em>to</em> (always). Compare: "hear" takes no preposition — "I heard the music."</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td class="red">We spoke about in French.</td>
+    <td class="hi3">We spoke in French.</td>
+    <td>Language used: "in French/English/Spanish". No "about" unless you mean the topic.</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td class="red">He suffers of depression.</td>
+    <td class="hi3">He suffers from depression.</td>
+    <td>Fixed: suffer <em>from</em> an illness.</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td class="red">I'm looking forward to see you.</td>
+    <td class="hi3">I'm looking forward to seeing you.</td>
+    <td>"To" here is a preposition, not part of the infinitive → use gerund (-ing).</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td class="red">Despite of the rain, we went out.</td>
+    <td class="hi3">Despite the rain, we went out.</td>
+    <td>"Despite" = preposition, needs no "of". Use "in spite of" if you want to include "of".</td>
+  </tr>
+</table></div>
+
+<div class="trick">
+  <strong>The "arrive" preposition in full</strong>
+  <ul>
+    <li>arrive <span class="hi">in</span> + city/country: "arrive in Paris"</li>
+    <li>arrive <span class="hi">at</span> + specific place: "arrive at the airport", "arrive at school"</li>
+    <li>arrive <span class="hi">home</span> — no preposition!</li>
+    <li>Never "arrive <span class="red">to</span>"</li>
+  </ul>
+</div>
+
+<div class="trick">
+  <strong>Top 5 to drill first</strong>
+  <ol>
+    <li>good <span class="hi">at</span> / interested <span class="hi">in</span> / responsible <span class="hi">for</span> / married <span class="hi">to</span></li>
+    <li>arrive <span class="hi">in</span> a city, arrive <span class="hi">at</span> a building</li>
+    <li>listen <span class="hi">to</span> · depend <span class="hi">on</span> · suffer <span class="hi">from</span></li>
+    <li>"discuss" and "enter" → no preposition</li>
+    <li>"looking forward to <span class="hi">-ing</span>" (to = preposition)</li>
+  </ol>
+</div>
+</section>
+
+<p style="text-align:center;color:var(--fg-soft);font-size:.85rem;margin-top:2rem;padding-bottom:2rem">
+  English Grammar Reference &mdash; Prepositions &mdash; Sections sp01&ndash;sp08
+</p>
+
+</div><!-- .container -->
+</body>
+</html>

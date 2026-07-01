@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>English Grammar — Sentence Structure</title>
+<style>
+:root{
+  --bg:#0f172a;--surface:#1e293b;--surface2:#263347;
+  --text:#e2e8f0;--muted:#94a3b8;--border:#334155;
+  --accent:#a78bfa;--accent2:#7c3aed;--accent3:#c4b5fd;
+  --red:#f87171;--amber:#fbbf24;--green:#34d399;
+  --sky:#38bdf8;--blue:#60a5fa;--rose:#fb7185;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.7;padding:2rem 1rem}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:2rem;color:var(--accent);margin-bottom:.4rem}
+.subtitle{color:var(--muted);font-size:1rem;margin-bottom:2.5rem}
+h2{font-size:1.4rem;color:var(--accent);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent2)}
+h3{font-size:1.1rem;color:var(--accent3);margin:1.2rem 0 .6rem}
+section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;margin-bottom:2rem}
+p{color:var(--text);margin-bottom:.8rem}
+ul,ol{padding-left:1.4rem;margin-bottom:.8rem;color:var(--text)}
+li{margin-bottom:.3rem}
+.teach{background:#1a1030;border-left:4px solid var(--accent);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.teach strong{color:var(--accent);display:block;margin-bottom:.3rem}
+.trick{background:#1c1917;border-left:4px solid var(--amber);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.trick strong{color:var(--amber);display:block;margin-bottom:.3rem}
+.example{background:#0c1a2e;border-left:4px solid var(--sky);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.example strong{color:var(--sky);display:block;margin-bottom:.3rem}
+.mistake{background:#2d0a0a;border-left:4px solid var(--red);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.mistake strong{color:var(--red);display:block;margin-bottom:.3rem}
+.correct{background:#0a2018;border-left:4px solid var(--green);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.correct strong{color:var(--green);display:block;margin-bottom:.3rem}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.95rem}
+th{background:var(--surface2);color:var(--accent);padding:.6rem .8rem;text-align:left;font-weight:600}
+td{padding:.5rem .8rem;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#1a2438}
+.hi{color:var(--accent);font-weight:600}
+.hi2{color:var(--amber);font-weight:600}
+.hi3{color:var(--green);font-weight:600}
+.red{color:var(--red);font-weight:600}
+.dim{color:var(--muted)}
+.formula{background:#1a1030;border:2px solid var(--accent);border-radius:10px;padding:1rem 1.4rem;font-size:1.05rem;color:var(--text);margin:1rem 0;text-align:center}
+.formula span{color:var(--accent);font-weight:700}
+nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+nav a{background:var(--surface2);color:var(--accent);border:1px solid var(--border);padding:.4rem .9rem;border-radius:20px;text-decoration:none;font-size:.85rem;transition:background .2s}
+nav a:hover{background:#2d2050}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.8rem 0}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1rem}
+.card-title{font-weight:700;margin-bottom:.4rem;font-size:1rem;color:var(--accent3)}
+.badge{display:inline-block;background:var(--accent2);color:#fff;border-radius:20px;padding:.2rem .7rem;font-size:.78rem;font-weight:700;margin-bottom:.5rem}
+.badge-amber{background:#92400e}
+.badge-green{background:#065f46}
+.badge-sky{background:#0c4a6e}
+.mnemonic{background:#1a1030;border:2px dashed var(--accent2);border-radius:10px;padding:1.2rem 1.4rem;margin:1rem 0;text-align:center;font-size:1.1rem;letter-spacing:.08em}
+.mnemonic .letters{font-size:1.8rem;font-weight:800;color:var(--accent);letter-spacing:.2em}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.6rem 0}
+.pair-wrong{background:#2d0a0a;border:1px solid var(--red);border-radius:8px;padding:.8rem 1rem}
+.pair-right{background:#0a2018;border:1px solid var(--green);border-radius:8px;padding:.8rem 1rem}
+.pair-wrong .label{color:var(--red);font-size:.78rem;font-weight:700;margin-bottom:.3rem}
+.pair-right .label{color:var(--green);font-size:.78rem;font-weight:700;margin-bottom:.3rem}
+@media(max-width:600px){.pair{grid-template-columns:1fr}}
+.sent-visual{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0;align-items:flex-end}
+.sv{display:flex;flex-direction:column;align-items:center}
+.sv-word{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:.3rem .7rem;font-size:.95rem;white-space:nowrap}
+.sv-label{font-size:.68rem;color:var(--muted);margin-top:.2rem;text-transform:uppercase;letter-spacing:.05em}
+.sv-s .sv-word{background:#1a1030;border-color:var(--accent);color:var(--accent);font-weight:700}
+.sv-v .sv-word{background:#0a2018;border-color:var(--green);color:var(--green);font-weight:700}
+.sv-o .sv-word{background:#0c1a2e;border-color:var(--sky);color:var(--sky);font-weight:700}
+.sv-c .sv-word{background:#1c1917;border-color:var(--amber);color:var(--amber);font-weight:700}
+.sv-plus{font-size:1.2rem;color:var(--muted);padding:.3rem}
+.page-header{text-align:center;padding:32px 20px 20px;margin-bottom:28px;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border:1px solid var(--border);border-radius:16px}
+.page-header .badge{display:inline-block;background:#1a0533;color:#e9d5ff;font-size:.78em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:4px 14px;margin-bottom:12px}
+.page-header h1{font-size:2.2em;color:#f8fafc;margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:1.05em}
+.navback{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.navback a{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:.88em;color:var(--muted);text-decoration:none;transition:border-color .15s}
+.navback a:hover{border-color:var(--accent);color:var(--accent)}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="page-header">
+  <div class="badge">English Grammar · Sentences</div>
+  <h1>English Grammar: Sentence Structure</h1>
+  <p>Word order, patterns, questions, negation, adjective &amp; adverb placement, connectors, and relative clauses.</p>
+</div>
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#ss01">Word Order</a>
+  <a href="#ss02">Sentence Patterns</a>
+  <a href="#ss03">Questions</a>
+  <a href="#ss04">Negation</a>
+  <a href="#ss05">Adjective Order</a>
+  <a href="#ss06">Adverb Placement</a>
+  <a href="#ss07">Connecting Ideas</a>
+  <a href="#ss08">Relative Clauses</a>
+  <a href="#ss09">Common Mistakes</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ─── ss01 ─── -->
+<section id="ss01">
+<h2>ss01 — Word Order Overview</h2>
+<p>English is an <strong>SVO language</strong> — the Subject comes first, the Verb second, and the Object third. This fixed order is what gives English sentences their meaning.</p>
+
+<div class="teach">
+  <strong>Why word order matters so much in English</strong>
+  Unlike German (which uses case endings) or Latin (which uses inflections), English relies almost entirely on <em>position</em> to show who is doing what to whom. Change the order and you change — or destroy — the meaning.
+</div>
+
+<div class="sent-visual">
+  <div class="sv sv-s"><div class="sv-word">The dog</div><div class="sv-label">Subject</div></div>
+  <div class="sv-plus">→</div>
+  <div class="sv sv-v"><div class="sv-word">bit</div><div class="sv-label">Verb</div></div>
+  <div class="sv-plus">→</div>
+  <div class="sv sv-o"><div class="sv-word">the man</div><div class="sv-label">Object</div></div>
+</div>
+<div class="sent-visual">
+  <div class="sv sv-s"><div class="sv-word">The man</div><div class="sv-label">Subject</div></div>
+  <div class="sv-plus">→</div>
+  <div class="sv sv-v"><div class="sv-word">bit</div><div class="sv-label">Verb</div></div>
+  <div class="sv-plus">→</div>
+  <div class="sv sv-o"><div class="sv-word">the dog</div><div class="sv-label">Object</div></div>
+</div>
+<p><span class="dim">Same words — completely different events. Word order is the only clue.</span></p>
+
+<h3>SVO vs other languages</h3>
+<div class="table-wrap"><table>
+  <tr><th>Language</th><th>Order</th><th>Example</th></tr>
+  <tr><td>English</td><td class="hi">SVO</td><td>"She loves him."</td></tr>
+  <tr><td>German</td><td class="hi2">SOV (subordinate) / SVO (main)</td><td>"Sie liebt ihn." / "…weil sie ihn liebt."</td></tr>
+  <tr><td>Japanese</td><td class="hi2">SOV</td><td>"Kanojo wa kare o aishite iru."</td></tr>
+  <tr><td>Arabic</td><td class="hi2">VSO</td><td>"Tuhibbu hiya iyyahu."</td></tr>
+  <tr><td>Latin</td><td class="hi2">Flexible (case-marked)</td><td>"Illa eum amat." / "Eum amat illa."</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>Memory anchor</strong>
+  Think of English as a train: <span class="hi">engine (Subject)</span> → <span class="hi3">carriages (Verb)</span> → <span class="hi2">cargo (Object)</span>. Swap engine and cargo and the train crashes.
+</div>
+</section>
+
+<!-- ─── ss02 ─── -->
+<section id="ss02">
+<h2>ss02 — Basic Sentence Patterns</h2>
+<p>English has five core sentence patterns. Every English sentence fits one of them.</p>
+
+<h3>Pattern 1 — S + V (Subject + Verb)</h3>
+<div class="formula"><span>S</span> + <span>V</span></div>
+<p>No object needed — the verb is intransitive.</p>
+<div class="example">
+  <strong>Examples</strong>
+  She <span class="hi3">smiled</span>. &nbsp;|&nbsp; Birds <span class="hi3">fly</span>. &nbsp;|&nbsp; The baby <span class="hi3">cried</span>. &nbsp;|&nbsp; He <span class="hi3">arrived</span>.
+</div>
+
+<h3>Pattern 2 — S + V + O (Subject + Verb + Object)</h3>
+<div class="formula"><span>S</span> + <span>V</span> + <span style="color:var(--sky)">O</span></div>
+<p>The most common pattern. The verb is transitive and needs an object.</p>
+<div class="example">
+  <strong>Examples</strong>
+  She <span class="hi3">reads</span> <span class="hi" style="color:var(--sky)">books</span>. &nbsp;|&nbsp;
+  I <span class="hi3">love</span> <span style="color:var(--sky)">coffee</span>. &nbsp;|&nbsp;
+  They <span class="hi3">built</span> <span style="color:var(--sky)">a house</span>.
+</div>
+
+<h3>Pattern 3 — S + V + C (Subject + Linking Verb + Complement)</h3>
+<div class="formula"><span>S</span> + <span>V<sub>link</sub></span> + <span style="color:var(--amber)">C</span></div>
+<p>Linking verbs: <em>be, seem, appear, become, feel, look, smell, sound, taste, remain, stay</em>. The complement describes the subject.</p>
+<div class="example">
+  <strong>Examples</strong>
+  She <span class="hi3">is</span> <span class="hi2">a doctor</span>. &nbsp;|&nbsp;
+  He <span class="hi3">seems</span> <span class="hi2">tired</span>. &nbsp;|&nbsp;
+  The soup <span class="hi3">tastes</span> <span class="hi2">delicious</span>. &nbsp;|&nbsp;
+  They <span class="hi3">became</span> <span class="hi2">friends</span>.
+</div>
+
+<h3>Pattern 4 — S + V + O + O (Ditransitive — two objects)</h3>
+<div class="formula"><span>S</span> + <span>V</span> + <span style="color:var(--rose)">IO</span> + <span style="color:var(--sky)">DO</span></div>
+<p>One verb, two objects: an <em>indirect object</em> (recipient) and a <em>direct object</em> (the thing).</p>
+<div class="example">
+  <strong>Examples</strong>
+  She gave <span style="color:var(--rose)">him</span> <span style="color:var(--sky)">a book</span>. &nbsp;|&nbsp;
+  I sent <span style="color:var(--rose)">her</span> <span style="color:var(--sky)">an email</span>. &nbsp;|&nbsp;
+  They told <span style="color:var(--rose)">us</span> <span style="color:var(--sky)">the truth</span>.
+</div>
+<div class="trick">
+  <strong>Flip test</strong>
+  You can reorder with "to/for": "She gave a book <em>to</em> him." Both orders are correct.
+</div>
+
+<h3>Pattern 5 — S + V + O + C (Object Complement)</h3>
+<div class="formula"><span>S</span> + <span>V</span> + <span style="color:var(--sky)">O</span> + <span style="color:var(--amber)">C</span></div>
+<p>The complement describes the object, not the subject.</p>
+<div class="example">
+  <strong>Examples</strong>
+  They elected <span style="color:var(--sky)">him</span> <span class="hi2">president</span>. &nbsp;|&nbsp;
+  She painted <span style="color:var(--sky)">the wall</span> <span class="hi2">blue</span>. &nbsp;|&nbsp;
+  He called <span style="color:var(--sky)">me</span> <span class="hi2">a genius</span>. &nbsp;|&nbsp;
+  I found <span style="color:var(--sky)">it</span> <span class="hi2">useful</span>.
+</div>
+
+<h3>Quick comparison table</h3>
+<div class="table-wrap"><table>
+  <tr><th>Pattern</th><th>Formula</th><th>Example</th></tr>
+  <tr><td>1</td><td>S + V</td><td>The baby cried.</td></tr>
+  <tr><td>2</td><td>S + V + O</td><td>I love pizza.</td></tr>
+  <tr><td>3</td><td>S + V<sub>link</sub> + C</td><td>She looks happy.</td></tr>
+  <tr><td>4</td><td>S + V + IO + DO</td><td>He gave me a gift.</td></tr>
+  <tr><td>5</td><td>S + V + O + C</td><td>They made her CEO.</td></tr>
+</table></div>
+</section>
+
+<!-- ─── ss03 ─── -->
+<section id="ss03">
+<h2>ss03 — Questions</h2>
+
+<h3>Yes/No Questions — Auxiliary Inversion</h3>
+<p>Move the auxiliary verb <em>before</em> the subject. If there is no auxiliary, use <strong>do/does/did</strong>.</p>
+<div class="formula">
+  <span>Auxiliary</span> + Subject + Main Verb + …?
+</div>
+<div class="table-wrap"><table>
+  <tr><th>Statement</th><th>Yes/No Question</th></tr>
+  <tr><td>She <span class="hi">is</span> happy.</td><td><span class="hi">Is</span> she happy?</td></tr>
+  <tr><td>They <span class="hi">can</span> swim.</td><td><span class="hi">Can</span> they swim?</td></tr>
+  <tr><td>He plays guitar.</td><td><span class="hi">Does</span> he play guitar?</td></tr>
+  <tr><td>She called you.</td><td><span class="hi">Did</span> she call you?</td></tr>
+  <tr><td>You <span class="hi">have</span> eaten.</td><td><span class="hi">Have</span> you eaten?</td></tr>
+</table></div>
+
+<h3>Wh- Questions</h3>
+<p>The Wh- word moves to the front, then auxiliary inversion follows.</p>
+<div class="formula"><span>Wh-</span> + Auxiliary + Subject + Verb + …?</div>
+<div class="table-wrap"><table>
+  <tr><th>Wh- Word</th><th>Asks about</th><th>Example</th></tr>
+  <tr><td class="hi">Who</td><td>Person (subject)</td><td>Who called you?</td></tr>
+  <tr><td class="hi">Whom</td><td>Person (object, formal)</td><td>Whom did you call?</td></tr>
+  <tr><td class="hi">What</td><td>Thing / action</td><td>What did she say?</td></tr>
+  <tr><td class="hi">Where</td><td>Place</td><td>Where do you live?</td></tr>
+  <tr><td class="hi">When</td><td>Time</td><td>When does it start?</td></tr>
+  <tr><td class="hi">Why</td><td>Reason</td><td>Why are you late?</td></tr>
+  <tr><td class="hi">How</td><td>Manner / degree</td><td>How did you do it?</td></tr>
+  <tr><td class="hi">Which</td><td>Choice from a set</td><td>Which bag is yours?</td></tr>
+  <tr><td class="hi">Whose</td><td>Possession</td><td>Whose keys are these?</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>Who vs Whom trick</strong>
+  Replace the answer: if it would be "he/she/they" → use <strong>who</strong>. If it would be "him/her/them" → use <strong>whom</strong>.
+  "Who called?" → "He called." ✓ &nbsp;|&nbsp; "Whom did you call?" → "I called him." ✓
+</div>
+
+<h3>Question Tags</h3>
+<p>A short question added to the end of a statement to invite confirmation. If the statement is positive, the tag is negative — and vice versa.</p>
+<div class="formula">Positive statement, <span>negative tag</span>? &nbsp;/&nbsp; Negative statement, <span>positive tag</span>?</div>
+<div class="table-wrap"><table>
+  <tr><th>Statement</th><th>Tag</th><th>Full sentence</th></tr>
+  <tr><td>She is a teacher</td><td class="hi">isn't she?</td><td>She is a teacher, isn't she?</td></tr>
+  <tr><td>They don't know</td><td class="hi">do they?</td><td>They don't know, do they?</td></tr>
+  <tr><td>You can drive</td><td class="hi">can't you?</td><td>You can drive, can't you?</td></tr>
+  <tr><td>He never lies</td><td class="hi">does he?</td><td>He never lies, does he?</td></tr>
+  <tr><td>I am late</td><td class="hi">aren't I?</td><td>I am late, aren't I?</td></tr>
+  <tr><td>Let's go</td><td class="hi">shall we?</td><td>Let's go, shall we?</td></tr>
+</table></div>
+<div class="trick">
+  <strong>Special case: "I am"</strong>
+  The tag for "I am" is <strong>aren't I?</strong> (not "amn't I?") — this is the accepted informal form.
+</div>
+
+<h3>Indirect Questions</h3>
+<p>When a question is embedded inside a polite request, the word order reverts to normal statement order (no inversion).</p>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">DIRECT (inversion)</div>Where is the station?</div>
+  <div class="pair-right"><div class="label">INDIRECT (no inversion)</div>Could you tell me <strong>where the station is</strong>?</div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">DIRECT</div>What time does it open?</div>
+  <div class="pair-right"><div class="label">INDIRECT</div>Do you know <strong>what time it opens</strong>?</div>
+</div>
+<div class="example">
+  <strong>More indirect question examples</strong>
+  <ul>
+    <li>I wonder <strong>whether she is coming</strong>.</li>
+    <li>Can you explain <strong>why you were late</strong>?</li>
+    <li>Please tell me <strong>how much it costs</strong>.</li>
+    <li>I'd like to know <strong>if the meeting is cancelled</strong>.</li>
+  </ul>
+</div>
+</section>
+
+<!-- ─── ss04 ─── -->
+<section id="ss04">
+<h2>ss04 — Negation</h2>
+<p>Negation in English always requires an auxiliary verb. Different verb types use different auxiliaries.</p>
+
+<h3>do / does / did + not</h3>
+<p>Used with simple present and simple past of main verbs (not "be" and not modals).</p>
+<div class="table-wrap"><table>
+  <tr><th>Positive</th><th>Negative</th><th>Contracted</th></tr>
+  <tr><td>I work here.</td><td>I <span class="hi">do not</span> work here.</td><td>I <span class="hi">don't</span> work here.</td></tr>
+  <tr><td>She likes tea.</td><td>She <span class="hi">does not</span> like tea.</td><td>She <span class="hi">doesn't</span> like tea.</td></tr>
+  <tr><td>They called me.</td><td>They <span class="hi">did not</span> call me.</td><td>They <span class="hi">didn't</span> call me.</td></tr>
+</table></div>
+<div class="teach">
+  <strong>Key rule</strong>
+  With do/does/did, the main verb returns to its base form. Never: "She doesn't <span class="red">likes</span>" — always "She doesn't <span class="hi3">like</span>."
+</div>
+
+<h3>be + not</h3>
+<div class="table-wrap"><table>
+  <tr><th>Positive</th><th>Negative</th><th>Contracted</th></tr>
+  <tr><td>I am tired.</td><td>I <span class="hi">am not</span> tired.</td><td>I'm <span class="hi">not</span> tired.</td></tr>
+  <tr><td>She is here.</td><td>She <span class="hi">is not</span> here.</td><td>She <span class="hi">isn't</span> here.</td></tr>
+  <tr><td>They were late.</td><td>They <span class="hi">were not</span> late.</td><td>They <span class="hi">weren't</span> late.</td></tr>
+</table></div>
+
+<h3>have + not (perfect tenses)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Positive</th><th>Negative</th><th>Contracted</th></tr>
+  <tr><td>I have finished.</td><td>I <span class="hi">have not</span> finished.</td><td>I <span class="hi">haven't</span> finished.</td></tr>
+  <tr><td>She has left.</td><td>She <span class="hi">has not</span> left.</td><td>She <span class="hi">hasn't</span> left.</td></tr>
+  <tr><td>They had eaten.</td><td>They <span class="hi">had not</span> eaten.</td><td>They <span class="hi">hadn't</span> eaten.</td></tr>
+</table></div>
+
+<h3>Modal + not</h3>
+<div class="table-wrap"><table>
+  <tr><th>Modal</th><th>Negative</th><th>Contracted</th></tr>
+  <tr><td>can</td><td>cannot</td><td>can't</td></tr>
+  <tr><td>will</td><td>will not</td><td>won't</td></tr>
+  <tr><td>would</td><td>would not</td><td>wouldn't</td></tr>
+  <tr><td>should</td><td>should not</td><td>shouldn't</td></tr>
+  <tr><td>must</td><td>must not</td><td>mustn't</td></tr>
+  <tr><td>could</td><td>could not</td><td>couldn't</td></tr>
+  <tr><td>might</td><td>might not</td><td>mightn't (rare)</td></tr>
+</table></div>
+
+<h3>The Double Negative Mistake</h3>
+<p>English uses <strong>single negation</strong>. Two negative words cancel each other out and create an unintentional positive in standard English.</p>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG — double negative</div>I don't know <span class="red">nothing</span>.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>I don't know <span class="hi3">anything</span>. <br><span class="dim">/ I know nothing.</span></div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>She didn't go <span class="red">nowhere</span>.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>She didn't go <span class="hi3">anywhere</span>. <br><span class="dim">/ She went nowhere.</span></div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>Nobody said <span class="red">nothing</span>.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>Nobody said <span class="hi3">anything</span>. <br><span class="dim">/ No one said anything.</span></div>
+</div>
+<div class="trick">
+  <strong>Rule of thumb</strong>
+  After a negative auxiliary (<em>don't, doesn't, didn't, can't, won't…</em>), use positive indefinites: <strong>any-, some-</strong>. After a positive verb with a negative indefinite, stop at one: "I know <em>nothing</em>."
+</div>
+</section>
+
+<!-- ─── ss05 ─── -->
+<section id="ss05">
+<h2>ss05 — Adjective Order</h2>
+<p>When multiple adjectives describe a noun, English follows a strict order. Native speakers feel it instinctively; learners need the rule.</p>
+
+<div class="mnemonic">
+  <div>Remember the order with:</div>
+  <div class="letters">O S A S C O M P</div>
+  <div style="margin-top:.5rem;color:var(--muted);font-size:.95rem">
+    <strong style="color:var(--accent3)">O</strong>pinion &nbsp;→&nbsp;
+    <strong style="color:var(--accent3)">S</strong>ize &nbsp;→&nbsp;
+    <strong style="color:var(--accent3)">A</strong>ge &nbsp;→&nbsp;
+    <strong style="color:var(--accent3)">S</strong>hape &nbsp;→&nbsp;
+    <strong style="color:var(--accent3)">C</strong>olour &nbsp;→&nbsp;
+    <strong style="color:var(--accent3)">O</strong>rigin &nbsp;→&nbsp;
+    <strong style="color:var(--accent3)">M</strong>aterial &nbsp;→&nbsp;
+    <strong style="color:var(--accent3)">P</strong>urpose
+  </div>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Category</th><th>Examples</th><th>Sample Phrase</th></tr>
+  <tr><td class="hi">Opinion</td><td>lovely, beautiful, ugly, strange, boring</td><td>a <span class="hi">lovely</span> ___</td></tr>
+  <tr><td class="hi">Size</td><td>big, small, tall, short, tiny, enormous</td><td>a <span class="hi">big</span> ___</td></tr>
+  <tr><td class="hi">Age</td><td>old, young, new, ancient, modern</td><td>a <span class="hi">new</span> ___</td></tr>
+  <tr><td class="hi">Shape</td><td>round, square, flat, triangular, long</td><td>a <span class="hi">round</span> ___</td></tr>
+  <tr><td class="hi">Colour</td><td>red, dark blue, pale green, golden</td><td>a <span class="hi">red</span> ___</td></tr>
+  <tr><td class="hi">Origin</td><td>Italian, Japanese, northern, local</td><td>an <span class="hi">Italian</span> ___</td></tr>
+  <tr><td class="hi">Material</td><td>wooden, silk, leather, metal, plastic</td><td>a <span class="hi">wooden</span> ___</td></tr>
+  <tr><td class="hi">Purpose</td><td>sleeping (bag), cooking (pot), running (shoes)</td><td>a <span class="hi">sleeping</span> bag</td></tr>
+</table></div>
+
+<h3>Full examples with order applied</h3>
+<div class="example">
+  <strong>Examples — read the adjective chain left to right</strong>
+  <ul>
+    <li>a <span class="hi">lovely</span> <span class="hi">little</span> <span class="hi">old</span> <span class="hi">round</span> <span class="hi">green</span> <span class="hi">French</span> <span class="hi">silver</span> whittling knife</li>
+    <li>a <span class="hi">beautiful</span> <span class="hi">tall</span> <span class="hi">young</span> <span class="hi">Italian</span> woman</li>
+    <li>a <span class="hi">strange</span> <span class="hi">small</span> <span class="hi">black</span> <span class="hi">plastic</span> box</li>
+    <li>an <span class="hi">ugly</span> <span class="hi">old</span> <span class="hi">square</span> <span class="hi">brown</span> <span class="hi">leather</span> bag</li>
+    <li>big <span class="hi">blue</span> <span class="hi">French</span> swimming goggles</li>
+  </ul>
+</div>
+
+<h3>Common ordering mistakes</h3>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>a <span class="red">leather old brown</span> bag</div>
+  <div class="pair-right"><div class="label">CORRECT</div>an <span class="hi3">old brown leather</span> bag</div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>a <span class="red">red big</span> car</div>
+  <div class="pair-right"><div class="label">CORRECT</div>a <span class="hi3">big red</span> car</div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>a <span class="red">Japanese beautiful</span> garden</div>
+  <div class="pair-right"><div class="label">CORRECT</div>a <span class="hi3">beautiful Japanese</span> garden</div>
+</div>
+
+<div class="trick">
+  <strong>Practical tip</strong>
+  In real speech you rarely chain more than 2–3 adjectives. But when you do, always run them through OSASCOMP in your head. Opinion and size first are the most common pair.
+</div>
+</section>
+
+<!-- ─── ss06 ─── -->
+<section id="ss06">
+<h2>ss06 — Adverb Placement</h2>
+
+<h3>Frequency Adverbs</h3>
+<p>Words like <em>always, usually, often, sometimes, rarely, seldom, never, hardly ever</em>.</p>
+<div class="teach">
+  <strong>Placement rules</strong>
+  <ul>
+    <li>Before the main verb: "She <span class="hi">always</span> arrives on time."</li>
+    <li>After <strong>be</strong>: "He is <span class="hi">never</span> late."</li>
+    <li>After the first auxiliary: "They have <span class="hi">always</span> been kind."</li>
+  </ul>
+</div>
+<div class="table-wrap"><table>
+  <tr><th>Sentence type</th><th>Adverb position</th><th>Example</th></tr>
+  <tr><td>Main verb sentence</td><td>Before main verb</td><td>I <span class="hi">usually</span> walk to work.</td></tr>
+  <tr><td>"be" verb sentence</td><td>After "be"</td><td>She is <span class="hi">always</span> cheerful.</td></tr>
+  <tr><td>With auxiliary</td><td>After 1st auxiliary</td><td>He has <span class="hi">never</span> been abroad.</td></tr>
+  <tr><td>Modal + main verb</td><td>After modal</td><td>You should <span class="hi">always</span> check twice.</td></tr>
+</table></div>
+
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>He <span class="red">goes always</span> to the gym.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>He <span class="hi3">always goes</span> to the gym.</div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG</div>She is <span class="red">never late</span> — wait, this IS correct.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>"He <span class="hi3">is always</span> late." (after be)</div>
+</div>
+
+<h3>Manner, Place, and Time (MPT)</h3>
+<p>When you have multiple adverbials at the end of a clause, the natural order is <strong>Manner → Place → Time</strong>.</p>
+<div class="formula"><span>Manner</span> + <span>Place</span> + <span style="color:var(--sky)">Time</span></div>
+<div class="example">
+  <strong>Examples</strong>
+  <ul>
+    <li>He drove <span class="hi">carefully</span> <span class="hi2">(manner)</span> <span style="color:var(--sky)">to work</span> <span class="hi2">(place)</span> <span style="color:var(--green)">yesterday</span> <span class="hi2">(time)</span>.</li>
+    <li>She sang <span class="hi">beautifully</span> <span style="color:var(--sky)">at the concert</span> <span style="color:var(--green)">last night</span>.</li>
+    <li>They worked <span class="hi">hard</span> <span style="color:var(--sky)">in the office</span> <span style="color:var(--green)">all day</span>.</li>
+    <li>The children played <span class="hi">loudly</span> <span style="color:var(--sky)">in the garden</span> <span style="color:var(--green)">this afternoon</span>.</li>
+  </ul>
+</div>
+
+<h3>Adverbs that go in the middle</h3>
+<p>Degree adverbs (<em>almost, nearly, quite, rather, really, very, too, enough</em>) go directly before the word they modify.</p>
+<div class="example">
+  <strong>Examples</strong>
+  <ul>
+    <li>It is <span class="hi">quite</span> difficult.</li>
+    <li>She speaks <span class="hi">really</span> fast.</li>
+    <li>He is <span class="hi">almost</span> ready.</li>
+    <li>That is <span class="hi">too</span> expensive. &nbsp;/&nbsp; It isn't good <span class="hi">enough</span>.</li>
+  </ul>
+</div>
+
+<div class="trick">
+  <strong>Time adverbs at the front</strong>
+  Time adverbs (<em>yesterday, last week, soon, now</em>) can also move to the front of a sentence for emphasis — this is perfectly natural: "<strong>Yesterday</strong>, I saw Maria." "<strong>Soon</strong>, everything will be different."
+</div>
+</section>
+
+<!-- ─── ss07 ─── -->
+<section id="ss07">
+<h2>ss07 — Connecting Ideas</h2>
+
+<h3>Coordinating Conjunctions — FANBOYS</h3>
+<div class="mnemonic">
+  <div>The seven coordinating conjunctions:</div>
+  <div class="letters">F A N B O Y S</div>
+  <div style="margin-top:.5rem;color:var(--muted);font-size:.95rem">
+    <strong style="color:var(--accent3)">F</strong>or &nbsp;·&nbsp;
+    <strong style="color:var(--accent3)">A</strong>nd &nbsp;·&nbsp;
+    <strong style="color:var(--accent3)">N</strong>or &nbsp;·&nbsp;
+    <strong style="color:var(--accent3)">B</strong>ut &nbsp;·&nbsp;
+    <strong style="color:var(--accent3)">O</strong>r &nbsp;·&nbsp;
+    <strong style="color:var(--accent3)">Y</strong>et &nbsp;·&nbsp;
+    <strong style="color:var(--accent3)">S</strong>o
+  </div>
+</div>
+<div class="table-wrap"><table>
+  <tr><th>Word</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="hi">for</td><td>reason / because</td><td>He left early, <span class="hi">for</span> he was tired.</td></tr>
+  <tr><td class="hi">and</td><td>addition</td><td>I like coffee <span class="hi">and</span> tea.</td></tr>
+  <tr><td class="hi">nor</td><td>negative addition</td><td>She doesn't smoke, <span class="hi">nor</span> does she drink.</td></tr>
+  <tr><td class="hi">but</td><td>contrast</td><td>I tried, <span class="hi">but</span> I failed.</td></tr>
+  <tr><td class="hi">or</td><td>alternative</td><td>Do you want tea <span class="hi">or</span> coffee?</td></tr>
+  <tr><td class="hi">yet</td><td>contrast (= however)</td><td>She is small, <span class="hi">yet</span> she is strong.</td></tr>
+  <tr><td class="hi">so</td><td>result</td><td>It was raining, <span class="hi">so</span> I stayed inside.</td></tr>
+</table></div>
+<p><span class="dim">When FANBOYS join two independent clauses, put a comma before the conjunction.</span></p>
+
+<h3>Subordinating Conjunctions</h3>
+<p>These introduce a dependent clause. The clause cannot stand alone — it needs the main clause.</p>
+<div class="table-wrap"><table>
+  <tr><th>Category</th><th>Conjunctions</th><th>Example</th></tr>
+  <tr><td class="hi">Reason</td><td>because, since, as</td><td>I stayed in <span class="hi">because</span> it was cold.</td></tr>
+  <tr><td class="hi">Contrast</td><td>although, even though, while, whereas</td><td><span class="hi">Although</span> it rained, we enjoyed it.</td></tr>
+  <tr><td class="hi">Time</td><td>when, while, before, after, until, as soon as</td><td>Call me <span class="hi">when</span> you arrive.</td></tr>
+  <tr><td class="hi">Condition</td><td>if, unless, provided that, as long as</td><td><span class="hi">Unless</span> you hurry, we'll be late.</td></tr>
+  <tr><td class="hi">Purpose</td><td>so that, in order that</td><td>I left early <span class="hi">so that</span> I wouldn't miss the train.</td></tr>
+  <tr><td class="hi">Result</td><td>so…that, such…that</td><td>It was <span class="hi">so</span> hot <span class="hi">that</span> we couldn't sleep.</td></tr>
+</table></div>
+
+<div class="teach">
+  <strong>Comma rule for subordinate clauses</strong>
+  <ul>
+    <li>Subordinate clause first → use a comma: "<strong>Although it was raining, we went out.</strong>"</li>
+    <li>Main clause first → no comma usually: "We went out <strong>although it was raining.</strong>"</li>
+  </ul>
+</div>
+
+<h3>Sentence Combining Practice</h3>
+<p>Combine these pairs using the suggested connector:</p>
+<div class="table-wrap"><table>
+  <tr><th>Sentences</th><th>Connector</th><th>Combined</th></tr>
+  <tr><td>It was late. We kept working.</td><td>but</td><td>It was late, <span class="hi">but</span> we kept working.</td></tr>
+  <tr><td>She studied hard. She passed.</td><td>so</td><td>She studied hard, <span class="hi">so</span> she passed.</td></tr>
+  <tr><td>He was tired. He stayed awake.</td><td>although</td><td><span class="hi">Although</span> he was tired, he stayed awake.</td></tr>
+  <tr><td>I'll help you. You ask nicely.</td><td>if</td><td>I'll help you <span class="hi">if</span> you ask nicely.</td></tr>
+  <tr><td>She didn't call. She didn't write.</td><td>nor</td><td>She didn't call, <span class="hi">nor</span> did she write.</td></tr>
+</table></div>
+</section>
+
+<!-- ─── ss08 ─── -->
+<section id="ss08">
+<h2>ss08 — Relative Clauses</h2>
+
+<h3>Defining vs Non-Defining</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Defining (Restrictive)</div>
+    <ul>
+      <li>No commas</li>
+      <li>Identifies <em>which</em> person/thing</li>
+      <li>Cannot be removed without losing meaning</li>
+      <li>Use <strong>that, which, who, whom, whose</strong></li>
+      <li>"that" is preferred in informal English</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title">Non-Defining (Non-Restrictive)</div>
+    <ul>
+      <li>Always use commas</li>
+      <li>Adds extra information</li>
+      <li>Can be removed — main meaning survives</li>
+      <li>Use <strong>which, who, whom, whose</strong></li>
+      <li>Never use "that"</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Relative pronouns at a glance</h3>
+<div class="table-wrap"><table>
+  <tr><th>Pronoun</th><th>Refers to</th><th>Defining</th><th>Non-Defining</th></tr>
+  <tr><td class="hi">who</td><td>people (subject)</td><td>✓</td><td>✓</td></tr>
+  <tr><td class="hi">whom</td><td>people (object, formal)</td><td>✓</td><td>✓</td></tr>
+  <tr><td class="hi">which</td><td>things / animals</td><td>✓</td><td>✓</td></tr>
+  <tr><td class="hi">that</td><td>people or things</td><td>✓</td><td>✗ never</td></tr>
+  <tr><td class="hi">whose</td><td>possession</td><td>✓</td><td>✓</td></tr>
+  <tr><td class="hi">where</td><td>place</td><td>✓</td><td>✓</td></tr>
+  <tr><td class="hi">when</td><td>time</td><td>✓</td><td>✓</td></tr>
+</table></div>
+
+<div class="example">
+  <strong>Defining examples</strong>
+  <ul>
+    <li>The man <span class="hi">who called</span> you is my brother. <span class="dim">(which man? the one who called)</span></li>
+    <li>The book <span class="hi">that I lent you</span> is out of print.</li>
+    <li>The house <span class="hi">where I grew up</span> has been demolished.</li>
+    <li>The day <span class="hi">when we met</span> was a Friday.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <strong>Non-defining examples</strong>
+  <ul>
+    <li>My brother, <span class="hi">who lives in Dublin</span>, is visiting next week.</li>
+    <li>The Eiffel Tower, <span class="hi">which was built in 1889</span>, attracts millions of visitors.</li>
+    <li>Her mother, <span class="hi">whom everyone admires</span>, won a national award.</li>
+    <li>Oxford, <span class="hi">where I studied</span>, is a beautiful city.</li>
+  </ul>
+</div>
+
+<h3>Reducing Relative Clauses</h3>
+<p>When the relative pronoun is the subject and is followed by a verb, you can reduce the clause to a participle phrase.</p>
+<div class="table-wrap"><table>
+  <tr><th>Full clause</th><th>Reduced</th></tr>
+  <tr><td>The man <span class="hi">who is standing</span> by the door…</td><td>The man <span class="hi">standing</span> by the door…</td></tr>
+  <tr><td>The report <span class="hi">that was submitted</span> late…</td><td>The report <span class="hi">submitted</span> late…</td></tr>
+  <tr><td>Anyone <span class="hi">who wants</span> to join…</td><td>Anyone <span class="hi">wanting</span> to join…</td></tr>
+</table></div>
+
+<h3>Common mistakes</h3>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG — "that" in non-defining</div>My car, <span class="red">that</span> I bought last year, is already broken.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>My car, <span class="hi3">which</span> I bought last year, is already broken.</div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG — extra pronoun</div>The woman <span class="red">who she</span> helped me was kind.</div>
+  <div class="pair-right"><div class="label">CORRECT</div>The woman <span class="hi3">who</span> helped me was kind.</div>
+</div>
+<div class="pair">
+  <div class="pair-wrong"><div class="label">WRONG — missing comma</div>My sister <span class="red">who</span> is a nurse lives in Cork.</div>
+  <div class="pair-right"><div class="label">CORRECT (if only one sister)</div>My sister, <span class="hi3">who</span> is a nurse, lives in Cork.</div>
+</div>
+</section>
+
+<!-- ─── ss09 ─── -->
+<section id="ss09">
+<h2>ss09 — Common Word Order Mistakes</h2>
+<p>Fifteen frequent errors made by learners — with corrections and explanations.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Wrong</th><th>Correct</th><th>Rule</th></tr>
+  <tr>
+    <td>1</td>
+    <td class="red">I like very much English.</td>
+    <td class="hi3">I like English very much.</td>
+    <td>"Very much" goes at the end, after the object.</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td class="red">She is a very nice girl very tall.</td>
+    <td class="hi3">She is a very nice, tall girl.</td>
+    <td>All adjectives go before the noun.</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td class="red">He goes always to the gym.</td>
+    <td class="hi3">He always goes to the gym.</td>
+    <td>Frequency adverbs go before the main verb.</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td class="red">I speak English good.</td>
+    <td class="hi3">I speak English well.</td>
+    <td>Adverb (well), not adjective (good), to modify a verb.</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td class="red">Yesterday I have seen him.</td>
+    <td class="hi3">Yesterday I saw him.</td>
+    <td>Simple past, not present perfect, with specific past time.</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td class="red">What you are doing?</td>
+    <td class="hi3">What are you doing?</td>
+    <td>Question inversion: auxiliary before subject.</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td class="red">Do you know where is the station?</td>
+    <td class="hi3">Do you know where the station is?</td>
+    <td>Indirect questions use statement word order.</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td class="red">The car red is mine.</td>
+    <td class="hi3">The red car is mine.</td>
+    <td>Adjectives come before the noun in English.</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td class="red">She told to me the truth.</td>
+    <td class="hi3">She told me the truth.</td>
+    <td>"Tell" takes an indirect object without "to".</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td class="red">I don't know nothing about it.</td>
+    <td class="hi3">I don't know anything about it.</td>
+    <td>No double negatives in standard English.</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td class="red">He is a man very intelligent.</td>
+    <td class="hi3">He is a very intelligent man.</td>
+    <td>Adjectives precede nouns; "very" modifies the adjective.</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td class="red">I have seen yesterday a film.</td>
+    <td class="hi3">I saw a film yesterday.</td>
+    <td>Time adverbs go at the end (or start), not in the middle.</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td class="red">She quickly is typing.</td>
+    <td class="hi3">She is typing quickly.</td>
+    <td>Manner adverbs go after the verb phrase, not between auxiliary and main verb.</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td class="red">I am knowing her for years.</td>
+    <td class="hi3">I have known her for years.</td>
+    <td>Stative verbs (know, love, own) don't use continuous tenses.</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td class="red">Despite of the rain, we went out.</td>
+    <td class="hi3">Despite the rain, we went out.</td>
+    <td>"Despite" is a preposition — no "of". Use "in spite of" if you want "of".</td>
+  </tr>
+</table></div>
+
+<div class="trick">
+  <strong>Top 3 to memorise first</strong>
+  <ol>
+    <li>Adjectives before nouns: "the <span class="hi">red</span> car" not "the car <span class="red">red</span>".</li>
+    <li>Frequency adverbs before main verbs: "I <span class="hi">always</span> eat breakfast".</li>
+    <li>Question inversion: "<span class="hi">Are</span> you ready?" not "You <span class="red">are</span> ready?"</li>
+  </ol>
+</div>
+</section>
+
+<p style="text-align:center;color:var(--muted);font-size:.85rem;margin-top:2rem;padding-bottom:2rem">
+  English Grammar Reference &mdash; Sentence Structure &mdash; Sections ss01&ndash;ss09
+</p>
+
+</div><!-- .container -->
+</body>
+</html>

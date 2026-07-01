@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A1 German — Verbs: Complete Guide</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.changed { background: #1a3a5c !important; color: var(--gold); font-weight: 700; }
+.same { color: var(--fg-soft); }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.pronounce {
+  background: #1a0a2e; border: 1px solid var(--purple); border-left: 6px solid var(--purple);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+}
+.pronounce h4 { color: var(--purple); margin: 0 0 6px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* File-specific classes */
+.highlight-cell { background: #1a3a5c !important; color: var(--gold); font-weight: 700; }
+.trick { background: #1c1a00; border: 1px solid #f59e0b; border-left: 6px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em; }
+.trick h4 { color: var(--gold); margin: 0 0 8px 0; }
+.trick ul { padding-left: 20px; }
+.trick li { margin: 4px 0; }
+.situation { background: #071a0e; border: 1px solid #22c55e; border-left: 6px solid #22c55e; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em; }
+.situation h4 { color: #4ade80; margin: 0 0 8px 0; }
+.situation ul { padding-left: 20px; }
+.situation li { margin: 5px 0; }
+.mistake { background: #1f0a0a; border: 1px solid #f43f5e; border-left: 6px solid #f43f5e; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em; }
+.mistake h4 { color: #fb7185; margin: 0 0 8px 0; }
+.mistake ul { padding-left: 20px; }
+.mistake li { margin: 5px 0; }
+.wrong { color: var(--red); }
+.right { color: var(--green); font-weight: 600; }
+.analogy { background: #160b20; border: 1px solid #a855f7; border-left: 6px solid #a855f7; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em; }
+.analogy h4 { color: var(--purple); margin: 0 0 8px 0; }
+.analogy ul { padding-left: 20px; }
+.analogy li { margin: 5px 0; }
+.example-pair { background: var(--card2); border-left: 3px solid var(--accent); padding: 9px 14px; margin: 7px 0; border-radius: 0 6px 6px 0; }
+.example-pair .de { display: block; font-size: 1.05em; }
+.example-pair .en { display: block; color: var(--fg-soft); font-size: 0.9em; }
+.example-pair .why { display: block; color: #93c5fd; font-size: 0.88em; font-style: italic; margin-top: 2px; }
+.highlight { background: #3b2a00; border-radius: 4px; padding: 2px 7px; font-weight: 700; color: var(--gold); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 12px 0; }
+@media (max-width: 720px) { .two-col { grid-template-columns: 1fr; } }
+.verb-bracket { font-family: monospace; background: var(--card2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 18px; margin: 10px 0; font-size: 1.05em; }
+.vb-modal { color: #fb923c; font-weight: 700; }
+.vb-inf { color: #4ade80; font-weight: 700; }
+.vb-middle { color: var(--fg-soft); }
+hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+@media print {
+  body { background: #fff; color: #111; font-size: 12px; }
+  .teach, .trick, .situation, .mistake, .analogy { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h2.section { page-break-before: always; }
+}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="navback">
+  <a href="/a1-german-grammar.html">← Full Grammar Guide</a>
+  <a href="/a1-articles-cases.html">Articles &amp; Cases</a>
+  <a href="/a1-german-study-guide.html">Vocabulary Guide</a>
+  <a href="/">App Home</a>
+</div>
+
+<div class="page-header">
+  <div class="badge">A1 German · Verbs</div>
+  <h1>Verbs — Complete A1 Guide</h1>
+  <p>Regular conjugation · Irregular verbs · sein &amp; haben · Modal verbs · Separable &amp; Inseparable verbs</p>
+</div>
+
+<div class="toc">
+  <h2>In this guide</h2>
+  <div class="toc-grid">
+    <a href="#v01">1. How German verbs work — the big picture</a>
+    <a href="#v02">2. Regular verb conjugation (weak verbs)</a>
+    <a href="#v03">3. Irregular verbs — the 3 vowel change groups</a>
+    <a href="#v04">4. sein &amp; haben — the most important verbs</a>
+    <a href="#v05">5. Modal verbs — meaning, conjugation &amp; use</a>
+    <a href="#v06">6. The verb bracket — how it works</a>
+    <a href="#v07">7. Separable verbs — prefix splits off</a>
+    <a href="#v08">8. Inseparable verbs — prefix stays</a>
+    <a href="#v09">9. Key verb vocabulary tables</a>
+    <a href="#v10">10. Common verb mistakes</a>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v01">1. How German Verbs Work — The Big Picture</h2>
+
+<div class="teach">
+  <h4>🎯 Why does the verb ending change?</h4>
+  <p>In English, verbs barely change: "I eat / you eat / he eats" — only the third person adds -s. In German, the verb ending changes for <strong>every person</strong>. This is because the ending was originally the pronoun itself — it told you who was doing the action even before separate pronouns existed. Modern German kept both the pronouns and the endings.</p>
+  <p>The good news: once you know the 6 endings, they apply to <strong>hundreds of verbs</strong>. The pattern is completely predictable for regular verbs.</p>
+</div>
+
+<div class="teach">
+  <h4>📌 The German verb structure</h4>
+  <p>Every German verb has: <strong>stem + ending</strong>.</p>
+  <ul>
+    <li>Infinitive (dictionary form): <span class="de">lern-en</span> → stem = <span class="de">lern-</span></li>
+    <li>Strip the -en (or -n) to get the stem: <span class="de">wohn-en → wohn-</span></li>
+    <li>Add the correct ending for the person/tense: <span class="de">ich lern-e · du lern-st · er lern-t</span></li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v02">2. Regular Verb Conjugation — Present Tense</h2>
+
+<div class="teach">
+  <h4>📌 The 6 endings — memorise these for life</h4>
+  
+<div class="table-wrap"><table style="width:auto; margin:10px 0;">
+    <tr><th>Person</th><th>Ending</th><th>Mnemonic</th></tr>
+    <tr><td class="de">ich</td><td class="highlight">-e</td><td>I → e (shortest: just add e)</td></tr>
+    <tr><td class="de">du</td><td class="highlight">-st</td><td>you → st (sounds like "you said")</td></tr>
+    <tr><td class="de">er/sie/es</td><td class="highlight">-t</td><td>he/she/it → t (think: third person T)</td></tr>
+    <tr><td class="de">wir</td><td class="highlight">-en</td><td>we → en (same as infinitive!)</td></tr>
+    <tr><td class="de">ihr</td><td class="highlight">-t</td><td>you-plural → t (same as er)</td></tr>
+    <tr><td class="de">sie/Sie</td><td class="highlight">-en</td><td>they/you-formal → en (same as infinitive!)</td></tr>
+  </table></div>
+</div>
+
+<h3>Three regular verbs — side by side</h3>
+<div class="table-wrap"><table>
+  <tr><th>Person</th><th class="de">lernen (to learn)</th><th class="de">wohnen (to live)</th><th class="de">arbeiten (to work)</th><th>Note</th></tr>
+  <tr><td class="de">ich</td><td class="de">lerne</td><td class="de">wohne</td><td class="de highlight-cell">arbeite</td><td>+e before ending (stem ends -t)</td></tr>
+  <tr><td class="de">du</td><td class="de">lernst</td><td class="de">wohnst</td><td class="de highlight-cell">arbeitest</td><td>+e for pronounceability</td></tr>
+  <tr><td class="de">er/sie/es</td><td class="de">lernt</td><td class="de">wohnt</td><td class="de highlight-cell">arbeitet</td><td>+e for pronounceability</td></tr>
+  <tr><td class="de">wir</td><td class="de">lernen</td><td class="de">wohnen</td><td class="de">arbeiten</td><td>= infinitive</td></tr>
+  <tr><td class="de">ihr</td><td class="de">lernt</td><td class="de">wohnt</td><td class="de highlight-cell">arbeitet</td><td>+e for pronounceability</td></tr>
+  <tr><td class="de">sie/Sie</td><td class="de">lernen</td><td class="de">wohnen</td><td class="de">arbeiten</td><td>= infinitive</td></tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 The -t/-d stem rule — why "arbeite" not "arbeit"</h4>
+  <p>If the verb stem ends in <strong>-t or -d</strong> (arbeiten, antworten, reden, finden, warten), an extra <strong>-e-</strong> is inserted before -st and -t endings. Why? Because "arbeitst" is impossible to pronounce! The extra -e is purely a pronunciation aid — not a grammar mystery. Once you know this, you'll never forget it.</p>
+  <p>Other -t stem verbs: <span class="de">warten → du wartest · er wartet</span> · <span class="de">antworten → du antwortest</span> · <span class="de">reden → du redest</span></p>
+</div>
+
+<div class="trick">
+  <h4>🧠 The shortcut: wir = sie/Sie = infinitive</h4>
+  <p>The <strong>wir</strong> and <strong>sie/Sie</strong> forms are ALWAYS identical to the infinitive. So you only need to learn 4 forms (ich, du, er, ihr) — the other two you already know from the dictionary. This cuts your memorisation load by a third.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v03">3. Irregular Verbs — The Three Vowel Change Groups</h2>
+
+<div class="teach">
+  <h4>🎯 Why do some verbs change their vowel?</h4>
+  <p>These "strong verbs" are from the oldest layer of Germanic and change their stem vowel instead of following a predictable pattern. The critical fact: <strong>the vowel change ONLY happens in du and er/sie/es</strong>. All other forms (ich, wir, ihr, sie/Sie) follow the normal regular endings — no change.</p>
+</div>
+
+<div class="analogy">
+  <h4>🔄 English does this too</h4>
+  <p>English has the same type of verbs: sing/sang/sung, run/ran/run, drink/drank/drunk. German strong verbs change vowel in the present tense (du/er forms), not just in the past. The pattern is: same idea, different timing.</p>
+</div>
+
+<h3>Group 1: e → i (vowel gets shorter/higher)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Verb</th><th>ich</th><th class="highlight-cell">du (changes!)</th><th class="highlight-cell">er/sie/es (changes!)</th><th>wir</th></tr>
+  <tr><td class="de">sprechen (speak)</td><td class="de">spreche</td><td class="de highlight-cell">sprichst</td><td class="de highlight-cell">spricht</td><td class="de">sprechen</td></tr>
+  <tr><td class="de">essen (eat)</td><td class="de">esse</td><td class="de highlight-cell">isst</td><td class="de highlight-cell">isst</td><td class="de">essen</td></tr>
+  <tr><td class="de">geben (give)</td><td class="de">gebe</td><td class="de highlight-cell">gibst</td><td class="de highlight-cell">gibt</td><td class="de">geben</td></tr>
+  <tr><td class="de">nehmen (take)</td><td class="de">nehme</td><td class="de highlight-cell">nimmst</td><td class="de highlight-cell">nimmt</td><td class="de">nehmen</td></tr>
+  <tr><td class="de">treffen (meet)</td><td class="de">treffe</td><td class="de highlight-cell">triffst</td><td class="de highlight-cell">trifft</td><td class="de">treffen</td></tr>
+  <tr><td class="de">helfen (help)</td><td class="de">helfe</td><td class="de highlight-cell">hilfst</td><td class="de highlight-cell">hilft</td><td class="de">helfen</td></tr>
+</table></div>
+
+<h3>Group 2: e → ie (vowel gets longer)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Verb</th><th>ich</th><th class="highlight-cell">du (changes!)</th><th class="highlight-cell">er/sie/es (changes!)</th><th>wir</th></tr>
+  <tr><td class="de">sehen (see)</td><td class="de">sehe</td><td class="de highlight-cell">siehst</td><td class="de highlight-cell">sieht</td><td class="de">sehen</td></tr>
+  <tr><td class="de">lesen (read)</td><td class="de">lese</td><td class="de highlight-cell">liest</td><td class="de highlight-cell">liest</td><td class="de">lesen</td></tr>
+  <tr><td class="de">empfehlen (recommend)</td><td class="de">empfehle</td><td class="de highlight-cell">empfiehlst</td><td class="de highlight-cell">empfiehlt</td><td class="de">empfehlen</td></tr>
+</table></div>
+
+<h3>Group 3: a → ä (umlaut added)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Verb</th><th>ich</th><th class="highlight-cell">du (changes!)</th><th class="highlight-cell">er/sie/es (changes!)</th><th>wir</th></tr>
+  <tr><td class="de">fahren (drive/travel)</td><td class="de">fahre</td><td class="de highlight-cell">fährst</td><td class="de highlight-cell">fährt</td><td class="de">fahren</td></tr>
+  <tr><td class="de">schlafen (sleep)</td><td class="de">schlafe</td><td class="de highlight-cell">schläfst</td><td class="de highlight-cell">schläft</td><td class="de">schlafen</td></tr>
+  <tr><td class="de">tragen (carry/wear)</td><td class="de">trage</td><td class="de highlight-cell">trägst</td><td class="de highlight-cell">trägt</td><td class="de">tragen</td></tr>
+  <tr><td class="de">laufen (run)</td><td class="de">laufe</td><td class="de highlight-cell">läufst</td><td class="de highlight-cell">läuft</td><td class="de">laufen</td></tr>
+  <tr><td class="de">waschen (wash)</td><td class="de">wasche</td><td class="de highlight-cell">wäschst</td><td class="de highlight-cell">wäscht</td><td class="de">waschen</td></tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 Group memory tricks</h4>
+  <ul>
+    <li><strong>e→i group:</strong> "Eating, giving, taking get shorter." essen→isst, geben→gibt, nehmen→nimmt. The vowel shortens and rises.</li>
+    <li><strong>e→ie group:</strong> "Seeing and reading get longer." sehen→sieht, lesen→liest. The ie makes the vowel long.</li>
+    <li><strong>a→ä group:</strong> "Just add two dots to the a." fahren→fährt — the rest of the word stays the same, only the a gets an umlaut.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v04">4. sein &amp; haben — The Most Important Verbs</h2>
+
+<div class="teach">
+  <h4>🎯 Why these two are critical</h4>
+  <p>These are the two most-used verbs in German AND they are helpers for forming the Perfekt (past tense). You must know them perfectly — they appear in every conversation.</p>
+</div>
+
+<div class="two-col">
+<div>
+<h3>sein (to be) — fully irregular</h3>
+<div class="table-wrap"><table>
+  <tr><th>Person</th><th>Present</th><th>Präteritum</th></tr>
+  <tr><td class="de">ich</td><td class="de">bin</td><td class="de">war</td></tr>
+  <tr><td class="de">du</td><td class="de">bist</td><td class="de">warst</td></tr>
+  <tr><td class="de">er/sie/es</td><td class="de">ist</td><td class="de">war</td></tr>
+  <tr><td class="de">wir</td><td class="de">sind</td><td class="de">waren</td></tr>
+  <tr><td class="de">ihr</td><td class="de">seid</td><td class="de">wart</td></tr>
+  <tr><td class="de">sie/Sie</td><td class="de">sind</td><td class="de">waren</td></tr>
+</table></div>
+</div>
+<div>
+<h3>haben (to have) — mostly regular</h3>
+<div class="table-wrap"><table>
+  <tr><th>Person</th><th>Present</th><th>Präteritum</th></tr>
+  <tr><td class="de">ich</td><td class="de">habe</td><td class="de">hatte</td></tr>
+  <tr><td class="de">du</td><td class="de highlight-cell">hast</td><td class="de">hattest</td></tr>
+  <tr><td class="de">er/sie/es</td><td class="de highlight-cell">hat</td><td class="de">hatte</td></tr>
+  <tr><td class="de">wir</td><td class="de">haben</td><td class="de">hatten</td></tr>
+  <tr><td class="de">ihr</td><td class="de">habt</td><td class="de">hattet</td></tr>
+  <tr><td class="de">sie/Sie</td><td class="de">haben</td><td class="de">hatten</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="trick">
+  <h4>🧠 Memorise sein and haben with chants</h4>
+  <p><strong>sein:</strong> <span class="de">bin · bist · ist · sind · seid · sind</span></p>
+  <p><strong>haben:</strong> <span class="de">habe · hast · hat · haben · habt · haben</span></p>
+  <p>Say these out loud, rhythmically, every morning for one week. They become completely automatic. Notice haben is almost regular — only du/er lose the -b: ha<strong>b</strong>e → ha<strong>st</strong>/ha<strong>t</strong>.</p>
+</div>
+
+<div class="situation">
+  <h4>🌍 Situations using sein and haben</h4>
+  <div class="example-pair">
+    <span class="de">Ich bin Lehrerin. Er ist müde. Wir sind aus Deutschland.</span>
+    <span class="en">I am a teacher. He is tired. We are from Germany.</span>
+    <span class="why">sein for: professions (no article!), states, origins</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Ich habe Hunger. Sie hat keine Zeit. Habt ihr Fragen?</span>
+    <span class="en">I'm hungry. She has no time. Do you have questions?</span>
+    <span class="why">haben for: Hunger/Durst/Angst/Zeit/Fragen — no article with these set expressions</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Wo warst du gestern? — Ich war zu Hause.</span>
+    <span class="en">Where were you yesterday? — I was at home.</span>
+    <span class="why">war/waren = Präteritum of sein. Use this in speech, not "bin gewesen".</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v05">5. Modal Verbs — Meaning, Conjugation &amp; When to Use Each</h2>
+
+<div class="teach">
+  <h4>🎯 What modal verbs do</h4>
+  <p>Modal verbs express your <strong>attitude towards an action</strong> — whether it is possible, necessary, permitted, or desired. They NEVER appear alone — they always team up with an infinitive that describes the actual action. This creates the famous two-verb structure.</p>
+</div>
+
+<h3>The 6 Modal Verbs — Full Conjugation</h3>
+<div class="table-wrap"><table>
+  <tr><th>Person</th><th class="de">können (can)</th><th class="de">müssen (must)</th><th class="de">wollen (want)</th><th class="de">dürfen (may)</th><th class="de">sollen (should)</th><th class="de">möchten (would like)</th></tr>
+  <tr><td class="de">ich</td><td class="de">kann</td><td class="de">muss</td><td class="de">will</td><td class="de">darf</td><td class="de">soll</td><td class="de">möchte</td></tr>
+  <tr><td class="de">du</td><td class="de">kannst</td><td class="de">musst</td><td class="de">willst</td><td class="de">darfst</td><td class="de">sollst</td><td class="de">möchtest</td></tr>
+  <tr><td class="de">er/sie/es</td><td class="de">kann</td><td class="de">muss</td><td class="de">will</td><td class="de">darf</td><td class="de">soll</td><td class="de">möchte</td></tr>
+  <tr><td class="de">wir</td><td class="de">können</td><td class="de">müssen</td><td class="de">wollen</td><td class="de">dürfen</td><td class="de">sollen</td><td class="de">möchten</td></tr>
+  <tr><td class="de">ihr</td><td class="de">könnt</td><td class="de">müsst</td><td class="de">wollt</td><td class="de">dürft</td><td class="de">sollt</td><td class="de">möchtet</td></tr>
+  <tr><td class="de">sie/Sie</td><td class="de">können</td><td class="de">müssen</td><td class="de">wollen</td><td class="de">dürfen</td><td class="de">sollen</td><td class="de">möchten</td></tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 Pattern: ich = er/sie/es for modals (no ending in 3rd person singular!)</h4>
+  <p>Unlike regular verbs where er/sie/es always gets -t, modal verbs use the <strong>same form for ich AND er/sie/es</strong>. This is a special feature of all modal verbs: ich kann = er kann, ich muss = er muss, ich darf = er darf. Never add -t to a modal in 3rd person!</p>
+</div>
+
+<h3>Meaning &amp; Nuance — When to use which</h3>
+<div class="table-wrap"><table>
+  <tr><th>Modal</th><th>Core meaning</th><th>When to use</th><th>Example</th></tr>
+  <tr><td class="de">können</td><td>ability / possibility</td><td>Physical ability OR logical possibility. Also polite requests.</td><td class="de">Ich kann schwimmen. / Kann ich helfen?</td></tr>
+  <tr><td class="de">müssen</td><td>must / have to</td><td>Strong inner necessity — cannot avoid. Also logical conclusion.</td><td class="de">Ich muss jetzt gehen. / Das muss falsch sein.</td></tr>
+  <tr><td class="de">wollen</td><td>want to</td><td>Strong personal desire. Plans and intentions. Direct — can sound demanding in requests.</td><td class="de">Ich will Arzt werden. / Er will nicht kommen.</td></tr>
+  <tr><td class="de">dürfen</td><td>may / allowed to</td><td>Permission given by someone else. Prohibition in negative.</td><td class="de">Darf ich rauchen? / Man darf hier nicht parken.</td></tr>
+  <tr><td class="de">sollen</td><td>should / supposed to</td><td>Obligation from OUTSIDE — someone else requires or expects it.</td><td class="de">Du sollst nicht lügen. / Der Arzt sagt, ich soll ruhen.</td></tr>
+  <tr><td class="de">möchten</td><td>would like to</td><td>Polite wish or desire. ALWAYS use in shops, restaurants, requests. Never sounds demanding.</td><td class="de">Ich möchte einen Kaffee, bitte. / Wir möchten zahlen.</td></tr>
+</table></div>
+
+<div class="analogy">
+  <h4>🔄 müssen vs sollen — the one distinction that matters most</h4>
+  <ul>
+    <li><strong>müssen</strong> = internal necessity: <em>I feel/know I MUST</em>. <span class="de">Ich muss schlafen.</span> (I must sleep — I feel exhausted.)</li>
+    <li><strong>sollen</strong> = external obligation: <em>SOMEONE ELSE says I should</em>. <span class="de">Ich soll schlafen.</span> (The doctor says I should sleep.)</li>
+    <li>English equivalent: "I must go" (inner compulsion) vs "I'm supposed to go" (arranged by others).</li>
+  </ul>
+</div>
+
+<div class="analogy">
+  <h4>🔄 wollen vs möchten — politeness level</h4>
+  <ul>
+    <li><span class="de">Ich will einen Kaffee!</span> — sounds like a demand. Rude in shops.</li>
+    <li><span class="de">Ich möchte einen Kaffee, bitte.</span> — polite and natural. Always use this in service situations.</li>
+    <li>Rule: Use <strong>möchten</strong> when talking to strangers, in shops, restaurants, offices. Use <strong>wollen</strong> for personal plans and intentions.</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v06">6. The Verb Bracket — How Two-Verb Structures Work</h2>
+
+<div class="teach">
+  <h4>🎯 The fundamental sentence pattern with modal verbs</h4>
+  <p>When a modal verb appears, it creates a <strong>"verb bracket"</strong> (Verbalklammer): the modal verb takes position 2 (as always), and the infinitive jumps to the <strong>very last position</strong>. Everything else fills the middle.</p>
+</div>
+
+<div class="verb-bracket">
+  Ich &nbsp;<span class="vb-modal">[kann]</span>&nbsp; <span class="vb-middle">heute Abend mit dir ins Kino</span> &nbsp;<span class="vb-inf">[gehen]</span>.
+</div>
+<div class="verb-bracket">
+  Er &nbsp;<span class="vb-modal">[muss]</span>&nbsp; <span class="vb-middle">morgen früh um 6 Uhr</span> &nbsp;<span class="vb-inf">[aufstehen]</span>.
+</div>
+<div class="verb-bracket">
+  Darf &nbsp;<span class="vb-modal">[darf]</span>&nbsp; <span class="vb-middle">ich hier</span> &nbsp;<span class="vb-inf">[rauchen]</span>?
+</div>
+
+<div class="trick">
+  <h4>🧠 The bracket visual — always see it this way</h4>
+  <p>Visualise a big bracket <span class="de">[ &nbsp; &nbsp; &nbsp; ]</span> around the sentence content. The modal sits at the <strong>opening bracket</strong> (position 2). The infinitive sits at the <strong>closing bracket</strong> (end). The whole sentence content is trapped inside. Nothing can escape past the infinitive.</p>
+</div>
+
+<div class="mistake">
+  <h4>❌ Most common verb bracket mistakes</h4>
+  <ul>
+    <li><span class="wrong">Ich kann sprechen gut Deutsch.</span></li>
+    <li><span class="right">Ich kann gut Deutsch sprechen.</span> ← infinitive to absolute end</li>
+    <li><span class="wrong">Ich muss gehen jetzt.</span></li>
+    <li><span class="right">Ich muss jetzt gehen.</span> ← "jetzt" stays in middle; infinitive at end</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v07">7. Separable Verbs — Prefix Splits Off</h2>
+
+<div class="teach">
+  <h4>🎯 Why does the prefix move?</h4>
+  <p>German builds new verbs by adding prefixes to existing verbs. In a main clause (normal statement), the prefix "flies" to the end of the sentence — because German puts the main verb in position 2 and puts completions (what kind of action) at the end. The prefix IS the completion.</p>
+</div>
+
+<h3>Most Common Separable Prefixes &amp; Their Meaning</h3>
+<div class="table-wrap"><table>
+  <tr><th>Prefix</th><th>Core shift</th><th>Example verb</th><th>Meaning</th></tr>
+  <tr><td class="de">auf-</td><td>up / open</td><td class="de">aufstehen</td><td>to get up / stand up</td></tr>
+  <tr><td class="de">auf-</td><td>up / open</td><td class="de">aufmachen</td><td>to open (a door, box)</td></tr>
+  <tr><td class="de">an-</td><td>on / begin</td><td class="de">anfangen</td><td>to start / begin</td></tr>
+  <tr><td class="de">an-</td><td>on</td><td class="de">anrufen</td><td>to call / phone</td></tr>
+  <tr><td class="de">ein-</td><td>into</td><td class="de">einladen</td><td>to invite</td></tr>
+  <tr><td class="de">ein-</td><td>into</td><td class="de">einkaufen</td><td>to shop / go shopping</td></tr>
+  <tr><td class="de">aus-</td><td>out / off</td><td class="de">ausziehen</td><td>to move out / undress</td></tr>
+  <tr><td class="de">aus-</td><td>out</td><td class="de">ausgehen</td><td>to go out</td></tr>
+  <tr><td class="de">mit-</td><td>along</td><td class="de">mitkommen</td><td>to come along</td></tr>
+  <tr><td class="de">ab-</td><td>departure</td><td class="de">abfahren</td><td>to depart / leave</td></tr>
+  <tr><td class="de">zu-</td><td>closed</td><td class="de">zumachen</td><td>to close</td></tr>
+  <tr><td class="de">vor-</td><td>before / ahead</td><td class="de">vorhaben</td><td>to plan / intend</td></tr>
+  <tr><td class="de">zurück-</td><td>back</td><td class="de">zurückkommen</td><td>to come back</td></tr>
+</table></div>
+
+<h3>How separable verbs behave in different structures</h3>
+<div class="table-wrap"><table>
+  <tr><th>Structure</th><th>Rule</th><th>Example</th></tr>
+  <tr><td>Present tense (main clause)</td><td>Prefix splits to absolute end</td><td class="de">Ich stehe um 7 Uhr auf.</td></tr>
+  <tr><td>Question (inverted)</td><td>Prefix still to end</td><td class="de">Stehst du früh auf?</td></tr>
+  <tr><td>With modal verb</td><td>Infinitive stays together at end</td><td class="de">Ich muss um 7 aufstehen.</td></tr>
+  <tr><td>Perfekt</td><td>-ge- inserted between prefix and stem</td><td class="de">Ich bin um 7 aufgestanden.</td></tr>
+  <tr><td>Subordinate clause (weil...)</td><td>Verb goes to end but stays together</td><td class="de">…weil ich früh aufstehe.</td></tr>
+  <tr><td>Imperative</td><td>Prefix to end</td><td class="de">Steh auf! / Stehen Sie auf!</td></tr>
+</table></div>
+
+<div class="situation">
+  <h4>🌍 Situation: Daily routine with separable verbs</h4>
+  <div class="example-pair">
+    <span class="de">Ich stehe um 7 Uhr auf und mache das Frühstück fertig.</span>
+    <span class="en">I get up at 7 and get breakfast ready.</span>
+    <span class="why">aufstehen → stehe...auf · fertigmachen → mache...fertig</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Um 18 Uhr rufe ich meine Mutter an.</span>
+    <span class="en">At 6 PM I call my mother.</span>
+    <span class="why">anrufen → rufe...an</span>
+  </div>
+  <div class="example-pair">
+    <span class="de">Morgen fahre ich mit dem Zug ab.</span>
+    <span class="en">Tomorrow I depart by train.</span>
+    <span class="why">abfahren → fahre...ab</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v08">8. Inseparable Verbs — Prefix Stays</h2>
+
+<div class="teach">
+  <h4>📌 These 7 prefixes NEVER separate from the verb</h4>
+  <p>They are always unstressed when spoken. They also have a special rule in Perfekt: they do NOT add <strong>ge-</strong> to form the past participle.</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Prefix</th><th>Core meaning shift</th><th>Example verb</th><th>Partizip II</th></tr>
+  <tr><td class="de">be-</td><td>extends the action, covers the object</td><td class="de">besuchen (to visit)</td><td class="de">besucht (NOT gebesucht)</td></tr>
+  <tr><td class="de">er-</td><td>completion / result / beginning</td><td class="de">erklären (to explain)</td><td class="de">erklärt</td></tr>
+  <tr><td class="de">ver-</td><td>away / wrongly / intensify</td><td class="de">verstehen (to understand)</td><td class="de">verstanden</td></tr>
+  <tr><td class="de">ent-</td><td>away from / starting</td><td class="de">entscheiden (to decide)</td><td class="de">entschieden</td></tr>
+  <tr><td class="de">emp-</td><td>variant of ent-</td><td class="de">empfehlen (to recommend)</td><td class="de">empfohlen</td></tr>
+  <tr><td class="de">zer-</td><td>into pieces / destruction</td><td class="de">zerstören (to destroy)</td><td class="de">zerstört</td></tr>
+  <tr><td class="de">miss-</td><td>wrongly / negation</td><td class="de">missverstehen (to misunderstand)</td><td class="de">missverstanden</td></tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 Remember inseparable prefixes — "Be Early, Verzichten Ent-scheiden"</h4>
+  <p>The mnemonic: <strong>BE · ER · VER · ENT · EMP · ZER · MISS</strong></p>
+  <p>Test: Is the prefix in this list? → inseparable (never splits, no ge- in participle). Not in this list? → likely separable.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v09">9. Key Verb Vocabulary Tables</h2>
+
+<h3>Everyday Action Verbs</h3>
+<div class="table-wrap"><table>
+  <tr><th>Verb (inf.)</th><th>Meaning</th><th>er-form</th><th>Example</th></tr>
+  <tr><td class="de">gehen</td><td>to go (on foot)</td><td class="de">geht</td><td class="de">Ich gehe ins Kino.</td></tr>
+  <tr><td class="de">kommen</td><td>to come</td><td class="de">kommt</td><td class="de">Er kommt um 8.</td></tr>
+  <tr><td class="de">fahren</td><td>to drive / travel</td><td class="de highlight-cell">fährt</td><td class="de">Sie fährt mit dem Bus.</td></tr>
+  <tr><td class="de">machen</td><td>to do / make</td><td class="de">macht</td><td class="de">Was machst du?</td></tr>
+  <tr><td class="de">sagen</td><td>to say</td><td class="de">sagt</td><td class="de">Er sagt "Hallo".</td></tr>
+  <tr><td class="de">fragen</td><td>to ask</td><td class="de">fragt</td><td class="de">Darf ich fragen?</td></tr>
+  <tr><td class="de">antworten</td><td>to answer</td><td class="de">antwortet</td><td class="de">Sie antwortet nicht.</td></tr>
+  <tr><td class="de">denken</td><td>to think</td><td class="de">denkt</td><td class="de">Ich denke, ja.</td></tr>
+  <tr><td class="de">wissen</td><td>to know (a fact)</td><td class="de highlight-cell">weiß</td><td class="de">Ich weiß es nicht.</td></tr>
+  <tr><td class="de">kennen</td><td>to know (a person/place)</td><td class="de">kennt</td><td class="de">Kennst du Berlin?</td></tr>
+  <tr><td class="de">kaufen</td><td>to buy</td><td class="de">kauft</td><td class="de">Ich kaufe Milch.</td></tr>
+  <tr><td class="de">brauchen</td><td>to need</td><td class="de">braucht</td><td class="de">Ich brauche Hilfe.</td></tr>
+  <tr><td class="de">finden</td><td>to find / think</td><td class="de">findet</td><td class="de">Wie findest du das?</td></tr>
+  <tr><td class="de">bleiben</td><td>to stay / remain</td><td class="de">bleibt</td><td class="de">Ich bleibe zu Hause.</td></tr>
+  <tr><td class="de">heißen</td><td>to be called</td><td class="de">heißt</td><td class="de">Ich heiße Maria.</td></tr>
+</table></div>
+
+<h3>Common Reflexive Verbs at A1</h3>
+<div class="table-wrap"><table>
+  <tr><th>Verb</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="de">sich vorstellen</td><td>to introduce oneself</td><td class="de">Ich stelle mich vor.</td></tr>
+  <tr><td class="de">sich setzen</td><td>to sit down</td><td class="de">Setzen Sie sich bitte.</td></tr>
+  <tr><td class="de">sich fühlen</td><td>to feel (health)</td><td class="de">Ich fühle mich krank.</td></tr>
+  <tr><td class="de">sich freuen</td><td>to be happy / look forward to</td><td class="de">Ich freue mich auf das Wochenende.</td></tr>
+  <tr><td class="de">sich interessieren für</td><td>to be interested in</td><td class="de">Ich interessiere mich für Sport.</td></tr>
+</table></div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v10-extra">10. tun — Conjugation</h2>
+
+<p><em>tun</em> = to do (more colloquial than machen; often used in fixed expressions)</p>
+<div class="table-wrap"><table>
+  <tr><th>Pronoun</th><th>tun</th></tr>
+  <tr><td>ich</td><td class="de">tue</td></tr>
+  <tr><td>du</td><td class="de">tust</td></tr>
+  <tr><td>er / sie / es</td><td class="de">tut</td></tr>
+  <tr><td>wir</td><td class="de">tun</td></tr>
+  <tr><td>ihr</td><td class="de">tut</td></tr>
+  <tr><td>sie / Sie</td><td class="de">tun</td></tr>
+</table></div>
+
+<div class="teach">
+  <h4>📌 Imperative Forms (du / ihr / Sie)</h4>
+  <p>Imperatives give commands or instructions. Three forms depending on who you address:</p>
+</div>
+
+<div class="table-wrap"><table>
+  <tr><th>Verb</th><th>du-form (drop -st)</th><th>ihr-form</th><th>Sie-form (inf. + Sie)</th></tr>
+  <tr><td class="de">gehen</td><td class="de">Geh!</td><td class="de">Geht!</td><td class="de">Gehen Sie!</td></tr>
+  <tr><td class="de">kommen</td><td class="de">Komm!</td><td class="de">Kommt!</td><td class="de">Kommen Sie!</td></tr>
+  <tr><td class="de">machen</td><td class="de">Mach!</td><td class="de">Macht!</td><td class="de">Machen Sie!</td></tr>
+  <tr><td class="de">antworten</td><td class="de">Antworte!</td><td class="de">Antwortet!</td><td class="de">Antworten Sie!</td></tr>
+  <tr><td class="de">bringen</td><td class="de">Bring!</td><td class="de">Bringt!</td><td class="de">Bringen Sie!</td></tr>
+  <tr><td class="de">laden (einladen)</td><td class="de">Lade ein!</td><td class="de">Ladet ein!</td><td class="de">Laden Sie ein!</td></tr>
+  <tr><td class="de">schreiben</td><td class="de">Schreib!</td><td class="de">Schreibt!</td><td class="de">Schreiben Sie!</td></tr>
+  <tr><td class="de">lesen</td><td class="de">Lies!</td><td class="de">Lest!</td><td class="de">Lesen Sie!</td></tr>
+  <tr><td class="de">sein</td><td class="de">Sei!</td><td class="de">Seid!</td><td class="de">Seien Sie!</td></tr>
+</table></div>
+
+<div class="trick">
+  <h4>🧠 Imperative trick</h4>
+  <p><strong>du-form:</strong> take the <em>du</em> present tense, drop the <strong>-st</strong> ending (and the <em>du</em>).<br>
+  Vowel-change verbs keep their change: <em>lesen → du liest → Lies!</em><br>
+  <strong>Sie-form:</strong> infinitive + Sie (verb stays at front): <em>Kommen Sie bitte!</em></p>
+</div>
+
+<h3>Dative Verbs (take Dativ object, not Akkusativ)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Verb</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td class="de">passen</td><td>to fit / suit</td><td class="de">Das Kleid passt <strong>ihr</strong>. (It suits her.)</td></tr>
+  <tr><td class="de">helfen</td><td>to help</td><td class="de">Ich helfe <strong>dir</strong>. (I help you.)</td></tr>
+  <tr><td class="de">danken</td><td>to thank</td><td class="de">Ich danke <strong>Ihnen</strong>. (I thank you.)</td></tr>
+  <tr><td class="de">gehören</td><td>to belong to</td><td class="de">Das gehört <strong>mir</strong>. (That belongs to me.)</td></tr>
+  <tr><td class="de">gefallen</td><td>to please / like</td><td class="de">Das gefällt <strong>mir</strong>. (I like that.)</td></tr>
+  <tr><td class="de">gratulieren</td><td>to congratulate</td><td class="de">Ich gratuliere <strong>dir</strong>. (I congratulate you.)</td></tr>
+  <tr><td class="de">antworten</td><td>to answer (to someone)</td><td class="de">Er antwortet <strong>mir</strong>. (He answers me.)</td></tr>
+  <tr><td class="de">stehen</td><td>to suit (clothing)</td><td class="de">Das steht <strong>dir</strong> gut. (That suits you well.)</td></tr>
+  <tr><td class="de">schaden</td><td>to harm</td><td class="de">Das schadet <strong>dir</strong>. (That harms you.)</td></tr>
+  <tr><td class="de">schmecken</td><td>to taste (good to someone)</td><td class="de">Das schmeckt <strong>mir</strong>. (That tastes good to me.)</td></tr>
+</table></div>
+
+<div class="mistake">
+  <h4>❌ Common dative verb mistake</h4>
+  <p><span class="wrong">Das gefällt mich.</span> → <span class="right">Das gefällt mir.</span><br>
+  These verbs always need the dative pronoun (mir/dir/ihm/ihr/uns/euch/ihnen), NOT the accusative (mich/dich/ihn/sie).</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section" id="v11">11. Common Verb Mistakes</h2>
+
+<div class="mistake">
+  <h4>❌ Top verb mistakes at A1</h4>
+  <ul>
+    <li><span class="wrong">Er kann schwimmen gut.</span> → <span class="right">Er kann gut schwimmen.</span> ← infinitive ALWAYS goes to absolute end</li>
+    <li><span class="wrong">Ich bin ein Lehrer.</span> → <span class="right">Ich bin Lehrer.</span> ← no article with professions after sein/werden/bleiben</li>
+    <li><span class="wrong">Er ist hat krank.</span> → <span class="right">Er ist krank.</span> ← never combine sein and haben like this</li>
+    <li><span class="wrong">Du musst nicht gehen</span> (meaning "you don't have to") → <span class="right">Du brauchst nicht zu gehen.</span> ← müssen nicht = MUST NOT (prohibition!)</li>
+    <li><span class="wrong">Ich will einen Kaffee</span> (in a café) → <span class="right">Ich möchte einen Kaffee, bitte.</span> ← wollen sounds demanding; use möchten</li>
+    <li><span class="wrong">Er weiß nicht die Antwort.</span> → <span class="right">Er weiß die Antwort nicht.</span> ← nicht at end (or before the specific negated element)</li>
+    <li><span class="wrong">Das gefällt mich.</span> → <span class="right">Das gefällt mir.</span> ← gefallen takes Dativ: mich → mir</li>
+    <li><span class="wrong">Ich habe Arzt gegangen.</span> → <span class="right">Ich bin zum Arzt gegangen.</span> ← gehen uses sein in Perfekt; and: zum Arzt (not just Arzt)</li>
+  </ul>
+</div>
+
+<hr>
+<p style="text-align:center; color:var(--fg-soft); font-size:0.9em; margin-top:20px;">
+  A1 German · Verbs — Complete Guide · Topic Page<br>
+  <a href="/a1-german-grammar.html">← Full Grammar Guide</a> ·
+  <a href="/a1-articles-cases.html">Articles &amp; Cases</a> ·
+  <a href="/a1-german-study-guide.html">Vocabulary Guide</a>
+</p>
+
+</body>
+</html>

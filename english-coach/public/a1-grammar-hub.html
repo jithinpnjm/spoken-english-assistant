@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A1 German Grammar Hub</title>
+  <style>
+    :root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.toc {
+  background: var(--card); border: 1px solid var(--accent-dark);
+  border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+}
+.toc h2 { color: var(--accent); margin-bottom: 12px; font-size: 1em; letter-spacing: 0.05em; text-transform: uppercase; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; }
+.toc a { color: var(--fg-soft); font-size: 0.9em; transition: color 0.15s; }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+h1 { font-size: 2.2em; color: #f8fafc; }
+h2.section {
+  font-size: 1.35em; color: #f8fafc;
+  background: linear-gradient(90deg, #1e3a5f 0%, var(--card) 100%);
+  border-left: 6px solid var(--accent);
+  padding: 12px 18px; margin: 48px 0 0 0;
+  border-radius: 0 10px 10px 0;
+}
+h2 { font-size: 1.35em; color: var(--accent); margin: 28px 0 12px 0; }
+h3 {
+  font-size: 1.08em; color: var(--accent);
+  margin: 22px 0 8px 0;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+h4 { font-size: 1em; color: var(--gold); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px 0; font-size: 0.95em; }
+th {
+  background: var(--th-bg); color: var(--th-fg);
+  padding: 9px 13px; text-align: left; font-size: 0.9em;
+  letter-spacing: 0.04em;
+}
+td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--tr-alt); }
+.de { font-weight: 600; color: #93c5fd; }
+.teach {
+  background: #0c2039; border: 1px solid #0ea5e9; border-left: 6px solid #0ea5e9;
+  border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 14px 0;
+  font-size: 0.96em; line-height: 1.8;
+}
+.teach h4 { color: #38bdf8; margin: 0 0 8px 0; }
+.teach ul, .teach ol { padding-left: 22px; margin: 6px 0; }
+.teach li { margin: 4px 0; }
+.pronounce {
+  background: #1a0a2e; border: 1px solid var(--purple); border-left: 6px solid var(--purple);
+  border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 12px 0; font-size: 0.95em;
+}
+.pronounce h4 { color: var(--purple); margin: 0 0 6px 0; }
+.example {
+  background: var(--card2); border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+  border-left: 4px solid var(--green);
+}
+.note {
+  background: #1c1a00; border: 1px solid var(--gold); border-radius: 8px;
+  padding: 12px 16px; margin: 10px 0; color: var(--fg-soft); font-size: 0.93em;
+}
+.note strong { color: var(--gold); }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 24px; margin: 16px 0;
+}
+.card h3 { color: var(--accent); margin-top: 0; }
+.hub-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 20px 0;
+}
+.hub-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; transition: border-color 0.15s;
+}
+.hub-card:hover { border-color: var(--accent); }
+.hub-card h3 { color: var(--accent); margin: 0 0 8px 0; font-size: 1em; }
+.hub-card p { color: var(--fg-soft); font-size: 0.9em; margin: 0 0 12px 0; }
+.hub-card a { color: var(--accent); font-size: 0.88em; }
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 8px 0; }
+li { margin: 4px 0; }
+/* File-specific classes */
+.subtitle { color: var(--fg-soft); margin: 0 0 18px; }
+.nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 24px; }
+.nav a, .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  color: var(--fg-soft);
+}
+.nav a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.section { margin: 22px 0; }
+.small { font-size: 0.92rem; color: var(--fg-soft); }
+.checklist li { margin: 5px 0; }
+.warn {
+  border-left: 4px solid var(--gold);
+  background: #1c1a00;
+  padding: 12px 14px;
+  border-radius: 6px;
+  color: var(--fg-soft);
+}
+.warn h2 { color: var(--gold); }
+@media print {
+  body { background: #0f172a; }
+  .nav { display: none; }
+  .card { box-shadow: none; }
+}
+  
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="page-header">
+    <div class="badge">A1 German · Grammar Hub</div>
+    <h1>A1 German Grammar Hub</h1>
+    <p>One separate place for all A1 grammar: duplicated from the lesson/reference material, grouped for revision.</p>
+  </div>
+
+  <nav class="navback">
+    <a href="/a1-all-in-one-hub.html">All-in-One Hub</a>
+    <a href="/a1-german-study-guide.html">Study Guide</a>
+    <a href="/a1-german-grammar.html">Full Grammar Deep Dive</a>
+    <a href="/a1-articles-cases.html">Articles &amp; Cases</a>
+    <a href="/a1-verbs.html">Verbs</a>
+    <a href="/a1-prepositions.html">Prepositions</a>
+    <a href="/a1-tenses.html">Tenses</a>
+    <a href="/a1-word-order.html">Word Order</a>
+  
+  <a href="/">Home</a>
+</nav>
+
+  <section class="section note">
+    <strong>Coverage target:</strong> A1 needs simple everyday sentence control: pronunciation/spelling, articles, nominative/accusative/dative basics, present-tense verbs, modal verbs, separable verbs, negation, prepositions, word order, simple questions/commands, and basic past reference with <span class="de">Perfekt</span> plus <span class="de">war/hatte</span>.
+  </section>
+
+  <section class="section">
+    <h2>Complete A1 Grammar Checklist</h2>
+    <div class="grid checklist">
+      <div class="card">
+        <h3>1. Sounds &amp; Spelling</h3>
+        <ul>
+          <li>Alphabet and spelling names</li>
+          <li>Umlauts: ä, ö, ü; Eszett: ß</li>
+          <li>Letter pairs: ei, ie, eu/äu, au</li>
+          <li>ch, sch, sp/st, final b/d/g sounds</li>
+          <li>Noun capitalization</li>
+        </ul>
+        <a href="/a1-german-grammar.html#g01">Open deep dive</a>
+      </div>
+      <div class="card">
+        <h3>2. Articles &amp; Noun Gender</h3>
+        <ul>
+          <li><span class="de">der, die, das</span> with every noun</li>
+          <li>Plural article <span class="de">die</span></li>
+          <li><span class="de">ein/eine</span> and no indefinite plural</li>
+          <li><span class="de">kein/keine</span> for negative nouns</li>
+          <li>Gender patterns and exceptions</li>
+        </ul>
+        <a href="/a1-articles-cases.html#art01">Open articles guide</a>
+      </div>
+      <div class="card">
+        <h3>3. Cases</h3>
+        <ul>
+          <li>Nominative: subject</li>
+          <li>Accusative: direct object</li>
+          <li>Dative: indirect object / many prepositions</li>
+          <li>Genitive: recognition only at A1</li>
+          <li>Key change: <span class="de">der/ein/kein -&gt; den/einen/keinen</span></li>
+        </ul>
+        <a href="/a1-articles-cases.html#art03">Open case guide</a>
+      </div>
+      <div class="card">
+        <h3>4. Pronouns</h3>
+        <ul>
+          <li>Subject pronouns: ich, du, er/sie/es, wir, ihr, sie/Sie</li>
+          <li>Accusative pronouns: mich, dich, ihn, sie, es...</li>
+          <li>Dative pronouns: mir, dir, ihm, ihr, uns...</li>
+          <li>Formal <span class="de">Sie/Ihnen</span></li>
+          <li>Possessives: mein, dein, sein, ihr, unser...</li>
+        </ul>
+        <a href="/a1-articles-cases.html#art08">Open pronoun guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Core Tables</h2>
+    <h3>Articles by Case</h3>
+    
+<div class="table-wrap"><table>
+      <tr><th>Case</th><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Plural</th><th>A1 example</th></tr>
+      <tr><td>Nominative</td><td class="de">der / ein / kein</td><td class="de">die / eine / keine</td><td class="de">das / ein / kein</td><td class="de">die / - / keine</td><td><span class="de">Der Tisch ist groß.</span></td></tr>
+      <tr><td>Accusative</td><td class="de">den / einen / keinen</td><td class="de">die / eine / keine</td><td class="de">das / ein / kein</td><td class="de">die / - / keine</td><td><span class="de">Ich kaufe einen Tisch.</span></td></tr>
+      <tr><td>Dative</td><td class="de">dem / einem / keinem</td><td class="de">der / einer / keiner</td><td class="de">dem / einem / keinem</td><td class="de">den / - / keinen + n</td><td><span class="de">Ich helfe dem Mann.</span></td></tr>
+    </table></div>
+
+    <h3>Verb Endings in Present Tense</h3>
+    
+<div class="table-wrap"><table>
+      <tr><th>Pronoun</th><th>Regular ending</th><th>machen</th><th>kommen</th><th>wohnen</th></tr>
+      <tr><td>ich</td><td class="de">-e</td><td>mache</td><td>komme</td><td>wohne</td></tr>
+      <tr><td>du</td><td class="de">-st</td><td>machst</td><td>kommst</td><td>wohnst</td></tr>
+      <tr><td>er/sie/es</td><td class="de">-t</td><td>macht</td><td>kommt</td><td>wohnt</td></tr>
+      <tr><td>wir</td><td class="de">-en</td><td>machen</td><td>kommen</td><td>wohnen</td></tr>
+      <tr><td>ihr</td><td class="de">-t</td><td>macht</td><td>kommt</td><td>wohnt</td></tr>
+      <tr><td>sie/Sie</td><td class="de">-en</td><td>machen</td><td>kommen</td><td>wohnen</td></tr>
+    </table></div>
+
+    <h3>Most Important A1 Irregular Verbs</h3>
+    
+<div class="table-wrap"><table>
+      <tr><th>Verb</th><th>ich</th><th>du</th><th>er/sie/es</th><th>Use</th></tr>
+      <tr><td class="de">sein</td><td>bin</td><td>bist</td><td>ist</td><td><span class="de">Ich bin müde.</span></td></tr>
+      <tr><td class="de">haben</td><td>habe</td><td>hast</td><td>hat</td><td><span class="de">Sie hat Zeit.</span></td></tr>
+      <tr><td class="de">werden</td><td>werde</td><td>wirst</td><td>wird</td><td><span class="de">Ich werde 30.</span></td></tr>
+      <tr><td class="de">sprechen</td><td>spreche</td><td>sprichst</td><td>spricht</td><td><span class="de">Sprichst du Deutsch?</span></td></tr>
+      <tr><td class="de">lesen</td><td>lese</td><td>liest</td><td>liest</td><td><span class="de">Er liest ein Buch.</span></td></tr>
+      <tr><td class="de">fahren</td><td>fahre</td><td>fährst</td><td>fährt</td><td><span class="de">Sie fährt nach Berlin.</span></td></tr>
+      <tr><td class="de">nehmen</td><td>nehme</td><td>nimmst</td><td>nimmt</td><td><span class="de">Ich nehme den Bus.</span></td></tr>
+      <tr><td class="de">geben</td><td>gebe</td><td>gibst</td><td>gibt</td><td><span class="de">Es gibt Kaffee.</span></td></tr>
+    </table></div>
+  </section>
+
+  <section class="section">
+    <h2>Sentence Building</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Statements: Verb Position 2</h3>
+        <p><span class="de">Ich gehe heute zur Arbeit.</span></p>
+        <p><span class="de">Heute gehe ich zur Arbeit.</span></p>
+        <p class="small">If a time word starts the sentence, the verb still stays second and the subject moves after the verb.</p>
+        <a href="/a1-word-order.html#w01">Open V2 guide</a>
+      </div>
+      <div class="card">
+        <h3>Yes/No Questions</h3>
+        <p><span class="de">Kommst du heute?</span></p>
+        <p><span class="de">Haben Sie Zeit?</span></p>
+        <p class="small">Conjugated verb first, subject second.</p>
+        <a href="/a1-word-order.html#w03">Open question guide</a>
+      </div>
+      <div class="card">
+        <h3>W-Questions</h3>
+        <p><span class="de">Wo wohnen Sie?</span></p>
+        <p><span class="de">Wann fährt der Zug?</span></p>
+        <p class="small">Question word first, verb second.</p>
+        <a href="/a1-word-order.html#w03">Open W-question guide</a>
+      </div>
+      <div class="card">
+        <h3>Verb Bracket</h3>
+        <p><span class="de">Ich möchte Kaffee trinken.</span></p>
+        <p><span class="de">Ich habe Kaffee getrunken.</span></p>
+        <p class="small">Helper/modal verb in position 2; infinitive or participle at the end.</p>
+        <a href="/a1-verbs.html#v06">Open verb bracket guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Verbs, Modals, Commands</h2>
+    <h3>Modal Verbs</h3>
+    
+<div class="table-wrap"><table>
+      <tr><th>Modal</th><th>Meaning</th><th>A1 sentence</th></tr>
+      <tr><td class="de">können</td><td>can / be able to</td><td><span class="de">Ich kann Deutsch sprechen.</span></td></tr>
+      <tr><td class="de">müssen</td><td>must / have to</td><td><span class="de">Ich muss arbeiten.</span></td></tr>
+      <tr><td class="de">dürfen</td><td>may / be allowed to</td><td><span class="de">Darf ich hier sitzen?</span></td></tr>
+      <tr><td class="de">wollen</td><td>want to</td><td><span class="de">Er will nach Hause gehen.</span></td></tr>
+      <tr><td class="de">möchten</td><td>would like to</td><td><span class="de">Wir möchten zwei Tickets kaufen.</span></td></tr>
+      <tr><td class="de">sollen</td><td>should / supposed to</td><td><span class="de">Du sollst viel Wasser trinken.</span></td></tr>
+    </table></div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Separable Verbs</h3>
+        <p><span class="de">Ich stehe um 7 Uhr auf.</span></p>
+        <p><span class="de">Rufen Sie mich bitte an.</span></p>
+        <p class="small">Prefix moves to the end in normal present-tense statements.</p>
+        <a href="/a1-verbs.html#v07">Open separable verbs</a>
+      </div>
+      <div class="card">
+        <h3>Inseparable Verbs</h3>
+        <p><span class="de">Ich besuche meine Mutter.</span></p>
+        <p><span class="de">Er erklärt die Aufgabe.</span></p>
+        <p class="small">be-, ge-, er-, ver-, zer-, ent-, emp-, miss- do not split.</p>
+        <a href="/a1-verbs.html#v08">Open inseparable verbs</a>
+      </div>
+      <div class="card">
+        <h3>Imperative</h3>
+        <p><span class="de">Komm bitte!</span></p>
+        <p><span class="de">Nehmen Sie bitte Platz.</span></p>
+        <p class="small">A1 commands are mostly du-form and formal Sie-form.</p>
+        <a href="/a1-word-order.html#w05">Open imperatives</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Negation</h2>
+    
+<div class="table-wrap"><table>
+      <tr><th>Use</th><th>German</th><th>Example</th></tr>
+      <tr><td>Negate a noun with ein/eine or no article</td><td class="de">kein/keine</td><td><span class="de">Ich habe keinen Bruder.</span></td></tr>
+      <tr><td>Negate a verb/action</td><td class="de">nicht</td><td><span class="de">Ich komme heute nicht.</span></td></tr>
+      <tr><td>Negate adjective/adverb</td><td class="de">nicht</td><td><span class="de">Das ist nicht teuer.</span></td></tr>
+      <tr><td>Negate possession</td><td class="de">kein</td><td><span class="de">Ich habe kein Auto.</span></td></tr>
+    </table></div>
+    <a href="/a1-word-order.html#w04">Open negation guide</a>
+  </section>
+
+  <section class="section">
+    <h2>Prepositions</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Accusative: GODFU</h3>
+        <p><span class="de">gegen, ohne, durch, für, um</span></p>
+        <p><span class="de">Ich gehe durch den Park.</span></p>
+        <a href="/a1-prepositions.html#p02">Open accusative prepositions</a>
+      </div>
+      <div class="card">
+        <h3>Dative Prepositions</h3>
+        <p><span class="de">aus, bei, mit, nach, seit, von, zu, gegenüber</span></p>
+        <p><span class="de">Ich fahre mit dem Bus.</span></p>
+        <a href="/a1-prepositions.html#p03">Open dative prepositions</a>
+      </div>
+      <div class="card">
+        <h3>Two-Way Prepositions</h3>
+        <p><span class="de">an, auf, hinter, in, neben, über, unter, vor, zwischen</span></p>
+        <p><span class="de">Das Buch liegt auf dem Tisch.</span> / <span class="de">Ich lege das Buch auf den Tisch.</span></p>
+        <a href="/a1-prepositions.html#p05">Open two-way prepositions</a>
+      </div>
+      <div class="card">
+        <h3>Time Prepositions</h3>
+        <p><span class="de">um 8 Uhr, am Montag, im Januar, seit einem Jahr</span></p>
+        <a href="/a1-prepositions.html#p09">Open time prepositions</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Tenses</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Present Tense</h3>
+        <p><span class="de">Ich lerne Deutsch.</span></p>
+        <p class="small">Used for now, habits, and near future when a time word is clear.</p>
+      </div>
+      <div class="card">
+        <h3>Perfekt</h3>
+        <p><span class="de">Ich habe gelernt.</span></p>
+        <p><span class="de">Ich bin nach Berlin gefahren.</span></p>
+        <p class="small">Spoken past: helper verb + Partizip II.</p>
+        <a href="/a1-tenses.html#t02">Open Perfekt guide</a>
+      </div>
+      <div class="card">
+        <h3>war / hatte</h3>
+        <p><span class="de">Ich war krank.</span></p>
+        <p><span class="de">Ich hatte keine Zeit.</span></p>
+        <p class="small">A1 uses simple past mainly for sein and haben.</p>
+        <a href="/a1-tenses.html#t08">Open war/hatte guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Connectors &amp; Clause Order</h2>
+    
+<div class="table-wrap"><table>
+      <tr><th>Connector</th><th>Verb position</th><th>Example</th></tr>
+      <tr><td class="de">und / aber / oder / denn</td><td>Normal word order after connector</td><td><span class="de">Ich lerne Deutsch, aber ich spreche langsam.</span></td></tr>
+      <tr><td class="de">deshalb / darum / deswegen</td><td>Connector takes position 1, verb position 2</td><td><span class="de">Ich bin krank, deshalb bleibe ich zu Hause.</span></td></tr>
+      <tr><td class="de">weil / dass</td><td>Conjugated verb goes to the end</td><td><span class="de">Ich bleibe zu Hause, weil ich krank bin.</span></td></tr>
+    </table></div>
+    <a href="/a1-word-order.html#w06">Open connector guide</a>
+  </section>
+
+  <section class="section">
+    <h2>Adjectives, Comparisons, Dates</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Predicate Adjectives</h3>
+        <p><span class="de">Der Kaffee ist heiß.</span></p>
+        <p class="small">After sein/werden/bleiben, the adjective usually has no ending.</p>
+      </div>
+      <div class="card">
+        <h3>Adjective Endings</h3>
+        <p><span class="de">der rote Rock</span>, <span class="de">ein roter Rock</span>, <span class="de">roter Rock</span></p>
+        <p class="small">A1 needs recognition and common shopping/description patterns.</p>
+        <a href="/a1-word-order.html#w09">Open adjective endings</a>
+      </div>
+      <div class="card">
+        <h3>Comparative Basics</h3>
+        <p><span class="de">größer, kleiner, besser, lieber</span></p>
+        <p><span class="de">Haben Sie eine Nummer größer?</span></p>
+      </div>
+      <div class="card">
+        <h3>Dates &amp; Ordinals</h3>
+        <p><span class="de">am ersten Mai</span>, <span class="de">der zweite Juni</span></p>
+        <p class="small">Use ordinals for birthdays, appointments, and forms.</p>
+        <a href="/a1-german-grammar.html#g17">Open numbers/dates guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section warn">
+    <h2>High-Priority A1 Mistakes to Drill</h2>
+    <ul>
+      <li><span class="de">Ich bin 30 Jahre alt</span>, not "Ich habe 30 Jahre".</li>
+      <li><span class="de">Ich komme aus Indien</span>, not "Ich komme von Indien".</li>
+      <li><span class="de">Ich wohne in Berlin</span>, not "Ich wohne bei Berlin" unless you mean near Berlin.</li>
+      <li><span class="de">Ich habe einen Bruder</span>: masculine accusative changes.</li>
+      <li><span class="de">Heute gehe ich...</span>: verb stays second.</li>
+      <li><span class="de">Ich möchte Kaffee trinken</span>: second verb goes to the end.</li>
+      <li><span class="de">Ich habe kein Auto</span>, not "nicht ein Auto".</li>
+      <li><span class="de">Ich fahre mit dem Bus</span>: dative after <span class="de">mit</span>.</li>
+      <li><span class="de">Ich bin nach Hause gegangen</span>: motion/change often uses <span class="de">sein</span> in Perfekt.</li>
+      <li><span class="de">weil ich krank bin</span>: verb at the end after <span class="de">weil</span>.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Best Study Order</h2>
+    <ol>
+      <li>Pronunciation and spelling</li>
+      <li>Verb position 2 and simple present tense</li>
+      <li>Articles and noun gender</li>
+      <li>Nominative vs accusative</li>
+      <li>Negation with <span class="de">kein</span> and <span class="de">nicht</span></li>
+      <li>Modal verbs and verb bracket</li>
+      <li>Dative basics and prepositions</li>
+      <li>Two-way prepositions</li>
+      <li>Perfekt and <span class="de">war/hatte</span></li>
+      <li>Connectors and subordinate clauses</li>
+    </ol>
+  </section>
+</main>
+</body>
+</html>

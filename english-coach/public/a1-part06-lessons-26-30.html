@@ -1,58 +1,145 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>German A1 — Lessons 26–30</title><style>
-:root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
-.page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
-.page-header h1{color:var(--sky);font-size:1.8rem}
-.page-header p{color:var(--muted);margin-top:.5rem}
-.lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
-.lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
-main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
-.lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
-.lesson:target{border-color:var(--indigo)}
-.lesson-header{margin-bottom:1.5rem}
-.lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
-.lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
-.lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
-.section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
-.section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
-.section-title.sky{color:var(--sky)} .section-title.amber{color:var(--amber)} .section-title.green{color:var(--green)} .section-title.rose{color:var(--rose)} .section-title.indigo{color:var(--indigo)} .section-title.purple{color:var(--purple)} .section-title.muted{color:var(--muted)}
-.rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
-.rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
-.formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
-.formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
-.vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
-.vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
-.vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}
-.vocab-table tr:last-child td{border-bottom:none}
-.vocab-de{color:var(--sky);font-weight:500} .vocab-en{color:var(--text)} .vocab-ex{color:var(--muted);font-size:.85rem}
-.model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
-.model-de{font-size:1rem;font-weight:600;color:var(--text)} .model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0} .model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
-.mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
-.mistake-wrong{color:var(--rose)} .mistake-right{color:var(--green)} .mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
-.exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
-.exercise-item:last-child{border-bottom:none}
-.exercise-prompt{color:var(--text)} .exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
-.note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
-.grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
-.grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
-.grammar-table td{padding:.45rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}
-.grammar-table tr:last-child td{border-bottom:none}
-.cultural-note{background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--muted);font-size:.9rem}
-.exam-note{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--amber);font-size:.85rem}
-.goal-note{background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.25);border-radius:6px;padding:.75rem 1rem;margin-top:.5rem;color:var(--green);font-size:.85rem}
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+.lesson { border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; background: var(--card); }
+.lesson:target { border-color: var(--accent); }
+.lesson-header { margin-bottom: 1.5rem; }
+.lesson-number { display: inline-block; background: var(--accent-dark); color: #fff; font-size: .75rem; font-weight: 700; padding: .2rem .75rem; border-radius: 999px; margin-bottom: .5rem; }
+.lesson-title { color: var(--accent); font-size: 1.4rem; margin: .3rem 0 .5rem; }
+.lesson-intro { color: var(--fg-soft); font-style: italic; border-left: 3px solid var(--accent); padding-left: 1rem; }
+.section { margin-top: 1.5rem; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border); background: transparent; }
+.section-title { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 1rem; }
+.section-title.sky { color: var(--accent); }
+.section-title.indigo { color: var(--violet); }
+.section-title.amber { color: var(--gold); }
+.section-title.green { color: var(--green); }
+.section-title.rose { color: var(--red); }
+.section-title.muted { color: var(--fg-soft); }
+.section-title.purple { color: var(--purple); }
+.rule-item { padding: .35rem 0 .35rem 1.2rem; position: relative; color: var(--fg); font-size: .9rem; }
+.rule-item::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.formula-item { font-family: monospace; background: rgba(15,23,42,.5); border-radius: 4px; padding: .4rem .6rem; margin: .25rem 0; font-size: .85rem; color: var(--gold); }
+.vocab-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.vocab-table th { background: var(--th-bg); color: var(--th-fg); padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--border); }
+.vocab-table td { padding: .5rem .6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.vocab-table tr:last-child td { border-bottom: none; }
+.vocab-de { color: var(--accent); font-weight: 600; }
+.vocab-en { color: var(--fg); }
+.vocab-ex { color: var(--fg-soft); font-style: italic; font-size: .85rem; }
+.model-sentence { background: rgba(15,23,42,.5); border-radius: 6px; padding: .75rem; margin-bottom: .5rem; border-left: 3px solid var(--green); }
+.model-de { font-size: 1rem; font-weight: 600; color: var(--fg); }
+.model-en { font-size: .85rem; color: var(--fg-soft); margin: .2rem 0; }
+.model-breakdown { font-size: .8rem; color: var(--accent); font-style: italic; }
+.grammar-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.grammar-table th { background: var(--th-bg); color: var(--th-fg); padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--border); }
+.grammar-table td { padding: .45rem .6rem; border-bottom: 1px solid var(--border); color: var(--fg); }
+.grammar-table td:first-child { color: var(--violet); font-weight: 600; }
+.grammar-table tr:last-child td { border-bottom: none; }
+.exercise-block { margin-bottom: .75rem; }
+.exercise-instruction { color: var(--gold); font-size: .85rem; font-weight: 600; margin-bottom: .5rem; }
+.exercise-item { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid var(--border); font-size: .85rem; }
+.exercise-item:last-child { border-bottom: none; }
+.exercise-prompt { color: var(--fg); }
+.exercise-answer { color: var(--green); font-weight: 600; font-size: .85rem; }
+.exercise-hint { color: var(--fg-soft); font-size: .75rem; margin-top: .1rem; }
+.mistake-item { padding: .75rem; border-radius: 6px; margin-bottom: .5rem; background: rgba(15,23,42,.5); }
+.mistake-wrong { color: var(--red); font-size: .9rem; }
+.mistake-right { color: var(--green); font-size: .9rem; margin-top: .2rem; }
+.mistake-explanation, .mistake-explain { color: var(--fg-soft); font-size: .85rem; margin-top: .25rem; }
+.cultural-note { background: rgba(192,132,252,.07); border: 1px solid rgba(192,132,252,.25); border-radius: 6px; padding: .75rem 1rem; margin-top: .5rem; color: var(--fg-soft); font-size: .9rem; }
+.pdf-note { background: rgba(15,23,42,.8); border-left: 3px solid var(--violet); padding: .75rem; margin: .5rem 0; border-radius: 0 4px 4px 0; font-size: .8rem; color: var(--fg-soft); line-height: 1.6; white-space: pre-wrap; }
+.pdf-label { font-size: .7rem; color: var(--violet); font-weight: 700; text-transform: uppercase; margin-bottom: .3rem; }
+.note-block { background: rgba(15,23,42,.5); border-radius: 6px; padding: .75rem; margin-bottom: .5rem; border-left: 3px solid var(--gold); color: var(--fg); font-size: .9rem; line-height: 1.7; }
+.exam-note { background: rgba(251,191,36,.07); border: 1px solid rgba(251,191,36,.25); border-radius: 6px; padding: .75rem 1rem; margin-top: .5rem; color: var(--gold); font-size: .85rem; }
+.goal-note { background: rgba(52,211,153,.07); border: 1px solid rgba(52,211,153,.25); border-radius: 6px; padding: .75rem 1rem; margin-top: .5rem; color: var(--green); font-size: .85rem; }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
 </style></head>
 <body>
 <div class="page-header">
+  <div class="badge">A1 German · Lesson Guide</div>
   <h1>German A1 — Lessons 26–30</h1>
   <p>Accusative Case · Possessives · möchten · W-Questions · Restaurant</p>
 </div>
-<nav class="lesson-nav">
+<nav class="navback">
+  <a href="a1-all-in-one-hub.html">← All Lessons</a>
   <a href="#lesson-26">Lesson 26: Accusative Articles</a>
   <a href="#lesson-27">Lesson 27: Possessives Accusative</a>
   <a href="#lesson-28">Lesson 28: Modal Verb möchten</a>
   <a href="#lesson-29">Lesson 29: W-Questions</a>
   <a href="#lesson-30">Lesson 30: In a Restaurant</a>
+
+  <a href="/">Home</a>
 </nav>
 <main>
 
@@ -81,18 +168,20 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title indigo">Grammar Table — Accusative Articles</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>Gender</th><th>When Subject</th><th>When Direct Object</th></tr>
       <tr><td>Masculine</td><td>der / ein / kein Tisch</td><td>den / einen / keinen Tisch (CHANGES!)</td></tr>
       <tr><td>Feminine</td><td>die / eine / keine Lampe</td><td>die / eine / keine Lampe (no change)</td></tr>
       <tr><td>Neuter</td><td>das / ein / kein Buch</td><td>das / ein / kein Buch (no change)</td></tr>
       <tr><td>Plural</td><td>die / — / keine Autos</td><td>die / — / keine Autos (no change)</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
     <div class="section-title sky">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">brauchen</td><td class="vocab-en">to need</td><td class="vocab-ex">Ich brauche den Stift. — I need the pen.</td></tr>
       <tr><td class="vocab-de">suchen</td><td class="vocab-en">to look for</td><td class="vocab-ex">Wir suchen einen Tisch. — We are looking for a table.</td></tr>
@@ -104,7 +193,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">der Garten</td><td class="vocab-en">garden</td><td class="vocab-ex">Wir haben einen Garten. — We have a garden.</td></tr>
       <tr><td class="vocab-de">der Kaffee</td><td class="vocab-en">coffee</td><td class="vocab-ex">Ich trinke den Kaffee. — I drink the coffee.</td></tr>
       <tr><td class="vocab-de">der Tee</td><td class="vocab-en">tea</td><td class="vocab-ex">Trinkst du einen Tee? — Are you drinking a tea?</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -191,18 +280,20 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title indigo">Grammar Table — Possessives as Direct Objects</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>Gender</th><th>When Subject</th><th>When Direct Object</th></tr>
       <tr><td>Masculine</td><td>mein Vater (my father)</td><td>meinen Vater (CHANGES!)</td></tr>
       <tr><td>Feminine</td><td>meine Mutter</td><td>meine Mutter (no change)</td></tr>
       <tr><td>Neuter</td><td>mein Kind</td><td>mein Kind (no change)</td></tr>
       <tr><td>Plural</td><td>meine Eltern</td><td>meine Eltern (no change)</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
     <div class="section-title sky">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">besuchen</td><td class="vocab-en">to visit</td><td class="vocab-ex">Ich besuche meinen Opa. — I am visiting my grandpa.</td></tr>
       <tr><td class="vocab-de">anrufen</td><td class="vocab-en">to call (on the phone)</td><td class="vocab-ex">Rufst du deinen Vater an? — Are you calling your father?</td></tr>
@@ -214,7 +305,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">der Freund</td><td class="vocab-en">boyfriend / male friend</td><td class="vocab-ex">Sie liebt ihren Freund. — She loves her boyfriend.</td></tr>
       <tr><td class="vocab-de">der Koffer</td><td class="vocab-en">suitcase</td><td class="vocab-ex">Ich packe meinen Koffer. — I pack my suitcase.</td></tr>
       <tr><td class="vocab-de">der Termin</td><td class="vocab-en">appointment</td><td class="vocab-ex">Ich vergesse meinen Termin. — I forget my appointment.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -301,7 +392,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title indigo">Conjugation Table — möchten</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>Pronoun</th><th>möchten (would like)</th></tr>
       <tr><td>ich</td><td>möchte</td></tr>
       <tr><td>du</td><td>möchtest</td></tr>
@@ -309,12 +401,13 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td>wir</td><td>möchten</td></tr>
       <tr><td>ihr</td><td>möchtet</td></tr>
       <tr><td>sie/Sie</td><td>möchten</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
     <div class="section-title sky">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">möchten</td><td class="vocab-en">would like</td><td class="vocab-ex">Ich möchte zahlen. — I would like to pay.</td></tr>
       <tr><td class="vocab-de">trinken</td><td class="vocab-en">to drink</td><td class="vocab-ex">Was möchten Sie trinken? — What would you like to drink?</td></tr>
@@ -326,7 +419,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">der Kuchen</td><td class="vocab-en">cake</td><td class="vocab-ex">Er möchte den Kuchen probieren. — He would like to try the cake.</td></tr>
       <tr><td class="vocab-de">probieren</td><td class="vocab-en">to try / taste</td><td class="vocab-ex">Möchtest du probieren? — Would you like to try?</td></tr>
       <tr><td class="vocab-de">bitte</td><td class="vocab-en">please</td><td class="vocab-ex">Einen Kaffee, bitte. — A coffee, please.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -413,7 +506,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title indigo">W-Word Reference Table</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>W-Word</th><th>English Meaning</th><th>Example</th></tr>
       <tr><td>Was</td><td>What</td><td>Was machst du? (What are you doing?)</td></tr>
       <tr><td>Wo</td><td>Where (location)</td><td>Wo bist du? (Where are you?)</td></tr>
@@ -423,12 +517,13 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td>Wer</td><td>Who</td><td>Wer ist das? (Who is that?)</td></tr>
       <tr><td>Wie</td><td>How</td><td>Wie alt bist du? (How old are you?)</td></tr>
       <tr><td>Warum</td><td>Why</td><td>Warum lernst du Deutsch? (Why are you learning German?)</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
     <div class="section-title sky">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">was</td><td class="vocab-en">what</td><td class="vocab-ex">Was essen wir? — What are we eating?</td></tr>
       <tr><td class="vocab-de">wo</td><td class="vocab-en">where</td><td class="vocab-ex">Wo wohnst du? — Where do you live?</td></tr>
@@ -440,7 +535,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">der Kurs</td><td class="vocab-en">course / class</td><td class="vocab-ex">Wann beginnt der Kurs? — When does the course begin?</td></tr>
       <tr><td class="vocab-de">die Party</td><td class="vocab-en">party</td><td class="vocab-ex">Wo ist die Party? — Where is the party?</td></tr>
       <tr><td class="vocab-de">anfangen</td><td class="vocab-en">to start / begin</td><td class="vocab-ex">Wann fängt der Film an? — When does the movie start?</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -527,7 +622,8 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
 
   <div class="section">
     <div class="section-title sky">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">das Restaurant</td><td class="vocab-en">restaurant</td><td class="vocab-ex">Das Restaurant ist gut. — The restaurant is good.</td></tr>
       <tr><td class="vocab-de">der Kellner / die Kellnerin</td><td class="vocab-en">waiter / waitress</td><td class="vocab-ex">Der Kellner kommt sofort. — The waiter is coming immediately.</td></tr>
@@ -539,7 +635,7 @@ main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
       <tr><td class="vocab-de">getrennt</td><td class="vocab-en">separate</td><td class="vocab-ex">Nein, bitte getrennt. — No, separately please.</td></tr>
       <tr><td class="vocab-de">das Trinkgeld</td><td class="vocab-en">tip / gratuity</td><td class="vocab-ex">Das Trinkgeld ist wichtig. — The tip is important.</td></tr>
       <tr><td class="vocab-de">lecker</td><td class="vocab-en">delicious / tasty</td><td class="vocab-ex">Das Essen ist sehr lecker. — The food is very delicious.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">

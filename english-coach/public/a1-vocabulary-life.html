@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>A1 German — Life Skills Vocabulary</title>
+<style>
+:root{
+  --bg:#0f172a;--surface:#1e293b;--surface2:#263347;
+  --text:#e2e8f0;--muted:#94a3b8;--border:#334155;
+  --orange:#fb923c;--amber:#fbbf24;--yellow:#fde047;
+  --green:#34d399;--red:#f87171;--sky:#38bdf8;
+  --blue:#60a5fa;--purple:#a78bfa;--rose:#fb7185;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.7;padding:2rem 1rem}
+.container{max-width:860px;margin:0 auto}
+h1{font-size:2rem;color:var(--orange);margin-bottom:.4rem}
+.subtitle{color:var(--muted);font-size:1rem;margin-bottom:2.5rem}
+h2{font-size:1.4rem;color:var(--orange);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:2px solid var(--amber)}
+h3{font-size:1.1rem;color:var(--amber);margin:1.2rem 0 .6rem}
+section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;margin-bottom:2rem}
+p{color:var(--text);margin-bottom:.8rem}
+ul,ol{padding-left:1.4rem;margin-bottom:.8rem;color:var(--text)}
+li{margin-bottom:.3rem}
+.teach{background:#1a0f00;border-left:4px solid var(--orange);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.teach strong{color:var(--orange);display:block;margin-bottom:.3rem}
+.trick{background:#1c1917;border-left:4px solid var(--amber);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.trick strong{color:var(--amber);display:block;margin-bottom:.3rem}
+.situation{background:#0c1a2e;border-left:4px solid var(--sky);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.situation strong{color:var(--sky);display:block;margin-bottom:.3rem}
+.mistake{background:#2d0a0a;border-left:4px solid var(--red);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.mistake strong{color:var(--red);display:block;margin-bottom:.3rem}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.95rem}
+th{background:var(--surface2);color:var(--orange);padding:.6rem .8rem;text-align:left;font-weight:600}
+td{padding:.5rem .8rem;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#1a2438}
+.hi{color:var(--amber);font-weight:600}
+.dim{color:var(--muted)}
+.de{color:var(--amber);font-weight:600}
+.page-header{text-align:center;padding:32px 20px 20px;margin-bottom:28px;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border:1px solid var(--border);border-radius:16px}
+.page-header .badge{display:inline-block;background:#92400e;color:#fde68a;font-size:.78em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:4px 14px;margin-bottom:12px}
+.page-header h1{font-size:2.2em;color:#f8fafc;margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:1.05em}
+.navback{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.navback a{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:.88em;color:var(--muted);text-decoration:none;transition:border-color .15s}
+.navback a:hover{border-color:var(--orange);color:var(--orange)}
+nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+nav a{background:var(--surface2);color:var(--orange);border:1px solid var(--border);padding:.4rem .9rem;border-radius:20px;text-decoration:none;font-size:.85rem}
+nav a:hover{background:#263347}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.8rem 0}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1rem}
+.card-title{font-weight:700;margin-bottom:.6rem;font-size:1rem;color:var(--orange)}
+.vocab-item{display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid var(--border)}
+.vocab-item:last-child{border-bottom:none}
+.vocab-de{color:var(--amber);font-weight:600}
+.vocab-en{color:var(--muted);font-size:.9rem}
+pre.letter{background:#0c1a0c;border:1px solid var(--green);border-radius:8px;padding:1rem 1.4rem;font-family:'Segoe UI',system-ui,sans-serif;font-size:.95rem;white-space:pre-wrap;color:var(--text);margin:.8rem 0;line-height:1.7}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <div class="badge">A1 German · Life Skills</div>
+  <h1>Life Skills Vocabulary</h1>
+  <p>Health · Travel · Bank · Post · Phone · Letters · Body · Doctor · Festivals</p>
+</div>
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#vs01">Body Parts</a>
+  <a href="#vs02">Health &amp; Illness</a>
+  <a href="#vs03">At the Doctor's</a>
+  <a href="#vs04">Travel &amp; Hotel</a>
+  <a href="#vs05">The Bank</a>
+  <a href="#vs06">The Post Office</a>
+  <a href="#vs07">Phone Calls</a>
+  <a href="#vs08">Writing Letters</a>
+  <a href="#vs09">Registration</a>
+  <a href="#vs10">Festivals</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ──────────────────────────────────── vs01 -->
+<section id="vs01">
+<h2>Body Parts</h2>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Körperteile (Body)</div>
+    <div class="vocab-item"><span class="vocab-de">der Kopf</span><span class="vocab-en">head</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Gesicht</span><span class="vocab-en">face</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Auge / die Augen</span><span class="vocab-en">eye / eyes</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Nase</span><span class="vocab-en">nose</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Mund</span><span class="vocab-en">mouth</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Ohr / die Ohren</span><span class="vocab-en">ear / ears</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Hals</span><span class="vocab-en">throat / neck</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Schulter</span><span class="vocab-en">shoulder</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Arm</span><span class="vocab-en">arm</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Hand</span><span class="vocab-en">hand</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">More Body Parts</div>
+    <div class="vocab-item"><span class="vocab-de">der Finger</span><span class="vocab-en">finger</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Rücken</span><span class="vocab-en">back</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Bauch / Magen</span><span class="vocab-en">stomach / belly</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Bein</span><span class="vocab-en">leg</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Knie</span><span class="vocab-en">knee</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Fuß / die Füße</span><span class="vocab-en">foot / feet</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Zehe / die Zehen</span><span class="vocab-en">toe / toes</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Brust</span><span class="vocab-en">chest / breast</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Herz</span><span class="vocab-en">heart</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Lunge</span><span class="vocab-en">lung</span></div>
+  </div>
+</div>
+
+<h3>Extended Body Parts (from your notes)</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">More — der/die</div>
+    <div class="vocab-item"><span class="vocab-de">der Ellbogen / Ellenbogen</span><span class="vocab-en">elbow</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Zahn / die Zähne</span><span class="vocab-en">tooth / teeth</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Knochen</span><span class="vocab-en">bone</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Bart / die Bärte</span><span class="vocab-en">beard</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Schnurrbart</span><span class="vocab-en">moustache</span></div>
+    <div class="vocab-item"><span class="vocab-de">der Nagel / die Nägel</span><span class="vocab-en">nail</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Zunge</span><span class="vocab-en">tongue</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Lippe / die Lippen</span><span class="vocab-en">lip / lips</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Backe / die Wange</span><span class="vocab-en">cheek</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Augenbraue</span><span class="vocab-en">eyebrow</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Wimper</span><span class="vocab-en">eyelash</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Stirn</span><span class="vocab-en">forehead</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Haut</span><span class="vocab-en">skin</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Leber</span><span class="vocab-en">liver</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Niere</span><span class="vocab-en">kidney</span></div>
+    <div class="vocab-item"><span class="vocab-de">die Taille</span><span class="vocab-en">waist</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">More — das</div>
+    <div class="vocab-item"><span class="vocab-de">das Haar / die Haare</span><span class="vocab-en">hair</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Gesicht</span><span class="vocab-en">face</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Auge / die Augen</span><span class="vocab-en">eye / eyes</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Ohr / die Ohren</span><span class="vocab-en">ear / ears</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Knie / die Knie</span><span class="vocab-en">knee</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Bein / die Beine</span><span class="vocab-en">leg / legs</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Gehirn</span><span class="vocab-en">brain</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Kinn</span><span class="vocab-en">chin</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Gelenk</span><span class="vocab-en">joint</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Blut</span><span class="vocab-en">blood</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Augenlid</span><span class="vocab-en">eyelid</span></div>
+    <div class="vocab-item"><span class="vocab-de">das Herz / die Herzen</span><span class="vocab-en">heart</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vs02 -->
+<section id="vs02">
+<h2>Health &amp; Illness</h2>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>Example Sentence</th></tr>
+  <tr><td class="de">krank sein</td><td>to be ill</td><td><em>Ich bin krank.</em></td></tr>
+  <tr><td class="de">Schmerzen haben</td><td>to have pain</td><td><em>Ich habe Schmerzen.</em></td></tr>
+  <tr><td class="de">Kopfschmerzen</td><td>headache</td><td><em>Ich habe Kopfschmerzen.</em></td></tr>
+  <tr><td class="de">Bauchschmerzen / Magenschmerzen</td><td>stomach ache</td><td><em>Ich habe Bauchschmerzen.</em></td></tr>
+  <tr><td class="de">Halsschmerzen</td><td>sore throat</td><td><em>Ich habe Halsschmerzen.</em></td></tr>
+  <tr><td class="de">Rückenschmerzen</td><td>back pain</td><td><em>Mein Rücken tut weh.</em></td></tr>
+  <tr><td class="de">Fieber haben</td><td>to have a fever</td><td><em>Ich habe Fieber.</em></td></tr>
+  <tr><td class="de">Husten haben</td><td>to have a cough</td><td><em>Ich huste.</em></td></tr>
+  <tr><td class="de">Schnupfen haben</td><td>to have a cold</td><td><em>Ich habe einen Schnupfen.</em></td></tr>
+  <tr><td class="de">sich erkälten</td><td>to catch a cold</td><td><em>Ich habe mich erkältet.</em></td></tr>
+  <tr><td class="de">erbrechen / sich übergeben</td><td>to vomit</td><td><em>Mir ist schlecht.</em> (I feel sick.)</td></tr>
+  <tr><td class="de">die Allergie</td><td>allergy</td><td><em>Ich habe eine Allergie.</em></td></tr>
+  <tr><td class="de">sich verletzen</td><td>to injure oneself</td><td><em>Ich habe mich verletzt.</em></td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 "-schmerzen" = ache / pain — just add body part!</strong>
+  <em>Kopf</em> + schmerzen = Kopfschmerzen (headache)<br>
+  <em>Bauch</em> + schmerzen = Bauchschmerzen (stomach ache)<br>
+  <em>Zahn</em> + schmerzen = Zahnschmerzen (toothache)<br>
+  <em>Ohr</em> + schmerzen = Ohrschmerzen (earache)<br>
+  All are <strong>plural</strong> in German — always "Schmerzen", not "Schmerz"!
+</div>
+
+<div class="trick">
+  <strong>💡 "weh tun" vs "Schmerzen haben"</strong>
+  Both mean "to hurt" but used differently:<br>
+  <em>Mein Kopf tut weh.</em> = My head hurts. (something hurts me)<br>
+  <em>Ich habe Kopfschmerzen.</em> = I have a headache. (I experience pain)
+</div>
+
+<h3>Health Questions &amp; Answers (from your notes)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Question</th><th>Model Answer</th></tr>
+  <tr><td class="de">Wie oft machen Sie Yoga?</td><td class="de">Ich mache zweimal pro Woche Yoga.</td></tr>
+  <tr><td class="de">Wie oft gehen Sie ins Fitnessstudio?</td><td class="de">Ich gehe am Wochenende ins Fitnessstudio.</td></tr>
+  <tr><td class="de">Wie oft nehmen Sie Medikamente?</td><td class="de">Ich nehme dreimal pro Tag Medikamente.</td></tr>
+  <tr><td class="de">Warum essen Sie so viel Obst?</td><td class="de">Obst ist gut für die Gesundheit.</td></tr>
+  <tr><td class="de">Welche Krankenversicherung haben Sie?</td><td class="de">Ich habe eine AOK-Krankenversicherung.</td></tr>
+  <tr><td class="de">Seit wann haben Sie eine Krankenversicherung?</td><td class="de">Ich habe seit einem Jahr eine Krankenversicherung.</td></tr>
+  <tr><td class="de">Wie viele Zigaretten rauchen Sie jeden Tag?</td><td class="de">Ich rauche jeden Tag zwei Zigaretten.</td></tr>
+  <tr><td class="de">Welches Obst essen Sie am meisten?</td><td class="de">Ich esse Äpfel am meisten.</td></tr>
+  <tr><td class="de">Wann machen Sie Gymnastik?</td><td class="de">Am Wochenende mache ich Gymnastik.</td></tr>
+  <tr><td class="de">Wie lange machen Sie Gymnastik?</td><td class="de">Ich mache eine Stunde Gymnastik.</td></tr>
+  <tr><td class="de">Warum machen Sie Gymnastik?</td><td class="de">Gymnastik ist gut für die Gesundheit.</td></tr>
+  <tr><td class="de">Was machen Sie für die Gesundheit?</td><td class="de">Ich mache Sport und esse viel Obst.</td></tr>
+  <tr><td class="de">Welche Frucht ist gut für die Gesundheit?</td><td class="de">Der Apfel ist gut für die Gesundheit.</td></tr>
+  <tr><td class="de">Wie viel Obst essen Sie jeden Tag?</td><td class="de">Ich esse jeden Tag einen Apfel.</td></tr>
+  <tr><td class="de">Seit wann hast du Schnupfen?</td><td class="de">Ich habe seit drei Tagen Schnupfen.</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 Frequency phrases</strong>
+  <em>einmal</em> = once · <em>zweimal</em> = twice · <em>dreimal</em> = three times<br>
+  <em>pro Tag</em> = per day · <em>pro Woche</em> = per week · <em>am Wochenende</em> = at the weekend
+</div>
+
+<h3>Symptoms &amp; Complaints Vocabulary</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">die Übelkeit</td><td>nausea</td></tr>
+  <tr><td class="de">die Grippe</td><td>flu / influenza</td></tr>
+  <tr><td class="de">die Erkältung</td><td>a cold</td></tr>
+  <tr><td class="de">der Husten</td><td>cough</td></tr>
+  <tr><td class="de">der Schnupfen</td><td>runny nose / cold</td></tr>
+  <tr><td class="de">das Fieber</td><td>fever</td></tr>
+  <tr><td class="de">Zahnschmerzen</td><td>toothache</td></tr>
+  <tr><td class="de">Rückenschmerzen</td><td>backache</td></tr>
+  <tr><td class="de">Ohrschmerzen</td><td>earache</td></tr>
+  <tr><td class="de">Mir ist schlecht.</td><td>I feel sick / nauseous.</td></tr>
+  <tr><td class="de">Ich fühle mich nicht gut.</td><td>I don't feel well.</td></tr>
+  <tr><td class="de">Mein Rücken schmerzt.</td><td>My back hurts.</td></tr>
+  <tr><td class="de">Meine Augen tun weh.</td><td>My eyes hurt.</td></tr>
+</table></div>
+
+<h3>Medicine Instructions</h3>
+<div class="table-wrap"><table>
+  <tr><th>Phrase</th><th>English</th></tr>
+  <tr><td class="de">eine Tablette nehmen</td><td>to take a tablet</td></tr>
+  <tr><td class="de">die Tropfen einnehmen</td><td>to take the drops</td></tr>
+  <tr><td class="de">die Salbe auftragen</td><td>to apply the ointment</td></tr>
+  <tr><td class="de">einreiben</td><td>to rub in</td></tr>
+  <tr><td class="de">ein Pflaster haben/bekommen</td><td>to have/get a plaster</td></tr>
+  <tr><td class="de">einen Verband bekommen</td><td>to get a bandage</td></tr>
+  <tr><td class="de">eine Spritze bekommen</td><td>to get an injection</td></tr>
+  <tr><td class="de">den Saft trinken</td><td>to drink the syrup</td></tr>
+</table></div>
+
+<h3>Hausmittel — Home Remedies</h3>
+<div class="trick">
+  <strong>💡 Common home remedies from your notes</strong>
+  Bei <em>Zahnschmerzen</em>: Nelken (cloves)<br>
+  Bei <em>Halsschmerzen</em>: heiße Kartoffeln (hot potatoes)<br>
+  Bei <em>Schlafproblemen</em>: Milch mit Honig (milk with honey)<br>
+  Bei <em>Schnupfen</em>: Hühnersuppe (chicken soup)
+</div>
+
+<h3>Health Professions &amp; Emergency</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">der Arzt / die Ärztin</td><td>doctor</td></tr>
+  <tr><td class="de">der Notarzt</td><td>emergency doctor</td></tr>
+  <tr><td class="de">die Krankenschwester</td><td>nurse</td></tr>
+  <tr><td class="de">der Apotheker / die Apothekerin</td><td>pharmacist</td></tr>
+  <tr><td class="de">die Arzthelferin</td><td>medical assistant</td></tr>
+  <tr><td class="de">der Physiotherapeut</td><td>physiotherapist</td></tr>
+  <tr><td class="de">der Krankenwagen</td><td>ambulance</td></tr>
+  <tr><td class="de">die Krankenversicherung</td><td>health insurance</td></tr>
+  <tr><td class="de">erste Hilfe</td><td>first aid</td></tr>
+  <tr><td class="de">der Erste-Hilfe-Koffer</td><td>first aid kit</td></tr>
+  <tr><td class="de">die Untersuchung</td><td>examination / check-up</td></tr>
+  <tr><td class="de">das Rezept</td><td>prescription / recipe</td></tr>
+  <tr><td class="de">untersuchen</td><td>to examine</td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── vs03 -->
+<section id="vs03">
+<h2>At the Doctor's</h2>
+<div class="table-wrap"><table>
+  <tr><th>Situation</th><th>German</th><th>English</th></tr>
+  <tr><td>Making appointment</td><td class="de">Ich brauche einen Termin.</td><td>I need an appointment.</td></tr>
+  <tr><td>Arrival</td><td class="de">Ich habe einen Termin bei Dr. Müller.</td><td>I have an appointment with Dr Müller.</td></tr>
+  <tr><td>Doctor asks</td><td class="de">Was fehlt Ihnen?</td><td>What is wrong with you?</td></tr>
+  <tr><td>Doctor asks</td><td class="de">Seit wann haben Sie die Beschwerden?</td><td>Since when do you have the symptoms?</td></tr>
+  <tr><td>You answer</td><td class="de">Ich habe seit drei Tagen Fieber.</td><td>I've had a fever for three days.</td></tr>
+  <tr><td>You answer</td><td class="de">Hier tut es weh.</td><td>It hurts here.</td></tr>
+  <tr><td>Doctor says</td><td class="de">Machen Sie bitte den Mund auf.</td><td>Open your mouth please.</td></tr>
+  <tr><td>Doctor says</td><td class="de">Ich verschreibe Ihnen Tabletten.</td><td>I'll prescribe you tablets.</td></tr>
+  <tr><td>Doctor says</td><td class="de">Sie brauchen Ruhe.</td><td>You need rest.</td></tr>
+  <tr><td>At pharmacy</td><td class="de">Ich habe ein Rezept.</td><td>I have a prescription.</td></tr>
+  <tr><td>At pharmacy</td><td class="de">Haben Sie etwas gegen Kopfschmerzen?</td><td>Do you have something for headaches?</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Full Doctor Visit Script</strong>
+  Arzt: <em>"Guten Morgen. Was kann ich für Sie tun?"</em><br>
+  Patient: <em>"Ich fühle mich nicht gut. Ich habe Halsschmerzen und Fieber seit zwei Tagen."</em><br>
+  Arzt: <em>"Machen Sie bitte den Mund auf. Hmm. Sie haben eine Erkältung. Ich empfehle Bettruhe und viel Wasser trinken. Hier ist ein Rezept für Tabletten."</em><br>
+  Patient: <em>"Danke, Herr Doktor. Wann soll ich wiederkommen?"</em><br>
+  Arzt: <em>"In einer Woche, wenn es nicht besser wird."</em>
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vs04 -->
+<section id="vs04">
+<h2>Travel &amp; Hotel</h2>
+
+<h3>Hotel Vocabulary (from your notes)</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>Note</th></tr>
+  <tr><td class="de">das Hotel</td><td>hotel</td><td></td></tr>
+  <tr><td class="de">das Einzelzimmer</td><td>single room</td><td></td></tr>
+  <tr><td class="de">das Doppelzimmer</td><td>double room</td><td></td></tr>
+  <tr><td class="de">das Zimmer</td><td>room</td><td></td></tr>
+  <tr><td class="de">die Rezeption</td><td>reception desk</td><td></td></tr>
+  <tr><td class="de">der Schlüssel</td><td>key</td><td></td></tr>
+  <tr><td class="de">der Aufzug</td><td>elevator / lift</td><td></td></tr>
+  <tr><td class="de">die Halbpension</td><td>half board</td><td>breakfast + one main meal</td></tr>
+  <tr><td class="de">die Vollpension</td><td>full board</td><td>all meals included</td></tr>
+  <tr><td class="de">das Frühstück</td><td>breakfast</td><td>often included (inklusive)</td></tr>
+  <tr><td class="de">das Anmeldeformular</td><td>registration form</td><td>fill in on arrival</td></tr>
+  <tr><td class="de">die Ankunft</td><td>arrival</td><td></td></tr>
+  <tr><td class="de">die Abreise</td><td>departure</td><td></td></tr>
+  <tr><td class="de">reservieren</td><td>to reserve / book</td><td></td></tr>
+  <tr><td class="de">buchen</td><td>to book</td><td></td></tr>
+  <tr><td class="de">bleiben</td><td>to stay</td><td>Ich bleibe vier Nächte.</td></tr>
+  <tr><td class="de">ausfüllen</td><td>to fill in (a form)</td><td>ausfüllen, not anfüllen</td></tr>
+  <tr><td class="de">unterschreiben</td><td>to sign</td><td></td></tr>
+  <tr><td class="de">auschecken</td><td>to check out</td><td></td></tr>
+  <tr><td class="de">sich beschweren</td><td>to complain</td><td>die Beschwerde = complaint</td></tr>
+  <tr><td class="de">zufrieden</td><td>satisfied</td><td></td></tr>
+  <tr><td class="de">sofort</td><td>immediately / right away</td><td></td></tr>
+  <tr><td class="de">gemütlich</td><td>cozy / comfortable</td><td>not attractive — attraktiv</td></tr>
+  <tr><td class="de">bequem</td><td>comfortable</td><td></td></tr>
+  <tr><td class="de">der Angestellte / die Angestellte</td><td>hotel employee / clerk</td><td></td></tr>
+</table></div>
+
+<h3>Travel Vocabulary (from your notes)</h3>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>Note</th></tr>
+  <tr><td class="de">der Urlaub</td><td>holiday / vacation</td><td>die Ferien (usually plural) = school holidays</td></tr>
+  <tr><td class="de">der Urlaubsort</td><td>holiday destination / resort</td><td></td></tr>
+  <tr><td class="de">die Reise</td><td>journey / trip</td><td></td></tr>
+  <tr><td class="de">das Reisebüro</td><td>travel agency</td><td></td></tr>
+  <tr><td class="de">der Reisepass</td><td>passport</td><td></td></tr>
+  <tr><td class="de">der Reiseführer</td><td>travel guidebook</td><td>der Reiseleiter = tour guide (person)</td></tr>
+  <tr><td class="de">die Fahrkarte</td><td>ticket (transport)</td><td></td></tr>
+  <tr><td class="de">der Koffer</td><td>suitcase</td><td></td></tr>
+  <tr><td class="de">der Rucksack</td><td>backpack</td><td></td></tr>
+  <tr><td class="de">der Stadtplan</td><td>city map</td><td></td></tr>
+  <tr><td class="de">die Touristeninformation</td><td>tourist information office</td><td></td></tr>
+  <tr><td class="de">die Stadtführung</td><td>guided city tour</td><td></td></tr>
+  <tr><td class="de">die Sehenswürdigkeit</td><td>tourist sight / attraction</td><td>plural: Sehenswürdigkeiten</td></tr>
+  <tr><td class="de">besuchen</td><td>to visit</td><td>used for people and places</td></tr>
+  <tr><td class="de">besichtigen</td><td>to sightsee / view</td><td>used for monuments and sights</td></tr>
+  <tr><td class="de">bummeln</td><td>to stroll / wander around</td><td></td></tr>
+  <tr><td class="de">wünschen</td><td>to wish</td><td>Ich wünsche Ihnen eine schöne Zeit.</td></tr>
+  <tr><td class="de">eine schöne Zeit</td><td>a nice time</td><td>common travel farewell phrase</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ Hotel Check-in Script</strong>
+  Angestellter: <em>"Guten Tag. Haben Sie eine Reservierung?"</em><br>
+  Gast: <em>"Ja, ich habe ein Doppelzimmer mit Halbpension reserviert. Ich bleibe vier Nächte."</em><br>
+  Angestellter: <em>"Ihr Name, bitte?"</em><br>
+  Gast: <em>"Mein Name ist Alexander George."</em><br>
+  Angestellter: <em>"Bitte füllen Sie das Anmeldeformular aus und unterschreiben Sie hier."</em><br>
+  Gast: <em>"Danke. Wo ist der Aufzug?"</em><br>
+  Angestellter: <em>"Der Aufzug ist rechts. Ihr Zimmer ist Nummer 204."</em>
+</div>
+
+<div class="situation">
+  <strong>🗣️ Hotel Complaint Phrases</strong>
+  <em>"Das Zimmer ist zu laut."</em> (The room is too noisy.)<br>
+  <em>"Die Klimaanlage funktioniert nicht."</em> (The air conditioning doesn't work.)<br>
+  <em>"Kann ich bitte ein anderes Zimmer haben?"</em> (Can I have a different room please?)<br>
+  <em>"Ich möchte eine Beschwerde machen."</em> (I would like to make a complaint.)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vs05 -->
+<section id="vs05">
+<h2>At the Bank</h2>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">das Konto</td><td>account</td></tr>
+  <tr><td class="de">das Girokonto</td><td>current account / checking account</td></tr>
+  <tr><td class="de">das Sparbuch / Sparkonto</td><td>savings account</td></tr>
+  <tr><td class="de">die Karte / EC-Karte</td><td>debit card</td></tr>
+  <tr><td class="de">die Kreditkarte</td><td>credit card</td></tr>
+  <tr><td class="de">Geld abheben</td><td>to withdraw money</td></tr>
+  <tr><td class="de">Geld einzahlen</td><td>to deposit money</td></tr>
+  <tr><td class="de">überweisen</td><td>to transfer (money)</td></tr>
+  <tr><td class="de">die Überweisung</td><td>bank transfer</td></tr>
+  <tr><td class="de">der Kontoauszug</td><td>bank statement</td></tr>
+  <tr><td class="de">der Geldautomat / ATM</td><td>cash machine / ATM</td></tr>
+  <tr><td class="de">der Wechselkurs</td><td>exchange rate</td></tr>
+  <tr><td class="de">Geld wechseln</td><td>to exchange money</td></tr>
+  <tr><td class="de">die PIN</td><td>PIN number</td></tr>
+  <tr><td class="de">Ich möchte ein Konto eröffnen.</td><td>I'd like to open an account.</td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── vs06 -->
+<section id="vs06">
+<h2>At the Post Office</h2>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">der Brief</td><td>letter</td></tr>
+  <tr><td class="de">das Paket</td><td>parcel / package</td></tr>
+  <tr><td class="de">die Postkarte</td><td>postcard</td></tr>
+  <tr><td class="de">die Briefmarke</td><td>stamp</td></tr>
+  <tr><td class="de">der Umschlag</td><td>envelope</td></tr>
+  <tr><td class="de">die Adresse</td><td>address</td></tr>
+  <tr><td class="de">die Postleitzahl (PLZ)</td><td>postcode / zip code</td></tr>
+  <tr><td class="de">einschreiben</td><td>registered post</td></tr>
+  <tr><td class="de">per Expresspost schicken</td><td>to send by express</td></tr>
+  <tr><td class="de">Was kostet das Porto?</td><td>What is the postage?</td></tr>
+  <tr><td class="de">Wie lange dauert es?</td><td>How long will it take?</td></tr>
+  <tr><td class="de">abholen</td><td>to collect / pick up</td></tr>
+</table></div>
+
+<div class="situation">
+  <strong>🗣️ At the Post Office</strong>
+  A: <em>"Ich möchte dieses Paket nach Indien schicken."</em> (I'd like to send this parcel to India.)<br>
+  B: <em>"Wie viel wiegt es?"</em> (How much does it weigh?)<br>
+  A: <em>"Circa 2 Kilo."</em> (About 2 kilos.)<br>
+  B: <em>"Das kostet 35 Euro per Luftpost. Dauert 7 bis 10 Tage."</em> (That costs 35 euros by airmail. Takes 7 to 10 days.)
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vs07 -->
+<section id="vs07">
+<h2>Phone Conversations</h2>
+<div class="table-wrap"><table>
+  <tr><th>Situation</th><th>German</th><th>English</th></tr>
+  <tr><td>Answering</td><td class="de">Müller, guten Tag!</td><td>Müller, good day! (say your name)</td></tr>
+  <tr><td>Calling</td><td class="de">Hier ist / spricht [Name].</td><td>This is [name] speaking.</td></tr>
+  <tr><td>Asking for someone</td><td class="de">Kann ich bitte mit Frau König sprechen?</td><td>May I speak with Mrs König?</td></tr>
+  <tr><td>Hold</td><td class="de">Einen Moment bitte.</td><td>One moment please.</td></tr>
+  <tr><td>Not available</td><td class="de">Er/Sie ist gerade nicht da.</td><td>He/She is not here at the moment.</td></tr>
+  <tr><td>Leave message</td><td class="de">Kann ich eine Nachricht hinterlassen?</td><td>Can I leave a message?</td></tr>
+  <tr><td>Callback</td><td class="de">Können Sie zurückrufen?</td><td>Can you call back?</td></tr>
+  <tr><td>Wrong number</td><td class="de">Da haben Sie sich verwählt.</td><td>You have the wrong number.</td></tr>
+  <tr><td>Bad connection</td><td class="de">Ich kann Sie schlecht hören.</td><td>I can't hear you well.</td></tr>
+  <tr><td>Goodbye</td><td class="de">Auf Wiederhören!</td><td>Goodbye! (on the phone only)</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 Auf Wiedersehen vs Auf Wiederhören</strong>
+  <em>Auf Wiedersehen</em> = "Until we see again" — used face to face<br>
+  <em>Auf Wiederhören</em> = "Until we hear again" — used only on the phone<br>
+  → Always say <em>Auf Wiederhören</em> when ending a phone call!
+</div>
+</section>
+
+<!-- ──────────────────────────────────── vs08 -->
+<section id="vs08">
+<h2>Writing Letters &amp; Emails</h2>
+<div class="table-wrap"><table>
+  <tr><th>Part</th><th>Formal</th><th>Informal</th></tr>
+  <tr><td>Opening</td><td class="de">Sehr geehrte Damen und Herren,</td><td class="de">Liebe Anna, / Hallo Jonas,</td></tr>
+  <tr><td>Opening (person)</td><td class="de">Sehr geehrter Herr Müller, / Sehr geehrte Frau Schmidt,</td><td class="de">Lieber Peter,</td></tr>
+  <tr><td>First line</td><td class="de">Ich schreibe Ihnen wegen …</td><td class="de">Ich schreibe dir, weil …</td></tr>
+  <tr><td>Referring</td><td class="de">Bezüglich Ihrer Anfrage …</td><td class="de">Du fragtest …</td></tr>
+  <tr><td>Closing</td><td class="de">Mit freundlichen Grüßen</td><td class="de">Viele Grüße / Liebe Grüße</td></tr>
+  <tr><td>Closing (very formal)</td><td class="de">Hochachtungsvoll</td><td>—</td></tr>
+  <tr><td>Closing casual</td><td>—</td><td class="de">Bis bald! / Alles Liebe</td></tr>
+</table></div>
+
+<div class="teach">
+  <strong>📌 German Letter Punctuation Rule</strong>
+  After the opening greeting, start the next line with a <strong>lowercase letter</strong>:<br>
+  <em>Sehr geehrter Herr Müller,<br>ich schreibe Ihnen wegen …</em><br>
+  (The "ich" is lowercase even though it starts a new line — this is correct German!)
+</div>
+
+<div class="teach">
+  <strong>📌 Formal Letter Layout (Formeller Brief)</strong>
+  <em>Absender</em> = sender (your name + address, top right)<br>
+  <em>Empfänger</em> = recipient (name + address, left)<br>
+  <em>Datum</em> = date · <em>Betreff</em> = subject line<br>
+  Opening: <em>Sehr geehrter Herr … / Sehr geehrte Frau … / Sehr geehrte Damen und Herren,</em><br>
+  Closing: <em>Mit freundlichen Grüßen</em> (M.f.G.) · Informal closing: <em>Viele Grüße / Liebe Grüße</em>
+</div>
+
+<h3>Telephone Phrases — Was sagen Sie wann?</h3>
+<div class="table-wrap"><table>
+  <tr><th>Situation</th><th>German</th><th>English</th></tr>
+  <tr><td>Self-introduction</td><td class="de">Guten Tag. Hier ist … / Mein Name ist …</td><td>Good day. This is … / My name is …</td></tr>
+  <tr><td>Asking for someone</td><td class="de">Kann ich Frau/Herrn … sprechen? Ist Frau/Herr … da?</td><td>May I speak to Mrs/Mr …? Is Mrs/Mr … there?</td></tr>
+  <tr><td>Asking a question</td><td class="de">Kann ich Sie etwas fragen? Ich habe eine Frage.</td><td>May I ask you something? I have a question.</td></tr>
+  <tr><td>Didn't understand</td><td class="de">Können Sie das bitte noch einmal sagen? Wie bitte?</td><td>Could you please say that again? Pardon?</td></tr>
+  <tr><td>Spelling request</td><td class="de">Können Sie das bitte buchstabieren?</td><td>Could you please spell that?</td></tr>
+  <tr><td>Repeat name</td><td class="de">Können Sie den Namen bitte wiederholen?</td><td>Could you please repeat the name?</td></tr>
+  <tr><td>Goodbye (phone)</td><td class="de">Vielen Dank. Auf Wiederhören.</td><td>Many thanks. Goodbye (on phone only).</td></tr>
+</table></div>
+
+<h3>Sample Letters — All 9 Full Texts from Your Notes</h3>
+
+<h3>Informal Letter 1 — Birthday Party Invitation (to Max)</h3>
+<div class="card"><strong>Task:</strong> You want to celebrate your birthday. You are having a party. You invite your friend Martin. Write to Max.</div>
+<pre class="letter">Lieber Max,
+
+wie geht's? Wie ist das Wetter?
+
+Mein Geburtstag ist am 2. Februar 2018. Ich möchte meinen Geburtstag feiern.
+Deshalb mache ich am 2.2. um 18 Uhr eine Party in meinem Haus.
+
+Du bist mein netter Nachbar. Ich lade dich herzlich zur Party ein.
+Bring bitte das Fleisch, den Salat, die Wurst, die Cola und den Nachtisch mit.
+
+Hoffentlich hast du Zeit. Dann sehen wir uns.
+
+Liebe Grüße
+Alex</pre>
+
+<h3>Informal Letter 2 — Postponing a Visit (to Irene)</h3>
+<div class="card"><strong>Task:</strong> Your friend Irene wants to visit in August. You cannot (you must travel to Berlin for your company). Ask her to come in September — your birthday is on 10 September.</div>
+<pre class="letter">Liebe Irene,
+
+wie geht's? Du möchtest mich im August besuchen. Es tut mir leid, aber ich muss
+im August für meine Firma nach Berlin fahren. Sollst du im September kommen?
+Ich habe am zehnten September Geburtstag. Wir feiern zusammen.
+Hoffentlich sehen wir uns.
+
+Liebe Grüße
+Alex</pre>
+
+<h3>Formal Letter 1 — Apartment Enquiry (to Wohnungsagentur Interhouse, Weimar)</h3>
+<div class="card"><strong>Task:</strong> You are looking for an apartment for 6 months to attend a German course in Weimar. Arrival: beginning of May.</div>
+<pre class="letter">Sehr geehrte Damen und Herren,
+
+ich bin Alex, komme aus Indien und ich bin Arzt. Ich möchte in Deutschland arbeiten.
+Ich spreche etwas Deutsch, aber das ist nicht ausreichend, darum will ich einen
+Deutschkurs besuchen. Weimar ist mein Lieblingsort, darum möchte ich ein Haus in
+Weimar mieten. Ich brauche ein Haus von Mai bis November. Ich komme am Anfang Mai an.
+Können Sie mir bitte Informationen über ein Haus schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George</pre>
+
+<h3>Formal Letter 2 — Apology / Cannot Attend (to Frau Meyer-Siebeck)</h3>
+<div class="card"><strong>Task:</strong> Thank her for the invitation. You cannot come (you must work Saturday). Suggest meeting Sunday instead.</div>
+<pre class="letter">Sehr geehrte Frau Meyer-Siebeck,
+
+wie geht es Ihnen? Vielen Dank für die Einladung. Ich bitte um Entschuldigung.
+Ich kann nicht kommen, denn ich muss am Samstag arbeiten. Ich habe frei am Sonntag.
+Was machen Sie am Sonntag? Und was haben Sie am Sonntag vor?
+Ich will Sie am Sonntag besuchen.
+
+Hoffentlich sehen wir uns.
+
+Mit freundlichen Grüßen
+Alexander George</pre>
+
+<h3>Formal Letter 3 — Cooking Course Enquiry (to Kochschule Schmidt)</h3>
+<div class="card"><strong>Task:</strong> You would like to attend a cooking course at Kochschule Schmidt. Write asking when the course is and what it costs.</div>
+<pre class="letter">Sehr geehrte Damen und Herren,
+
+ich bin Alexander. Ich wohne in Frankfurt. Ich bin ledig und koche selbst.
+Ich möchte im Sommer einen Kochkurs besuchen. Ich will die Kochschule Schmidt
+besuchen, denn ich kann sehr gut kochen. Wann fängt der Kurs an? Was kostet der Kurs?
+Können Sie mir bitte die Informationen per E-Mail oder SMS schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George</pre>
+
+<h3>Formal Letter 4 — German Course Follow-up (to Herr Bernadt)</h3>
+<div class="card"><strong>Task:</strong> You were in a German course in Munich last summer. Your teacher was Herr Bernadt. Write to him asking about this year's summer course.</div>
+<pre class="letter">Sehr geehrter Herr Bernadt,
+
+wie geht es Ihnen? Ich bin Alex. Mein Vorname ist Alexander, mein Nachname ist George
+und ich komme aus Indien. Ich war im letzten Sommer in München in einem Deutschkurs.
+Sie waren mein Lehrer. Ich möchte dieses Jahr im Sommer weiterstudieren.
+Meine Handynummer ist 9447189562 und meine E-Mail-Adresse ist alexanderocean@gmail.com.
+Können Sie mir die Informationen per E-Mail oder SMS schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George</pre>
+
+<h3>Formal Letter 5 — Hotel Booking (to Hotel Kaiser Wilhelm, Hamburg)</h3>
+<div class="card"><strong>Task:</strong> Write to Hotel Kaiser Wilhelm in Hamburg. You need a Doppelzimmer with Halbpension for 4 nights. Arrival: 05.06. at 16:30 at Flughafen Fuhlsbüttel. The hotel car should pick you up.</div>
+<pre class="letter">Sehr geehrte Damen und Herren,
+
+ich bin Alexander. Ich bin Arzt. Ich mache einen Ausflug nach Hamburg.
+Ich brauche ein Doppelzimmer mit Halbpension. Ich möchte im Hotel Kaiser Wilhelm
+in Hamburg bleiben. Ich bleibe vier Nächte dort. Ich komme am 5. Juni um 16:30 Uhr
+am Flughafen Fuhlsbüttel an. Das Hotelauto soll mich am Flughafen abholen.
+
+Können Sie mir bitte die Informationen per E-Mail schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George</pre>
+
+<h3>Formal Letter 6 — Party Food Order (to Frau Nabi)</h3>
+<div class="card"><strong>Task:</strong> You are having a party for 30 people next Saturday. You want to order food from a restaurant that delivers. Ask what it costs and request delivery.</div>
+<pre class="letter">Sehr geehrte Frau Nabi,
+
+ich bin Alex. Ich mache am Samstagabend um 7 Uhr eine Geburtstagsparty in meinem Haus.
+Ich möchte Essen für 30 Personen bestellen. Ich möchte Tomatensuppe, Brot,
+Pommes frites, Wurst, Cola, Bier, Hähnchen, Obst und Nachtisch bestellen.
+Wie viel kostet das? Können Sie das Essen bitte nach Hause bringen?
+
+Meine Hausadresse ist Renewal Centre, Azad Straße, Kaloor, Ernakulam.
+Meine Handynummer ist 9447189562. Können Sie mich bitte anrufen?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George</pre>
+
+<h3>Formal Letter 7 — Absence from German Class (to Frau Lindner)</h3>
+<div class="card"><strong>Task:</strong> You cannot come to class next Monday (your mother's birthday party). Write to teacher Frau Lindner. Ask about homework and when you return.</div>
+<pre class="letter">Sehr geehrte Frau Lindner,
+
+ich bin Alexander. Meine Mutter hat am nächsten Montag Geburtstag.
+Wir machen am Abend eine Party. Darum möchte ich am Montag nach Hause gehen.
+Nächsten Montag kann ich aber nicht zum Unterricht kommen. Ich komme am Dienstag zurück.
+Gibt es Hausaufgaben? Können Sie mir bitte die Informationen per E-Mail schicken?
+
+Bitte helfen Sie mir.
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George</pre>
+
+<h3>Formal Letter 8 — German Course in Hannover (to Deutschbistro)</h3>
+<div class="card"><strong>Task:</strong> Write to Sprachschule Deutschbistro in Hannover. You want to do a summer German course and live with a German family. Ask for dates and prices.</div>
+<pre class="letter">Sehr geehrte Damen und Herren,
+
+ich bin Alexander, komme aus Indien und arbeite in Köln. Ich spreche etwas Deutsch,
+darum möchte ich wieder studieren. Ich habe im Sommer Urlaub. Ich will im Sommer
+einen Deutschkurs machen. Ich möchte einen Kurs in der Sprachschule "Deutschbistro"
+in Hannover machen und ich möchte in einer deutschen Familie wohnen.
+Gibt es einen Kurs im Sommer? Wie viel kostet das?
+
+Meine Handynummer ist +91 9447189562 und meine E-Mail-Adresse ist alexanderocean@gmail.com.
+Können Sie mir bitte die Informationen über Termine und Preise per E-Mail oder SMS schicken?
+
+Vielen Dank.
+
+Mit freundlichen Grüßen
+Alexander George</pre>
+
+<h3>Informal Letter 3 — Moving Help (to Johannes)</h3>
+<div class="card"><strong>Task:</strong> You are moving to the 11th street on 22 February. Your friend Johannes has a big car. Ask him to help. When? Need car?</div>
+<pre class="letter">Lieber Johannes,
+
+wie geht's? Ich möchte am 22. Februar um 9 Uhr in meine neue Wohnung in der
+11. Straße umziehen. Ich packe alle Kisten ein und ich trage alle Möbel in das
+neue Haus. Meine Familie ist groß, aber mein Auto ist klein. Du hast Innova.
+Es ist groß. Darum hilf mir bitte! Kommst du mit deinem Auto?
+Du kannst auch meine Eltern abholen. Ich rufe dich am 21. an.
+
+Wir sehen uns später.
+
+Viele Grüße
+Alex</pre>
+
+<h3>Informal Letter 4 — Schrank Delivery Help (to Tony)</h3>
+<div class="card"><strong>Task:</strong> You bought a Schrank (wardrobe) arriving Monday. You must work Monday. Your neighbour can help. Write to Tony: why you are writing, key, help.</div>
+<pre class="letter">Lieber Tony,
+
+wie geht's? Ich habe deine Handynummer vergessen, darum schreibe ich diesen Brief.
+Ich habe am Samstag einen Schrank gekauft, aber er ist noch nicht gekommen.
+Ich bekomme ihn am Montag. Ich muss am Montag arbeiten, deswegen kann ich nicht warten.
+Morgen muss ich zu Frama gehen. Hast du Zeit? Sie stellen den Schrank ins Arbeitszimmer.
+Kannst du mir bitte helfen? Ich stelle den Schlüssel unter den Teppich in der Garage.
+Kannst du die Tür öffnen und kannst du das Arbeitszimmer zeigen?
+
+Kannst du am Sonntag anrufen? Meine Handynummer ist +618486. Danke.
+
+Wir sehen uns später.
+
+Liebe Grüße
+Alex</pre>
+
+<h3>Informal Letter 5 — Congratulating Jasmin on Her Baby</h3>
+<div class="card"><strong>Task:</strong> Your friend Jasmin has had a baby. Congratulate her and plan a home visit. When will you visit? What gift?</div>
+<pre class="letter">Liebe Jasmin,
+
+wie geht's? Wie geht es deinem Kind? Ich kann dich nicht anrufen.
+Ich möchte dich zu Hause besuchen und dir gratulieren.
+Ich komme im Februar um 5 Uhr nach deinem Haus.
+Ich habe ein Paar Fußballschuhe gekauft.
+Ich möchte ihm die Fußballschuhe schenken.
+
+Sehen wir uns am 22. Februar?
+
+Liebe Grüße
+Alex</pre>
+
+<h3>Email 1: Informal — Invitation (Lieber Jo)</h3>
+<div class="card">
+  <strong>Task:</strong> Write an informal email inviting a friend to meet at a new beach bar. Ask when they are free and what they'd do if it rains.
+</div>
+<pre class="letter">An: jo_schmidt@gmx.de
+Betreff: Treffen!
+
+Lieber Jo,
+
+Wie geht es dir? Wir müssen uns unbedingt mal wiedersehen.
+Warst du schon in der neuen Strandbar aus China? Wirklich toll.
+Wann hast du am Donnerstag Zeit und Lust, und wir treffen uns dort?
+Was machen wir bei Regen? Hast du eine Idee?
+
+Viele Grüße
+Emilia</pre>
+
+<h3>Email 2: Informal — Reply (Liebe Emilia)</h3>
+<div class="card">
+  <strong>Task:</strong> Reply to the email above. Say Thursday doesn't work, suggest Friday at 7 PM, and propose alternatives for bad weather.
+</div>
+<pre class="letter">Liebe Emilia,
+
+danke für deine Mail. Am Donnerstag habe ich leider keine Zeit.
+Können wir uns auch am Freitag treffen? Vielleicht um 7 Uhr?
+Die Strandbar ist super!
+Bei Regen können wir ins Kino gehen oder vielleicht gehen wir ins Kaufhaus.
+Ich rufe dich morgen an, okay?
+
+Viele Grüße
+Jo</pre>
+
+<div class="teach">
+  <strong>📌 Informal email closing formulas</strong>
+  <em>Viele Grüße</em> — Many regards (most common, casual)<br>
+  <em>Liebe Grüße</em> — Kind regards (warm, friendly)<br>
+  <em>Herzliche Grüße</em> — Warm regards (slightly warmer)<br>
+  Opening: <em>Lieber [male name]</em> / <em>Liebe [female name]</em>
+</div>
+
+</section>
+
+<!-- ──────────────────────────────────── vs09 -->
+<section id="vs09">
+<h2>Registration &amp; Official Forms</h2>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th></tr>
+  <tr><td class="de">der Vorname</td><td>first name</td></tr>
+  <tr><td class="de">der Nachname / Familienname</td><td>surname / family name</td></tr>
+  <tr><td class="de">das Geburtsdatum</td><td>date of birth</td></tr>
+  <tr><td class="de">der Geburtsort</td><td>place of birth</td></tr>
+  <tr><td class="de">die Staatsangehörigkeit / Nationalität</td><td>nationality</td></tr>
+  <tr><td class="de">die Adresse / Wohnanschrift</td><td>address</td></tr>
+  <tr><td class="de">die Straße und Hausnummer</td><td>street and house number</td></tr>
+  <tr><td class="de">die Postleitzahl (PLZ)</td><td>postcode</td></tr>
+  <tr><td class="de">der Wohnort</td><td>place of residence</td></tr>
+  <tr><td class="de">verheiratet / ledig / geschieden</td><td>married / single / divorced</td></tr>
+  <tr><td class="de">das Geschlecht</td><td>gender</td></tr>
+  <tr><td class="de">männlich / weiblich / divers</td><td>male / female / non-binary</td></tr>
+  <tr><td class="de">unterschreiben</td><td>to sign</td></tr>
+  <tr><td class="de">das Datum</td><td>the date</td></tr>
+  <tr><td class="de">die Anmeldung</td><td>registration</td></tr>
+  <tr><td class="de">sich anmelden</td><td>to register / sign up</td></tr>
+</table></div>
+
+<div class="teach">
+  <strong>📌 The Anmeldung — Why it matters</strong>
+  When you move to Germany, you must register your address at the local <em>Einwohnermeldeamt</em> (residents' registration office) within 2 weeks. This is called the <em>Anmeldung</em>. You'll need this for almost everything: bank account, tax number, renting an apartment.
+</div>
+
+<h3>Saying Dates</h3>
+<div class="table-wrap"><table>
+  <tr><th>Situation</th><th>German</th><th>Notes</th></tr>
+  <tr><td>Writing a date</td><td class="de">15.06.2024</td><td>Day.Month.Year (DD.MM.YYYY)</td></tr>
+  <tr><td>Saying a date</td><td class="de">der fünfzehnte Juni</td><td>Ordinal + month</td></tr>
+  <tr><td>"On the 15th"</td><td class="de">am fünfzehnten Juni</td><td>am + dative ordinal + month</td></tr>
+  <tr><td>Date of birth</td><td class="de">Ich bin am 15. Juni 1990 geboren.</td><td>am + date (written with period)</td></tr>
+</table></div>
+</section>
+
+<!-- ──────────────────────────────────── vs10 -->
+<section id="vs10">
+<h2>Festivals &amp; Special Occasions</h2>
+<div class="table-wrap"><table>
+  <tr><th>German</th><th>English</th><th>When</th></tr>
+  <tr><td class="de">Weihnachten</td><td>Christmas</td><td>25./26. Dezember</td></tr>
+  <tr><td class="de">Heiligabend</td><td>Christmas Eve</td><td>24. Dezember</td></tr>
+  <tr><td class="de">Neujahr / Silvester</td><td>New Year / New Year's Eve</td><td>1. / 31. Januar</td></tr>
+  <tr><td class="de">Ostern</td><td>Easter</td><td>March/April</td></tr>
+  <tr><td class="de">Karneval / Fasching</td><td>Carnival / Mardi Gras</td><td>Feb/March</td></tr>
+  <tr><td class="de">der Geburtstag</td><td>birthday</td><td>—</td></tr>
+  <tr><td class="de">der Hochzeitstag</td><td>wedding anniversary</td><td>—</td></tr>
+  <tr><td class="de">die Hochzeit</td><td>wedding</td><td>—</td></tr>
+  <tr><td class="de">der Nationalfeiertag</td><td>national holiday</td><td>3. Oktober (Germany)</td></tr>
+  <tr><td class="de">der Tag der Deutschen Einheit</td><td>German Unity Day</td><td>3. Oktober</td></tr>
+</table></div>
+
+<h3>Festive Phrases</h3>
+<div class="table-wrap"><table>
+  <tr><th>Occasion</th><th>German</th><th>English</th></tr>
+  <tr><td>Birthday</td><td class="de">Herzlichen Glückwunsch zum Geburtstag!</td><td>Happy Birthday!</td></tr>
+  <tr><td>Birthday (casual)</td><td class="de">Alles Gute zum Geburtstag!</td><td>All the best for your birthday!</td></tr>
+  <tr><td>Christmas</td><td class="de">Frohe Weihnachten!</td><td>Merry Christmas!</td></tr>
+  <tr><td>New Year</td><td class="de">Frohes Neues Jahr! / Guten Rutsch!</td><td>Happy New Year! / Slide well (into the new year)!</td></tr>
+  <tr><td>Easter</td><td class="de">Frohe Ostern!</td><td>Happy Easter!</td></tr>
+  <tr><td>Wedding</td><td class="de">Herzlichen Glückwunsch zur Hochzeit!</td><td>Congratulations on your wedding!</td></tr>
+  <tr><td>Success</td><td class="de">Viel Erfolg! / Viel Glück!</td><td>Good luck! / Lots of success!</td></tr>
+  <tr><td>Cheers!</td><td class="de">Prost! / Zum Wohl!</td><td>Cheers!</td></tr>
+  <tr><td>Bon appétit</td><td class="de">Guten Appetit!</td><td>Enjoy your meal!</td></tr>
+  <tr><td>Get well soon</td><td class="de">Gute Besserung!</td><td>Get well soon!</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>💡 "Guten Rutsch!" — Why "good slide"?</strong>
+  <em>Rutsch</em> literally = "slide." The expression comes from the Yiddish <em>rosch</em> (head/beginning). So "Guten Rutsch ins neue Jahr" originally meant "a good beginning of the new year." Today it just means "Happy New Year's Eve!"<br>
+  → Say it on 31 December (Silvester), not on 1 January.
+</div>
+</section>
+
+</div>
+</body>
+</html>

@@ -5,69 +5,148 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Part 07: Lessons 31–35 — German A1 Reference</title>
 <style>
-:root{--bg:#0f1117;--bg2:#1a1d27;--card:#1f2233;--border:#2d3148;--text:#e2e8f0;--muted:#8892a4;--sky:#38bdf8;--indigo:#818cf8;--amber:#fbbf24;--green:#4ade80;--rose:#fb7185}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.6;padding:1rem}
-.page-header{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:2rem;text-align:center}
-.page-header h1{font-size:1.8rem;color:var(--sky);margin-bottom:.5rem}
-.page-header p{color:var(--muted)}
-.lesson{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem}
-.lesson-header{border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:1.5rem}
-.lesson-number{font-size:.8rem;color:var(--sky);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
-.lesson-title{font-size:1.4rem;font-weight:700;margin:.3rem 0}
-.lesson-intro{color:var(--muted);font-style:italic;font-size:.95rem;margin-top:.5rem}
-.section{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1rem}
-.section-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem}
-.section-title.sky{color:var(--sky)}
-.section-title.indigo{color:var(--indigo)}
-.section-title.amber{color:var(--amber)}
-.section-title.green{color:var(--green)}
-.section-title.rose{color:var(--rose)}
-.section-title.muted{color:var(--muted)}
-.rule-item{padding:.4rem 0;border-bottom:1px solid var(--border);color:var(--text);font-size:.9rem}
-.rule-item:last-child{border-bottom:none}
-.formula-item{font-family:monospace;background:var(--bg);padding:.4rem .6rem;border-radius:4px;margin:.25rem 0;font-size:.85rem;color:var(--amber)}
-.vocab-table{width:100%;border-collapse:collapse;font-size:.85rem}
-.vocab-table th{text-align:left;padding:.4rem .6rem;background:var(--bg);color:var(--muted);font-weight:600;font-size:.75rem;text-transform:uppercase}
-.vocab-table td{padding:.4rem .6rem;border-top:1px solid var(--border);vertical-align:top}
-.vocab-de{color:var(--sky);font-weight:600}
-.vocab-en{color:var(--text)}
-.vocab-ex{color:var(--muted);font-style:italic;font-size:.8rem}
-.model-sentence{padding:.75rem 0;border-bottom:1px solid var(--border)}
-.model-sentence:last-child{border-bottom:none}
-.model-de{color:var(--green);font-weight:600;font-size:1rem}
-.model-en{color:var(--text);font-size:.9rem;margin:.2rem 0}
-.model-breakdown{color:var(--muted);font-size:.8rem;font-style:italic}
-.grammar-table{width:100%;border-collapse:collapse;font-size:.85rem}
-.grammar-table th{background:var(--bg);padding:.4rem .6rem;text-align:left;color:var(--muted);font-weight:600;font-size:.75rem;text-transform:uppercase}
-.grammar-table td{padding:.4rem .6rem;border-top:1px solid var(--border)}
-.grammar-table td:first-child{color:var(--indigo);font-weight:600}
-.exercise-block{margin-bottom:.75rem}
-.exercise-instruction{color:var(--amber);font-size:.85rem;font-weight:600;margin-bottom:.5rem}
-.exercise-item{display:flex;justify-content:space-between;padding:.3rem 0;border-bottom:1px solid var(--border);font-size:.85rem}
-.exercise-item:last-child{border-bottom:none}
-.exercise-prompt{color:var(--text)}
-.exercise-answer{color:var(--green);font-weight:600}
-.mistake-item{padding:.6rem 0;border-bottom:1px solid var(--border)}
-.mistake-item:last-child{border-bottom:none}
-.mistake-wrong{color:var(--rose);font-size:.9rem}
-.mistake-right{color:var(--green);font-size:.9rem}
-.mistake-explanation{color:var(--muted);font-size:.8rem;margin-top:.3rem}
-.cultural-note{color:var(--text);font-size:.9rem;line-height:1.7}
-.note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
-.pdf-note{background:var(--bg);border-left:3px solid var(--indigo);padding:.75rem;margin:.5rem 0;border-radius:0 4px 4px 0;font-size:.8rem;color:var(--muted);line-height:1.6;white-space:pre-wrap}
-.pdf-label{font-size:.7rem;color:var(--indigo);font-weight:700;text-transform:uppercase;margin-bottom:.3rem}
-.nav-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;padding:1rem}
-.nav-links a{color:var(--sky);text-decoration:none;padding:.4rem .8rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem}
-.nav-links a:hover{border-color:var(--sky)}
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+.lesson { border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; background: var(--card); }
+.lesson:target { border-color: var(--accent); }
+.lesson-header { margin-bottom: 1.5rem; }
+.lesson-number { display: inline-block; background: var(--accent-dark); color: #fff; font-size: .75rem; font-weight: 700; padding: .2rem .75rem; border-radius: 999px; margin-bottom: .5rem; }
+.lesson-title { color: var(--accent); font-size: 1.4rem; margin: .3rem 0 .5rem; }
+.lesson-intro { color: var(--fg-soft); font-style: italic; border-left: 3px solid var(--accent); padding-left: 1rem; }
+.section { margin-top: 1.5rem; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border); background: transparent; }
+.section-title { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 1rem; }
+.section-title.sky { color: var(--accent); }
+.section-title.indigo { color: var(--violet); }
+.section-title.amber { color: var(--gold); }
+.section-title.green { color: var(--green); }
+.section-title.rose { color: var(--red); }
+.section-title.muted { color: var(--fg-soft); }
+.section-title.purple { color: var(--purple); }
+.rule-item { padding: .35rem 0 .35rem 1.2rem; position: relative; color: var(--fg); font-size: .9rem; }
+.rule-item::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.formula-item { font-family: monospace; background: rgba(15,23,42,.5); border-radius: 4px; padding: .4rem .6rem; margin: .25rem 0; font-size: .85rem; color: var(--gold); }
+.vocab-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.vocab-table th { background: var(--th-bg); color: var(--th-fg); padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--border); }
+.vocab-table td { padding: .5rem .6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.vocab-table tr:last-child td { border-bottom: none; }
+.vocab-de { color: var(--accent); font-weight: 600; }
+.vocab-en { color: var(--fg); }
+.vocab-ex { color: var(--fg-soft); font-style: italic; font-size: .85rem; }
+.model-sentence { background: rgba(15,23,42,.5); border-radius: 6px; padding: .75rem; margin-bottom: .5rem; border-left: 3px solid var(--green); }
+.model-de { font-size: 1rem; font-weight: 600; color: var(--fg); }
+.model-en { font-size: .85rem; color: var(--fg-soft); margin: .2rem 0; }
+.model-breakdown { font-size: .8rem; color: var(--accent); font-style: italic; }
+.grammar-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.grammar-table th { background: var(--th-bg); color: var(--th-fg); padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--border); }
+.grammar-table td { padding: .45rem .6rem; border-bottom: 1px solid var(--border); color: var(--fg); }
+.grammar-table td:first-child { color: var(--violet); font-weight: 600; }
+.grammar-table tr:last-child td { border-bottom: none; }
+.exercise-block { margin-bottom: .75rem; }
+.exercise-instruction { color: var(--gold); font-size: .85rem; font-weight: 600; margin-bottom: .5rem; }
+.exercise-item { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid var(--border); font-size: .85rem; }
+.exercise-item:last-child { border-bottom: none; }
+.exercise-prompt { color: var(--fg); }
+.exercise-answer { color: var(--green); font-weight: 600; font-size: .85rem; }
+.exercise-hint { color: var(--fg-soft); font-size: .75rem; margin-top: .1rem; }
+.mistake-item { padding: .75rem; border-radius: 6px; margin-bottom: .5rem; background: rgba(15,23,42,.5); }
+.mistake-wrong { color: var(--red); font-size: .9rem; }
+.mistake-right { color: var(--green); font-size: .9rem; margin-top: .2rem; }
+.mistake-explanation, .mistake-explain { color: var(--fg-soft); font-size: .85rem; margin-top: .25rem; }
+.cultural-note { background: rgba(192,132,252,.07); border: 1px solid rgba(192,132,252,.25); border-radius: 6px; padding: .75rem 1rem; margin-top: .5rem; color: var(--fg-soft); font-size: .9rem; }
+.pdf-note { background: rgba(15,23,42,.8); border-left: 3px solid var(--violet); padding: .75rem; margin: .5rem 0; border-radius: 0 4px 4px 0; font-size: .8rem; color: var(--fg-soft); line-height: 1.6; white-space: pre-wrap; }
+.pdf-label { font-size: .7rem; color: var(--violet); font-weight: 700; text-transform: uppercase; margin-bottom: .3rem; }
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
 </style>
 </head>
 <body>
 
 <div class="page-header">
-  <h1>German A1 Reference — Part 07</h1>
-  <p>Lessons 31–35 · Accusative Pronouns · Dative Articles · Ordinal Numbers · Questions of Time · Possessive Pronouns Dative</p>
+  <div class="badge">A1 German · Lesson Guide</div>
+  <h1>German A1 — Lessons 31–35</h1>
+  <p>Accusative Pronouns · Dative Articles · Ordinal Numbers · Questions of Time · Possessive Pronouns Dative</p>
 </div>
+<nav class="navback">
+  <a href="a1-all-in-one-hub.html">← All Lessons</a>
+  <a href="#lesson-31">Lesson 31: Accusative Pronouns</a>
+  <a href="#lesson-32">Lesson 32: Dative Articles</a>
+  <a href="#lesson-33">Lesson 33: Ordinal Numbers</a>
+  <a href="#lesson-34">Lesson 34: Questions of Time</a>
+  <a href="#lesson-35">Lesson 35: Possessive Pronouns Dative</a>
+
+  <a href="/">Home</a>
+</nav>
+<main>
 
 <!-- LESSON 31 -->
 <section id="lesson-31" class="lesson">
@@ -79,7 +158,8 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title sky">Grammar — Nominative vs. Accusative Pronouns</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>Nominative</th><th>Accusative</th><th>English</th></tr>
       <tr><td>ich</td><td>mich</td><td>I → me</td></tr>
       <tr><td>du</td><td>dich</td><td>you → you (informal acc.)</td></tr>
@@ -90,7 +170,7 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
       <tr><td>ihr</td><td>euch</td><td>you all → you all (acc.)</td></tr>
       <tr><td>sie (pl.)</td><td>sie</td><td>they → them (no change)</td></tr>
       <tr><td>Sie (formal)</td><td>Sie</td><td>you (formal) → no change</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -103,7 +183,8 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title indigo">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">mich</td><td class="vocab-en">me (accusative)</td><td class="vocab-ex">Er liebt mich.</td></tr>
       <tr><td class="vocab-de">dich</td><td class="vocab-en">you (acc. informal)</td><td class="vocab-ex">Ich sehe dich.</td></tr>
@@ -115,7 +196,7 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
       <tr><td class="vocab-de">der Brief</td><td class="vocab-en">the letter</td><td class="vocab-ex">Der Brief ist für ihn.</td></tr>
       <tr><td class="vocab-de">für</td><td class="vocab-en">for (accusative preposition)</td><td class="vocab-ex">Das ist für dich.</td></tr>
       <tr><td class="vocab-de">suchen</td><td class="vocab-en">to look for</td><td class="vocab-ex">Ich suche dich.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -189,13 +270,14 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title sky">Grammar — Dative Article Forms</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>Gender</th><th>Definite (der/die/das)</th><th>Dative Form</th><th>Indefinite</th><th>Dative Form</th></tr>
       <tr><td>Masculine</td><td>der</td><td>dem</td><td>ein</td><td>einem</td></tr>
       <tr><td>Feminine</td><td>die</td><td>der</td><td>eine</td><td>einer</td></tr>
       <tr><td>Neuter</td><td>das</td><td>dem</td><td>ein</td><td>einem</td></tr>
       <tr><td>Plural</td><td>die</td><td>den (+n to noun)</td><td>keine</td><td>keinen (+n)</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -208,7 +290,8 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title indigo">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">dem</td><td class="vocab-en">dative masc/neuter article</td><td class="vocab-ex">mit dem Mann</td></tr>
       <tr><td class="vocab-de">der</td><td class="vocab-en">dative feminine article</td><td class="vocab-ex">mit der Frau</td></tr>
@@ -220,7 +303,7 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
       <tr><td class="vocab-de">bei</td><td class="vocab-en">at/with (dative preposition)</td><td class="vocab-ex">bei dem Arzt = beim Arzt</td></tr>
       <tr><td class="vocab-de">seit</td><td class="vocab-en">since (dative preposition)</td><td class="vocab-ex">seit einem Jahr</td></tr>
       <tr><td class="vocab-de">nach</td><td class="vocab-en">after/to (dative preposition)</td><td class="vocab-ex">nach dem Essen</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -294,14 +377,15 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title sky">Grammar — Ordinal Number Patterns</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>Range</th><th>Rule</th><th>Examples</th></tr>
       <tr><td>1–19</td><td>stem + -te</td><td>zweite, vierte, fünfte, sechste...</td></tr>
       <tr><td>Exceptions</td><td>irregular</td><td>erste (1st), dritte (3rd), siebte (7th), achte (8th)</td></tr>
       <tr><td>20+</td><td>stem + -ste</td><td>zwanzigste, dreißigste, hundertste...</td></tr>
       <tr><td>With 'am' (dative)</td><td>ordinal + dative ending -en</td><td>am ersten, am zweiten, am dritten...</td></tr>
       <tr><td>Nominative date</td><td>der/die/das + ordinal + -e</td><td>Heute ist der dritte Mai.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -314,7 +398,8 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title indigo">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">der Erste</td><td class="vocab-en">the first</td><td class="vocab-ex">der erste Mai</td></tr>
       <tr><td class="vocab-de">der Zweite</td><td class="vocab-en">the second</td><td class="vocab-ex">am zweiten März</td></tr>
@@ -326,7 +411,7 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
       <tr><td class="vocab-de">der Geburtstag</td><td class="vocab-en">birthday</td><td class="vocab-ex">Mein Geburtstag ist am...</td></tr>
       <tr><td class="vocab-de">am</td><td class="vocab-en">on the (an + dem, dative)</td><td class="vocab-ex">am ersten Januar</td></tr>
       <tr><td class="vocab-de">geboren</td><td class="vocab-en">born</td><td class="vocab-ex">Ich bin am fünften Mai geboren.</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -399,14 +484,15 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title sky">Grammar — Time Question Words</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>Question</th><th>Asks about</th><th>Answer with</th></tr>
       <tr><td>Wie lange?</td><td>Duration</td><td>time period (zwei Stunden, drei Monate)</td></tr>
       <tr><td>Seit wann?</td><td>Start point (past)</td><td>seit + dative time expression</td></tr>
       <tr><td>Ab wann?</td><td>Future start point</td><td>ab + time (ab morgen, ab nächster Woche)</td></tr>
       <tr><td>Bis wann?</td><td>End point</td><td>bis + time (bis 5 Uhr, bis Montag)</td></tr>
       <tr><td>Von wann bis wann?</td><td>Full time range</td><td>Von [start] bis [end]</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -419,7 +505,8 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title indigo">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">wie lange</td><td class="vocab-en">how long (duration)</td><td class="vocab-ex">Wie lange dauert das?</td></tr>
       <tr><td class="vocab-de">seit wann</td><td class="vocab-en">since when</td><td class="vocab-ex">Seit wann lernen Sie Deutsch?</td></tr>
@@ -431,7 +518,7 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
       <tr><td class="vocab-de">der Unterricht</td><td class="vocab-en">lesson/class</td><td class="vocab-ex">Der Unterricht dauert 90 Minuten.</td></tr>
       <tr><td class="vocab-de">die Pause</td><td class="vocab-en">break</td><td class="vocab-ex">Die Pause ist von 10 bis 10:15 Uhr.</td></tr>
       <tr><td class="vocab-de">die Woche</td><td class="vocab-en">week</td><td class="vocab-ex">seit drei Wochen</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -504,7 +591,8 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title sky">Grammar — Possessive Pronouns in Dative</div>
-    <table class="grammar-table">
+    
+<div class="table-wrap"><table class="grammar-table">
       <tr><th>Possessive</th><th>Dative Masc./Neut.</th><th>Dative Fem.</th><th>Dative Plural</th></tr>
       <tr><td>mein (my)</td><td>meinem</td><td>meiner</td><td>meinen</td></tr>
       <tr><td>dein (your inf.)</td><td>deinem</td><td>deiner</td><td>deinen</td></tr>
@@ -512,7 +600,7 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
       <tr><td>ihr (her/their)</td><td>ihrem</td><td>ihrer</td><td>ihren</td></tr>
       <tr><td>unser (our)</td><td>unserem</td><td>unserer</td><td>unseren</td></tr>
       <tr><td>Ihr (your formal)</td><td>Ihrem</td><td>Ihrer</td><td>Ihren</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -525,7 +613,8 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
 
   <div class="section">
     <div class="section-title indigo">Vocabulary</div>
-    <table class="vocab-table">
+    
+<div class="table-wrap"><table class="vocab-table">
       <tr><th>German</th><th>English</th><th>Example</th></tr>
       <tr><td class="vocab-de">meinem</td><td class="vocab-en">my (dative masc/neut)</td><td class="vocab-ex">mit meinem Auto</td></tr>
       <tr><td class="vocab-de">meiner</td><td class="vocab-en">my (dative feminine)</td><td class="vocab-ex">mit meiner Mutter</td></tr>
@@ -537,7 +626,7 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
       <tr><td class="vocab-de">deiner</td><td class="vocab-en">your (dative feminine)</td><td class="vocab-ex">mit deiner Schwester</td></tr>
       <tr><td class="vocab-de">der Freund</td><td class="vocab-en">male friend/boyfriend</td><td class="vocab-ex">mit meinem Freund</td></tr>
       <tr><td class="vocab-de">die Mutter</td><td class="vocab-en">mother</td><td class="vocab-ex">mit meiner Mutter</td></tr>
-    </table>
+    </table></div>
   </div>
 
   <div class="section">
@@ -601,19 +690,21 @@ body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;lin
   
 </section>
 
-<nav class="nav-links">
-  <a href="a1-part01-lessons-01-03.html">Part 01</a>
-  <a href="a1-part02-lessons-04-07.html">Part 02</a>
-  <a href="a1-part03-lessons-08-12.html">Part 03</a>
-  <a href="a1-part04-lessons-13-18.html">Part 04</a>
-  <a href="a1-part05-lessons-19-23.html">Part 05</a>
-  <a href="a1-part06-lessons-24-30.html">Part 06</a>
-  <a href="a1-part07-lessons-31-35.html">Part 07</a>
-  <a href="a1-part08-lessons-36-40.html">Part 08</a>
-  <a href="a1-part09-lessons-41-45.html">Part 09</a>
-  <a href="a1-part10-lessons-46-50.html">Part 10</a>
-  <a href="a1-part11-lessons-51-55.html">Part 11</a>
-  <a href="a1-part12-lessons-56-65.html">Part 12</a>
+</main>
+<nav class="navback">
+  <a href="a1-all-in-one-hub.html">← All Lessons</a>
+  <a href="a1-part01-lessons-01-03.html">Part 01 (1–3)</a>
+  <a href="a1-part02-lessons-04-10.html">Part 02 (4–10)</a>
+  <a href="a1-part03-lessons-11-15.html">Part 03 (11–15)</a>
+  <a href="a1-part04-lessons-16-20.html">Part 04 (16–20)</a>
+  <a href="a1-part05-lessons-21-25.html">Part 05 (21–25)</a>
+  <a href="a1-part06-lessons-26-30.html">Part 06 (26–30)</a>
+  <a href="a1-part07-lessons-31-35.html">Part 07 (31–35)</a>
+  <a href="a1-part08-lessons-36-40.html">Part 08 (36–40)</a>
+  <a href="a1-part09-lessons-41-45.html">Part 09 (41–45)</a>
+  <a href="a1-part10-lessons-46-50.html">Part 10 (46–50)</a>
+  <a href="a1-part11-lessons-51-55.html">Part 11 (51–55)</a>
+  <a href="a1-part12-lessons-56-65.html">Part 12 (56–65)</a>
 </nav>
 
 </body>

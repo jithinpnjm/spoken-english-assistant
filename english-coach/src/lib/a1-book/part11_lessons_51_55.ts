@@ -451,22 +451,23 @@ Alex`
       ]
     },
     vocabulary: [
-      { de: "anprobieren", en: "to try on (separable)", example: "Ich möchte die Hose anprobieren.", exampleEn: "I would like to try the pants on." },
+      { de: "anprobieren", en: "to try on (separable)", example: "Ich möchte den Rock anprobieren.", exampleEn: "I would like to try the skirt on." },
       { de: "passen", en: "to fit (size)", example: "Die Schuhe passen mir.", exampleEn: "The shoes fit me." },
       { de: "stehen", en: "to suit (appearance)", example: "Das Kleid steht dir super.", exampleEn: "The dress looks great on you." },
       { de: "die Größe", en: "size", example: "Haben Sie das in Größe M?", exampleEn: "Do you have that in size M?" },
       { de: "die Umkleidekabine", en: "fitting room", example: "Wo ist die Umkleidekabine?", exampleEn: "Where is the fitting room?" },
       { de: "die Farbe", en: "color", example: "Die Farbe ist zu dunkel.", exampleEn: "The color is too dark." },
       { de: "eng", en: "tight", example: "Das Hemd ist zu eng.", exampleEn: "The shirt is too tight." },
-      { de: "weit", en: "wide / loose", example: "Die Hose ist zu weit.", exampleEn: "The pants are too loose." },
-      { de: "die Hose", en: "pants / trousers", example: "Ich suche eine schwarze Hose.", exampleEn: "I am looking for black pants." },
+      { de: "weit", en: "wide / loose", example: "Die Hose ist zu weit.", exampleEn: "The trousers are too loose." },
+      { de: "die Hose", en: "trousers / pants", example: "Ich suche eine schwarze Hose.", exampleEn: "I am looking for black trousers." },
+      { de: "die Bluse", en: "blouse", example: "Ich suche eine blaue Bluse.", exampleEn: "I am looking for a blue blouse." },
       { de: "das T-Shirt", en: "T-shirt", example: "Dieses T-Shirt ist billig.", exampleEn: "This T-shirt is cheap." }
     ],
     modelSentences: [
       {
-        de: "Entschuldigung, kann ich diese Hose anprobieren?",
-        en: "Excuse me, can I try these pants on?",
-        breakdown: "Entschuldigung, kann(Modal pos 2) ich diese Hose(Accusative feminine object) anprobieren(Infinitive at end)?"
+        de: "Entschuldigung, kann ich den Rock anprobieren?",
+        en: "Excuse me, can I try the skirt on?",
+        breakdown: "Entschuldigung, kann(Modal pos 2) ich den Rock(Accusative masculine object) anprobieren(Infinitive at end)?"
       },
       {
         de: "Wie passt das Hemd? Es ist leider zu eng.",

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>English Grammar — Tenses</title>
+<style>
+:root{
+  --bg:#0f172a;--surface:#1e293b;--surface2:#263347;
+  --text:#e2e8f0;--muted:#94a3b8;--border:#334155;
+  --green:#34d399;--emerald:#10b981;--teal:#2dd4bf;
+  --blue:#60a5fa;--purple:#a78bfa;--amber:#fbbf24;
+  --red:#f87171;--sky:#38bdf8;--rose:#fb7185;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.7;padding:2rem 1rem}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:2rem;color:var(--green);margin-bottom:.4rem}
+.subtitle{color:var(--muted);font-size:1rem;margin-bottom:2.5rem}
+h2{font-size:1.4rem;color:var(--green);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:2px solid var(--emerald)}
+h3{font-size:1.1rem;color:var(--teal);margin:1.2rem 0 .6rem}
+section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;margin-bottom:2rem}
+p{color:var(--text);margin-bottom:.8rem}
+ul,ol{padding-left:1.4rem;margin-bottom:.8rem;color:var(--text)}
+li{margin-bottom:.3rem}
+.teach{background:#052e16;border-left:4px solid var(--green);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.teach strong{color:var(--green);display:block;margin-bottom:.3rem}
+.trick{background:#1c1917;border-left:4px solid var(--amber);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.trick strong{color:var(--amber);display:block;margin-bottom:.3rem}
+.situation{background:#0c1a2e;border-left:4px solid var(--sky);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.situation strong{color:var(--sky);display:block;margin-bottom:.3rem}
+.mistake{background:#2d0a0a;border-left:4px solid var(--red);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.mistake strong{color:var(--red);display:block;margin-bottom:.3rem}
+.analogy{background:#1a0533;border-left:4px solid var(--purple);border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0}
+.analogy strong{color:var(--purple);display:block;margin-bottom:.3rem}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.95rem}
+th{background:var(--surface2);color:var(--green);padding:.6rem .8rem;text-align:left;font-weight:600}
+td{padding:.5rem .8rem;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#1a2438}
+.hi{color:var(--amber);font-weight:600}
+.ok{color:var(--green);font-weight:600}
+.bad{color:var(--red);font-weight:600}
+.dim{color:var(--muted)}
+.formula{background:#0a1628;border:2px solid var(--green);border-radius:10px;padding:1rem 1.4rem;font-size:1.05rem;color:var(--text);margin:1rem 0;text-align:center}
+.formula span{color:var(--green);font-weight:700}
+.dtree{margin:.8rem 0}
+.dtree-node{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;margin:.4rem 0}
+.dtree-yes{color:var(--green);font-weight:600}
+.dtree-no{color:var(--red);font-weight:600}
+.dtree-arrow{color:var(--muted);font-size:.85rem;padding-left:1.5rem}
+.chip{display:inline-block;padding:.2rem .6rem;border-radius:20px;font-size:.8rem;font-weight:600;margin:.2rem}
+.chip-g{background:#052e16;color:var(--green);border:1px solid var(--emerald)}
+.chip-b{background:#0c1a2e;color:var(--sky);border:1px solid var(--blue)}
+.chip-r{background:#2d0a0a;color:var(--red);border:1px solid var(--red)}
+.chip-a{background:#1c1917;color:var(--amber);border:1px solid var(--amber)}
+nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+nav a{background:var(--surface2);color:var(--green);border:1px solid var(--border);padding:.4rem .9rem;border-radius:20px;text-decoration:none;font-size:.85rem;transition:background .15s}
+nav a:hover{background:#263347}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.8rem 0}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:1rem}
+.card-title{font-weight:700;color:var(--green);margin-bottom:.4rem;font-size:1rem}
+code{background:#0a1628;color:var(--teal);padding:.15rem .4rem;border-radius:4px;font-family:'Courier New',monospace;font-size:.95rem}
+.ex{background:#0a1628;border-left:3px solid var(--teal);border-radius:6px;padding:.8rem 1rem;margin:.6rem 0;font-family:'Courier New',monospace;font-size:.95rem;color:var(--teal)}
+.ex .tr{color:var(--muted);font-family:'Segoe UI',sans-serif;font-size:.88rem;margin-top:.25rem}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:.8rem 0}
+@media(max-width:700px){.grid3{grid-template-columns:1fr}}
+.page-header{text-align:center;padding:32px 20px 20px;margin-bottom:28px;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border:1px solid var(--border);border-radius:16px}
+.page-header .badge{display:inline-block;background:#052e16;color:#bbf7d0;font-size:.78em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:20px;padding:4px 14px;margin-bottom:12px}
+.page-header h1{font-size:2.2em;color:#f8fafc;margin-bottom:8px}
+.page-header p{color:var(--muted);font-size:1.05em}
+.navback{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.navback a{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:.88em;color:var(--muted);text-decoration:none;transition:border-color .15s}
+.navback a:hover{border-color:var(--green);color:var(--green)}
+
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="page-header">
+  <div class="badge">English Grammar · Tenses</div>
+  <h1>English Tenses — Complete Reference</h1>
+  <p>Present · Past · Future · Conditionals · Passive · Common Mistakes</p>
+</div>
+<nav class="navback">  <a href="javascript:history.back()">← Back</a>
+
+  <a href="#s01">Overview</a>
+  <a href="#s02">Present Simple</a>
+  <a href="#s03">Present Continuous</a>
+  <a href="#s04">Present Perfect</a>
+  <a href="#s05">Past Simple</a>
+  <a href="#s06">Past Continuous</a>
+  <a href="#s07">Future</a>
+  <a href="#s08">Conditionals</a>
+  <a href="#s09">Active vs Passive</a>
+  <a href="#s10">Common Mistakes</a>
+
+  <a href="/">Home</a>
+</nav>
+
+<!-- ─────────────────────────────────── s01 -->
+<section id="s01">
+<h2>Overview — The 3 Time Groups</h2>
+<p>English tenses organise time into three groups. Master these and you can express almost anything.</p>
+
+<div class="grid3">
+  <div class="card">
+    <div class="card-title" style="color:var(--amber)">PAST</div>
+    <p>Actions finished or happening in the past.</p>
+    <ul>
+      <li>Past Simple</li>
+      <li>Past Continuous</li>
+      <li>Present Perfect</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--green)">PRESENT</div>
+    <p>Habits, facts, what is happening now, or just finished.</p>
+    <ul>
+      <li>Present Simple</li>
+      <li>Present Continuous</li>
+      <li>Present Perfect</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--blue)">FUTURE</div>
+    <p>Plans, predictions, spontaneous decisions.</p>
+    <ul>
+      <li>will</li>
+      <li>going to</li>
+      <li>Present Continuous</li>
+    </ul>
+  </div>
+</div>
+
+<div class="teach">
+  <strong>Why tenses matter for fluency</strong>
+  Using the wrong tense changes your meaning entirely. "I eat lunch" (habit) vs "I am eating lunch" (right now) vs "I have eaten lunch" (done, so don't bring food) — three different messages. Native speakers use tense shifts automatically; learners need to make them conscious first.
+</div>
+
+<div class="trick">
+  <strong>Memory anchor</strong>
+  Think of tenses as three cameras: the <span style="color:var(--amber)">past camera</span> looks back, the <span style="color:var(--green)">present camera</span> looks at now, the <span style="color:var(--blue)">future camera</span> looks forward. Each has a zoom setting (simple, continuous, perfect).
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s02 -->
+<section id="s02">
+<h2>Present Simple</h2>
+
+<div class="formula">
+  <span>I / You / We / They</span> + base verb &nbsp;|&nbsp; <span>He / She / It</span> + verb<span>+s</span>
+</div>
+
+<h3>Form</h3>
+<div class="table-wrap"><table>
+  <tr><th>Subject</th><th>Positive</th><th>Negative</th><th>Question</th></tr>
+  <tr><td>I / You / We / They</td><td>work</td><td>do not work</td><td>Do … work?</td></tr>
+  <tr><td>He / She / It</td><td>work<span class="hi">s</span></td><td>does not work</td><td>Does … work?</td></tr>
+</table></div>
+
+<h3>Spelling rules for third-person -s</h3>
+<div class="table-wrap"><table>
+  <tr><th>Ending</th><th>Rule</th><th>Example</th></tr>
+  <tr><td>Most verbs</td><td>add -s</td><td>work → work<span class="hi">s</span>, eat → eat<span class="hi">s</span></td></tr>
+  <tr><td>-ch, -sh, -x, -ss, -o</td><td>add -es</td><td>watch → watch<span class="hi">es</span>, go → go<span class="hi">es</span></td></tr>
+  <tr><td>consonant + y</td><td>y → ies</td><td>study → stud<span class="hi">ies</span>, carry → carr<span class="hi">ies</span></td></tr>
+  <tr><td>vowel + y</td><td>add -s</td><td>play → play<span class="hi">s</span>, say → say<span class="hi">s</span></td></tr>
+  <tr><td>have</td><td>irregular</td><td>have → <span class="hi">has</span></td></tr>
+</table></div>
+
+<h3>Uses</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Habits &amp; Routines</div>
+    <div class="ex">She <span style="color:var(--green)">wakes up</span> at 6 every day.<div class="tr">Regular, repeated action</div></div>
+    <div class="ex">They <span style="color:var(--green)">play</span> football on Sundays.<div class="tr">Weekly routine</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Facts &amp; General Truths</div>
+    <div class="ex">Water <span style="color:var(--green)">boils</span> at 100°C.<div class="tr">Scientific fact</div></div>
+    <div class="ex">The sun <span style="color:var(--green)">rises</span> in the east.<div class="tr">Permanent truth</div></div>
+  </div>
+</div>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Schedules &amp; Timetables</div>
+    <div class="ex">The train <span style="color:var(--green)">leaves</span> at 9 am.<div class="tr">Fixed schedule</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Instructions &amp; Directions</div>
+    <div class="ex">You <span style="color:var(--green)">turn</span> left and then <span style="color:var(--green)">go</span> straight.<div class="tr">Step-by-step directions</div></div>
+  </div>
+</div>
+
+<h3>Signal words</h3>
+<p>
+  <span class="chip chip-g">always</span>
+  <span class="chip chip-g">usually</span>
+  <span class="chip chip-g">often</span>
+  <span class="chip chip-g">sometimes</span>
+  <span class="chip chip-g">rarely</span>
+  <span class="chip chip-g">never</span>
+  <span class="chip chip-g">every day / week / year</span>
+  <span class="chip chip-g">on Mondays</span>
+  <span class="chip chip-g">in the morning</span>
+  <span class="chip chip-g">twice a week</span>
+</p>
+
+<div class="mistake">
+  <strong>Most common mistake — the missing -s</strong>
+  <div class="ex"><span class="bad">✗</span>  He work in a bank.</div>
+  <div class="ex"><span class="ok">✓</span>  He work<span class="hi">s</span> in a bank.</div>
+  <p style="margin-top:.5rem">The third-person -s is small but critical. Native speakers notice its absence immediately. Practise by writing 10 sentences about someone else every day.</p>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s03 -->
+<section id="s03">
+<h2>Present Continuous</h2>
+
+<div class="formula">
+  <span>am / is / are</span> + verb<span>+ing</span>
+</div>
+
+<h3>Form</h3>
+<div class="table-wrap"><table>
+  <tr><th>Subject</th><th>Positive</th><th>Negative</th><th>Question</th></tr>
+  <tr><td>I</td><td>am working</td><td>am not working</td><td>Am I working?</td></tr>
+  <tr><td>He / She / It</td><td>is working</td><td>is not working</td><td>Is he working?</td></tr>
+  <tr><td>You / We / They</td><td>are working</td><td>are not working</td><td>Are they working?</td></tr>
+</table></div>
+
+<h3>Spelling rules for -ing</h3>
+<div class="table-wrap"><table>
+  <tr><th>Verb ending</th><th>Rule</th><th>Example</th></tr>
+  <tr><td>Most verbs</td><td>add -ing</td><td>work → work<span class="hi">ing</span>, eat → eat<span class="hi">ing</span></td></tr>
+  <tr><td>Silent -e</td><td>drop e, add -ing</td><td>make → mak<span class="hi">ing</span>, write → writ<span class="hi">ing</span></td></tr>
+  <tr><td>Short vowel + consonant</td><td>double consonant</td><td>run → runn<span class="hi">ing</span>, sit → sitt<span class="hi">ing</span></td></tr>
+  <tr><td>-ie</td><td>ie → y, add -ing</td><td>lie → l<span class="hi">ying</span>, die → d<span class="hi">ying</span></td></tr>
+</table></div>
+
+<h3>Uses</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Action happening right now</div>
+    <div class="ex">I <span style="color:var(--green)">am talking</span> to you right now.<div class="tr">This very moment</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Temporary situation</div>
+    <div class="ex">She <span style="color:var(--green)">is staying</span> with her sister this week.<div class="tr">Not permanent, just for now</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Changing / developing situation</div>
+    <div class="ex">Prices <span style="color:var(--green)">are rising</span> every month.<div class="tr">Trend in progress</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Arranged future event</div>
+    <div class="ex">We <span style="color:var(--green)">are meeting</span> the client tomorrow at 3.<div class="tr">Already arranged, in the diary</div></div>
+  </div>
+</div>
+
+<h3>Signal words</h3>
+<p>
+  <span class="chip chip-b">now</span>
+  <span class="chip chip-b">right now</span>
+  <span class="chip chip-b">at the moment</span>
+  <span class="chip chip-b">currently</span>
+  <span class="chip chip-b">still</span>
+  <span class="chip chip-b">this week / month</span>
+  <span class="chip chip-b">Look! / Listen!</span>
+</p>
+
+<div class="analogy">
+  <strong>Stative verbs — NEVER use with -ing</strong>
+  <p>These verbs describe states, not actions. They don't "happen"; they just exist.</p>
+  
+<div class="table-wrap"><table>
+    <tr><th>Category</th><th>Stative verbs</th></tr>
+    <tr><td>Mental states</td><td>know, believe, think (opinion), understand, remember, forget, mean</td></tr>
+    <tr><td>Emotions</td><td>love, hate, like, prefer, want, wish, need, desire</td></tr>
+    <tr><td>Senses</td><td>see, hear, smell, taste, feel (perception)</td></tr>
+    <tr><td>Possession</td><td>have, own, belong, possess, contain</td></tr>
+    <tr><td>Other</td><td>seem, appear, look (seem), cost, weigh, include</td></tr>
+  </table></div>
+  <div class="ex"><span class="bad">✗</span>  I am knowing the answer.<div class="tr">know = stative, can't be continuous</div></div>
+  <div class="ex"><span class="ok">✓</span>  I know the answer.</div>
+  <p style="margin-top:.5rem">Some verbs change meaning: <em>I think</em> (opinion) vs <em>I am thinking</em> (considering) · <em>I have a car</em> (possession) vs <em>I am having lunch</em> (experience).</p>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s04 -->
+<section id="s04">
+<h2>Present Perfect</h2>
+
+<div class="formula">
+  <span>have / has</span> + past participle
+</div>
+
+<h3>Form</h3>
+<div class="table-wrap"><table>
+  <tr><th>Subject</th><th>Positive</th><th>Negative</th><th>Question</th></tr>
+  <tr><td>I / You / We / They</td><td>have worked</td><td>have not worked</td><td>Have you worked?</td></tr>
+  <tr><td>He / She / It</td><td>has worked</td><td>has not worked</td><td>Has she worked?</td></tr>
+</table></div>
+
+<h3>Uses</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Life experience (no specific time)</div>
+    <div class="ex">I <span style="color:var(--green)">have visited</span> Paris.<div class="tr">Sometime in my life — when? doesn't matter</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Result of a past action</div>
+    <div class="ex">She <span style="color:var(--green)">has broken</span> her leg.<div class="tr">Result visible now — she can't walk</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Recent past (just/already/yet)</div>
+    <div class="ex">I <span style="color:var(--green)">have just finished</span> the report.<div class="tr">Very recent, relevant to now</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Unfinished period (since/for)</div>
+    <div class="ex">He <span style="color:var(--green)">has lived</span> here for 10 years.<div class="tr">Started in past, still true now</div></div>
+  </div>
+</div>
+
+<h3>Signal words</h3>
+<p>
+  <span class="chip chip-g">ever</span>
+  <span class="chip chip-g">never</span>
+  <span class="chip chip-g">already</span>
+  <span class="chip chip-g">yet</span>
+  <span class="chip chip-g">just</span>
+  <span class="chip chip-g">since + point in time</span>
+  <span class="chip chip-g">for + duration</span>
+  <span class="chip chip-g">recently</span>
+  <span class="chip chip-g">so far</span>
+  <span class="chip chip-g">up to now</span>
+</p>
+
+<div class="teach">
+  <strong>ever / never / already / yet / just — placement rules</strong>
+  
+<div class="table-wrap"><table>
+    <tr><th>Word</th><th>Position</th><th>Example</th></tr>
+    <tr><td>ever / never / already / just</td><td>between have and participle</td><td>Have you <span class="hi">ever</span> seen this? · I've <span class="hi">just</span> arrived.</td></tr>
+    <tr><td>yet</td><td>end of sentence</td><td>I haven't finished <span class="hi">yet</span>. / Have you eaten <span class="hi">yet</span>?</td></tr>
+    <tr><td>already</td><td>also possible at end (emphatic)</td><td>I've done it <span class="hi">already</span>!</td></tr>
+  </table></div>
+</div>
+
+<h3>Common irregular past participles</h3>
+<div class="table-wrap"><table>
+  <tr><th>Infinitive</th><th>Past Participle</th><th>Infinitive</th><th>Past Participle</th></tr>
+  <tr><td>go</td><td class="hi">gone</td><td>see</td><td class="hi">seen</td></tr>
+  <tr><td>write</td><td class="hi">written</td><td>make</td><td class="hi">made</td></tr>
+  <tr><td>take</td><td class="hi">taken</td><td>give</td><td class="hi">given</td></tr>
+  <tr><td>come</td><td class="hi">come</td><td>do</td><td class="hi">done</td></tr>
+  <tr><td>eat</td><td class="hi">eaten</td><td>drink</td><td class="hi">drunk</td></tr>
+  <tr><td>know</td><td class="hi">known</td><td>speak</td><td class="hi">spoken</td></tr>
+  <tr><td>choose</td><td class="hi">chosen</td><td>break</td><td class="hi">broken</td></tr>
+  <tr><td>begin</td><td class="hi">begun</td><td>run</td><td class="hi">run</td></tr>
+  <tr><td>fly</td><td class="hi">flown</td><td>wear</td><td class="hi">worn</td></tr>
+  <tr><td>forget</td><td class="hi">forgotten</td><td>steal</td><td class="hi">stolen</td></tr>
+</table></div>
+
+<div class="trick">
+  <strong>Memory trick — Present Perfect = past action with present relevance</strong>
+  Ask yourself: "Does this matter NOW?" If yes → Present Perfect. If it's just a historical record → Past Simple.
+  <div class="ex">I <span style="color:var(--green)">have lost</span> my keys. <span class="dim">(I can't open the door now — present relevance)</span></div>
+  <div class="ex">I <span style="color:var(--amber)">lost</span> my keys last Tuesday. <span class="dim">(just reporting a past event)</span></div>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s05 -->
+<section id="s05">
+<h2>Past Simple</h2>
+
+<div class="formula">
+  Regular: verb<span>+ed</span> &nbsp;|&nbsp; Irregular: use second column (go → <span>went</span>)
+</div>
+
+<h3>Form</h3>
+<div class="table-wrap"><table>
+  <tr><th>Type</th><th>Positive</th><th>Negative</th><th>Question</th></tr>
+  <tr><td>Regular</td><td>worked / played</td><td>did not work</td><td>Did you work?</td></tr>
+  <tr><td>Irregular</td><td>went / saw / had</td><td>did not go</td><td>Did she go?</td></tr>
+</table></div>
+
+<h3>Uses</h3>
+<ul>
+  <li>Completed action at a <strong>specific time in the past</strong></li>
+  <li>Series of past events in sequence</li>
+  <li>Past habits (I played cricket every day as a child)</li>
+</ul>
+
+<h3>Signal words</h3>
+<p>
+  <span class="chip chip-a">yesterday</span>
+  <span class="chip chip-a">last week / month / year</span>
+  <span class="chip chip-a">in 2020</span>
+  <span class="chip chip-a">… ago</span>
+  <span class="chip chip-a">when I was young</span>
+  <span class="chip chip-a">in the morning</span>
+  <span class="chip chip-a">at 3 pm</span>
+  <span class="chip chip-a">on Monday</span>
+</p>
+
+<h3>Top 20 irregular verbs</h3>
+<div class="table-wrap"><table>
+  <tr><th>Infinitive</th><th>Past Simple</th><th>Infinitive</th><th>Past Simple</th></tr>
+  <tr><td>go</td><td class="hi">went</td><td>see</td><td class="hi">saw</td></tr>
+  <tr><td>have</td><td class="hi">had</td><td>do</td><td class="hi">did</td></tr>
+  <tr><td>say</td><td class="hi">said</td><td>get</td><td class="hi">got</td></tr>
+  <tr><td>make</td><td class="hi">made</td><td>come</td><td class="hi">came</td></tr>
+  <tr><td>know</td><td class="hi">knew</td><td>think</td><td class="hi">thought</td></tr>
+  <tr><td>take</td><td class="hi">took</td><td>give</td><td class="hi">gave</td></tr>
+  <tr><td>find</td><td class="hi">found</td><td>tell</td><td class="hi">told</td></tr>
+  <tr><td>feel</td><td class="hi">felt</td><td>become</td><td class="hi">became</td></tr>
+  <tr><td>leave</td><td class="hi">left</td><td>put</td><td class="hi">put</td></tr>
+  <tr><td>run</td><td class="hi">ran</td><td>bring</td><td class="hi">brought</td></tr>
+</table></div>
+
+<div class="teach">
+  <strong>Rule: Past Simple needs a time marker or context</strong>
+  <div class="ex">I <span style="color:var(--amber)">ate</span> breakfast at 8. <span class="dim">(clear time → Past Simple)</span></div>
+  <div class="ex">I <span style="color:var(--green)">have eaten</span> breakfast. <span class="dim">(no time → Present Perfect, result is I'm not hungry now)</span></div>
+</div>
+
+<div class="situation">
+  <strong>Regular verb spelling traps</strong>
+  <ul>
+    <li>Short vowel + consonant → double: stop → stopp<span class="hi">ed</span>, plan → plann<span class="hi">ed</span></li>
+    <li>Consonant + -e → just add -d: love → lov<span class="hi">ed</span>, arrive → arriv<span class="hi">ed</span></li>
+    <li>Consonant + -y → change to ied: study → stud<span class="hi">ied</span>, cry → cr<span class="hi">ied</span></li>
+    <li>Vowel + -y → add -ed: play → play<span class="hi">ed</span>, enjoy → enjoy<span class="hi">ed</span></li>
+  </ul>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s06 -->
+<section id="s06">
+<h2>Past Continuous</h2>
+
+<div class="formula">
+  <span>was / were</span> + verb<span>+ing</span>
+</div>
+
+<h3>Form</h3>
+<div class="table-wrap"><table>
+  <tr><th>Subject</th><th>Positive</th><th>Negative</th><th>Question</th></tr>
+  <tr><td>I / He / She / It</td><td>was working</td><td>was not working</td><td>Was he working?</td></tr>
+  <tr><td>You / We / They</td><td>were working</td><td>were not working</td><td>Were they working?</td></tr>
+</table></div>
+
+<h3>Uses</h3>
+<ul>
+  <li>Background action in progress when another event happened</li>
+  <li>Two simultaneous actions in the past</li>
+  <li>Setting the scene in a story</li>
+</ul>
+
+<h3>The classic pattern: background + interruption</h3>
+<div class="formula">
+  <span>Past Continuous</span> (background) + <span>when</span> + <span>Past Simple</span> (interruption)
+</div>
+
+<div class="ex">I <span style="color:var(--green)">was cooking</span> dinner when the phone <span style="color:var(--amber)">rang</span>.<div class="tr">Cooking = background. Rang = interruption.</div></div>
+<div class="ex">She <span style="color:var(--green)">was walking</span> home when it <span style="color:var(--amber)">started</span> raining.<div class="tr">Walking = background. Started = interruption.</div></div>
+
+<div class="teach">
+  <strong>while vs when — the key distinction</strong>
+  
+<div class="table-wrap"><table>
+    <tr><th>Word</th><th>Use</th><th>Example</th></tr>
+    <tr><td><span class="hi">while</span></td><td>joins two continuous (ongoing) actions</td><td>I was reading <span class="hi">while</span> she was cooking.</td></tr>
+    <tr><td><span class="hi">when</span></td><td>introduces a short interrupting event</td><td>I was reading <span class="hi">when</span> she called.</td></tr>
+  </table></div>
+  <div class="ex"><span class="ok">✓</span>  While I was sleeping, he arrived. <span class="dim">(while + continuous ✓)</span></div>
+  <div class="ex"><span class="ok">✓</span>  When I was sleeping, he arrived. <span class="dim">(when + continuous is also fine for background)</span></div>
+  <div class="ex"><span class="bad">✗</span>  While I slept, he arrived. <span class="dim">(while needs continuous for background)</span></div>
+</div>
+
+<div class="trick">
+  <strong>Memory trick</strong>
+  Past Continuous = the movie was already playing. Past Simple = someone walked in. The camera was rolling (<em>was + -ing</em>) when the door opened (<em>past simple</em>).
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s07 -->
+<section id="s07">
+<h2>Future — will / going to / Present Continuous</h2>
+
+<p>English has three main ways to express the future. Choosing the right one depends on whether the plan existed before and how certain you are.</p>
+
+<div class="grid3">
+  <div class="card">
+    <div class="card-title" style="color:var(--blue)">will</div>
+    <p>Spontaneous decisions, predictions, promises, offers.</p>
+    <div class="ex">I'll carry that for you.<div class="tr">Offer, decided right now</div></div>
+    <div class="ex">It will rain tomorrow.<div class="tr">Prediction (no evidence)</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--green)">going to</div>
+    <p>Prior plans, intentions, predictions based on evidence.</p>
+    <div class="ex">We're going to visit Rome in June.<div class="tr">Plan already made</div></div>
+    <div class="ex">Look at those clouds — it's going to rain.<div class="tr">Prediction based on visible evidence</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--amber)">Present Continuous</div>
+    <p>Arranged events (time &amp; place confirmed, in the diary).</p>
+    <div class="ex">I'm meeting the dentist at 10.<div class="tr">Appointment already booked</div></div>
+    <div class="ex">They're flying to Dubai on Friday.<div class="tr">Tickets bought, confirmed</div></div>
+  </div>
+</div>
+
+<h3>Decision tree — which future to use?</h3>
+<div class="dtree">
+  <div class="dtree-node">Did you decide just now, spontaneously?<br>
+    <span class="dtree-yes">YES →</span> use <strong>will</strong>
+    <span style="margin-left:1rem;color:var(--muted)">— "The phone is ringing." "I'll get it."</span>
+  </div>
+  <div class="dtree-arrow">↓ NO</div>
+  <div class="dtree-node">Is it a confirmed arrangement (date/time/place fixed)?<br>
+    <span class="dtree-yes">YES →</span> use <strong>Present Continuous</strong>
+    <span style="margin-left:1rem;color:var(--muted)">— "I'm seeing the doctor at 3."</span>
+  </div>
+  <div class="dtree-arrow">↓ NO</div>
+  <div class="dtree-node">Is there evidence right now, or is it a prior intention/plan?<br>
+    <span class="dtree-yes">YES →</span> use <strong>going to</strong>
+    <span style="margin-left:1rem;color:var(--muted)">— "She's going to study medicine." / "Look out — it's going to fall!"</span>
+  </div>
+  <div class="dtree-arrow">↓ NONE of the above</div>
+  <div class="dtree-node">General prediction or neutral future statement?<br>
+    <span class="dtree-yes">→</span> use <strong>will</strong>
+    <span style="margin-left:1rem;color:var(--muted)">— "Technology will change everything."</span>
+  </div>
+</div>
+
+<h3>Forms</h3>
+<div class="table-wrap"><table>
+  <tr><th></th><th>Positive</th><th>Negative</th><th>Question</th></tr>
+  <tr><td><strong>will</strong></td><td>I will go / I'll go</td><td>I will not go / I won't go</td><td>Will you go?</td></tr>
+  <tr><td><strong>going to</strong></td><td>I am going to go</td><td>I am not going to go</td><td>Are you going to go?</td></tr>
+  <tr><td><strong>Pres. Cont.</strong></td><td>I am going</td><td>I am not going</td><td>Are you going?</td></tr>
+</table></div>
+
+<div class="mistake">
+  <strong>Common mistake</strong>
+  <div class="ex"><span class="bad">✗</span>  I will to call you later. <span class="dim">(no "to" after will)</span></div>
+  <div class="ex"><span class="ok">✓</span>  I will call you later.</div>
+  <div class="ex"><span class="bad">✗</span>  She is go to study medicine.</div>
+  <div class="ex"><span class="ok">✓</span>  She is going to study medicine.</div>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s08 -->
+<section id="s08">
+<h2>Conditionals</h2>
+
+<p>Conditionals talk about conditions and their results. The "if" clause states the condition; the main clause states the result.</p>
+
+<h3>Zero Conditional — General truth / fact</h3>
+<div class="formula">
+  If + <span>present simple</span>, [main clause] present simple
+</div>
+<div class="ex">If you heat water to 100°C, it boils.<div class="tr">Always true — scientific fact</div></div>
+<div class="ex">If I don't sleep enough, I feel terrible.<div class="tr">Always true for me — personal habit</div></div>
+<div class="teach">
+  <strong>Use: </strong>Facts, laws of nature, things that are always true. "If" can be replaced with "when" without changing meaning.
+</div>
+
+<h3>First Conditional — Real / possible situation</h3>
+<div class="formula">
+  If + <span>present simple</span>, will + base verb
+</div>
+<div class="ex">If it rains tomorrow, we will cancel the picnic.<div class="tr">Realistic possibility in the future</div></div>
+<div class="ex">If you study hard, you will pass the exam.<div class="tr">Real possibility, likely to happen</div></div>
+<div class="teach">
+  <strong>Use: </strong>Real conditions — the speaker believes it could genuinely happen.
+</div>
+
+<h3>Second Conditional — Unreal / hypothetical situation</h3>
+<div class="formula">
+  If + <span>past simple</span>, would + base verb
+</div>
+<div class="ex">If I had a million dollars, I would travel the world.<div class="tr">I don't have a million dollars — imaginary</div></div>
+<div class="ex">If she were the president, she would change the law.<div class="tr">She isn't the president — hypothetical</div></div>
+<div class="situation">
+  <strong>Note on "were"</strong>
+  In formal/written English, use <em>were</em> for all subjects in Second Conditional: "If I <span class="hi">were</span> you…" (not "was"). In everyday speech, "was" is common but "were" is more correct.
+</div>
+
+<h3>Quick comparison table</h3>
+<div class="table-wrap"><table>
+  <tr><th>Type</th><th>If clause</th><th>Result clause</th><th>Meaning</th></tr>
+  <tr><td>Zero</td><td>present simple</td><td>present simple</td><td>Always true</td></tr>
+  <tr><td>First</td><td>present simple</td><td>will + base verb</td><td>Real possibility</td></tr>
+  <tr><td>Second</td><td>past simple</td><td>would + base verb</td><td>Unreal/imaginary</td></tr>
+</table></div>
+
+<div class="mistake">
+  <strong>The #1 conditional mistake</strong>
+  Never use "will" in the if-clause of First Conditional.
+  <div class="ex"><span class="bad">✗</span>  If it will rain, we will cancel the picnic.</div>
+  <div class="ex"><span class="ok">✓</span>  If it rains, we will cancel the picnic.</div>
+  <div class="ex"><span class="bad">✗</span>  If I will go there, I will tell you.</div>
+  <div class="ex"><span class="ok">✓</span>  If I go there, I will tell you.</div>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s09 -->
+<section id="s09">
+<h2>Active vs Passive Voice</h2>
+
+<p>In active sentences, the subject does the action. In passive sentences, the subject receives the action.</p>
+
+<div class="formula">
+  Passive = <span>be</span> (in any tense) + past participle
+</div>
+
+<h3>Tense comparison: active vs passive</h3>
+<div class="table-wrap"><table>
+  <tr><th>Tense</th><th>Active</th><th>Passive</th></tr>
+  <tr><td>Present Simple</td><td>They <span class="ok">make</span> cars here.</td><td>Cars <span class="hi">are made</span> here.</td></tr>
+  <tr><td>Past Simple</td><td>Someone <span class="ok">stole</span> my wallet.</td><td>My wallet <span class="hi">was stolen</span>.</td></tr>
+  <tr><td>Present Perfect</td><td>They <span class="ok">have built</span> a bridge.</td><td>A bridge <span class="hi">has been built</span>.</td></tr>
+  <tr><td>Future (will)</td><td>They <span class="ok">will announce</span> the results.</td><td>The results <span class="hi">will be announced</span>.</td></tr>
+  <tr><td>Present Cont.</td><td>They <span class="ok">are repairing</span> the road.</td><td>The road <span class="hi">is being repaired</span>.</td></tr>
+</table></div>
+
+<h3>When to use passive</h3>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title" style="color:var(--green)">Use passive when…</div>
+    <ul>
+      <li>The <strong>doer is unknown</strong>: My bike was stolen.</li>
+      <li>The <strong>doer is unimportant</strong>: The road is being repaired.</li>
+      <li>The <strong>action/result is the focus</strong>: The report was submitted on time.</li>
+      <li>Formal/academic/news writing (impersonal tone).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--red)">Avoid passive when…</div>
+    <ul>
+      <li>Active is clearer and more direct.</li>
+      <li>You want to show who is responsible.</li>
+      <li>The sentence becomes awkward or very long.</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Common passive sentences to memorise</h3>
+<div class="ex">English is spoken by over a billion people.</div>
+<div class="ex">The report was written by the marketing team.</div>
+<div class="ex">This bridge was built in 1902.</div>
+<div class="ex">Mistakes were made.</div>
+<div class="ex">The meeting has been postponed.</div>
+<div class="ex">You are requested to fill in this form.</div>
+
+<div class="teach">
+  <strong>Adding the agent — "by"</strong>
+  Include the agent (doer) with "by" only when it adds useful information.
+  <div class="ex">Romeo and Juliet was written <span class="hi">by Shakespeare</span>. <span class="dim">(agent important — who wrote it)</span></div>
+  <div class="ex">The window was broken. <span class="dim">(no "by" needed — doer unknown or irrelevant)</span></div>
+</div>
+</section>
+
+<!-- ─────────────────────────────────── s10 -->
+<section id="s10">
+<h2>Common Tense Mistakes</h2>
+<p>These are the most frequent errors made by Indian and international English learners, with the correct forms and explanations.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>#</th><th class="bad">Incorrect</th><th class="ok">Correct</th><th>Rule</th></tr>
+  <tr>
+    <td>1</td>
+    <td class="bad">I am knowing the answer.</td>
+    <td class="ok">I know the answer.</td>
+    <td>"know" is stative — no continuous</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td class="bad">I am understanding now.</td>
+    <td class="ok">I understand now.</td>
+    <td>"understand" is stative</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td class="bad">I am liking this movie.</td>
+    <td class="ok">I like this movie.</td>
+    <td>"like" is stative — emotion verb</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td class="bad">I have been here since 3 years.</td>
+    <td class="ok">I have been here for 3 years.</td>
+    <td>for + duration; since + point in time</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td class="bad">I did not went there.</td>
+    <td class="ok">I did not go there.</td>
+    <td>did + base verb (not past form)</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td class="bad">She don't know the answer.</td>
+    <td class="ok">She doesn't know the answer.</td>
+    <td>he/she/it → does not (doesn't)</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td class="bad">I have met him yesterday.</td>
+    <td class="ok">I met him yesterday.</td>
+    <td>"yesterday" = specific time → Past Simple, not Present Perfect</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td class="bad">If I will go, I will call you.</td>
+    <td class="ok">If I go, I will call you.</td>
+    <td>No "will" in if-clause of First Conditional</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td class="bad">He is my best friend since school.</td>
+    <td class="ok">He has been my best friend since school.</td>
+    <td>Ongoing situation from past to now → Present Perfect</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td class="bad">I am working here since 2020.</td>
+    <td class="ok">I have been working here since 2020.</td>
+    <td>Ongoing action from past to now → Present Perfect Continuous</td>
+  </tr>
+</table></div>
+
+<div class="analogy">
+  <strong>since vs for — the single most confused pair</strong>
+  <ul>
+    <li><span class="hi">since</span> = from a <strong>point in time</strong> to now: since 2020 / since Monday / since I was a child</li>
+    <li><span class="hi">for</span> = a <strong>duration / length of time</strong>: for 3 years / for two weeks / for a long time</li>
+  </ul>
+  <div class="ex">I have lived here <span class="hi">for</span> 5 years. <span class="dim">(duration = 5 years)</span></div>
+  <div class="ex">I have lived here <span class="hi">since</span> 2019. <span class="dim">(point in time = 2019)</span></div>
+</div>
+
+<div class="trick">
+  <strong>Quick self-check habit</strong>
+  Before speaking or writing, ask yourself three questions:
+  <ol style="margin-top:.5rem">
+    <li>When does this happen? (past / now / future)</li>
+    <li>Is it a state or an action? (states → simple; actions → can be continuous)</li>
+    <li>Is there a time word? (specific time → Past Simple; no time / relevant now → Present Perfect)</li>
+  </ol>
+</div>
+</section>
+
+</div><!-- /container -->
+</body>
+</html>

@@ -5,68 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>German A1 — Lessons 46–50</title>
   <style>
-    :root { --bg:#0b0d1a; --bg2:#0f1120; --card:#1a1d2e; --border:#2d3157; --text:#e2e8f0; --muted:#94a3b8; --sky:#38bdf8; --indigo:#818cf8; --amber:#fbbf24; --green:#4ade80; --rose:#fb7185; --purple:#c084fc; }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.7}
-    .page-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem;text-align:center}
-    .page-header h1{color:var(--sky);font-size:1.8rem}
-    .page-header p{color:var(--muted);margin-top:.5rem}
-    .lesson-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:1.25rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
-    .lesson-nav a{color:var(--indigo);text-decoration:none;font-size:.85rem;padding:.25rem .6rem;border:1px solid var(--border);border-radius:4px}
-    .lesson-nav a:hover{background:var(--border)}
-    main{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
-    .lesson{border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:3rem;background:var(--card)}
-    .lesson:target{border-color:var(--indigo)}
-    .lesson-header{margin-bottom:1.5rem}
-    .lesson-number{display:inline-block;background:var(--indigo);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;margin-bottom:.5rem}
-    .lesson-title{color:var(--sky);font-size:1.4rem;margin-bottom:.5rem}
-    .lesson-intro{color:var(--muted);font-style:italic;border-left:3px solid var(--indigo);padding-left:1rem}
-    .section{margin-top:1.5rem;padding:1.25rem;border-radius:8px;border:1px solid var(--border)}
-    .section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
-    .section-title.sky{color:var(--sky)} .section-title.amber{color:var(--amber)} .section-title.green{color:var(--green)} .section-title.rose{color:var(--rose)} .section-title.indigo{color:var(--indigo)} .section-title.purple{color:var(--purple)} .section-title.muted{color:var(--muted)}
-    .rule-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
-    .rule-item::before{content:"▸";position:absolute;left:0;color:var(--indigo)}
-    .formula-item{padding:.35rem 0 .35rem 1.2rem;position:relative;color:var(--text)}
-    .formula-item::before{content:"⊕";position:absolute;left:0;color:var(--green)}
-    .vocab-table{width:100%;border-collapse:collapse;font-size:.9rem}
-    .vocab-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.6rem;text-align:left;border-bottom:1px solid var(--border)}
-    .vocab-table td{padding:.5rem .6rem;border-bottom:1px solid rgba(45,49,87,.5)}
-    .vocab-table tr:last-child td{border-bottom:none}
-    .vocab-de{color:var(--sky);font-weight:500}
-    .vocab-en{color:var(--text)}
-    .vocab-ex{color:var(--muted);font-size:.85rem}
-    .model-sentence{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--green)}
-    .model-de{font-size:1rem;font-weight:600;color:var(--text)}
-    .model-en{font-size:.85rem;color:var(--muted);margin:.2rem 0}
-    .model-breakdown{font-size:.8rem;color:var(--sky);font-style:italic}
-    .mistake-item{padding:.75rem;border-radius:6px;margin-bottom:.5rem;background:rgba(11,13,26,.5)}
-    .mistake-wrong{color:var(--rose)}
-    .mistake-right{color:var(--green)}
-    .mistake-explain{color:var(--muted);font-size:.85rem;margin-top:.25rem}
-    .exercise-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
-    .exercise-item:last-child{border-bottom:none}
-    .exercise-prompt{color:var(--text)}
-    .exercise-answer{color:var(--green);font-size:.85rem;margin-top:.2rem}
-    .note-block{background:rgba(11,13,26,.5);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var(--amber);color:var(--text);font-size:.9rem;line-height:1.7}
-    .grammar-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
-    .grammar-table th{background:rgba(56,189,248,.1);color:var(--sky);padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
-    .grammar-table td{padding:.4rem .6rem;border-bottom:1px solid rgba(45,49,87,.5);color:var(--text)}
-    .grammar-table tr:last-child td{border-bottom:none}
-    @media(max-width:600px){main{padding:1rem}.lesson{padding:1.25rem}}
-  </style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card2: #162032;
+  --fg: #e2e8f0;
+  --fg-soft: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0369a1;
+  --border: #334155;
+  --th-bg: #1e3a5f;
+  --th-fg: #bae6fd;
+  --tr-alt: #1a2e45;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --purple: #c084fc;
+  --violet: #a78bfa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.8;
+  padding: 28px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page-header {
+  text-align: center;
+  padding: 32px 20px 20px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.page-header .badge {
+  display: inline-block;
+  background: var(--accent-dark);
+  color: #bae6fd;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+}
+.page-header h1 { font-size: 2.2em; color: #f8fafc; margin-bottom: 8px; }
+.page-header p { color: var(--fg-soft); font-size: 1.05em; }
+.navback {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.navback a {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 14px; font-size: 0.88em;
+  color: var(--fg-soft); transition: border-color 0.15s;
+}
+.navback a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+.lesson { border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; background: var(--card); }
+.lesson:target { border-color: var(--accent); }
+.lesson-header { margin-bottom: 1.5rem; }
+.lesson-number { display: inline-block; background: var(--accent-dark); color: #fff; font-size: .75rem; font-weight: 700; padding: .2rem .75rem; border-radius: 999px; margin-bottom: .5rem; }
+.lesson-title { color: var(--accent); font-size: 1.4rem; margin: .3rem 0 .5rem; }
+.lesson-intro { color: var(--fg-soft); font-style: italic; border-left: 3px solid var(--accent); padding-left: 1rem; }
+.section { margin-top: 1.5rem; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border); background: transparent; }
+.section-title { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 1rem; }
+.section-title.sky { color: var(--accent); }
+.section-title.indigo { color: var(--violet); }
+.section-title.amber { color: var(--gold); }
+.section-title.green { color: var(--green); }
+.section-title.rose { color: var(--red); }
+.section-title.muted { color: var(--fg-soft); }
+.section-title.purple { color: var(--purple); }
+.rule-item { padding: .35rem 0 .35rem 1.2rem; position: relative; color: var(--fg); font-size: .9rem; }
+.rule-item::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.formula-item { font-family: monospace; background: rgba(15,23,42,.5); border-radius: 4px; padding: .4rem .6rem; margin: .25rem 0; font-size: .85rem; color: var(--gold); }
+.vocab-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.vocab-table th { background: var(--th-bg); color: var(--th-fg); padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--border); }
+.vocab-table td { padding: .5rem .6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.vocab-table tr:last-child td { border-bottom: none; }
+.vocab-de { color: var(--accent); font-weight: 600; }
+.vocab-en { color: var(--fg); }
+.vocab-ex { color: var(--fg-soft); font-style: italic; font-size: .85rem; }
+.model-sentence { background: rgba(15,23,42,.5); border-radius: 6px; padding: .75rem; margin-bottom: .5rem; border-left: 3px solid var(--green); }
+.model-de { font-size: 1rem; font-weight: 600; color: var(--fg); }
+.model-en { font-size: .85rem; color: var(--fg-soft); margin: .2rem 0; }
+.model-breakdown { font-size: .8rem; color: var(--accent); font-style: italic; }
+.grammar-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.grammar-table th { background: var(--th-bg); color: var(--th-fg); padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--border); }
+.grammar-table td { padding: .45rem .6rem; border-bottom: 1px solid var(--border); color: var(--fg); }
+.grammar-table td:first-child { color: var(--violet); font-weight: 600; }
+.grammar-table tr:last-child td { border-bottom: none; }
+.exercise-block { margin-bottom: .75rem; }
+.exercise-instruction { color: var(--gold); font-size: .85rem; font-weight: 600; margin-bottom: .5rem; }
+.exercise-item { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid var(--border); font-size: .85rem; }
+.exercise-item:last-child { border-bottom: none; }
+.exercise-prompt { color: var(--fg); }
+.exercise-answer { color: var(--green); font-weight: 600; font-size: .85rem; }
+.exercise-hint { color: var(--fg-soft); font-size: .75rem; margin-top: .1rem; }
+.mistake-item { padding: .75rem; border-radius: 6px; margin-bottom: .5rem; background: rgba(15,23,42,.5); }
+.mistake-wrong { color: var(--red); font-size: .9rem; }
+.mistake-right { color: var(--green); font-size: .9rem; margin-top: .2rem; }
+.mistake-explanation, .mistake-explain { color: var(--fg-soft); font-size: .85rem; margin-top: .25rem; }
+.cultural-note { background: rgba(192,132,252,.07); border: 1px solid rgba(192,132,252,.25); border-radius: 6px; padding: .75rem 1rem; margin-top: .5rem; color: var(--fg-soft); font-size: .9rem; }
+.pdf-note { background: rgba(15,23,42,.8); border-left: 3px solid var(--violet); padding: .75rem; margin: .5rem 0; border-radius: 0 4px 4px 0; font-size: .8rem; color: var(--fg-soft); line-height: 1.6; white-space: pre-wrap; }
+.pdf-label { font-size: .7rem; color: var(--violet); font-weight: 700; text-transform: uppercase; margin-bottom: .3rem; }
+  
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.8rem 0}
+.table-wrap table{margin:0}
+@media(max-width:640px){
+  body{padding:1rem .75rem}
+  .page-header{padding:20px 14px 16px}
+  .page-header h1{font-size:1.6em}
+  h1{font-size:1.5rem}
+  h2{font-size:1.2rem}
+  section{padding:1rem}
+}
+</style>
 </head>
 <body>
   <div class="page-header">
+    <div class="badge">A1 German · Lesson Guide</div>
     <h1>German A1 — Lessons 46–50</h1>
     <p>Partizip II Forms · Vacation · Supermarket Quantities · Weather · Appointments</p>
   </div>
-  <nav class="lesson-nav">
+  <nav class="navback">
+    <a href="a1-all-in-one-hub.html">← All Lessons</a>
     <a href="#lesson-46">Lesson 46: Partizip II Forms</a>
     <a href="#lesson-47">Lesson 47: Vacation</a>
     <a href="#lesson-48">Lesson 48: Supermarket</a>
     <a href="#lesson-49">Lesson 49: Weather</a>
     <a href="#lesson-50">Lesson 50: Appointments</a>
-  </nav>
+  
+  <a href="/">Home</a>
+</nav>
   <main>
 
     <!-- LESSON 46 -->
@@ -92,19 +170,21 @@
         <div class="formula-item">Irregular: ge + stem + en (gesehen, gegessen, gegangen, geschrieben)</div>
         <div class="formula-item">Separable: prefix + ge + stem + t/en (aufgestanden, eingekauft, angefangen, zurückgekommen)</div>
         <div class="formula-item">-ieren Verbs: stem + t (telefoniert, studiert, repariert, notiert, buchstabiert)</div>
-        <table class="grammar-table" style="margin-top:1rem">
+        
+<div class="table-wrap"><table class="grammar-table" style="margin-top:1rem">
           <tr><th>Verb Type</th><th>Infinitive</th><th>Partizip II</th><th>Rule</th></tr>
           <tr><td>Regular</td><td>kaufen</td><td>gekauft</td><td>ge + kauf + t</td></tr>
           <tr><td>Irregular</td><td>finden</td><td>gefunden</td><td>ge + fund + en (vowel change!)</td></tr>
           <tr><td>Separable</td><td>anrufen</td><td>angerufen</td><td>an + ge + ruf + en</td></tr>
           <tr><td>-ieren Verb</td><td>telefonieren</td><td>telefoniert</td><td>telefonier + t (No ge-)</td></tr>
           <tr><td>Inseparable</td><td>verstehen</td><td>verstanden</td><td>verstand + en (No ge-)</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">
         <div class="section-title green">Vocabulary</div>
-        <table class="vocab-table">
+        
+<div class="table-wrap"><table class="vocab-table">
           <tr><th>German</th><th>English</th><th>Example</th></tr>
           <tr><td class="vocab-de">gemacht</td><td class="vocab-en">done / made</td><td class="vocab-ex">Ich habe Sport gemacht. — I did sports.</td></tr>
           <tr><td class="vocab-de">gekauft</td><td class="vocab-en">bought</td><td class="vocab-ex">Wir haben ein Auto gekauft. — We bought a car.</td></tr>
@@ -116,7 +196,7 @@
           <tr><td class="vocab-de">studiert</td><td class="vocab-en">studied (at university)</td><td class="vocab-ex">Er hat in Berlin studiert. — He studied in Berlin.</td></tr>
           <tr><td class="vocab-de">besucht</td><td class="vocab-en">visited</td><td class="vocab-ex">Wir haben Oma besucht. — We visited grandma.</td></tr>
           <tr><td class="vocab-de">verstanden</td><td class="vocab-en">understood</td><td class="vocab-ex">Ich habe das nicht verstanden. — I did not understand that.</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">
@@ -209,7 +289,8 @@
 
       <div class="section">
         <div class="section-title green">Vocabulary</div>
-        <table class="vocab-table">
+        
+<div class="table-wrap"><table class="vocab-table">
           <tr><th>German</th><th>English</th><th>Example</th></tr>
           <tr><td class="vocab-de">der Urlaub</td><td class="vocab-en">vacation / holiday</td><td class="vocab-ex">Mein Urlaub war super. — My vacation was great.</td></tr>
           <tr><td class="vocab-de">das Meer</td><td class="vocab-en">sea / ocean</td><td class="vocab-ex">Wir sind ans Meer gefahren. — We drove to the sea.</td></tr>
@@ -221,7 +302,7 @@
           <tr><td class="vocab-de">reisen</td><td class="vocab-en">to travel</td><td class="vocab-ex">Ich reise gern. — I like to travel.</td></tr>
           <tr><td class="vocab-de">buchen</td><td class="vocab-en">to book</td><td class="vocab-ex">Hast du das Hotel gebucht? — Did you book the hotel?</td></tr>
           <tr><td class="vocab-de">das Wetter</td><td class="vocab-en">weather</td><td class="vocab-ex">Das Wetter war fantastisch. — The weather was fantastic.</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">
@@ -306,18 +387,20 @@
         <div class="section-title amber">Formula</div>
         <div class="formula-item">Quantity + Neuter/Masc Measure (Singular) + Item → zwei Kilo Tomaten.</div>
         <div class="formula-item">Quantity + Fem Measure (Plural) + Item → zwei Flaschen Wasser.</div>
-        <table class="grammar-table" style="margin-top:1rem">
+        
+<div class="table-wrap"><table class="grammar-table" style="margin-top:1rem">
           <tr><th>Quantity</th><th>Measure Word</th><th>Item</th><th>Correct German</th></tr>
           <tr><td>1</td><td>das Kilo</td><td>Äpfel</td><td>ein Kilo Äpfel</td></tr>
           <tr><td>2</td><td>das Kilo (stays singular!)</td><td>Äpfel</td><td>zwei Kilo Äpfel</td></tr>
           <tr><td>500</td><td>das Gramm</td><td>Käse</td><td>fünfhundert Gramm Käse</td></tr>
           <tr><td>2</td><td>die Flasche (fem → plural!)</td><td>Milch</td><td>zwei Flaschen Milch</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">
         <div class="section-title green">Vocabulary</div>
-        <table class="vocab-table">
+        
+<div class="table-wrap"><table class="vocab-table">
           <tr><th>German</th><th>English</th><th>Example</th></tr>
           <tr><td class="vocab-de">das Kilo (Kilogramm)</td><td class="vocab-en">kilo</td><td class="vocab-ex">Ich möchte ein Kilo Tomaten. — I would like a kilo of tomatoes.</td></tr>
           <tr><td class="vocab-de">das Gramm</td><td class="vocab-en">gram</td><td class="vocab-ex">200 Gramm Käse, bitte. — 200 grams of cheese, please.</td></tr>
@@ -329,7 +412,7 @@
           <tr><td class="vocab-de">das Gemüse</td><td class="vocab-en">vegetables (collective)</td><td class="vocab-ex">Gemüse ist gesund. — Vegetables are healthy.</td></tr>
           <tr><td class="vocab-de">das Fleisch</td><td class="vocab-en">meat</td><td class="vocab-ex">Ich esse kein Fleisch. — I don't eat meat.</td></tr>
           <tr><td class="vocab-de">kosten</td><td class="vocab-en">to cost</td><td class="vocab-ex">Was kostet das Kilo? — How much is the kilo?</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">
@@ -411,18 +494,20 @@
         <div class="section-title amber">Formula</div>
         <div class="formula-item">Describing states: Es + ist + [Adjective: warm/kalt/schön/bewölkt/windig/heiß].</div>
         <div class="formula-item">Describing actions: Es + [Verb: regnet/schneit] OR Die Sonne + scheint.</div>
-        <table class="grammar-table" style="margin-top:1rem">
+        
+<div class="table-wrap"><table class="grammar-table" style="margin-top:1rem">
           <tr><th>English</th><th>German Sentence</th><th>Grammar Structure</th></tr>
           <tr><td>It is cold.</td><td>Es ist kalt.</td><td>Es + ist + Adjective</td></tr>
           <tr><td>It is sunny.</td><td>Es ist sonnig. (or: Die Sonne scheint.)</td><td>Es + ist + Adjective</td></tr>
           <tr><td>It is raining.</td><td>Es regnet.</td><td>Es + Verb (regnen)</td></tr>
           <tr><td>It is snowing.</td><td>Es schneit.</td><td>Es + Verb (schneien)</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">
         <div class="section-title green">Vocabulary</div>
-        <table class="vocab-table">
+        
+<div class="table-wrap"><table class="vocab-table">
           <tr><th>German</th><th>English</th><th>Example</th></tr>
           <tr><td class="vocab-de">das Wetter</td><td class="vocab-en">weather</td><td class="vocab-ex">Das Wetter ist heute schön. — The weather is nice today.</td></tr>
           <tr><td class="vocab-de">die Sonne</td><td class="vocab-en">sun</td><td class="vocab-ex">Die Sonne scheint. — The sun is shining.</td></tr>
@@ -436,7 +521,7 @@
           <tr><td class="vocab-de">heiß</td><td class="vocab-en">hot</td><td class="vocab-ex">Im August ist es heiß. — In August it is hot.</td></tr>
           <tr><td class="vocab-de">die Sonnencreme</td><td class="vocab-en">sun cream / sunscreen</td><td class="vocab-ex">Bei Sonne brauche ich Sonnencreme. — In the sun I need sunscreen.</td></tr>
           <tr><td class="vocab-de">der Sonnenschirm</td><td class="vocab-en">sun umbrella / sunshade</td><td class="vocab-ex">Wir sitzen unter dem Sonnenschirm. — We are sitting under the sunshade.</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">
@@ -522,7 +607,8 @@
         <div class="formula-item">Proposing: Hast du am + [Tag] + um + [Uhrzeit] + Zeit?</div>
         <div class="formula-item">Accepting: Ja, das passt mir (gut).</div>
         <div class="formula-item">Declining: Tut mir leid, da habe ich keine Zeit.</div>
-        <table class="grammar-table" style="margin-top:1rem">
+        
+<div class="table-wrap"><table class="grammar-table" style="margin-top:1rem">
           <tr><th>Day of the Week</th><th>German</th><th>On [Day] (am...)</th></tr>
           <tr><td>Monday</td><td>der Montag</td><td>am Montag</td></tr>
           <tr><td>Tuesday</td><td>der Dienstag</td><td>am Dienstag</td></tr>
@@ -531,12 +617,13 @@
           <tr><td>Friday</td><td>der Freitag</td><td>am Freitag</td></tr>
           <tr><td>Saturday</td><td>der Samstag</td><td>am Samstag</td></tr>
           <tr><td>Sunday</td><td>der Sonntag</td><td>am Sonntag</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">
         <div class="section-title green">Vocabulary</div>
-        <table class="vocab-table">
+        
+<div class="table-wrap"><table class="vocab-table">
           <tr><th>German</th><th>English</th><th>Example</th></tr>
           <tr><td class="vocab-de">der Termin</td><td class="vocab-en">appointment</td><td class="vocab-ex">Ich habe einen Termin beim Arzt. — I have an appointment at the doctor.</td></tr>
           <tr><td class="vocab-de">passen</td><td class="vocab-en">to suit / fit</td><td class="vocab-ex">Am Montag passt es mir gut. — On Monday it suits me well.</td></tr>
@@ -548,7 +635,7 @@
           <tr><td class="vocab-de">das Wochenende</td><td class="vocab-en">weekend</td><td class="vocab-ex">Was machst du am Wochenende? — What are you doing on the weekend?</td></tr>
           <tr><td class="vocab-de">sich treffen</td><td class="vocab-en">to meet (each other)</td><td class="vocab-ex">Wir treffen uns um 8 Uhr. — We meet at 8 o'clock.</td></tr>
           <tr><td class="vocab-de">gehen</td><td class="vocab-en">to work / be possible</td><td class="vocab-ex">Geht es am Dienstag? — Does Tuesday work?</td></tr>
-        </table>
+        </table></div>
       </div>
 
       <div class="section">

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { getAuth } from "firebase/auth";
 import { fetchLearnerProfile, fetchMistakeMemory, fetchSessionMessages, fetchUserSessions, markDailyPractice, saveSession, saveSessionMessage, updateLearnerProfile, updateUserProfile, upsertMistakeMemory } from "../lib/firebase";
 import { CoachMessage, CoachMode, CoachSession, LearnerProfile, MistakeMemory, ProficiencyLevel } from "../types";
-import { AlertTriangle, BookOpen, CheckCircle, Flame, LogOut, Mic, MicOff, Plus, Send, Sparkles, Target, Volume2 } from "lucide-react";
+import { AlertTriangle, BookOpen, CheckCircle, Flame, LogOut, Menu, Mic, MicOff, Plus, Send, Sparkles, Target, Volume2, X } from "lucide-react";
 import { dbg } from "../lib/debug";
 import { useGeminiLiveAPI } from "../hooks/useGeminiLive";
 import CurriculumProgressPanel from "./CurriculumProgressPanel";
@@ -50,6 +50,7 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   const [messages, setMessages] = useState<CoachMessage[]>([]);
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [listening, setListening] = useState(false);
   const [courses, setCourses] = useState<CurriculumCourseView[]>([]);
@@ -310,8 +311,16 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
   return (
     <div className="flex h-screen overflow-hidden" style={{ background: "#0a1628" }}>
 
+      {/* Mobile backdrop */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 z-20 bg-black/60 md:hidden" onClick={() => setSidebarOpen(false)} />
+      )}
+
       {/* ── Sidebar ── */}
-      <aside className="w-72 flex-shrink-0 flex flex-col overflow-hidden border-r border-emerald-900/40" style={{ background: "#0c1e2e" }}>
+      <aside
+        className={`fixed inset-y-0 left-0 z-30 w-72 flex flex-col overflow-hidden border-r border-emerald-900/40 transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:relative md:translate-x-0 md:flex-shrink-0`}
+        style={{ background: "#0c1e2e" }}
+      >
 
         {/* Header */}
         <div className="flex-shrink-0 p-4 border-b border-emerald-900/30">
@@ -320,9 +329,14 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
               <p className="text-[10px] uppercase tracking-widest text-emerald-600 font-semibold">English Coach</p>
               <h1 className="text-sm font-bold text-white mt-0.5">{profileDisplayName}</h1>
             </div>
-            <button onClick={onSignOut} className="p-1.5 rounded-lg text-emerald-800 hover:text-emerald-500 hover:bg-emerald-900/30 transition">
-              <LogOut className="h-4 w-4" />
-            </button>
+            <div className="flex items-center gap-1">
+              <button onClick={onSignOut} className="p-1.5 rounded-lg text-emerald-800 hover:text-emerald-500 hover:bg-emerald-900/30 transition">
+                <LogOut className="h-4 w-4" />
+              </button>
+              <button onClick={() => setSidebarOpen(false)} className="md:hidden p-1.5 rounded-lg text-emerald-800 hover:text-emerald-500 transition">
+                <X className="h-4 w-4" />
+              </button>
+            </div>
           </div>
           <div className="grid grid-cols-3 gap-2 mt-3">
             {[
@@ -508,12 +522,17 @@ export default function InteractiveCoach({ user, userProfile, onSignOut, highCon
       <main className="flex-1 flex flex-col overflow-hidden" style={{ background: "#0a1628" }}>
 
         {/* Header */}
-        <div className="flex-shrink-0 border-b border-emerald-900/30 px-6 py-4 flex items-center justify-between gap-4" style={{ background: "#0c1e2e" }}>
-          <div className="min-w-0">
-            <h2 className="text-sm font-bold text-white truncate">{selectedMode?.title || (cursor ? "Study Mode" : todayActivity.title)}</h2>
-            <p className="text-xs text-emerald-700 truncate">
-              {selectedTrack?.title || "No track"} · {levelToBand(level)} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "General practice"}
-            </p>
+        <div className="flex-shrink-0 border-b border-emerald-900/30 px-4 md:px-6 py-4 flex items-center justify-between gap-4" style={{ background: "#0c1e2e" }}>
+          <div className="flex items-center gap-2 min-w-0">
+            <button onClick={() => setSidebarOpen(true)} className="md:hidden p-1.5 text-emerald-700 hover:text-emerald-400 transition flex-shrink-0">
+              <Menu className="h-5 w-5" />
+            </button>
+            <div className="min-w-0">
+              <h2 className="text-sm font-bold text-white truncate">{selectedMode?.title || (cursor ? "Study Mode" : todayActivity.title)}</h2>
+              <p className="text-xs text-emerald-700 truncate">
+                {selectedTrack?.title || "No track"} · {levelToBand(level)} · {cursor ? `${cursor.subsectionId} · ${cursor.phase}` : "General practice"}
+              </p>
+            </div>
           </div>
           <button
             type="button"
