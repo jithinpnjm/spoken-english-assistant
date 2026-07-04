@@ -65,6 +65,7 @@ type ConnectArgs = [string, string, string?, string?, string?];
 
 const RECONNECT_DELAY_MS = 2500;
 const MAX_RECONNECT_ATTEMPTS = 5;
+const IDLE_TIMEOUT_MS = 3 * 60 * 1000; // auto-disconnect after 3 minutes without an agent response
 
 export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
   const [isConnected, setIsConnected] = useState(false);
@@ -93,6 +94,9 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
   const reconnectAttemptsRef = useRef(0);
   const intentionalStopRef = useRef(false);
 
+  // Idle timeout tracking — disconnect if neither side has spoken for a while
+  const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const onMessageRef = useRef(onMessage);
   useEffect(() => { onMessageRef.current = onMessage; }, [onMessage]);
 
@@ -108,9 +112,17 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
     if (playbackCtxRef.current) nextStartTimeRef.current = playbackCtxRef.current.currentTime;
   }, []);
 
+  const clearIdleTimer = useCallback(() => {
+    if (idleTimerRef.current) {
+      clearTimeout(idleTimerRef.current);
+      idleTimerRef.current = null;
+    }
+  }, []);
+
   const stopClient = useCallback((intentional = true) => {
     dbg.live.log("stopClient called, intentional:", intentional);
     intentionalStopRef.current = intentional;
+    clearIdleTimer();
     if (reconnectTimerRef.current) {
       clearTimeout(reconnectTimerRef.current);
       reconnectTimerRef.current = null;
@@ -146,7 +158,16 @@ export function useGeminiLiveAPI(onMessage?: (msg: LiveMessage) => void) {
     setIsConnected(false);
     nextStartTimeRef.current = 0;
     dbg.live.log("stopClient: done");
-  }, [stopAllPlayback, setAgentSpeaking]);
+  }, [stopAllPlayback, setAgentSpeaking, clearIdleTimer]);
+
+  const resetIdleTimer = useCallback(() => {
+    clearIdleTimer();
+    idleTimerRef.current = setTimeout(() => {
+      dbg.live.log(`Agent silent for ${IDLE_TIMEOUT_MS / 1000}s — auto-disconnecting`);
+      setError("Session ended after 3 minutes without an agent response.");
+      stopClient(true);
+    }, IDLE_TIMEOUT_MS);
+  }, [clearIdleTimer, stopClient]);
 
   const connect = useCallback(async (
     userName = "Student",
@@ -280,6 +301,7 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
             silentGain.connect(captureCtx.destination);
             setIsConnected(true);
             setError(null);
+            resetIdleTimer();
             return;
           }
 
@@ -298,6 +320,7 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
           if (sc.modelTurn?.parts) {
             for (const part of sc.modelTurn.parts) {
               if (part.inlineData?.data) {
+                resetIdleTimer();
                 // Agent has started speaking — mute the mic
                 if (!isAgentSpeakingRef.current) {
                   turnCompleteReceivedRef.current = false;
@@ -426,7 +449,7 @@ CORRECTION RULES (apply at every level, strictness scales with level above):
       setError(e.message || "Failed to start live session");
       stopClient(true);
     }
-  }, [stopClient, stopAllPlayback, setAgentSpeaking]);
+  }, [stopClient, stopAllPlayback, setAgentSpeaking, resetIdleTimer]);
 
   useEffect(() => {
     return () => {

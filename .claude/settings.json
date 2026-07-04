@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(lsof -ti:3000)",
+      "Bash(curl -sv http://localhost:3000/)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl -s http://127.0.0.1:3001/)",
+      "Bash(node -e ' *)",
+      "Bash(npx tsx -e ' *)",
+      "Bash(gcloud run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174/)",
+      "Bash(lsof -ti:5174)",
+      "Bash(lsof -ti:5173)",
+      "Bash(lsof -ti:24678)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s https://english-coach-ny5vfb2ina-el.a.run.app/)",
+      "Bash(bash /Users/jithinpjoseph/Documents/GitHub/spoken-english-assistant/english-coach/infra/deploy.sh)",
+      "Bash(gcloud builds *)",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(npx vite *)",
+      "Bash(cp GermanStudyGuidePanel.tsx GermanStudyGuidePanel.tsx.bak)",
+      "Bash(python3 -)",
+      "Bash(sed -i '' 's/PDF Notes/Additional Notes/g' /Users/jithinpjoseph/Documents/GitHub/spoken-english-assistant/english-coach/public/a1-part07-lessons-31-35.html)",
+      "Bash(sed -i '' 's/<div class=\"pdf-note\">/<div class=\"note-block\">/g' /Users/jithinpjoseph/Documents/GitHub/spoken-english-assistant/english-coach/public/a1-part07-lessons-31-35.html)",
+      "Bash(sed -i '' 's/.pdf-note{/.note-block{background:rgba\\(11,13,26,.5\\);border-radius:6px;padding:.75rem;margin-bottom:.5rem;border-left:3px solid var\\(--amber\\);color:var\\(--text\\);font-size:.9rem;line-height:1.7}\\\\n.pdf-note{/' /Users/jithinpjoseph/Documents/GitHub/spoken-english-assistant/english-coach/public/a1-part07-lessons-31-35.html)"
+    ]
+  }
+}
