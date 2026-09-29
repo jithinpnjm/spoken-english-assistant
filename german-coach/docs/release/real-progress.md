@@ -1,1 +1,0 @@
-Real progress should start from zero and should increase only after the learner marks a topic complete.
