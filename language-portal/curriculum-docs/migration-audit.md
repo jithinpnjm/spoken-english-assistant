@@ -96,7 +96,7 @@ production; vocabulary tables don't consistently show plurals.
 All knowledge listed in `migration-map.md` exists in `language-portal/` (curriculum docs + pages). No page in the
 portal links to `german-coach/`. **`german-coach/` is deleted in a separate commit** after this report.
 
-**Important caveat:** `german-coach/` was only the *planning docs*. The German Coach **application** still lives in
+**Update:** the German content in `english-coach/` was mined read-only in a follow-up pass – see Part 2 of `migration-map.md` and the addendum below. **Original caveat:** `german-coach/` was only the *planning docs*. The German Coach **application** still lives in
 `english-coach/src/components/German*.tsx` (18 components) and `english-coach/src/lib/` (≈1.2 MB of German content:
 `a1-book/` 65 lessons, `a1-study-book-notes/`, `a1-pdf-notes/`, topic catalogs A1/A2/B1, practice engine, study
 materials) and is imported by `english-coach/src/App.tsx`. That is outside this migration's scope and remains a
@@ -129,3 +129,32 @@ materials) and is imported by `english-coach/src/App.tsx`. That is outside this 
 6. Facts that change (Deutschlandticket price, postage, co-payment rules, exam editions) need periodic re-checks;
    they are now phrased as examples or dated.
 7. No audio: listening practice relies on transcripts/AI; real recordings would help most for A1 Hören.
+
+---
+
+## Addendum – follow-up pass on `english-coach/` German content
+
+**Reviewed (read-only):** all 29 `english-coach/src/lib/german*.ts` files read in full; `a1-book/` structure and samples
+(lessons 1–3, 56–57) read and all 65 titles checked against the portal; `a1-pdf-notes/` and `a1-study-book-notes/`
+headings of all batches plus samples read; the 18 `German*.tsx` components inventoried and the mistake-trainer,
+mastery-checklist and revision-plan components read. `english-coach/src/server/` contains no German logic.
+
+**Created from it:**
+- A2 (previously title-only): `vol2-past/perfekt`, `common-irregular-participles`, `praeteritum-sein-haben-modals`;
+  `vol3-grammar/main-clause-connectors`, `subordinate-clauses`, `verb-position-nebensaetze`, `reflexive-verbs`, `adjectives`,
+  `comparatives`, `superlatives`, `wechselpraepositionen`, `infinitive-mit-zu`, `polite-requests-wishes`;
+  `vol4-home/apartment-search-advanced`, `vol5-shopping/contracts-subscriptions`, `vol6-work/job-advertisements`,
+  `vol7-health/doctor-instructions`; `vol10-exam/goethe-writing`, `goethe-speaking`, `error-analysis`.
+- B1 (new section, 7 pages): `b1/start-here`, `b1/grammar/purpose-clauses`, `konjunktiv-ii`, `da-wo-compounds`,
+  `b1/exam/b1-writing`, `b1-speaking`, `b1-repair-bank`.
+- Mistake Log & Repair reconciled with the app's mistake trainer.
+
+**Not migrated and why:** see ARCHIVE rows in Part 2 of `migration-map.md`.
+
+**Status after this pass:**
+- **A2:** 21 of about 150 pages are real chapters; the grammar spine and exam writing/speaking are usable. Still stubs:
+  most topic chapters in Vols 1, 4–9 and the exam pages for reading, listening, telc and mocks.
+- **B1:** a usable starter set. Still missing: passive/Zustandspassiv, relative clauses, lassen, n-declension, genitive
+  prepositions, noun-verb combinations, Lesen/Hören pages, life topics.
+- The english-coach content alone could not fill A2/B1: its A2/B1 material is outline-level (catalog entries, 10–12 repair
+  items, 4-task mocks). The chapters were authored for this portal, using that material as a checklist.

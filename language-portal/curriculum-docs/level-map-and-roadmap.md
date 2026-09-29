@@ -72,7 +72,7 @@ Official Goethe A1 word-list groups worth drilling separately: Zahlen, Datum, Uh
 Wochentage, Tageszeiten, Monate, Jahreszeiten, Währungen, Maße und Gewichte, Länder/Nationalitäten, Farben,
 Himmelsrichtungen. (Check the current Goethe A1 Wortliste PDF on goethe.de for the exact list.)
 
-## 5. A2 blueprint (content currently **stubs** in `docs/german/a2/`)
+## 5. A2 blueprint (grammar spine, four life chapters and exam writing/speaking/error analysis written; other pages still stubs)
 
 The A2 sidebar exists (10 volumes, ~150 pages) but every page is a title-only stub as of this migration.
 Build order recommendation:
@@ -93,7 +93,7 @@ Build order recommendation:
 A2 review criteria for writing: task completion, clarity, verb position (incl. subordinate clauses),
 case/article, vocabulary fit, register (du/Sie), spelling/capitalisation.
 
-## 6. B1 blueprint (not built; the empty `b1/placeholder.mdx` was removed – start B1 under `docs/german/b1/`)
+## 6. B1 blueprint (starter set in `docs/german/b1/`: purpose clauses, Konjunktiv II, da-/wo-compounds, writing, speaking, repair bank)
 
 - Grammar: subordinate clauses (weil, dass, wenn, als, obwohl, damit/um…zu, ohne…zu, anstatt…zu, indem),
   connectors (deshalb, trotzdem, außerdem, zuerst/danach/schließlich), Konjunktiv II (würde, könnte, sollte,

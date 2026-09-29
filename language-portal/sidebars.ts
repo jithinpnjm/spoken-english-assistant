@@ -375,6 +375,32 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "GERMAN B1 - FIRST CHAPTERS",
+      collapsed: true,
+      items: [
+        { type: "doc", id: "german/b1/start-here", label: "B1: Start Here" },
+        {
+          type: "category",
+          label: "B1 Grammar",
+          items: [
+            { type: "doc", id: "german/b1/grammar/purpose-clauses", label: "B1.1 um … zu / damit / ohne … zu" },
+            { type: "doc", id: "german/b1/grammar/konjunktiv-ii", label: "B1.2 Konjunktiv II" },
+            { type: "doc", id: "german/b1/grammar/da-wo-compounds", label: "B1.3 da- & wo-Compounds" },
+          ],
+        },
+        {
+          type: "category",
+          label: "B1 Exam",
+          items: [
+            { type: "doc", id: "german/b1/exam/b1-writing", label: "B1 Writing: Three Tasks" },
+            { type: "doc", id: "german/b1/exam/b1-speaking", label: "B1 Speaking: Plan, Present, Discuss" },
+            { type: "doc", id: "german/b1/exam/b1-repair-bank", label: "B1 Repair Bank" },
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "PARALLEL LEARNING SYSTEMS",
       items: [
         { type: "doc", id: "german/parallel-systems/vocabulary-vault", label: "A. Vocabulary Vault" },

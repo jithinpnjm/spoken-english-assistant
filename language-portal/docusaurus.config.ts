@@ -81,7 +81,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'germanSidebar',
           position: 'left',
-          label: 'German (A0-A1, A2 in progress)',
+          label: 'German (A0-A1; A2 & B1 in progress)',
         },
         {
           type: 'docSidebar',

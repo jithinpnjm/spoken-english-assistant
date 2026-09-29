@@ -68,3 +68,33 @@ Actions: **KEEP** (knowledge preserved, possibly enriched) · **MERGE** · **REW
 - Goethe A2 Hören: Teil 1 = five texts heard twice; Teil 4 radio interview heard twice.
 - Goethe A1 Sprechen Teil 3 = requests (Bitten), not "planning together" (planning is A2 T3 / B1 T1).
 - Tax ID, renting deep-dive, Kündigung/Widerruf: A2+ language topics, never legal advice.
+
+
+---
+
+# Part 2: German content inside `english-coach/` (read-only mining)
+
+The German Coach **app** lives in `english-coach/src/components/German*.tsx` (18 components) and
+`english-coach/src/lib/` (about 1.2 MB). It was mined read-only; `english-coach/` itself was not modified (another owner
+retires it). No server-side German logic exists (`english-coach/src/server/` is English-only; the German live prompt is
+built client-side in `germanLiveTeacherContext.ts`).
+
+| Source in english-coach | New location | Action | Reason |
+| :--- | :--- | :--- | :--- |
+| `germanA2TopicCatalog.ts` (24 A2 topics: core content, exam relevance, common mistakes) | A2 Vol 2/3 chapters (Perfekt, participles, Präteritum, connectors, weil/dass/wenn, connector families/obwohl/als/ob, reflexive, adjective endings, comparatives, superlatives, Wechselpräpositionen, zu-infinitive, Konjunktiv II) | REWRITE / CREATE | The catalog is an outline (one line per field); used as topic checklist and source of per-topic common mistakes. Full chapters written. |
+| `germanA2RepairTasks.ts` (10 repair tasks) | `docs/german/a2/vol10-exam/error-analysis.mdx` | MIGRATE + EXPAND | All 10 kept (rewritten), 3 added (Perfekt auxiliary, als/wenn, reflexive), each linked to its chapter. |
+| `germanA2FrameworkSurvival.ts` survival modules (Bewerbung, health advanced, contracts) | A2 `vol6-work/job-advertisements.mdx`, `vol7-health/doctor-instructions.mdx`, `vol5-shopping/contracts-subscriptions.mdx` | CREATE | Real-life gaps; written as language practice with legal/medical caveats. |
+| `germanA2FrameworkSurvival.ts` exam framework | — (see `exam-source-policy.md`) | ARCHIVE | **Contains errors**: Hören Teil 1 "3 texts" (official: 5), Teil 4 "heard once" (official: twice), invented Sprechen point split (4/8/8/5). |
+| `germanA2FrameworkSurvival.ts` word groups (Berufe, Familienstand, Schulfächer, Feiertage, Maße) | A1/A2 vocabulary chapters | COVERED | |
+| `germanA1MiniMock.ts`, `germanA2MiniMock.ts`, `germanB1MockExam.ts` | Task ideas reused in A2/B1 exam AI prompts | ARCHIVE (logic) | 4 tasks each, scored by keyword matching – not a meaningful mock. |
+| `germanB1TopicCatalog.ts` (18 B1 topics) | `docs/german/b1/` grammar chapters (purpose clauses, Konjunktiv II, da-/wo-compounds) + roadmap + B1 Repair Bank | CREATE (partial) | Remaining topics (reflexive part 2, noun-verb combinations, lassen, n-declension, genitive prepositions, indem, brauchen zu, Zustandspassiv) are on the roadmap; several appear in the repair bank. |
+| `germanB1FrameworkRedemittel.ts` (exam framework, Redemittel, exam-day tips) | `b1/start-here.mdx`, `b1/exam/b1-speaking.mdx`, `b1/exam/b1-writing.mdx`, `parallel-systems/redemittel-phrases.mdx` | MERGE | Framework matches the official Modellsatz; Redemittel merged. |
+| `germanB1RepairTasks.ts` (12 tasks) | `docs/german/b1/exam/b1-repair-bank.mdx` | MIGRATE | Rewritten; genitive-preposition item added. |
+| `germanWritingReview.ts` (prompts + keyword scoring) | A1 6.8, A2 10.4, B1 writing pages | ARCHIVE (logic) | Prompts covered; rule-based scoring weaker than the AI review loop. |
+| `germanExamScoring.ts` (A1 rubrics, weak-topic mapping) | — | ARCHIVE | Rubric points are invented (e.g. Schreiben 20, Sprechen 20) and conflict with official scoring; weak-topic mapping already in A1 10.6. |
+| `germanExamPrepMaterials.ts`, `germanListeningPractice.ts`, `germanStudyMaterials.ts`, `germanSentenceMechanics.ts`, `germanVerbConjugations.ts`, `germanVocabularyBank.ts`, `germanSurvivalAndWordGroups.ts`, `germanA1TopicCatalog.ts`, `germanA1SourceLessons.ts`, `germanCurriculumRegistry.ts`, `germanOrderedPath.ts`, `germanPracticeEngine.ts` | A1 chapters, Exam Center, Parallel Systems, learning path | COVERED | All A1-level; the portal has equal or deeper content. Useful extras (Übergabeprotokoll, Hausarzt/Facharzt, brutto/netto, Steuer-ID) went into the new A2 chapters. |
+| `germanProgressTracker.ts`, `germanRepairPracticeAdapter.ts`, `GermanMistakeTrainerPanel.tsx`, `GermanLessonMasteryChecklist.tsx`, `GermanLessonRevisionPlan.tsx` | `parallel-systems/progress-dashboard.mdx` (Mistake Log & Repair) | MERGE | Added mistake types *connector* and *task completion*, the wrong-first technique, the 5-point mastery check and the same-day/1/3/7-day revision plan. |
+| `germanLiveTeacherContext.ts` | `teaching-methodology.md` §2, §8 | COVERED | Same per-level policy and teaching loop. |
+| `germanLocalLearningState.ts`, `germanStudyRecommendations.ts`, other UI components | — | ARCHIVE | App state/UI; the portal is static docs. |
+| `a1-book/` (65 AI-written A1 lessons: rules, vocabulary, exercises, common mistakes, letter samples) | — | COVERED / ARCHIVE | A1 only; all 65 topics covered by portal Vols 1–10 (spot-checked). Contains some doubtful claims (e.g. taxis "almost exclusively cream-coloured", "tipping ~10% is standard"). |
+| `a1-pdf-notes/`, `a1-study-book-notes/` (transcriptions of a private person's handwritten A1 class notes, incl. names and home towns) | — | ARCHIVE | Third-party personal data and derivative of class material; all topics A1 and covered. Used only as a coverage checklist. |

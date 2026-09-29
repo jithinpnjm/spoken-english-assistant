@@ -1,4 +1,77 @@
 ---
 title: "10.4 Goethe Writing"
+description: Goethe-Zertifikat A2 Schreiben - a 20-30-word personal message and a 30-40-word semi-official message, each with three points - with patterns, model answers and a rewrite loop.
+tags: [A2, Exam, Goethe, Schreiben, Writing, CEFR-A2]
 ---
 
+# 10.4 Goethe A2: Schreiben
+
+## Format (official Goethe A2 Modellsatz)
+
+| Part | Task | Length | Register |
+| :--- | :--- | :--- | :--- |
+| Teil 1 | Personal message (e.g. SMS to a friend) – three points | **20–30 words** | informal (*du*) |
+| Teil 2 | Semi-official message (e.g. to a teacher, boss, office) – three points | **30–40 words** | formal/semi-formal (*Sie*) |
+
+Total time 30 minutes. Write something about **all three points**. No dictionaries or phones.
+(Structure from the official Modellsatz; always check the current version on goethe.de.)
+
+## What makes a good A2 answer
+
+1. **All three points**, one or two sentences each.
+2. **Connected sentences**: *weil, dass, deshalb, aber, dann*.
+3. **Right register**: *Liebe Anna / Viele Grüße* vs. *Sehr geehrte Frau … / Mit freundlichen Grüßen* – and *du* or *Sie* consistently.
+4. **Word order**: verb in position 2; verb at the end in *weil/dass*-clauses; Perfekt participle at the end.
+5. Length roughly right – much shorter usually means a point is missing.
+
+## Teil 1 – model (personal message)
+
+*Task:* You are late for meeting your friend Tom. Write: apologise, why, new time/place.
+
+> Hallo Tom, es tut mir leid, ich komme später, weil mein Bus nicht gekommen ist. Können wir uns um halb acht direkt vor dem Kino treffen? Bis gleich! Jithin
+
+(29 words.) Useful chunks: *Es tut mir leid, … · …, weil … · Können wir uns um … treffen? · Bis gleich / bis später!*
+
+## Teil 2 – model (semi-official message)
+
+*Task:* Your course leader, Frau Schulz, invited the class to a party. Write: thank her, say you can't come and why, ask about the next date.
+
+> Liebe Frau Schulz,  
+> vielen Dank für die Einladung. Leider kann ich am Freitag nicht kommen, weil meine Eltern zu Besuch sind. Wann ist das nächste Treffen? Ich komme gern beim nächsten Mal.  
+> Viele Grüße  
+> Jithin Joseph
+
+(36 words.) *Liebe Frau Schulz* is fine for a teacher you know; for an unknown office use *Sehr geehrte Damen und Herren*.
+
+## Frequent situations to practise
+
+apologise + reason + new suggestion · accept/decline an invitation + question · ask for information (course, flat, appointment) ·
+report a problem (delivery, heating) + ask for help · thank someone + tell news · move an appointment.
+
+## Your checklist
+- [ ] Point 1 ✓ Point 2 ✓ Point 3 ✓
+- [ ] Greeting + closing fit (du/Sie)
+- [ ] At least one *weil/dass*-clause with the verb at the end
+- [ ] Nouns capitalised, *Sie/Ihnen* capitalised
+- [ ] 20–30 / 30–40 words
+
+## AI Practice: Write – Review – Rewrite
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+<AIPracticeComponent
+  topic="Goethe A2 Schreiben Teil 1 and Teil 2"
+  level="A2"
+  taskType="writing"
+  prompt={`SYSTEM BEHAVIOR:
+Role: German writing teacher preparing the learner for Goethe A2 Schreiben (practice only, not an official score).
+Give ONE original task at a time with a situation and three points: alternate Teil 1 (personal, 20–30 words, du) and Teil 2 (semi-official, 30–40 words, Sie). Never copy official tasks.
+After the learner writes, review in this order:
+  Task points: ✓ / partly / ✗ for each of the three
+  Register: greeting/closing/du-Sie fits?
+  Length: within range?
+  Corrected version (minimal changes)
+  Main mistakes (max. 4): mistake → correction → one-sentence English reason (focus: verb-end in weil/dass, Perfekt, case after prepositions, du/Sie consistency)
+  Model answer
+Then ask for a REWRITE and check it before the next task.`}
+/>
