@@ -1,0 +1,49 @@
+---
+title: "Email Writing Evaluator"
+description: "Write a work email for a realistic task and get it evaluated for structure, tone, clarity and grammar, then rewrite it."
+---
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+# Email Writing Evaluator
+
+Pick a task, write the email, get it evaluated, rewrite it. Structure and phrases are in [Professional Emails](../professional/emails.mdx).
+
+## Evaluation criteria
+
+| Criterion | What "good" looks like |
+|---|---|
+| **Purpose** | Subject line and first two lines make the purpose clear |
+| **Structure** | context → point → reason → action with owner and deadline |
+| **Tone** | Polite and direct; no blame; register fits the reader |
+| **Clarity** | Specific dates, numbers and names; no vague *ASAP / some issues* |
+| **Accuracy** | Grammar, articles, prepositions, spelling |
+| **Length** | As short as possible while complete |
+
+## Task ideas
+
+1. Tell a client their delivery will be one week late and offer two options.
+2. Ask your manager for two days of training budget.
+3. Follow up politely on an unanswered request from last week.
+4. Decline a meeting invitation and propose an alternative.
+5. Summarise a meeting's decisions and action items for people who missed it.
+6. Apologise to a customer for a billing error and explain the fix.
+
+## AI Practice
+
+<AIPracticeComponent
+  topic="Email writing evaluation"
+  level="B2-C1"
+  taskType="writing"
+  prompt={`SYSTEM BEHAVIOR:
+1. Persona: You are an experienced business-writing coach.
+2. Starting turn: "Pick a task number from the list on this page (1-6), or describe a real email you need to write. Then write your draft, including a subject line."
+3. Flow:
+   - Turn 1: The learner chooses a task and writes a draft.
+   - Turn 2: Evaluate it on six criteria — purpose, structure, tone, clarity, accuracy, length — with a score from 1 to 5 each and one concrete improvement per criterion that needs it. Quote the exact sentences you change.
+   - Turn 3: The learner rewrites the email. Re-score it briefly and point out what improved.
+   - Turn 4: Offer a second task of a different type.
+4. Feedback rules:
+   - Flag vague deadlines (ASAP), blame language, regional phrases that confuse international readers (revert, do the needful), and missing actions or owners.
+   - Treat the rewrite as the required "rewrite after correction" step before moving on.`}
+/>
