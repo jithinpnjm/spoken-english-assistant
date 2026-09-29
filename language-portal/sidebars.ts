@@ -4,6 +4,16 @@ const sidebars: SidebarsConfig = {
   germanSidebar: [
     {
       type: "category",
+      label: "START HERE: COURSE GUIDE",
+      collapsed: false,
+      items: [
+        { type: "doc", id: "german/course-guide/how-this-course-works", label: "How This Course Works" },
+        { type: "doc", id: "german/course-guide/learning-path", label: "Recommended Learning Path" },
+        { type: "doc", id: "german/course-guide/a2-b1-roadmap", label: "A2 & B1 Roadmap" },
+      ],
+    },
+    {
+      type: "category",
       label: "GERMAN A1 - COMPLETE BEGINNER",
       collapsed: false,
       items: [
@@ -11,13 +21,14 @@ const sidebars: SidebarsConfig = {
           type: "category",
           label: "Volume 1: Foundations",
           items: [
+            { type: "doc", id: "german/a1/vol1-foundations/survival-kit", label: "1.0 Survival Kit: First 30 Sentences" },
             { type: "doc", id: "german/a1/vol1-foundations/alphabet-pronunciation", label: "1.1 Alphabet & Pronunciation" },
             { type: "doc", id: "german/a1/vol1-foundations/reading-compound-words", label: "1.2 Reading German Words & Compound Nouns" },
             { type: "doc", id: "german/a1/vol1-foundations/greetings-basic-comm", label: "1.3 Greetings & Basic Communication" },
             { type: "doc", id: "german/a1/vol1-foundations/personal-pronouns", label: "1.4 Personal Pronouns & Du vs. Sie" },
             { type: "doc", id: "german/a1/vol1-foundations/numbers-dates-time", label: "1.5 Numbers, Dates & Time" },
             { type: "doc", id: "german/a1/vol1-foundations/first-sentences", label: "1.6 First Sentences & Introductions" },
-            { type: "doc", id: "german/a1/vol1-foundations/ordinal-numbers", label: "1.7 Ordinal Numbers" },
+            { type: "doc", id: "german/a1/vol1-foundations/ordinal-numbers", label: "1.7 Numbers above 100, Ordinals & Dates" },
           ],
         },
         {
@@ -101,7 +112,7 @@ const sidebars: SidebarsConfig = {
             { type: "doc", id: "german/a1/vol6-work/kita-school", label: "6.5 Kita & School Basics" },
             { type: "doc", id: "german/a1/vol6-work/appointments", label: "6.6 Making Appointments" },
             { type: "doc", id: "german/a1/vol6-work/telephone", label: "6.7 Telephone German" },
-            { type: "doc", id: "german/a1/vol6-work/email-messages", label: "6.8 Email & Messages" },
+            { type: "doc", id: "german/a1/vol6-work/email-messages", label: "6.8 Short Messages & Emails" },
             { type: "doc", id: "german/a1/vol6-work/invitations-plans", label: "6.9 Invitations & Plans" },
           ],
         },
@@ -171,7 +182,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "GERMAN A2 - COMPLETE ELEMENTARY",
+      label: "GERMAN A2 - IN DEVELOPMENT",
       collapsed: true,
       items: [
         {
