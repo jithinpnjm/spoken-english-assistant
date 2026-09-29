@@ -1,0 +1,150 @@
+---
+sidebar_position: 8
+title: 4.8 Public Transport (ÖPNV)
+description: Master German trains, trams, and buses, buying tickets, and handling delays.
+tags: [A1, Transport, ÖPNV, Bus, Bahn, Fahrkarte, CEFR-A1]
+---
+
+# 4.8 Public Transport: Bus, Tram & Train (Der Nahverkehr)
+
+## 🎯 What you will learn
+* I can name the different types of public transport in Germany (**Bus, Tram, U-Bahn, S-Bahn, Zug**).
+* I know that travel vehicles always use the preposition **mit + Dative** (*mit dem Bus, mit der Bahn*).
+* I can buy tickets at a machine and understand key terms (*Einzelfahrt, Tageskarte, Gleis*).
+* I understand the boarding verbs: **einsteigen** (board), **umsteigen** (transfer), and **aussteigen** (exit).
+* I understand announcements about delays (**die Verspätung**).
+
+---
+
+## 1. The 5 Types of Public Transit in Germany (ÖPNV)
+
+In German cities, public transit is collectively called the **ÖPNV** (*Öffentlicher Personennahverkehr*):
+
+| Transport | Article | What it is | Where you find it |
+| :--- | :--- | :--- | :--- |
+| **der Bus** | der | standard city bus | City streets and rural routes |
+| **die Tram / Straßenbahn**| die | above-ground streetcar | Tracks in the street in many cities |
+| **die U-Bahn** | die | underground subway / metro | Below city center (*Untergrundbahn*) |
+| **die S-Bahn** | die | commuter train | Connects suburbs to central station (*Stadtschnellbahn*) |
+| **der Zug / der ICE** | der | regional or high-speed train| Long-distance travel between cities |
+
+---
+
+## 2. The Grammar Rule: "mit" + Dative (How You Travel)
+
+Whenever you state how you travel from place to place, German uses the preposition **mit** followed by the **Dative Case**:
+
+```text
+mit + dem (masculine / neutral)  ➔  mit dem Bus / mit dem Zug / mit dem Auto / mit dem Fahrrad
+mit + der (feminine)             ➔  mit der U-Bahn / mit der S-Bahn / mit der Tram / mit der Bahn
+```
+
+### ⚠️ The One Exception: Walking on Foot!
+When you walk, you do not use *mit*. You use the fixed idiom:
+* *„Ich gehe **zu Fuß**.“* (I am going on foot / walking).
+
+---
+
+## 3. Essential Verbs at the Station
+
+All three of these core travel verbs are **separable verbs** (see Chapter 3.12):
+
+* **einsteigen** (to get on / board):
+  * *„Wir **steigen** in den Zug **ein**.“*
+* **aussteigen** (to get off / exit):
+  * *„An der nächsten Station **steigen** wir **aus**.“*
+* **umsteigen** (to change trains / transfer):
+  * *„In Frankfurt müssen wir in die U4 **umsteigen**.“*
+
+---
+
+## 4. Buying Tickets & Station Vocabulary
+
+At ticket machines (*am Fahrkartenautomaten*), you will choose from these standard tickets:
+
+* **die Einzelfahrt / Einzelfahrkarte:** A single one-way trip.
+* **die Tageskarte:** A 24-hour pass for unlimited travel.
+* **das Deutschlandticket:** The nationwide 49-euro monthly subscription for local transit.
+* **die Hin- und Rückfahrt:** Round-trip return ticket.
+
+### Station Signs:
+* **das Gleis** (die Gleise): Track / platform (*Der Zug fährt von **Gleis 4** ab*).
+* **die Verspätung:** Delay (*Der ICE hat 15 Minuten **Verspätung***).
+* **Ausfall / fällt aus:** Cancelled (*Der Zug fällt heute aus*).
+
+⚠️ **The Ticket Validator Trap (Entwerter):** In many German transport networks (like Berlin, Munich, or Frankfurt), buying a paper ticket at a machine is not enough. You must physically stamp it in the small yellow or red stamping box (**der Entwerter**) on the platform before boarding! Traveling with an unstamped ticket results in a 60 € fine (*erhöhtes Beförderungsentgelt*).
+
+---
+
+## 5. Guided Practice
+
+Decide on your answer, then click to reveal.
+
+### Step 1: Transport Preposition (mit + Dative)
+Complete with *dem* or *der*:
+1. Ich fahre jeden Tag mit ________ Bus (*der* Bus) zur Arbeit.
+<details>
+  <summary>Show answer</summary>
+
+  **dem** (*mit dem Bus*).
+</details>
+
+2. Fährst du mit ________ U-Bahn (*die* U-Bahn)?
+<details>
+  <summary>Show answer</summary>
+
+  **der** (*mit der U-Bahn*).
+</details>
+
+3. Er kommt nicht mit dem Auto, er geht ________ Fuß.
+<details>
+  <summary>Show answer</summary>
+
+  **zu** (*zu Fuß* = on foot).
+</details>
+
+### Step 2: Station Announcements
+What does this announcement mean?  
+*„Achtung an Gleis 3: Der Regionalexpress nach Köln hat ca. 20 Minuten Verspätung.“*
+<details>
+  <summary>Show answer</summary>
+
+  "Attention on Track 3: The regional train to Cologne has approximately 20 minutes delay."
+</details>
+
+---
+
+## 6. AI Practice: Buying a Ticket at the Counter
+
+Practice asking for train tickets, platforms, and connections.
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+<AIPracticeComponent 
+  topic="Buying a Train Ticket at the Station" 
+  level="A1" 
+  taskType="speaking" 
+  prompt={`SYSTEM BEHAVIOR:
+1. Persona: You are an employee behind the counter at a Deutsche Bahn travel center (Reisezentrum). Use formal 'Sie'.
+2. Starting turn: "Guten Tag! Reisezentrum der Deutschen Bahn. Wie kann ich Ihnen helfen?"
+3. Flow:
+   - Turn 1: The user requests a ticket (e.g. to Berlin or Munich) using 'Ich möchte bitte eine Fahrkarte nach...'.
+   - Turn 2: Ask for details: "Gerne! Einfache Fahrt oder Hin- und Rückfahrt? Und möchten Sie mit dem ICE oder mit dem Regionalzug fahren?"
+   - Turn 3: The user answers about return and train type.
+   - Turn 4: State price and platform: "Das macht 42 Euro. Der Zug fährt um 14:28 Uhr von Gleis 9 ab. Zahlen Sie bar oder mit Karte?"
+4. Pedagogical feedback rules:
+   - Check transport terms: 'Fahrkarte', 'Gleis', 'einfache Fahrt', 'mit Karte'.
+   - Check polite requesting formulas ('Ich möchte bitte...').
+   - Keep interactions realistic, calm, and strictly at A1 level.`} 
+/>
+
+<br/>
+<small>🎯 <strong>Goethe/telc connection:</strong> In the listening exam (Hören Teil 1 & 2), platform announcements at train stations are a staple recurring format. Recognizing the departure track (<em>Gleis</em>), destination, and delay duration is tested in every exam session.</small>
+
+---
+
+## ✅ I can...
+- [ ] Name all types of public transport (*Bus, Tram, U-Bahn, S-Bahn, Zug*).
+- [ ] Use **mit + Dative** to describe how I travel (*mit dem Bus, mit der Bahn*).
+- [ ] Understand boarding verbs: **einsteigen**, **aussteigen**, and **umsteigen**.
+- [ ] Understand platform announcements including track numbers (**Gleis**) and delays (**Verspätung**).
