@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -13,7 +14,7 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title">
           The Intelligent Language Portal
         </Heading>
-        <p className="hero__subtitle">Learn German from your first day in Germany to Goethe A1 (A2 in progress), and Professional English (B2-C1), through structured theory and AI-driven practice.</p>
+        <p className="hero__subtitle">Learn German from your first day in Germany to Goethe A1 (A2 and B1 in progress), and spoken English (A1-C1), through structured theory and AI-driven practice.</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
@@ -23,8 +24,8 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             style={{marginLeft: '10px'}}
-            to="/docs/english/grammar-refresh/advanced-tenses">
-            Start English C1 🇬🇧
+            to="/docs/english/overview">
+            Start English (A1-C1) 🇬🇧
           </Link>
         </div>
       </div>
@@ -32,12 +33,12 @@ function HomepageHeader() {
   );
 }
 
-export default function Home(): JSX.Element {
+export default function Home(): React.JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={siteConfig.title}
+      description={siteConfig.tagline}>
       <HomepageHeader />
       <main>
         <div className="container" style={{padding: '2rem 0', textAlign: 'center'}}>

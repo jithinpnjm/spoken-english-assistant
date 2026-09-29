@@ -1,3 +1,175 @@
 ---
 title: "Workplace English"
+description: "Standup updates, blockers, status reports, clarification, polite disagreement, estimates, delays, support requests and meeting summaries."
 ---
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+# Workplace English
+
+**Level:** B1-B2 · **Goal:** give clear, professional updates and handle the ten most common speaking situations of a working week.
+
+Workplace English is **structured** English. Every situation below has a shape — once you know the shape, you only need to fill in the facts. The shapes also keep you out of the two classic traps: vague updates (*"Status is going good"*) and blame (*"Not my mistake, platform team issue"*).
+
+---
+
+## 1 — Daily standup update
+
+**Shape:** yesterday (past simple) → today (will / going to) → blocker or "no blockers" → next step.
+
+- *Yesterday, I fixed the login issue and tested the change in staging.*
+- *Today, I'll review the deployment logs and prepare the release checklist.*
+- *My blocker is that I need access to the production dashboard.*
+- *I'm on track, but I need clarification on the rollback plan.*
+
+| Wrong | Right |
+|---|---|
+| *Yesterday I am fixing one issue.* | *Yesterday, I fixed one issue.* |
+| *Today I do release.* | *Today, I'll work on the release.* |
+| *No blockers only confusion logs.* | *No blockers, but I need clarification on the logs.* |
+
+Keep it under five sentences.
+
+## 2 — Explaining blockers
+
+**Shape:** what is blocked → why → impact → the exact help or decision you need.
+
+- *I'm blocked because I don't have access to the production logs.*
+- *This blocks the validation step, so the release may be delayed.*
+- *Could someone confirm who owns the API gateway configuration?*
+
+| Wrong | Right | Why |
+|---|---|---|
+| *I have blocker with logs.* | *I'm blocked because I can't access the logs.* | Say what is blocked and why. |
+| *Security team not giving access, so I can't do anything.* | *I'm waiting for security approval before I can continue.* | Neutral, not blaming. |
+
+## 3 — Status report
+
+**Shape:** current state → what changed → risk → next action / next update time.
+
+- *The deployment is in progress and the first validation passed.*
+- *Staging is complete, but production validation is still pending.*
+- *The main risk is a possible delay in security approval.*
+- *I'll send another update by 4 p.m.*
+
+| Wrong | Right |
+|---|---|
+| *Status is going good.* | *The task is on track, and staging validation is complete.* |
+| *Everything completed but some pending.* | *Most tasks are complete, but production validation is still pending.* |
+
+## 4 — Asking for clarification
+
+**Shape:** name the unclear part → ask a specific question → confirm your understanding.
+
+- *Could you clarify what you mean by "rollback validation"?*
+- *Do you mean we should deploy today, or prepare it for tomorrow?*
+- *Just to confirm: we test in staging first, correct?*
+
+| Wrong | Right |
+|---|---|
+| *What you mean?* | *What do you mean?* |
+| *Explain me this.* | *Could you explain this to me?* |
+
+## 5 — Polite disagreement
+
+**Shape:** acknowledge → state the concern with a reason → offer an alternative.
+
+- *I understand the urgency, but I'm concerned about skipping the validation step.*
+- *I see your point. My concern is that this could increase rollback risk.*
+- *Could we deploy tomorrow morning instead, after smoke testing?*
+
+| Wrong | Right |
+|---|---|
+| *You are wrong, this won't work.* | *I see your point, but I have a concern about this approach.* |
+| *This will not work only.* | *I'm concerned this may not work because the dependency is unresolved.* |
+
+## 6 — Giving an estimate
+
+**Shape:** number → assumption → confidence → what could change it.
+
+- *I expect this to take around two hours, assuming the test environment is stable.*
+- *My rough estimate is one day, but it depends on the API issue.*
+- *I'm about 70% confident we can finish by tomorrow afternoon.*
+
+| Wrong | Right |
+|---|---|
+| *It will take two hours sure.* | *I expect it to take around two hours, assuming the environment is stable.* |
+| *Maybe tomorrow maybe not.* | *It may be ready tomorrow, but it depends on the test results.* |
+
+## 7 — Explaining a delay
+
+**Shape:** reason → impact → what you are doing about it → new timeline.
+
+- *The task is delayed because the test environment was unavailable this morning.*
+- *This affects release validation, but not the code freeze.*
+- *I'm working with the platform team to restore access. The revised timeline is tomorrow morning.*
+
+| Wrong | Right |
+|---|---|
+| *Not my mistake, platform team issue.* | *The delay is caused by an environment issue, and I'm coordinating with the platform team.* |
+| *I will finish maybe later.* | *I expect to finish by tomorrow morning.* |
+
+## 8 — Requesting support
+
+**Shape:** context → exact request → urgency → what happens once you get it.
+
+- *I need support with the API timeout issue before release validation.*
+- *It's urgent because the release window closes at 5 p.m.*
+- *If you can confirm the error pattern, I can make the rollback decision.*
+
+| Wrong | Right |
+|---|---|
+| *Please help this issue.* | *Could you help me investigate this issue?* |
+| *Can you check?* | *Could you check the error logs from 10:15 to 10:30?* |
+
+## 9 — Summarising a meeting
+
+**Shape:** decisions → action items → owners → deadlines → open questions.
+
+- *Here's a quick summary. We decided to proceed with the staging deployment today.*
+- *Priya will prepare the rollback checklist by 3 p.m.; Tom will confirm the test results by tomorrow morning.*
+- *The open question is whether we need security approval before production.*
+
+| Wrong | Right | Why |
+|---|---|---|
+| *I will do rollback checklist until 3 p.m.* | *I'll prepare the rollback checklist by 3 p.m.* | *by* = deadline. |
+| *Decision is we are going deployment.* | *The decision is that we'll proceed with the deployment.* | Complete clause after *the decision is that*. |
+
+## 10 — Workplace speaking checkpoint
+
+Give a **60-90 second** update that includes: a standup, one blocker with a support request, one estimate with an assumption, and a two-line meeting summary.
+
+---
+
+## Checkpoint: I can…
+
+- [ ] give a standup update in under five sentences with correct tenses
+- [ ] explain a blocker and a delay without blame, with impact and next step
+- [ ] give an estimate with an assumption instead of a promise
+- [ ] disagree politely and offer an alternative
+- [ ] summarise a meeting with owners and deadlines
+
+## AI Practice
+
+<AIPracticeComponent
+  topic="Standup, blockers and estimates"
+  level="B1-B2"
+  taskType="roleplay"
+  prompt={`SYSTEM BEHAVIOR:
+1. Persona: You are the tech lead running a daily standup, then a quick follow-up with the learner.
+2. Starting turn: "Morning everyone. Let's go round — you first. What did you do yesterday, what's the plan for today, and any blockers?"
+3. Flow:
+   - Turn 1: Standup update (yesterday / today / blocker). Ask one follow-up about the blocker: impact and what help is needed.
+   - Turn 2: "When do you think it'll be done?" — the learner gives an estimate with an assumption.
+   - Turn 3: Suggest skipping testing to save time. The learner disagrees politely and offers an alternative. Push back once.
+   - Turn 4: Ask the learner to summarise what you agreed: decision, owner, deadline.
+4. Feedback rules:
+   - Priority: tense in standups (yesterday = past, today = will/going to), vague words ("going good", "somehow"), overpromising ("sure"), blame language, by vs until.
+   - After each correction, the learner says the professional version once, then the standup continues.`}
+/>
+
+## Homework
+
+Prepare tomorrow's standup in three sentences and one estimate with an assumption. Record it once, improve it, and use it in the real meeting.
+
+More meeting, email and phone phrases are in [Workplace Phrases](../vocabulary/workplace-phrases.mdx).

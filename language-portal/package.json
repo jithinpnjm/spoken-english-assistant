@@ -5,30 +5,43 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "npm run build:site && npm run build:server",
+    "build:site": "docusaurus build",
+    "build:server": "esbuild server/index.ts --bundle --platform=node --target=node22 --format=cjs --sourcemap --external:bufferutil --external:utf-8-validate --outfile=dist/server.js",
+    "start:server": "node --enable-source-maps dist/server.js",
+    "dev:server": "tsx watch server/index.ts",
+    "check:server": "tsx server/selfcheck.ts",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc && tsc -p server/tsconfig.json",
+    "eval:teacher": "tsx server/evalTeacher.ts"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
     "@docusaurus/faster": "3.10.2",
     "@docusaurus/preset-classic": "3.10.2",
+    "@google/genai": "^2.24.0",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "express": "^4.22.3",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "ws": "^8.22.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.10.2",
     "@docusaurus/tsconfig": "3.10.2",
     "@docusaurus/types": "3.10.2",
+    "@types/express": "^4.17.25",
+    "@types/node": "^22.20.4",
     "@types/react": "^19.0.0",
+    "@types/ws": "^8.18.2",
+    "esbuild": "^0.25.12",
+    "tsx": "^4.23.15",
     "typescript": "~6.0.2"
   },
   "browserslist": {

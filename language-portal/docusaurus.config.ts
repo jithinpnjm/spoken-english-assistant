@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Language Portal',
+  tagline: 'Structured German and English lessons with an AI practice coach',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -35,6 +35,13 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // Read by the AI practice components. Empty = same origin (the production Node server serves both the
+  // site and /api). For local development against `npm run dev:server`, start Docusaurus with
+  // PRACTICE_API_BASE=http://localhost:8080 and run the server with ALLOWED_ORIGINS=http://localhost:3000.
+  customFields: {
+    practiceApiBase: process.env.PRACTICE_API_BASE || '',
+  },
+
   presets: [
     [
       'classic',
@@ -42,21 +49,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -87,7 +80,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'englishSidebar',
           position: 'left',
-          label: 'English (B2-C1)',
+          label: 'English (A1-C1)',
         },
         {
           href: 'https://github.com/jithinpjoseph/spoken-english-assistant',
@@ -100,7 +93,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'German',
           items: [
             {
               label: 'German: Start Here',
@@ -109,19 +102,15 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'English',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'How the English course works',
+              to: '/docs/english/overview',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'A1-A2 Foundations',
+              to: '/docs/english/a1-a2-foundations/b01-sound-pronunciation-core',
             },
           ],
         },
@@ -129,17 +118,13 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/jithinpjoseph/spoken-english-assistant',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Language Portal. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

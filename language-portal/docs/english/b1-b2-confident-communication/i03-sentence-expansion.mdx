@@ -1,3 +1,103 @@
 ---
 title: "Sentence Expansion"
+description: "Turn short answers into clear connected speech with because/so/but, although/however, relative clauses, reasons, examples, comparisons and conditions."
 ---
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+# Sentence Expansion
+
+**Level:** B1-B2 · **Goal:** speak beyond one short sentence by adding reasons, examples, contrast, and results — without creating long, tangled run-ons.
+
+*"It was good."* is a complete sentence, but it tells the listener almost nothing. Expansion tells them **why**, **what happened**, **what it led to**, and **what the exception is**.
+
+## The pattern
+
+> **Main point → reason → example or result → (optional) contrast.**
+>
+> *I prefer morning meetings (point) because I can focus better early in the day (reason). For example, last week I finished the design review before lunch (example), although afternoon meetings are easier for the US team (contrast).*
+
+### Connectors by job
+
+| Job | Connectors | Example |
+|---|---|---|
+| Reason | *because, since, as* | *We delayed it because the tests failed.* |
+| Result | *so, that's why, as a result* | *The train was late, so we changed our plan.* |
+| Contrast | *but, although, even though, however, while* | *Although it was expensive, it saved time.* |
+| Example | *for example, for instance, such as, like* | *Small tools, such as linters, catch these errors.* |
+| Condition | *if, unless, as long as* | *If the client agrees, we can start on Monday.* |
+| Relative clause | *who, which, that, where* | *The engineer who built it is on leave.* |
+
+**Punctuation note:** *however* joins two **sentences** (*It was risky. However, we did it.*); *although* joins two **clauses** (*Although it was risky, we did it.*).
+
+## Lessons in this module
+
+| # | Lesson | Example |
+|---|---|---|
+| 1 | Because / so / but | *I stayed late because the release was urgent, so I'm tired today.* |
+| 2 | Although / however | *Although the plan was good, it was too expensive. However, we kept one idea.* |
+| 3 | Relative clauses: who / which / that | *The tool that we chose is open source. My manager, who is new, asked for a demo.* |
+| 4 | Giving reasons and examples | *It's a good approach because it's simple — for example, it needs no extra servers.* |
+| 5 | Comparing options | *Option A is cheaper than B, but B is faster to set up.* |
+| 6 | Adding contrast | *while / whereas / on the other hand* |
+| 7 | Condition with if | *If we start now, we'll finish by Friday. Unless someone objects, we'll go ahead.* |
+| 8 | Longer natural sentences | Combine three short sentences into one smooth one |
+| 9 | Avoiding run-on sentences | Split a 60-word sentence into three clear ones |
+| 10 | Sentence expansion checkpoint | Expand five one-line answers |
+
+## Model sentences
+
+- *I prefer morning meetings because I can focus better early in the day.*
+- *The task was difficult, but we finished it by simplifying the rollout.*
+- *I learned a new tool, and it helped me automate repeated work.*
+- *The train was delayed, so we changed our plan.*
+- *The colleague who helped me is now leading the project.*
+
+## Common mistakes
+
+| Wrong | Right | Why |
+|---|---|---|
+| *I like because good.* | *I like it because it's good.* | After *because*, a full clause: subject + verb. |
+| *Task difficult but completed.* | *The task was difficult, but we completed it.* | Subject and verb in both parts. |
+| *Although it was late, but we continued.* | *Although it was late, we continued.* | Use *although* **or** *but*, not both. |
+| *I explain this for understand.* | *I'll explain this so that you can understand it.* | Purpose: *so that + clause* or *to + verb*. |
+| *The man which called you…* | *The man who called you…* | *who* for people. |
+| *My car, that I bought last year, …* | *My car, which I bought last year, …* | No *that* after a comma. |
+| One 70-word sentence with *and… and… and…* | Two or three sentences | Long ≠ fluent. Split at each new idea. |
+
+## Practice drills
+
+1. **Expand ×3:** *I like my job.* → add a reason → add an example → add a contrast.
+2. **Combine:** *We tested it. It failed. We rolled back.* → one sentence with *when* and *so*.
+3. **Compare:** give two options for a weekend trip and choose one with *because*.
+4. **Split:** take one of your long run-on sentences and break it into three.
+
+## Checkpoint: I can…
+
+- [ ] add a reason, an example, and a result to a short answer
+- [ ] use *although / however / but* correctly
+- [ ] use *who / which / that* relative clauses
+- [ ] compare two options and give a condition with *if / unless*
+- [ ] split a run-on sentence into clear parts
+
+## AI Practice
+
+<AIPracticeComponent
+  topic="Expanding short answers"
+  level="B1-B2"
+  taskType="speaking"
+  prompt={`SYSTEM BEHAVIOR:
+1. Persona: You are an interviewer for a community newsletter asking the learner about their life and opinions. You always want more detail.
+2. Starting turn: "Thanks for joining! First question: do you like the city you live in?"
+3. Flow:
+   - Each time the learner gives a short answer, ask them to expand it with a specific tool: first a reason (because), then an example (for example), then a contrast (although / but), then a result (so).
+   - Turn 4: Ask them to compare two things (two cities, two jobs, two ways to travel).
+   - Turn 5: Ask a question that invites a real "if" condition, for example "What will you do if rents keep rising?"
+4. Feedback rules:
+   - Priority: "because" without a subject, "although ... but", run-on sentences, wrong relative pronoun.
+   - Praise good expansions specifically ("Good — your reason made that much clearer").`}
+/>
+
+## Homework
+
+Take three one-sentence answers you gave this week and rewrite each as *point + reason + example + result*.

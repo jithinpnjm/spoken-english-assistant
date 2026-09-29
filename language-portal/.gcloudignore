@@ -1,0 +1,12 @@
+# Files excluded from `gcloud builds submit` (infra/language-portal/deploy.sh).
+.git
+.gitignore
+.gcloudignore
+node_modules/
+build/
+dist/
+.docusaurus/
+.env
+.env.*
+*.log
+.DS_Store

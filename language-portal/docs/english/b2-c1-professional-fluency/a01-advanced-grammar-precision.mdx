@@ -1,3 +1,143 @@
 ---
 title: "Advanced Grammar Precision"
+description: "Conditionals for risk, mixed conditionals, unless/provided that, modals of certainty and obligation in the past, passive for process, causatives, reported speech and formal patterns."
 ---
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+# Advanced Grammar Precision
+
+**Level:** B2-C1 · **Goal:** use the grammar that professionals rely on to talk about **risk, responsibility, process, and what other people said** — precisely and naturally.
+
+At C1 the question is no longer "is it correct?" but "does it say *exactly* what I mean?". *If the release fails, we roll back* and *If the release fails, we'll roll back* differ in commitment; *They must have missed the alert* and *They should have seen the alert* differ in blame. This module is about those distinctions.
+
+## Lessons in this module
+
+### 1 — Conditionals for risk and planning
+
+| Type | Form | Use | Example |
+|---|---|---|---|
+| Zero | if + present, present | always true / a rule | *If the error rate goes above 2%, the alert fires.* |
+| First | if + present, **will** | real future risk | *If the smoke tests fail, we'**ll** roll back.* |
+| Second | if + past, **would** | unlikely / hypothetical | *If we **had** more capacity, we **would** run both in parallel.* |
+| Third | if + past perfect, **would have** | past that didn't happen | *If we **had tested** it, we **would have caught** the bug.* |
+
+Never *will* in the *if*-clause: *If it **will** fail* ✗ → *If it fails* ✓.
+
+### 2 — Mixed conditionals
+
+Past cause → present result, or present fact → past result:
+
+- *If we **had migrated** last year, we **wouldn't be** fighting this outage now.* (past → present)
+- *If I **were** more familiar with the codebase, I **would have spotted** it sooner.* (present → past)
+
+### 3 — Unless, provided that, as long as, in case
+
+- ***Unless*** = *if not*: *We'll go ahead **unless** someone raises a blocker.*
+- ***Provided (that) / as long as*** = only if: *We can ship Friday **provided that** QA signs off.*
+- ***In case*** = as a precaution (not a condition): *Keep the old version running **in case** we need to roll back.*
+- ***Assuming / Suppose*** — for scenarios: ***Assuming** traffic doubles, will the cache hold?*
+
+### 4 — Modals for certainty (now and past)
+
+| Certainty | Present | Past |
+|---|---|---|
+| ~100% yes | *It **must** be the config.* | *They **must have** missed the alert.* |
+| possible | *It **might / could / may** be a network issue.* | *It **might have** timed out.* |
+| ~100% no | *It **can't** be the database — it's healthy.* | *He **can't have** seen the message — he was offline.* |
+
+### 5 — Modals for obligation nuance
+
+- ***should have*** + participle = it was the right thing, but it didn't happen: *We **should have** told the client earlier.*
+- ***needn't have*** = you did it, but it was unnecessary: *You **needn't have** stayed late — it was fixed.*
+- ***didn't need to*** = it wasn't necessary (and probably you didn't do it).
+- ***be supposed to*** = expected by a plan or rule: *The report **was supposed to** go out on Monday.*
+- ***had better*** = strong advice with a warning: *We'**d better** tell legal before we publish.*
+
+### 6 — Passive voice for process
+
+Use the passive when the **action or result** matters more than who did it — processes, incidents, reports:
+
+- *The logs **are collected** every five minutes.*
+- *The issue **was identified** at 10:15 and **has been resolved**.*
+- *The change **will be reviewed** by the security team.* (add *by* only when the agent matters)
+
+Avoid it when responsibility matters: *Mistakes were made* hides who made them.
+
+### 7 — Causative structures
+
+*have / get + object + past participle* — someone else does it for you:
+
+- *We **had the contract reviewed** by legal.*
+- *I need to **get my laptop fixed**.*
+- *have someone do* / *get someone to do*: *I'll **have Priya check** the numbers. I'll **get IT to reset** it.*
+
+### 8 — Reported speech
+
+Report what someone said, usually one tense back when the reporting verb is past:
+
+| Direct | Reported |
+|---|---|
+| *"We're working on it."* | *She said they **were** working on it.* |
+| *"We fixed it yesterday."* | *He said they **had fixed** it **the day before**.* |
+| *"I'll send it tomorrow."* | *She said she **would** send it **the next day**.* |
+| *"Can you join?"* | *He asked **if I could** join.* |
+
+If the fact is still true, you can keep the tense: *She said the service **is** down.* Use precise reporting verbs: *confirmed, explained, suggested, warned, agreed, denied, promised, recommended.*
+
+### 9 — Subjunctive and formal patterns
+
+- *recommend / suggest / insist / it is essential that* + **base verb**: *I recommend that the team **review** the plan. It's essential that every change **be** tested.*
+- *If I **were** you, …* · *It's (high) time we **updated** the documentation.* · *I'd rather you **didn't** share it yet.*
+- Inversion for formal emphasis: ***Should** you need anything, let me know. **Had** we known, we would have acted.*
+
+### 10 — Grammar precision checkpoint
+
+Explain a real incident or decision using at least one conditional, one past modal, one passive and one reported statement.
+
+## Common mistakes
+
+| Wrong | Right | Why |
+|---|---|---|
+| *If the release has a problem, we rollback immediately.* | *If the release has a problem, we'll roll back immediately.* | First conditional needs *will*; *roll back* is the verb (two words), *rollback* the noun. |
+| *If it will fail, we will retry.* | *If it fails, we'll retry.* | No *will* in the *if*-clause. |
+| *If we would have tested it, …* | *If we had tested it, …* | Past perfect in a third-conditional *if*-clause. |
+| *He must have forget.* | *He must have forgotten.* | *modal + have + past participle*. |
+| *We should have told them earlier* (meaning: probably did) | *We probably told them earlier.* | *should have* = it didn't happen. |
+| *I suggest you to review it.* | *I suggest (that) you review it.* / *I suggest reviewing it.* | *suggest* doesn't take *someone to*. |
+| *She said me that…* | *She told me that…* / *She said that…* | *tell someone*, *say (to someone)*. |
+| *Unless you don't hurry, we'll miss it.* | *Unless you hurry, …* | *unless* already contains *not*. |
+
+## Checkpoint: I can…
+
+- [ ] describe risk and fallback plans with zero, first, second and third conditionals
+- [ ] use mixed conditionals and *unless / provided that / in case* accurately
+- [ ] speculate about the past with *must / might / can't have*
+- [ ] use passive, causative and reported speech naturally in reports
+- [ ] use formal patterns like *I recommend that he review…*
+
+For all tense forms and a passive table, see the [Tenses reference](../grammar-refresh/tenses.mdx), [Conditionals](../grammar-refresh/conditionals.mdx), and [Passive and causatives](../grammar-refresh/passive-and-causatives.mdx).
+
+## AI Practice
+
+<AIPracticeComponent
+  topic="Precise grammar for risk, blame and reporting"
+  level="B2-C1"
+  taskType="speaking"
+  prompt={`SYSTEM BEHAVIOR:
+1. Persona: You are a senior engineering manager running a short post-incident review with the learner, who was on call.
+2. Starting turn: "Thanks for joining. Walk me through what happened last night — what went wrong, and what do you think caused it?"
+3. Flow:
+   - Turn 1: The learner explains the incident (passive for process, past modals for speculation: must have / might have / can't have).
+   - Turn 2: "What should we have done differently?" — should have / third conditional.
+   - Turn 3: "What did the vendor say when you called them?" — reported speech with accurate backshift and reporting verbs.
+   - Turn 4: "What's the plan if it happens again?" — first conditional, unless, provided that, in case.
+   - Turn 5: "What do you recommend we change?" — recommend that + base verb.
+4. Feedback rules:
+   - Priority: will in if-clauses, wrong third conditional, modal + have + participle form, suggest/recommend patterns, said vs told, roll back vs rollback.
+   - Also upgrade imprecise vocabulary briefly. One or two corrections per turn, then continue the review.`}
+/>
+
+## Homework
+
+Write a five-sentence incident summary (real or invented) that uses a passive, a past modal of certainty, a third conditional, a reported statement, and a recommendation with *that + base verb*.

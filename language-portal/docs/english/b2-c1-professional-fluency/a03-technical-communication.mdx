@@ -1,3 +1,105 @@
 ---
 title: "Technical Communication"
+description: "Explain incidents, root causes, trade-offs, architecture, risk mitigation, rollout plans, monitoring, constraints and postmortems to technical and non-technical listeners."
 ---
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+# Technical Communication
+
+**Level:** B2-C1 · **Goal:** explain technical systems, incidents and decisions so that both engineers and managers understand the problem, the impact and the next step.
+
+Technical communication turns complex work into a clear explanation: **what happened, why it matters, what was done, and what comes next**. The most common failure is not grammar — it's **order**: starting with implementation details before the listener knows what the problem or the impact is.
+
+## The pattern
+
+> **Context → problem → impact → analysis → action → result → next step.**
+>
+> *Yesterday afternoon (context), the checkout service became unstable after a configuration change increased memory usage (problem). About 5% of orders failed for 20 minutes (impact). We checked logs, metrics and recent deployments and isolated the change (analysis). We rolled the configuration back (action), and error rates returned to normal (result). Next, we're adding a memory alert and a pre-release check (next step).*
+
+### Adjust to the listener
+
+| For engineers | For managers / non-technical listeners |
+|---|---|
+| Mechanism, metrics, specifics | Impact on users, time, money, risk |
+| *"The pod hit its memory limit and was OOM-killed."* | *"The service ran out of memory and restarted, so some orders failed."* |
+| Details on request | One analogy if it helps: *"It's like a queue at a checkout — when it gets too long, people leave."* |
+
+Rule of thumb: **lead with impact, follow with mechanism, end with action.**
+
+## Lessons in this module
+
+| # | Lesson | Useful language |
+|---|---|---|
+| 1 | Explaining an incident | *At 14:05 we started seeing… The impact was… We mitigated it by…* |
+| 2 | Root-cause summary | *The root cause was… This was triggered by… It wasn't caught because…* |
+| 3 | Trade-off discussion | *Option A is faster to build but harder to operate. The trade-off is…* |
+| 4 | Architecture explanation | *At a high level, there are three parts… Requests go from… to…* |
+| 5 | Risk mitigation | *To reduce the risk, we'll… If X happens, we'll fall back to…* |
+| 6 | Rollout plan explanation | *We'll roll out in three phases: 5%, 25%, then 100%, with a go/no-go check between each.* |
+| 7 | Monitoring and alert explanation | *We alert when the error rate stays above 2% for five minutes.* |
+| 8 | Explaining constraints | *We're constrained by… · Given the current limits, the best we can do is…* |
+| 9 | Postmortem summary | *What happened / impact / root cause / what went well / what we'll change* |
+| 10 | Technical communication checkpoint | Explain one system and one incident to two different audiences |
+
+## Model sentences
+
+- *The service became unstable after a configuration change increased memory pressure.*
+- *The impact was limited to one environment, but it delayed validation for the release.*
+- *We checked logs, metrics, and recent deployments to isolate the root cause.*
+- *The immediate mitigation was to roll back the configuration while we prepared a safer fix.*
+- *The long-term improvement is an alert and a pre-release check for the same condition.*
+
+## Precise vocabulary
+
+| Vague | Precise |
+|---|---|
+| *the system got issue* | *the service returned 500 errors / became unavailable / slowed down* |
+| *we fixed it* | *we mitigated / rolled back / patched / restarted / scaled out* |
+| *it was because config wrong* | *the root cause was an incorrect timeout value* |
+| *some users* | *about 5% of checkout requests for 20 minutes* |
+| *it will be fine* | *we expect the error rate to stay below 0.1%* |
+
+Useful verbs: *isolate, reproduce, mitigate, roll back, roll out, deprecate, migrate, throttle, degrade, provision, validate.*
+
+## Common mistakes
+
+| Wrong | Right | Why |
+|---|---|---|
+| *System got issue and we checked logs.* | *The system had an issue, so we checked the logs and recent deployment changes.* | Precise nouns, clear sequence. |
+| *Root cause was because config wrong.* | *The root cause was an incorrect configuration value.* | Avoid double-cause wording (*root cause was because*). |
+| *We fixed temporary and permanent later.* | *We applied a temporary mitigation first and planned a permanent fix.* | Clear verbs and timeline. |
+| *We will rollback.* | *We will roll back.* | Verb = *roll back*; noun = *a rollback*. |
+| *The downtime was happened at 3.* | *The outage happened / started at 3.* | *happen* is intransitive — no passive. |
+| Starting with 3 minutes of detail | Start with impact in one sentence | Listeners need the "so what" first. |
+
+## Checkpoint: I can…
+
+- [ ] explain an incident in the order context → problem → impact → action → next step
+- [ ] summarise a root cause in one precise sentence
+- [ ] present a trade-off between two options and recommend one
+- [ ] explain an architecture or rollout plan at a high level
+- [ ] adjust the same explanation for a technical and a non-technical listener
+
+## AI Practice
+
+<AIPracticeComponent
+  topic="Explaining an incident to a manager"
+  level="B2-C1"
+  taskType="speaking"
+  prompt={`SYSTEM BEHAVIOR:
+1. Persona: You are a non-technical product director. You care about customers, time and risk, not implementation details.
+2. Starting turn: "I heard we had problems with the app this morning. Can you explain what happened — in plain English, please?"
+3. Flow:
+   - Turn 1: The learner explains the incident (they may invent a realistic one). If they start with technical detail, ask: "Sorry — what did customers actually experience?"
+   - Turn 2: "Why did it happen?" — one-sentence root cause, then a simple analogy if needed.
+   - Turn 3: "Is it fixed? Could it happen again?" — mitigation, permanent fix, and a risk statement.
+   - Turn 4: Switch roles: "Now imagine I'm the lead engineer. Give me the technical version in 3-4 sentences."
+4. Feedback rules:
+   - Priority: order of information (impact first), vague nouns and verbs, "root cause was because", roll back vs rollback, passive with happen.
+   - Keep corrections short and professional.`}
+/>
+
+## Homework
+
+Take a real incident, bug or outage from your work. Write a five-line summary for your manager and a five-line summary for an engineer.
