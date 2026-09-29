@@ -83,7 +83,7 @@ echo "→ Ensuring secrets exist..."
 ensure_secret GEMINI_API_KEY
 # Accounts ("name:password,name:password") and the cookie-signing key. Change a value later with:
 #   printf '%s' 'jithin:NEWPASS,sandra:NEWPASS' | gcloud secrets versions add AUTH_USERS --data-file=-
-ensure_secret AUTH_USERS "${INITIAL_AUTH_USERS:-jithin:password123,sandra:password123}"
+ensure_secret AUTH_USERS "${INITIAL_AUTH_USERS:-jithin:learngerman321!,sandra:learngerman321!}"
 ensure_secret SESSION_SECRET "$(openssl rand -hex 32)"
 SECRETS="GEMINI_API_KEY=GEMINI_API_KEY:latest,AUTH_USERS=AUTH_USERS:latest,SESSION_SECRET=SESSION_SECRET:latest"
 if [[ "${USE_ACCESS_CODE}" == "true" ]]; then
