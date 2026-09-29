@@ -25,7 +25,17 @@ The Listening module (**Hören**) lasts approximately **20 minutes** and consist
 | **Teil 2** (items 7–10) | Public announcements (station, airport, store)| ⚠️ **ONLY ONCE (1x)!** | Richtig / Falsch | Platform changes, gates, closing times |
 | **Teil 3** (items 11–15) | Phone / answering-machine style messages | **TWICE (2x)** | Multiple choice: a, b, c | Times, days, places, what to bring or do |
 
-Source: official Goethe A1 Modellsatz. For each text you first read the task, then hear the text. At the end you transfer your answers to the answer sheet.
+Source: official Goethe A1 Modellsatz and the Goethe *Durchführungsbestimmungen* for Start Deutsch 1 (valid from
+1 September 2025). For each text you first read the task, then hear the text.
+
+**Exam-day facts (verified against the official regulations):**
+* Hören usually comes first; the recording is played for the whole room. You mark your answers on the task sheets first
+  and then transfer them to the answer sheet (*Antwortbogen*) – about **5 minutes** for this are included in the ~20 minutes.
+* **Scoring:** 1 point per item, so **15 raw points**. Each written module is converted to the 100-point scale
+  (raw points × 1.66), so Hören is worth about **25 of the 100 points**.
+* Dictionaries are not allowed. Some Goethe centres also offer a **digital** version on a laptop with headphones – the tasks
+  are the same, and you enter answers directly (no transfer to an answer sheet).
+* Everything is heard **twice** except Teil 2 (announcements), which is heard **once**.
 
 ---
 
@@ -91,8 +101,8 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
   level="A1" 
   taskType="listening" 
   prompt={`SYSTEM BEHAVIOR:
-STRICT EXAM SIMULATION (Goethe A1 Hören Teil 3).
-1. Act as a Goethe examination interface.
+EXAM-STYLE SIMULATION (Goethe A1 Hören Teil 3 format – original practice item, not an official task).
+1. Act as an exam-practice interface.
 2. Provide a simulated voicemail transcript representing audio:
    "Hallo Thomas, hier ist Jan. Du wolltest doch mein altes Fahrrad kaufen. Ich habe es repariert. Ich bin heute ab 17 Uhr zu Hause, aber ab 19 Uhr bin ich beim Sport. Komm am besten um sechs vorbei! Bis später."
 3. Present the question:

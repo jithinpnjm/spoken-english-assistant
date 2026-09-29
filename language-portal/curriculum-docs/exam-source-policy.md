@@ -56,8 +56,17 @@ Scoring (Goethe): max. **100 points – 75 written, 25 oral**. Pass: **at least 
 one.) Dictionaries are not allowed. Asking for repetition is part of normal communication; if a candidate is
 unclear and does not react to a request for repetition, the moderator steps in.
 
-telc Deutsch A1 uses the same Start Deutsch 1 format; telc publishes its own pass rules (commonly stated as
-60 % in the written and 60 % in the oral part) – verify in the current telc handbook before stating as fact.
+Re-checked September 2026 against the Goethe *Durchführungsbestimmungen* for Start Deutsch 1 (valid from 1 Sept 2025):
+written exam 65 min without breaks (Hören ca. 20, Lesen 25, Schreiben 20; ~5 min answer transfer included), Sprechen
+15 min, max. 4 candidates, no preparation time, parts ~5 min each. Raw points: Hören 15, Lesen 15, Schreiben 15 (5 + 10),
+Sprechen 15 (3 + 6 + 6); each × 1.66, summed and rounded. Under 35 written points the oral exam is pointless (60 no longer
+reachable). The exam can only be retaken as a whole. A digital (laptop) version exists at some centres.
+
+telc Deutsch A1 uses the same Start Deutsch 1 format. The official telc Übungstest 1 (downloaded from telc.net,
+September 2026) reports results on a **60-point scale** (15 per subtest; 54–60 sehr gut … 36–41,5 ausreichend,
+0–35,5 teilgenommen) and describes the oral exam as usually 4 candidates. It does **not** state a separate 60 % minimum per
+written/oral part; some unofficial sites claim one. Do not state a per-part rule as fact – point learners to telc's current
+exam regulations.
 
 ### Goethe-Zertifikat A2
 
