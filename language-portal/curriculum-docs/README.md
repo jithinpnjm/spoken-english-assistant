@@ -15,6 +15,7 @@ folder to understand, extend, or teach this course.
 | `exam-source-policy.md` | Source hierarchy, copyright/originality rules, and the **verified** Goethe A1/A2/B1 exam structures (checked against the official Modellsätze in September 2026), including corrections of errors found in older planning notes. |
 | `level-map-and-roadmap.md` | A0 → A1 → A2 → B1 level map, grammar map, vocabulary map, exam-section-to-grammar map, living-in-Germany survival track, and the concrete build plan for A2 (currently stubs) and B1 (not yet built). |
 | `migration-map.md` | Historical record: every old planning topic → where it lives now → action taken → reason. |
+| `migration-audit.md` | Audit report of the migration: what was reviewed, created, rewritten, preserved, archived, validated, and what is still weak. |
 
 ## Non-negotiable principles (summary)
 
