@@ -381,6 +381,7 @@ const sidebars: SidebarsConfig = {
     },
   ],
   englishSidebar: [
+    { type: "doc", id: "english/overview", label: "Start Here: How This Course Works" },
     {
       type: "category",
       label: "A1-A2 Beginner Foundations",
