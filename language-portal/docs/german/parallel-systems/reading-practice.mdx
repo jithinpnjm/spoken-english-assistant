@@ -1,4 +1,117 @@
 ---
 title: "E. Reading Practice"
+description: A reading method for beginners - read the task first, scan for key words, check negations and distractors - with original A1 practice texts (messages, ads, signs).
+tags: [Reading, Lesen, A1, Goethe, Practice]
 ---
 
+# E. Reading Practice (Lesen)
+
+## The method: don't translate, scan
+
+At A1 you will meet short messages, ads, opening hours, notices on doors and signs – in real life and in the Goethe
+A1 *Lesen* part (two short texts with Richtig/Falsch, choosing between two ads, and signs/notices). The winning
+method is the same everywhere:
+
+```text
+1. Read the TASK first – what exactly do I need to find?
+2. Underline the key words in the task (a day, a time, a place, a thing).
+3. Scan the text for those words or their synonyms – don't read every word.
+4. Check the small words around them: nicht, kein, nur, schon, noch, ab, bis.
+5. Decide. Then check why the other option is wrong (the "distractor").
+6. Afterwards: collect 3 new words for your Vocabulary Vault and write one sentence about the text in simple German.
+```
+
+## Practice 1: A message (Richtig oder Falsch?)
+
+> Hallo Sven,  
+> ich kann heute leider nicht zum Fußball kommen. Mein Sohn ist krank und ich muss zu Hause bleiben. Spielen wir am Donnerstag? Ab 18 Uhr habe ich Zeit.  
+> Viele Grüße  
+> Paul
+
+1. Paul spielt heute Fußball.
+<details>
+  <summary>Show answer</summary>
+
+  **Falsch** – *ich kann heute leider **nicht** … kommen*. Watch the *nicht*.
+</details>
+
+2. Paul hat am Donnerstag am Abend Zeit.
+<details>
+  <summary>Show answer</summary>
+
+  **Richtig** – *Ab 18 Uhr habe ich Zeit* (and he suggests Thursday).
+</details>
+
+## Practice 2: Which ad? (a or b)
+
+*You want to learn German in the evening.*
+
+> **a)** Sprachschule Lingua – Deutschkurse A1 bis B1, Mo–Fr 9–12 Uhr, Einstieg jeden Monat.  
+> **b)** VHS Stadtmitte – Deutsch A1, Di + Do 18:30–20:45 Uhr, Anmeldung online.
+
+<details>
+  <summary>Show answer</summary>
+
+  **b** – *18:30–20:45 Uhr* is in the evening. Ad a) also has German courses (the distractor!) but only in the morning.
+</details>
+
+## Practice 3: Signs and notices
+
+> **Praxis Dr. Aydin – Liebe Patientinnen und Patienten, vom 22.12. bis 02.01. ist die Praxis geschlossen. In dringenden Fällen: Ärztlicher Bereitschaftsdienst 116 117.**
+
+3. Am 23. Dezember kann man zu Dr. Aydin gehen.
+<details>
+  <summary>Show answer</summary>
+
+  **Falsch** – closed from 22.12. to 02.01.
+</details>
+
+4. In dringenden Fällen soll man 116 117 anrufen.
+<details>
+  <summary>Show answer</summary>
+
+  **Richtig** – *dringend* = urgent. (For life-threatening emergencies it's 112.)
+</details>
+
+> **Bitte nicht klingeln! Pakete bitte bei Familie Schulz, 2. Stock, abgeben.**
+
+5. Man soll Pakete im 2. Stock abgeben.
+<details>
+  <summary>Show answer</summary>
+
+  **Richtig**
+</details>
+
+## Words that often decide the answer
+
+| Word | Meaning | Example |
+| :--- | :--- | :--- |
+| nicht / kein | not / no | *kein Parkplatz* |
+| nur | only | *nur mit Termin* |
+| ab / bis | from / until | *ab 18 Uhr, bis Freitag* |
+| geöffnet / geschlossen | open / closed | *Samstag geschlossen* |
+| außer | except | *täglich außer Sonntag* |
+| schon / noch | already / still | *Der Kurs ist schon voll.* |
+| verboten / erlaubt | forbidden / allowed | *Rauchen verboten* |
+
+More exam detail: [10.1 Goethe A1 Lesen](../a1/exam-center/goethe-lesen.mdx).
+
+## AI Practice
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+<AIPracticeComponent
+  topic="A1 Reading: Scan, Decide, Explain"
+  level="A1"
+  taskType="reading"
+  prompt={`SYSTEM BEHAVIOR:
+Role: English-speaking German reading coach.
+Learning objective: the learner reads short, ORIGINAL A1 texts (personal messages, two-option ads, signs/notices about everyday life in Germany) and answers by scanning, not translating.
+Method, one text at a time:
+1. Show a short original text (never copy official exam texts) and one or two tasks (Richtig/Falsch or a/b).
+2. The learner answers.
+3. Review: correct/incorrect, quote the exact words in the text that decide it, and explain the distractor.
+4. Ask the learner to write ONE simple German sentence about the text; correct it (Corrected German / Why / Now rewrite) and wait for the rewrite.
+5. List 3 useful words from the text with article and plural.
+Mix text types; include words like nicht, kein, nur, ab, bis, außer, geschlossen.`}
+/>

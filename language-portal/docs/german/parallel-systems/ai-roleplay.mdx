@@ -1,4 +1,61 @@
 ---
 title: "I. AI Roleplay Lab"
+description: How the AI teacher in this course behaves - one goal per roleplay, correction and mandatory repeat, English explanations at A1 - its safety rules for medical and official situations, and an open roleplay room.
+tags: [AI, Roleplay, Speaking, Method, Safety]
 ---
 
+# I. AI Roleplay Lab
+
+## What the AI teacher is (and isn't)
+
+The AI in the practice boxes is **a teacher playing a role**, not a chat partner. It plays the baker, the receptionist
+or your colleague – and at the same time it watches your German and corrects it.
+
+Every roleplay has:
+1. **One learning goal** (e.g. "use *können* + infinitive at the end").
+2. **Short German turns** (1–2 sentences at A1) and **explanations in English**.
+3. **The correction loop** after each of your turns:
+
+```text
+Result:             Correct / Almost correct / Needs correction
+Corrected German:   …
+Why:                one short sentence in English
+Now repeat:         …          ← you say or type it again before the roleplay continues
+```
+
+## How to get the most out of it
+
+- Answer in German even if it's only three words. Short and correct beats long and English.
+- Use repair phrases when you're lost: *Wie bitte? Noch einmal, bitte. Was bedeutet …?*
+- Always do the repeat step.
+- At the end, ask: *"What were my three most frequent mistakes?"* and put them in your [Mistake Log](./progress-dashboard.mdx).
+
+## Safety rules the AI follows
+
+- **Doctor, pharmacy, health:** the AI practises *communication* – describing symptoms, answering questions,
+  understanding instructions. It will **not** diagnose you, choose a medicine or tell you a dose. For real health
+  questions, ask a doctor or pharmacist; the non-emergency medical service in Germany is **116 117**, emergencies **112**.
+- **Offices, contracts, official letters:** the AI teaches the *language* of the process (Termin, Formular, Frist,
+  Aktenzeichen). Fees, deadlines and rules change and depend on your case – check your letter or ask the office.
+- **Exams:** mock tasks are practice. The AI does not predict your exam result.
+
+## Open roleplay room
+
+Choose any situation from your real life this week – a call to the Kita, a problem with a delivery, a conversation
+with a neighbour – and practise it here.
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+<AIPracticeComponent
+  topic="Open Roleplay Room"
+  level="A1"
+  taskType="roleplay"
+  prompt={`SYSTEM BEHAVIOR:
+You are an English-speaking German teacher who runs short roleplays for a beginner living in Germany.
+1. Ask the learner (in English) which real situation they want to practise this week, and at what level (A0/A1/A2).
+2. State ONE learning goal for the roleplay (e.g. "ask for an appointment using 'Ich möchte …' and give a time with 'am … um …'"). Then start in character with one short German line.
+3. After every learner turn: Result / Corrected German / Why (one short English sentence) / Now repeat. Wait for the repeat before continuing in character.
+4. Keep German turns to 1–2 sentences at A0/A1. Explanations in English (A2: mixed).
+5. Safety: in medical scenes never diagnose, never name medicines or doses; use process language ("Ich untersuche Sie", "Sie bekommen ein Rezept"). In official/legal scenes never state fees, deadlines or legal consequences as facts – refer to "the letter" or "the office". For real emergencies tell the learner to call 112.
+6. After 8–10 turns, end the scene and list the learner's three most frequent mistakes with corrected examples.`}
+/>

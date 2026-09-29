@@ -93,7 +93,7 @@ Build order recommendation:
 A2 review criteria for writing: task completion, clarity, verb position (incl. subordinate clauses),
 case/article, vocabulary fit, register (du/Sie), spelling/capitalisation.
 
-## 6. B1 blueprint (not built; `docs/german/b1/placeholder.mdx` is empty and not in the sidebar)
+## 6. B1 blueprint (not built; the empty `b1/placeholder.mdx` was removed – start B1 under `docs/german/b1/`)
 
 - Grammar: subordinate clauses (weil, dass, wenn, als, obwohl, damit/um…zu, ohne…zu, anstatt…zu, indem),
   connectors (deshalb, trotzdem, außerdem, zuerst/danach/schließlich), Konjunktiv II (würde, könnte, sollte,

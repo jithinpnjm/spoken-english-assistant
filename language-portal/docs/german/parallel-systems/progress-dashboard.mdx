@@ -1,4 +1,91 @@
 ---
-title: "K. Progress Dashboard"
+title: "K. Mistake Log & Repair"
+description: Track your recurring German mistakes by type and fix the ten most common A1 errors with short, targeted repair drills and a weekly review routine.
+tags: [Mistakes, Fehler, Repair, Progress, A1]
 ---
 
+# K. Mistake Log & Repair (Fehler reparieren)
+
+Most learners don't make hundreds of different mistakes – they make **the same few mistakes hundreds of times**.
+Find yours, and repair them one at a time.
+
+## 1. Keep a mistake log
+
+| Date | What I said/wrote | Correct | Type | Repaired? |
+| :--- | :--- | :--- | :--- | :--- |
+| 12.05. | *Ich habe ein Termin.* | *Ich habe einen Termin.* | article + accusative | ☐ ☐ ☐ |
+| 13.05. | *Heute ich arbeite.* | *Heute arbeite ich.* | word order (V2) | ☐ ☐ ☐ |
+
+Tick "repaired" once each time you produce it correctly **without help** on a different day. Three ticks = repaired.
+
+**Mistake types:** article/gender · case (nominative/accusative/dative) · verb ending · tense · modal verb ·
+word order · preposition · spelling · capital letters · du/Sie · pronunciation · vocabulary choice.
+
+## 2. The repair routine
+
+```text
+1. Understand: read the rule in English (link below).
+2. See the pattern: copy two correct model sentences.
+3. Drill: 5–10 quick sentences of the same kind (below, or ask the AI).
+4. Produce: say/write the sentence from your log correctly – out loud.
+5. Retest later: check it again in 2–3 days and in a week.
+```
+
+## 3. The ten most common A1 mistakes – and their repair drills
+
+**1. *ein* instead of *einen* after haben/brauchen/möchten** → [3.9](../a1/vol3-grammar/accusative.mdx)
+Drill: *Ich brauche ___ Termin / ___ Stift / ___ Kaffee / ___ Arzt.* → always *einen* (all masculine).
+*Ich brauche ___ Fahrkarte / ___ Ticket.* → *eine / ein* (only masculine changes).
+
+**2. Verb not in position 2 after a time word** → [3.7](../a1/vol3-grammar/sentence-structure-v2.mdx)
+Drill: start each with the time word: *Heute (ich / arbeiten)* → *Heute arbeite ich.* · *Morgen (wir / fahren) nach Köln.* · *Am Montag (ich / haben) einen Termin.*
+
+**3. Second verb not at the end** → [3.6](../a1/vol3-grammar/modal-verbs.mdx)
+Drill: *(kann / ich / nicht / heute / kommen)* → *Ich kann heute nicht kommen.* · *(muss / ich / den Arzt / anrufen)* → *Ich muss den Arzt anrufen.*
+
+**4. *nicht* vs *kein*** → [3.11](../a1/vol3-grammar/negation.mdx)
+Drill: *Ich habe ___ Zeit. · Ich komme ___. · Das ist ___ mein Schlüssel. · Wir haben ___ Kinder.* → keine · nicht · nicht · keine
+
+**5. Wrong verb ending / missing vowel change** → [3.4](../a1/vol3-grammar/present-tense-verbs.mdx)
+Drill: *er (sprechen) · du (nehmen) · sie (fahren) · du (heißen)* → spricht · nimmst · fährt · heißt
+
+**6. du/Sie mix-up** → [1.4](../a1/vol1-foundations/personal-pronouns.mdx)
+Drill: ask the same question to a colleague you say *du* to and to the receptionist: *Hast du …? / Haben Sie …?*
+
+**7. Separable prefix forgotten or in the wrong place** → [3.12](../a1/vol3-grammar/separable-verbs.mdx)
+Drill: *anrufen: Ich ___ dich morgen ___.* · *einkaufen: Wir ___ am Samstag ___.* · with a modal: *Ich muss heute ___.* (einkaufen)
+
+**8. *sein* for hunger, fever, pain** → [3.5](../a1/vol3-grammar/sein-and-haben.mdx)
+Drill: *I'm hungry / I have a fever / I'm cold* → *Ich habe Hunger. · Ich habe Fieber. · Mir ist kalt.*
+
+**9. Time prepositions um/am/im** → [1.5](../a1/vol1-foundations/numbers-dates-time.mdx)
+Drill: *___ Montag · ___ 10 Uhr · ___ Juli · ___ Wochenende · ___ Sommer* → am · um · im · am · im
+
+**10. Lowercase nouns / capital letters in messages** → [3.1](../a1/vol3-grammar/nouns-gender.mdx), [6.8](../a1/vol6-work/email-messages.mdx)
+Drill: rewrite correctly: *ich habe morgen einen termin beim arzt.* → *Ich habe morgen einen Termin beim Arzt.*
+
+## 4. Weekly review (15 minutes, e.g. Sunday)
+
+1. Count your log entries by type. Which type appears most?
+2. Choose **one** type for next week. Do its repair drill three times during the week.
+3. Move repaired sentences into your [flashcards](./flashcards.mdx) for long-term review.
+4. Check the [Recommended Learning Path](../course-guide/learning-path.mdx) – what's your next chapter?
+
+## 5. AI Repair Session
+
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
+
+<AIPracticeComponent
+  topic="Mistake Repair Session"
+  level="A1"
+  taskType="writing"
+  prompt={`SYSTEM BEHAVIOR:
+Role: English-speaking German teacher running a targeted repair session.
+Learning objective: fix ONE recurring mistake type chosen by the learner (e.g. accusative einen, V2 after a time word, verb at the end with modal verbs, nicht/kein, verb endings, du/Sie, separable verbs, haben vs sein for symptoms, um/am/im, capital letters).
+Procedure:
+1. Ask the learner which mistake they make most often, or ask them to paste 3 sentences from their mistake log and identify the type yourself.
+2. Explain the rule in 2–3 simple English sentences and show 2 correct German model sentences.
+3. Give 8 short drills of that type, ONE at a time. After each answer: Result / Corrected German / Why / Now repeat – wait for the repeat.
+4. Finish with 2 free-production tasks ("Write a sentence about your own week using …").
+5. Summarise: what improved, and one sentence to re-test in 3 days.`}
+/>

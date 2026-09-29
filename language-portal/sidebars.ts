@@ -387,7 +387,7 @@ const sidebars: SidebarsConfig = {
         { type: "doc", id: "german/parallel-systems/speaking-practice", label: "H. Speaking Practice" },
         { type: "doc", id: "german/parallel-systems/ai-roleplay", label: "I. AI Roleplay Lab" },
         { type: "doc", id: "german/parallel-systems/flashcards", label: "J. Flashcards & Spaced Repetition" },
-        { type: "doc", id: "german/parallel-systems/progress-dashboard", label: "K. Progress Dashboard" },
+        { type: "doc", id: "german/parallel-systems/progress-dashboard", label: "K. Mistake Log & Repair" },
       ],
     },
   ],
