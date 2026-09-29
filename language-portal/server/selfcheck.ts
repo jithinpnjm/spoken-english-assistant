@@ -20,7 +20,9 @@ function check(name: string, fn: () => void) {
 
 check("level bands map CEFR labels", () => {
   assert.equal(levelBand("A1"), "Beginner");
-  assert.equal(levelBand("B2-C1"), "Intermediate");
+  assert.equal(levelBand("B1-B2"), "Intermediate");
+  assert.equal(levelBand("B2-C1"), "Advanced");
+  assert.equal(levelBand("A1-A2"), "Beginner");
   assert.equal(levelBand("C1"), "Advanced");
   assert.equal(levelBand("Advanced"), "Advanced");
   assert.equal(levelBand(""), "Intermediate");

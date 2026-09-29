@@ -48,15 +48,19 @@ export function sanitizeLesson(raw: unknown): LessonContext {
   };
 }
 
-/** Maps a CEFR label (or the old Beginner/Intermediate/Advanced labels) to the teaching-tone band. */
+/**
+ * Maps a CEFR label (or the old Beginner/Intermediate/Advanced labels) to the teaching-tone band.
+ * For a range like "B2-C1" the block targets the top of the range, so the highest code decides.
+ */
 export function levelBand(level: string): LevelBand {
   const normalized = level.trim().toUpperCase();
   if (normalized.startsWith("BEGINNER")) return "Beginner";
   if (normalized.startsWith("ADVANCED")) return "Advanced";
   if (normalized.startsWith("INTERMEDIATE")) return "Intermediate";
-  const first = primaryCefr(normalized);
-  if (first.startsWith("A")) return "Beginner";
-  if (first.startsWith("C")) return "Advanced";
+  const codes = normalized.match(/[ABC][012]/g) || [];
+  const highest = codes.sort().pop() || "";
+  if (highest.startsWith("A")) return "Beginner";
+  if (highest.startsWith("C")) return "Advanced";
   return "Intermediate";
 }
 
