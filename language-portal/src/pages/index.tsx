@@ -13,11 +13,11 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title">
           The Intelligent Language Portal
         </Heading>
-        <p className="hero__subtitle">Master German (A1-C2) and Professional English (B2-C1) through structured theory and AI-driven practice.</p>
+        <p className="hero__subtitle">Learn German from your first day in Germany to Goethe A1 (A2 in progress), and Professional English (B2-C1), through structured theory and AI-driven practice.</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/german/a1/vol1-foundations/alphabet-pronunciation">
+            to="/docs/german/course-guide/how-this-course-works">
             Start German A1 🇩🇪
           </Link>
           <Link

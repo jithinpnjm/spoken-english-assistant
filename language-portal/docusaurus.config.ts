@@ -81,7 +81,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'germanSidebar',
           position: 'left',
-          label: 'German (A1-C2)',
+          label: 'German (A0-A1, A2 in progress)',
         },
         {
           type: 'docSidebar',
@@ -103,8 +103,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'German A1',
-              to: '/docs/german/a1/vol1-foundations/alphabet-pronunciation',
+              label: 'German: Start Here',
+              to: '/docs/german/course-guide/how-this-course-works',
             },
           ],
         },
