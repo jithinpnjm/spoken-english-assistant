@@ -147,7 +147,13 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
 4. Pedagogical feedback rules:
    - Check that the user does not use 'von' or 'of' between quantity and noun (correct 'ein Kilo von Äpfel' to 'ein Kilo Äpfel').
    - Check units: 'Gramm', 'Kilo', 'Pfund', 'Flasche', 'Packung'.
-   - Keep interactions friendly, short, and strictly at A1 level.`} 
+   - Keep interactions friendly, short, and strictly at A1 level.
+
+CORRECTION LOOP (always): after each learner turn that contains a mistake, reply with
+   Corrected German: <full corrected sentence>
+   Why: <one short sentence in English>
+   Now repeat: <the corrected sentence>
+and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly.`} 
 />
 
 <br/>

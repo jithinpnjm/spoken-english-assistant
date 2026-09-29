@@ -10,7 +10,7 @@ tags: [A1, Bureaucracy, Bürgeramt, Rathaus, Wartenummer, Beamte, Behörde, CEFR
 ## 🎯 What you will learn
 * I understand the role of the **Bürgeramt** (Citizens' Office) and **Rathaus** (City Hall).
 * I know how the queue ticket system (**die Wartenummer**) and waiting screen work.
-* I can talk to an official (**der Beamte / die Beamtin**) politely using formal *Sie*.
+* I can talk to a clerk (**der Sachbearbeiter / die Sachbearbeiterin**) politely using formal *Sie*.
 * I know terms for official fees (**die Gebühr**) and passports (**der Reisepass**).
 
 ---
@@ -24,7 +24,7 @@ In Germany, almost all personal civil administration is handled by your local mu
 
 You visit this office to:
 1. Register your residential address (**die Anmeldung**).
-2. Apply for residence permits and ID documents.
+2. Apply for ID documents (German ID card, passport) and certificates. *(Residence permits for non-EU citizens are handled by the **Ausländerbehörde** – in some cities it is part of the same service centre.)*
 3. Obtain police clearance certificates (*das Führungszeugnis*).
 
 ---
@@ -46,7 +46,7 @@ When you enter a German public office:
 | German Term | Article & Plural | English Meaning | How to use it |
 | :--- | :--- | :--- | :--- |
 | **die Behörde** | die Behörden | government authority / agency| *Ich muss zur Behörde.* |
-| **der Beamte / die Beamtin**| die Beamten | public official / civil servant| *Sprechen Sie höflich mit den Beamten.* |
+| **der Sachbearbeiter / die Sachbearbeiterin** | die Sachbearbeiter / -innen | clerk handling your case | *Die Sachbearbeiterin ruft Ihre Nummer auf.* |
 | **die Wartenummer** | die Wartenummern | queue number / ticket | *Ziehen Sie eine Wartenummer.* |
 | **der Reisepass** | die Reisepässe | passport | *Hier ist mein Reisepass.* |
 | **der Ausweis** | die Ausweise | ID card | *Haben Sie Ihren Ausweis dabei?* |
@@ -103,12 +103,18 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
 3. Flow:
    - Turn 1: The user introduces their purpose (e.g. 'Guten Tag, ich möchte meinen Wohnsitz anmelden / meinen Pass abholen').
    - Turn 2: Ask for identification: "Gerne. Zeigen Sie mir bitte Ihren Reisepass und Ihre Unterlagen."
-   - Turn 3: Ask for signature and state fee: "Vielen Dank. Unterschreiben Sie bitte hier unten rechts. Die Gebühr beträgt zehn Euro. Zahlen Sie mit Girocard?"
+   - Turn 3: Ask for signature and state fee: "Vielen Dank. Unterschreiben Sie bitte hier unten rechts." (If the learner asks about a fee for the Anmeldung, answer: "Die Anmeldung kostet nichts." For a passport, say: "Die Gebühr steht auf dem Aushang. Sie können mit Karte zahlen.")
    - Turn 4: Conclude: "Hier ist Ihre Quittung und Ihre Bestätigung. Einen schönen Tag noch!"
 4. Pedagogical feedback rules:
    - Check formal register: 'Guten Tag', 'Hier ist mein Pass', 'mit Karte zahlen'.
    - Check administrative vocabulary.
-   - Keep interactions realistic, calm, and strictly at A1 level.`} 
+   - Keep interactions realistic, calm, and strictly at A1 level.
+
+CORRECTION LOOP (always): after each learner turn that contains a mistake, reply with
+   Corrected German: <full corrected sentence>
+   Why: <one short sentence in English>
+   Now repeat: <the corrected sentence>
+and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly.`} 
 />
 
 ---

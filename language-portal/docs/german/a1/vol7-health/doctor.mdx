@@ -12,7 +12,7 @@ tags: [A1, Health, Doctor, Arzt, Arztpraxis, Rezept, Versichertenkarte, CEFR-A1]
 * I know what the health insurance card (**die Versichertenkarte / Krankenkassenkarte**) is.
 * I can explain my symptoms and duration to the doctor (*seit drei Tagen*).
 * I can understand doctor instructions during an examination (*Atmen Sie tief ein*).
-* I understand the prescription (**das Rezept**) and sick certificate (**die Krankschreibung**).
+* I understand the prescription (**das Rezept / E-Rezept**) and the sick note (**die Krankschreibung**).
 
 ---
 
@@ -58,11 +58,11 @@ The doctor will give instructions using the formal imperative (Chapter 3.15):
 
 ## 4. The Exit: Prescriptions & Sick Notes
 
-At the end of the visit, the doctor will hand you two essential documents:
+At the end of the visit you may get a prescription and/or a sick note. Both are now mostly **electronic**:
 
-1. **Das Rezept:** The medical prescription. Take this to any pharmacy (*Apotheke*) to collect your medicine.
+1. **Das Rezept / das E-Rezept:** The prescription. With statutory health insurance it is usually an **E-Rezept**: the pharmacy reads it from your health insurance card (or an app / a printed code). Go to any pharmacy (*Apotheke*) and say *„Ich habe ein E-Rezept.“*
    * *„Hier ist Ihr **Rezept**. Nehmen Sie die Tabletten morgens und abends.“*
-2. **Die Krankschreibung (Die Arbeitsunfähigkeitsbescheinigung - AU):** The official medical certificate for your employer.
+2. **Die Krankschreibung (die Arbeitsunfähigkeitsbescheinigung, AU):** The sick note. For people with statutory insurance the practice sends it electronically (*eAU*); your employer retrieves it. You still tell your employer yourself that you are sick.
    * *„Ich **schreibe Sie bis Freitag krank**.“* (I am signing you off work until Friday).
 
 ---
@@ -77,7 +77,7 @@ What document does the receptionist ask for when checking in?
 <details>
   <summary>Show answer</summary>
 
-  **Versichertenkarte** (or *Krankenkassenkarte* — your electronic health card).
+  **Versichertenkarte** (also *Krankenkassenkarte* or *Gesundheitskarte* — your electronic health insurance card).
 </details>
 
 ### Step 2: Stating Duration with "seit"
@@ -111,17 +111,18 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
   level="A1" 
   taskType="speaking" 
   prompt={`SYSTEM BEHAVIOR:
-1. Persona: You are an empathetic general practitioner (Dr. Weber) in a Munich medical clinic. Use formal 'Sie'.
-2. Starting turn: "Guten Tag! Nehmen Sie bitte Platz. Was fehlt Ihnen denn?"
-3. Flow:
-   - Turn 1: The user states their symptoms and mentions how long they have had them (using 'seit...').
-   - Turn 2: Give an examination command: "Verstehe. Machen Sie bitte den Oberkörper frei, ich möchte Ihre Lunge abhören. Atmen Sie tief ein!"
-   - Turn 3: Diagnose a respiratory infection and advise rest: "Ihre Bronchien sind verschleimt. Sie haben eine starke Bronchitis. Arbeiten Sie heute?"
-   - Turn 4: Conclude: "Ich schreibe Sie für eine Woche krank und gebe Ihnen ein Rezept für Antibiotika mit. Bleiben Sie im Bett und trinken Sie viel Tee. Gute Besserung!"
-4. Pedagogical feedback rules:
-   - Check symptom expressions: 'Ich habe seit... Tagen Fieber / Halsschmerzen', 'tut weh'.
-   - Check understanding of examination instructions.
-   - Keep interactions empathetic, professional, and strictly at A1 level.`} 
+Role: You play Dr. Weber, a friendly general practitioner (Hausärztin) in Munich, AND you are the learner's English-speaking German teacher. Use formal 'Sie'.
+Learning objective: the learner describes symptoms with 'Ich habe …' / '… tut weh', states the duration with 'seit …', understands examination instructions, and understands the words Rezept and Krankschreibung.
+SAFETY: This is communication practice, not medicine. Never name a diagnosis, never choose a medicine or a dose, never say what treatment the learner needs. If the learner describes a real emergency, step out of the roleplay and tell them to call 112.
+Flow:
+1. Open: "Guten Tag! Nehmen Sie bitte Platz. Was fehlt Ihnen denn?"
+2. The learner describes symptoms. Ask ONE clarifying question at a time: "Seit wann haben Sie das?", "Haben Sie Fieber?", "Wo tut es weh?"
+3. Give two examination instructions: "Machen Sie bitte den Oberkörper frei." / "Atmen Sie bitte tief ein." Ask the learner to say in English what you asked them to do.
+4. Close with neutral process language only: "Gut, ich untersuche Sie jetzt. … Ich schreibe Sie bis Freitag krank. Sie bekommen ein Rezept. Gute Besserung!" Then ask: "Brauchen Sie noch etwas?"
+Correction rules (after every learner turn):
+- Result: Correct / Almost correct / Needs correction; Corrected German; one-sentence English reason; ask the learner to repeat the corrected sentence before you continue.
+- Typical errors: 'Ich bin Fieber' (→ Ich habe Fieber), 'Mein Kopf tun weh' (→ tut weh), 'seit drei Tage' (→ seit drei Tagen), wrong position of the verb.
+- Keep your German turns to 1–2 short sentences; explanations in English.`} 
 />
 
 ---

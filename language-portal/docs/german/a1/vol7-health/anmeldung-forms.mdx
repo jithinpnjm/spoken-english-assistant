@@ -17,14 +17,13 @@ tags: [A1, Bureaucracy, Anmeldung, Meldebescheinigung, Wohnungsgeberbestätigung
 
 ## 1. What is the "Anmeldung" and Why is it Mandatory?
 
-In Germany, the law (*Bundesmeldegesetz*) requires **everyone who moves into a home to register their address within 14 days** at the local citizens' office (*Bürgeramt*):
+In Germany, the law (*Bundesmeldegesetz*) requires **people who move into a home to register their address within two weeks** at the local citizens' office (*Bürgeramt*):
 
 ```text
-Without the "Anmeldung" (Registration), you cannot:
-• Open a German bank account (Girokonto)
-• Receive your official German Tax ID (Steueridentifikationsnummer)
-• Sign a mobile phone or home internet contract
-• Register for German health insurance (Krankenkasse)
+Why the "Anmeldung" matters so much:
+• After your first registration, your tax ID (Steueridentifikationsnummer) is sent to you by post.
+• Banks, landlords, employers and phone/internet providers often ask for your Meldebescheinigung.
+• Many other offices (e.g. the Ausländerbehörde, Kindergeld, Kita registration) need your registered address.
 ```
 
 The registration certificate you receive at the end is called **die Meldebescheinigung**. Treat this piece of paper like gold!
@@ -105,11 +104,17 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
    - Turn 1: The user confirms having the form and documents.
    - Turn 2: Ask for landlord slip and passport: "Sehr schön. Ich brauche bitte Ihren Reisepass und die Wohnungsgeberbestätigung vom Vermieter."
    - Turn 3: Ask a clarifying question: "Wann genau sind Sie in die Wohnung eingezogen und wie ist Ihre Staatsangehörigkeit?"
-   - Turn 4: Conclude: "Alles ist vollständig. Hier ist Ihre Meldebestätigung. Ihre Steuer-ID erhalten Sie in zwei bis drei Wochen per Post. Auf Wiedersehen!"
+   - Turn 4: Conclude: "Alles ist vollständig. Hier ist Ihre Meldebestätigung. Ihre Steuer-ID bekommen Sie später per Post. Auf Wiedersehen!"
 4. Pedagogical feedback rules:
    - Check key terms: 'Anmeldeformular', 'Wohnungsgeberbestätigung', 'Reisepass', 'Meldebestätigung'.
    - Check date and nationality phrasing.
-   - Keep interactions realistic, calm, and strictly at A1 level.`} 
+   - Keep interactions realistic, calm, and strictly at A1 level.
+
+CORRECTION LOOP (always): after each learner turn that contains a mistake, reply with
+   Corrected German: <full corrected sentence>
+   Why: <one short sentence in English>
+   Now repeat: <the corrected sentence>
+and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly.`} 
 />
 
 <br/>

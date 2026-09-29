@@ -40,7 +40,7 @@ In Germany, you will frequently need to spell your name, address, or email addre
 | **D d** | [deː] "Day" | Standard d | **danke** (thank you) |
 | **E e** | [eː] "Ay" | Pure vowel sound | **das Ende** (end) |
 | **F f** | [ɛf] "Eff" | Standard f | **der Freund** (friend) |
-| **G g** | [geː] "Gay" | Always hard like *gift*, never soft | **gut** (good) |
+| **G g** | [geː] "Gay" | Hard like *gift* in German words (soft only in some loanwords, e.g. *Garage*) | **gut** (good) |
 | **H h** | [haː] "Hah" | Breathy h at start; silent in middle | **das Haus** (house) |
 | **I i** | [iː] "Ee" | Long "ee" sound | **der Igel** (hedgehog) |
 | **J j** | [jɔt] "Yott" | Always sounds like English **Y** | **ja** (yes) |
@@ -52,7 +52,7 @@ In Germany, you will frequently need to spell your name, address, or email addre
 | **P p** | [peː] "Pay" | Standard p | **die Post** (post office) |
 | **Q q** | [kuː] "Koo" | Almost always followed by u (*qu* = *kv*) | **die Quittung** (receipt) |
 | **R r** | [ɛʁ] "Air" | Soft throat sound | **das Radio** (radio) |
-| **S s** | [ɛs] "Ess" | Sounds like **Z** before vowels; like **S** at end | **die Sonne** (sun) |
+| **S s** | [ɛs] "Ess" | Usually like **Z** before a vowel (especially in the north); like **S** at the end | **die Sonne** (sun) |
 | **T t** | [teː] "Tay" | Crisp t | **der Tag** (day) |
 | **U u** | [uː] "Oo" | Deep rounded "oo" | **die Uhr** (clock/o'clock) |
 | **V v** | [faʊ] "Fow" | Almost always sounds like **F** | **der Vater** (father) |
@@ -90,7 +90,7 @@ Beginners often treat Umlauts as decorative dots. **They are completely distinct
 
 ### 4. The Letter **ß** (Eszett / scharfes S)
 * **What it is:** A sharp unvoiced "S" sound (like the *ss* in *lesson*).
-* **The rule:** It is **never** found at the start of a word. It always follows a long vowel or double vowel.
+* **The rule:** It never starts a word. It comes after a long vowel or a diphthong (*au, ei, eu*): *Straße, heißen*. After a short vowel you write *ss*: *essen, Wasser*. (In Switzerland, *ß* is not used at all.)
 * **Examples:**
   * *groß* (big)
   * *die Straße* (street)
@@ -154,7 +154,7 @@ This is the single most common pronunciation mistake for English speakers:
 When you call an office, clinic, or utility provider in Germany, you will regularly hear:
 > *„Können Sie Ihren Namen bitte buchstabieren?“* (Can you please spell your name?)
 
-Because German vowels and consonants sound similar over phone lines, Germans use the official **Buchstabieralphabet** (spelling names):
+Because letters like *M/N* or *B/P* are easy to confuse on the phone, people use a **spelling alphabet** (*Buchstabiertafel*). Many Germans still use the traditional **name** version below. Since 2022 the official standard (DIN 5009) uses **city names** instead (A wie Aachen, B wie Berlin, C wie Chemnitz, D wie Düsseldorf, E wie Essen …). Either version is understood – the important thing is to say *„… wie …“* clearly.
 
 | Letter | Word | Letter | Word |
 | :--- | :--- | :--- | :--- |
@@ -173,7 +173,8 @@ Because German vowels and consonants sound similar over phone lines, Germans use
 | **M** | Martha | **Z** | Zacharias |
 
 *Example:* If your last name is **Müller**, on the phone you can say:
-> *„M wie Martha, Ü wie Übermut, L wie Ludwig, L wie Ludwig, E wie Emil, R wie Richard.“*
+> *„M wie Martha, Ü wie Übermut, L wie Ludwig, L wie Ludwig, E wie Emil, R wie Richard.“*  
+> City version: *„M wie München, Umlaut-U wie Unna, L wie Leipzig, L wie Leipzig, E wie Essen, R wie Rostock.“*
 
 ---
 
@@ -248,7 +249,13 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
 4. Pedagogical feedback rules:
    - Listen carefully to German letter names. If the user uses English letter names (e.g. saying 'ee' for E instead of 'ay', or 'eye' for I instead of 'ee'), gently point out the difference: "In German, E sounds like 'ay' and I sounds like 'ee'."
    - If they successfully spell their name, praise them in simple German: "Sehr gut buchstabiert!"
-   - After the name, give them one short real German word with a tricky combination (e.g., 'zwei', 'Straße', 'fünf', or 'spät') and ask them to pronounce it out loud. Give constructive feedback on their pronunciation.`} 
+   - After the name, give them one short real German word with a tricky combination (e.g., 'zwei', 'Straße', 'fünf', or 'spät') and ask them to pronounce it out loud. Give constructive feedback on their pronunciation.
+
+CORRECTION LOOP (always): after each learner turn that contains a mistake, reply with
+   Corrected German: <full corrected sentence>
+   Why: <one short sentence in English>
+   Now repeat: <the corrected sentence>
+and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly.`} 
 />
 
 <br/>

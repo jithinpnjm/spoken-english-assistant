@@ -27,7 +27,7 @@ In Germany, national mail is handled by **Deutsche Post** (yellow logo), and par
 | **das Päckchen** | die Päckchen | small parcel (untracked) | Smaller packages |
 | **die Briefmarke** | die Briefmarken | postage stamp | Put on top right corner of letters |
 | **der Briefkasten** | die Briefkästen | public mailbox (yellow) | Drop stamped letters in |
-| **die Packstation** | die Packstations | 24/7 automated parcel locker| Pick up or drop off DHL parcels |
+| **die Packstation** | die Packstationen | automated parcel locker | Pick up or drop off DHL parcels |
 
 ---
 
@@ -58,9 +58,9 @@ Goethestraße 12
 
 In Germany, canceling a gym membership, ending an apartment lease, or disputing a bill has legal deadlines. If you simply send a standard letter, the company can claim they never received it.
 
-To have legal proof of delivery, always send important documents **per Einschreiben** (registered mail):
+To have proof that your letter arrived, send important documents **per Einschreiben** (registered mail):
 * *„Ich möchte diesen Brief bitte **per Einschreiben** schicken.“*
-* You receive a tracking number and a delivery receipt with signature proof.
+* You get a receipt and a tracking number. (There are different types: *Einschreiben Einwurf* confirms delivery into the mailbox; *Einschreiben mit Rückschein* gives you the recipient's signature.)
 
 ---
 
@@ -68,9 +68,10 @@ To have legal proof of delivery, always send important documents **per Einschrei
 
 **Kunde:** Guten Tag! Ich möchte diesen Brief nach Indien schicken. Was kostet das?  
 *(Good day! I'd like to send this letter to India. How much is the postage?)*  
-**Schalter:** Der Brief wiegt unter 20 Gramm. Das kostet 1 Euro 10.  
+**Schalter:** Der Brief wiegt unter 20 Gramm. Das kostet 1 Euro 25.  
 **Kunde:** Kann ich den Brief per Einschreiben schicken?  
-**Schalter:** Ja, das kostet 3 Euro 50 extra. Füllen Sie bitte hier den Schein aus.  
+**Schalter:** Ja, das kostet extra. Füllen Sie bitte hier den Schein aus.  
+*(Prices are examples – postage changes regularly.)*  
 **Kunde:** Danke. Ich möchte auch noch dieses Paket abholen. Hier ist mein Ausweis und die Benachrichtigungskarte.  
 **Schalter:** Einen Moment, bitte... hier ist Ihr Paket!  
 
@@ -121,12 +122,18 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
 2. Starting turn: "Deutsche Post, guten Tag! Was kann ich für Sie tun?"
 3. Flow:
    - Turn 1: The user states they want to mail a letter or parcel to an international destination (e.g. India or the US).
-   - Turn 2: State weight and ask about registration: "Der Brief ist leicht, das macht 1 Euro 10. Möchten Sie den Brief als normales Einschreiben mit Sendungsverfolgung schicken?"
+   - Turn 2: State weight and ask about registration: "Der Brief ist leicht, das macht 1 Euro 25. Möchten Sie den Brief per Einschreiben schicken?" (Prices are examples; if asked, say that prices change.)
    - Turn 3: The user confirms registered mail.
-   - Turn 4: State final price: "Das macht zusammen 4 Euro 60. Zahlen Sie bar oder mit Karte?"
+   - Turn 4: State final price: "Das macht zusammen 4 Euro 90. Zahlen Sie bar oder mit Karte?"
 4. Pedagogical feedback rules:
    - Check postal terms: 'Brief', 'Paket', 'Briefmarke', 'Einschreiben', 'schicken'.
-   - Keep interactions realistic, calm, and strictly at A1 level.`} 
+   - Keep interactions realistic, calm, and strictly at A1 level.
+
+CORRECTION LOOP (always): after each learner turn that contains a mistake, reply with
+   Corrected German: <full corrected sentence>
+   Why: <one short sentence in English>
+   Now repeat: <the corrected sentence>
+and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly.`} 
 />
 
 ---

@@ -22,10 +22,10 @@ In English, the word "drugstore" can mean a place where you buy toothpaste, sham
 
 1. **Die Apotheke (Marked with the giant red letter "A"):**
    * This is a licensed pharmacy staffed by pharmacists.
-   * You **must** go here to buy prescription drugs, antibiotics, and even basic painkillers like Ibuprofen and Paracetamol!
+   * You go here for prescription medicines and for all **pharmacy-only** medicines (*apothekenpflichtig*) – in Germany that includes common painkillers like ibuprofen and paracetamol, even without a prescription.
 2. **Die Drogerie (e.g. dm, Rossmann, Müller):**
    * Sells cosmetics, shampoo, cleaning supplies, baby diapers, and tea.
-   * In Germany, a *Drogerie* is legally **not allowed** to sell pharmaceuticals or pain relievers!
+   * A *Drogerie* may not sell pharmacy-only medicines. You will find vitamins, herbal teas and some simple remedies there – but not ibuprofen or paracetamol.
 
 ---
 
@@ -33,9 +33,9 @@ In English, the word "drugstore" can mean a place where you buy toothpaste, sham
 
 * **rezeptpflichtig:** Prescription-only (you cannot buy it without a signed doctor's *Rezept*).
   * *„Hier ist mein Rezept vom Arzt.“* (Here is my prescription from the doctor).
-* **rezeptfrei:** Over-the-counter (available without a prescription).
+* **rezeptfrei:** Over-the-counter (no prescription needed – but many *rezeptfrei* medicines are still sold only in pharmacies).
   * *„Haben Sie etwas Rezeptfreies gegen Halsschmerzen?“* (Do you have something over-the-counter for a sore throat?)
-* **die Zuzahlung:** Co-payment (on German statutory health insurance, you usually pay a co-pay of 5 € to 10 € per prescription item).
+* **die Zuzahlung:** Co-payment. With statutory health insurance adults usually pay a small co-payment per prescribed item (currently 10 % of the price, at least 5 € and at most 10 €; children are exempt). Rules can change – the pharmacy tells you the amount.
 
 ---
 
@@ -75,7 +75,7 @@ Where do you go in these situations?
 <details>
   <summary>Show answer</summary>
 
-  **Die Apotheke** (Painkillers are sold exclusively in pharmacies in Germany).
+  **Die Apotheke** (Ibuprofen and paracetamol are pharmacy-only medicines in Germany).
 </details>
 
 2. You need shampoo, body wash, and toothpaste:
@@ -107,23 +107,22 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
   level="A1" 
   taskType="speaking" 
   prompt={`SYSTEM BEHAVIOR:
-1. Persona: You are a pharmacist (Frau Dr. Bachmann) at the Stadt-Apotheke in Cologne.
-2. Starting turn: "Guten Tag! Willkommen in der Stadt-Apotheke. Wie kann ich Ihnen helfen? Haben Sie ein Rezept?"
-3. Flow:
-   - Turn 1: The user explains they do not have a prescription, but need something for a sore throat and runny nose (e.g. 'Nein, ich brauche etwas gegen Halsschmerzen und Schnupfen').
-   - Turn 2: Recommend remedies: "Da gebe ich Ihnen Halstabletten und ein Nasenspray. Sind Sie allergisch gegen etwas?"
-   - Turn 3: The user answers about allergies and asks how often to take them (e.g. 'Wie oft muss ich das nehmen?').
-   - Turn 4: Give dosage: "Lutschen Sie alle drei Stunden eine Tablette und nehmen Sie das Spray vor dem Schlafen. Das macht zusammen 11 Euro 40."
-4. Pedagogical feedback rules:
-   - Check remedy vocabulary: 'Tabletten', 'Nasenspray', 'Hustensaft', 'rezeptfrei'.
-   - Check dosage comprehension (täglich, vor/nach dem Essen).
-   - Keep interactions realistic, calm, and strictly at A1 level.`} 
+Role: You play Frau Bachmann, a pharmacist at the Stadt-Apotheke in Cologne, AND you are the learner's English-speaking German teacher.
+Learning objective: the learner asks for something against a simple complaint without a prescription, answers the pharmacist's questions, and asks how to take it ('Wie oft muss ich das nehmen?').
+SAFETY: This is language practice. Do not recommend specific drugs or doses. Use generic words only ('Halstabletten', 'ein Nasenspray') and say that the dosage is on the package and that the pharmacist explains it in real life. If symptoms sound serious (high fever for days, breathing problems), say in the roleplay: "Bitte gehen Sie zum Arzt." For emergencies: 112.
+Flow:
+1. Open: "Guten Tag! Wie kann ich Ihnen helfen? Haben Sie ein Rezept?"
+2. The learner says they have no prescription and need something against e.g. Halsschmerzen or Schnupfen.
+3. Ask ONE question at a time: "Seit wann haben Sie das?", "Haben Sie Fieber?", "Sind Sie gegen etwas allergisch?"
+4. Offer a generic product: "Ich kann Ihnen Halstabletten geben. Die Dosierung steht auf der Packung." The learner asks 'Wie oft muss ich das nehmen?' – answer only: "Das steht hier auf der Packung. Lesen Sie bitte die Packungsbeilage."
+5. Finish with price and payment: "Das macht 8 Euro 90. Bar oder mit Karte?"
+Correction rules: after every learner turn give Result / Corrected German / one-sentence English reason, and ask the learner to repeat the corrected sentence. Check: 'etwas gegen …', 'Ich habe Halsschmerzen', 'Wie oft muss ich das nehmen?', 'rezeptfrei'. Short German turns, English explanations.`} 
 />
 
 ---
 
 ## ✅ I can...
-- [ ] Understand why painkillers and prescriptions are sold ONLY in an **Apotheke**, not a Drogerie.
+- [ ] Know that prescriptions and pharmacy-only medicines (e.g. common painkillers) are sold in an **Apotheke**, not a Drogerie.
 - [ ] Name common remedies (*die Tabletten, der Hustensaft, das Nasenspray, das Pflaster*).
 - [ ] Hand over a prescription using *„Hier ist mein Rezept“*.
 - [ ] Ask for and understand dosage instructions (*dreimal täglich nach dem Essen*).

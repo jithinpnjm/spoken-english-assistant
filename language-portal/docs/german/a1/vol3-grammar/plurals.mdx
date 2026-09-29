@@ -39,7 +39,7 @@ In English, you cannot say *"a books"*. The same is true in German. **ein** and 
 Do not attempt to memorize plural rules like mathematical formulas. Instead, train your eye to recognize the **5 main patterns**:
 
 ### Pattern 1: Add "-n" or "-en" (The Feminine Pattern)
-Almost all feminine (*die*) words take this ending in the plural:
+Most feminine (*die*) words take this ending in the plural (a few, like *die Mutter → die Mütter* or *die Stadt → die Städte*, don't):
 * *die Frau* ➔ **die Frauen** (women)
 * *die Wohnung* ➔ **die Wohnungen** (apartments)
 * *die Flasche* ➔ **die Flaschen** (bottles)
@@ -67,7 +67,7 @@ Words ending in -a, -i, -o, -u, and words borrowed from English/French take a si
 * *das Restaurant* ➔ **die Restaurants**
 
 ### Pattern 5: No Ending Added (Only the article changes!)
-Words ending in **-er, -el, -en** usually do not change their spelling at all (or only add an Umlaut):
+Masculine and neuter words ending in **-er, -el, -en** (and *-chen*) usually do not change their spelling at all (or only add an Umlaut). Feminine ones take *-n*: *die Schwester → die Schwestern*, *die Kartoffel → die Kartoffeln*.
 * *der Lehrer* ➔ **die Lehrer** (teachers — identical spelling, only the article changes!)
 * *das Brötchen* ➔ **die Brötchen** (bread rolls — identical!)
 * *der Apfel* ➔ **die Äpfel** (apples — only the Umlaut changes!)
@@ -151,7 +151,13 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
 4. Pedagogical feedback rules:
    - Check that the user uses correct plural endings (e.g. 'zwei Brötchen' - no change, 'drei Äpfel' - umlaut, 'vier Brezeln' - n).
    - If they say "eine Brötchen" or "ein Äpfel", remind them: "Remember: 'ein/eine' cannot be used with plural nouns. Use the number directly: 'zwei Brötchen'."
-   - Keep interactions friendly, short, and strictly at A1 level.`} 
+   - Keep interactions friendly, short, and strictly at A1 level.
+
+CORRECTION LOOP (always): after each learner turn that contains a mistake, reply with
+   Corrected German: <full corrected sentence>
+   Why: <one short sentence in English>
+   Now repeat: <the corrected sentence>
+and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly.`} 
 />
 
 <br/>

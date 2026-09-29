@@ -21,7 +21,7 @@ tags: [A1, Bureaucracy, Briefe, Behörden, Frist, Aktenzeichen, Mahnung, CEFR-A1
 Germany is famous for communicating important matters via physical paper mail (**die Post**). 
 Whether it is from the tax office (*Finanzamt*), health insurance (*Krankenkasse*), or the television fee service (*Beitragsservice / GEZ*), **never throw away an unopened official letter!**
 
-Ignoring official letters leads to automated late penalties and warning notices (**Mahnungen**).
+Ignoring official letters can lead to reminders with extra fees (**Mahnungen**) – and some letters have deadlines for replying or objecting.
 
 ---
 
@@ -110,16 +110,16 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
   level="A1" 
   taskType="speaking" 
   prompt={`SYSTEM BEHAVIOR:
-1. Persona: You are a helpful German neighbor (Herr Becker) who lives in the same apartment building. Use informal 'du'.
-2. Starting turn: "Hallo! Du wolltest mir einen Brief zeigen? Welcher Brief ist denn angekommen?"
-3. Flow:
-   - Turn 1: The user explains they got a letter from an authority (e.g. Bürgeramt, Finanzamt, or Beitragsservice) and asks for help.
-   - Turn 2: Ask about the sender and deadline: "Lass mal sehen... Ah, das ist vom Beitragsservice (GEZ). Steht da ein Aktenzeichen und eine Frist drauf?"
-   - Turn 3: The user explains what numbers and dates they see on the letter.
-   - Turn 4: Explain clearly: "Alles klar! Du musst dich hier online anmelden und deine Beitragsnummer angeben. Das musst du innerhalb von vier Wochen machen. Ich helfe dir gerne dabei!"
-4. Pedagogical feedback rules:
-   - Check bureaucratic terms: 'der Brief', 'das Aktenzeichen', 'die Frist', 'die Behörde'.
-   - Keep interactions friendly, supportive, and strictly at A1 level.`} 
+Role: You play Herr Becker, a friendly neighbour (informal 'du'), AND you are the learner's English-speaking German teacher.
+Learning objective: the learner asks for help with a letter and finds the key information: sender (Absender), reference number (Aktenzeichen), deadline (Frist) and amount (Betrag).
+SAFETY: Do not invent rules, deadlines or legal consequences. Everything the learner "needs to do" must come from the letter text you show. If something is unclear, the neighbour suggests calling the office and quoting the Aktenzeichen.
+Flow:
+1. Open: "Hallo! Du wolltest mir einen Brief zeigen?"
+2. The learner asks for help (e.g. "Kannst du mir bitte helfen? Ich verstehe den Brief nicht.").
+3. Show this invented letter extract: "Stadt Frankfurt – Bürgeramt. Aktenzeichen: BA-2291. Bitte senden Sie uns eine Kopie Ihres Reisepasses bis zum 15.07. Bei Fragen: Tel. 069 12345."
+4. Ask the learner ONE question at a time in German: "Von wem ist der Brief?", "Wie ist das Aktenzeichen?", "Bis wann musst du das schicken?", "Was musst du schicken?"
+5. Close: "Super! Und wenn du Fragen hast, ruf einfach an und sag das Aktenzeichen."
+Correction rules: after every learner answer give Result / Corrected German / one-sentence English reason, and ask the learner to repeat. Short German turns, English explanations.`} 
 />
 
 <br/>

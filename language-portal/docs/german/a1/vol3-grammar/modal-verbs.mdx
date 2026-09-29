@@ -70,7 +70,7 @@ German modal verbs have four distinctions that English speakers often mix up:
 
 ### B. *können* vs. *dürfen* (Ability vs. Permission)
 * **können** = It is physically or practically possible for you to do it.
-* **dürfen** = You have legal or official permission to do it.
+* **dürfen** = You are allowed to do it – by a rule, a law, or a person (parent, boss, doctor). *Darf ich …?* is also the polite way to ask for permission.
   * *Ich **kann** hier parken.* (My car fits in this space.)
   * *Ich **darf** hier nicht parken.* (There is a no-parking sign; it is illegal.)
 
@@ -81,7 +81,7 @@ German modal verbs have four distinctions that English speakers often mix up:
   * *Der Chef sagt, ich **soll** den Bericht schreiben.* (The boss says I should write the report.)
 
 ### D. The Danger Trap: *nicht müssen* vs. *nicht dürfen*
-In English, "you must not" means "it is forbidden". **German is different!**
+In English, "you must not" means "it is forbidden". **In German, *nicht müssen* does not mean that!**
 * **nicht dürfen** = **forbidden / not allowed**
   * *Hier **darfst du nicht** rauchen.* (You are **not allowed** to smoke here.)
 * **nicht müssen** = **not necessary / optional** (you don't have to, but you can if you want)
@@ -185,8 +185,8 @@ In Germany, signs often use short nouns, but spoken language uses *dürfen*:
 
 #### 2. Doctor's Instructions (*sollen*)
 When a doctor or pharmacist explains a prescription:
-* *„Sie **sollen** diese Tablette einmal täglich nach dem Essen **nehmen**.“* (You should take this pill once daily after food.)
-* *„Sie **sollen** zwei Tage im Bett **bleiben**.“* (You should stay in bed for two days.)
+* The doctor says: *„Nehmen Sie die Tablette einmal täglich.“* – You tell your partner: *„Ich **soll** die Tablette einmal täglich **nehmen**.“* (I'm supposed to take the pill once a day.)
+* *„Der Arzt sagt, ich **soll** zwei Tage im Bett **bleiben**.“* (The doctor says I should stay in bed for two days.)
 
 #### 3. Service Interactions & Customer Service (*möchten*)
 * In a bakery: *„Guten Tag, ich **möchte** bitte drei Brötchen.“*
@@ -289,7 +289,13 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
    - If the user places the second verb in the middle (e.g., "Ich kann nicht kommen morgen"), acknowledge the meaning first, then clearly explain the sentence bracket: "You meant: 'Ich kann morgen nicht kommen.' Remember: in German, the second verb (kommen) must go to the very end of the sentence."
    - If the user confuses 'nicht müssen' with 'nicht dürfen', clarify the difference.
    - If the user conjugates both verbs (e.g., "Ich muss arbeite"), remind them that only the modal verb conjugates; the action verb remains in the infinitive (arbeiten).
-   - Keep German turns short (1-2 sentences at A1 level). Use English only when providing an explicit grammar correction.`} 
+   - Keep German turns short (1-2 sentences at A1 level). Use English only when providing an explicit grammar correction.
+
+CORRECTION LOOP (always): after each learner turn that contains a mistake, reply with
+   Corrected German: <full corrected sentence>
+   Why: <one short sentence in English>
+   Now repeat: <the corrected sentence>
+and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly.`} 
 />
 
 <br/>
