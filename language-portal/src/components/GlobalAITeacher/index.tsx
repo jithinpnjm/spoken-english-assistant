@@ -21,7 +21,7 @@ function TutorPanel({onClose}: {onClose: () => void}) {
   const language = languageFromPath(pathname);
   const topic = topicFromPath(pathname);
   const lesson: LessonContext = useMemo(
-    () => ({language, topic, level: language === 'German' ? 'A1-B1' : 'B1-C1', taskType: 'tutor', prompt: '', pageTitle: pageTitle || topic}),
+    () => ({language, topic, level: language === 'German' ? 'A1' : 'B1-C1', taskType: 'tutor', prompt: '', pageTitle: pageTitle || topic}),
     [language, topic, pageTitle],
   );
   const session = usePracticeSession(lesson);

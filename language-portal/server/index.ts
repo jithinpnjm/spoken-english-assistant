@@ -28,6 +28,8 @@ import {
 import { attachAudioBridge, AUDIO_BRIDGE_PATH } from "./audioBridge";
 import { createChatHandler } from "./coach/chatHandler";
 import { serveStaticSite } from "./staticSite";
+import { installProgress } from "./progress";
+import { installAuth, authEnabled, requestUser } from "./auth";
 
 // Local development convenience: load language-portal/.env if present (never in production images).
 if (process.env.NODE_ENV !== "production") {
@@ -44,7 +46,7 @@ logRuntimeValidation(config);
 const app = express();
 app.disable("x-powered-by");
 const server = http.createServer(app);
-const bridge = attachAudioBridge(server, config);
+const bridge = attachAudioBridge(server, config, (request) => !authEnabled(config) || requestUser(request, config) !== null);
 
 const ai = new GoogleGenAI({
   apiKey: config.geminiApiKey,
@@ -53,9 +55,13 @@ const ai = new GoogleGenAI({
 
 app.get("/healthz", (_req, res) => res.json({ ok: true, live: bridge.stats() }));
 
+installAuth(app, config);
+
 app.use("/api", corsForAllowedOrigins(config));
 app.use("/api", express.json({ limit: `${Math.ceil(config.maxAudioBase64Bytes / 1_000_000) + 1}mb` }));
 app.use(apiRequestLogger);
+
+installProgress(app, config);
 
 app.get("/api/config", (_req, res) => {
   res.json({

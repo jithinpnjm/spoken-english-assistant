@@ -23,6 +23,7 @@
     "@docusaurus/core": "3.10.2",
     "@docusaurus/faster": "3.10.2",
     "@docusaurus/preset-classic": "3.10.2",
+    "@google-cloud/firestore": "^9.3.0",
     "@google/genai": "^2.24.0",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",

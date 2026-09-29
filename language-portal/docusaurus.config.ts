@@ -83,6 +83,16 @@ const config: Config = {
           label: 'English (A1-C1)',
         },
         {
+          to: '/live-coach',
+          label: 'Live Coach',
+          position: 'left',
+        },
+        {
+          to: '/progress',
+          label: 'My Progress',
+          position: 'left',
+        },
+        {
           href: 'https://github.com/jithinpjoseph/spoken-english-assistant',
           label: 'GitHub',
           position: 'right',

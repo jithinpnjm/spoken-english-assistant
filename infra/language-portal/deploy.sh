@@ -71,8 +71,9 @@ gcloud artifacts repositories describe "${REPO_NAME}" --location="${REGION}" >/d
 
 ensure_secret() {
   local name="$1"
+  local value="${2:-replace-me}"
   if ! gcloud secrets describe "${name}" --project="${PROJECT_ID}" >/dev/null 2>&1; then
-    printf "replace-me" | gcloud secrets create "${name}" --project="${PROJECT_ID}" --data-file=-
+    printf "%s" "${value}" | gcloud secrets create "${name}" --project="${PROJECT_ID}" --data-file=-
     echo "  ⚠  Secret ${name} created with a placeholder — set the real value before using the app:"
     echo "     printf '%s' 'REAL_VALUE' | gcloud secrets versions add ${name} --data-file=-"
   fi
@@ -80,7 +81,11 @@ ensure_secret() {
 
 echo "→ Ensuring secrets exist..."
 ensure_secret GEMINI_API_KEY
-SECRETS="GEMINI_API_KEY=GEMINI_API_KEY:latest"
+# Accounts ("name:password,name:password") and the cookie-signing key. Change a value later with:
+#   printf '%s' 'jithin:NEWPASS,sandra:NEWPASS' | gcloud secrets versions add AUTH_USERS --data-file=-
+ensure_secret AUTH_USERS "${INITIAL_AUTH_USERS:-jithin:password123,sandra:password123}"
+ensure_secret SESSION_SECRET "$(openssl rand -hex 32)"
+SECRETS="GEMINI_API_KEY=GEMINI_API_KEY:latest,AUTH_USERS=AUTH_USERS:latest,SESSION_SECRET=SESSION_SECRET:latest"
 if [[ "${USE_ACCESS_CODE}" == "true" ]]; then
   ensure_secret PRACTICE_ACCESS_CODE
   SECRETS="${SECRETS},PRACTICE_ACCESS_CODE=PRACTICE_ACCESS_CODE:latest"
@@ -105,12 +110,17 @@ for attempt in {1..12}; do
 done
 
 echo "→ Granting Secret Manager access to the service account..."
-for secret in GEMINI_API_KEY $([[ "${USE_ACCESS_CODE}" == "true" ]] && echo PRACTICE_ACCESS_CODE); do
+for secret in GEMINI_API_KEY AUTH_USERS SESSION_SECRET $([[ "${USE_ACCESS_CODE}" == "true" ]] && echo PRACTICE_ACCESS_CODE); do
   gcloud secrets add-iam-policy-binding "${secret}" \
     --project="${PROJECT_ID}" \
     --member="serviceAccount:${SERVICE_ACCOUNT_EMAIL}" \
     --role="roles/secretmanager.secretAccessor" >/dev/null
 done
+
+echo "→ Granting Firestore access (per-account progress) to the service account..."
+gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
+  --member="serviceAccount:${SERVICE_ACCOUNT_EMAIL}" \
+  --role="roles/datastore.user" >/dev/null
 
 echo "→ Building and pushing the image via Cloud Build (Docusaurus site + server bundle)..."
 gcloud builds submit --project="${PROJECT_ID}" --tag "${IMAGE}" "${APP_DIR}"

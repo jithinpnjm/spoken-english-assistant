@@ -10,6 +10,8 @@ import { initialPracticeState, MAX_REPEAT_ATTEMPTS, nextPracticeState, sanitizeS
 import { buildTeacherPrompt } from "./coach/teacherPrompt";
 import { analyseFluency } from "./coach/fluencySignal";
 import { buildLiveSetup } from "./audioBridge";
+import { checkCredentials, createSessionValue, readSessionValue } from "./auth";
+import { applyUpdate, validLessonPath } from "./progress";
 
 let passed = 0;
 function check(name: string, fn: () => void) {
@@ -129,6 +131,57 @@ check("origin and access code checks", () => {
 check("production config requires a Gemini key", () => {
   const result = validateRuntimeConfig(getRuntimeConfig({ NODE_ENV: "production" }));
   assert.ok(result.errors.some((item) => item.includes("GEMINI_API_KEY")));
+});
+
+
+const authConfig = getRuntimeConfig({
+  AUTH_USERS: "Jithin:password123, sandra:password123",
+  SESSION_SECRET: "s".repeat(40),
+});
+
+check("login: known users only, exact password, case-insensitive name", () => {
+  assert.equal(checkCredentials(authConfig, "Jithin", "password123"), "jithin");
+  assert.equal(checkCredentials(authConfig, " sandra ", "password123"), "sandra");
+  assert.equal(checkCredentials(authConfig, "jithin", "wrong"), null);
+  assert.equal(checkCredentials(authConfig, "someone", "password123"), null);
+  assert.equal(checkCredentials(authConfig, "__proto__", "x"), null);
+});
+
+check("session cookie: valid, tampered, expired and unknown user", () => {
+  const good = createSessionValue("jithin", authConfig.sessionSecret);
+  assert.equal(readSessionValue(good, authConfig), "jithin");
+  assert.equal(readSessionValue(good.slice(0, -2) + "xx", authConfig), null);
+  assert.equal(readSessionValue(createSessionValue("jithin", authConfig.sessionSecret, Date.now() - 31 * 86400_000), authConfig), null);
+  assert.equal(readSessionValue(createSessionValue("evil", authConfig.sessionSecret), authConfig), null);
+  assert.equal(readSessionValue(undefined, authConfig), null);
+});
+
+check("login gate needs a session secret", () => {
+  const result = validateRuntimeConfig(getRuntimeConfig({ NODE_ENV: "production", GEMINI_API_KEY: "k", AUTH_USERS: "a:b" }));
+  assert.ok(result.errors.some((item) => item.includes("SESSION_SECRET")));
+});
+
+check("progress updates: visit, done, undone and validation", () => {
+  const empty = { done: {}, visited: {} };
+  const visited = applyUpdate(empty, "/docs/german/a1/vol3-grammar/modal-verbs", "visit", "t1");
+  assert.equal(visited.visited["/docs/german/a1/vol3-grammar/modal-verbs"], "t1");
+  const done = applyUpdate(visited, "/docs/german/a1/vol3-grammar/modal-verbs", "done", "t2");
+  assert.equal(done.done["/docs/german/a1/vol3-grammar/modal-verbs"], "t2");
+  assert.deepEqual(applyUpdate(done, "/docs/german/a1/vol3-grammar/modal-verbs", "undone").done, {});
+  assert.equal(validLessonPath("/docs/german/a1/x"), true);
+  assert.equal(validLessonPath("/etc/passwd"), false);
+  assert.equal(validLessonPath("/docs/../secret"), false);
+});
+
+check("tutor persona is a C2 native speaker that adapts to the learner's level", () => {
+  const a1 = buildTeacherPrompt({ lesson: sanitizeLesson({ language: "German", topic: "t", level: "A1", taskType: "roleplay", prompt: "" }), mode: "chat" });
+  assert.match(a1, /C2-level mastery/);
+  assert.match(a1, /teach at the learner's level/);
+  assert.match(a1, /about 8 words/);
+  const b2 = buildTeacherPrompt({ lesson: sanitizeLesson({ language: "English", topic: "t", level: "B2-C1", taskType: "tutor", prompt: "" }), mode: "chat" });
+  assert.match(b2, /C2-level mastery/);
+  assert.match(b2, /B2: speak fluently/);
+  assert.doesNotMatch(b2, /about 8 words/);
 });
 
 console.log(`\n${passed} checks passed.`);

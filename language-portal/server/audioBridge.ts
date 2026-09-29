@@ -75,7 +75,7 @@ export function buildLiveSetup(rawLesson: unknown, config: Pick<RuntimeConfig, "
   };
 }
 
-export function attachAudioBridge(server: http.Server, config: RuntimeConfig) {
+export function attachAudioBridge(server: http.Server, config: RuntimeConfig, isAuthenticated: (request: http.IncomingMessage) => boolean = () => true) {
   const bridge = new WebSocketServer({ noServer: true, maxPayload: MAX_CLIENT_MESSAGE_BYTES });
   const sessionLimiter = new FixedWindowRateLimiter(config.liveSessionsPerHour, 60 * 60 * 1000);
   const activeByIp = new Map<string, number>();
@@ -89,6 +89,11 @@ export function attachAudioBridge(server: http.Server, config: RuntimeConfig) {
     }
     if (!isOriginAllowed(request, config)) {
       socket.write("HTTP/1.1 403 Forbidden\r\nConnection: close\r\n\r\n");
+      socket.destroy();
+      return;
+    }
+    if (!isAuthenticated(request)) {
+      socket.write("HTTP/1.1 401 Unauthorized\r\nConnection: close\r\n\r\n");
       socket.destroy();
       return;
     }
