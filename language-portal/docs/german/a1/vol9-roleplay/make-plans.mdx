@@ -17,7 +17,7 @@ tags: [A1, Communication, Planning, Pläne machen, Treffen, Abgemacht, Sprechen-
 
 ## 1. The 4 Steps of Collaborative Planning
 
-Whether in everyday life with friends or in the Goethe/telc speaking exam, making plans together follows four natural steps:
+In everyday life with friends (and later in the Goethe A2 and B1 speaking exams), making plans together follows four natural steps:
 
 ```text
 Step 1: Suggest Activity ➔ „Wollen wir am Samstag ins Schwimmbad gehen?“
@@ -36,6 +36,15 @@ Step 4: Divide Tasks     ➔ „Ich bringe Handtücher mit und du kaufst die Tic
   * *„Wir könnten doch am Nachmittag einen Kaffee trinken.“*
 * **„Was hältst du von...?“** (What do you think of...?)
   * *„Was hältst du von einem Picknick im Park?“*
+
+### When the first idea doesn't work: counter-proposals
+Real planning almost never works on the first try. Say **no + reason + new idea**:
+* *„Samstag **kann ich leider nicht**, da besuche ich meine Eltern. **Geht** Sonntag?“*
+* *„14 Uhr ist **zu früh** für mich. **Wie wäre es mit** 16 Uhr?“* (*Wie wäre es mit …?* – a fixed phrase: "How about …?")
+* *„Schwimmbad? Hm, **ich habe keine Lust** auf Schwimmen. **Wir könnten doch** ins Kino gehen.“*
+* *„Das ist mir **zu teuer**. **Lieber** ein Picknick im Park?“*
+
+Reacting to your partner's idea: *„Gute Idee!“* · *„Einverstanden.“* (agreed) · *„Das passt.“* · *„Hm, ich weiß nicht …“*
 
 ---
 
@@ -68,6 +77,25 @@ Decide on your answer, then click to reveal.
   **"It's a deal! / Agreed!"**
 </details>
 
+### Step 3: Say no and suggest something else (controlled production)
+3. Your friend: *„Wollen wir am Freitag um 18 Uhr joggen?“* – You work until 19 Uhr on Friday.
+<details>
+  <summary>Show a model answer</summary>
+
+  *„Freitag um 18 Uhr kann ich leider nicht, da arbeite ich bis 19 Uhr. Geht es am Samstagvormittag?“*
+</details>
+
+4. Your friend: *„Gehen wir ins Konzert? Die Karten kosten 90 Euro.“* – Too expensive for you.
+<details>
+  <summary>Show a model answer</summary>
+
+  *„Das ist mir leider zu teuer. Wir könnten doch in den Park gehen – das kostet nichts!“*
+</details>
+
+### Step 4: Your turn (independent production)
+Write a short chat (6–8 lines, both people) in which two friends plan a Sunday together. At least one suggestion must be
+rejected with a reason and replaced by a counter-proposal. End with *Abgemacht!*
+
 ---
 
 ## 5. AI Practice: Planning a Picnic in the Park
@@ -77,15 +105,15 @@ Practice planning a weekend picnic from scratch with your partner.
 import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
 
 <AIPracticeComponent 
-  topic="Planning a Picnic Together (Goethe Teil 3)" 
+  topic="Planning a Picnic Together (with counter-proposals)" 
   level="A1" 
   taskType="speaking" 
   prompt={`SYSTEM BEHAVIOR:
-1. Persona: You are an exam partner or friend (Mark) planning a weekend picnic with the user.
+1. Persona: You are a friend (Mark) planning a weekend picnic with the user. Use informal 'du'.
 2. Starting turn: "Hallo! Das Wetter soll am Sonntag toll werden. Wollen wir ein Picknick im Schlosspark machen?"
 3. Flow:
    - Turn 1: The user agrees and suggests a time (e.g. 'Tolle Idee! Wann treffen wir uns?').
-   - Turn 2: Suggest a time and ask about food: "Passt dir 13:00 Uhr? Und was sollen wir zu essen mitbringen?"
+   - Turn 2: Suggest a time that is inconvenient on purpose: "Passt dir 9 Uhr morgens?" The user should reject it with a reason and make a counter-proposal (e.g. 'Das ist zu früh. Wie wäre es mit 13 Uhr?'). Accept the counter-proposal and ask: "Und was sollen wir zu essen mitbringen?"
    - Turn 3: The user proposes food/drink division (e.g. 'Ich bringe Obst und Wasser mit, du bringst Brot mit').
    - Turn 4: Conclude: "Klasse! Treffen wir uns direkt am Parkeingang. Abgemacht, bis Sonntag um 13 Uhr!"
 4. Pedagogical feedback rules:
@@ -108,4 +136,5 @@ and wait until the learner repeats it before you continue the scenario. Praise c
 - [ ] Propose shared activities using **Wollen wir zusammen...?**.
 - [ ] Negotiate meeting times (*Wann hast du Zeit?*).
 - [ ] Agree on meeting locations (*Treffen wir uns vor dem...*).
+- [ ] Reject a suggestion politely with a reason and make a counter-proposal (*Samstag kann ich nicht. Geht Sonntag?*).
 - [ ] Confirm finalized plans with **„Abgemacht!“**.
