@@ -1,43 +1,70 @@
-# Website
+# Language Portal
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Docusaurus site with German (A1-C2) and English (A1-C1) lessons, plus a small Node server that powers the
+AI practice coach (`<AIPracticeComponent>` blocks and the floating tutor) with Google Gemini.
 
-## Installation
+```
+language-portal/
+├── docs/                 # lesson content (MDX)
+├── src/components/       # AIPracticeComponent, GlobalAITeacher
+├── src/lib/practice/     # browser side: chat session, Gemini Live voice hook
+├── server/               # Express + ws server: /api/chat, /api/transcribe, /api/audio-bridge, static site
+└── Dockerfile            # builds site + server bundle for Cloud Run
+```
+
+Deployment config (Terraform + deploy script) lives at the repo root in `infra/language-portal/`.
+
+## Local development
 
 ```bash
 npm install
+npm start                      # docs only, http://localhost:3000 (AI practice will not work)
 ```
 
-**Note**: feel free to use the package manager of your choice.
-
-## Local Development
+Full stack (docs + AI practice):
 
 ```bash
-npm run start
+cp .env.example .env           # set GEMINI_API_KEY
+npm run dev:server             # API on http://localhost:8080 (ALLOWED_ORIGINS=http://localhost:3000)
+PRACTICE_API_BASE=http://localhost:8080 npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+Production-like run:
 
 ```bash
-npm run build
+npm run build                  # docusaurus build -> build/, esbuild server -> dist/server.js
+GEMINI_API_KEY=... npm run start:server   # serves build/ and /api on http://localhost:8080
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Checks: `npm run typecheck`, `npm run check:server` (offline server logic checks).
 
-## Deployment
+## Using the practice component in MDX
 
-Using SSH:
+```mdx
+import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
 
-```bash
-USE_SSH=true npm run deploy
+<AIPracticeComponent
+  topic="Ordering at a bakery"
+  level="A1"
+  taskType="speaking"          // speaking | roleplay | listening -> voice + text; writing | reading -> text
+  prompt={`Persona, starting turn, flow, feedback rules...`}
+/>
 ```
 
-Not using SSH:
+`language` is inferred from the URL (`/docs/german/...` → German, otherwise English) and can be set
+explicitly with `language="German"`. The `prompt` is sent to the coach as the scenario; the server wraps it
+in the teacher contract (correction → reason → natural version → rewrite/repeat before moving on).
 
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
+## AI practice server
 
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+| Route | Purpose |
+|---|---|
+| `GET /healthz` | Liveness |
+| `GET /api/config` | Public client config (no secrets) |
+| `POST /api/chat` | Text practice turn (structured correction reply + lesson-flow state) |
+| `POST /api/transcribe` | Audio → text fallback for voice transcripts |
+| `WS /api/audio-bridge` | Gemini Live voice session (server holds the API key) |
+
+There is no user login. Abuse protection: per-IP rate limits, same-origin checks, voice session caps
+(per IP, total, max duration), input size limits, and an optional shared `PRACTICE_ACCESS_CODE`.
+All knobs are listed in `.env.example`.

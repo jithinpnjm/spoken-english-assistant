@@ -1,0 +1,14 @@
+project_id         = "my-personal-data-430607"
+region             = "asia-south1"
+service_name       = "language-portal"
+repo_name          = "language-portal"
+gemini_model       = "gemini-3.1-flash-lite"
+gemini_live_model  = "models/gemini-3.1-flash-live-preview"
+enable_access_code = true
+image              = "asia-south1-docker.pkg.dev/my-personal-data-430607/language-portal/language-portal:latest"
+
+# extra_env = {
+#   CHAT_REQUESTS_PER_MINUTE = "20"
+#   LIVE_SESSIONS_PER_HOUR   = "12"
+#   LIVE_MAX_SESSION_SECONDS = "600"
+# }

@@ -1,25 +1,21 @@
-FROM node:20-alpine
+# language-portal: Docusaurus static site + Node practice server (Express + ws + @google/genai).
+# Builder stage compiles both the static site (build/) and a self-contained server bundle (dist/server.js,
+# all npm dependencies inlined by esbuild), so the runtime image needs no node_modules at all.
 
+FROM node:22-slim AS builder
 WORKDIR /app
-
-# Copy dependency definitions
 COPY package*.json ./
-
-# Install dependencies
 RUN npm ci
-
-# Copy the rest of the application
 COPY . .
-
-# Build the Docusaurus site
 RUN npm run build
 
-# Install a simple static server
-RUN npm install -g serve
-
-# Cloud Run uses the PORT environment variable (defaults to 8080)
-ENV PORT=8080
+FROM node:22-slim
+WORKDIR /app
+ENV NODE_ENV=production \
+    PORT=8080 \
+    STATIC_DIR=build
+COPY --from=builder --chown=node:node /app/build ./build
+COPY --from=builder --chown=node:node /app/dist ./dist
+USER node
 EXPOSE 8080
-
-# Serve the static build output
-CMD ["serve", "-s", "build", "-l", "tcp://0.0.0.0:8080"]
+CMD ["node", "--enable-source-maps", "dist/server.js"]
