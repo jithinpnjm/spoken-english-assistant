@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Language Portal',
-  tagline: 'A complete German A1 course with an AI practice coach',
+  tagline: 'A complete German A1 course and a spoken-English course, each with an AI practice coach',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -48,13 +48,12 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Portal is German A1 only for now; the other content stays in the repo but is not built or shown.
+          // German A2/B1+ stay in the repo but are not built or shown; German is A1 only for now.
           exclude: [
             '**/_*.{js,jsx,ts,tsx,md,mdx}',
             '**/_*/**',
             '**/*.test.{js,jsx,ts,tsx}',
             '**/__tests__/**',
-            'english/**',
             'german/a2/**',
             'german/b1/**',
             'german/b2/**',
@@ -90,6 +89,12 @@ const config: Config = {
           label: 'German A1 Course',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'englishSidebar',
+          position: 'left',
+          label: 'English Coach',
+        },
+        {
           to: '/live-coach',
           label: 'Live Coach',
           position: 'left',
@@ -115,6 +120,15 @@ const config: Config = {
             {
               label: 'German: Start Here',
               to: '/docs/german/course-guide/how-this-course-works',
+            },
+          ],
+        },
+        {
+          title: 'English',
+          items: [
+            {
+              label: 'English Coach: Start Here',
+              to: '/docs/english/overview',
             },
           ],
         },

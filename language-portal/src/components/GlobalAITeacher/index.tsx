@@ -2,13 +2,20 @@ import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {useLocation} from '@docusaurus/router';
 import {usePracticeSession} from '../../lib/practice/usePracticeSession';
 import type {LessonContext} from '../../lib/practice/types';
-import {AccessCodeForm, TranscriptItem} from '../AIPracticeComponent';
+import {AccessCodeForm, TranscriptItem, languageFromPath} from '../AIPracticeComponent';
 import styles from './styles.module.css';
 
 function topicFromPath(pathname: string) {
   const last = pathname.replace(/\/$/, '').split('/').pop() || '';
   const words = last.replace(/^[a-z]\d{2}-/i, '').replace(/-/g, ' ').trim();
   return words || 'the home page';
+}
+
+function levelFromPath(pathname: string, language: string) {
+  if (language === 'German') return 'A1';
+  if (pathname.includes('/a1-a2-')) return 'A1-A2';
+  if (pathname.includes('/b2-c1-')) return 'B2-C1';
+  return 'B1-B2';
 }
 
 function TutorPanel({onClose}: {onClose: () => void}) {
@@ -18,10 +25,10 @@ function TutorPanel({onClose}: {onClose: () => void}) {
     setPageTitle(document.title.split('|')[0].trim());
   }, [pathname]);
 
-  const language = 'German' as const;
+  const language = languageFromPath(pathname);
   const topic = topicFromPath(pathname);
   const lesson: LessonContext = useMemo(
-    () => ({language, topic, level: 'A1', taskType: 'tutor', prompt: '', pageTitle: pageTitle || topic}),
+    () => ({language, topic, level: levelFromPath(pathname, language), taskType: 'tutor', prompt: '', pageTitle: pageTitle || topic}),
     [language, topic, pageTitle],
   );
   const session = usePracticeSession(lesson);

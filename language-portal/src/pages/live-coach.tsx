@@ -16,21 +16,52 @@ const GERMAN: Scenario[] = [
   {label: 'Introducing yourself', topic: 'Introducing yourself', prompt: 'You meet the learner at a language course. Practise name, origin, job, family and hobbies with very simple questions.'},
 ];
 
+const ENGLISH: Scenario[] = [
+  {label: 'Free conversation (speaking coach)', topic: 'Free conversation', prompt: 'Act as a supportive English speaking coach. Ask one question at a time about the learner\'s life, work and opinions. Correct mistakes with the correction loop, suggest more natural phrasing, and help the learner build confidence to keep talking.'},
+  {label: 'Everyday small talk', topic: 'Small talk', prompt: 'You are a friendly colleague or neighbour making small talk (weekend, weather, plans, news). Keep it natural and give the learner chances to ask questions back.'},
+  {label: 'Job interview', topic: 'Job interview', prompt: 'You are an interviewer for a professional role. Ask realistic questions one at a time and give feedback on clarity, structure and vocabulary.'},
+  {label: 'Work meeting / stand-up', topic: 'Work meeting', prompt: 'You are a colleague in a team meeting. Ask for a status update, ask follow-up questions, and let the learner disagree or suggest alternatives politely.'},
+  {label: 'Explaining a technical problem', topic: 'Technical explanation', prompt: 'You are a non-technical manager. The learner explains a technical problem or decision in simple, clear English; ask clarifying questions when something is unclear.'},
+  {label: 'Phone call with a customer', topic: 'Customer phone call', prompt: 'You are a customer calling about a problem. The learner handles the call politely: clarify the issue, offer a solution, agree next steps.'},
+  {label: 'Negotiating / disagreeing politely', topic: 'Polite negotiation', prompt: 'You are a counterpart in a negotiation about deadlines or scope. Push back realistically; the learner uses diplomatic language to reach a compromise.'},
+];
 export default function LiveCoach(): React.JSX.Element {
-  const language = 'German' as const;
-  const level = 'A1';
+  const [language, setLanguage] = useState<'German' | 'English'>('German');
+  const [level, setLevel] = useState('A1');
   const [index, setIndex] = useState(0);
-  const list = GERMAN;
+  const list = language === 'German' ? GERMAN : ENGLISH;
   const scenario = list[Math.min(index, list.length - 1)];
+  const levels = language === 'German' ? ['A1'] : ['A1-A2', 'B1-B2', 'B2-C1'];
+
+  const switchLanguage = (next: 'German' | 'English') => {
+    setLanguage(next);
+    setIndex(0);
+    setLevel(next === 'German' ? 'A1' : 'B1-B2');
+  };
   return (
     <Layout title="Live Coach" description="Talk or type with an AI coach that corrects you and makes you repeat.">
       <main className="container margin-vert--lg" style={{maxWidth: 860}}>
         <h1>Live Coach</h1>
         <p>
-          Practise your A1 German out loud or in writing. The coach speaks first, corrects your mistakes with a short reason, and asks you to repeat
+          Practise German (A1) or English out loud or in writing. The coach speaks first, corrects your mistakes with a short reason, and asks you to repeat
           the corrected sentence before moving on. Start the voice session with the microphone button and allow microphone access.
         </p>
         <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem'}}>
+          <label>
+            Language{' '}
+            <select value={language} onChange={(e) => switchLanguage(e.target.value as 'German' | 'English')}>
+              <option>German</option>
+              <option>English</option>
+            </select>
+          </label>
+          <label>
+            Level{' '}
+            <select value={level} onChange={(e) => setLevel(e.target.value)}>
+              {levels.map((item) => (
+                <option key={item}>{item}</option>
+              ))}
+            </select>
+          </label>
           <label>
             Scenario{' '}
             <select value={index} onChange={(e) => setIndex(Number(e.target.value))}>
@@ -43,7 +74,7 @@ export default function LiveCoach(): React.JSX.Element {
           </label>
         </div>
         <AIPracticeComponent
-          key={index}
+          key={`${language}-${level}-${index}`}
           topic={scenario.topic}
           level={level}
           taskType="roleplay"

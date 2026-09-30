@@ -31,8 +31,8 @@ export default function ProgressPage(): React.JSX.Element {
         for (const doc of version.docs) {
           const path = norm(doc.path);
           const parts = path.split('/'); // ['', 'docs', 'german', 'a1', 'vol3-grammar', 'x']
-          if (parts.length < 6) continue;
-          const key = parts.slice(0, 5).join('/');
+          if (parts.length < 5) continue;
+          const key = parts.slice(0, Math.min(5, parts.length - 1)).join('/');
           map.set(key, [...(map.get(key) || []), path]);
         }
       }
