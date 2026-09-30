@@ -38,6 +38,8 @@ A study guide is not complete if it only explains grammar. It must make the lear
 - Does the chapter make sense at this point of the learning path (no dependence on five unseen concepts)?
 - Does it anticipate typical English-speaker errors?
 - Is there enough guided practice, and does it end with production/application?
+- For A1, does every task use grammar already taught in the A1 path, or clearly present a useful expression as a memorized chunk?
+- Are later-level patterns kept out of A1 objectives, answer keys, and AI learner-output requirements? If a learner may hear one, label it recognition-only; do not ask them to produce or explain its grammar.
 
 ## 3. Wording rules (accuracy)
 

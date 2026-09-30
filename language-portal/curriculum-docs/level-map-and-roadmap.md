@@ -48,9 +48,12 @@ with correction**.
 | 13 | time expressions um/am/im, heute/morgen | appointments, Hören | 1.5, 3.20 |
 | 14 | connectors und/aber/oder/denn | short messages | 3.14 |
 | 15 | imperative (Sie/du/ihr) | instructions, requests (Sprechen Teil 3) | 3.15 |
-| 16 | dative intro, basic prepositions | mit dem Bus, zum Arzt, Wie geht es Ihnen? | 3.10, 3.13 |
-| 17 | war / hatte; Perfekt introduction | "Ich war krank", talking about yesterday | 3.16, 3.18 |
-| 18 | polite requests (möchte, hätte gern, könnten Sie) | shops, services, Sprechen Teil 3 | 3.17 |
+| 16 | useful dative phrases and basic preposition chunks | *mit dem Bus, zum Arzt, Wie geht es Ihnen?, Können Sie mir helfen?* | 3.10, 3.13 |
+| 17 | *war / hatte* and a small spoken-past starter | *Ich war krank. Ich habe Pizza gegessen. Ich bin nach Hause gegangen.* | 3.16, 3.18 |
+| 18 | polite request phrases (*Ich möchte …, Ich hätte gern …, Können Sie bitte …?*) | shops, services, Sprechen Teil 3; optional chunks such as *Könnten Sie bitte …?* | 3.17 |
+
+A1 grammar pages teach only the forms learners need for these outcomes. Useful fixed expressions may be practised as
+whole phrases; do not make full paradigms, uncommon exceptions, or unintroduced clause patterns A1 requirements.
 
 A1 exam/life outcomes: introduce yourself; answer personal questions; spell and give numbers; understand short
 announcements/messages; read signs, short messages and ads; fill a form; write a ~30-word message with three

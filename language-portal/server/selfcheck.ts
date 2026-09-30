@@ -79,7 +79,7 @@ check("chat prompt keeps the correction contract and chat-mode wording", () => {
     state: { phase: "practice", learnerTurns: 1, repeatAttempts: 0 },
   });
   assert.match(prompt, /rewrite in chat/);
-  assert.match(prompt, /Never ignore a mistake/);
+  assert.match(prompt, /Do not let a high-value error pass/);
   assert.match(prompt, /<scenario>\nAsk about yesterday\.\n<\/scenario>/);
   assert.match(prompt, /CHAT TEXT MODE/);
   assert.doesNotMatch(prompt, /repeat aloud/);
@@ -173,15 +173,27 @@ check("progress updates: visit, done, undone and validation", () => {
   assert.equal(validLessonPath("/docs/../secret"), false);
 });
 
-check("tutor persona is a C2 native speaker that adapts to the learner's level", () => {
+check("tutor adapts to the learner's level without setting native speech as a goal", () => {
   const a1 = buildTeacherPrompt({ lesson: sanitizeLesson({ language: "German", topic: "t", level: "A1", taskType: "roleplay", prompt: "" }), mode: "chat" });
   assert.match(a1, /C2-level mastery/);
   assert.match(a1, /teach at the learner's level/);
   assert.match(a1, /about 8 words/);
   const b2 = buildTeacherPrompt({ lesson: sanitizeLesson({ language: "English", topic: "t", level: "B2-C1", taskType: "tutor", prompt: "" }), mode: "chat" });
   assert.match(b2, /C2-level mastery/);
+  assert.match(b2, /highly proficient English speaker/);
+  assert.match(b2, /do not need to sound native/i);
   assert.match(b2, /B2: speak fluently/);
   assert.doesNotMatch(b2, /about 8 words/);
+});
+
+check("English speaking coach builds confidence without native-speaker scoring", () => {
+  const c1 = buildTeacherPrompt({ lesson: sanitizeLesson({ language: "English", topic: "Storytelling", level: "C1", taskType: "speaking", prompt: "Tell a story." }), mode: "live" });
+  assert.match(c1, /do not need to sound native/i);
+  assert.match(c1, /let the learner finish their story/i);
+  assert.match(c1, /numeric scores only when the authored activity explicitly calls for a checkpoint/i);
+  assert.match(c1, /C1: communicate flexibly and effectively/i);
+  const german = buildTeacherPrompt({ lesson: sanitizeLesson({ language: "German", topic: "Modal verbs", level: "A1", taskType: "speaking", prompt: "Practise modal verbs." }), mode: "live" });
+  assert.doesNotMatch(german, /SPOKEN-ENGLISH CONFIDENCE POLICY/);
 });
 
 console.log(`\n${passed} checks passed.`);

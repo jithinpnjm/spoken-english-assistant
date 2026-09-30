@@ -28,6 +28,8 @@ The Listening module (**Hören**) lasts approximately **20 minutes** and consist
 Source: official Goethe A1 Modellsatz and the Goethe *Durchführungsbestimmungen* for Start Deutsch 1 (valid from
 1 September 2025). For each text you first read the task, then hear the text.
 
+**Important:** listening practice must start with spoken German, before you see a transcript. Use voice practice below or ask a partner to read the hidden scripts. Text-only chat checks reading comprehension, not listening.
+
 **Exam-day facts (verified against the official regulations):**
 * Hören usually comes first; the recording is played for the whole room. You mark your answers on the task sheets first
   and then transfer them to the answer sheet (*Antwortbogen*) – about **5 minutes** for this are included in the ~20 minutes.
@@ -90,9 +92,47 @@ Question: *Wann ist der neue Termin für Frau Miller?*
 
 ---
 
-## 5. AI Practice: Goethe A1 Hören Simulation
+## 5. Practice all three A1 listening task types
 
-Practice your listening comprehension with an authentic voicemail task.
+Use voice practice or ask a partner to read each hidden script. Read the question first, listen without looking at the script, and answer before revealing it.
+
+### Teil 1 — Short conversation (heard twice)
+
+**Question:** Wann beginnt der Film? <br />
+A) Um 18 Uhr · B) Um 19:30 Uhr · C) Um 20 Uhr
+
+<details>
+  <summary>Partner/coach script — reveal after answering</summary>
+
+  *„Der Film beginnt um 18 Uhr.“ – „Um sechs? Das schaffe ich nicht. Gibt es noch eine Vorstellung?“ – „Ja, um halb acht.“ – „Gut, dann nehme ich die Vorstellung um halb acht.“*
+
+  **Answer: B.** The first time is changed; *halb acht* is 19:30.
+</details>
+
+### Teil 2 — Public announcement (heard once)
+
+**Statement:** *Der Zug nach Mainz fährt heute von Gleis 3.* **Richtig oder falsch?**
+
+<details>
+  <summary>Partner/coach script — reveal after answering</summary>
+
+  *„Achtung an Gleis 2: Der Zug nach Mainz fährt heute von Gleis 5. Bitte achten Sie auf die Anzeige.“*
+
+  **Answer: Falsch.** The train leaves from Gleis 5.
+</details>
+
+### Teil 3 — Voicemail (heard twice)
+
+**Question:** Wann soll Leonie zum Deutschkurs kommen? <br />
+A) Am Montag um 9 Uhr · B) Am Dienstag um 9 Uhr · C) Am Dienstag um 10 Uhr
+
+<details>
+  <summary>Partner/coach script — reveal after answering</summary>
+
+  *„Hallo Leonie, hier ist Frau Weber vom Deutschkurs. Der Kurs am Montag um neun fällt aus. Bitte kommen Sie am Dienstag um zehn Uhr. Bringen Sie Ihr Buch mit. Auf Wiederhören.“*
+
+  **Answer: C.** Monday is cancelled; the new time is Tuesday at 10.
+</details>
 
 import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
 
@@ -101,23 +141,19 @@ import AIPracticeComponent from '@site/src/components/AIPracticeComponent';
   level="A1" 
   taskType="listening" 
   prompt={`SYSTEM BEHAVIOR:
-EXAM-STYLE SIMULATION (Goethe A1 Hören Teil 3 format – original practice item, not an official task).
-1. Act as an exam-practice interface.
-2. Provide a simulated voicemail transcript representing audio:
-   "Hallo Thomas, hier ist Jan. Du wolltest doch mein altes Fahrrad kaufen. Ich habe es repariert. Ich bin heute ab 17 Uhr zu Hause, aber ab 19 Uhr bin ich beim Sport. Komm am besten um sechs vorbei! Bis später."
-3. Present the question:
-   "Wann soll Thomas das Fahrrad abholen?"
-   A) Um 17:00 Uhr
-   B) Um 18:00 Uhr
-   C) Um 19:00 Uhr
-4. The user must reply with A, B, or C.
-5. If they pick A or C, explain the distractor trap: 17:00 is when Jan arrives home; 19:00 is when he leaves for sport; 18:00 ("um sechs") is the agreed pickup time.
+EXAM-STYLE PRACTICE (original A1 material, not an official task).
+1. In live voice mode, run one listening item at a time. Speak the German text only; do not display or repeat its transcript before the learner answers.
+2. Use an original short everyday conversation for Teil 1 (play it twice), a public announcement for Teil 2 (play it once), or a voicemail for Teil 3 (play it twice).
+3. Ask one A/B/C or Richtig/Falsch question and wait for the learner's answer.
+4. After the answer, explain the key detail in simple English and then show the transcript. Point out a changed time, place, or negation if relevant.
+5. Across the session, let the learner try all three task types.
+6. In text chat, do not present a transcript as if it were audio. Explain that text chat tests reading, then invite the learner to switch to voice mode or ask a partner to read the scripts on the page.
 
 CORRECTION LOOP (always): after each learner turn that contains a mistake, reply with
    Corrected German: <full corrected sentence>
    Why: <one short sentence in English>
    Now repeat: <the corrected sentence>
-and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly.`} 
+and wait until the learner repeats it before you continue the scenario. Praise correct answers briefly. Never claim displayed text was audio.`}
 />
 
 ---
