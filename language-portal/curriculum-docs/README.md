@@ -16,6 +16,7 @@ folder to understand, extend, or teach this course.
 | `level-map-and-roadmap.md` | A0 → A1 → A2 → B1 level map, grammar map, vocabulary map, exam-section-to-grammar map, living-in-Germany survival track, and the concrete build plan for A2 (currently stubs) and B1 (not yet built). |
 | `migration-map.md` | Historical record: every old planning topic → where it lives now → action taken → reason. |
 | `migration-audit.md` | Audit report of the migration: what was reviewed, created, rewritten, preserved, archived, validated, and what is still weak. |
+| `notes-enrichment-map.md` | Gap analysis of the learner's handwritten A1 notes and two third-party books against the A1 chapters: classification per item, what was added where, and every source error found (not imported). |
 
 ## Non-negotiable principles (summary)
 
