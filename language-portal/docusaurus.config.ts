@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Language Portal',
-  tagline: 'Structured German and English lessons with an AI practice coach',
+  tagline: 'A complete German A1 course with an AI practice coach',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -48,6 +48,19 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          // Portal is German A1 only for now; the other content stays in the repo but is not built or shown.
+          exclude: [
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+            'english/**',
+            'german/a2/**',
+            'german/b1/**',
+            'german/b2/**',
+            'german/c-level/**',
+            'german/course-guide/a2-b1-roadmap.mdx',
+          ],
         },
         blog: false,
         theme: {
@@ -74,13 +87,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'germanSidebar',
           position: 'left',
-          label: 'German (A0-A1; A2 & B1 in progress)',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'englishSidebar',
-          position: 'left',
-          label: 'English (A1-C1)',
+          label: 'German A1 Course',
         },
         {
           to: '/live-coach',
@@ -108,19 +115,6 @@ const config: Config = {
             {
               label: 'German: Start Here',
               to: '/docs/german/course-guide/how-this-course-works',
-            },
-          ],
-        },
-        {
-          title: 'English',
-          items: [
-            {
-              label: 'How the English course works',
-              to: '/docs/english/overview',
-            },
-            {
-              label: 'A1-A2 Foundations',
-              to: '/docs/english/a1-a2-foundations/b01-sound-pronunciation-core',
             },
           ],
         },

@@ -16,50 +16,21 @@ const GERMAN: Scenario[] = [
   {label: 'Introducing yourself', topic: 'Introducing yourself', prompt: 'You meet the learner at a language course. Practise name, origin, job, family and hobbies with very simple questions.'},
 ];
 
-const ENGLISH: Scenario[] = [
-  {label: 'Free conversation', topic: 'Free conversation', prompt: 'Act as a supportive English speaking coach. Ask one question at a time, correct mistakes with the correction loop, and keep the conversation natural.'},
-  {label: 'Job interview', topic: 'Job interview', prompt: 'You are an interviewer for a professional role. Ask realistic questions and give feedback on answers.'},
-  {label: 'Work meeting', topic: 'Work meeting', prompt: 'You are a colleague in a team meeting. Discuss a project update and ask follow-up questions.'},
-];
-
 export default function LiveCoach(): React.JSX.Element {
-  const [language, setLanguage] = useState<'German' | 'English'>('German');
-  const [level, setLevel] = useState('A1');
+  const language = 'German' as const;
+  const level = 'A1';
   const [index, setIndex] = useState(0);
-  const list = language === 'German' ? GERMAN : ENGLISH;
+  const list = GERMAN;
   const scenario = list[Math.min(index, list.length - 1)];
-  const levels = language === 'German' ? ['A1', 'A2', 'B1'] : ['A1-A2', 'B1-B2', 'B2-C1'];
-
-  const switchLanguage = (next: 'German' | 'English') => {
-    setLanguage(next);
-    setIndex(0);
-    setLevel(next === 'German' ? 'A1' : 'B1-B2');
-  };
-
   return (
     <Layout title="Live Coach" description="Talk or type with an AI coach that corrects you and makes you repeat.">
       <main className="container margin-vert--lg" style={{maxWidth: 860}}>
         <h1>Live Coach</h1>
         <p>
-          Practise out loud or in writing. The coach speaks first, corrects your mistakes with a short reason, and asks you to repeat
+          Practise your A1 German out loud or in writing. The coach speaks first, corrects your mistakes with a short reason, and asks you to repeat
           the corrected sentence before moving on. Start the voice session with the microphone button and allow microphone access.
         </p>
         <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem'}}>
-          <label>
-            Language{' '}
-            <select value={language} onChange={(e) => switchLanguage(e.target.value as 'German' | 'English')}>
-              <option>German</option>
-              <option>English</option>
-            </select>
-          </label>
-          <label>
-            Level{' '}
-            <select value={level} onChange={(e) => setLevel(e.target.value)}>
-              {levels.map((item) => (
-                <option key={item}>{item}</option>
-              ))}
-            </select>
-          </label>
           <label>
             Scenario{' '}
             <select value={index} onChange={(e) => setIndex(Number(e.target.value))}>
@@ -72,7 +43,7 @@ export default function LiveCoach(): React.JSX.Element {
           </label>
         </div>
         <AIPracticeComponent
-          key={`${language}-${level}-${index}`}
+          key={index}
           topic={scenario.topic}
           level={level}
           taskType="roleplay"

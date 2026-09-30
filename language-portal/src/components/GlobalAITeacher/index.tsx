@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {useLocation} from '@docusaurus/router';
 import {usePracticeSession} from '../../lib/practice/usePracticeSession';
 import type {LessonContext} from '../../lib/practice/types';
-import {AccessCodeForm, TranscriptItem, languageFromPath} from '../AIPracticeComponent';
+import {AccessCodeForm, TranscriptItem} from '../AIPracticeComponent';
 import styles from './styles.module.css';
 
 function topicFromPath(pathname: string) {
@@ -18,10 +18,10 @@ function TutorPanel({onClose}: {onClose: () => void}) {
     setPageTitle(document.title.split('|')[0].trim());
   }, [pathname]);
 
-  const language = languageFromPath(pathname);
+  const language = 'German' as const;
   const topic = topicFromPath(pathname);
   const lesson: LessonContext = useMemo(
-    () => ({language, topic, level: language === 'German' ? 'A1' : 'B1-C1', taskType: 'tutor', prompt: '', pageTitle: pageTitle || topic}),
+    () => ({language, topic, level: 'A1', taskType: 'tutor', prompt: '', pageTitle: pageTitle || topic}),
     [language, topic, pageTitle],
   );
   const session = usePracticeSession(lesson);

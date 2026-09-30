@@ -14,7 +14,7 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title">
           The Intelligent Language Portal
         </Heading>
-        <p className="hero__subtitle">Learn German from your first day in Germany to Goethe A1 (A2 and B1 in progress), and spoken English (A1-C1), through structured theory and AI-driven practice.</p>
+        <p className="hero__subtitle">A complete German A1 course for life in Germany and the Goethe A1 exam: clear lessons, real-life scenarios and an AI coach that makes you speak and write.</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
@@ -24,8 +24,8 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             style={{marginLeft: '10px'}}
-            to="/docs/english/overview">
-            Start English (A1-C1) 🇬🇧
+            to="/live-coach">
+            Talk to the Live Coach
           </Link>
         </div>
       </div>
