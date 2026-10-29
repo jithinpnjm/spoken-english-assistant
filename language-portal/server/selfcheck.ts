@@ -99,6 +99,10 @@ check("live setup is built server-side with the German policy", () => {
   assert.match(text, /Persona: baker/);
 });
 
+check("default live model is the supported non-legacy model", () => {
+  assert.equal(getRuntimeConfig({}).geminiLiveModel, "models/gemini-3.8-live");
+});
+
 check("fluency signal targets real words only", () => {
   assert.equal(analyseFluency("We was at home.", "Beginner").pronunciationFocus.includes("/v/"), false);
   assert.match(analyseFluency("I worked very hard.", "Intermediate").pronunciationFocus, /\/v\//);

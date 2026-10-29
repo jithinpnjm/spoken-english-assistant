@@ -75,7 +75,12 @@ export function buildLiveSetup(rawLesson: unknown, config: Pick<RuntimeConfig, "
   };
 }
 
-export function attachAudioBridge(server: http.Server, config: RuntimeConfig, isAuthenticated: (request: http.IncomingMessage) => boolean = () => true) {
+export function attachAudioBridge(
+  server: http.Server,
+  config: RuntimeConfig,
+  isAuthenticated: (request: http.IncomingMessage) => boolean = () => true,
+  createUpstream: (url: string) => WebSocket = (url) => new WebSocket(url),
+) {
   const bridge = new WebSocketServer({ noServer: true, maxPayload: MAX_CLIENT_MESSAGE_BYTES });
   const sessionLimiter = new FixedWindowRateLimiter(config.liveSessionsPerHour, 60 * 60 * 1000);
   const activeByIp = new Map<string, number>();
@@ -163,7 +168,7 @@ export function attachAudioBridge(server: http.Server, config: RuntimeConfig, is
     };
 
     const openUpstream = (setupMessage: unknown) => {
-      upstream = new WebSocket(buildServiceUrl(config.geminiApiKey));
+      upstream = createUpstream(buildServiceUrl(config.geminiApiKey));
       queue.push(JSON.stringify(setupMessage));
 
       upstream.on("open", () => {
@@ -173,12 +178,13 @@ export function attachAudioBridge(server: http.Server, config: RuntimeConfig, is
         if (client.readyState === WebSocket.OPEN) client.send(message.toString());
       });
       upstream.on("error", (err) => {
+        // ws emits close after error. Let the close handler forward the provider's
+        // code/reason instead of replacing it with an unhelpful generic 1011.
         console.warn("[AudioBridge] Upstream error:", err?.message || err);
-        closeBoth(1011, "Audio bridge upstream error");
       });
       upstream.on("close", (code, reason) => {
         if (code !== 1000) console.warn(`[AudioBridge] Upstream closed: ${code} ${reason.toString()}`);
-        closeBoth(sendableCloseCode(code, 1000), reason.toString() || "Audio bridge closed");
+        closeBoth(sendableCloseCode(code), reason.toString() || "Gemini Live connection closed");
       });
     };
 

@@ -34,7 +34,7 @@ variable "gemini_model" {
 variable "gemini_live_model" {
   type        = string
   description = "Gemini Live model for the /api/audio-bridge voice sessions."
-  default     = "models/gemini-3.1-flash-live-preview"
+  default     = "models/gemini-3.8-live"
 }
 
 variable "enable_access_code" {
