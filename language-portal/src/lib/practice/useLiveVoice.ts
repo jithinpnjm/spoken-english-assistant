@@ -14,16 +14,7 @@ const RECONNECT_DELAY_MS = 2500;
 const MAX_RECONNECT_ATTEMPTS = 3;
 const IDLE_TIMEOUT_MS = 3 * 60 * 1000;
 const BRIDGE_PATH = '/api/audio-bridge';
-// 1011 is often a transient Gemini Live upstream failure; retry it, but never
-// retry a bridgeError (e.g. missing API key) or a policy/configuration failure.
-const NO_RETRY_CLOSE_CODES = new Set([1000, 1008, 1013, 4000]);
-
-export function voiceCloseMessage(code: number, reason: string): string {
-  if (code === 1011) {
-    return `Gemini Live could not keep the voice connection open${reason && reason !== 'Gemini Live connection closed' ? ` (${reason})` : ''}. Please try again. If this continues, check the server logs and GEMINI_LIVE_MODEL.`;
-  }
-  return `Voice session ended (${code || 'network error'}${reason ? `: ${reason}` : ''}). Please start again.`;
-}
+const NO_RETRY_CLOSE_CODES = new Set([1000, 1008, 1011, 1013, 4000]);
 
 export interface VoiceTranscript {
   role: 'learner' | 'teacher';
@@ -294,6 +285,7 @@ export function useLiveVoice(options: LiveVoiceOptions) {
           }
 
           if (msg.setupComplete) {
+            reconnectAttemptsRef.current = 0;
             const source = captureCtx.createMediaStreamSource(stream);
             sourceRef.current = source;
             const processor = captureCtx.createScriptProcessor(2048, 1, 1);
@@ -412,7 +404,7 @@ export function useLiveVoice(options: LiveVoiceOptions) {
             return;
           }
           if (e.code !== 1000 && !intentionalStopRef.current && !noRetryRef.current) {
-            setError(voiceCloseMessage(e.code, e.reason));
+            setError(`Voice session ended (${e.code || 'network error'}). Please start again.`);
           }
           const hadServerMessage = noRetryRef.current;
           stop();

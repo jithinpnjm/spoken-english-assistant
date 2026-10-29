@@ -38,12 +38,6 @@ GEMINI_API_KEY=... npm run start:server   # serves build/ and /api on http://loc
 
 Checks: `npm run typecheck`, `npm run check:server` (offline server logic checks).
 
-If voice sessions disconnect with 1011, check the server's `[AudioBridge] Upstream closed` log for the
-Gemini close reason. The default Live model is `models/gemini-3.8-live`; an existing `.env` or deployment
-`GEMINI_LIVE_MODEL` overrides that default, so update the override if it still selects the legacy
-`gemini-3.1-flash-live-preview` model. Transient upstream 1011 failures retry up to three times; a
-repeated failure displays the close reason in the UI. This does not replace a valid `GEMINI_API_KEY`.
-
 ## Using the practice component in MDX
 
 ```mdx

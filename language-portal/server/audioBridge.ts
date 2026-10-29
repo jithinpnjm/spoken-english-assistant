@@ -75,12 +75,7 @@ export function buildLiveSetup(rawLesson: unknown, config: Pick<RuntimeConfig, "
   };
 }
 
-export function attachAudioBridge(
-  server: http.Server,
-  config: RuntimeConfig,
-  isAuthenticated: (request: http.IncomingMessage) => boolean = () => true,
-  createUpstream: (url: string) => WebSocket = (url) => new WebSocket(url),
-) {
+export function attachAudioBridge(server: http.Server, config: RuntimeConfig, isAuthenticated: (request: http.IncomingMessage) => boolean = () => true) {
   const bridge = new WebSocketServer({ noServer: true, maxPayload: MAX_CLIENT_MESSAGE_BYTES });
   const sessionLimiter = new FixedWindowRateLimiter(config.liveSessionsPerHour, 60 * 60 * 1000);
   const activeByIp = new Map<string, number>();
@@ -168,7 +163,7 @@ export function attachAudioBridge(
     };
 
     const openUpstream = (setupMessage: unknown) => {
-      upstream = createUpstream(buildServiceUrl(config.geminiApiKey));
+      upstream = new WebSocket(buildServiceUrl(config.geminiApiKey));
       queue.push(JSON.stringify(setupMessage));
 
       upstream.on("open", () => {
@@ -178,13 +173,12 @@ export function attachAudioBridge(
         if (client.readyState === WebSocket.OPEN) client.send(message.toString());
       });
       upstream.on("error", (err) => {
-        // ws emits close after error. Let the close handler forward the provider's
-        // code/reason instead of replacing it with an unhelpful generic 1011.
         console.warn("[AudioBridge] Upstream error:", err?.message || err);
+        closeBoth(1011, "Audio bridge upstream error");
       });
       upstream.on("close", (code, reason) => {
         if (code !== 1000) console.warn(`[AudioBridge] Upstream closed: ${code} ${reason.toString()}`);
-        closeBoth(sendableCloseCode(code), reason.toString() || "Gemini Live connection closed");
+        closeBoth(sendableCloseCode(code, 1000), reason.toString() || "Audio bridge closed");
       });
     };
 

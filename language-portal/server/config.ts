@@ -49,7 +49,7 @@ export function getRuntimeConfig(env: NodeJS.ProcessEnv = process.env): RuntimeC
     staticDir: env.STATIC_DIR || "build",
     geminiApiKey: env.GEMINI_API_KEY || "",
     geminiModel: env.GEMINI_MODEL || "gemini-3.1-flash-lite",
-    geminiLiveModel: env.GEMINI_LIVE_MODEL || "models/gemini-3.8-live",
+    geminiLiveModel: env.GEMINI_LIVE_MODEL || "models/gemini-3.1-flash-live-preview",
     geminiLiveVoice: env.GEMINI_LIVE_VOICE || "Aoede",
     users: parseUsers(env.AUTH_USERS),
     sessionSecret: env.SESSION_SECRET || "",

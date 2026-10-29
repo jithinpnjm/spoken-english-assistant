@@ -10,7 +10,7 @@
     "build:server": "esbuild server/index.ts --bundle --platform=node --target=node22 --format=cjs --sourcemap --external:bufferutil --external:utf-8-validate --outfile=dist/server.js",
     "start:server": "node --enable-source-maps dist/server.js",
     "dev:server": "tsx watch server/index.ts",
-    "check:server": "tsx server/selfcheck.ts && tsx --test server/audioBridge.test.ts",
+    "check:server": "tsx server/selfcheck.ts",
     "swizzle": "docusaurus swizzle",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
