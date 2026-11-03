@@ -9,6 +9,8 @@ const sidebars: SidebarsConfig = {
       items: [
         { type: "doc", id: "german/course-guide/how-this-course-works", label: "How This Course Works" },
         { type: "doc", id: "german/course-guide/learning-path", label: "Recommended Learning Path" },
+        { type: "doc", id: "german/course-guide/wortschatz-grammatik-a1-guide", label: "Workbook: Wortschatz & Grammatik A1 (PDF Links)" },
+        { type: "doc", id: "german/course-guide/magnet-a1-neu-kursbuch-guide", label: "Coursebook: Magnet neu A1 Kursbuch (PDF Links)" },
       ],
     },
     {
