@@ -14,12 +14,18 @@ function HomepageHeader() {
         <Heading as="h1" className="hero__title">
           The Intelligent Language Portal
         </Heading>
-        <p className="hero__subtitle">A complete German A1 course for life in Germany and the Goethe A1 exam, plus a spoken-English course. Clear lessons, real-life scenarios and an AI coach that makes you speak and write.</p>
+        <p className="hero__subtitle">A complete German A1 course for life in Germany and the telc / Goethe A1 exam, plus a spoken-English course. Clear lessons, real-life scenarios and an AI coach that makes you speak and write.</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/german/course-guide/how-this-course-works">
             Start German A1 🇩🇪
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            style={{marginLeft: '10px'}}
+            to="/docs/german/a1/book/chapter-01-basics-alphabet-greetings">
+            Complete A1 Book (Ch. 1–15)
           </Link>
           <Link
             className="button button--secondary button--lg"

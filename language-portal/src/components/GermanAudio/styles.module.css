@@ -1,0 +1,22 @@
+.audio {
+  display: inline;
+}
+
+.button {
+  margin: 0.15rem 0.3rem 0.15rem 0;
+  padding: 0.3rem 0.6rem;
+  color: var(--ifm-color-primary-darkest);
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.error {
+  color: var(--ifm-color-danger-dark);
+}

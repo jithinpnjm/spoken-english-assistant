@@ -11,6 +11,7 @@
     "start:server": "node --enable-source-maps dist/server.js",
     "dev:server": "tsx watch server/index.ts",
     "check:server": "tsx server/selfcheck.ts",
+    "check:german-chapters": "tsx curriculum-docs/check-german-chapters.ts",
     "swizzle": "docusaurus swizzle",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",

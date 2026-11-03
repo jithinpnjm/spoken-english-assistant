@@ -21,3 +21,10 @@ yarn-error.log*
 
 # Server bundle
 /dist
+
+# Preserve ignored local voice downloads/credentials if present; runtime support has been removed.
+/local-voice/.env
+/local-voice/.venv
+/local-voice/models/
+/local-voice/__pycache__/
+/local-voice/uv.lock

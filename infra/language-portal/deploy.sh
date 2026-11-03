@@ -85,7 +85,9 @@ ensure_secret GEMINI_API_KEY
 #   printf '%s' 'jithin:NEWPASS,sandra:NEWPASS' | gcloud secrets versions add AUTH_USERS --data-file=-
 ensure_secret AUTH_USERS "${INITIAL_AUTH_USERS:-jithin:learngerman321!,sandra:learngerman321!}"
 ensure_secret SESSION_SECRET "$(openssl rand -hex 32)"
-SECRETS="GEMINI_API_KEY=GEMINI_API_KEY:latest,AUTH_USERS=AUTH_USERS:latest,SESSION_SECRET=SESSION_SECRET:latest"
+GEMINI_KEY_VERSION="$(gcloud secrets versions list GEMINI_API_KEY --project="${PROJECT_ID}" --filter="state=ENABLED" --sort-by="~createTime" --limit=1 --format="value(name)" | awk -F/ '{print $NF}')"
+GEMINI_KEY_VERSION="${GEMINI_KEY_VERSION:-latest}"
+SECRETS="GEMINI_API_KEY=GEMINI_API_KEY:${GEMINI_KEY_VERSION},AUTH_USERS=AUTH_USERS:latest,SESSION_SECRET=SESSION_SECRET:latest"
 if [[ "${USE_ACCESS_CODE}" == "true" ]]; then
   ensure_secret PRACTICE_ACCESS_CODE
   SECRETS="${SECRETS},PRACTICE_ACCESS_CODE=PRACTICE_ACCESS_CODE:latest"

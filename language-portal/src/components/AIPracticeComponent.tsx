@@ -126,7 +126,9 @@ export default function AIPracticeComponent({topic, level, taskType, prompt = ''
       topic: String(topic || 'Practice'),
       level: String(level || ''),
       taskType: String(taskType || 'speaking').toLowerCase(),
-      prompt: String(prompt || ''),
+      prompt: String(prompt || '') + (/\/german\/a1\/book\//i.test(pathname) ? `
+
+TEACHING STANDARD FOR THIS LESSON: Teach like a patient German native-speaking teacher who knows English very well. Use short natural German and clear English comparisons; explain where English sound approximations differ from German. Acknowledge meaning first and correct one useful point at a time. Accept valid alternatives, regional differences and invented personal details; do not present a preference as a grammar error. In text you cannot hear pronunciation. In voice, ask for a repeat if uncertain and suggest a trusted recording or proficient speaker as a second check. Do not claim certainty about legal, medical, transport or rental rules; details depend on the situation.` : ''),
     }),
     [language, pathname, topic, level, taskType, prompt],
   );

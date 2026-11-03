@@ -54,6 +54,7 @@ const config: Config = {
             '**/_*/**',
             '**/*.test.{js,jsx,ts,tsx}',
             '**/__tests__/**',
+            'german/a1/vol*-*/**',
             'german/a2/**',
             'german/b1/**',
             'german/b2/**',
